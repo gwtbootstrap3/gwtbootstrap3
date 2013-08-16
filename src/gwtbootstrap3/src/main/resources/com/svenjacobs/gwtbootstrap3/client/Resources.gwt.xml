@@ -1,0 +1,10 @@
+<module>
+    <public path='resource'>
+        <include name='**/*.css'/>
+        <include name='**/*.js'/>
+    </public>
+
+    <stylesheet src='css/bootstrap.min.css'/>
+    <script src='js/jquery-1.10.2.min.js'/>
+    <script src='js/bootstrap.min.js'/>
+</module>

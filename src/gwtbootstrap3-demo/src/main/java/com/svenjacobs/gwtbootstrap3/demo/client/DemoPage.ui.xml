@@ -1,0 +1,1183 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <ui:style>
+        .buttons button {
+            margin: 0.5em;
+        }
+
+        .labels span {
+            margin-right: 5px;
+        }
+    </ui:style>
+
+    <b:FlowPanel>
+
+        <b:Navbar type="FIXED_TOP">
+            <b:Container>
+                <b:NavbarBrand>GwtBootstrap3</b:NavbarBrand>
+                <b:NavbarText>Examples</b:NavbarText>
+            </b:Container>
+        </b:Navbar>
+
+        <!-- Container Content -->
+        <b:Container>
+
+            <!-- Row -->
+            <b:Row>
+
+                <!-- DEMO CONTENT STARTS HERE -->
+
+                <!-- Left column -->
+                <b:Column size="LG_3">
+
+                    <b:FlowPanel styleName="bs-sidebar affix" ui:field="navigation" b:id="navigation">
+                        <b:Nav addStyleNames="bs-sidenav">
+                            <b:ListItem href="#dropdowns" active="true">Dropdowns</b:ListItem>
+                            <b:ListItemPanel href="#buttons" text="Buttons">
+                                <b:Nav>
+                                    <b:ListItem href="#buttons-groups">Button groups</b:ListItem>
+                                    <b:ListItem href="#buttons-multiple-groups">Multiple button groups</b:ListItem>
+                                    <b:ListItem href="#buttons-nested-group">Nested button group</b:ListItem>
+                                    <b:ListItem href="#buttons-vertical-group">Vertical button group</b:ListItem>
+                                    <b:ListItem href="#buttons-justified-group">Justified button group</b:ListItem>
+                                    <b:ListItem href="#buttons-dropdown">Button dropdown</b:ListItem>
+                                    <b:ListItem href="#buttons-split-dropdown">Split button dropdown</b:ListItem>
+                                    <b:ListItem href="#buttons-dropup">Dropup buttons</b:ListItem>
+                                    <b:ListItem href="#buttons-checkbox">Checkbox buttons</b:ListItem>
+                                    <b:ListItem href="#buttons-radio">Radio buttons</b:ListItem>
+                                </b:Nav>
+                            </b:ListItemPanel>
+                            <b:ListItem href="#input-groups">Input groups</b:ListItem>
+                            <b:ListItem href="#alerts">Alerts</b:ListItem>
+                            <b:ListItem href="#labels">Labels</b:ListItem>
+                            <b:ListItem href="#badges">Badges</b:ListItem>
+                            <b:ListItemPanel href="#navs" text="Navs">
+                                <b:Nav>
+                                    <b:ListItem href="#navs-tabs">Tabs</b:ListItem>
+                                    <b:ListItem href="#navs-pills">Pills</b:ListItem>
+                                    <b:ListItem href="#navs-stacked-pills">Stacked pills</b:ListItem>
+                                    <b:ListItem href="#navs-justified">Justified navs</b:ListItem>
+                                    <b:ListItem href="#navs-with-dropdowns">Navs with dropdowns</b:ListItem>
+                                </b:Nav>
+                            </b:ListItemPanel>
+                            <b:ListItem href="#navbar">Navbar</b:ListItem>
+                            <b:ListItem href="#wells">Wells</b:ListItem>
+                            <b:ListItem href="#modals">Modals</b:ListItem>
+                            <b:ListItemPanel href="#forms" text="Forms">
+                                <b:Nav>
+                                    <b:ListItem href="#forms-horizontal">Horizontal form</b:ListItem>
+                                </b:Nav>
+                            </b:ListItemPanel>
+                        </b:Nav>
+                    </b:FlowPanel>
+
+                </b:Column>
+                <!-- /Left column -->
+
+                <!-- Right column -->
+                <b:Column size="LG_9">
+
+                    <b:Jumbotron>
+                        <b:Heading size="1">GwtBootstrap3</b:Heading>
+
+                        <b:Paragraph>
+                            A Twitter <a href="http://getbootstrap.com/">Bootstrap</a> wrapper for <a href="http://gwtproject.org/">GWT</a>
+                        </b:Paragraph>
+                    </b:Jumbotron>
+
+                    <b:PageHeader b:id="dropdowns">Dropdowns</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:DropDown>
+                                <b:Anchor toggle="DROPDOWN">Click to toggle dropdown</b:Anchor>
+
+                                <b:DropDownMenu>
+                                    <b:DropDownHeader>Header 1</b:DropDownHeader>
+                                    <b:ListItem>Action 1</b:ListItem>
+                                    <b:ListItem>Action 2</b:ListItem>
+                                    <b:Divider/>
+                                    <b:DropDownHeader>Header 2</b:DropDownHeader>
+                                    <b:ListItem>Action 3</b:ListItem>
+                                    <b:ListItem enabled="false">Action 4 (disabled)</b:ListItem>
+                                </b:DropDownMenu>
+                            </b:DropDown>
+
+                            <b:DropDown>
+                                <b:Anchor toggle="DROPDOWN">Another dropdown (pulled right)</b:Anchor>
+
+                                <b:DropDownMenu pull="RIGHT">
+                                    <b:DropDownHeader>Header 1</b:DropDownHeader>
+                                    <b:ListItem>Action 1</b:ListItem>
+                                    <b:ListItem>Action 2</b:ListItem>
+                                    <b:ListItem>Action 3</b:ListItem>
+                                </b:DropDownMenu>
+                            </b:DropDown>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:DropDown&gt;\n
+                                \s\s&lt;b:Anchor toggle="DROPDOWN"&gt;Click to toggle dropdown&lt;/b:Anchor&gt;\n
+                                \n
+                                \s\s&lt;b:DropDownMenu&gt;\n
+                                \s\s\s\s&lt;b:DropDownHeader&gt;Header 1&lt;/b:DropDownHeader&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Action 1&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Action 2&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:Divider/&gt;\n
+                                \s\s\s\s&lt;b:DropDownHeader&gt;Header 2&lt;/b:DropDownHeader&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Action 3&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:ListItem enabled="false"&gt;Action 4 (disabled)&lt;/b:ListItem&gt;\n
+                                \s\s&lt;/b:DropDownMenu&gt;\n
+                                &lt;/b:DropDown&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:PageHeader b:id="buttons">Buttons</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+
+                            <g:FlowPanel addStyleNames="{style.buttons}">
+                                <b:Button type="DEFAULT" size="DEFAULT">Test</b:Button>
+                                <b:Button type="DANGER" size="LARGE">Large</b:Button>
+                                <b:Button type="DANGER" size="SMALL">Small</b:Button>
+                                <b:Button type="DANGER" size="EXTRA_SMALL">Extra small</b:Button>
+                                <b:Button type="INFO" size="SMALL" block="true">I"m a block level button</b:Button>
+                                <b:Button enabled="false">Disabled button</b:Button>
+                                <b:Button type="PRIMARY" loadingText="Loading..." ui:field="button">Click me</b:Button>
+                                <b:Button toggle="BUTTON">Toggle button</b:Button>
+                            </g:FlowPanel>
+
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Button type="DEFAULT" size="DEFAULT"&gt;Test&lt;/b:Button&gt;\n
+                                &lt;b:Button type="DANGER" size="LARGE"&gt;Large&lt;/b:Button&gt;\n
+                                &lt;b:Button type="DANGER" size="SMALL"&gt;Small&lt;/b:Button&gt;\n
+                                &lt;b:Button type="DANGER" size="EXTRA_SMALL"&gt;Extra small&lt;/b:Button&gt;\n
+                                &lt;b:Button type="INFO" size="SMALL" block="true"&gt;I"m a block level button&lt;/b:Button&gt;\n
+                                &lt;b:Button enabled="false"&gt;Disabled button&lt;/b:Button&gt;\n
+                                &lt;b:Button type="PRIMARY" loadingText="Loading..." ui:field="button"&gt;Click me&lt;/b:Button&gt;\n
+                                &lt;b:Button toggle="BUTTON"&gt;Toggle button&lt;/b:Button&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-groups">Button groups</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:ButtonGroup>
+                                <b:Button>Button 1</b:Button>
+                                <b:Button>Button 2</b:Button>
+                                <b:Button>Button 3</b:Button>
+                            </b:ButtonGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:ButtonGroup&gt;\n
+                                \s\s&lt;b:Button&gt;Button 1&lt;/b:Button&gt;\n
+                                \s\s&lt;b:Button&gt;Button 2&lt;/b:Button&gt;\n
+                                \s\s&lt;b:Button&gt;Button 3&lt;/b:Button&gt;\n
+                                &lt;/b:ButtonGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-multiple-groups">Multiple button groups</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:ButtonToolBar>
+                                <b:ButtonGroup>
+                                    <b:Button>1</b:Button>
+                                    <b:Button>2</b:Button>
+                                    <b:Button>3</b:Button>
+                                </b:ButtonGroup>
+
+                                <b:ButtonGroup>
+                                    <b:Button>4</b:Button>
+                                    <b:Button>5</b:Button>
+                                </b:ButtonGroup>
+
+                                <b:ButtonGroup>
+                                    <b:Button>6</b:Button>
+                                    <b:Button>7</b:Button>
+                                    <b:Button>8</b:Button>
+                                </b:ButtonGroup>
+                            </b:ButtonToolBar>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:ButtonToolBar&gt;\n
+                                \s\s&lt;b:ButtonGroup&gt;\n
+                                \s\s\s\s&lt;b:Button&gt;1&lt;/b:Button&gt;\n
+                                \s\s\s\s&lt;b:Button&gt;2&lt;/b:Button&gt;\n
+                                \s\s\s\s&lt;b:Button&gt;3&lt;/b:Button&gt;\n
+                                \s\s&lt;/b:ButtonGroup&gt;\n
+                                \n
+                                \s\s&lt;b:ButtonGroup&gt;\n
+                                \s\s\s\s&lt;b:Button&gt;4&lt;/b:Button&gt;\n
+                                \s\s\s\s&lt;b:Button&gt;5&lt;/b:Button&gt;\n
+                                \s\s&lt;/b:ButtonGroup&gt;\n
+                                \n
+                                \s\s&lt;b:ButtonGroup&gt;\n
+                                \s\s\s\s&lt;b:Button&gt;6&lt;/b:Button&gt;\n
+                                \s\s\s\s&lt;b:Button&gt;7&lt;/b:Button&gt;\n
+                                \s\s\s\s&lt;b:Button&gt;8&lt;/b:Button&gt;\n
+                                \s\s&lt;/b:ButtonGroup&gt;\n
+                                &lt;/b:ButtonToolBar&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-nested-group">Nested button group</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:ButtonGroup>
+                                <b:Button>1</b:Button>
+                                <b:Button>2</b:Button>
+
+                                <b:ButtonGroup>
+                                    <b:Button toggle="DROPDOWN">Dropdown</b:Button>
+                                    <b:DropDownMenu>
+                                        <b:ListItem>3</b:ListItem>
+                                        <b:ListItem>4</b:ListItem>
+                                    </b:DropDownMenu>
+                                </b:ButtonGroup>
+                            </b:ButtonGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:ButtonGroup&gt;\n
+                                \s\s&lt;b:Button&gt;1&lt;/b:Button&gt;\n
+                                \s\s&lt;b:Button&gt;2&lt;/b:Button&gt;\n
+                                \n
+                                \s\s&lt;b:ButtonGroup&gt;\n
+                                \s\s\s\s&lt;b:Button toggle="DROPDOWN"&gt;Dropdown&lt;/b:Button&gt;\n
+                                \s\s\s\s&lt;b:DropDownMenu&gt;\n
+                                \s\s\s\s\s\s&lt;b:ListItem&gt;3&lt;/b:ListItem&gt;\n
+                                \s\s\s\s\s\s&lt;b:ListItem&gt;4&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;/b:DropDownMenu&gt;\n
+                                \s\s&lt;/b:ButtonGroup&gt;\n
+                                &lt;/b:ButtonGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-vertical-group">Vertical button group</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:VerticalButtonGroup>
+                                <b:Button>1</b:Button>
+                                <b:Button>2</b:Button>
+                                <b:Button>3</b:Button>
+                                <b:Button>4</b:Button>
+                            </b:VerticalButtonGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:VerticalButtonGroup&gt;\n
+                                \s\s&lt;b:Button&gt;1&lt;/b:Button&gt;\n
+                                \s\s&lt;b:Button&gt;2&lt;/b:Button&gt;\n
+                                \s\s&lt;b:Button&gt;3&lt;/b:Button&gt;\n
+                                \s\s&lt;b:Button&gt;4&lt;/b:Button&gt;\n
+                                &lt;/b:VerticalButtonGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-justified-group">Justified button group</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:ButtonGroup justified="true">
+                                <b:AnchorButton>Button 1</b:AnchorButton>
+                                <b:AnchorButton>Button 2</b:AnchorButton>
+                                <b:AnchorButton>Button 3</b:AnchorButton>
+                            </b:ButtonGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:ButtonGroup justified="true"&gt;\n
+                                \s\s&lt;b:AnchorButton&gt;Button 1&lt;/b:AnchorButton&gt;\n
+                                \s\s&lt;b:AnchorButton&gt;Button 2&lt;/b:AnchorButton&gt;\n
+                                \s\s&lt;b:AnchorButton&gt;Button 3&lt;/b:AnchorButton&gt;\n
+                                &lt;/b:ButtonGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-dropdown">Button dropdown</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:ButtonGroup>
+                                <b:Button toggle="DROPDOWN">Dropdown</b:Button>
+                                <b:DropDownMenu>
+                                    <b:ListItem>Item 1</b:ListItem>
+                                    <b:ListItem>Item 2</b:ListItem>
+                                    <b:Divider/>
+                                    <b:ListItem ui:field="dropDownMenuItem">Item 3 (click me)</b:ListItem>
+                                </b:DropDownMenu>
+                            </b:ButtonGroup>
+
+                            <b:ButtonGroup>
+                                <b:Button toggle="DROPDOWN" size="LARGE">Large Dropdown</b:Button>
+                                <b:DropDownMenu>
+                                    <b:ListItem>Item 1</b:ListItem>
+                                    <b:ListItem>Item 2</b:ListItem>
+                                </b:DropDownMenu>
+                            </b:ButtonGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:ButtonGroup&gt;\n
+                                \s\s&lt;b:Button toggle="DROPDOWN"&gt;Dropdown&lt;/b:Button&gt;\n
+                                \s\s&lt;b:DropDownMenu&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Item 1&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:Divider/&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                                \s\s&lt;/b:DropDownMenu&gt;\n
+                                &lt;/b:ButtonGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-split-dropdown">Split button dropdown</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:ButtonGroup>
+                                <b:Button>Split Dropdown</b:Button>
+                                <b:Button toggle="DROPDOWN"/>
+                                <b:DropDownMenu>
+                                    <b:ListItem>Item 1</b:ListItem>
+                                    <b:ListItem>Item 2</b:ListItem>
+                                    <b:ListItem>Item 3</b:ListItem>
+                                </b:DropDownMenu>
+                            </b:ButtonGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:ButtonGroup&gt;\n
+                                \s\s&lt;b:Button&gt;Split Dropdown&lt;/b:Button&gt;\n
+                                \s\s&lt;b:Button toggle="DROPDOWN"/&gt;\n
+                                \s\s&lt;b:DropDownMenu&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Item 1&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                                \s\s&lt;/b:DropDownMenu&gt;\n
+                                &lt;/b:ButtonGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-dropup">Dropup buttons</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:ButtonGroup dropUp="true">
+                                <b:Button toggle="DROPDOWN">Dropup</b:Button>
+                                <b:DropDownMenu>
+                                    <b:ListItem>Item 1</b:ListItem>
+                                    <b:ListItem>Item 2</b:ListItem>
+                                    <b:ListItem>Item 3</b:ListItem>
+                                </b:DropDownMenu>
+                            </b:ButtonGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:ButtonGroup dropUp="true"&gt;\n
+                                \s\s&lt;b:Button toggle="DROPDOWN"&gt;Dropup&lt;/b:Button&gt;\n
+                                \s\s&lt;b:DropDownMenu&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Item 1&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                                \s\s&lt;/b:DropDownMenu&gt;\n
+                                &lt;/b:ButtonGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-checkbox">Checkbox buttons</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:ButtonGroup toggle="BUTTONS">
+                                <b:CheckBoxButton active="true">Option 1</b:CheckBoxButton>
+                                <b:CheckBoxButton>Option 2</b:CheckBoxButton>
+                                <b:CheckBoxButton>Option 3</b:CheckBoxButton>
+                                <b:CheckBoxButton enabled="false">Option 4</b:CheckBoxButton>
+                            </b:ButtonGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:ButtonGroup toggle="BUTTONS"&gt;\n
+                                \s\s&lt;b:CheckBoxButton active="true"&gt;Option 1&lt;/b:CheckBoxButton&gt;\n
+                                \s\s&lt;b:CheckBoxButton&gt;Option 2&lt;/b:CheckBoxButton&gt;\n
+                                \s\s&lt;b:CheckBoxButton&gt;Option 3&lt;/b:CheckBoxButton&gt;\n
+                                \s\s&lt;b:CheckBoxButton enabled="false"&gt;Option 4&lt;/b:CheckBoxButton&gt;\n
+                                &lt;/b:ButtonGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="buttons-radio">Radio buttons</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:ButtonGroup toggle="BUTTONS">
+                                <b:RadioButton>Option 1</b:RadioButton>
+                                <b:RadioButton active="true">Option 2</b:RadioButton>
+                                <b:RadioButton>Option 3</b:RadioButton>
+                                <b:RadioButton enabled="false">Option 4</b:RadioButton>
+                            </b:ButtonGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:ButtonGroup toggle="BUTTONS"&gt;\n
+                                \s\s&lt;b:RadioButton&gt;Option 1&lt;/b:RadioButton&gt;\n
+                                \s\s&lt;b:RadioButton active="true"&gt;Option 2&lt;/b:RadioButton&gt;\n
+                                \s\s&lt;b:RadioButton&gt;Option 3&lt;/b:RadioButton&gt;\n
+                                \s\s&lt;b:RadioButton enabled="false"&gt;Option 4&lt;/b:RadioButton&gt;\n
+                                &lt;/b:ButtonGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:PageHeader b:id="input-groups">Input groups</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:InputGroup>
+                                <b:InputGroupAddon>P</b:InputGroupAddon>
+                                <b:TextBox placeHolder="Type here" autoComplete="false"/>
+                                <b:InputGroupAddon>A</b:InputGroupAddon>
+                            </b:InputGroup>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:InputGroup&gt;\n
+                                \s\s&lt;b:InputGroupAddon&gt;P&lt;/b:InputGroupAddon&gt;\n
+                                \s\s&lt;b:TextBox placeHolder="Type here" autoComplete="false"/&gt;\n
+                                \s\s&lt;b:InputGroupAddon&gt;A&lt;/b:InputGroupAddon&gt;\n
+                                &lt;/b:InputGroup&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:PageHeader b:id="alerts">Alerts</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:Alert>
+                                <strong>Ooops</strong>
+                                Something went wrong
+                            </b:Alert>
+
+                            <b:Alert type="DANGER">
+                                Danger danger
+                            </b:Alert>
+
+                            <b:Alert type="SUCCESS" closable="true">
+                                <strong>Phew</strong>
+                                That was close
+                                <b:Anchor addStyleNames="alert-link">Link withing alert with matching color</b:Anchor>
+                            </b:Alert>
+
+                            <b:Alert type="DANGER">
+                                <p>
+                                    Alert with button
+                                </p>
+                                <p>
+                                    <b:Button type="DANGER" dismiss="ALERT">Dismiss alert</b:Button>
+                                </p>
+                            </b:Alert>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Alert&gt;\n
+                                \s\s&lt;strong&gt;Ooops&lt;/strong&gt;\n
+                                \s\sSomething went wrong\n
+                                &lt;/b:Alert&gt;\n
+                                \n
+                                &lt;b:Alert type="DANGER"&gt;\n
+                                \s\sDanger danger\n
+                                &lt;/b:Alert&gt;\n
+                                \n
+                                &lt;b:Alert type="DANGER"&gt;\n
+                                \s\s&lt;p&gt;\n
+                                \s\s\s\sAlert with button\n
+                                \s\s&lt;/p&gt;\n
+                                \s\s&lt;p&gt;\n
+                                \s\s\s\s&lt;b:Button type="DANGER" dismiss="ALERT"&gt;Dismiss alert&lt;/b:Button&gt;\n
+                                \s\s&lt;/p&gt;\n
+                                &lt;/b:Alert&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:PageHeader b:id="labels">Labels</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <g:FlowPanel addStyleNames="{style.labels}">
+                                <b:Label>Default</b:Label>
+                                <b:Label type="SUCCESS">Success</b:Label>
+                                <b:Label type="WARNING">Warning</b:Label>
+                                <b:Label type="DANGER">Danger</b:Label>
+                                <b:Label type="INFO">Info</b:Label>
+                            </g:FlowPanel>
+
+                            <g:HTMLPanel>
+                                <h3>
+                                    <b:Label>Big label</b:Label>
+                                </h3>
+                            </g:HTMLPanel>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Label&gt;Default&lt;/b:Label&gt;\n
+                                &lt;b:Label type="SUCCESS"&gt;Success&lt;/b:Label&gt;\n
+                                &lt;b:Label type="WARNING"&gt;Warning&lt;/b:Label&gt;\n
+                                &lt;b:Label type="DANGER"&gt;Danger&lt;/b:Label&gt;\n
+                                &lt;b:Label type="INFO"&gt;Info&lt;/b:Label&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:PageHeader b:id="badges">Badges</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <g:FlowPanel addStyleNames="{style.labels}">
+                                <g:HTMLPanel>
+                                    <a href="#">Inbox
+                                        <b:Badge>42</b:Badge>
+                                    </a>
+                                </g:HTMLPanel>
+                            </g:FlowPanel>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;a href="#"&gt;Inbox\n
+                                \s\s&lt;b:Badge&gt;42&lt;/b:Badge&gt;\n
+                                &lt;/a&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:PageHeader b:id="navs">Navs</b:PageHeader>
+
+                    <b:Heading size="2" b:id="navs-tabs">Tabs</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:NavTabs>
+                                <b:ListItem active="true">Item 1</b:ListItem>
+                                <b:ListItem>Item 2</b:ListItem>
+                                <b:ListItem>Item 3</b:ListItem>
+                                <b:ListItem enabled="false">Item 4</b:ListItem>
+                                <b:ListItem pull="RIGHT">Pulled right</b:ListItem>
+                            </b:NavTabs>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:NavTabs&gt;\n
+                                \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem enabled="false"&gt;Item 4&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem pull="RIGHT"&gt;Pulled right&lt;/b:ListItem&gt;\n
+                                &lt;/b:NavTabs&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="navs-pills">Pills</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:NavPills>
+                                <b:ListItem active="true">Item 1</b:ListItem>
+                                <b:ListItem>Item 2</b:ListItem>
+                                <b:ListItem>Item 3</b:ListItem>
+                                <b:ListItem enabled="false">Item 4</b:ListItem>
+                                <b:ListItem pull="RIGHT">Pulled right</b:ListItem>
+                            </b:NavPills>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:NavPills&gt;\n
+                                \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem enabled="false"&gt;Item 4&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem pull="RIGHT"&gt;Pulled right&lt;/b:ListItem&gt;\n
+                                &lt;/b:NavPills&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="navs-stacked-pills">Stacked pills</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:NavPills stacked="true">
+                                <b:ListItem active="true">Item 1</b:ListItem>
+                                <b:ListItem>Item 2</b:ListItem>
+                                <b:ListItem>Item 3</b:ListItem>
+                            </b:NavPills>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:NavPills stacked="true"&gt;\n
+                                \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                                &lt;/b:NavPills&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="navs-justified">Justified navs</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:NavTabs justified="true">
+                                <b:ListItem active="true">Item 1</b:ListItem>
+                                <b:ListItem>Item 2</b:ListItem>
+                                <b:ListItem>Item 3</b:ListItem>
+                            </b:NavTabs>
+
+                            <!--<br/>-->
+
+                            <b:NavPills justified="true">
+                                <b:ListItem active="true">Item 1</b:ListItem>
+                                <b:ListItem>Item 2</b:ListItem>
+                                <b:ListItem>Item 3</b:ListItem>
+                            </b:NavPills>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:NavTabs justified="true"&gt;\n
+                                \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                                &lt;/b:NavTabs&gt;\n
+                                \n
+                                &lt;b:NavPills justified="true"&gt;\n
+                                \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                                &lt;/b:NavPills&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="navs-with-dropdowns">Navs with dropdowns</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:NavTabs>
+                                <b:ListItem active="true">Item 1</b:ListItem>
+                                <b:ListItem>Item 2</b:ListItem>
+
+                                <b:ListDropDown>
+                                    <b:AnchorButton toggle="DROPDOWN">Dropdown</b:AnchorButton>
+                                    <b:DropDownMenu>
+                                        <b:ListItem>Dropdown 1</b:ListItem>
+                                        <b:ListItem>Dropdown 2</b:ListItem>
+                                        <b:ListItem>Dropdown 3</b:ListItem>
+                                    </b:DropDownMenu>
+                                </b:ListDropDown>
+
+                                <b:ListItem>Item 3</b:ListItem>
+                            </b:NavTabs>
+
+                            <!--<br/>-->
+
+                            <b:NavPills>
+                                <b:ListItem active="true">Item 1</b:ListItem>
+                                <b:ListItem>Item 2</b:ListItem>
+
+                                <b:ListDropDown>
+                                    <b:AnchorButton toggle="DROPDOWN">Dropdown</b:AnchorButton>
+                                    <b:DropDownMenu>
+                                        <b:ListItem>Dropdown 1</b:ListItem>
+                                        <b:ListItem>Dropdown 2</b:ListItem>
+                                        <b:ListItem>Dropdown 3</b:ListItem>
+                                    </b:DropDownMenu>
+                                </b:ListDropDown>
+
+                                <b:ListItem>Item 3</b:ListItem>
+                            </b:NavPills>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:NavTabs&gt;\n
+                                \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
+                                \s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                                \n
+                                \s\s&lt;b:ListDropDown&gt;\n
+                                \s\s\s\s&lt;b:AnchorButton toggle="DROPDOWN"&gt;Dropdown&lt;/b:AnchorButton&gt;\n
+                                \s\s\s\s&lt;b:DropDownMenu&gt;\n
+                                \s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 1&lt;/b:ListItem&gt;\n
+                                \s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 2&lt;/b:ListItem&gt;\n
+                                \s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 3&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;/b:DropDownMenu&gt;\n
+                                \s\s&lt;/b:ListDropDown&gt;\n
+                                \n
+                                \s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                                &lt;/b:NavTabs&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:PageHeader b:id="navbar">Navbar</b:PageHeader>
+
+                    <b:Navbar>
+                        <b:NavbarBrand>Brand</b:NavbarBrand>
+
+                        <b:NavbarNav>
+                            <b:ListItem active="true">Item 1</b:ListItem>
+                            <b:ListItem>Item 2</b:ListItem>
+                            <b:ListItem>Item 3</b:ListItem>
+
+                            <b:ListDropDown>
+                                <b:AnchorButton toggle="DROPDOWN">Dropdown</b:AnchorButton>
+                                <b:DropDownMenu>
+                                    <b:ListItem>Dropdown 1</b:ListItem>
+                                    <b:ListItem>Dropdown 2</b:ListItem>
+                                    <b:ListItem>Dropdown 3</b:ListItem>
+                                </b:DropDownMenu>
+                            </b:ListDropDown>
+                        </b:NavbarNav>
+
+                        <b:NavbarForm pull="LEFT">
+                            <b:TextBox placeHolder="Search" addStyleNames="col-lg-8"/>
+                        </b:NavbarForm>
+
+                        <b:NavbarText pull="RIGHT">
+                            Signed in as
+                            <b:NavbarLink>John Snow</b:NavbarLink>
+                        </b:NavbarText>
+                    </b:Navbar>
+
+                    <b:Pre addStyleNames="prettyprint lang-xml">
+                        &lt;b:Navbar&gt;\n
+                        \s\s&lt;b:NavbarBrand&gt;Brand&lt;/b:NavbarBrand&gt;\n
+                        \n
+                        \s\s&lt;b:NavbarNav&gt;\n
+                        \s\s\s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
+                        \s\s\s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                        \s\s\s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                        \n
+                        \s\s\s\s&lt;b:ListDropDown&gt;\n
+                        \s\s\s\s\s\s&lt;b:AnchorButton toggle="DROPDOWN"&gt;Dropdown&lt;/b:AnchorButton&gt;\n
+                        \s\s\s\s\s\s&lt;b:DropDownMenu&gt;\n
+                        \s\s\s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 1&lt;/b:ListItem&gt;\n
+                        \s\s\s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 2&lt;/b:ListItem&gt;\n
+                        \s\s\s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 3&lt;/b:ListItem&gt;\n
+                        \s\s\s\s\s\s&lt;/b:DropDownMenu&gt;\n
+                        \s\s\s\s&lt;/b:ListDropDown&gt;\n
+                        \s\s&lt;/b:NavbarNav&gt;\n
+                        \n
+                        \s\s&lt;b:NavbarForm pull="LEFT"&gt;\n
+                        \s\s\s\s&lt;b:TextBox placeHolder="Search" addStyleNames="col-lg-8"/&gt;\n
+                        \s\s&lt;/b:NavbarForm&gt;\n
+                        \n
+                        \s\s&lt;b:NavbarText pull="RIGHT"&gt;\n
+                        \s\s\s\sSigned in as\n
+                        \s\s\s\s&lt;b:NavbarLink&gt;John Snow&lt;/b:NavbarLink&gt;\n
+                        \s\s&lt;/b:NavbarText&gt;\n
+                        &lt;/b:Navbar&gt;
+                    </b:Pre>
+
+                    <b:PageHeader b:id="wells">Wells</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:Well>
+                                I"m a well
+                            </b:Well>
+
+                            <b:Well size="LARGE">
+                                Large well
+                            </b:Well>
+
+                            <b:Well size="SMALL">
+                                Small well
+                            </b:Well>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Well&gt;\n
+                                \s\sI"m a well\n
+                                &lt;/b:Well&gt;\n
+                                \n
+                                &lt;b:Well size="LARGE"&gt;\n
+                                \s\sLarge well\n
+                                &lt;/b:Well&gt;\n
+                                \n
+                                &lt;b:Well size="SMALL"&gt;\n
+                                \s\sSmall well\n
+                                &lt;/b:Well&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:PageHeader b:id="modals">Modals</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:Modal title="Cupcake ipsum" closable="true" fade="true" backdrop="STATIC" keyboard="true"
+                                     b:id="myModal" ui:field="modal">
+                                <b:ModalBody>
+                                    <g:HTML>
+                                        <p>
+                                            Cake icing icing topping. Macaroon halvah candy canes sesame snaps. Tootsie
+                                            roll
+                                            jelly
+                                            bear
+                                            claw liquorice sweet. Caramels lemon drops sweet brownie sugar plum
+                                            chocolate bear
+                                            claw
+                                            macaroon. Biscuit jelly beans caramels jelly lollipop cupcake wafer. Cotton
+                                            candy
+                                            tootsie
+                                            roll chocolate cake jelly beans macaroon pudding bear claw. Sweet roll
+                                            danish
+                                            marshmallow
+                                            bonbon gummies caramels marzipan croissant. Dessert gummi bears jelly-o
+                                            jelly-o
+                                            danish.
+                                            Dessert lollipop bonbon halvah tootsie roll dragée applicake. Cupcake lemon
+                                            drops
+                                            topping
+                                            soufflé halvah chocolate cake sesame snaps applicake. Chocolate bar
+                                            applicake
+                                            tiramisu
+                                            sweet
+                                            chocolate bar topping apple pie cupcake. Jujubes tootsie roll ice cream.
+                                        </p>
+                                        <p>
+                                            Lemon drops fruitcake powder. Tiramisu marzipan tootsie roll macaroon
+                                            jujubes carrot
+                                            cake.
+                                            Cookie halvah croissant pastry jelly beans unerdwear.com dragée. Gummi bears
+                                            jujubes
+                                            muffin
+                                            candy canes pastry lollipop pastry macaroon. Pastry carrot cake soufflé
+                                            chocolate
+                                            bar
+                                            cheesecake unerdwear.com sugar plum cupcake. Wafer cake dessert carrot cake
+                                            apple
+                                            pie
+                                            tiramisu. Jujubes chocolate bar macaroon sugar plum croissant cake jelly
+                                            sugar plum
+                                            caramels. Sweet roll biscuit marshmallow. Gingerbread bear claw liquorice
+                                            tootsie
+                                            roll
+                                            lollipop sweet roll gingerbread tootsie roll. Sesame snaps bonbon donut
+                                            pastry
+                                            gummies
+                                            caramels bonbon tart carrot cake. Cheesecake bear claw tootsie roll muffin
+                                            cupcake
+                                            chocolate
+                                            cake. Tootsie roll croissant carrot cake gingerbread.
+                                        </p>
+                                        <p>
+                                            Croissant lollipop brownie wafer croissant cupcake. Powder sweet roll
+                                            jujubes
+                                            brownie
+                                            oat
+                                            cake. Unerdwear.com apple pie croissant oat cake wafer. Jelly chupa chups
+                                            muffin
+                                            sugar
+                                            plum
+                                            chocolate cake chocolate cake pastry. Sugar plum jelly beans muffin tiramisu
+                                            topping
+                                            macaroon donut jelly-o croissant. Ice cream powder chocolate cake chocolate
+                                            cake
+                                            macaroon
+                                            halvah pie carrot cake. Tart liquorice cake unerdwear.com cookie
+                                            unerdwear.com.
+                                            Chupa
+                                            chups
+                                            cotton candy pudding bear claw candy canes biscuit topping. Donut lemon
+                                            drops
+                                            gummies
+                                            gingerbread gummi bears. Cheesecake gingerbread pie danish pie brownie
+                                            fruitcake
+                                            chupa
+                                            chups. Marshmallow wafer tart macaroon jelly-o danish. Tiramisu jelly beans
+                                            chocolate
+                                            bar
+                                            gingerbread bonbon cupcake macaroon gummies pastry. Jelly-o chupa chups
+                                            lollipop
+                                            lemon
+                                            drops
+                                            dessert tootsie roll oat cake cookie.
+                                        </p>
+                                        <p>
+                                            Dessert candy canes cheesecake tart marzipan. Bonbon marzipan bear claw ice
+                                            cream
+                                            liquorice
+                                            powder. Pastry pudding danish lollipop jujubes sweet roll sweet tiramisu
+                                            chocolate
+                                            bar.
+                                            Caramels bear claw pastry muffin dessert cotton candy bonbon fruitcake.
+                                            Pastry
+                                            brownie
+                                            bonbon applicake ice cream topping bear claw applicake. Brownie halvah
+                                            jujubes
+                                            wafer.
+                                            Sesame
+                                            snaps candy canes caramels. Apple pie sweet roll lollipop. Donut candy
+                                            gingerbread
+                                            halvah
+                                            pudding toffee liquorice chocolate icing. Carrot cake gingerbread muffin
+                                            cookie.
+                                            Candy
+                                            tootsie roll candy canes halvah sweet cheesecake sesame snaps sugar plum.
+                                            Liquorice
+                                            caramels
+                                            lemon drops lollipop jelly croissant.
+                                        </p>
+                                        <p>
+                                            Jelly macaroon soufflé chocolate. Marshmallow muffin jelly beans croissant
+                                            chocolate
+                                            bar
+                                            gummi bears pudding apple pie. Candy canes sweet roll liquorice chocolate
+                                            cake candy
+                                            dessert
+                                            oat cake donut unerdwear.com. Gummies pie tart icing dessert applicake
+                                            lollipop. Oat
+                                            cake
+                                            applicake sweet gummi bears sweet icing. Danish soufflé jelly cotton candy
+                                            applicake.
+                                            Carrot
+                                            cake danish chocolate bar topping. Pudding fruitcake cookie dragée topping
+                                            gingerbread
+                                            chocolate donut. Dessert chocolate toffee gummi bears gummies liquorice.
+                                            Carrot cake
+                                            pie
+                                            sesame snaps cupcake dessert sugar plum ice cream. Tart tiramisu halvah
+                                            toffee gummi
+                                            bears
+                                            muffin jelly-o. Macaroon jujubes ice cream chocolate bar jelly wafer
+                                            croissant.
+                                            Gingerbread
+                                            candy canes pudding.
+                                        </p>
+                                    </g:HTML>
+                                </b:ModalBody>
+                                <b:ModalFooter>
+                                    <b:Button type="PRIMARY">Do something</b:Button>
+                                    <b:Button type="DANGER" dismiss="MODAL">Close</b:Button>
+                                </b:ModalFooter>
+                            </b:Modal>
+
+                            <b:Button target="#myModal" toggle="MODAL" type="PRIMARY" size="LARGE">Click to show modal
+                            </b:Button>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Modal title="Cupcake ipsum" closable="true" fade="true" backdrop="STATIC"
+                                keyboard="true" b:id="myModal"&gt;\n
+                                \s\s&lt;b:ModalBody&gt;\n
+                                \s\s\s\s&lt;g:HTML&gt;Modal body...&lt;/g:HTML&gt;\n
+                                \s\s&lt;/b:ModalBody&gt;\n
+                                \s\s&lt;b:ModalFooter&gt;\n
+                                \s\s\s\s&lt;b:Button type="PRIMARY"&gt;Do something&lt;/b:Button&gt;\n
+                                \s\s\s\s&lt;b:Button type="DANGER" dismiss="MODAL"&gt;Close&lt;/b:Button&gt;\n
+                                \s\s&lt;/b:ModalFooter&gt;\n
+                                &lt;/b:Modal&gt;\n
+                                \n
+                                &lt;b:Button target="#myModal" toggle="MODAL" type="PRIMARY" size="LARGE"&gt;Click to
+                                show modal&lt;/b:Button&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:PageHeader b:id="forms">Forms</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:Form>
+                                <b:FieldSet>
+                                    <b:Legend>Sample form</b:Legend>
+
+                                    <b:FormGroup>
+                                        <b:FormLabel for="formEmail">Email</b:FormLabel>
+                                        <b:FormStatic b:id="formEmail">email@example.example</b:FormStatic>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup>
+                                        <b:FormLabel for="formName">Name</b:FormLabel>
+                                        <b:TextBox text="blabla" b:id="formName"/>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup validationState="WARNING">
+                                        <b:FormLabel for="formWarning">Input with warning</b:FormLabel>
+                                        <b:TextBox b:id="formWarning"/>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup validationState="ERROR">
+                                        <b:FormLabel for="formError">Input with error</b:FormLabel>
+                                        <b:TextBox b:id="formError"/>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup validationState="SUCCESS">
+                                        <b:FormLabel for="formSuccess">Input with success</b:FormLabel>
+                                        <b:TextBox b:id="formSuccess"/>
+                                    </b:FormGroup>
+
+                                    <b:Button>Send</b:Button>
+                                </b:FieldSet>
+                            </b:Form>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Form&gt;\n
+                                \s\s&lt;b:FieldSet&gt;\n
+                                \s\s\s\s&lt;b:Legend&gt;Sample form&lt;/b:Legend&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formEmail"&gt;Email&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormStatic b:id="formEmail"&gt;email@example.example&lt;/b:FormStatic&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formName"&gt;Name&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:TextBox text="blabla" b:id="formName"/&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup validationState="WARNING"&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formWarning"&gt;Input with warning&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:TextBox b:id="formWarning"/&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup validationState="ERROR"&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formError"&gt;Input with error&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:TextBox b:id="formError"/&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup validationState="SUCCESS"&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formSuccess"&gt;Input with success&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:TextBox b:id="formSuccess"/&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:Button&gt;Send&lt;/b:Button&gt;\n
+                                \s\s&lt;/b:FieldSet&gt;\n
+                                &lt;/b:Form&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading size="2" b:id="forms-horizontal">Horizontal form</b:Heading>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:Form type="HORIZONTAL">
+                                <b:FieldSet>
+                                    <b:Legend>Sample form</b:Legend>
+
+                                    <b:FormGroup>
+                                        <b:FormLabel for="formEmail" addStyleNames="col-lg-2">Email</b:FormLabel>
+                                        <g:FlowPanel addStyleNames="col-lg-10">
+                                            <b:FormStatic b:id="formEmail">email@example.example</b:FormStatic>
+                                        </g:FlowPanel>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup>
+                                        <b:FormLabel for="formName" addStyleNames="col-lg-2">Name</b:FormLabel>
+                                        <g:FlowPanel addStyleNames="col-lg-10">
+                                            <b:TextBox text="blabla" b:id="formName"/>
+                                        </g:FlowPanel>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup>
+                                        <g:FlowPanel addStyleNames="col-lg-offset-2 col-lg-10">
+                                            <b:Button>Send</b:Button>
+                                        </g:FlowPanel>
+                                    </b:FormGroup>
+                                </b:FieldSet>
+                            </b:Form>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Form type="HORIZONTAL"&gt;\n
+                                \s\s&lt;b:FieldSet&gt;\n
+                                \s\s\s\s&lt;b:Legend&gt;Sample form&lt;/b:Legend&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formEmail" addStyleNames="col-lg-2"&gt;Email&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;g:FlowPanel addStyleNames="col-lg-10"&gt;\n
+                                \s\s\s\s\s\s\s\s&lt;b:FormStatic b:id="formEmail"&gt;email@example.example&lt;/b:FormStatic&gt;\n
+                                \s\s\s\s&lt;/g:FlowPanel&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formName" addStyleNames="col-lg-2"&gt;Name&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;g:FlowPanel addStyleNames="col-lg-10"&gt;\n
+                                \s\s\s\s\s\s\s\s&lt;b:TextBox text="blabla" b:id="formName"/&gt;\n
+                                \s\s\s\s\s\s&lt;/g:FlowPanel&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;g:FlowPanel addStyleNames="col-lg-offset-2 col-lg-10"&gt;\n
+                                \s\s\s\s\s\s\s\s&lt;b:Button&gt;Send&lt;/b:Button&gt;\n
+                                \s\s\s\s\s\s&lt;/g:FlowPanel&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \s\s&lt;/b:FieldSet&gt;\n
+                                &lt;/b:Form&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                </b:Column>
+                <!-- /Right column -->
+
+            </b:Row>
+            <!-- /Row -->
+
+        </b:Container>
+        <!-- /Container Content -->
+
+    </b:FlowPanel>
+
+</ui:UiBinder>

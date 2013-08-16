@@ -1,0 +1,45 @@
+package com.svenjacobs.gwtbootstrap3.client.ui.constants;
+
+import com.google.gwt.dom.client.Style;
+
+/**
+ * @author Sven Jacobs
+ */
+public enum ColumnPush implements Size, Style.HasCssName {
+    // Small devices (>768px)
+    SM_1("col-sm-push-1"),
+    SM_2("col-sm-push-2"),
+    SM_3("col-sm-push-3"),
+    SM_4("col-sm-push-4"),
+    SM_5("col-sm-push-5"),
+    SM_6("col-sm-push-6"),
+    SM_7("col-sm-push-7"),
+    SM_8("col-sm-push-8"),
+    SM_9("col-sm-push-9"),
+    SM_10("col-sm-push-10"),
+    SM_11("col-sm-push-11"),
+
+    // Medium (>992px) to large devices (>1200px)
+    LG_1("col-lg-push-1"),
+    LG_2("col-lg-push-2"),
+    LG_3("col-lg-push-3"),
+    LG_4("col-lg-push-4"),
+    LG_5("col-lg-push-5"),
+    LG_6("col-lg-push-6"),
+    LG_7("col-lg-push-7"),
+    LG_8("col-lg-push-8"),
+    LG_9("col-lg-push-9"),
+    LG_10("col-lg-push-10"),
+    LG_11("col-lg-push-11");
+
+    private final String cssClass;
+
+    private ColumnPush(final String cssClass) {
+        this.cssClass = cssClass;
+    }
+
+    @Override
+    public String getCssName() {
+        return cssClass;
+    }
+}

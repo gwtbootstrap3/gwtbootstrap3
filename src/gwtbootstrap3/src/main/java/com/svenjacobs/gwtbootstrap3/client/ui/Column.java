@@ -1,0 +1,114 @@
+package com.svenjacobs.gwtbootstrap3.client.ui;
+
+import com.google.gwt.dom.client.Style;
+import com.google.gwt.uibinder.client.UiConstructor;
+import com.google.gwt.user.client.DOM;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnOffset;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnPull;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnPush;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnSize;
+
+/**
+ * A column of Bootstrap's fluid grid system.
+ *
+ * @author Sven Jacobs
+ * @see Row
+ */
+public class Column extends ComplexWidget {
+
+    private Column() {
+        setElement(DOM.createDiv());
+    }
+
+    /**
+     * Creates column with primary size.
+     * <p/>
+     * Additional sizes can be added with {@link #addSizes(ColumnSize...)}
+     *
+     * @param size Size of column
+     * @see #Column(ColumnSize...)
+     * @see #addSizes(ColumnSize...)
+     */
+    public Column(final ColumnSize size) {
+        this();
+        setStyleName(size.getCssName());
+    }
+
+    /**
+     * Creates column with multiple sizes.
+     *
+     * @param sizes Column sizes
+     */
+    public Column(final ColumnSize... sizes) {
+        this();
+        addSizes(sizes);
+    }
+
+    /**
+     * Convenience constructor for UiBinder to create a Column with one or more sizes.
+     * <p/>
+     * Size needs to be a comma-separated String of {@link ColumnSize} enum names, e.g. "SM_SIZE_3,LG_SIZE_3"
+     *
+     * @param size Comma-separated String of {@link ColumnSize}
+     * @see ColumnSize
+     */
+    @UiConstructor
+    public Column(final String size) {
+        this();
+        addSizes(size);
+    }
+
+    /**
+     * Adds one or more additional column sizes.
+     *
+     * @param sizes Additional column sizes
+     */
+    public void addSizes(final ColumnSize... sizes) {
+        addEnumVarargsValues(sizes);
+    }
+
+    public void setPull(final ColumnPull... pulls) {
+        addEnumVarargsValues(pulls);
+    }
+
+    public void setPull(final String pulls) {
+        addEnumStringValues(pulls, ColumnPull.class);
+    }
+
+    public void setPush(final ColumnPush... pulls) {
+        addEnumVarargsValues(pulls);
+    }
+
+    public void setPush(final String pushs) {
+        addEnumStringValues(pushs, ColumnPush.class);
+    }
+
+    public void setOffset(final ColumnOffset... offsets) {
+        addEnumVarargsValues(offsets);
+    }
+
+    public void setOffset(final String offsets) {
+        addEnumStringValues(offsets, ColumnOffset.class);
+    }
+
+    private void addSizes(final String sizes) {
+        addEnumStringValues(sizes, ColumnSize.class);
+    }
+
+    private <E extends Style.HasCssName> void addEnumVarargsValues(final E[] values) {
+        for (final E value : values) {
+            addStyleName(value.getCssName());
+        }
+    }
+
+    private <E extends Enum<? extends Style.HasCssName>> void addEnumStringValues(final String values,
+                                                                                  final Class<E> enumClass) {
+
+        for (final Enum<? extends Style.HasCssName> constant : enumClass.getEnumConstants()) {
+            if (values.contains(constant.name())) {
+                addStyleName(((Style.HasCssName) constant).getCssName());
+            }
+        }
+    }
+}
