@@ -22,6 +22,24 @@ Add the dependency to your Maven POM:
 </dependency>
 ```
 
+In order to use snapshot releases you also need to add the Sonatype snapshots
+repository to your POM:
+
+```xml
+<repositories>
+    <repository>
+        <id>sonatype-nexus-snapshots</id>
+        <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+    </repository>
+</repositories>
+```
+
 Inherit the GwtBootstrap3 module in your GWT module:
 
 ```xml
