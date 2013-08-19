@@ -89,6 +89,6 @@ public class PageHeader extends Widget implements HasText, HasId {
 
         builder.appendHtmlConstant("</h1>");
 
-        getElement().setInnerHTML(builder.toSafeHtml().asString());
+        getElement().setInnerSafeHtml(builder.toSafeHtml());
     }
 }
