@@ -20,6 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
@@ -74,20 +75,20 @@ public class PageHeader extends Widget implements HasText, HasId {
     }
 
     private void render() {
-        final StringBuilder html = new StringBuilder();
+        final SafeHtmlBuilder builder = new SafeHtmlBuilder();
 
-        html.append("<h1>");
-        html.append(heading == null ? "" : heading);
+        builder.appendHtmlConstant("<h1>");
+        builder.appendEscaped(heading == null ? "" : heading);
 
         if (subText != null && !subText.isEmpty()) {
-            html.append(" ");
-            html.append("<small>");
-            html.append(subText);
-            html.append("</small>");
+            builder.appendEscaped(" ");
+            builder.appendHtmlConstant("<small>");
+            builder.appendEscaped(subText);
+            builder.appendHtmlConstant("</small>");
         }
 
-        html.append("</h1>");
+        builder.appendHtmlConstant("</h1>");
 
-        getElement().setInnerHTML(html.toString());
+        getElement().setInnerHTML(builder.toSafeHtml().asString());
     }
 }
