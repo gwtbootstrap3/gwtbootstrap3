@@ -22,6 +22,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.NavbarPosition;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.NavbarType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -36,6 +37,7 @@ public class Navbar extends FlowPanel implements HasType<NavbarType> {
 
     public Navbar() {
         setStyleName(Styles.NAVBAR);
+        setType(NavbarType.DEFAULT);
     }
 
     @Override
@@ -46,5 +48,13 @@ public class Navbar extends FlowPanel implements HasType<NavbarType> {
     @Override
     public NavbarType getType() {
         return NavbarType.fromStyleName(getStyleName());
+    }
+
+    public void setPosition(final NavbarPosition type) {
+        StyleHelper.addUniqueEnumStyleName(this, NavbarPosition.class, type);
+    }
+
+    public NavbarPosition getPosition() {
+        return NavbarPosition.fromStyleName(getStyleName());
     }
 }

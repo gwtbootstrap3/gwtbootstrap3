@@ -33,7 +33,7 @@
 
     <b:FlowPanel>
 
-        <b:Navbar type="FIXED_TOP">
+        <b:Navbar position="FIXED_TOP">
             <b:Container>
                 <b:NavbarBrand>GwtBootstrap3</b:NavbarBrand>
                 <b:NavbarText>Examples</b:NavbarText>
@@ -509,7 +509,11 @@
 
                     <b:Row>
                         <b:Column size="LG_6">
-                            <b:Alert>
+                            <b:Alert type="INFO" dismissable="true">
+                                Informational alert.
+                            </b:Alert>
+
+                            <b:Alert type="WARNING">
                                 <strong>Ooops</strong>
                                 Something went wrong
                             </b:Alert>
@@ -518,24 +522,19 @@
                                 Danger danger
                             </b:Alert>
 
-                            <b:Alert type="SUCCESS" closable="true">
+                            <b:Alert type="SUCCESS" dismissable="true">
                                 <strong>Phew</strong>
                                 That was close
                                 <b:Anchor addStyleNames="alert-link">Link withing alert with matching color</b:Anchor>
-                            </b:Alert>
-
-                            <b:Alert type="DANGER">
-                                <p>
-                                    Alert with button
-                                </p>
-                                <p>
-                                    <b:Button type="DANGER" dismiss="ALERT">Dismiss alert</b:Button>
-                                </p>
                             </b:Alert>
                         </b:Column>
 
                         <b:Column size="LG_6">
                             <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Alert type="INFO" dismissable="true"&gt;\n
+                                \s\sInformational alert.\n
+                                &lt;/b:Alert&gt;\n
+                                \n
                                 &lt;b:Alert&gt;\n
                                 \s\s&lt;strong&gt;Ooops&lt;/strong&gt;\n
                                 \s\sSomething went wrong\n
@@ -544,15 +543,6 @@
                                 &lt;b:Alert type="DANGER"&gt;\n
                                 \s\sDanger danger\n
                                 &lt;/b:Alert&gt;\n
-                                \n
-                                &lt;b:Alert type="DANGER"&gt;\n
-                                \s\s&lt;p&gt;\n
-                                \s\s\s\sAlert with button\n
-                                \s\s&lt;/p&gt;\n
-                                \s\s&lt;p&gt;\n
-                                \s\s\s\s&lt;b:Button type="DANGER" dismiss="ALERT"&gt;Dismiss alert&lt;/b:Button&gt;\n
-                                \s\s&lt;/p&gt;\n
-                                &lt;/b:Alert&gt;
                             </b:Pre>
                         </b:Column>
                     </b:Row>

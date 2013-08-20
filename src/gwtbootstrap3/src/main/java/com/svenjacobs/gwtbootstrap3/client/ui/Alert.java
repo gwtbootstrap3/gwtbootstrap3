@@ -34,13 +34,13 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * Alert block.
  * <p/>
- * Use {@link #setClosable(boolean)} to add a close ("x") button.
+ * Use {@link #setDismissable(boolean)} to add a close ("x") button.
  *
  * @author Sven Jacobs
  * @see AlertCloseEvent
  * @see AlertClosedEvent
  */
-public class Alert extends HTMLPanel implements HasType<AlertType>, IsClosable {
+public class Alert extends HTMLPanel implements HasType<AlertType> {
 
     private final CloseButton closeButton = new CloseButton();
 
@@ -48,7 +48,7 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, IsClosable {
         super(html);
 
         setStyleName(Styles.ALERT);
-        setType(AlertType.DEFAULT);
+        setType(AlertType.WARNING);
 
         closeButton.setDismiss(ButtonDismiss.ALERT);
 
@@ -91,19 +91,19 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, IsClosable {
     /**
      * Adds a close button to the alert
      *
-     * @param closable Adds close button when {@code true}
+     * @param dismissable Adds close button when {@code true}
      */
-    @Override
-    public void setClosable(final boolean closable) {
-        if (closable) {
+    public void setDismissable(final boolean dismissable) {
+        if (dismissable) {
             insert(closeButton, getElement(), 0, true);
+            addStyleName(Styles.ALERT_DISMISSABLE);
         } else {
             closeButton.removeFromParent();
+            removeStyleName(Styles.ALERT_DISMISSABLE);
         }
     }
 
-    @Override
-    public boolean isClosable() {
+    public boolean isDismissable() {
         return closeButton.getParent() != null;
     }
 

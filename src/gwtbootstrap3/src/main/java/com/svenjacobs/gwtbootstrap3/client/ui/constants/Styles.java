@@ -30,6 +30,7 @@ public final class Styles {
     public static final String AFFIX = "affix";
 
     public static final String ALERT = "alert";
+    public static final String ALERT_DISMISSABLE = "alert-dismissable";
     public static final String ALERT_LINK = "alert-link";
 
     public static final String BADGE = "badge";

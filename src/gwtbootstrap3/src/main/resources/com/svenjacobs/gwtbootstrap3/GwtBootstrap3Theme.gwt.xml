@@ -17,20 +17,12 @@
   limitations under the License.
   #L%
   -->
-<module rename-to="GwtBootstrap3Demo">
-    <inherits name="com.google.gwt.uibinder.UiBinder" />
-    <inherits name="com.svenjacobs.gwtbootstrap3.GwtBootstrap3" />
 
-    <public path='resource'>
-        <include name='css/*.css'/>
-        <include name='js/*.js'/>
-    </public>
+<!--
+    Inherit this module if you want to use the Bootrap 2.x lookalike theme.
+-->
+<module rename-to="GwtBootstrap3Theme">
+    <inherits name="com.svenjacobs.gwtbootstrap3.GwtBootstrap3"/>
 
-    <stylesheet src='css/demo.css'/>
-    <stylesheet src='css/prettify.css'/>
-    <script src='js/prettify.js'/>
-
-    <entry-point class="com.svenjacobs.gwtbootstrap3.demo.client.GwtBootstrap3Demo"/>
-
-    <source path="client"/>
+    <stylesheet src="css/bootstrap-theme.min.css"/>
 </module>

@@ -27,10 +27,8 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.EnumHelper;
  * @author Sven Jacobs
  */
 public enum NavbarType implements Type, Style.HasCssName {
-    DEFAULT(null),
-    FIXED_TOP("navbar-fixed-top"),
-    FIXED_BOTTOM("navbar-fixed-bottom"),
-    STATIC_TOP("navbar-static-top");
+    DEFAULT("navbar-default"),
+    INVERSE("navbar-inverse");
 
     private final String cssClass;
 

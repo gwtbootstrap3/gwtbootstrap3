@@ -5,8 +5,7 @@ Have a look at the [demo](http://svenjacobs.github.io/gwtbootstrap3/) and its
 [source code](https://github.com/svenjacobs/gwtbootstrap3/tree/master/src/gwtbootstrap3-demo/src/main/java/com/svenjacobs/gwtbootstrap3/demo/client).
 
 **Note:** This library is **not** feature complete as it contains only the
-widgets / functionality that I needed for another project of mine. Also
-since Bootstrap 3 is still a release candidate API is likely to change.
+widgets / functionality that I needed for another project of mine.
 Patches / pull requests are welcome. See *Feature matrix* below.
 
 # Usage
@@ -44,10 +43,13 @@ Inherit the GwtBootstrap3 module in your GWT module:
 
 ```xml
 <module>
-    <inherits name='com.svenjacobs.gwtbootstrap3.GwtBootstrap3'/>
+    <inherits name="com.svenjacobs.gwtbootstrap3.GwtBootstrap3"/>
     ...
 </module>
 ```
+
+If you want to use the Bootstrap 2 "look-alike" theme inhert `GwtBootstrap3Theme`
+instead of `GwtBootstrap3`.
 
 Make sure to not inherit GWT's default styles or any other styles because
 Bootstrap brings its own styles which are provided by the GwtBootstrap3 module.
@@ -55,15 +57,15 @@ Bootstrap brings its own styles which are provided by the GwtBootstrap3 module.
 Use the widgets in your UiBinder XML:
 
 ```xml
-<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-             xmlns:g='urn:import:com.google.gwt.user.client.ui'
-             xmlns:b='urn:import:com.svenjacobs.gwtbootstrap3.client.ui'>
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
 
     <b:Container>
         <b:PageHeader>Yay buttons!</b:PageHeader>
 
         <b:Button>Some button</b:Button>
-        <b:Button type='DANGER' size='LARGE'>Dangerous button</b:Button>
+        <b:Button type="DANGER" size="LARGE">Dangerous button</b:Button>
     </b:Container>
 
 </ui:UiBinder>

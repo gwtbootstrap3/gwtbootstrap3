@@ -18,12 +18,13 @@
   #L%
   -->
 <module>
-    <public path='resource'>
-        <include name='**/*.css'/>
-        <include name='**/*.js'/>
+    <public path="resource">
+        <include name="css/*.css"/>
+        <include name="js/*.js"/>
+        <include name="fonts/*"/>
     </public>
 
-    <stylesheet src='css/bootstrap.min.css'/>
-    <script src='js/jquery-1.10.2.min.js'/>
-    <script src='js/bootstrap.min.js'/>
+    <stylesheet src="css/bootstrap.min.css"/>
+    <script src="js/jquery-1.10.2.min.js"/>
+    <script src="js/bootstrap.min.js"/>
 </module>

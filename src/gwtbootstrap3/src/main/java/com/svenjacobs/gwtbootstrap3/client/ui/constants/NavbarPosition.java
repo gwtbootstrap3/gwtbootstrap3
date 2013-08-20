@@ -26,15 +26,15 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 /**
  * @author Sven Jacobs
  */
-public enum AlertType implements Type, Style.HasCssName {
-    SUCCESS("alert-success"),
-    INFO("alert-info"),
-    WARNING("alert-warning"),
-    DANGER("alert-danger");
+public enum NavbarPosition implements Type, Style.HasCssName {
+    DEFAULT(null),
+    FIXED_TOP("navbar-fixed-top"),
+    FIXED_BOTTOM("navbar-fixed-bottom"),
+    STATIC_TOP("navbar-static-top");
 
     private final String cssClass;
 
-    private AlertType(final String cssClass) {
+    private NavbarPosition(final String cssClass) {
         this.cssClass = cssClass;
     }
 
@@ -43,7 +43,7 @@ public enum AlertType implements Type, Style.HasCssName {
         return cssClass;
     }
 
-    public static AlertType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, AlertType.class, null);
+    public static NavbarPosition fromStyleName(final String styleName) {
+        return EnumHelper.fromStyleName(styleName, NavbarPosition.class, DEFAULT);
     }
 }
