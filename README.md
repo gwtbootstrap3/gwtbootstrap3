@@ -48,7 +48,7 @@ Inherit the GwtBootstrap3 module in your GWT module:
 </module>
 ```
 
-If you want to use the Bootstrap 2 "look-alike" theme inhert `GwtBootstrap3Theme`
+If you want to use the Bootstrap 2 "look-alike" theme inherit `GwtBootstrap3Theme`
 instead of `GwtBootstrap3`.
 
 Make sure to not inherit GWT's default styles or any other styles because
