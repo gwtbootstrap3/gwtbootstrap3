@@ -53,7 +53,8 @@
 
                     <b:FlowPanel styleName="bs-sidebar affix" ui:field="navigation" b:id="navigation">
                         <b:Nav addStyleNames="bs-sidenav">
-                            <b:ListItem href="#dropdowns" active="true">Dropdowns</b:ListItem>
+                            <b:ListItem href="#glyphicons" active="true">Glyphicons</b:ListItem>
+                            <b:ListItem href="#dropdowns">Dropdowns</b:ListItem>
                             <b:ListItemPanel href="#buttons" text="Buttons">
                                 <b:Nav>
                                     <b:ListItem href="#buttons-groups">Button groups</b:ListItem>
@@ -105,6 +106,24 @@
                             A Twitter <a href="http://getbootstrap.com/">Bootstrap</a> wrapper for <a href="http://gwtproject.org/">GWT</a>
                         </b:Paragraph>
                     </b:Jumbotron>
+
+                    <b:PageHeader b:id="glyphicons">Glyphicons</b:PageHeader>
+
+                    <b:Row>
+                        <b:Column size="LG_6">
+                            <b:Icon type="STAR"/>
+                            <b:Icon type="BELL"/>
+                            <b:Icon type="FILE"/>
+                        </b:Column>
+
+                        <b:Column size="LG_6">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Icon type="STAR"/&gt;\n
+                                &lt;b:Icon type="BELL"/&gt;\n
+                                &lt;b:Icon type="FILE"/&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
 
                     <b:PageHeader b:id="dropdowns">Dropdowns</b:PageHeader>
 
@@ -161,8 +180,8 @@
                         <b:Column size="LG_6">
 
                             <g:FlowPanel addStyleNames="{style.buttons}">
-                                <b:Button type="DEFAULT" size="DEFAULT">Test</b:Button>
-                                <b:Button type="DANGER" size="LARGE">Large</b:Button>
+                                <b:Button type="DEFAULT" size="DEFAULT" icon="STAR">Test</b:Button>
+                                <b:Button type="DANGER" size="LARGE" icon="ASTERISK" iconPosition="RIGHT">Large</b:Button>
                                 <b:Button type="DANGER" size="SMALL">Small</b:Button>
                                 <b:Button type="DANGER" size="EXTRA_SMALL">Extra small</b:Button>
                                 <b:Button type="INFO" size="SMALL" block="true">I"m a block level button</b:Button>
@@ -175,8 +194,8 @@
 
                         <b:Column size="LG_6">
                             <b:Pre addStyleNames="prettyprint lang-xml">
-                                &lt;b:Button type="DEFAULT" size="DEFAULT"&gt;Test&lt;/b:Button&gt;\n
-                                &lt;b:Button type="DANGER" size="LARGE"&gt;Large&lt;/b:Button&gt;\n
+                                &lt;b:Button type="DEFAULT" size="DEFAULT" icon="STAR"&gt;Test&lt;/b:Button&gt;\n
+                                &lt;b:Button type="DANGER" size="LARGE" icon="ASTERISK" iconPosition="RIGHT"&gt;Large&lt;/b:Button&gt;\n
                                 &lt;b:Button type="DANGER" size="SMALL"&gt;Small&lt;/b:Button&gt;\n
                                 &lt;b:Button type="DANGER" size="EXTRA_SMALL"&gt;Extra small&lt;/b:Button&gt;\n
                                 &lt;b:Button type="INFO" size="SMALL" block="true"&gt;I"m a block level button&lt;/b:Button&gt;\n
@@ -440,8 +459,8 @@
                     <b:Row>
                         <b:Column size="LG_6">
                             <b:ButtonGroup toggle="BUTTONS">
-                                <b:CheckBoxButton active="true">Option 1</b:CheckBoxButton>
-                                <b:CheckBoxButton>Option 2</b:CheckBoxButton>
+                                <b:CheckBoxButton active="true" icon="BOOK">Option 1</b:CheckBoxButton>
+                                <b:CheckBoxButton icon="BRIEFCASE" iconPosition="RIGHT">Option 2</b:CheckBoxButton>
                                 <b:CheckBoxButton>Option 3</b:CheckBoxButton>
                                 <b:CheckBoxButton enabled="false">Option 4</b:CheckBoxButton>
                             </b:ButtonGroup>
@@ -450,8 +469,8 @@
                         <b:Column size="LG_6">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonGroup toggle="BUTTONS"&gt;\n
-                                \s\s&lt;b:CheckBoxButton active="true"&gt;Option 1&lt;/b:CheckBoxButton&gt;\n
-                                \s\s&lt;b:CheckBoxButton&gt;Option 2&lt;/b:CheckBoxButton&gt;\n
+                                \s\s&lt;b:CheckBoxButton active="true" icon="BOOK"&gt;Option 1&lt;/b:CheckBoxButton&gt;\n
+                                \s\s&lt;b:CheckBoxButton icon="BRIEFCASE" iconPosition="RIGHT"&gt;Option 2&lt;/b:CheckBoxButton&gt;\n
                                 \s\s&lt;b:CheckBoxButton&gt;Option 3&lt;/b:CheckBoxButton&gt;\n
                                 \s\s&lt;b:CheckBoxButton enabled="false"&gt;Option 4&lt;/b:CheckBoxButton&gt;\n
                                 &lt;/b:ButtonGroup&gt;

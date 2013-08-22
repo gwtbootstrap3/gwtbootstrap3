@@ -67,6 +67,8 @@ public final class Styles {
     public static final String FORM_CONTROL_STATIC = "form-control-static";
     public static final String FORM_GROUP = "form-group";
 
+    public static final String GLYPHICON = "glyphicon";
+
     public static final String INPUT_GROUP = "input-group";
     public static final String INPUT_GROUP_ADDON = "input-group-addon";
     public static final String INPUT_GROUP_BTN = "input-group-btn";

@@ -20,9 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasToggle;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.Text;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
@@ -35,10 +33,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
  * @see AbstractButton
  * @see Toggle
  */
-public abstract class AbstractToggleButton extends AbstractButton implements HasText, HasToggle {
+public abstract class AbstractToggleButton extends AbstractIconButton implements HasToggle {
 
     private final ToggleMixin toggleMixin = new ToggleMixin(this);
-    private final Text textNode = new Text();
     private final Caret caret = new Caret();
 
     protected AbstractToggleButton() {
@@ -47,17 +44,7 @@ public abstract class AbstractToggleButton extends AbstractButton implements Has
 
     protected AbstractToggleButton(final ButtonType type) {
         setType(type);
-        add(textNode, getElement());
-    }
-
-    @Override
-    public void setText(final String text) {
-        textNode.setText(text + " ");
-    }
-
-    @Override
-    public String getText() {
-        return textNode.getText();
+        add(text, getElement());
     }
 
     /**
