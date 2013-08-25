@@ -39,7 +39,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  */
 public class PageHeader extends Widget implements HasText, HasId {
 
-    private final IdMixin idMixin = new IdMixin(this);
+    private final IdMixin<PageHeader> idMixin = new IdMixin<PageHeader>(this);
     private String heading;
     private String subText;
 

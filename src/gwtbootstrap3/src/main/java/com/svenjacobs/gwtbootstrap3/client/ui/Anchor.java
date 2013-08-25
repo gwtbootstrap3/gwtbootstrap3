@@ -21,32 +21,34 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.AnchorElement;
-import com.google.gwt.safehtml.client.HasSafeHtml;
-import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.History;
-import com.google.gwt.user.client.ui.FocusWidget;
-import com.google.gwt.user.client.ui.HasHTML;
+import com.google.gwt.user.client.ui.HasText;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
- * Anchor {@code <a>} element.
+ * Anchor {@code <a>} element with text and optional icon.
  *
  * @author Sven Jacobs
  */
-public class Anchor extends FocusWidget implements HasHTML, HasSafeHtml, HasHref, HasToggle, HasTargetHistoryToken {
+public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasToggle,
+        HasTargetHistoryToken, HasText, HasIcon, HasIconPosition {
 
-    private final ToggleMixin toggleMixin = new ToggleMixin(this);
+    private final ToggleMixin<Anchor> toggleMixin = new ToggleMixin<Anchor>(this);
+    private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
     private String targetHistoryToken;
-
-    public Anchor() {
-        this("#");
-    }
 
     public Anchor(final String href) {
         setElement(DOM.createAnchor());
         setHref(href);
+        iconTextMixin.addTextWidgetToParent();
     }
 
     public Anchor(final String text,
@@ -55,29 +57,48 @@ public class Anchor extends FocusWidget implements HasHTML, HasSafeHtml, HasHref
         setText(text);
     }
 
+    public Anchor() {
+        this("#");
+    }
+
     @Override
-    public String getText() {
-        return getElement().getInnerText();
+    public HandlerRegistration addClickHandler(final ClickHandler handler) {
+        return addDomHandler(handler, ClickEvent.getType());
+    }
+
+    @Override
+    public HandlerRegistration addDoubleClickHandler(final DoubleClickHandler handler) {
+        return addDomHandler(handler, DoubleClickEvent.getType());
     }
 
     @Override
     public void setText(final String text) {
-        getElement().setInnerText(text);
+        iconTextMixin.setText(text);
     }
 
     @Override
-    public String getHTML() {
-        return getElement().getInnerHTML();
+    public String getText() {
+        return iconTextMixin.getText();
     }
 
     @Override
-    public void setHTML(final String html) {
-        getElement().setInnerHTML(html);
+    public void setIcon(final IconType iconType) {
+        iconTextMixin.setIcon(iconType);
     }
 
     @Override
-    public void setHTML(final SafeHtml html) {
-        setHTML(html.asString());
+    public IconType getIcon() {
+        return iconTextMixin.getIcon();
+    }
+
+    @Override
+    public void setIconPosition(final IconPosition iconPosition) {
+        iconTextMixin.setIconPosition(iconPosition);
+    }
+
+    @Override
+    public IconPosition getIconPosition() {
+        return iconTextMixin.getIconPosition();
     }
 
     @Override

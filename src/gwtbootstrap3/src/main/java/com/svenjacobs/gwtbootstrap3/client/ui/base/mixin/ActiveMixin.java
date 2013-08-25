@@ -28,9 +28,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Sven Jacobs
  */
-public class ActiveMixin extends AbstractMixin implements HasActive {
+public class ActiveMixin<T extends UIObject & HasActive> extends AbstractMixin implements HasActive {
 
-    public ActiveMixin(final UIObject uiObject) {
+    public ActiveMixin(final T uiObject) {
         super(uiObject);
     }
 

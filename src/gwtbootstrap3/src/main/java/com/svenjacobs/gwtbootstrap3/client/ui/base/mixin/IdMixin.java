@@ -26,9 +26,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.HasId;
 /**
  * @author Sven Jacobs
  */
-public class IdMixin extends AbstractMixin implements HasId {
+public class IdMixin<T extends UIObject & HasId> extends AbstractMixin implements HasId {
 
-    public IdMixin(final UIObject uiObject) {
+    public IdMixin(final T uiObject) {
         super(uiObject);
     }
 

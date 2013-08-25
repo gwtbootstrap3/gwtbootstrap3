@@ -40,8 +40,8 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  */
 public abstract class AbstractListItem extends ComplexPanel implements HasEnabled, HasPull, HasActive {
 
-    private final ActiveMixin activeMixin = new ActiveMixin(this);
-    private final PullMixin pullMixin = new PullMixin(this);
+    private final ActiveMixin<AbstractListItem> activeMixin = new ActiveMixin<AbstractListItem>(this);
+    private final PullMixin<AbstractListItem> pullMixin = new PullMixin<AbstractListItem>(this);
 
     protected AbstractListItem() {
         setElement(DOM.createElement("li"));

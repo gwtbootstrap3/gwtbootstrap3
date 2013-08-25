@@ -28,9 +28,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
 /**
  * @author Sven Jacobs
  */
-public class ToggleMixin extends AbstractMixin implements HasToggle {
+public class ToggleMixin<T extends UIObject & HasToggle> extends AbstractMixin implements HasToggle {
 
-    public ToggleMixin(final UIObject uiObject) {
+    public ToggleMixin(final T uiObject) {
         super(uiObject);
     }
 

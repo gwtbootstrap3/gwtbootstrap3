@@ -38,7 +38,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  */
 public class Badge extends AbstractTextWidget implements HasPull {
 
-    private final PullMixin pullMixin = new PullMixin(this);
+    private final PullMixin<Badge> pullMixin = new PullMixin<Badge>(this);
 
     public Badge() {
         super(DOM.createSpan());

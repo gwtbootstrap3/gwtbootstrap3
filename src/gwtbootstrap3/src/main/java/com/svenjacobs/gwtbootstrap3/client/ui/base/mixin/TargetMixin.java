@@ -27,9 +27,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Attributes;
 /**
  * @author Sven Jacobs
  */
-public class TargetMixin extends AbstractMixin implements HasTarget {
+public class TargetMixin<T extends UIObject & HasTarget> extends AbstractMixin implements HasTarget {
 
-    public TargetMixin(final UIObject uiObject) {
+    public TargetMixin(final T uiObject) {
         super(uiObject);
     }
 

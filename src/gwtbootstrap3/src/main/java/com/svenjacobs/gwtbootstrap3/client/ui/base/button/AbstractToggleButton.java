@@ -35,7 +35,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
  */
 public abstract class AbstractToggleButton extends AbstractIconButton implements HasToggle {
 
-    private final ToggleMixin toggleMixin = new ToggleMixin(this);
+    private final ToggleMixin<AbstractToggleButton> toggleMixin = new ToggleMixin<AbstractToggleButton>(this);
     private final Caret caret = new Caret();
 
     protected AbstractToggleButton() {
@@ -44,7 +44,7 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
 
     protected AbstractToggleButton(final ButtonType type) {
         setType(type);
-        add(text, getElement());
+        iconTextMixin.addTextWidgetToParent();
     }
 
     /**

@@ -110,13 +110,13 @@
                     <b:PageHeader b:id="glyphicons">Glyphicons</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:Icon type="STAR"/>
                             <b:Icon type="BELL"/>
                             <b:Icon type="FILE"/>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:Icon type="STAR"/&gt;\n
                                 &lt;b:Icon type="BELL"/&gt;\n
@@ -128,17 +128,17 @@
                     <b:PageHeader b:id="dropdowns">Dropdowns</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:DropDown>
                                 <b:Anchor toggle="DROPDOWN">Click to toggle dropdown</b:Anchor>
 
                                 <b:DropDownMenu>
                                     <b:DropDownHeader>Header 1</b:DropDownHeader>
                                     <b:ListItem>Action 1</b:ListItem>
-                                    <b:ListItem>Action 2</b:ListItem>
+                                    <b:ListItem icon="CAMERA">Action 2</b:ListItem>
                                     <b:Divider/>
                                     <b:DropDownHeader>Header 2</b:DropDownHeader>
-                                    <b:ListItem>Action 3</b:ListItem>
+                                    <b:ListItem icon="CREDIT_CARD" iconPosition="RIGHT">Action 3</b:ListItem>
                                     <b:ListItem enabled="false">Action 4 (disabled)</b:ListItem>
                                 </b:DropDownMenu>
                             </b:DropDown>
@@ -155,7 +155,7 @@
                             </b:DropDown>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:DropDown&gt;\n
                                 \s\s&lt;b:Anchor toggle="DROPDOWN"&gt;Click to toggle dropdown&lt;/b:Anchor&gt;\n
@@ -163,10 +163,10 @@
                                 \s\s&lt;b:DropDownMenu&gt;\n
                                 \s\s\s\s&lt;b:DropDownHeader&gt;Header 1&lt;/b:DropDownHeader&gt;\n
                                 \s\s\s\s&lt;b:ListItem&gt;Action 1&lt;/b:ListItem&gt;\n
-                                \s\s\s\s&lt;b:ListItem&gt;Action 2&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:ListItem icon="CAMERA"&gt;Action 2&lt;/b:ListItem&gt;\n
                                 \s\s\s\s&lt;b:Divider/&gt;\n
                                 \s\s\s\s&lt;b:DropDownHeader&gt;Header 2&lt;/b:DropDownHeader&gt;\n
-                                \s\s\s\s&lt;b:ListItem&gt;Action 3&lt;/b:ListItem&gt;\n
+                                \s\s\s\s&lt;b:ListItem icon="CREDIT_CARD" iconPosition="RIGHT"&gt;Action 3&lt;/b:ListItem&gt;\n
                                 \s\s\s\s&lt;b:ListItem enabled="false"&gt;Action 4 (disabled)&lt;/b:ListItem&gt;\n
                                 \s\s&lt;/b:DropDownMenu&gt;\n
                                 &lt;/b:DropDown&gt;
@@ -177,7 +177,7 @@
                     <b:PageHeader b:id="buttons">Buttons</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
 
                             <g:FlowPanel addStyleNames="{style.buttons}">
                                 <b:Button type="DEFAULT" size="DEFAULT" icon="STAR">Test</b:Button>
@@ -192,7 +192,7 @@
 
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:Button type="DEFAULT" size="DEFAULT" icon="STAR"&gt;Test&lt;/b:Button&gt;\n
                                 &lt;b:Button type="DANGER" size="LARGE" icon="ASTERISK" iconPosition="RIGHT"&gt;Large&lt;/b:Button&gt;\n
@@ -209,7 +209,7 @@
                     <b:Heading size="2" b:id="buttons-groups">Button groups</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:ButtonGroup>
                                 <b:Button>Button 1</b:Button>
                                 <b:Button>Button 2</b:Button>
@@ -217,7 +217,7 @@
                             </b:ButtonGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonGroup&gt;\n
                                 \s\s&lt;b:Button&gt;Button 1&lt;/b:Button&gt;\n
@@ -231,7 +231,7 @@
                     <b:Heading size="2" b:id="buttons-multiple-groups">Multiple button groups</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:ButtonToolBar>
                                 <b:ButtonGroup>
                                     <b:Button>1</b:Button>
@@ -252,7 +252,7 @@
                             </b:ButtonToolBar>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonToolBar&gt;\n
                                 \s\s&lt;b:ButtonGroup&gt;\n
@@ -279,7 +279,7 @@
                     <b:Heading size="2" b:id="buttons-nested-group">Nested button group</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:ButtonGroup>
                                 <b:Button>1</b:Button>
                                 <b:Button>2</b:Button>
@@ -294,7 +294,7 @@
                             </b:ButtonGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonGroup&gt;\n
                                 \s\s&lt;b:Button&gt;1&lt;/b:Button&gt;\n
@@ -315,7 +315,7 @@
                     <b:Heading size="2" b:id="buttons-vertical-group">Vertical button group</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:VerticalButtonGroup>
                                 <b:Button>1</b:Button>
                                 <b:Button>2</b:Button>
@@ -324,7 +324,7 @@
                             </b:VerticalButtonGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:VerticalButtonGroup&gt;\n
                                 \s\s&lt;b:Button&gt;1&lt;/b:Button&gt;\n
@@ -339,7 +339,7 @@
                     <b:Heading size="2" b:id="buttons-justified-group">Justified button group</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:ButtonGroup justified="true">
                                 <b:AnchorButton>Button 1</b:AnchorButton>
                                 <b:AnchorButton>Button 2</b:AnchorButton>
@@ -347,7 +347,7 @@
                             </b:ButtonGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonGroup justified="true"&gt;\n
                                 \s\s&lt;b:AnchorButton&gt;Button 1&lt;/b:AnchorButton&gt;\n
@@ -361,7 +361,7 @@
                     <b:Heading size="2" b:id="buttons-dropdown">Button dropdown</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:ButtonGroup>
                                 <b:Button toggle="DROPDOWN">Dropdown</b:Button>
                                 <b:DropDownMenu>
@@ -381,7 +381,7 @@
                             </b:ButtonGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonGroup&gt;\n
                                 \s\s&lt;b:Button toggle="DROPDOWN"&gt;Dropdown&lt;/b:Button&gt;\n
@@ -399,7 +399,7 @@
                     <b:Heading size="2" b:id="buttons-split-dropdown">Split button dropdown</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:ButtonGroup>
                                 <b:Button>Split Dropdown</b:Button>
                                 <b:Button toggle="DROPDOWN"/>
@@ -411,7 +411,7 @@
                             </b:ButtonGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonGroup&gt;\n
                                 \s\s&lt;b:Button&gt;Split Dropdown&lt;/b:Button&gt;\n
@@ -429,7 +429,7 @@
                     <b:Heading size="2" b:id="buttons-dropup">Dropup buttons</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:ButtonGroup dropUp="true">
                                 <b:Button toggle="DROPDOWN">Dropup</b:Button>
                                 <b:DropDownMenu>
@@ -440,7 +440,7 @@
                             </b:ButtonGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonGroup dropUp="true"&gt;\n
                                 \s\s&lt;b:Button toggle="DROPDOWN"&gt;Dropup&lt;/b:Button&gt;\n
@@ -457,7 +457,7 @@
                     <b:Heading size="2" b:id="buttons-checkbox">Checkbox buttons</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:ButtonGroup toggle="BUTTONS">
                                 <b:CheckBoxButton active="true" icon="BOOK">Option 1</b:CheckBoxButton>
                                 <b:CheckBoxButton icon="BRIEFCASE" iconPosition="RIGHT">Option 2</b:CheckBoxButton>
@@ -466,7 +466,7 @@
                             </b:ButtonGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonGroup toggle="BUTTONS"&gt;\n
                                 \s\s&lt;b:CheckBoxButton active="true" icon="BOOK"&gt;Option 1&lt;/b:CheckBoxButton&gt;\n
@@ -481,7 +481,7 @@
                     <b:Heading size="2" b:id="buttons-radio">Radio buttons</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:ButtonGroup toggle="BUTTONS">
                                 <b:RadioButton>Option 1</b:RadioButton>
                                 <b:RadioButton active="true">Option 2</b:RadioButton>
@@ -490,7 +490,7 @@
                             </b:ButtonGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:ButtonGroup toggle="BUTTONS"&gt;\n
                                 \s\s&lt;b:RadioButton&gt;Option 1&lt;/b:RadioButton&gt;\n
@@ -505,7 +505,7 @@
                     <b:PageHeader b:id="input-groups">Input groups</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:InputGroup>
                                 <b:InputGroupAddon>P</b:InputGroupAddon>
                                 <b:TextBox placeHolder="Type here" autoComplete="false"/>
@@ -513,7 +513,7 @@
                             </b:InputGroup>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:InputGroup&gt;\n
                                 \s\s&lt;b:InputGroupAddon&gt;P&lt;/b:InputGroupAddon&gt;\n
@@ -527,7 +527,7 @@
                     <b:PageHeader b:id="alerts">Alerts</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:Alert type="INFO" dismissable="true">
                                 Informational alert.
                             </b:Alert>
@@ -548,7 +548,7 @@
                             </b:Alert>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:Alert type="INFO" dismissable="true"&gt;\n
                                 \s\sInformational alert.\n
@@ -569,7 +569,7 @@
                     <b:PageHeader b:id="labels">Labels</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <g:FlowPanel addStyleNames="{style.labels}">
                                 <b:Label>Default</b:Label>
                                 <b:Label type="SUCCESS">Success</b:Label>
@@ -585,7 +585,7 @@
                             </g:HTMLPanel>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:Label&gt;Default&lt;/b:Label&gt;\n
                                 &lt;b:Label type="SUCCESS"&gt;Success&lt;/b:Label&gt;\n
@@ -599,7 +599,7 @@
                     <b:PageHeader b:id="badges">Badges</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <g:FlowPanel addStyleNames="{style.labels}">
                                 <g:HTMLPanel>
                                     <a href="#">Inbox
@@ -609,7 +609,7 @@
                             </g:FlowPanel>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;a href="#"&gt;Inbox\n
                                 \s\s&lt;b:Badge&gt;42&lt;/b:Badge&gt;\n
@@ -623,7 +623,7 @@
                     <b:Heading size="2" b:id="navs-tabs">Tabs</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:NavTabs>
                                 <b:ListItem active="true">Item 1</b:ListItem>
                                 <b:ListItem>Item 2</b:ListItem>
@@ -633,7 +633,7 @@
                             </b:NavTabs>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:NavTabs&gt;\n
                                 \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
@@ -649,7 +649,7 @@
                     <b:Heading size="2" b:id="navs-pills">Pills</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:NavPills>
                                 <b:ListItem active="true">Item 1</b:ListItem>
                                 <b:ListItem>Item 2</b:ListItem>
@@ -659,7 +659,7 @@
                             </b:NavPills>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:NavPills&gt;\n
                                 \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
@@ -675,7 +675,7 @@
                     <b:Heading size="2" b:id="navs-stacked-pills">Stacked pills</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:NavPills stacked="true">
                                 <b:ListItem active="true">Item 1</b:ListItem>
                                 <b:ListItem>Item 2</b:ListItem>
@@ -683,7 +683,7 @@
                             </b:NavPills>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:NavPills stacked="true"&gt;\n
                                 \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
@@ -697,7 +697,7 @@
                     <b:Heading size="2" b:id="navs-justified">Justified navs</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:NavTabs justified="true">
                                 <b:ListItem active="true">Item 1</b:ListItem>
                                 <b:ListItem>Item 2</b:ListItem>
@@ -713,7 +713,7 @@
                             </b:NavPills>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:NavTabs justified="true"&gt;\n
                                 \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
@@ -733,7 +733,7 @@
                     <b:Heading size="2" b:id="navs-with-dropdowns">Navs with dropdowns</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:NavTabs>
                                 <b:ListItem active="true">Item 1</b:ListItem>
                                 <b:ListItem>Item 2</b:ListItem>
@@ -769,7 +769,7 @@
                             </b:NavPills>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:NavTabs&gt;\n
                                 \s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
@@ -853,7 +853,7 @@
                     <b:PageHeader b:id="wells">Wells</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:Well>
                                 I"m a well
                             </b:Well>
@@ -867,7 +867,7 @@
                             </b:Well>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:Well&gt;\n
                                 \s\sI"m a well\n
@@ -887,7 +887,7 @@
                     <b:PageHeader b:id="modals">Modals</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:Modal title="Cupcake ipsum" closable="true" fade="true" backdrop="STATIC" keyboard="true"
                                      b:id="myModal" ui:field="modal">
                                 <b:ModalBody>
@@ -1040,7 +1040,7 @@
                             </b:Button>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:Modal title="Cupcake ipsum" closable="true" fade="true" backdrop="STATIC"
                                 keyboard="true" b:id="myModal"&gt;\n
@@ -1062,7 +1062,7 @@
                     <b:PageHeader b:id="forms">Forms</b:PageHeader>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:Form>
                                 <b:FieldSet>
                                     <b:Legend>Sample form</b:Legend>
@@ -1097,7 +1097,7 @@
                             </b:Form>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:Form&gt;\n
                                 \s\s&lt;b:FieldSet&gt;\n
@@ -1138,7 +1138,7 @@
                     <b:Heading size="2" b:id="forms-horizontal">Horizontal form</b:Heading>
 
                     <b:Row>
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_5">
                             <b:Form type="HORIZONTAL">
                                 <b:FieldSet>
                                     <b:Legend>Sample form</b:Legend>
@@ -1166,7 +1166,7 @@
                             </b:Form>
                         </b:Column>
 
-                        <b:Column size="LG_6">
+                        <b:Column size="LG_7">
                             <b:Pre addStyleNames="prettyprint lang-xml">
                                 &lt;b:Form type="HORIZONTAL"&gt;\n
                                 \s\s&lt;b:FieldSet&gt;\n

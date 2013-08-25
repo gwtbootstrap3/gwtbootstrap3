@@ -37,7 +37,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  */
 public class DropDownMenu extends ComplexWidget implements HasPull {
 
-    private final PullMixin pullMixin = new PullMixin(this);
+    private final PullMixin<DropDownMenu> pullMixin = new PullMixin<DropDownMenu>(this);
 
     public DropDownMenu() {
         setElement(DOM.createElement("ul"));

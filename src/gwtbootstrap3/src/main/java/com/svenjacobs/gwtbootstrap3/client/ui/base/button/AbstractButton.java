@@ -25,11 +25,11 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasTarget;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasType;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.*;
@@ -39,7 +39,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.*;
  *
  * @author Sven Jacobs
  */
-public abstract class AbstractButton extends ComplexPanel
+public abstract class AbstractButton extends ComplexWidget
         implements HasEnabled, HasType<ButtonType>, HasSize<ButtonSize>, HasTarget, HasClickHandlers {
 
     public class ButtonStateHandler {
@@ -65,7 +65,7 @@ public abstract class AbstractButton extends ComplexPanel
     }
 
     private final ButtonStateHandler buttonStateHandler = new ButtonStateHandler();
-    private final TargetMixin targetMixin = new TargetMixin(this);
+    private final TargetMixin<AbstractButton> targetMixin = new TargetMixin<AbstractButton>(this);
 
     /**
      * Creates button with DEFAULT type.

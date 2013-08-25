@@ -22,6 +22,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 
 import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractAnchorListItem;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 
 /**
  * Represents a list item with text contents which is used in multiple widgets.
@@ -39,7 +41,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractAnchorListItem;
  * @see NavPills
  * @see Navbar
  */
-public class ListItem extends AbstractAnchorListItem implements HasText {
+public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon, HasIconPosition {
 
     public ListItem() {
     }
@@ -52,5 +54,25 @@ public class ListItem extends AbstractAnchorListItem implements HasText {
     @Override
     public String getText() {
         return anchor.getText();
+    }
+
+    @Override
+    public void setIcon(final IconType iconType) {
+        anchor.setIcon(iconType);
+    }
+
+    @Override
+    public IconType getIcon() {
+        return anchor.getIcon();
+    }
+
+    @Override
+    public void setIconPosition(final IconPosition iconPosition) {
+        anchor.setIconPosition(iconPosition);
+    }
+
+    @Override
+    public IconPosition getIconPosition() {
+        return anchor.getIconPosition();
     }
 }

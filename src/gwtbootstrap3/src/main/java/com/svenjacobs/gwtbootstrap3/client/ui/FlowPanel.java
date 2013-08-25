@@ -30,9 +30,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Spy;
  */
 public class FlowPanel extends com.google.gwt.user.client.ui.FlowPanel implements HasSpy, HasId, HasTarget {
 
-    private final SpyMixin spyMixin = new SpyMixin(this);
-    private final IdMixin idMixin = new IdMixin(this);
-    private final TargetMixin targetMixin = new TargetMixin(this);
+    private final SpyMixin<FlowPanel> spyMixin = new SpyMixin<FlowPanel>(this);
+    private final IdMixin<FlowPanel> idMixin = new IdMixin<FlowPanel>(this);
+    private final TargetMixin<FlowPanel> targetMixin = new TargetMixin<FlowPanel>(this);
 
     @Override
     public void setSpy(final Spy spy) {

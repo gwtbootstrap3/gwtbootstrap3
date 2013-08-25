@@ -38,7 +38,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.TypeAttrType;
  */
 public abstract class AbstractLabelButton extends AbstractIconButton implements HasActive {
 
-    private final ActiveMixin activeMixin = new ActiveMixin(this);
+    private final ActiveMixin<AbstractLabelButton> activeMixin = new ActiveMixin<AbstractLabelButton>(this);
     private final InputButton input;
 
     protected AbstractLabelButton(final TypeAttrType typeAttr) {
@@ -48,7 +48,7 @@ public abstract class AbstractLabelButton extends AbstractIconButton implements 
         input.setStyleName("");
 
         add(input, getElement());
-        add(text, getElement());
+        iconTextMixin.addTextWidgetToParent();
     }
 
     @Override

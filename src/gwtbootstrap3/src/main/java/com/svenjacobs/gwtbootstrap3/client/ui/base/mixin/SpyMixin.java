@@ -28,9 +28,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Spy;
 /**
  * @author Sven Jacobs
  */
-public class SpyMixin extends AbstractMixin implements HasSpy {
+public class SpyMixin<T extends UIObject & HasSpy> extends AbstractMixin implements HasSpy {
 
-    public SpyMixin(final UIObject uiObject) {
+    public SpyMixin(final T uiObject) {
         super(uiObject);
     }
 

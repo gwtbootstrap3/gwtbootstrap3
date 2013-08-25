@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.client.ui.base.button;
+package com.svenjacobs.gwtbootstrap3.client.ui.base.mixin;
 
 /*
  * #%L
@@ -24,55 +24,80 @@ import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasIcon;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasIconPosition;
 import com.svenjacobs.gwtbootstrap3.client.ui.Icon;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonType;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.Text;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 
 /**
- * Base class for buttons that can contain an icon.
+ * Mixin for Widgets that have text and an optional icon.
  *
  * @author Sven Jacobs
- * @see Icon
  */
-public abstract class AbstractIconButton extends AbstractButton implements HasText, HasIcon, HasIconPosition {
+public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIconPosition>
+        implements HasText, HasIcon, HasIconPosition {
 
-    IconTextMixin<AbstractIconButton> iconTextMixin = new IconTextMixin<AbstractIconButton>(this);
+    private final T widget;
+    private final Text text = new Text();
+    private Icon icon;
+    private IconPosition iconPosition = IconPosition.LEFT;
 
-    protected AbstractIconButton() {
+    public IconTextMixin(final T widget) {
+        this.widget = widget;
     }
 
-    protected AbstractIconButton(final ButtonType type) {
-        super(type);
+    public void addTextWidgetToParent() {
+        widget.add(text);
     }
 
     @Override
     public void setText(final String text) {
-        iconTextMixin.setText(text);
+        this.text.setText(" " + text + " ");
     }
 
     @Override
     public String getText() {
-        return iconTextMixin.getText();
+        return text.getText();
     }
 
     @Override
     public void setIcon(final IconType iconType) {
-        iconTextMixin.setIcon(iconType);
+        render(new Icon(iconType));
     }
 
     @Override
     public IconType getIcon() {
-        return iconTextMixin.getIcon();
+        return icon == null ? null : icon.getType();
     }
 
     @Override
     public void setIconPosition(final IconPosition iconPosition) {
-        iconTextMixin.setIconPosition(iconPosition);
+        this.iconPosition = iconPosition;
+        render(icon);
     }
 
     @Override
     public IconPosition getIconPosition() {
-        return iconTextMixin.getIconPosition();
+        return iconPosition;
+    }
+
+    private void render(final Icon newIcon) {
+        text.removeFromParent();
+
+        if (icon != null) {
+            icon.removeFromParent();
+        }
+
+        icon = newIcon;
+
+        if (iconPosition == IconPosition.LEFT) {
+            widget.add(icon);
+        }
+
+        widget.add(text);
+
+        if (iconPosition == IconPosition.RIGHT) {
+            widget.add(icon);
+        }
     }
 }

@@ -29,7 +29,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  */
 public class TextBox extends com.google.gwt.user.client.ui.TextBox implements HasId {
 
-    private final IdMixin idMixin = new IdMixin(this);
+    private final IdMixin<TextBox> idMixin = new IdMixin<TextBox>(this);
 
     public TextBox() {
         super(DOM.createInputText());

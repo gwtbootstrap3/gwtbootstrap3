@@ -28,9 +28,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Pull;
 /**
  * @author Sven Jacobs
  */
-public class PullMixin extends AbstractMixin implements HasPull {
+public class PullMixin<T extends UIObject & HasPull> extends AbstractMixin implements HasPull {
 
-    public PullMixin(final UIObject uiObject) {
+    public PullMixin(final T uiObject) {
         super(uiObject);
     }
 

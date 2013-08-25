@@ -33,7 +33,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
  */
 public abstract class AbstractTextWidget extends Widget implements HasId, HasText {
 
-    private final IdMixin idMixin = new IdMixin(this);
+    private final IdMixin<AbstractTextWidget> idMixin = new IdMixin<AbstractTextWidget>(this);
 
     protected AbstractTextWidget(final Element element) {
         setElement(element);

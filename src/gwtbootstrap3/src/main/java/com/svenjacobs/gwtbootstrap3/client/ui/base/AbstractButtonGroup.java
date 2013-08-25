@@ -40,8 +40,8 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
  */
 public abstract class AbstractButtonGroup extends FlowPanel implements HasToggle, HasJustified, HasPull {
 
-    private final PullMixin pullMixin = new PullMixin(this);
-    private final ToggleMixin toggleMixin = new ToggleMixin(this);
+    private final PullMixin<AbstractButtonGroup> pullMixin = new PullMixin<AbstractButtonGroup>(this);
+    private final ToggleMixin<AbstractButtonGroup> toggleMixin = new ToggleMixin<AbstractButtonGroup>(this);
 
     protected AbstractButtonGroup(final String styleName) {
         setStyleName(styleName);

@@ -30,8 +30,8 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Spy;
  */
 public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implements HasSpy, HasTarget {
 
-    private final SpyMixin spyMixin = new SpyMixin(this);
-    private final TargetMixin targetMixin = new TargetMixin(this);
+    private final SpyMixin<HTMLPanel> spyMixin = new SpyMixin<HTMLPanel>(this);
+    private final TargetMixin<HTMLPanel> targetMixin = new TargetMixin<HTMLPanel>(this);
 
     public HTMLPanel(final String html) {
         super(html);

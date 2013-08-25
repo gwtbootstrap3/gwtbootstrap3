@@ -31,7 +31,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  */
 public class NavbarForm extends AbstractForm implements HasPull {
 
-    private final PullMixin pullMixin = new PullMixin(this);
+    private final PullMixin<NavbarForm> pullMixin = new PullMixin<NavbarForm>(this);
 
     public NavbarForm() {
         setStyleName(Styles.NAVBAR_FORM);
