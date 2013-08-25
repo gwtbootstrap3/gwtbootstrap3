@@ -88,7 +88,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 
 | Feature     | Status              |
 |-------------|---------------------|
-| Glyphicons  | Not supported       |
+| Glyphicons  | Supported           |
 | Grid system | Supported           |
 | Typography  | Partially supported |
 | Code        | Supported           |
