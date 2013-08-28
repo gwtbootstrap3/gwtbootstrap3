@@ -23,7 +23,9 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
+import com.google.gwt.user.client.ui.Focusable;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonType;
 
 /**
@@ -33,29 +35,56 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonType;
  * @see Button
  * @see com.svenjacobs.gwtbootstrap3.client.ui.base.button.AbstractToggleButton
  */
-public class AnchorButton extends AbstractToggleButton implements HasHref {
+public class AnchorButton extends AbstractToggleButton implements HasHref, Focusable {
 
-    public AnchorButton() {
-        setHref("#");
-    }
+    private final FocusableMixin focusableMixin;
 
     public AnchorButton(final ButtonType type) {
         super(type);
         setHref("#");
+        focusableMixin = new FocusableMixin(getAnchorElement());
+    }
+
+    public AnchorButton() {
+        this(ButtonType.DEFAULT);
     }
 
     @Override
     public void setHref(final String href) {
-        AnchorElement.as(getElement()).setHref(href);
+        getAnchorElement().setHref(href);
     }
 
     @Override
     public String getHref() {
-        return AnchorElement.as(getElement()).getHref();
+        return getAnchorElement().getHref();
     }
 
     @Override
     protected Element createElement() {
         return DOM.createAnchor();
+    }
+
+    @Override
+    public int getTabIndex() {
+        return focusableMixin.getTabIndex();
+    }
+
+    @Override
+    public void setAccessKey(final char key) {
+        focusableMixin.setAccessKey(key);
+    }
+
+    @Override
+    public void setFocus(final boolean focused) {
+        focusableMixin.setFocus(focused);
+    }
+
+    @Override
+    public void setTabIndex(final int index) {
+        focusableMixin.setTabIndex(index);
+    }
+
+    private AnchorElement getAnchorElement() {
+        return AnchorElement.as(getElement());
     }
 }

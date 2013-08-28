@@ -39,6 +39,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
     private final T widget;
     private final Text text = new Text();
+    private final Text separator = new Text(" ");
     private Icon icon;
     private IconPosition iconPosition = IconPosition.LEFT;
 
@@ -52,7 +53,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
     @Override
     public void setText(final String text) {
-        this.text.setText(" " + text + " ");
+        this.text.setText(text);
     }
 
     @Override
@@ -83,6 +84,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
     private void render(final Icon newIcon) {
         text.removeFromParent();
+        separator.removeFromParent();
 
         if (icon != null) {
             icon.removeFromParent();
@@ -92,11 +94,13 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
         if (iconPosition == IconPosition.LEFT) {
             widget.add(icon);
+            widget.add(separator);
         }
 
         widget.add(text);
 
         if (iconPosition == IconPosition.RIGHT) {
+            widget.add(separator);
             widget.add(icon);
         }
     }

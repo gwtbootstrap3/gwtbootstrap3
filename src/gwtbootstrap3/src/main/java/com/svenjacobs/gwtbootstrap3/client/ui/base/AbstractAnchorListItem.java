@@ -23,6 +23,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.Focusable;
 import com.svenjacobs.gwtbootstrap3.client.ui.Anchor;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasHref;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasTargetHistoryToken;
@@ -32,7 +33,8 @@ import com.svenjacobs.gwtbootstrap3.client.ui.HasTargetHistoryToken;
  *
  * @author Sven Jacobs
  */
-public abstract class AbstractAnchorListItem extends AbstractListItem implements HasHref, HasTargetHistoryToken, HasClickHandlers {
+public abstract class AbstractAnchorListItem extends AbstractListItem
+        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable {
 
     protected final Anchor anchor;
 
@@ -64,5 +66,25 @@ public abstract class AbstractAnchorListItem extends AbstractListItem implements
     @Override
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
         return anchor.addClickHandler(handler);
+    }
+
+    @Override
+    public int getTabIndex() {
+        return anchor.getTabIndex();
+    }
+
+    @Override
+    public void setAccessKey(final char key) {
+        anchor.setAccessKey(key);
+    }
+
+    @Override
+    public void setFocus(final boolean focused) {
+        anchor.setFocus(focused);
+    }
+
+    @Override
+    public void setTabIndex(final int index) {
+        anchor.setTabIndex(index);
     }
 }
