@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.client.ui.constants;
+package com.svenjacobs.gwtbootstrap3.client.ui;
 
 /*
  * #%L
@@ -20,23 +20,13 @@ package com.svenjacobs.gwtbootstrap3.client.ui.constants;
  * #L%
  */
 
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.NavbarPull;
+
 /**
  * @author Sven Jacobs
  */
-public enum Toggle {
-    BUTTON("button"),
-    BUTTONS("buttons"),
-    COLLAPSE("collapse"),
-    DROPDOWN("dropdown"),
-    MODAL("modal");
+public interface HasNavbarPull {
+    void setPull(NavbarPull pull);
 
-    private final String toggle;
-
-    private Toggle(final String toggle) {
-        this.toggle = toggle;
-    }
-
-    public String getToggle() {
-        return toggle;
-    }
+    NavbarPull getPull();
 }

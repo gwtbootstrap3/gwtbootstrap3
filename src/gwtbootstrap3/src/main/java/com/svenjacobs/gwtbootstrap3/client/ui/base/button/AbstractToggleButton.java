@@ -21,6 +21,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base.button;
  */
 
 import com.svenjacobs.gwtbootstrap3.client.ui.HasToggle;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.Text;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
@@ -36,6 +37,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
 public abstract class AbstractToggleButton extends AbstractIconButton implements HasToggle {
 
     private final ToggleMixin<AbstractToggleButton> toggleMixin = new ToggleMixin<AbstractToggleButton>(this);
+    private final Text separator = new Text(" ");
     private final Caret caret = new Caret();
 
     protected AbstractToggleButton() {
@@ -59,12 +61,14 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
     public void setToggle(final Toggle toggle) {
         toggleMixin.setToggle(toggle);
 
+        separator.removeFromParent();
+        caret.removeFromParent();
+
         if (toggle == Toggle.DROPDOWN) {
             addStyleName(Styles.DROPDOWN_TOGGLE);
 
-            if (caret.getParent() == null) {
-                add(caret, getElement());
-            }
+            add(separator, getElement());
+            add(caret, getElement());
         }
     }
 

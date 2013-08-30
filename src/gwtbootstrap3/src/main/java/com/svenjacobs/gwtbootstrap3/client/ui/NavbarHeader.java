@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.client.ui.constants;
+package com.svenjacobs.gwtbootstrap3.client.ui;
 
 /*
  * #%L
@@ -20,23 +20,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui.constants;
  * #L%
  */
 
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
+
 /**
  * @author Sven Jacobs
  */
-public enum Toggle {
-    BUTTON("button"),
-    BUTTONS("buttons"),
-    COLLAPSE("collapse"),
-    DROPDOWN("dropdown"),
-    MODAL("modal");
+public class NavbarHeader extends FlowPanel {
 
-    private final String toggle;
-
-    private Toggle(final String toggle) {
-        this.toggle = toggle;
-    }
-
-    public String getToggle() {
-        return toggle;
+    public NavbarHeader() {
+        setStyleName(Styles.NAVBAR_HEADER);
     }
 }

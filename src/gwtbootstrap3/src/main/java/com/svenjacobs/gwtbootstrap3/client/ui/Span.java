@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.client.ui.constants;
+package com.svenjacobs.gwtbootstrap3.client.ui;
 
 /*
  * #%L
@@ -20,23 +20,15 @@ package com.svenjacobs.gwtbootstrap3.client.ui.constants;
  * #L%
  */
 
+import com.google.gwt.user.client.DOM;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+
 /**
  * @author Sven Jacobs
  */
-public enum Toggle {
-    BUTTON("button"),
-    BUTTONS("buttons"),
-    COLLAPSE("collapse"),
-    DROPDOWN("dropdown"),
-    MODAL("modal");
+public class Span extends ComplexWidget {
 
-    private final String toggle;
-
-    private Toggle(final String toggle) {
-        this.toggle = toggle;
-    }
-
-    public String getToggle() {
-        return toggle;
+    public Span() {
+        setElement(DOM.createSpan());
     }
 }

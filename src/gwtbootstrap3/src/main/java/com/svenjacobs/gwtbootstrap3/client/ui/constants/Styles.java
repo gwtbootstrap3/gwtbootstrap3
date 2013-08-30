@@ -27,11 +27,8 @@ public final class Styles {
 
     public static final String ACTIVE = "active";
 
-    public static final String AFFIX = "affix";
-
     public static final String ALERT = "alert";
     public static final String ALERT_DISMISSABLE = "alert-dismissable";
-    public static final String ALERT_LINK = "alert-link";
 
     public static final String BADGE = "badge";
 
@@ -45,6 +42,8 @@ public final class Styles {
     public static final String CARET = "caret";
 
     public static final String CLOSE = "close";
+
+    public static final String COLLAPSE = "collapse";
 
     public static final String CONTAINER = "container";
 
@@ -68,6 +67,8 @@ public final class Styles {
     public static final String FORM_GROUP = "form-group";
 
     public static final String GLYPHICON = "glyphicon";
+
+    public static final String ICON_BAR = "icon-bar";
 
     public static final String INPUT_GROUP = "input-group";
     public static final String INPUT_GROUP_ADDON = "input-group-addon";
@@ -93,10 +94,15 @@ public final class Styles {
 
     public static final String NAVBAR = "navbar";
     public static final String NAVBAR_BRAND = "navbar-brand";
+    public static final String NAVBAR_COLLAPSE = "navbar-collapse";
     public static final String NAVBAR_FORM = "navbar-form";
+    public static final String NAVBAR_HEADER = "navbar-header";
     public static final String NAVBAR_LINK = "navbar-link";
     public static final String NAVBAR_NAV = "navbar-nav";
     public static final String NAVBAR_TEXT = "navbar-text";
+    public static final String NAVBAR_TOGGLE = "navbar-toggle";
+    public static final String NAVBAR_LEFT = "navbar-left";
+    public static final String NAVBAR_RIGHT = "navbar-right";
 
     public static final String PAGE_HEADER = "page-header";
 

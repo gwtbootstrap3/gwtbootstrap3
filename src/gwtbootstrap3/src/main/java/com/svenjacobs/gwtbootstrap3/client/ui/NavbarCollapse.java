@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.client.ui.constants;
+package com.svenjacobs.gwtbootstrap3.client.ui;
 
 /*
  * #%L
@@ -20,23 +20,18 @@ package com.svenjacobs.gwtbootstrap3.client.ui.constants;
  * #L%
  */
 
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
+
 /**
+ * Container for collapsible items within a {@link Navbar}.
+ *
  * @author Sven Jacobs
+ * @see NavbarCollapseButton
  */
-public enum Toggle {
-    BUTTON("button"),
-    BUTTONS("buttons"),
-    COLLAPSE("collapse"),
-    DROPDOWN("dropdown"),
-    MODAL("modal");
+public class NavbarCollapse extends FlowPanel {
 
-    private final String toggle;
-
-    private Toggle(final String toggle) {
-        this.toggle = toggle;
-    }
-
-    public String getToggle() {
-        return toggle;
+    public NavbarCollapse() {
+        setStyleName(Styles.COLLAPSE);
+        addStyleName(Styles.NAVBAR_COLLAPSE);
     }
 }

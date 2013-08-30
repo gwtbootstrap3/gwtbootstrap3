@@ -35,8 +35,10 @@
 
         <b:Navbar position="FIXED_TOP">
             <b:Container>
-                <b:NavbarBrand>GwtBootstrap3</b:NavbarBrand>
-                <b:NavbarText>Examples</b:NavbarText>
+                <b:NavbarHeader>
+                    <b:NavbarBrand>GwtBootstrap3</b:NavbarBrand>
+                    <b:NavbarText>Examples</b:NavbarText>
+                </b:NavbarHeader>
             </b:Container>
         </b:Navbar>
 
@@ -793,60 +795,70 @@
                     <b:PageHeader b:id="navbar">Navbar</b:PageHeader>
 
                     <b:Navbar>
-                        <b:NavbarBrand>Brand</b:NavbarBrand>
+                        <b:NavbarHeader>
+                            <b:NavbarBrand>Brand</b:NavbarBrand>
+                            <b:NavbarCollapseButton target="#navbar-collapse"/>
+                        </b:NavbarHeader>
 
-                        <b:NavbarNav>
-                            <b:ListItem active="true">Item 1</b:ListItem>
-                            <b:ListItem>Item 2</b:ListItem>
-                            <b:ListItem>Item 3</b:ListItem>
+                        <b:NavbarCollapse b:id="navbar-collapse">
+                            <b:NavbarNav>
+                                <b:ListItem active="true">Item 1</b:ListItem>
+                                <b:ListItem>Item 2</b:ListItem>
+                                <b:ListItem>Item 3</b:ListItem>
 
-                            <b:ListDropDown>
-                                <b:AnchorButton toggle="DROPDOWN">Dropdown</b:AnchorButton>
-                                <b:DropDownMenu>
-                                    <b:ListItem>Dropdown 1</b:ListItem>
-                                    <b:ListItem>Dropdown 2</b:ListItem>
-                                    <b:ListItem>Dropdown 3</b:ListItem>
-                                </b:DropDownMenu>
-                            </b:ListDropDown>
-                        </b:NavbarNav>
+                                <b:ListDropDown>
+                                    <b:AnchorButton toggle="DROPDOWN">Dropdown</b:AnchorButton>
+                                    <b:DropDownMenu>
+                                        <b:ListItem>Dropdown 1</b:ListItem>
+                                        <b:ListItem>Dropdown 2</b:ListItem>
+                                        <b:ListItem>Dropdown 3</b:ListItem>
+                                    </b:DropDownMenu>
+                                </b:ListDropDown>
+                            </b:NavbarNav>
 
-                        <b:NavbarForm pull="LEFT">
-                            <b:TextBox placeHolder="Search" addStyleNames="col-lg-8"/>
-                        </b:NavbarForm>
+                            <b:NavbarForm pull="LEFT">
+                                <b:TextBox placeHolder="Search" addStyleNames="col-lg-8"/>
+                            </b:NavbarForm>
 
-                        <b:NavbarText pull="RIGHT">
-                            Signed in as
-                            <b:NavbarLink>John Snow</b:NavbarLink>
-                        </b:NavbarText>
+                            <b:NavbarText pull="RIGHT">
+                                Signed in as
+                                <b:NavbarLink>John Snow</b:NavbarLink>
+                            </b:NavbarText>
+                        </b:NavbarCollapse>
                     </b:Navbar>
 
                     <b:Pre addStyleNames="prettyprint lang-xml">
                         &lt;b:Navbar&gt;\n
-                        \s\s&lt;b:NavbarBrand&gt;Brand&lt;/b:NavbarBrand&gt;\n
+                        \s\s&lt;b:NavbarHeader&gt;\n
+                        \s\s\s\s&lt;b:NavbarBrand&gt;Brand&lt;/b:NavbarBrand&gt;\n
+                        \s\s\s\s&lt;b:NavbarCollapseButton target="#navbar-collapse"/&gt;\n
+                        \s\s&lt;b:NavbarHeader&gt;\n
                         \n
-                        \s\s&lt;b:NavbarNav&gt;\n
-                        \s\s\s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
-                        \s\s\s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
-                        \s\s\s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
+                        \s\s&lt;b:NavbarCollapse b:id="navbar-collapse"&gt;\n
+                        \s\s\s\s&lt;b:NavbarNav&gt;\n
+                        \s\s\s\s\s\s&lt;b:ListItem active="true"&gt;Item 1&lt;/b:ListItem&gt;\n
+                        \s\s\s\s\s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                        \s\s\s\s\s\s&lt;b:ListItem&gt;Item 3&lt;/b:ListItem&gt;\n
                         \n
-                        \s\s\s\s&lt;b:ListDropDown&gt;\n
-                        \s\s\s\s\s\s&lt;b:AnchorButton toggle="DROPDOWN"&gt;Dropdown&lt;/b:AnchorButton&gt;\n
-                        \s\s\s\s\s\s&lt;b:DropDownMenu&gt;\n
-                        \s\s\s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 1&lt;/b:ListItem&gt;\n
-                        \s\s\s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 2&lt;/b:ListItem&gt;\n
-                        \s\s\s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 3&lt;/b:ListItem&gt;\n
-                        \s\s\s\s\s\s&lt;/b:DropDownMenu&gt;\n
-                        \s\s\s\s&lt;/b:ListDropDown&gt;\n
-                        \s\s&lt;/b:NavbarNav&gt;\n
+                        \s\s\s\s\s\s&lt;b:ListDropDown&gt;\n
+                        \s\s\s\s\s\s\s\s&lt;b:AnchorButton toggle="DROPDOWN"&gt;Dropdown&lt;/b:AnchorButton&gt;\n
+                        \s\s\s\s\s\s\s\s&lt;b:DropDownMenu&gt;\n
+                        \s\s\s\s\s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 1&lt;/b:ListItem&gt;\n
+                        \s\s\s\s\s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 2&lt;/b:ListItem&gt;\n
+                        \s\s\s\s\s\s\s\s\s\s&lt;b:ListItem&gt;Dropdown 3&lt;/b:ListItem&gt;\n
+                        \s\s\s\s\s\s\s\s&lt;/b:DropDownMenu&gt;\n
+                        \s\s\s\s\s\s&lt;/b:ListDropDown&gt;\n
+                        \s\s\s\s&lt;/b:NavbarNav&gt;\n
                         \n
-                        \s\s&lt;b:NavbarForm pull="LEFT"&gt;\n
-                        \s\s\s\s&lt;b:TextBox placeHolder="Search" addStyleNames="col-lg-8"/&gt;\n
-                        \s\s&lt;/b:NavbarForm&gt;\n
+                        \s\s\s\s&lt;b:NavbarForm pull="LEFT"&gt;\n
+                        \s\s\s\s\s\s&lt;b:TextBox placeHolder="Search" addStyleNames="col-lg-8"/&gt;\n
+                        \s\s\s\s&lt;/b:NavbarForm&gt;\n
                         \n
-                        \s\s&lt;b:NavbarText pull="RIGHT"&gt;\n
-                        \s\s\s\sSigned in as\n
-                        \s\s\s\s&lt;b:NavbarLink&gt;John Snow&lt;/b:NavbarLink&gt;\n
-                        \s\s&lt;/b:NavbarText&gt;\n
+                        \s\s\s\s&lt;b:NavbarText pull="RIGHT"&gt;\n
+                        \s\s\s\s\s\sSigned in as\n
+                        \s\s\s\s\s\s&lt;b:NavbarLink&gt;John Snow&lt;/b:NavbarLink&gt;\n
+                        \s\s\s\s&lt;/b:NavbarText&gt;\n
+                        \s\s&lt;/b:NavbarCollapse&gt;\n
                         &lt;/b:Navbar&gt;
                     </b:Pre>
 

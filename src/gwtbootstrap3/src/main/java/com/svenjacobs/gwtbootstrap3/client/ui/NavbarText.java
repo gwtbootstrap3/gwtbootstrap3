@@ -22,14 +22,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.Pull;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.NavbarPull;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Sven Jacobs
  * @see NavbarLink
  */
-public class NavbarText extends HTMLPanel implements HasPull {
+public class NavbarText extends HTMLPanel implements HasNavbarPull {
 
     public NavbarText() {
         super("p", "");
@@ -42,13 +42,13 @@ public class NavbarText extends HTMLPanel implements HasPull {
     }
 
     @Override
-    public void setPull(final Pull pull) {
-        StyleHelper.addUniqueEnumStyleName(this, Pull.class, pull);
+    public void setPull(final NavbarPull pull) {
+        StyleHelper.addUniqueEnumStyleName(this, NavbarPull.class, pull);
     }
 
     @Override
-    public Pull getPull() {
-        return Pull.fromStyleName(getStyleName());
+    public NavbarPull getPull() {
+        return NavbarPull.fromStyleName(getStyleName());
     }
 
     @Override

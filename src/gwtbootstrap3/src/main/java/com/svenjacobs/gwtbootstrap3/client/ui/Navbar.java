@@ -20,7 +20,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.DOM;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.NavbarPosition;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.NavbarType;
@@ -33,11 +34,13 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @see NavbarForm
  * @see NavbarText
  */
-public class Navbar extends FlowPanel implements HasType<NavbarType> {
+public class Navbar extends ComplexWidget implements HasType<NavbarType> {
 
     public Navbar() {
+        setElement(DOM.createElement("nav"));
         setStyleName(Styles.NAVBAR);
         setType(NavbarType.DEFAULT);
+        getElement().setAttribute("role", "navigation");
     }
 
     @Override

@@ -20,23 +20,28 @@ package com.svenjacobs.gwtbootstrap3.client.ui.constants;
  * #L%
  */
 
+import com.google.gwt.dom.client.Style;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.EnumHelper;
+
 /**
  * @author Sven Jacobs
  */
-public enum Toggle {
-    BUTTON("button"),
-    BUTTONS("buttons"),
-    COLLAPSE("collapse"),
-    DROPDOWN("dropdown"),
-    MODAL("modal");
+public enum NavbarPull implements Style.HasCssName {
+    LEFT(Styles.NAVBAR_LEFT),
+    RIGHT(Styles.NAVBAR_RIGHT);
 
-    private final String toggle;
+    private final String cssClass;
 
-    private Toggle(final String toggle) {
-        this.toggle = toggle;
+    private NavbarPull(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
-    public String getToggle() {
-        return toggle;
+    @Override
+    public String getCssName() {
+        return cssClass;
+    }
+
+    public static NavbarPull fromStyleName(final String styleName) {
+        return EnumHelper.fromStyleName(styleName, NavbarPull.class, null);
     }
 }
