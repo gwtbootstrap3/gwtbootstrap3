@@ -32,6 +32,8 @@ public final class Styles {
 
     public static final String BADGE = "badge";
 
+    public static final String BREADCRUMB = "breadcrumb";
+
     public static final String BTN = "btn";
     public static final String BTN_BLOCK = "btn-block";
     public static final String BTN_GROUP = "btn-group";
@@ -40,6 +42,8 @@ public final class Styles {
     public static final String BTN_TOOLBAR = "btn-toolbar";
 
     public static final String CARET = "caret";
+
+    public static final String CLEARFIX = "clearfix";
 
     public static final String CLOSE = "close";
 
@@ -52,6 +56,8 @@ public final class Styles {
     public static final String DIVIDER = "divider";
 
     public static final String DISABLED = "disabled";
+
+    public static final String DL_HORIZONTAL = "dl-horizontal";
 
     public static final String DROP_UP = "dropup";
 
@@ -66,7 +72,14 @@ public final class Styles {
     public static final String FORM_CONTROL_STATIC = "form-control-static";
     public static final String FORM_GROUP = "form-group";
 
-    public static final String GLYPHICON = "glyphicon";
+    public static final String HELP_BLOCK = "help-block";
+
+    public static final String ICON_LIGHT = "icon-light";
+    public static final String ICON_MUTED = "icon-muted";
+    public static final String ICON_BORDER = "icon-border";
+    public static final String ICON_STACK = "icon-stack";
+    public static final String ICON_SPIN = "icon-spin";
+    public static final String ICON_STACK_BASE = "icon-stack-base";
 
     public static final String ICON_BAR = "icon-bar";
 
@@ -77,6 +90,12 @@ public final class Styles {
     public static final String JUMBOTRON = "jumbotron";
 
     public static final String LABEL = "label";
+
+    public static final String LEAD = "lead";
+
+    public static final String LIST_INLINE = "list-inline";
+    public static final String LIST_GROUP = "list-group";
+    public static final String LIST_GROUP_ITEM = "list-group-item";
 
     public static final String MODAL = "modal";
     public static final String MODAL_BODY = "modal-body";
@@ -104,6 +123,12 @@ public final class Styles {
     public static final String NAVBAR_LEFT = "navbar-left";
     public static final String NAVBAR_RIGHT = "navbar-right";
 
+    public static final String PANEL = "panel";
+    public static final String PANEL_HEADING = "panel-heading";
+    public static final String PANEL_TITLE = "panel-title";
+    public static final String PANEL_BODY = "panel-body";
+    public static final String PANEL_FOOTER = "panel-footer";
+
     public static final String PAGE_HEADER = "page-header";
 
     public static final String PRE_SCROLLABLE = "pre-scrollable";
@@ -114,6 +139,8 @@ public final class Styles {
     public static final String ROW = "row";
 
     public static final String WELL = "well";
+
+    public static final String UNSTYLED = "unstyled";
 
     private Styles() {
     }

@@ -20,7 +20,10 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
+import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.HasHTML;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 
 /**
@@ -29,9 +32,47 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractTextWidget;
  * @author Sven Jacobs
  * @see Pre
  */
-public class Code extends AbstractTextWidget {
+public class Code extends AbstractTextWidget implements HasHTML {
 
     public Code() {
         super(DOM.createElement("code"));
     }
+
+    @Override
+    public String getHTML() {
+        return getElement().getInnerHTML();
+    }
+
+    /**
+     * Sets HTML contents.
+     * <p/>
+     * If HTML contains "\n" it will be replaced by a {@code <br>} element
+     * and "\s" will be replaced by a whitespace.
+     *
+     * @param html HTML contents
+     */
+    @Override
+    public void setHTML(final String html) {
+        final SafeHtmlBuilder builder = new SafeHtmlBuilder();
+        final String[] splitted = html.replaceAll("\\\\s", " ").split("\\\\n\\s?");
+
+        for (final String s : splitted) {
+            builder.append(SafeHtmlUtils.fromTrustedString(SafeHtmlUtils.htmlEscapeAllowEntities(s)));
+            builder.appendHtmlConstant("<br>");
+        }
+
+        getElement().setInnerHTML(builder.toSafeHtml().asString());
+    }
+
+    @Override
+    protected void onLoad() {
+        super.onLoad();
+
+        // When the widget loads, force the styling of pretty print
+        prettyPrint();
+    }
+
+    private native void prettyPrint() /*-{
+        $wnd.prettyPrint();
+    }-*/;
 }

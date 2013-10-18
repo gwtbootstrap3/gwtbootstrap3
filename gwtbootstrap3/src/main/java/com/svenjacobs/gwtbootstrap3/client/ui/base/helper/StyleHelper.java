@@ -56,7 +56,7 @@ public final class StyleHelper {
         for (final Enum<? extends Style.HasCssName> constant : enumClass.getEnumConstants()) {
             final String cssClass = ((Style.HasCssName) constant).getCssName();
 
-            if (cssClass != null) {
+            if (cssClass != null && !cssClass.isEmpty()) {
                 uiObject.removeStyleName(cssClass);
             }
         }
@@ -71,7 +71,7 @@ public final class StyleHelper {
     public static <E extends Style.HasCssName> void addEnumStyleName(final UIObject uiObject,
                                                                      final E style) {
 
-        if (style != null && style.getCssName() != null) {
+        if (style != null && style.getCssName() != null && !style.getCssName().isEmpty()) {
             uiObject.addStyleName(style.getCssName());
         }
     }
@@ -99,6 +99,23 @@ public final class StyleHelper {
         }
 
         return false;
+    }
+
+    /**
+     * Toggles a style name on a ui object
+     *
+     * @param uiObject  Object to toggle style on
+     * @param value     on / off (true / false)
+     * @param styleName Style name
+     */
+    public static void toggleStyleName(final UIObject uiObject,
+                                       final boolean value,
+                                       final String styleName) {
+        if (value) {
+            uiObject.addStyleName(styleName);
+        } else {
+            uiObject.removeStyleName(styleName);
+        }
     }
 
     private StyleHelper() {

@@ -20,8 +20,6 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Attributes;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Pull;
@@ -35,12 +33,11 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @author Sven Jacobs
  * @see ButtonGroup
  */
-public class DropDownMenu extends ComplexWidget implements HasPull {
+public class DropDownMenu extends UnorderedList implements HasPull {
 
     private final PullMixin<DropDownMenu> pullMixin = new PullMixin<DropDownMenu>(this);
 
     public DropDownMenu() {
-        setElement(DOM.createElement("ul"));
         setStyleName(Styles.DROPDOWN_MENU);
         getElement().setAttribute(Attributes.ROLE, "menu");
     }

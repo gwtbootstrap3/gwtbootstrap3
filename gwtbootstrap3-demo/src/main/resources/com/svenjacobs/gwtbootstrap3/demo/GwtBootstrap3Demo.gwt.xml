@@ -18,8 +18,8 @@
   #L%
   -->
 <module rename-to="GwtBootstrap3Demo">
-    <inherits name="com.google.gwt.uibinder.UiBinder" />
-    <inherits name="com.svenjacobs.gwtbootstrap3.GwtBootstrap3" />
+    <inherits name="com.google.gwt.uibinder.UiBinder"/>
+    <inherits name="com.svenjacobs.gwtbootstrap3.GwtBootstrap3"/>
 
     <public path='resource'>
         <include name='css/*.css'/>
@@ -30,7 +30,7 @@
     <stylesheet src='css/prettify.css'/>
     <script src='js/prettify.js'/>
 
-    <entry-point class="com.svenjacobs.gwtbootstrap3.demo.client.GwtBootstrap3Demo"/>
+    <entry-point class="com.svenjacobs.gwtbootstrap3.demo.client.DemoEntryPoint"/>
 
     <source path="client"/>
 </module>

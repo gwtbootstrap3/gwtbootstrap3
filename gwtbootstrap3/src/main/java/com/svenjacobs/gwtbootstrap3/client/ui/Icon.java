@@ -20,9 +20,12 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconFlip;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconRotate;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -35,10 +38,10 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 public class Icon extends Widget implements HasType<IconType> {
 
     public Icon() {
-        setElement(DOM.createSpan());
-        setStyleName(Styles.GLYPHICON);
+        setElement(DOM.createElement("i"));
     }
 
+    @UiConstructor
     public Icon(final IconType type) {
         this();
         setType(type);
@@ -52,5 +55,42 @@ public class Icon extends Widget implements HasType<IconType> {
     @Override
     public IconType getType() {
         return IconType.fromStyleName(getStyleName());
+    }
+
+    public void setLight(final boolean light) {
+        StyleHelper.toggleStyleName(this, light, Styles.ICON_LIGHT);
+    }
+
+    public void setMuted(final boolean muted) {
+        StyleHelper.toggleStyleName(this, muted, Styles.ICON_MUTED);
+    }
+
+    public void setBorder(final boolean border) {
+        StyleHelper.toggleStyleName(this, border, Styles.ICON_BORDER);
+    }
+
+    public void setStackBase(final boolean stackBase) {
+        StyleHelper.toggleStyleName(this, stackBase, Styles.ICON_STACK_BASE);
+    }
+
+    public void setSpin(final boolean spin) {
+        StyleHelper.toggleStyleName(this, spin, Styles.ICON_SPIN);
+    }
+
+
+    public void setRotate(final IconRotate iconRotate) {
+        if (iconRotate == null || iconRotate == IconRotate.NONE) {
+            return;
+        }
+
+        StyleHelper.addUniqueEnumStyleName(this, IconRotate.class, iconRotate);
+    }
+
+    public void setFlip(final IconFlip iconFlip) {
+        if (iconFlip == null || iconFlip == IconFlip.NONE) {
+            return;
+        }
+
+        StyleHelper.addUniqueEnumStyleName(this, IconFlip.class, iconFlip);
     }
 }

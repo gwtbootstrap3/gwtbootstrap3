@@ -88,14 +88,14 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 
 | Feature     | Status              |
 |-------------|---------------------|
-| Glyphicons  | Supported           |
+| FontAwesome | Supported           |
 | Grid system | Supported           |
-| Typography  | Partially supported |
+| Typography  | Supported           |
 | Code        | Supported           |
 | Tables      | Not supported       |
-| Forms       | Partially supported |
+| Forms       | Supported           |
 | Buttons     | Supported           |
-| Images      | Not supported       |
+| Images      | Supported           |
 
 ## Components
 
@@ -107,7 +107,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Input groups                        | Partially supported |
 | Navs                                | Supported           |
 | Navbar                              | Supported           |
-| Breadcrumbs                         | Not supported       |
+| Breadcrumbs                         | Supported           |
 | Pagination                          | Not supported       |
 | Labels                              | Supported           |
 | Badges                              | Supported           |
@@ -116,8 +116,8 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Alerts                              | Supported           |
 | Progress bars                       | Not supported       |
 | Media object                        | Not supported       |
-| List group                          | Not supported       |
-| Panels                              | Not supported       |
+| List group                          | Supported           |
+| Panels                              | Supported           |
 | Wells                               | Supported           |
 
 ## JavaScript

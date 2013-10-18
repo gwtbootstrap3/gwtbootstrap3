@@ -1,0 +1,10 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <b:Row>
+
+        <b:PageHeader text="Progress Bars" subText="TODO!!!"/>
+
+    </b:Row>
+
+</ui:UiBinder>

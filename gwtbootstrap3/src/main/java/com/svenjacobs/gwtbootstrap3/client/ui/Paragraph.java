@@ -23,11 +23,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasHTML;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractTextWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Alignment;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Emphasis;
 
 /**
  * @author Sven Jacobs
  */
-public class Paragraph extends AbstractTextWidget implements HasHTML {
+public class Paragraph extends AbstractTextWidget implements HasHTML, HasAlignment, HasEmphasis {
 
     public Paragraph() {
         super(DOM.createElement("p"));
@@ -41,5 +44,25 @@ public class Paragraph extends AbstractTextWidget implements HasHTML {
     @Override
     public void setHTML(final String html) {
         getElement().setInnerHTML(html);
+    }
+
+    @Override
+    public void setAlignment(Alignment alignment) {
+        StyleHelper.addUniqueEnumStyleName(this, Alignment.class, alignment);
+    }
+
+    @Override
+    public Alignment getAlignment() {
+        return Alignment.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public void setEmphasis(Emphasis emphasis) {
+        StyleHelper.addUniqueEnumStyleName(this, Emphasis.class, emphasis);
+    }
+
+    @Override
+    public Emphasis getEmphasis() {
+        return Emphasis.fromStyleName(getStyleName());
     }
 }

@@ -1,0 +1,47 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <b:Row>
+
+        <b:PageHeader text="Code" subText="have code highlighting for users"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Inline"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Bold text="Code for section: "/>
+                <b:Code addStyleNames="prettyprint lang-xml">
+                    &lt;section&gt;
+                </b:Code>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Code&gt;\n
+                    \s\s...\n
+                    &lt;/b:Code&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Block"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Paragraph emphasis="MUTED"/&gt;\n
+                </b:Pre>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Pre&gt;\n
+                    \s\s...\n
+                    &lt;/b:Pre&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+    </b:Row>
+
+</ui:UiBinder>

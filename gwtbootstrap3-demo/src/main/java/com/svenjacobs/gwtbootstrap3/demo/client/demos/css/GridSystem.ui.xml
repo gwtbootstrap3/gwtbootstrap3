@@ -1,0 +1,171 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <ui:style>
+        .column {
+            border: 1px solid #000000;
+            text-align: center;
+        }
+    </ui:style>
+
+    <b:Row>
+
+        <b:PageHeader text="Grid System" subText="12 column system"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Row marginBottom="0">
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
+                </b:Row>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Row&gt;\n
+                    \s\s&lt;b:Column size="MD_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="MD_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="MD_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="MD_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s...\n
+                    &lt;/b:Row&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Responsiveness"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Paragraph>
+                    You can also set the sizes for each view port (Mobile/Table/Desktop/Large Desktop) right in the size
+                    so that it will be responsive without any extra code! Resize the browser to see!
+                </b:Paragraph>
+                <b:Row marginBottom="0">
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                </b:Row>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Row&gt;\n
+                    &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                    &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                    &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                    &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s...\n
+                    &lt;/b:Row&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Offsetting"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Bold text="TODO"/>
+            </b:PanelBody>
+            <b:PanelFooter>
+
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Nesting"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Bold text="TODO"/>
+            </b:PanelBody>
+            <b:PanelFooter>
+
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Ordering"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Bold text="TODO"/>
+            </b:PanelBody>
+            <b:PanelFooter>
+
+            </b:PanelFooter>
+        </b:Panel>
+
+    </b:Row>
+
+</ui:UiBinder>

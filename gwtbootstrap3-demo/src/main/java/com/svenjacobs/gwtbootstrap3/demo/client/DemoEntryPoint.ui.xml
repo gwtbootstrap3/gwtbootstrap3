@@ -1,0 +1,74 @@
+<!--
+  #%L
+  GwtBootstrap3
+  %%
+  Copyright (C) 2013 Sven Jacobs
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui"
+             xmlns:css="urn:import:com.svenjacobs.gwtbootstrap3.demo.client.demos.css"
+        >
+
+    <ui:style>
+        .buttons button {
+            margin: 0.5em;
+        }
+
+        .labels span {
+            margin-right: 5px;
+        }
+    </ui:style>
+
+    <b:Container>
+
+        <b:Navbar position="FIXED_TOP">
+            <b:Container>
+                <b:NavbarHeader>
+                    <b:NavbarBrand ui:field="brand">GwtBootstrap3</b:NavbarBrand>
+                    <b:NavbarCollapseButton target="#navbar-collapse"/>
+                </b:NavbarHeader>
+                <b:NavbarCollapse b:id="navbar-collapse">
+                    <b:NavbarNav>
+                        <b:ListDropDown>
+                            <b:AnchorButton toggle="DROPDOWN">CSS</b:AnchorButton>
+                            <b:DropDownMenu>
+                                <b:ListItem ui:field="gridSystemLink">Grid System</b:ListItem>
+                                <b:ListItem ui:field="typographyLink">Typography</b:ListItem>
+                                <b:ListItem ui:field="codeLink">Code</b:ListItem>
+                                <b:ListItem ui:field="tablesLink">Tables</b:ListItem>
+                                <b:ListItem ui:field="formsLink">Forms</b:ListItem>
+                                <b:ListItem ui:field="buttonsLink">Buttons</b:ListItem>
+                                <b:ListItem ui:field="imagesLink">Images</b:ListItem>
+                                <b:ListItem ui:field="responsiveUtilitiesLink">Responsive Utilities</b:ListItem>
+                            </b:DropDownMenu>
+                        </b:ListDropDown>
+                        <b:ListItem ui:field="componentsLink">Components</b:ListItem>
+                        <b:ListItem ui:field="javaScriptLink">JavaScript</b:ListItem>
+                    </b:NavbarNav>
+                </b:NavbarCollapse>
+            </b:Container>
+        </b:Navbar>
+
+        <!-- Container Content -->
+        <b:Row ui:field="container" width="100%">
+            <css:Buttons/>
+
+
+        </b:Row>
+
+    </b:Container>
+
+</ui:UiBinder>

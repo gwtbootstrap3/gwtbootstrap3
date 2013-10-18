@@ -20,6 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.DOM;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
@@ -35,5 +36,13 @@ public class Row extends ComplexWidget {
     public Row() {
         setElement(DOM.createDiv());
         setStyleName(Styles.ROW);
+    }
+
+    public void setMarginTop(int marginTop) {
+        getElement().getStyle().setMarginTop(marginTop, Style.Unit.PX);
+    }
+
+    public void setMarginBottom(int marginBottom) {
+        getElement().getStyle().setMarginBottom(marginBottom, Style.Unit.PX);
     }
 }

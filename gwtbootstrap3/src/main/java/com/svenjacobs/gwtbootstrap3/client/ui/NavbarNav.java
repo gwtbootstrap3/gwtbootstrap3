@@ -20,8 +20,6 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -32,10 +30,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @see ListItem
  * @see ListDropDown
  */
-public class NavbarNav extends ComplexWidget {
+public class NavbarNav extends UnorderedList {
 
     public NavbarNav() {
-        setElement(DOM.createElement("ul"));
         setStyleName(Styles.NAV);
         addStyleName(Styles.NAVBAR_NAV);
     }
