@@ -3,7 +3,6 @@
 * Finish support for Input Groups
 * Add support for Pagination
 * Add support for Thumbnails
-* Add support for Progress Bars
 * Add support for Media Objects
 * Add support for Transitions
 * Add support for Tabs

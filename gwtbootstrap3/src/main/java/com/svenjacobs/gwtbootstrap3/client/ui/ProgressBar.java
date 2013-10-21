@@ -20,8 +20,58 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Style;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.ProgressBarType;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
+
 /**
  * @author Joshua Godi
  */
-public class ProgressBar extends Div {
+public class ProgressBar extends Div implements HasType<ProgressBarType> {
+    private Span span = new Span();
+
+    public ProgressBar() {
+        // Default attributes
+//        getElement().setAttribute("role", "progressbar");
+//        getElement().setAttribute("aria-valuemin", "0");
+//        getElement().setAttribute("aria-valuemax", "100");
+
+        // Default style
+        setStyleName(Styles.PROGRESS_BAR);
+
+        // Progress text
+        add(span);
+    }
+
+    public void setSrOnly(boolean srOnly) {
+        span.setStyleName(Styles.SR_ONLY, srOnly);
+    }
+
+    public void setText(String text) {
+        span.setText(text);
+    }
+
+    public String getText() {
+        return span.getText();
+    }
+
+    public void setPercent(int percent) {
+        getElement().getStyle().setWidth(percent, Style.Unit.PCT);
+    }
+
+    public int getPercent() {
+        String width = getElement().getStyle().getWidth();
+        return width == null ? 0 : Integer.valueOf(width.substring(0, width.indexOf("%")));
+    }
+
+    @Override
+    public void setType(ProgressBarType type) {
+        StyleHelper.addEnumStyleName(this, type);
+    }
+
+    @Override
+    public ProgressBarType getType() {
+        return ProgressBarType.fromStyleName(getStyleName());
+    }
 }

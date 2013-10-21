@@ -133,10 +133,15 @@ public final class Styles {
 
     public static final String PRE_SCROLLABLE = "pre-scrollable";
 
+    public static final String PROGRESS = "progress";
+    public static final String PROGRESS_BAR = "progress-bar";
+
     public static final String PULL_LEFT = "pull-left";
     public static final String PULL_RIGHT = "pull-right";
 
     public static final String ROW = "row";
+
+    public static final String SR_ONLY = "sr-only";
 
     public static final String WELL = "well";
 

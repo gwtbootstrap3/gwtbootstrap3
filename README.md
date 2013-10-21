@@ -115,7 +115,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Typography (Jumbotron, Page header) | Supported           |
 | Thumbnails                          | Not supported       |
 | Alerts                              | Supported           |
-| Progress bars                       | Not supported       |
+| Progress bars                       | Supported           |
 | Media object                        | Not supported       |
 | List group                          | Supported           |
 | Panels                              | Supported           |

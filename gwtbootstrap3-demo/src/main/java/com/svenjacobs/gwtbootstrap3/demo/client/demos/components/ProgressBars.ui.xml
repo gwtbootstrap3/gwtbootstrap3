@@ -1,9 +1,147 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
 
+    <ui:style>
+        .danger {
+            background-color: #fcf2f2;
+            border-color: #dFb5b4;
+        }
+
+        .margin-fix {
+            margin-top: 0 !important;
+        }
+    </ui:style>
+
     <b:Row>
 
-        <b:PageHeader text="Progress Bars" subText="TODO!!!"/>
+        <b:PageHeader text="Progress Bars"/>
+
+        <b:BlockQuote addStyleNames="{style.danger}">
+            <b:Heading addStyleNames="{style.margin-fix}" size="4" text="Cross-browser compatibility"/>
+            <b:Paragraph>
+                Progress bars use CSS3 transitions and animations to achieve some of their effects. These features are
+                not supported in Internet Explorer 9 and below or older versions of Firefox. Opera 12 does not support
+                animations.
+            </b:Paragraph>
+        </b:BlockQuote>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Progress>
+                    <b:ProgressBar type="SUCCESS" percent="40"/>
+                </b:Progress>
+                <b:Progress>
+                    <b:ProgressBar type="INFO" percent="20" text="20%"/>
+                </b:Progress>
+                <b:Progress>
+                    <b:ProgressBar type="WARNING" percent="60"/>
+                </b:Progress>
+                <b:Progress>
+                    <b:ProgressBar type="DANGER" percent="80"/>
+                </b:Progress>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Progress&gt;\n
+                    \s\s&lt;b:ProgressBar type="SUCCESS" percent="40"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                    &lt;b:Progress&gt;\n
+                    \s\s&lt;b:ProgressBar type="INFO" percent="20" text="20%"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                    &lt;b:Progress&gt;\n
+                    \s\s&lt;b:ProgressBar type="WARNING" percent="60"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                    &lt;b:Progress&gt;\n
+                    \s\s&lt;b:ProgressBar type="DANGER" percent="80"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Striped"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Paragraph>
+                    ** Not available in IE8.
+                </b:Paragraph>
+                <b:Progress type="STRIPED">
+                    <b:ProgressBar type="SUCCESS" percent="40"/>
+                </b:Progress>
+                <b:Progress type="STRIPED">
+                    <b:ProgressBar type="INFO" percent="20" text="20%"/>
+                </b:Progress>
+                <b:Progress type="STRIPED">
+                    <b:ProgressBar type="WARNING" percent="60"/>
+                </b:Progress>
+                <b:Progress type="STRIPED">
+                    <b:ProgressBar type="DANGER" percent="80"/>
+                </b:Progress>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Progress type="STRIPED"&gt;\n
+                    \s\s&lt;b:ProgressBar type="SUCCESS" percent="40"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                    &lt;b:Progress type="STRIPED"&gt;\n
+                    \s\s&lt;b:ProgressBar type="INFO" percent="20" text="20%"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                    &lt;b:Progress type="STRIPED"&gt;\n
+                    \s\s&lt;b:ProgressBar type="WARNING" percent="60"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                    &lt;b:Progress type="STRIPED"&gt;\n
+                    \s\s&lt;b:ProgressBar type="DANGER" percent="80"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Animated"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Paragraph>
+                    ** Not available in all versions of IE.
+                </b:Paragraph>
+                <b:Progress active="true" type="STRIPED">
+                    <b:ProgressBar type="SUCCESS" percent="40"/>
+                </b:Progress>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Progress active="true" type="STRIPED"&gt;\n
+                    \s\s&lt;b:ProgressBar type="SUCCESS" percent="40"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Stacked"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Progress>
+                    <b:ProgressBar type="SUCCESS" percent="35"/>
+                    <b:ProgressBar type="WARNING" percent="20"/>
+                    <b:ProgressBar type="DANGER" percent="10"/>
+                </b:Progress>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Progress&gt;\n
+                    \s\s&lt;b:ProgressBar type="SUCCESS" percent="35"/&gt;\n
+                    \s\s&lt;b:ProgressBar type="WARNING" percent="20"/&gt;\n
+                    \s\s&lt;b:ProgressBar type="DANGER" percent="10"/&gt;\n
+                    &lt;/b:Progress&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
 
     </b:Row>
 
