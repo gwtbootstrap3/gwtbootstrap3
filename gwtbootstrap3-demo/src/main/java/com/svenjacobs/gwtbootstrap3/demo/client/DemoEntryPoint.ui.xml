@@ -101,7 +101,7 @@
 
         <!-- Container Content -->
         <b:Row ui:field="container" width="100%">
-            <components:ProgressBars/>
+            <components:ListGroup/>
 
 
         </b:Row>

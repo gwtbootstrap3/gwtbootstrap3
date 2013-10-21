@@ -20,26 +20,39 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.HasText;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractListItem;
+import com.google.gwt.user.client.DOM;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class ListGroupItem extends AbstractListItem implements HasText {
+public class ListGroupItem extends ComplexWidget implements HasResponsiveness {
+    private Span span = new Span();
 
     public ListGroupItem() {
+        setElement(DOM.createElement("li"));
         setStyleName(Styles.LIST_GROUP_ITEM);
+
+        add(span);
     }
 
-    @Override
     public String getText() {
-        return getElement().getInnerText();
+        return span.getText();
+    }
+
+    public void setText(String text) {
+        span.setText(text);
     }
 
     @Override
-    public void setText(String text) {
-        getElement().setInnerText(text);
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

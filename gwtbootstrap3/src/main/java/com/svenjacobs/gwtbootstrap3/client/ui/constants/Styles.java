@@ -96,6 +96,8 @@ public final class Styles {
     public static final String LIST_INLINE = "list-inline";
     public static final String LIST_GROUP = "list-group";
     public static final String LIST_GROUP_ITEM = "list-group-item";
+    public static final String LIST_GROUP_ITEM_HEADING = "list-group-item-heading";
+    public static final String LIST_GROUP_ITEM_TEXT = "list-group-item-text";
 
     public static final String MODAL = "modal";
     public static final String MODAL_BODY = "modal-body";

@@ -118,7 +118,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Alerts                              | Supported           | No         |
 | Progress bars                       | Supported           | No         |
 | Media object                        | Not supported       | No         |
-| List group                          | Supported           | No         |
+| List group                          | Supported           | Yes        |
 | Panels                              | Supported           | No         |
 | Wells                               | Supported           | No         |
 
