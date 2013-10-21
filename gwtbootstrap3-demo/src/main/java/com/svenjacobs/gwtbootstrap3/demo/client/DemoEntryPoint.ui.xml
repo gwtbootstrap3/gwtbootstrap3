@@ -55,8 +55,45 @@
                                 <b:ListItem ui:field="responsiveUtilitiesLink">Responsive Utilities</b:ListItem>
                             </b:DropDownMenu>
                         </b:ListDropDown>
-                        <b:ListItem ui:field="componentsLink">Components</b:ListItem>
-                        <b:ListItem ui:field="javaScriptLink">JavaScript</b:ListItem>
+                        <b:ListDropDown>
+                            <b:AnchorButton toggle="DROPDOWN">Components</b:AnchorButton>
+                            <b:DropDownMenu>
+                                <b:ListItem ui:field="alertsLink">Alerts</b:ListItem>
+                                <b:ListItem ui:field="badgesLink">Badges</b:ListItem>
+                                <b:ListItem ui:field="breadcrumbsLink">Breadcrumbs</b:ListItem>
+                                <b:ListItem ui:field="buttonDropdownsLink">Button Dropdowns</b:ListItem>
+                                <b:ListItem ui:field="buttonGroupsLink">Button Groups</b:ListItem>
+                                <b:ListItem ui:field="dropdownsLink">Dropdowns</b:ListItem>
+                                <b:ListItem ui:field="iconsLink">Icons</b:ListItem>
+                                <b:ListItem ui:field="inputGroupsLink">Input Groups</b:ListItem>
+                                <b:ListItem ui:field="jumobtronLink">Jumbotron</b:ListItem>
+                                <b:ListItem ui:field="labelsLink">Labels</b:ListItem>
+                                <b:ListItem ui:field="listGroupLink">List Group</b:ListItem>
+                                <b:ListItem ui:field="mediaObjectsLink">Media Objects</b:ListItem>
+                                <b:ListItem ui:field="navBarLink">Navbar</b:ListItem>
+                                <b:ListItem ui:field="navsLink">Navs</b:ListItem>
+                                <b:ListItem ui:field="pageHeaderLink">Page Header</b:ListItem>
+                                <b:ListItem ui:field="paginationLink">Pagination</b:ListItem>
+                                <b:ListItem ui:field="panelsLink">Panels</b:ListItem>
+                                <b:ListItem ui:field="progressBarLink">Progress Bars</b:ListItem>
+                                <b:ListItem ui:field="thumbnailsLink">Thumbnails</b:ListItem>
+                                <b:ListItem ui:field="wellsLink">Wells</b:ListItem>
+                            </b:DropDownMenu>
+                        </b:ListDropDown>
+                        <b:ListDropDown>
+                            <b:AnchorButton toggle="DROPDOWN">JavaScript</b:AnchorButton>
+                            <b:DropDownMenu>
+                                <b:ListItem ui:field="affixLink">Affix</b:ListItem>
+                                <b:ListItem ui:field="alertLink">Alert</b:ListItem>
+                                <b:ListItem ui:field="buttonJsLink">Button</b:ListItem>
+                                <b:ListItem ui:field="carouselLink">Carousel</b:ListItem>
+                                <b:ListItem ui:field="collapseLink">Collapse</b:ListItem>
+                                <b:ListItem ui:field="dropdownJsLink">Dropdown</b:ListItem>
+                                <b:ListItem ui:field="modalsLink">Modals</b:ListItem>
+                                <b:ListItem ui:field="popoverLink">Popover</b:ListItem>
+                                <b:ListItem ui:field="tabLink">Tab</b:ListItem>
+                            </b:DropDownMenu>
+                        </b:ListDropDown>
                     </b:NavbarNav>
                 </b:NavbarCollapse>
             </b:Container>
