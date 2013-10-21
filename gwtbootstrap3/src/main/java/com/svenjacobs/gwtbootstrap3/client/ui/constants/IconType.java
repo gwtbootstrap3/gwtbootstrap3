@@ -24,6 +24,9 @@ import com.google.gwt.dom.client.Style;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
+ * See fontawesome.js helper script in root folder of this module.
+ *
+ * @author Sven Jacobs
  * @author Joshua Godi
  */
 public enum IconType implements Type, Style.HasCssName {

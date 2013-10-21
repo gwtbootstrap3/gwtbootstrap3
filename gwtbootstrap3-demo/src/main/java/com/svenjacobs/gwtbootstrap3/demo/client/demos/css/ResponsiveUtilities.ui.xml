@@ -1,9 +1,91 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
 
+    <ui:style>
+        .visible {
+            color: #468847;
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6
+        }
+
+        .column {
+            margin-bottom: 10px;
+        }
+
+        .column > span {
+            border-radius: 4px;
+            border: 1px solid #CCC;
+            padding: 10px;
+            text-align: center;
+        }
+    </ui:style>
+
     <b:Row>
 
         <b:PageHeader text="Responsive Utilities" subText="TODO!!!"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Visible / Hidden on..."/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Row>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_3">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="XS" text="Visible on x-small"/>
+                        <b:Span hiddenOn="XS" text="Extra small"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_3">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="SM" text="Visible on small"/>
+                        <b:Span hiddenOn="SM" text="Small"/>
+                    </b:Column>
+                    <b:ClearFix visibleOn="XS"/>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_3">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="MD" text="Visible on medium"/>
+                        <b:Span hiddenOn="MD" text="Medium"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_3">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="LG" text="Visible on large"/>
+                        <b:Span hiddenOn="LG" text="Large"/>
+                    </b:Column>
+                </b:Row>
+                <b:Row>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_6">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="XS SM" text="Visible on x-small and small"/>
+                        <b:Span hiddenOn="XS SM" text="Extra small and small"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_6">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="MD LG" text="Visible on medium and large"/>
+                        <b:Span hiddenOn="MD LG" text="Medium and large"/>
+                    </b:Column>
+                    <b:ClearFix visibleOn="XS"/>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_6">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="XS MD" text="Visible on x-small and medium"/>
+                        <b:Span hiddenOn="XS MD" text="Extra small and medium"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_6">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="SM LG" text="Visible on small and large"/>
+                        <b:Span hiddenOn="SM LG" text="Small and Large"/>
+                    </b:Column>
+                    <b:ClearFix visibleOn="XS"/>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_6">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="XS LG" text="Visible on x-small and large"/>
+                        <b:Span hiddenOn="XS LG" text="Extra small and large"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_6">
+                        <b:Span addStyleNames="{style.visible}" visibleOn="SM MD" text="Visible on small and medium"/>
+                        <b:Span hiddenOn="SM MD" text="Small and medium"/>
+                    </b:Column>
+                </b:Row>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Span visibleOn="SM" text=""/&gt;\n
+                    &lt;b:Span visibleOn="SM MD" text=""/&gt;\n
+                    &lt;b:Span hiddenOn="SM" text=""/&gt;\n
+                    &lt;b:Span hiddenOn="SM LG" text=""/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
 
     </b:Row>
 

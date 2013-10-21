@@ -27,9 +27,10 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see NavbarLink
  */
-public class NavbarText extends HTMLPanel implements HasNavbarPull {
+public class NavbarText extends HTMLPanel implements HasNavbarPull, HasResponsiveness {
 
     public NavbarText() {
         super("p", "");
@@ -54,5 +55,15 @@ public class NavbarText extends HTMLPanel implements HasNavbarPull {
     @Override
     public void add(final Widget child) {
         add(child, getElement());
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

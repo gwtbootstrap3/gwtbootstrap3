@@ -23,6 +23,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -41,8 +42,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * }</pre>
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public class DropDownHeader extends Widget implements HasText {
+public class DropDownHeader extends Widget implements HasText, HasResponsiveness {
 
     public DropDownHeader() {
         setElement(DOM.createElement("li"));
@@ -57,5 +59,15 @@ public class DropDownHeader extends Widget implements HasText {
     @Override
     public String getText() {
         return getElement().getInnerText();
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

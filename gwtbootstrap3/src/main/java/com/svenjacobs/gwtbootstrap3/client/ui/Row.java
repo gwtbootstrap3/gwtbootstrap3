@@ -23,15 +23,17 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.DOM;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * A row of Bootstrap's fluid grid system.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see Column
  */
-public class Row extends ComplexWidget {
+public class Row extends ComplexWidget implements HasResponsiveness {
 
     public Row() {
         setElement(DOM.createDiv());
@@ -44,5 +46,15 @@ public class Row extends ComplexWidget {
 
     public void setMarginBottom(int marginBottom) {
         getElement().getStyle().setMarginBottom(marginBottom, Style.Unit.PX);
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

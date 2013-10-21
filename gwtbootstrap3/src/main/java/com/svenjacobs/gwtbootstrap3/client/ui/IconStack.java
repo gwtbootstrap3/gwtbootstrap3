@@ -23,12 +23,13 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class IconStack extends ComplexPanel {
+public class IconStack extends ComplexPanel implements HasResponsiveness {
 
     public IconStack() {
         setElement(DOM.createSpan());
@@ -53,5 +54,15 @@ public class IconStack extends ComplexPanel {
         }
 
         add(child, getElement());
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

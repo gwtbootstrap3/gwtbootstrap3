@@ -22,11 +22,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base.helper;
 
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.UIObject;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.DeviceSize;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Responsiveness;
 
 /**
  * Helper methods regarding CSS styling of UIObjects.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public final class StyleHelper {
 
@@ -115,6 +118,90 @@ public final class StyleHelper {
             uiObject.addStyleName(styleName);
         } else {
             uiObject.removeStyleName(styleName);
+        }
+    }
+
+    /**
+     * Sets the ui object to be visible on the device size
+     *
+     * @param uiObject   object to be visible on the device size
+     * @param deviceSize device size
+     */
+    public static void setVisibleOn(final UIObject uiObject,
+                                    final DeviceSize deviceSize) {
+        switch (deviceSize) {
+            case PRINT:
+                addEnumStyleName(uiObject, Responsiveness.VISIBLE_PRINT);
+                break;
+            case XS:
+                addEnumStyleName(uiObject, Responsiveness.VISIBLE_XS);
+                break;
+            case SM:
+                addEnumStyleName(uiObject, Responsiveness.VISIBLE_SM);
+                break;
+            case MD:
+                addEnumStyleName(uiObject, Responsiveness.VISIBLE_MD);
+                break;
+            case LG:
+                addEnumStyleName(uiObject, Responsiveness.VISIBLE_LG);
+                break;
+        }
+    }
+
+    /**
+     * Sets the ui object to be visible on the device size
+     *
+     * @param uiObject         object to be visible on the device size
+     * @param deviceSizeString device size string (space separated list of device sizes)
+     */
+    public static void setVisibleOn(final UIObject uiObject,
+                                    final String deviceSizeString) {
+        for (final DeviceSize deviceSize : DeviceSize.values()) {
+            if (deviceSizeString.contains(deviceSize.name())) {
+                setVisibleOn(uiObject, deviceSize);
+            }
+        }
+    }
+
+    /**
+     * Sets the ui object to be hidden on the device size
+     *
+     * @param uiObject   object to be hidden on the device size
+     * @param deviceSize device size
+     */
+    public static void setHiddenOn(final UIObject uiObject,
+                                   final DeviceSize deviceSize) {
+        switch (deviceSize) {
+            case PRINT:
+                addEnumStyleName(uiObject, Responsiveness.HIDDEN_PRINT);
+                break;
+            case XS:
+                addEnumStyleName(uiObject, Responsiveness.HIDDEN_XS);
+                break;
+            case SM:
+                addEnumStyleName(uiObject, Responsiveness.HIDDEN_SM);
+                break;
+            case MD:
+                addEnumStyleName(uiObject, Responsiveness.HIDDEN_MD);
+                break;
+            case LG:
+                addEnumStyleName(uiObject, Responsiveness.HIDDEN_LG);
+                break;
+        }
+    }
+
+    /**
+     * Sets the ui object to be hidden on the device size
+     *
+     * @param uiObject         object to be hidden on the device size
+     * @param deviceSizeString device size string (space separated list of device sizes)
+     */
+    public static void setHiddenOn(final UIObject uiObject,
+                                   final String deviceSizeString) {
+        for (final DeviceSize deviceSize : DeviceSize.values()) {
+            if (deviceSizeString.contains(deviceSize.name())) {
+                setHiddenOn(uiObject, deviceSize);
+            }
         }
     }
 

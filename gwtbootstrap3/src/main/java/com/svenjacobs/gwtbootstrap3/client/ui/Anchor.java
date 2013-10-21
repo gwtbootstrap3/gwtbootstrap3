@@ -28,6 +28,7 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
@@ -39,9 +40,10 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
  * Anchor {@code <a>} element with text and optional icon.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasToggle,
-        HasTargetHistoryToken, HasText, HasIcon, HasIconPosition, HasTabIndex, Focusable {
+        HasTargetHistoryToken, HasText, HasIcon, HasIconPosition, HasTabIndex, Focusable, HasResponsiveness {
 
     private final ToggleMixin<Anchor> toggleMixin = new ToggleMixin<Anchor>(this);
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
@@ -155,5 +157,15 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     @Override
     public void setFocus(final boolean focused) {
         focusableMixin.setFocus(focused);
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

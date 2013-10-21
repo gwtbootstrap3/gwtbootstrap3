@@ -21,14 +21,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.user.client.DOM;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 
 /**
  * @author Sven Jacobs
  */
-public class Span extends ComplexWidget {
+public class Span extends AbstractTextWidget {
 
     public Span() {
-        setElement(DOM.createSpan());
+        super(DOM.createSpan());
     }
 }

@@ -21,6 +21,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.user.client.ui.Composite;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
 
@@ -28,9 +29,10 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
  * Special button to toggle collapsible area of {@link Navbar}.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see NavbarCollapse
  */
-public class NavbarCollapseButton extends Composite implements HasTarget {
+public class NavbarCollapseButton extends Composite implements HasTarget, HasResponsiveness {
 
     private final Button button;
 
@@ -54,6 +56,16 @@ public class NavbarCollapseButton extends Composite implements HasTarget {
     @Override
     public String getTarget() {
         return button.getTarget();
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     private Span newBarIcon() {

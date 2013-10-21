@@ -26,6 +26,7 @@ import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.HasEnabled;
+import com.svenjacobs.gwtbootstrap3.client.ui.HasResponsiveness;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasTarget;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasType;
@@ -38,9 +39,10 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.*;
  * Abstract base class for different kinds of buttons.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public abstract class AbstractButton extends ComplexWidget
-        implements HasEnabled, HasType<ButtonType>, HasSize<ButtonSize>, HasTarget, HasClickHandlers {
+        implements HasEnabled, HasType<ButtonType>, HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasResponsiveness {
 
     public class ButtonStateHandler {
         private ButtonStateHandler() {
@@ -133,6 +135,16 @@ public abstract class AbstractButton extends ComplexWidget
     @Override
     public String getTarget() {
         return targetMixin.getTarget();
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     /**

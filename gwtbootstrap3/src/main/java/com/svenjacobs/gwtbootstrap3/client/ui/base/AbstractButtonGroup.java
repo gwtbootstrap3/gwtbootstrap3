@@ -20,10 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
-import com.svenjacobs.gwtbootstrap3.client.ui.FlowPanel;
-import com.svenjacobs.gwtbootstrap3.client.ui.HasJustified;
-import com.svenjacobs.gwtbootstrap3.client.ui.HasPull;
-import com.svenjacobs.gwtbootstrap3.client.ui.HasToggle;
+import com.svenjacobs.gwtbootstrap3.client.ui.*;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
@@ -35,10 +32,11 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
  * Abstract base class for button groups.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see com.svenjacobs.gwtbootstrap3.client.ui.ButtonGroup
  * @see com.svenjacobs.gwtbootstrap3.client.ui.VerticalButtonGroup
  */
-public abstract class AbstractButtonGroup extends FlowPanel implements HasToggle, HasJustified, HasPull {
+public abstract class AbstractButtonGroup extends FlowPanel implements HasToggle, HasJustified, HasPull, HasResponsiveness {
 
     private final PullMixin<AbstractButtonGroup> pullMixin = new PullMixin<AbstractButtonGroup>(this);
     private final ToggleMixin<AbstractButtonGroup> toggleMixin = new ToggleMixin<AbstractButtonGroup>(this);
@@ -86,6 +84,16 @@ public abstract class AbstractButtonGroup extends FlowPanel implements HasToggle
     @Override
     public Pull getPull() {
         return pullMixin.getPull();
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     /**

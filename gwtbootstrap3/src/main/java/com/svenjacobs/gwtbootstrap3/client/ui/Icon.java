@@ -35,7 +35,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @author Sven Jacobs
  * @see IconType
  */
-public class Icon extends Widget implements HasType<IconType> {
+public class Icon extends Widget implements HasType<IconType>, HasResponsiveness {
 
     public Icon() {
         setElement(DOM.createElement("i"));
@@ -55,6 +55,16 @@ public class Icon extends Widget implements HasType<IconType> {
     @Override
     public IconType getType() {
         return IconType.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     public void setLight(final boolean light) {

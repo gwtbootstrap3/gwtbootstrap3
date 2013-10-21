@@ -28,7 +28,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ImageType;
 /**
  * @author Joshua Godi
  */
-public class Image extends com.google.gwt.user.client.ui.Image implements HasType<ImageType> {
+public class Image extends com.google.gwt.user.client.ui.Image implements HasType<ImageType>, HasResponsiveness {
 
     public Image() {
         super();
@@ -68,5 +68,15 @@ public class Image extends com.google.gwt.user.client.ui.Image implements HasTyp
     @Override
     public ImageType getType() {
         return ImageType.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

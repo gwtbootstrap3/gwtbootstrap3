@@ -23,12 +23,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see Form
  */
-public class FieldSet extends ComplexWidget implements HasEnabled {
+public class FieldSet extends ComplexWidget implements HasEnabled, HasResponsiveness {
 
     public FieldSet() {
         setElement(DOM.createFieldSet());
@@ -42,5 +44,15 @@ public class FieldSet extends ComplexWidget implements HasEnabled {
     @Override
     public boolean isEnabled() {
         return !getElement().getPropertyBoolean("disabled");
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

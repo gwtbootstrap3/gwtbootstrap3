@@ -27,6 +27,7 @@ import com.svenjacobs.gwtbootstrap3.client.shared.event.ModalHiddenEvent;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.ModalHideEvent;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.ModalShowEvent;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.ModalShownEvent;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.modal.ModalContent;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.modal.ModalDialog;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Attributes;
@@ -63,6 +64,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * }</pre>
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see ModalHeader
  * @see ModalBody
  * @see ModalFooter
@@ -71,7 +73,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @see ModalHideEvent
  * @see ModalHiddenEvent
  */
-public class Modal extends FlowPanel implements IsClosable {
+public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
 
     private final ModalContent content = new ModalContent();
     private ModalHeader header = new ModalHeader();
@@ -116,6 +118,16 @@ public class Modal extends FlowPanel implements IsClosable {
     @Override
     public boolean isClosable() {
         return header.isClosable();
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     /**
