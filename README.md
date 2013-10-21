@@ -96,6 +96,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Forms       | Supported           |
 | Buttons     | Supported           |
 | Images      | Supported           |
+| Responsive  | Supported           |
 
 ## Components
 
