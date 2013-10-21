@@ -32,8 +32,6 @@ public class DemoEntryPoint implements EntryPoint {
     @UiField
     NavbarBrand brand;
     @UiField
-    ListItem javaScriptLink;
-    @UiField
     ListItem gridSystemLink;
     @UiField
     ListItem typographyLink;
@@ -111,12 +109,6 @@ public class DemoEntryPoint implements EntryPoint {
     @UiHandler("brand")
     public void handleBrandClick(ClickEvent event) {
         container.clear();
-    }
-
-    @UiHandler("javaScriptLink")
-    public void handleJavaScriptClick(ClickEvent event) {
-        container.clear();
-        container.add(new JavaScriptPage().asWidget());
     }
 
     @Override

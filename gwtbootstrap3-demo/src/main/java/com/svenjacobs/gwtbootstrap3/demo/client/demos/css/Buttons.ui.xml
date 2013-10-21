@@ -1,6 +1,11 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
 
+    <ui:style>
+        .spacing > button {
+            margin-right: 10px;
+        }
+    </ui:style>
     <b:Row>
 
         <b:PageHeader text="Buttons" subText="styled, states, icons..."/>
@@ -9,7 +14,7 @@
             <b:PanelHeader>
                 <b:Heading size="3" text="Basic"/>
             </b:PanelHeader>
-            <b:PanelBody>
+            <b:PanelBody addStyleNames="{style.spacing}">
                 <b:Button text="Default"/>
                 <b:Button type="PRIMARY" text="Primary"/>
                 <b:Button type="SUCCESS" text="Success"/>
@@ -35,7 +40,7 @@
             <b:PanelHeader>
                 <b:Heading size="3" text="Sizes"/>
             </b:PanelHeader>
-            <b:PanelBody>
+            <b:PanelBody addStyleNames="{style.spacing}">
                 <b:Button type="PRIMARY" size="SMALL" text="Small"/>
                 <b:Button type="PRIMARY" size="LARGE" text="Large"/>
                 <b:Button type="PRIMARY" size="EXTRA_SMALL" text="Extra Small"/>
@@ -53,7 +58,7 @@
             <b:PanelHeader>
                 <b:Heading size="3" text="Disabled State"/>
             </b:PanelHeader>
-            <b:PanelBody>
+            <b:PanelBody addStyleNames="{style.spacing}">
                 <b:Button type="PRIMARY" text="Enabled" enabled="true"/>
                 <b:Button type="PRIMARY" text="Disabled" enabled="false"/>
             </b:PanelBody>
@@ -69,7 +74,7 @@
             <b:PanelHeader>
                 <b:Heading size="3" text="With Icons"/>
             </b:PanelHeader>
-            <b:PanelBody>
+            <b:PanelBody addStyleNames="{style.spacing}">
                 <b:Button type="PRIMARY" text="With Icon" icon="STAR"/>
                 <b:Button type="PRIMARY" text="With Icon on Right" icon="STAR" iconPosition="RIGHT"/>
             </b:PanelBody>

@@ -86,57 +86,58 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 
 ## CSS
 
-| Feature     | Status              |
-|-------------|---------------------|
-| FontAwesome | Supported           |
-| Grid system | Supported           |
-| Typography  | Supported           |
-| Code        | Supported           |
-| Tables      | Not supported       |
-| Forms       | Supported           |
-| Buttons     | Supported           |
-| Images      | Supported           |
-| Responsive  | Supported           |
+| Feature     | Status              | In Demo    |
+|-------------|---------------------|------------|
+| Grid system | Supported           | In Progress|
+| Typography  | Supported           | Yes        |
+| Code        | Supported           | Yes        |
+| Tables      | Not supported       | No         |
+| Forms       | Supported           | Yes        |
+| Buttons     | Supported           | Yes        |
+| Images      | Supported           | No         |
+| Responsive  | Supported           | In Progress|
 
 ## Components
 
-| Feature                             | Status              |
-|-------------------------------------|---------------------|
-| Dropdowns                           | Supported           |
-| Button groups                       | Supported           |
-| Button dropdowns                    | Supported           |
-| Input groups                        | Partially supported |
-| Navs                                | Supported           |
-| Navbar                              | Supported           |
-| Breadcrumbs                         | Supported           |
-| Pagination                          | Not supported       |
-| Labels                              | Supported           |
-| Badges                              | Supported           |
-| Typography (Jumbotron, Page header) | Supported           |
-| Thumbnails                          | Not supported       |
-| Alerts                              | Supported           |
-| Progress bars                       | Supported           |
-| Media object                        | Not supported       |
-| List group                          | Supported           |
-| Panels                              | Supported           |
-| Wells                               | Supported           |
+| Feature                             | Status              | In Demo    |
+|-------------------------------------|---------------------|------------|
+| Icons (FontAwesome)                 | Supported           | No         |
+| Dropdowns                           | Supported           | No         |
+| Button groups                       | Supported           | No         |
+| Button dropdowns                    | Supported           | No         |
+| Input groups                        | Partially supported | No         |
+| Navs                                | Supported           | No         |
+| Navbar                              | Supported           | No         |
+| Breadcrumbs                         | Supported           | No         |
+| Pagination                          | Not supported       | No         |
+| Labels                              | Supported           | No         |
+| Badges                              | Supported           | No         |
+| Jumbotron                           | Supported           | No         |
+| Page Header                         | Supported           | No         |
+| Thumbnails                          | Not supported       | No         |
+| Alerts                              | Supported           | No         |
+| Progress bars                       | Supported           | No         |
+| Media object                        | Not supported       | No         |
+| List group                          | Supported           | No         |
+| Panels                              | Supported           | No         |
+| Wells                               | Supported           | No         |
 
 ## JavaScript
 
-| Feature     | Status        |
-|-------------|---------------|
-| Transitions | Not supported |
-| Modal       | Supported     |
-| Dropdown    | Supported     |
-| Scrollspy   | Supported     |
-| Tab         | Not supported |
-| Tooltip     | Not supported |
-| Popover     | Not supported |
-| Alert       | Supported     |
-| Button      | Supported     |
-| Collapse    | Not supported |
-| Carousel    | Not supported |
-| Affix       | Supported     |
+| Feature     | Status        | In Demo    |
+|-------------|---------------|------------|
+| Transitions | Not supported | No         |
+| Modal       | Supported     | No         |
+| Dropdown    | Supported     | No         |
+| Scrollspy   | Supported     | No         |
+| Tab         | Not supported | No         |
+| Tooltip     | Not supported | No         |
+| Popover     | Not supported | No         |
+| Alert       | Supported     | No         |
+| Button      | Supported     | No         |
+| Collapse    | Not supported | No         |
+| Carousel    | Not supported | No         |
+| Affix       | Supported     | No         |
 
 # Relationship between raw Bootstrap components and GWT widgets 
 
