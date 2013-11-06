@@ -27,9 +27,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Joshua Godi
  */
-public class HelpBlock extends AbstractTextWidget {
+public class HelpBLock extends AbstractTextWidget {
 
-    public HelpBlock() {
+    public HelpBLock() {
         super(DOM.createSpan());
         setStyleName(Styles.HELP_BLOCK);
     }
