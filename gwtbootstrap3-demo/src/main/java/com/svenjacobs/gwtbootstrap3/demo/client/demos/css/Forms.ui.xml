@@ -45,7 +45,7 @@
                         <b:FormGroup validationState="WARNING">
                             <b:FormLabel for="formWarning">Input with warning</b:FormLabel>
                             <b:TextBox b:id="formWarning"/>
-                            <b:HelpBLock text="Form inline help here"/>
+                            <b:Temp text="Form inline help here"/>
                         </b:FormGroup>
 
                         <b:FormGroup validationState="ERROR">
