@@ -3,7 +3,52 @@
 
     <b:Row>
 
-        <b:PageHeader text="Wells" subText="TODO!!!"/>
+        <b:PageHeader text="Wells"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Default"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Well>
+                    Look, I'm in a well!
+                </b:Well>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Well&gt;\n
+                    \s\s...\n
+                    &lt;/b:Well&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Optional classes"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Well size="LARGE">
+                    Look, I'm in a large well!
+                </b:Well>
+                <b:Well size="SMALL">
+                    Look, I'm in a small well!
+                </b:Well>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Well size="LARGE"&gt;\n
+                    \s\s...\n
+                    &lt;/b:Well&gt;\n
+                </b:Pre>
+                <b:ClearFix/>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Well size="SMALL"&gt;\n
+                    \s\s...\n
+                    &lt;/b:Well&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
 
     </b:Row>
 

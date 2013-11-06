@@ -74,12 +74,14 @@ public final class Styles {
 
     public static final String HELP_BLOCK = "help-block";
 
-    public static final String ICON_LIGHT = "icon-light";
-    public static final String ICON_MUTED = "icon-muted";
-    public static final String ICON_BORDER = "icon-border";
-    public static final String ICON_STACK = "icon-stack";
-    public static final String ICON_SPIN = "icon-spin";
-    public static final String ICON_STACK_BASE = "icon-stack-base";
+    public static final String ICON_LIGHT = "fa-light";
+    public static final String ICON_MUTED = "fa-muted";
+    public static final String ICON_BORDER = "fa-border";
+    public static final String ICON_STACK = "fa-stack";
+    public static final String ICON_SPIN = "fa-spin";
+    public static final String ICON_FIXED_WIDTH = "fa-fw";
+    public static final String ICON_STACK_BASE = "fa-stack-2x";
+    public static final String ICON_STACK_TOP = "fa-stack-1x";
 
     public static final String ICON_BAR = "icon-bar";
 

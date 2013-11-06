@@ -88,22 +88,22 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 
 | Feature     | Status              | In Demo    |
 |-------------|---------------------|------------|
-| Grid system | Supported           | In Progress|
+| Grid system | Supported           | Yes        |
 | Typography  | Supported           | Yes        |
 | Code        | Supported           | Yes        |
 | Tables      | Not supported       | No         |
 | Forms       | Supported           | Yes        |
 | Buttons     | Supported           | Yes        |
-| Images      | Supported           | No         |
-| Responsive  | Supported           | In Progress|
+| Images      | Supported           | Yes        |
+| Responsive  | Supported           | Yes        |
 
 ## Components
 
 | Feature                             | Status              | In Demo    |
 |-------------------------------------|---------------------|------------|
-| Icons (FontAwesome)                 | Supported           | No         |
-| Dropdowns                           | Supported           | No         |
-| Button groups                       | Supported           | No         |
+| Icons (FontAwesome v4.0.3)          | Supported           | Yes        |
+| Dropdowns                           | Supported           | Yes        |
+| Button groups                       | Supported           | Yes        |
 | Button dropdowns                    | Supported           | No         |
 | Input groups                        | Partially supported | No         |
 | Navs                                | Supported           | No         |
@@ -120,7 +120,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Media object                        | Not supported       | No         |
 | List group                          | Supported           | Yes        |
 | Panels                              | Supported           | No         |
-| Wells                               | Supported           | No         |
+| Wells                               | Supported           | Yes        |
 
 ## JavaScript
 

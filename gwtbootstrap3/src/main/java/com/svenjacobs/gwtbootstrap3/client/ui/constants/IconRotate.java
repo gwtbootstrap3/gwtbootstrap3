@@ -28,9 +28,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.EnumHelper;
  */
 public enum IconRotate implements Style.HasCssName {
     NONE(""),
-    ROTATE_90("icon-rotate-90"),
-    ROTATE_180("icon-rotate-180"),
-    ROTATE_270("icon-rotate-270");
+    ROTATE_90("fa-rotate-90"),
+    ROTATE_180("fa-rotate-180"),
+    ROTATE_270("fa-rotate-270");
 
     private final String cssClass;
 

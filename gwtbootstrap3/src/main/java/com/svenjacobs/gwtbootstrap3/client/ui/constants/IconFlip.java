@@ -28,8 +28,8 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.EnumHelper;
  */
 public enum IconFlip implements Style.HasCssName {
     NONE(""),
-    HORIZONTAL("icon-flip-horizontal"),
-    VERTICAL("icon-flip-vertical");
+    HORIZONTAL("fa-flip-horizontal"),
+    VERTICAL("fa-flip-vertical");
 
     private final String cssClass;
 

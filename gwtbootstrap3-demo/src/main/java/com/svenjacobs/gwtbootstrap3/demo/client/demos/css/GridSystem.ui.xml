@@ -120,10 +120,10 @@
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
                     &lt;b:Row&gt;\n
-                    &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
-                    &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
-                    &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
-                    &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
                     \s\s...\n
                     &lt;/b:Row&gt;\n
                 </b:Pre>
@@ -135,10 +135,23 @@
                 <b:Heading size="3" text="Offsetting"/>
             </b:PanelHeader>
             <b:PanelBody>
-                <b:Bold text="TODO"/>
+                <b:Row>
+                    <b:Column addStyleNames="{style.column}" size="MD_4">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_4" offset="MD_4">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                </b:Row>
             </b:PanelBody>
             <b:PanelFooter>
-
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Row&gt;\n
+                    \s\s&lt;b:Column size="MD_4"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="MD_4" offset="MD_4"&gt;...&lt;/b:Column&gt;\n
+                    \s\s...\n
+                    &lt;/b:Row&gt;\n
+                </b:Pre>
             </b:PanelFooter>
         </b:Panel>
 
@@ -147,10 +160,31 @@
                 <b:Heading size="3" text="Nesting"/>
             </b:PanelHeader>
             <b:PanelBody>
-                <b:Bold text="TODO"/>
+                <b:Row>
+                    <b:Column addStyleNames="{style.column}" size="MD_9">
+                        <b:Bold text="Level 1"/>
+                        <b:Row>
+                            <b:Column addStyleNames="{style.column}" size="MD_6">
+                                <b:Bold text="Level 2"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_6">
+                                <b:Bold text="Level 2"/>
+                            </b:Column>
+                        </b:Row>
+                    </b:Column>
+                </b:Row>
             </b:PanelBody>
             <b:PanelFooter>
-
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Row&gt;\n
+                    \s\s&lt;b:Column size="MD_9"&gt;\n
+                    \s\s\s\s &lt;b:Row&gt;\n
+                    \s\s\s\s\s\s&lt;b:Column size="MD_6"&gt;...&lt;/b:Column&gt;\n
+                    \s\s\s\s\s\s&lt;b:Column size="MD_6"&gt;...&lt;/b:Column&gt;\n
+                    \s\s\s\s&lt;/b:Row&gt;\n
+                    \s\s&lt;/b:Column&gt;\n
+                    &lt;/b:Row&gt;\n
+                </b:Pre>
             </b:PanelFooter>
         </b:Panel>
 
@@ -159,10 +193,22 @@
                 <b:Heading size="3" text="Ordering"/>
             </b:PanelHeader>
             <b:PanelBody>
-                <b:Bold text="TODO"/>
+                <b:Row>
+                    <b:Column addStyleNames="{style.column}" size="MD_9" push="MD_3">
+                        <b:Bold text="First in Code"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_3" pull="MD_9">
+                        <b:Bold text="Second in Code"/>
+                    </b:Column>
+                </b:Row>
             </b:PanelBody>
             <b:PanelFooter>
-
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Row&gt;\n
+                    \s\s&lt;b:Column size="MD_9" push="MD_3"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="MD_3" pull="MD_9"&gt;...&lt;/b:Column&gt;\n
+                    &lt;/b:Row&gt;\n
+                </b:Pre>
             </b:PanelFooter>
         </b:Panel>
 

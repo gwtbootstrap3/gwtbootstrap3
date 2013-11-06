@@ -24,10 +24,7 @@ import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconFlip;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconRotate;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.*;
 
 /**
  * Simple put, an icon.
@@ -83,6 +80,14 @@ public class Icon extends Widget implements HasType<IconType>, HasResponsiveness
         StyleHelper.toggleStyleName(this, stackBase, Styles.ICON_STACK_BASE);
     }
 
+    public void setFixedWidth(final boolean fixedWidth) {
+        StyleHelper.toggleStyleName(this, fixedWidth, Styles.ICON_FIXED_WIDTH);
+    }
+
+    public void setStackTop(final boolean stackTop) {
+        StyleHelper.toggleStyleName(this, stackTop, Styles.ICON_STACK_TOP);
+    }
+
     public void setSpin(final boolean spin) {
         StyleHelper.toggleStyleName(this, spin, Styles.ICON_SPIN);
     }
@@ -102,5 +107,13 @@ public class Icon extends Widget implements HasType<IconType>, HasResponsiveness
         }
 
         StyleHelper.addUniqueEnumStyleName(this, IconFlip.class, iconFlip);
+    }
+
+    public void setSize(final IconSize iconSize) {
+        if (iconSize == null || iconSize == IconSize.NONE) {
+            return;
+        }
+
+        StyleHelper.addUniqueEnumStyleName(this, IconSize.class, iconSize);
     }
 }

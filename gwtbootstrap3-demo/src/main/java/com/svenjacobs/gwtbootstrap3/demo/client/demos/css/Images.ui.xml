@@ -1,9 +1,49 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
 
+    <ui:style>
+        .danger {
+            background-color: #fcf2f2;
+            border-color: #dFb5b4;
+        }
+
+        .margin-fix {
+            margin-top: 0 !important;
+        }
+
+        .spacing {
+            margin-right: 10px;
+        }
+    </ui:style>
+
     <b:Row>
 
-        <b:PageHeader text="Images" subText="TODO!!!"/>
+        <b:PageHeader text="Images"/>
+
+        <b:BlockQuote addStyleNames="{style.danger}">
+            <b:Heading addStyleNames="{style.margin-fix}" size="4" text="Cross-browser compatibility"/>
+            <b:Paragraph>
+                Keep in mind that Internet Explorer 8 lacks support for rounded corners.
+            </b:Paragraph>
+        </b:BlockQuote>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Image addStyleNames="{style.spacing}" type="ROUNDED" url="images/test.png"/>
+                <b:Image addStyleNames="{style.spacing}" type="CIRCLE" url="images/test.png"/>
+                <b:Image addStyleNames="{style.spacing}" type="THUMBNAIL" url="images/test.png"/>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Image type="ROUNDED" url="..."&gt;\n
+                    &lt;b:Image type="CIRCLE" url="..."&gt;\n
+                    &lt;b:Image type="THUMBNAIL" url="..."&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
 
     </b:Row>
 

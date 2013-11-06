@@ -8,7 +8,7 @@
 
 var fs = require('fs'),
     file = process.argv[2],
-    regex = /^\.(icon-([^:]+)):before/m;
+    regex = /^\.(fa-([^:]+)):before/m;
 
 fs.readFile(file, 'UTF-8', function (err, data) {
     if (err) throw err;

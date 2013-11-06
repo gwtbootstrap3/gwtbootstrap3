@@ -22,7 +22,7 @@
 
     <b:Row>
 
-        <b:PageHeader text="Responsive Utilities" subText="TODO!!!"/>
+        <b:PageHeader text="Responsive Utilities"/>
 
         <b:Panel>
             <b:PanelHeader>
