@@ -27,9 +27,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Joshua Godi
  */
-public class Temp extends AbstractTextWidget {
+public class HelpBlock extends AbstractTextWidget {
 
-    public Temp() {
+    public HelpBlock() {
         super(DOM.createSpan());
         setStyleName(Styles.HELP_BLOCK);
     }
