@@ -88,21 +88,13 @@ public class DemoEntryPoint implements EntryPoint {
     @UiField
     ListItem thumbnailsLink;
     @UiField
-    ListItem alertLink;
-    @UiField
-    ListItem buttonJsLink;
-    @UiField
     ListItem carouselLink;
     @UiField
     ListItem collapseLink;
     @UiField
-    ListItem dropdownJsLink;
-    @UiField
     ListItem modalsLink;
     @UiField
     ListItem popoverLink;
-    @UiField
-    ListItem tabLink;
     @UiField
     ListItem affixLink;
 
@@ -359,22 +351,6 @@ public class DemoEntryPoint implements EntryPoint {
             }
         });
 
-        alertLink.addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                container.clear();
-                container.add(new Alert());
-            }
-        });
-
-        buttonJsLink.addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                container.clear();
-                container.add(new Button());
-            }
-        });
-
         carouselLink.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
@@ -391,14 +367,6 @@ public class DemoEntryPoint implements EntryPoint {
             }
         });
 
-        dropdownJsLink.addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                container.clear();
-                container.add(new Dropdown());
-            }
-        });
-
         modalsLink.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
@@ -412,14 +380,6 @@ public class DemoEntryPoint implements EntryPoint {
             public void onClick(ClickEvent event) {
                 container.clear();
                 container.add(new Popover());
-            }
-        });
-
-        tabLink.addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                container.clear();
-                container.add(new Tab());
             }
         });
     }

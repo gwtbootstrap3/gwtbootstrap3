@@ -29,6 +29,7 @@ public final class Styles {
 
     public static final String ALERT = "alert";
     public static final String ALERT_DISMISSABLE = "alert-dismissable";
+    public static final String ALERT_LINK = "alert-link";
 
     public static final String BADGE = "badge";
 
@@ -40,6 +41,8 @@ public final class Styles {
     public static final String BTN_GROUP_JUSTIFIED = "btn-group-justified";
     public static final String BTN_GROUP_VERTICAL = "btn-group-vertical";
     public static final String BTN_TOOLBAR = "btn-toolbar";
+
+    public static final String CAPTION = "caption";
 
     public static final String CARET = "caret";
 
@@ -146,6 +149,8 @@ public final class Styles {
     public static final String ROW = "row";
 
     public static final String SR_ONLY = "sr-only";
+
+    public static final String THUMBNAIL = "thumbnail";
 
     public static final String WELL = "well";
 

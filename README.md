@@ -75,7 +75,7 @@ or create them in code if that's what you prefer.
 
 **Tip:** GwtBootstrap3's styles and widgets, especially the fluid grid system,
 work best when using the "classic" [panels](http://www.gwtproject.org/doc/latest/DevGuideUiPanels.html)
-throughout your application and **not** the absolut positioned layout panels
+throughout your application and **not** the absolute positioned layout panels
 introduced in GWT 2.0.
 
 # Feature matrix
@@ -104,37 +104,32 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Icons (FontAwesome v4.0.3)          | Supported           | Yes        |
 | Dropdowns                           | Supported           | Yes        |
 | Button groups                       | Supported           | Yes        |
-| Button dropdowns                    | Supported           | No         |
-| Input groups                        | Partially supported | No         |
-| Navs                                | Supported           | No         |
-| Navbar                              | Supported           | No         |
-| Breadcrumbs                         | Supported           | No         |
+| Button dropdowns                    | Supported           | Yes        |
+| Input groups                        | Partially supported | Yes        |
+| Navs                                | Supported           | Yes        |
+| Navbar                              | Supported           | Yes        |
+| Breadcrumbs                         | Supported           | Yes        |
 | Pagination                          | Not supported       | No         |
-| Labels                              | Supported           | No         |
-| Badges                              | Supported           | No         |
-| Jumbotron                           | Supported           | No         |
-| Page Header                         | Supported           | No         |
-| Thumbnails                          | Not supported       | No         |
-| Alerts                              | Supported           | No         |
-| Progress bars                       | Supported           | No         |
+| Labels                              | Supported           | Yes        |
+| Badges                              | Supported           | Yes        |
+| Jumbotron                           | Supported           | Yes        |
+| Page Header                         | Supported           | Yes        |
+| Thumbnails                          | Supported           | Yes        |
+| Alerts                              | Supported           | Yes        |
+| Progress bars                       | Supported           | Yes        |
 | Media object                        | Not supported       | No         |
 | List group                          | Supported           | Yes        |
-| Panels                              | Supported           | No         |
+| Panels                              | Supported           | Yes        |
 | Wells                               | Supported           | Yes        |
 
 ## JavaScript
 
 | Feature     | Status        | In Demo    |
 |-------------|---------------|------------|
-| Transitions | Not supported | No         |
 | Modal       | Supported     | No         |
-| Dropdown    | Supported     | No         |
 | Scrollspy   | Supported     | No         |
-| Tab         | Not supported | No         |
 | Tooltip     | Not supported | No         |
 | Popover     | Not supported | No         |
-| Alert       | Supported     | No         |
-| Button      | Supported     | No         |
 | Collapse    | Not supported | No         |
 | Carousel    | Not supported | No         |
 | Affix       | Supported     | No         |

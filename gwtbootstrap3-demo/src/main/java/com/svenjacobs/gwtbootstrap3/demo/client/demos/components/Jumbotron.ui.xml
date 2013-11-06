@@ -3,7 +3,25 @@
 
     <b:Row>
 
-        <b:PageHeader text="Jumbotron" subText="TODO!!!"/>
+        <b:PageHeader text="Jumbotron"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Jumbotron>
+                    <b:Heading size="1" text="I am in a jumbotron!"/>
+                </b:Jumbotron>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Jumbotron&gt;\n
+                    \s\s...\n
+                    &lt;/b:Jumbotron&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
 
     </b:Row>
 

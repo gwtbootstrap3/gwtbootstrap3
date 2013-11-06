@@ -1,9 +1,38 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <ui:style>
+        .labels span {
+            margin-right: 5px;
+        }
+    </ui:style>
 
     <b:Row>
 
-        <b:PageHeader text="Badges" subText="TODO!!!"/>
+        <b:PageHeader text="Badges"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <g:FlowPanel addStyleNames="{style.labels}">
+                    <g:HTMLPanel>
+                        <a href="#">Inbox
+                            <b:Badge>42</b:Badge>
+                        </a>
+                    </g:HTMLPanel>
+                </g:FlowPanel>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;a href="#"&gt;Inbox\n
+                    \s\s&lt;b:Badge&gt;42&lt;/b:Badge&gt;\n
+                    &lt;/a&gt;
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
 
     </b:Row>
 

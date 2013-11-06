@@ -1,9 +1,75 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
 
+    <ui:style>
+        .spacing {
+            margin-right: 5px;
+        }
+    </ui:style>
     <b:Row>
 
-        <b:PageHeader text="Button Dropdowns" subText="TODO!!!"/>
+        <b:PageHeader text="Button Dropdowns"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:ButtonGroup addStyleNames="{style.spacing}">
+                    <b:Button toggle="DROPDOWN">Default</b:Button>
+                    <b:DropDownMenu>
+                        <b:ListItem>Item 1</b:ListItem>
+                        <b:ListItem>Item 2</b:ListItem>
+                    </b:DropDownMenu>
+                </b:ButtonGroup>
+                <b:ButtonGroup addStyleNames="{style.spacing}">
+                    <b:Button toggle="DROPDOWN" type="PRIMARY">Primary</b:Button>
+                    <b:DropDownMenu>
+                        <b:ListItem>Item 1</b:ListItem>
+                        <b:ListItem>Item 2</b:ListItem>
+                    </b:DropDownMenu>
+                </b:ButtonGroup>
+                <b:ButtonGroup addStyleNames="{style.spacing}">
+                    <b:Button toggle="DROPDOWN" type="SUCCESS">Success</b:Button>
+                    <b:DropDownMenu>
+                        <b:ListItem>Item 1</b:ListItem>
+                        <b:ListItem>Item 2</b:ListItem>
+                    </b:DropDownMenu>
+                </b:ButtonGroup>
+                <b:ButtonGroup addStyleNames="{style.spacing}">
+                    <b:Button toggle="DROPDOWN" type="INFO">Info</b:Button>
+                    <b:DropDownMenu>
+                        <b:ListItem>Item 1</b:ListItem>
+                        <b:ListItem>Item 2</b:ListItem>
+                    </b:DropDownMenu>
+                </b:ButtonGroup>
+                <b:ButtonGroup addStyleNames="{style.spacing}">
+                    <b:Button toggle="DROPDOWN" type="WARNING">Warning</b:Button>
+                    <b:DropDownMenu>
+                        <b:ListItem>Item 1</b:ListItem>
+                        <b:ListItem>Item 2</b:ListItem>
+                    </b:DropDownMenu>
+                </b:ButtonGroup>
+                <b:ButtonGroup addStyleNames="{style.spacing}">
+                    <b:Button toggle="DROPDOWN" type="DANGER">Danger</b:Button>
+                    <b:DropDownMenu>
+                        <b:ListItem>Item 1</b:ListItem>
+                        <b:ListItem>Item 2</b:ListItem>
+                    </b:DropDownMenu>
+                </b:ButtonGroup>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:ButtonGroup&gt;\n
+                    \s\s&lt;b:Button toggle="DROPDOWN" text="..." type="..."&gt;\n
+                    \s\s&lt;b:DropDownMenu&gt;\n
+                    \s\s\s\s&lt;b:ListItem&gt;Item 1&lt;/b:ListItem&gt;\n
+                    \s\s\s\s&lt;b:ListItem&gt;Item 2&lt;/b:ListItem&gt;\n
+                    \s\s&lt;/b:DropDownMenu&gt;\n
+                    &lt;/b:ButtonGroup&gt;
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
 
     </b:Row>
 

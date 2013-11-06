@@ -44,7 +44,6 @@ public class Breadcrumbs extends OrderedList {
 
     @Override
     protected void onAttach() {
-
         if (!isOrWasAttached() && children.size() > 0) {
             Widget lastWidget = children.get(children.size() - 1);
             lastWidget.addStyleName(Styles.ACTIVE);

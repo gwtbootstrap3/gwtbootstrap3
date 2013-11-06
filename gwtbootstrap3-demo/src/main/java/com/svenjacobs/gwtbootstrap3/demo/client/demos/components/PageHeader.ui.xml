@@ -3,7 +3,21 @@
 
     <b:Row>
 
-        <b:PageHeader text="Page Headers" subText="TODO!!!"/>
+        <b:PageHeader text="Page Headers"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:PageHeader text="Heading" subText="sub heading"/>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:PageHeader text="..." subText="..."/&gt;
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
 
     </b:Row>
 
