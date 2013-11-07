@@ -47,8 +47,6 @@ public class DemoEntryPoint implements EntryPoint {
 
     @UiField
     Row container;
-    //    @UiField
-//    Jumbotron jumbo;
     @UiField
     NavbarBrand brand;
     @UiField
@@ -119,6 +117,8 @@ public class DemoEntryPoint implements EntryPoint {
     ListItem affixLink;
     @UiField
     com.svenjacobs.gwtbootstrap3.client.ui.Jumbotron jumbotron;
+    @UiField
+    ListItem dateTimePickerLink;
 
     @UiHandler("brand")
     public void handleBrandClick(ClickEvent event) {
@@ -387,6 +387,14 @@ public class DemoEntryPoint implements EntryPoint {
             public void onClick(ClickEvent event) {
                 container.clear();
                 container.add(new Collapse());
+            }
+        });
+
+        dateTimePickerLink.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                container.clear();
+                container.add(new DateTimePickers());
             }
         });
 

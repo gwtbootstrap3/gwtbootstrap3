@@ -18,8 +18,7 @@
   #L%
   -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui"
-        >
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
 
     <ui:style>
         .buttons button {
@@ -85,6 +84,7 @@
                                 <b:ListItem ui:field="affixLink">Affix</b:ListItem>
                                 <b:ListItem ui:field="carouselLink">Carousel</b:ListItem>
                                 <b:ListItem ui:field="collapseLink">Collapse</b:ListItem>
+                                <b:ListItem ui:field="dateTimePickerLink">DateTimePicker</b:ListItem>
                                 <b:ListItem ui:field="modalsLink">Modals</b:ListItem>
                                 <b:ListItem ui:field="popoverLink">Popover</b:ListItem>
                             </b:DropDownMenu>

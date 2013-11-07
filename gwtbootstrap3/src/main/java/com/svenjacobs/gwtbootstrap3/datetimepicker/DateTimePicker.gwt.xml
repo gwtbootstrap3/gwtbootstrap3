@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   #%L
   GwtBootstrap3
@@ -17,21 +18,14 @@
   limitations under the License.
   #L%
   -->
-<module rename-to="GwtBootstrap3Demo">
-    <inherits name="com.google.gwt.uibinder.UiBinder"/>
-    <inherits name="com.svenjacobs.gwtbootstrap3.GwtBootstrap3"/>
-    <inherits name="com.svenjacobs.gwtbootstrap3.datetimepicker.DateTimePicker"/>
 
-    <public path='resource'>
-        <include name='css/*.css'/>
-        <include name='js/*.js'/>
-    </public>
+<module rename-to='datetimepicker'>
+    <source path='client'/>
 
-    <stylesheet src='css/demo.css'/>
-    <stylesheet src='css/prettify.css'/>
-    <script src='js/prettify.js'/>
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name="com.google.gwt.resources.Resources"/>
+    <inherits name='com.svenjacobs.gwtbootstrap3.GwtBootstrap3'/>
+    <inherits name='com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.Resources'/>
 
-    <entry-point class="com.svenjacobs.gwtbootstrap3.demo.client.DemoEntryPoint"/>
-
-    <source path="client"/>
+    <entry-point class='com.svenjacobs.gwtbootstrap3.datetimepicker.client.DateTimePicker'/>
 </module>

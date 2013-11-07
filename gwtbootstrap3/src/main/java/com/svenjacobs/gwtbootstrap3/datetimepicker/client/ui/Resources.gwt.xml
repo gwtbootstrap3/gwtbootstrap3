@@ -17,21 +17,13 @@
   limitations under the License.
   #L%
   -->
-<module rename-to="GwtBootstrap3Demo">
-    <inherits name="com.google.gwt.uibinder.UiBinder"/>
-    <inherits name="com.svenjacobs.gwtbootstrap3.GwtBootstrap3"/>
-    <inherits name="com.svenjacobs.gwtbootstrap3.datetimepicker.DateTimePicker"/>
-
-    <public path='resource'>
-        <include name='css/*.css'/>
-        <include name='js/*.js'/>
+<module>
+    <public path="resources">
+        <include name="css/*.css"/>
+        <include name="js/*.js"/>
     </public>
 
-    <stylesheet src='css/demo.css'/>
-    <stylesheet src='css/prettify.css'/>
-    <script src='js/prettify.js'/>
-
-    <entry-point class="com.svenjacobs.gwtbootstrap3.demo.client.DemoEntryPoint"/>
-
-    <source path="client"/>
+    <stylesheet src="css/bootstrap-datetimepicker.min.css"/>
+    <script src="js/moment.min.js"/>
+    <script src="js/bootstrap-datetimepicker.min.js"/>
 </module>
