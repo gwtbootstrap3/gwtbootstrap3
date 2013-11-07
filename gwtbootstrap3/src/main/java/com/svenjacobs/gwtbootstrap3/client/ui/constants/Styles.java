@@ -71,6 +71,8 @@ public final class Styles {
 
     public static final String FADE = "fade";
 
+    public static final String FONT_AWESOME_BASE = "fa";
+
     public static final String FORM_CONTROL = "form-control";
     public static final String FORM_CONTROL_STATIC = "form-control-static";
     public static final String FORM_GROUP = "form-group";

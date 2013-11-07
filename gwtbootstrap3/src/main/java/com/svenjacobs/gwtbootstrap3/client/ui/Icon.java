@@ -36,6 +36,7 @@ public class Icon extends Widget implements HasType<IconType>, HasResponsiveness
 
     public Icon() {
         setElement(DOM.createElement("i"));
+        addStyleName(Styles.FONT_AWESOME_BASE);
     }
 
     @UiConstructor

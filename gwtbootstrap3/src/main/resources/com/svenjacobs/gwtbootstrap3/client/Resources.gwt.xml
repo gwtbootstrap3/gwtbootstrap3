@@ -21,7 +21,7 @@
     <public path="resource">
         <include name="css/*.css"/>
         <include name="js/*.js"/>
-        <include name="font/*"/>
+        <include name="fonts/*"/>
     </public>
 
     <stylesheet src="css/bootstrap.min.css"/>

@@ -84,7 +84,7 @@
             </b:PanelHeader>
             <b:PanelBody>
                 <b:Icon addStyleNames="{style.spacing}" type="GEAR" size="LARGE" spin="true"/>
-                <b:Icon type="GEAR" size="TIMES5"/>
+                <b:Icon type="GEAR" size="TIMES5" spin="true"/>
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
@@ -98,11 +98,11 @@
                 <b:Heading size="3" text="Rotated &amp; Flipped"/>
             </b:PanelHeader>
             <b:PanelBody>
-                <b:Icon addStyleNames="{style.spacing}" type="GEAR" size="LARGE" rotate="ROTATE_90"/>
-                <b:Icon addStyleNames="{style.spacing}" type="GEAR" size="LARGE" rotate="ROTATE_180"/>
-                <b:Icon addStyleNames="{style.spacing}" type="GEAR" size="LARGE" rotate="ROTATE_270"/>
-                <b:Icon addStyleNames="{style.spacing}" type="GEAR" size="LARGE" flip="HORIZONTAL"/>
-                <b:Icon addStyleNames="{style.spacing}" type="GEAR" size="LARGE" flip="VERTICAL"/>
+                <b:Icon addStyleNames="{style.spacing}" type="FLAG_O" size="LARGE" rotate="ROTATE_90"/>
+                <b:Icon addStyleNames="{style.spacing}" type="FLAG_O" size="LARGE" rotate="ROTATE_180"/>
+                <b:Icon addStyleNames="{style.spacing}" type="FLAG_O" size="LARGE" rotate="ROTATE_270"/>
+                <b:Icon addStyleNames="{style.spacing}" type="FLAG_O" size="LARGE" flip="HORIZONTAL"/>
+                <b:Icon addStyleNames="{style.spacing}" type="FLAG_O" size="LARGE" flip="VERTICAL"/>
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">

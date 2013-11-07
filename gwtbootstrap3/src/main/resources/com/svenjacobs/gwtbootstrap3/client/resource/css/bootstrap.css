@@ -1827,7 +1827,7 @@
     input[type="radio"],
     input[type="checkbox"] {
         margin: 4px 0 0;
-        margin-top: 1px  \9;
+        margin-top: 1px   \9;
         /* IE8-9 */
 
         line-height: normal;
@@ -2560,8 +2560,8 @@
 
     @font-face {
         font-family: 'Glyphicons Halflings';
-        src: url('../font/glyphicons-halflings-regular.eot');
-        src: url('../font/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../font/glyphicons-halflings-regular.woff') format('woff'), url('../font/glyphicons-halflings-regular.ttf') format('truetype'), url('../font/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+        src: url('../fonts/glyphicons-halflings-regular.eot');
+        src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
     }
 
     .glyphicon {

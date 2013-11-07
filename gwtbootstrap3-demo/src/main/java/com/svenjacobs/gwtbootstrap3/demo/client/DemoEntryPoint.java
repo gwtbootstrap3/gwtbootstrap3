@@ -117,10 +117,13 @@ public class DemoEntryPoint implements EntryPoint {
     ListItem popoverLink;
     @UiField
     ListItem affixLink;
+    @UiField
+    com.svenjacobs.gwtbootstrap3.client.ui.Jumbotron jumbotron;
 
     @UiHandler("brand")
     public void handleBrandClick(ClickEvent event) {
         container.clear();
+        container.add(jumbotron);
     }
 
     @Override
