@@ -50,10 +50,10 @@
                 <b:Navbar addStyleNames="{style.margin-fix}">
                     <b:NavbarHeader>
                         <b:NavbarBrand>Brand</b:NavbarBrand>
-                        <b:NavbarCollapseButton target="#navbar-collapse"/>
+                        <b:NavbarCollapseButton target="#navbar-collapse2"/>
                     </b:NavbarHeader>
 
-                    <b:NavbarCollapse b:id="navbar-collapse">
+                    <b:NavbarCollapse b:id="navbar-collapse2">
                         <b:NavbarNav>
                             <b:ListItem active="true">Item 1</b:ListItem>
                             <b:ListItem>Item 2</b:ListItem>
