@@ -23,9 +23,6 @@
     <source path='client'/>
 
     <inherits name='com.google.gwt.user.User'/>
-    <inherits name="com.google.gwt.resources.Resources"/>
     <inherits name='com.svenjacobs.gwtbootstrap3.GwtBootstrap3'/>
-    <inherits name='com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.Resources'/>
 
-    <entry-point class='com.svenjacobs.gwtbootstrap3.datetimepicker.client.DateTimePicker'/>
 </module>
