@@ -20,6 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
@@ -34,7 +35,11 @@ public class TextBox extends com.google.gwt.user.client.ui.TextBox implements Ha
     private final IdMixin<TextBox> idMixin = new IdMixin<TextBox>(this);
 
     public TextBox() {
-        super(DOM.createInputText());
+        this(DOM.createInputText());
+    }
+
+    public TextBox(Element element) {
+        super(element);
         setStyleName(Styles.FORM_CONTROL);
     }
 
