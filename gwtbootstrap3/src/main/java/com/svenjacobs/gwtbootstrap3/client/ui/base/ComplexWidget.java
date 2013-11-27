@@ -22,20 +22,39 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base;
 
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.svenjacobs.gwtbootstrap3.client.ui.HasId;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 
 /**
  * Base class for widgets that contain further widgets.
  *
  * @author Sven Jacobs
  */
-public class ComplexWidget extends ComplexPanel {
+public class ComplexWidget extends ComplexPanel implements HasId {
+    private final IdMixin<ComplexWidget> idMixin = new IdMixin<ComplexWidget>(this);
 
     @Override
     public void add(final Widget child) {
         add(child, getElement());
     }
 
+    /**
+     * Inserts a widget at a specific index
+     *
+     * @param child       - widget to be inserted
+     * @param beforeIndex - index for the widget
+     */
     public void insert(Widget child, int beforeIndex) {
         insert(child, getElement(), beforeIndex, true);
+    }
+
+    @Override
+    public void setId(String id) {
+        idMixin.setId(id);
+    }
+
+    @Override
+    public String getId() {
+        return idMixin.getId();
     }
 }

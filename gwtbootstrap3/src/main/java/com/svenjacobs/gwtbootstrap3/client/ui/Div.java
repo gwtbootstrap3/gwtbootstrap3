@@ -23,15 +23,13 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 
 /**
  * Simple {@code <div>} tag
  * 
  * @author Joshua Godi
  */
-public class Div extends ComplexWidget implements HasResponsiveness, HasId {
-    private final IdMixin<Div> idMixin = new IdMixin<Div>(this);
+public class Div extends ComplexWidget implements HasResponsiveness {
 
     public Div() {
         setElement(Document.get().createDivElement());
@@ -45,15 +43,5 @@ public class Div extends ComplexWidget implements HasResponsiveness, HasId {
     @Override
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setId(final String id) {
-        idMixin.setId(id);
-    }
-
-    @Override
-    public String getId() {
-        return idMixin.getId();
     }
 }
