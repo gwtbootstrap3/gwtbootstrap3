@@ -2,11 +2,9 @@ GwtBootstrap3 is a GWT wrapper for Twitter's Bootstrap library version 3
 containing design templates, styles and beautiful widgets.
 
 Have a look at the [demo](http://svenjacobs.github.io/gwtbootstrap3/) and its
-[source code](https://github.com/svenjacobs/gwtbootstrap3/tree/master/src/gwtbootstrap3-demo/src/main/java/com/svenjacobs/gwtbootstrap3/demo/client).
+[source code](https://github.com/svenjacobs/gwtbootstrap3/tree/master/gwtbootstrap3-demo/src/main/java/com/svenjacobs/gwtbootstrap3/demo/client). Also use the [Google Group](https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3) for help/discussion.
 
-**Note:** This library is **not** feature complete as it contains only the
-widgets / functionality that I needed for another project of mine.
-Patches / pull requests are welcome. See *Feature matrix* below.
+**Note:** This library is **not yet** feature complete. Patches / pull requests are welcome. See *Feature matrix* below.
 
 # Usage
 
@@ -16,7 +14,18 @@ Add the dependency to your Maven POM:
 <dependency>
     <groupId>com.svenjacobs.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+or if you want to use the snapshot release:
+
+```xml
+<dependency>
+    <groupId>com.svenjacobs.gwtbootstrap3</groupId>
+    <artifactId>gwtbootstrap3</artifactId>
+    <version>0.3-SNAPSHOT</version>
     <scope>provided</scope>
 </dependency>
 ```
@@ -173,3 +182,7 @@ Compare this to the HTML version:
     </ul>
 </div>
 ```
+
+# Acknowledgement
+
+Huge thanks go to [Joshua Godi](https://github.com/jgodi) who added many missing components and reworked the library!
