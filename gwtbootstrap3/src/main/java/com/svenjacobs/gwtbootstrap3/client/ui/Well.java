@@ -29,8 +29,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.WellSize;
  * Well, well Mr. Anderson...
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public class Well extends HTMLPanel implements HasSize<WellSize> {
+public class Well extends HTMLPanel implements HasSize<WellSize>, HasResponsiveness {
 
     public Well(final String html) {
         super(html);
@@ -49,5 +50,15 @@ public class Well extends HTMLPanel implements HasSize<WellSize> {
     @Override
     public WellSize getSize() {
         return WellSize.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

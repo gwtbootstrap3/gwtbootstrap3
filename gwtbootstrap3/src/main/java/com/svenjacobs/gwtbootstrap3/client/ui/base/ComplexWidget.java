@@ -34,4 +34,8 @@ public class ComplexWidget extends ComplexPanel {
     public void add(final Widget child) {
         add(child, getElement());
     }
+
+    public void insert(Widget child, int beforeIndex) {
+        insert(child, getElement(), beforeIndex, true);
+    }
 }

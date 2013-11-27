@@ -27,20 +27,20 @@ import com.google.gwt.dom.client.Style;
  */
 public enum ColumnSize implements Size, Style.HasCssName {
     // Extra small devices (<768px)
-    XS_1("col-1"),
-    XS_2("col-2"),
-    XS_3("col-3"),
-    XS_4("col-4"),
-    XS_5("col-5"),
-    XS_6("col-6"),
-    XS_7("col-7"),
-    XS_8("col-8"),
-    XS_9("col-9"),
-    XS_10("col-10"),
-    XS_11("col-11"),
-    XS_12("col-12"),
+    XS_1("col-xs-1"),
+    XS_2("col-xs-2"),
+    XS_3("col-xs-3"),
+    XS_4("col-xs-4"),
+    XS_5("col-xs-5"),
+    XS_6("col-xs-6"),
+    XS_7("col-xs-7"),
+    XS_8("col-xs-8"),
+    XS_9("col-xs-9"),
+    XS_10("col-xs-10"),
+    XS_11("col-xs-11"),
+    XS_12("col-xs-12"),
 
-    // Small devices (>768px)
+    // Small devices (>=768px)
     SM_1("col-sm-1"),
     SM_2("col-sm-2"),
     SM_3("col-sm-3"),
@@ -54,7 +54,21 @@ public enum ColumnSize implements Size, Style.HasCssName {
     SM_11("col-sm-11"),
     SM_12("col-sm-12"),
 
-    // Medium (>992px) to large devices (>1200px)
+    // Medium devices (>=992px)
+    MD_1("col-md-1"),
+    MD_2("col-md-2"),
+    MD_3("col-md-3"),
+    MD_4("col-md-4"),
+    MD_5("col-md-5"),
+    MD_6("col-md-6"),
+    MD_7("col-md-7"),
+    MD_8("col-md-8"),
+    MD_9("col-md-9"),
+    MD_10("col-md-10"),
+    MD_11("col-md-11"),
+    MD_12("col-md-12"),
+
+    // Large devices (>=1200px)
     LG_1("col-lg-1"),
     LG_2("col-lg-2"),
     LG_3("col-lg-3"),

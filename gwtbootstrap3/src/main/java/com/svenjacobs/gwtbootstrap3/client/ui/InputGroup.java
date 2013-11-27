@@ -21,17 +21,29 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Input group parent element of {@link InputGroupAddon}.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see InputGroupAddon
  */
-public class InputGroup extends FlowPanel {
+public class InputGroup extends FlowPanel implements HasResponsiveness {
 
     public InputGroup() {
         setStyleName(Styles.INPUT_GROUP);
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

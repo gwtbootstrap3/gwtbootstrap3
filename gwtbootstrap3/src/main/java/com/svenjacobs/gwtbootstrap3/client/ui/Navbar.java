@@ -29,12 +29,13 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see NavbarBrand
  * @see NavbarNav
  * @see NavbarForm
  * @see NavbarText
  */
-public class Navbar extends ComplexWidget implements HasType<NavbarType> {
+public class Navbar extends ComplexWidget implements HasType<NavbarType>, HasResponsiveness {
 
     public Navbar() {
         setElement(DOM.createElement("nav"));
@@ -51,6 +52,16 @@ public class Navbar extends ComplexWidget implements HasType<NavbarType> {
     @Override
     public NavbarType getType() {
         return NavbarType.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     public void setPosition(final NavbarPosition type) {

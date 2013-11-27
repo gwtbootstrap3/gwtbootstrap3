@@ -4,18 +4,22 @@ body {
 
 pre.prettyprint {
     padding: 9.5px !important;
-    border: 1px solid #CCCCCC !important;
-    margin-bottom: 10px !important;
+    border: none !important;
+    margin-bottom: 0px !important;
 }
 
-/* Styles for Affix/sidebar shamelessly copied from http://getbootstrap.com/assets/css/docs.css */
+.page-header {
+    margin-top: 0px !important;
+}
 
-/* By default it's not affixed in mobile views, so undo that */
+    /* Styles for Affix/sidebar shamelessly copied from http://getbootstrap.com/assets/css/docs.css */
+
+    /* By default it's not affixed in mobile views, so undo that */
 .bs-sidebar.affix {
     position: static;
 }
 
-/* First level of nav */
+    /* First level of nav */
 .bs-sidenav {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -26,7 +30,7 @@ pre.prettyprint {
     border-radius: 5px;
 }
 
-/* All levels of nav */
+    /* All levels of nav */
 .bs-sidebar .nav > li > a {
     display: block;
     color: #716b7a;
@@ -49,7 +53,7 @@ pre.prettyprint {
     border-right: 1px solid #563d7c;
 }
 
-/* Nav: second level (shown on .active) */
+    /* Nav: second level (shown on .active) */
 .bs-sidebar .nav .nav {
     display: none; /* Hide by default, but at >768px, show it */
     margin-bottom: 8px;
@@ -62,20 +66,21 @@ pre.prettyprint {
     font-size: 90%;
 }
 
-/* Tablets and up */
+    /* Tablets and up */
 @media screen and (min-width: 768px) {
 
     /* Show the docs nav */
     .bs-sidebar {
         display: block;
     }
+
     /* Show the hidden subnavs when space allows it */
     .bs-sidebar .nav > .active > ul {
         display: block;
     }
 }
 
-/* Tablets/desktops and up */
+    /* Tablets/desktops and up */
 @media screen and (min-width: 992px) {
 
     /* Widen the fixed sidebar */
@@ -83,13 +88,16 @@ pre.prettyprint {
     .bs-sidebar.affix-bottom {
         width: 213px;
     }
+
     .bs-sidebar.affix {
         position: fixed; /* Undo the static from mobile-first approach */
         top: 60px;
     }
+
     .bs-sidebar.affix-bottom {
         position: absolute; /* Undo the static from mobile-first approach */
     }
+
     .bs-sidebar.affix-bottom .bs-sidenav,
     .bs-sidebar.affix .bs-sidenav {
         margin-top: 0;
@@ -97,7 +105,7 @@ pre.prettyprint {
     }
 }
 
-/* Large desktops and up */
+    /* Large desktops and up */
 @media screen and (min-width: 1200px) {
 
     /* Widen the fixed sidebar again */

@@ -21,6 +21,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base.form;
  */
 
 import com.google.gwt.user.client.ui.*;
+import com.svenjacobs.gwtbootstrap3.client.ui.HasResponsiveness;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -30,8 +32,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * Input elements styleName is adjusted during {@link #add(com.google.gwt.user.client.ui.Widget)}.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public abstract class FormElementContainer extends ComplexPanel {
+public abstract class FormElementContainer extends ComplexPanel implements HasResponsiveness {
 
     @Override
     public void add(final Widget w) {
@@ -43,5 +46,15 @@ public abstract class FormElementContainer extends ComplexPanel {
         }
 
         add(w, getElement());
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

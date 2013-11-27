@@ -1,0 +1,59 @@
+<!--
+  #%L
+  GwtBootstrap3
+  %%
+  Copyright (C) 2013 Sven Jacobs
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <ui:style>
+        .spacing {
+            margin-right: 5px;
+        }
+    </ui:style>
+
+    <b:Row>
+
+        <b:PageHeader text="Labels"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Label addStyleNames="{style.spacing}" text="Default"/>
+                <b:Label addStyleNames="{style.spacing}" text="Primary" type="PRIMARY"/>
+                <b:Label addStyleNames="{style.spacing}" text="Success" type="SUCCESS"/>
+                <b:Label addStyleNames="{style.spacing}" text="Info" type="INFO"/>
+                <b:Label addStyleNames="{style.spacing}" text="Warning" type="WARNING"/>
+                <b:Label addStyleNames="{style.spacing}" text="Danger" type="DANGER"/>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Label text="..."/&gt;\n
+                    &lt;b:Label text="..." type="PRIMARY"/&gt;\n
+                    &lt;b:Label text="..." type="SUCCESS"/&gt;\n
+                    &lt;b:Label text="..." type="INFO"/&gt;\n
+                    &lt;b:Label text="..." type="WARNING"/&gt;\n
+                    &lt;b:Label text="..." type="DANGER"/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+    </b:Row>
+
+</ui:UiBinder>

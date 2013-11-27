@@ -20,19 +20,26 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public class TextBox extends com.google.gwt.user.client.ui.TextBox implements HasId {
+public class TextBox extends com.google.gwt.user.client.ui.TextBox implements HasId, HasResponsiveness {
 
     private final IdMixin<TextBox> idMixin = new IdMixin<TextBox>(this);
 
     public TextBox() {
-        super(DOM.createInputText());
+        this(DOM.createInputText());
+    }
+
+    public TextBox(Element element) {
+        super(element);
         setStyleName(Styles.FORM_CONTROL);
     }
 
@@ -52,5 +59,15 @@ public class TextBox extends com.google.gwt.user.client.ui.TextBox implements Ha
     @Override
     public String getId() {
         return idMixin.getId();
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

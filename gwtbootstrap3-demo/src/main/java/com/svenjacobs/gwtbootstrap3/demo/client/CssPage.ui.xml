@@ -1,0 +1,781 @@
+<!--
+  #%L
+  GwtBootstrap3
+  %%
+  Copyright (C) 2013 Sven Jacobs
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <ui:style>
+        .column {
+            border: 1px solid #000000;
+            text-align: center;
+        }
+    </ui:style>
+
+    <b:FlowPanel>
+
+        <!-- Container Content -->
+        <b:Container>
+
+            <!-- Row -->
+            <b:Row>
+
+                <!-- DEMO CONTENT STARTS HERE -->
+
+                <!-- Left column -->
+                <b:Column size="MD_3">
+
+                    <b:FlowPanel styleName="bs-sidebar affix" ui:field="navigation" b:id="navigation">
+                        <b:Nav addStyleNames="bs-sidenav">
+                            <b:ListItemPanel href="#grid-system" text="Grid System">
+                                <b:Nav>
+                                    <b:ListItem href="#grid-system-basic">Basics</b:ListItem>
+                                    <b:ListItem href="#grid-system-offsetting">Offsetting</b:ListItem>
+                                    <b:ListItem href="#grid-system-nesting">Nesting</b:ListItem>
+                                    <b:ListItem href="#grid-system-ordering">Ordering</b:ListItem>
+                                </b:Nav>
+                            </b:ListItemPanel>
+                            <b:ListItemPanel href="#typography" text="Typography">
+                                <b:Nav>
+                                    <b:ListItem href="#typography-headings">Headings</b:ListItem>
+                                    <b:ListItem href="#typography-body-copy">Body Copy</b:ListItem>
+                                    <b:ListItem href="#typography-emphasis">Emphasis</b:ListItem>
+                                    <b:ListItem href="#typography-alignment">Alignment</b:ListItem>
+                                    <b:ListItem href="#typography-abbreviations">Abbreviations</b:ListItem>
+                                    <b:ListItem href="#typography-block-quotes">Block Quotes</b:ListItem>
+                                    <b:ListItem href="#typography-lists">Lists</b:ListItem>
+                                </b:Nav>
+                            </b:ListItemPanel>
+                            <b:ListItem href="#code">Code</b:ListItem>
+                            <b:ListItemPanel href="#tables" text="Tables">
+                                <b:Nav>
+                                    <b:ListItem href="#tables-basic">Basic</b:ListItem>
+                                    <b:ListItem href="#tables-striped">Striped</b:ListItem>
+                                    <b:ListItem href="#tables-bordered">Bordered</b:ListItem>
+                                    <b:ListItem href="#tables-hover">Hover</b:ListItem>
+                                    <b:ListItem href="#tables-condensed">Condensed</b:ListItem>
+                                    <b:ListItem href="#tables-contextual">Contextual</b:ListItem>
+                                    <b:ListItem href="#tables-responsive">Responsive</b:ListItem>
+                                </b:Nav>
+                            </b:ListItemPanel>
+                            <b:ListItemPanel href="#forms" text="Forms">
+                                <b:Nav>
+                                    <b:ListItem href="#forms-inline">Inline</b:ListItem>
+                                    <b:ListItem href="#forms-horizontal">Horizontal</b:ListItem>
+                                </b:Nav>
+                            </b:ListItemPanel>
+                            <b:ListItemPanel href="#buttons" text="Buttons">
+                                <b:Nav>
+                                    <b:ListItem href="#buttons-options">Options</b:ListItem>
+                                    <b:ListItem href="#buttons-sizes">Sizes</b:ListItem>
+                                    <b:ListItem href="#buttons-disabled">Disabled State</b:ListItem>
+                                    <b:ListItem href="#buttons-icons">With Icons</b:ListItem>
+                                </b:Nav>
+                            </b:ListItemPanel>
+                            <b:ListItemPanel href="#responsive-utilities" text="Responsive Utilities">
+                                <b:Nav>
+                                    <b:ListItem href="#responsive-utilities-available">Available Classes</b:ListItem>
+                                    <b:ListItem href="#responsive-utilities-print">Print Classes</b:ListItem>
+                                    <b:ListItem href="#responsive-utilities-test">Test Cases</b:ListItem>
+                                </b:Nav>
+                            </b:ListItemPanel>
+                        </b:Nav>
+                    </b:FlowPanel>
+
+                </b:Column>
+                <!-- /Left column -->
+
+                <!-- Right column -->
+                <b:Column size="MD_9">
+
+                    <!---->
+                    <!--GRID SYSTEM-->
+                    <!---->
+
+                    <b:PageHeader b:id="grid-system" text="Grid System"/>
+
+                    <b:Heading b:id="grid-system-basic" size="4" text="Basic"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Row marginBottom="10">
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="MD_1">
+                                <b:Bold text="1"/>
+                            </b:Column>
+                        </b:Row>
+
+                        <b:Pre addStyleNames="prettyprint lang-xml">
+                            &lt;b:Column size="MD_1"&gt;...&lt;/b:Column&gt;\n
+                            &lt;b:Column size="MD_1"&gt;...&lt;/b:Column&gt;\n
+                            &lt;b:Column size="MD_1"&gt;...&lt;/b:Column&gt;\n
+                            &lt;b:Column size="MD_1"&gt;...&lt;/b:Column&gt;\n
+                        </b:Pre>
+
+                        <b:Paragraph>
+                            <br/>
+                            You can also set the sizes for each view port (Mobile/Table/Desktop/Large Desktop) right in
+                            the size so that
+                            it will be responsive without any extra code! Resize the browser to see!
+                            <br/>
+                        </b:Paragraph>
+
+                        <b:Row marginBottom="10">
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                            <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                                <b:Bold text="C"/>
+                            </b:Column>
+                        </b:Row>
+
+                        <b:Pre addStyleNames="prettyprint lang-xml">
+                            &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                            &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                            &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                            &lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                        </b:Pre>
+                    </b:Row>
+
+                    <b:Heading b:id="grid-system-offsetting" size="4" text="Offsetting"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="grid-system-nesting" size="4" text="Nesting"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="grid-system-ordering" size="4" text="Ordering"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <!---->
+                    <!--TYPOGRAPHY-->
+                    <!---->
+
+                    <b:PageHeader b:id="typography" text="Typography"/>
+
+                    <b:Heading b:id="typography-headings" size="4" text="Headings"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_5">
+                            <b:Heading size="1">Heading</b:Heading>
+                            <b:Heading size="2">Heading</b:Heading>
+                            <b:Heading size="3">Heading</b:Heading>
+                            <b:Heading size="4">Heading</b:Heading>
+                            <b:Heading size="5">Heading</b:Heading>
+                            <b:Heading size="6">Heading</b:Heading>
+                        </b:Column>
+
+                        <b:Column size="MD_7">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Heading size="1"/&gt;\n
+                                &lt;b:Heading size="2"/&gt;\n
+                                &lt;b:Heading size="3"/&gt;\n
+                                &lt;b:Heading size="4"/&gt;\n
+                                &lt;b:Heading size="5"/&gt;\n
+                                &lt;b:Heading size="6"/&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="typography-body-copy" size="4" text="Body Copy"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_5">
+                            <b:Small text="This line of text is meant to be treated as fine print."/>
+                            <b:ClearFix/>
+                            <b:Bold text="The following snippet of text is rendered as bold text."/>
+                            <b:ClearFix/>
+                            <b:Italics text="The following snippet of text is rendered as italicized text."/>
+                        </b:Column>
+
+                        <b:Column size="MD_7">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Small text=""/&gt;\n
+                                &lt;b:Bold text=""/&gt;\n
+                                &lt;b:Italics text=""/&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="typography-emphasis" size="4" text="Emphasis"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_5">
+                            <b:Paragraph emphasis="MUTED">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                            <b:Paragraph emphasis="PRIMARY">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                            <b:Paragraph emphasis="SUCCESS">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                            <b:Paragraph emphasis="INFO">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                            <b:Paragraph emphasis="WARNING">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                            <b:Paragraph emphasis="DANGER">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                        </b:Column>
+
+                        <b:Column size="MD_7">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Paragraph emphasis="MUTED"/&gt;\n
+                                &lt;b:Paragraph emphasis="PRIMARY"/&gt;\n
+                                &lt;b:Paragraph emphasis="SUCCESS"/&gt;\n
+                                &lt;b:Paragraph emphasis="INFO"/&gt;\n
+                                &lt;b:Paragraph emphasis="WARNING"/&gt;\n
+                                &lt;b:Paragraph emphasis="DANGER"/&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="typography-alignment" size="4" text="Alignment"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_5">
+                            <b:Paragraph alignment="LEFT">Align Left</b:Paragraph>
+                            <b:Paragraph alignment="CENTER">Align Center</b:Paragraph>
+                            <b:Paragraph alignment="RIGHT">Align Right</b:Paragraph>
+                        </b:Column>
+
+                        <b:Column size="MD_7">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Paragraph align="LEFT"/&gt;\n
+                                &lt;b:Paragraph align="CENTER"/&gt;\n
+                                &lt;b:Paragraph align="RIGHT"/&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="typography-abbreviations" size="4" text="Abbreviations"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_5">
+                            <g:HTMLPanel>
+                                An abbreviation of the word attribute is
+                                <b:Abbreviation title="attribute">attr.</b:Abbreviation>
+                            </g:HTMLPanel>
+                        </b:Column>
+
+                        <b:Column size="MD_7">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Abbreviation title=""/&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="typography-block-quotes" size="4" text="Block Quotes"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_5">
+                            <b:BlockQuote>
+                                <b:Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+                                    erat a ante.
+                                </b:Paragraph>
+                            </b:BlockQuote>
+                            <b:ClearFix/>
+                            <b:BlockQuote>
+                                <b:Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+                                    erat a ante.
+                                </b:Paragraph>
+                                <b:Small>Someone Famous</b:Small>
+                            </b:BlockQuote>
+                        </b:Column>
+
+                        <b:Column size="MD_7">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:BlockQuote&gt;\n
+                                \s\s&lt;b:Paragraph/&gt;\n
+                                &lt;/b:BlockQuote&gt;\n
+                            </b:Pre>
+                            <b:ClearFix/>
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:BlockQuote&gt;\n
+                                \s\s&lt;b:Paragraph/&gt;\n
+                                \s\s&lt;b:Small/&gt;\n
+                                &lt;/b:BlockQuote&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="typography-lists" size="4" text="Lists"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_5">
+                            <b:OrderedList>
+                                <b:ListItem text="Item"/>
+                                <b:ListItem text="Item"/>
+                                <b:ListItem text="Item"/>
+                                <b:ListItem text="Item"/>
+                            </b:OrderedList>
+
+                            <b:UnorderedList>
+                                <b:ListItem text="Item"/>
+                                <b:ListItem text="Item"/>
+                                <b:ListItem text="Item"/>
+                                <b:ListItem text="Item"/>
+                            </b:UnorderedList>
+                        </b:Column>
+
+                        <b:Column size="MD_7">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:OrderedList&gt;\n
+                                \s\s&lt;b:ListItem/&gt;\n
+                                &lt;/b:OrderedList&gt;\n
+                            </b:Pre>
+                            <b:ClearFix/>
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:UnorderedList&gt;\n
+                                \s\s&lt;b:ListItem/&gt;\n
+                                &lt;/b:UnorderedList&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <!---->
+                    <!--CODE-->
+                    <!---->
+
+                    <b:PageHeader b:id="code" text="Code"/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <!---->
+                    <!--TABLES-->
+                    <!---->
+
+                    <b:PageHeader b:id="tables" text="Tables"/>
+                    <b:Heading b:id="tables-basic" size="4" text="Basic"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="tables-striped" size="4" text="Striped"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="tables-bordered" size="4" text="Bordered"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="tables-hover" size="4" text="Hover"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="tables-condensed" size="4" text="Condensed"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="tables-contextual" size="4" text="Contextual"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="tables-responsive" size="4" text="Responsive"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <!---->
+                    <!--FORMS-->
+                    <!---->
+
+                    <b:PageHeader b:id="forms" text="Forms"/>
+
+                    <b:Row>
+                        <b:Column size="MD_5">
+                            <b:Form>
+                                <b:FieldSet>
+                                    <b:FormGroup>
+                                        <b:FormLabel for="formEmail">Email</b:FormLabel>
+                                        <b:FormStatic b:id="formEmail">email@example.example</b:FormStatic>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup>
+                                        <b:FormLabel for="formName">Name</b:FormLabel>
+                                        <b:TextBox text="blabla" b:id="formName"/>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup validationState="WARNING">
+                                        <b:FormLabel for="formWarning">Input with warning</b:FormLabel>
+                                        <b:TextBox b:id="formWarning"/>
+                                        <b:HelpBlock text="Form inline help here"/>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup validationState="ERROR">
+                                        <b:FormLabel for="formError">Input with error</b:FormLabel>
+                                        <b:TextBox b:id="formError"/>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup validationState="SUCCESS">
+                                        <b:FormLabel for="formSuccess">Input with success / Disabled</b:FormLabel>
+                                        <b:TextBox b:id="formSuccess" enabled="false"/>
+                                    </b:FormGroup>
+
+                                    <b:Button>Send</b:Button>
+                                </b:FieldSet>
+                            </b:Form>
+                        </b:Column>
+
+                        <b:Column size="MD_7">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Form&gt;\n
+                                \s\s&lt;b:FieldSet&gt;\n
+                                \s\s\s\s&lt;b:Legend&gt;Sample form&lt;/b:Legend&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formEmail"&gt;Email&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormStatic b:id="formEmail"&gt;email@example.example&lt;/b:FormStatic&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formName"&gt;Name&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:TextBox text="blabla" b:id="formName"/&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup validationState="WARNING"&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formWarning"&gt;Input with warning&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:TextBox b:id="formWarning"/&gt;\n
+                                \s\s\s\s\s\s&lt;b:HelpBlock text=""/&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup validationState="ERROR"&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formError"&gt;Input with error&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:TextBox b:id="formError"/&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup validationState="SUCCESS"&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formSuccess"&gt;Input with success&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;b:TextBox b:id="formSuccess"/&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:Button&gt;Send&lt;/b:Button&gt;\n
+                                \s\s&lt;/b:FieldSet&gt;\n
+                                &lt;/b:Form&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="forms-inline" size="4" text="Inline"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_12">
+                            <b:Form type="INLINE">
+                                <b:FieldSet>
+                                    <b:Legend>Sample form</b:Legend>
+
+                                    <b:FormGroup>
+                                        <b:TextBox placeHolder="Enter email"/>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup>
+                                        <b:TextBox placeHolder="Enter password"/>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup>
+                                        <b:Button>Send</b:Button>
+                                    </b:FormGroup>
+                                </b:FieldSet>
+                            </b:Form>
+                        </b:Column>
+
+                        <g:HTML>
+                            <br/>
+                        </g:HTML>
+
+                        <b:Column size="MD_12">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Form type="HORIZONTAL"&gt;\n
+                                \s\s&lt;b:FieldSet&gt;\n
+                                \s\s\s\s&lt;b:Legend&gt;Sample form&lt;/b:Legend&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formEmail" addStyleNames="col-lg-2"&gt;Email&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;g:FlowPanel addStyleNames="col-lg-10"&gt;\n
+                                \s\s\s\s\s\s\s\s&lt;b:FormStatic b:id="formEmail"&gt;email@example.example&lt;/b:FormStatic&gt;\n
+                                \s\s\s\s&lt;/g:FlowPanel&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formName" addStyleNames="col-lg-2"&gt;Name&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;g:FlowPanel addStyleNames="col-lg-10"&gt;\n
+                                \s\s\s\s\s\s\s\s&lt;b:TextBox text="blabla" b:id="formName"/&gt;\n
+                                \s\s\s\s\s\s&lt;/g:FlowPanel&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;g:FlowPanel addStyleNames="col-lg-offset-2 col-lg-10"&gt;\n
+                                \s\s\s\s\s\s\s\s&lt;b:Button&gt;Send&lt;/b:Button&gt;\n
+                                \s\s\s\s\s\s&lt;/g:FlowPanel&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \s\s&lt;/b:FieldSet&gt;\n
+                                &lt;/b:Form&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="forms-horizontal" size="4" text="Horizontal"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_5">
+                            <b:Form type="HORIZONTAL">
+                                <b:FieldSet>
+                                    <b:Legend>Sample form</b:Legend>
+
+                                    <b:FormGroup>
+                                        <b:FormLabel for="formEmail" addStyleNames="col-lg-2">Email</b:FormLabel>
+                                        <g:FlowPanel addStyleNames="col-lg-10">
+                                            <b:FormStatic b:id="formEmail">email@example.example</b:FormStatic>
+                                        </g:FlowPanel>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup>
+                                        <b:FormLabel for="formName" addStyleNames="col-lg-2">Name</b:FormLabel>
+                                        <g:FlowPanel addStyleNames="col-lg-10">
+                                            <b:TextBox text="blabla" b:id="formName"/>
+                                        </g:FlowPanel>
+                                    </b:FormGroup>
+
+                                    <b:FormGroup>
+                                        <g:FlowPanel addStyleNames="col-lg-offset-2 col-lg-10">
+                                            <b:Button>Send</b:Button>
+                                        </g:FlowPanel>
+                                    </b:FormGroup>
+                                </b:FieldSet>
+                            </b:Form>
+                        </b:Column>
+
+                        <b:Column size="MD_7">
+                            <b:Pre addStyleNames="prettyprint lang-xml">
+                                &lt;b:Form type="HORIZONTAL"&gt;\n
+                                \s\s&lt;b:FieldSet&gt;\n
+                                \s\s\s\s&lt;b:Legend&gt;Sample form&lt;/b:Legend&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formEmail" addStyleNames="col-lg-2"&gt;Email&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;g:FlowPanel addStyleNames="col-lg-10"&gt;\n
+                                \s\s\s\s\s\s\s\s&lt;b:FormStatic b:id="formEmail"&gt;email@example.example&lt;/b:FormStatic&gt;\n
+                                \s\s\s\s&lt;/g:FlowPanel&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;b:FormLabel for="formName" addStyleNames="col-lg-2"&gt;Name&lt;/b:FormLabel&gt;\n
+                                \s\s\s\s\s\s&lt;g:FlowPanel addStyleNames="col-lg-10"&gt;\n
+                                \s\s\s\s\s\s\s\s&lt;b:TextBox text="blabla" b:id="formName"/&gt;\n
+                                \s\s\s\s\s\s&lt;/g:FlowPanel&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \n
+                                \s\s\s\s&lt;b:FormGroup&gt;\n
+                                \s\s\s\s\s\s&lt;g:FlowPanel addStyleNames="col-lg-offset-2 col-lg-10"&gt;\n
+                                \s\s\s\s\s\s\s\s&lt;b:Button&gt;Send&lt;/b:Button&gt;\n
+                                \s\s\s\s\s\s&lt;/g:FlowPanel&gt;\n
+                                \s\s\s\s&lt;/b:FormGroup&gt;\n
+                                \s\s&lt;/b:FieldSet&gt;\n
+                                &lt;/b:Form&gt;
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <!---->
+                    <!--BUTTONS-->
+                    <!---->
+
+                    <b:PageHeader b:id="buttons" text="Buttons"/>
+
+                    <b:Heading b:id="buttons-options" size="4" text="Basic"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_7">
+                            <b:Button text="Default"/>
+                            <b:Button type="PRIMARY" text="Primary"/>
+                            <b:Button type="SUCCESS" text="Success"/>
+                            <b:Button type="INFO" text="Info"/>
+                            <b:Button type="WARNING" text="Warning"/>
+                            <b:Button type="DANGER" text="Danger"/>
+                            <b:Button type="LINK" text="Link"/>
+                        </b:Column>
+                        <b:Column size="MD_5">
+                            <b:Pre>
+                                &lt;b:Button type="DEFAULT"/&gt;\n
+                                &lt;b:Button type="PRIMARY"/&gt;\n
+                                &lt;b:Button type="SUCCESS"/&gt;\n
+                                &lt;b:Button type="INFO"/&gt;\n
+                                &lt;b:Button type="WARNING"/&gt;\n
+                                &lt;b:Button type="DANGER"/&gt;\n
+                                &lt;b:Button type="LINK"/&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="buttons-sizes" size="4" text="Sizes"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_6">
+                            <b:Button type="PRIMARY" size="SMALL" text="Small"/>
+                            <b:Button type="PRIMARY" size="LARGE" text="Large"/>
+                            <b:Button type="PRIMARY" size="EXTRA_SMALL" text="Extra Small"/>
+                        </b:Column>
+                        <b:Column size="MD_6">
+                            <b:Pre>
+                                &lt;b:Button type="PRIMARY" size="SMALL"/&gt;\n
+                                &lt;b:Button type="PRIMARY" size="LARGE"/&gt;\n
+                                &lt;b:Button type="PRIMARY" size="EXTRA_SMALL"/&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="buttons-disabled" size="4" text="Disabled State"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_6">
+                            <b:Button type="PRIMARY" text="Enabled" enabled="true"/>
+                            <b:Button type="PRIMARY" text="Disabled" enabled="false"/>
+                        </b:Column>
+                        <b:Column size="MD_6">
+                            <b:Pre>
+                                &lt;b:Button type="PRIMARY" enabled="true"/&gt;\n
+                                &lt;b:Button type="PRIMARY" enabled="false"/&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <b:Heading b:id="buttons-icons" size="4" text="With Icons"/>
+                    <b:Hr/>
+                    <b:Row>
+                        <b:Column size="MD_6">
+                            <b:Button type="PRIMARY" text="With Icon" icon="STAR"/>
+                            <b:Button type="PRIMARY" text="With Icon on Right" icon="STAR" iconPosition="RIGHT"/>
+                        </b:Column>
+                        <b:Column size="MD_6">
+                            <b:Pre>
+                                &lt;b:Button type="PRIMARY" icon="STAR"/&gt;\n
+                                &lt;b:Button type="PRIMARY" icon="STAR" iconPosition="RIGHT"/&gt;\n
+                            </b:Pre>
+                        </b:Column>
+                    </b:Row>
+
+                    <!---->
+                    <!--RESPONSIVE UTILITIES-->
+                    <!---->
+
+                    <b:PageHeader b:id="responsive-utilities" text="Responsive Utilities"/>
+
+                    <b:Heading b:id="responsive-utilities-available" size="4" text="Available Classes"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="responsive-utilities-print" size="4" text="Print Classes"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                    <b:Heading b:id="responsive-utilities-test" size="4" text="Test Cases"/>
+                    <b:Hr/>
+                    <b:Row>
+
+                    </b:Row>
+
+                </b:Column>
+                <!-- /Right column -->
+
+            </b:Row>
+            <!-- /Row -->
+
+        </b:Container>
+        <!-- /Container Content -->
+
+    </b:FlowPanel>
+
+</ui:UiBinder>
