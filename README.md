@@ -4,6 +4,8 @@ containing design templates, styles and beautiful widgets.
 Have a look at the [demo](http://svenjacobs.github.io/gwtbootstrap3/) and its
 [source code](https://github.com/svenjacobs/gwtbootstrap3/tree/master/src/gwtbootstrap3-demo/src/main/java/com/svenjacobs/gwtbootstrap3/demo/client).
 
+Also, use the [google group](https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3) for help/discussion.
+
 **Note:** This library is **not** feature complete as it contains only the
 widgets / functionality that I needed for another project of mine.
 Patches / pull requests are welcome. See *Feature matrix* below.
