@@ -21,6 +21,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -41,11 +42,22 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * }</pre>
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see ButtonGroup
  */
-public class ButtonToolBar extends FlowPanel {
+public class ButtonToolBar extends FlowPanel implements HasResponsiveness {
 
     public ButtonToolBar() {
         setStyleName(Styles.BTN_TOOLBAR);
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

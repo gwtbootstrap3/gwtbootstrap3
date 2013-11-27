@@ -1,0 +1,118 @@
+<!--
+  #%L
+  GwtBootstrap3
+  %%
+  Copyright (C) 2013 Sven Jacobs
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <b:Row>
+
+        <b:PageHeader text="Input Groups"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:InputGroup>
+                    <b:InputGroupAddon>P</b:InputGroupAddon>
+                    <b:TextBox placeHolder="Type here" autoComplete="false"/>
+                    <b:InputGroupAddon>A</b:InputGroupAddon>
+                </b:InputGroup>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:InputGroup&gt;\n
+                    \s\s&lt;b:InputGroupAddon&gt;P&lt;/b:InputGroupAddon&gt;\n
+                    \s\s&lt;b:TextBox placeHolder="Type here" autoComplete="false"/&gt;\n
+                    \s\s&lt;b:InputGroupAddon&gt;A&lt;/b:InputGroupAddon&gt;\n
+                    &lt;/b:InputGroup&gt;
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Checkboxes and Radio Addons"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Row>
+                    <b:Column size="MD_6">
+                        <b:InputGroup>
+                            <b:InputGroupButton>
+                                <b:CheckBoxButton/>
+                            </b:InputGroupButton>
+                            <b:TextBox autoComplete="false"/>
+                        </b:InputGroup>
+                    </b:Column>
+                    <b:Column size="MD_6">
+                        <b:InputGroup>
+                            <b:InputGroupButton>
+                                <b:RadioButton/>
+                            </b:InputGroupButton>
+                            <b:TextBox autoComplete="false"/>
+                        </b:InputGroup>
+                    </b:Column>
+                </b:Row>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:InputGroup&gt;\n
+                    \s\s&lt;b:InputGroupButton&gt;\n
+                    \s\s\s\s&lt;b:CheckButton&gt;\n
+                    \s\s&lt;/b:InputGroupButton&gt;\n
+                    \s\s&lt;b:TextBox placeHolder="Type here" autoComplete="false"/&gt;\n
+                    &lt;/b:InputGroup&gt;\n
+                    \n
+                    &lt;b:InputGroup&gt;\n
+                    \s\s&lt;b:InputGroupButton&gt;\n
+                    \s\s\s\s&lt;b:RadioButton&gt;\n
+                    \s\s&lt;/b:InputGroupButton&gt;\n
+                    \s\s&lt;b:TextBox placeHolder="Type here" autoComplete="false"/&gt;\n
+                    &lt;/b:InputGroup&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Button Addons"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:InputGroup>
+                    <b:InputGroupButton>
+                        <b:Button text="Go!"/>
+                    </b:InputGroupButton>
+                    <b:TextBox autoComplete="false"/>
+                </b:InputGroup>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:InputGroup&gt;\n
+                    \s\s&lt;b:InputGroupButton&gt;\n
+                    \s\s\s\s&lt;b:Button text="..."&gt;\n
+                    \s\s&lt;/b:InputGroupButton&gt;\n
+                    \s\s&lt;b:TextBox placeHolder="Type here" autoComplete="false"/&gt;\n
+                    &lt;/b:InputGroup&gt;
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+    </b:Row>
+
+</ui:UiBinder>

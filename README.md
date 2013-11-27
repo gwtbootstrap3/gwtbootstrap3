@@ -4,6 +4,8 @@ containing design templates, styles and beautiful widgets.
 Have a look at the [demo](http://svenjacobs.github.io/gwtbootstrap3/) and its
 [source code](https://github.com/svenjacobs/gwtbootstrap3/tree/master/gwtbootstrap3-demo/src/main/java/com/svenjacobs/gwtbootstrap3/demo/client).
 
+Also, use the [google group](https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3) for help/discussion.
+
 **Note:** This library is **not** feature complete as it contains only the
 widgets / functionality that I needed for another project of mine.
 Patches / pull requests are welcome. See *Feature matrix* below.
@@ -86,7 +88,7 @@ or create them in code if that's what you prefer.
 
 **Tip:** GwtBootstrap3's styles and widgets, especially the fluid grid system,
 work best when using the "classic" [panels](http://www.gwtproject.org/doc/latest/DevGuideUiPanels.html)
-throughout your application and **not** the absolut positioned layout panels
+throughout your application and **not** the absolute positioned layout panels
 introduced in GWT 2.0.
 
 # Feature matrix
@@ -97,56 +99,53 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 
 ## CSS
 
-| Feature     | Status              |
-|-------------|---------------------|
-| Glyphicons  | Supported           |
-| Grid system | Supported           |
-| Typography  | Partially supported |
-| Code        | Supported           |
-| Tables      | Not supported       |
-| Forms       | Partially supported |
-| Buttons     | Supported           |
-| Images      | Not supported       |
+| Feature     | Status              | In Demo    |
+|-------------|---------------------|------------|
+| Grid system | Supported           | Yes        |
+| Typography  | Supported           | Yes        |
+| Code        | Supported           | Yes        |
+| Tables      | Not supported       | No         |
+| Forms       | Supported           | Yes        |
+| Buttons     | Supported           | Yes        |
+| Images      | Supported           | Yes        |
+| Responsive  | Supported           | Yes        |
 
 ## Components
 
-| Feature                             | Status              |
-|-------------------------------------|---------------------|
-| Dropdowns                           | Supported           |
-| Button groups                       | Supported           |
-| Button dropdowns                    | Supported           |
-| Input groups                        | Partially supported |
-| Navs                                | Supported           |
-| Navbar                              | Supported           |
-| Breadcrumbs                         | Not supported       |
-| Pagination                          | Not supported       |
-| Labels                              | Supported           |
-| Badges                              | Supported           |
-| Typography (Jumbotron, Page header) | Supported           |
-| Thumbnails                          | Not supported       |
-| Alerts                              | Supported           |
-| Progress bars                       | Not supported       |
-| Media object                        | Not supported       |
-| List group                          | Not supported       |
-| Panels                              | Not supported       |
-| Wells                               | Supported           |
+| Feature                             | Status              | In Demo    |
+|-------------------------------------|---------------------|------------|
+| Icons (FontAwesome v4.0.3)          | Supported           | Yes        |
+| Dropdowns                           | Supported           | Yes        |
+| Button groups                       | Supported           | Yes        |
+| Button dropdowns                    | Supported           | Yes        |
+| Input groups                        | Partially supported | Yes        |
+| Navs                                | Supported           | Yes        |
+| Navbar                              | Supported           | Yes        |
+| Breadcrumbs                         | Supported           | Yes        |
+| Pagination                          | Not supported       | No         |
+| Labels                              | Supported           | Yes        |
+| Badges                              | Supported           | Yes        |
+| Jumbotron                           | Supported           | Yes        |
+| Page Header                         | Supported           | Yes        |
+| Thumbnails                          | Supported           | Yes        |
+| Alerts                              | Supported           | Yes        |
+| Progress bars                       | Supported           | Yes        |
+| Media object                        | Not supported       | No         |
+| List group                          | Supported           | Yes        |
+| Panels                              | Supported           | Yes        |
+| Wells                               | Supported           | Yes        |
 
 ## JavaScript
 
-| Feature     | Status        |
-|-------------|---------------|
-| Transitions | Not supported |
-| Modal       | Supported     |
-| Dropdown    | Supported     |
-| Scrollspy   | Supported     |
-| Tab         | Not supported |
-| Tooltip     | Not supported |
-| Popover     | Not supported |
-| Alert       | Supported     |
-| Button      | Supported     |
-| Collapse    | Not supported |
-| Carousel    | Not supported |
-| Affix       | Supported     |
+| Feature     | Status        | In Demo    |
+|-------------|---------------|------------|
+| Modal       | Supported     | No         |
+| Scrollspy   | Supported     | No         |
+| Tooltip     | Not supported | No         |
+| Popover     | Not supported | No         |
+| Collapse    | Not supported | No         |
+| Carousel    | Not supported | No         |
+| Affix       | Supported     | No         |
 
 # Relationship between raw Bootstrap components and GWT widgets 
 

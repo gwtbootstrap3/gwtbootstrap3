@@ -24,6 +24,7 @@ import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -36,8 +37,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * }</pre>
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public class PageHeader extends Widget implements HasText, HasId {
+public class PageHeader extends Widget implements HasText, HasId, HasResponsiveness {
 
     private final IdMixin<PageHeader> idMixin = new IdMixin<PageHeader>(this);
     private String heading;
@@ -72,6 +74,16 @@ public class PageHeader extends Widget implements HasText, HasId {
     @Override
     public String getId() {
         return idMixin.getId();
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     private void render() {

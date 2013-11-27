@@ -23,7 +23,9 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnOffset;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnPull;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnPush;
@@ -33,12 +35,21 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnSize;
  * A column of Bootstrap's fluid grid system.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see Row
  */
-public class Column extends ComplexWidget {
+public class Column extends ComplexWidget implements HasResponsiveness {
 
     private Column() {
         setElement(DOM.createDiv());
+    }
+
+    public Column(final ColumnSize size, final Widget... widgets) {
+        this(size);
+
+        for (Widget widget : widgets) {
+            add(widget);
+        }
     }
 
     /**
@@ -110,6 +121,16 @@ public class Column extends ComplexWidget {
 
     public void setOffset(final String offsets) {
         addEnumStringValues(offsets, ColumnOffset.class);
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     private void addSizes(final String sizes) {

@@ -26,7 +26,7 @@ import com.google.gwt.dom.client.Style;
  * @author Sven Jacobs
  */
 public enum ColumnPull implements Size, Style.HasCssName {
-    // Small devices (>768px)
+    // Small devices (>=768px)
     SM_1("col-sm-pull-1"),
     SM_2("col-sm-pull-2"),
     SM_3("col-sm-pull-3"),
@@ -39,7 +39,20 @@ public enum ColumnPull implements Size, Style.HasCssName {
     SM_10("col-sm-pull-10"),
     SM_11("col-sm-pull-11"),
 
-    // Medium (>992px) to large devices (>1200px)
+    // Medium devices (>=992px)
+    MD_1("col-md-pull-1"),
+    MD_2("col-md-pull-2"),
+    MD_3("col-md-pull-3"),
+    MD_4("col-md-pull-4"),
+    MD_5("col-md-pull-5"),
+    MD_6("col-md-pull-6"),
+    MD_7("col-md-pull-7"),
+    MD_8("col-md-pull-8"),
+    MD_9("col-md-pull-9"),
+    MD_10("col-md-pull-10"),
+    MD_11("col-md-pull-11"),
+
+    // Large devices (>=1200px)
     LG_1("col-lg-pull-1"),
     LG_2("col-lg-pull-2"),
     LG_3("col-lg-pull-3"),

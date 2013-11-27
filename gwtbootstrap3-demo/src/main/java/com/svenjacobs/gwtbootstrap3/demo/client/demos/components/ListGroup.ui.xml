@@ -1,0 +1,143 @@
+<!--
+  #%L
+  GwtBootstrap3
+  %%
+  Copyright (C) 2013 Sven Jacobs
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <b:Row>
+
+        <b:PageHeader text="List Groups"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Basic"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:ListGroup>
+                    <b:ListGroupItem text="Cras justo odio"/>
+                    <b:ListGroupItem text="Dapibus ac facilisis in"/>
+                    <b:ListGroupItem text="Morbi leo risus"/>
+                    <b:ListGroupItem text="Vestibulum at eros"/>
+                </b:ListGroup>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:ListGroup/&gt;\n
+                    \s\s&lt;b:ListGroupItem text=""/&gt;\n
+                    \s\s&lt;b:ListGroupItem text=""/&gt;\n
+                    \s\s&lt;b:ListGroupItem text=""/&gt;\n
+                    &lt;/b:ListGroup/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="With Badges"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:ListGroup>
+                    <b:ListGroupItem text="Cras justo odio">
+                        <b:Badge>12</b:Badge>
+                    </b:ListGroupItem>
+                    <b:ListGroupItem text="Dapibus ac facilisis in">
+                        <b:Badge>1</b:Badge>
+                    </b:ListGroupItem>
+                    <b:ListGroupItem text="Morbi leo risus">
+                        <b:Badge>8</b:Badge>
+                    </b:ListGroupItem>
+                    <b:ListGroupItem text="Vestibulum at eros">
+                        <b:Badge>4</b:Badge>
+                    </b:ListGroupItem>
+                </b:ListGroup>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:ListGroup/&gt;\n
+                    \s\s&lt;b:ListGroupItem text=""&gt;\n
+                    \s\s\s\s&lt;b:Badge text=""/&gt;\n
+                    \s\s&lt;/b:ListGroupItem&gt;\n
+                    \s\s&lt;b:ListGroupItem text=""/&gt;\n
+                    \s\s\s\s&lt;b:Badge text=""/&gt;\n
+                    \s\s&lt;/b:ListGroupItem&gt;\n
+                    \s\s&lt;b:ListGroupItem text=""/&gt;\n
+                    \s\s\s\s&lt;b:Badge text=""/&gt;\n
+                    \s\s&lt;/b:ListGroupItem&gt;\n
+                    &lt;/b:ListGroup/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Linked Items"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:LinkedGroup>
+                    <b:LinkedGroupItem active="true" text="Cras justo odio"/>
+                    <b:LinkedGroupItem text="Dapibus ac facilisis in"/>
+                    <b:LinkedGroupItem text="Morbi leo risus"/>
+                    <b:LinkedGroupItem text="Vestibulum at eros"/>
+                </b:LinkedGroup>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:LinkedGroup/&gt;\n
+                    \s\s&lt;b:LinkedGroupItem active="true" text=""/&gt;\n
+                    \s\s&lt;b:LinkedGroupItem text=""/&gt;\n
+                    \s\s&lt;b:LinkedGroupItem text=""/&gt;\n
+                    &lt;/b:LinkedGroup/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Custom Content"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:LinkedGroup>
+                    <b:LinkedGroupItem active="true">
+                        <b:LinkedGroupItemHeading size="3" text="Heading"/>
+                        <b:LinkedGroupItemText text="Insert text here..."/>
+                    </b:LinkedGroupItem>
+                    <b:LinkedGroupItem>
+                        <b:LinkedGroupItemHeading size="3" text="Heading"/>
+                        <b:LinkedGroupItemText text="Insert text here..."/>
+                    </b:LinkedGroupItem>
+                    <b:LinkedGroupItem>
+                        <b:LinkedGroupItemHeading size="3" text="Heading"/>
+                        <b:LinkedGroupItemText text="Insert text here..."/>
+                    </b:LinkedGroupItem>
+                </b:LinkedGroup>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:LinkedGroup/&gt;\n
+                    \s\s&lt;b:LinkedGroupItem active="true" text=""/&gt;\n
+                    \s\s&lt;b:LinkedGroupItem text=""/&gt;\n
+                    \s\s&lt;b:LinkedGroupItem text=""/&gt;\n
+                    &lt;/b:LinkedGroup/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+    </b:Row>
+
+</ui:UiBinder>

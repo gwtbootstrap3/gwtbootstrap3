@@ -24,14 +24,17 @@ import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasId;
+import com.svenjacobs.gwtbootstrap3.client.ui.HasResponsiveness;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 
 /**
  * Base class for {@link Widget} that just contains text.
  *
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public abstract class AbstractTextWidget extends Widget implements HasId, HasText {
+public abstract class AbstractTextWidget extends Widget implements HasId, HasText, HasResponsiveness {
 
     private final IdMixin<AbstractTextWidget> idMixin = new IdMixin<AbstractTextWidget>(this);
 
@@ -57,5 +60,15 @@ public abstract class AbstractTextWidget extends Widget implements HasId, HasTex
     @Override
     public String getText() {
         return getElement().getInnerText();
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

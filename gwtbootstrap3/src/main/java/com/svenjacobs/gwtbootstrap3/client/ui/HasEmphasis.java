@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.demo.client;
+package com.svenjacobs.gwtbootstrap3.client.ui;
 
 /*
  * #%L
@@ -20,15 +20,13 @@ package com.svenjacobs.gwtbootstrap3.demo.client;
  * #L%
  */
 
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.user.client.ui.RootPanel;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Emphasis;
 
 /**
- * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public class GwtBootstrap3Demo implements EntryPoint {
-    @Override
-    public void onModuleLoad() {
-        RootPanel.get().add(new DemoPage().asWidget());
-    }
+public interface HasEmphasis {
+    void setEmphasis(Emphasis emphasis);
+
+    Emphasis getEmphasis();
 }

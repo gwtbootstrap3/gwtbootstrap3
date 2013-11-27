@@ -20,8 +20,6 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -33,10 +31,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @see NavPills
  * @see Affix
  */
-public class Nav extends ComplexWidget implements HasJustified {
+public class Nav extends UnorderedList implements HasJustified {
 
     public Nav() {
-        setElement(DOM.createElement("ul"));
         setStyleName(Styles.NAV);
     }
 

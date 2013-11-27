@@ -28,6 +28,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.EnumHelper;
  */
 public enum LabelType implements Type, Style.HasCssName {
     DEFAULT("label-default"),
+    PRIMARY("label-primary"),
     SUCCESS("label-success"),
     INFO("label-info"),
     WARNING("label-warning"),

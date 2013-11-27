@@ -26,7 +26,7 @@ import com.google.gwt.dom.client.Style;
  * @author Sven Jacobs
  */
 public enum ColumnOffset implements Size, Style.HasCssName {
-    // Small devices (>768px)
+    // Small devices (>=768px)
     SM_1("col-sm-offset-1"),
     SM_2("col-sm-offset-2"),
     SM_3("col-sm-offset-3"),
@@ -39,7 +39,20 @@ public enum ColumnOffset implements Size, Style.HasCssName {
     SM_10("col-sm-offset-10"),
     SM_11("col-sm-offset-11"),
 
-    // Medium (>992px) to large devices (>1200px)
+    // Medium devices (>=992px)
+    MD_1("col-md-offset-1"),
+    MD_2("col-md-offset-2"),
+    MD_3("col-md-offset-3"),
+    MD_4("col-md-offset-4"),
+    MD_5("col-md-offset-5"),
+    MD_6("col-md-offset-6"),
+    MD_7("col-md-offset-7"),
+    MD_8("col-md-offset-8"),
+    MD_9("col-md-offset-9"),
+    MD_10("col-md-offset-10"),
+    MD_11("col-md-offset-11"),
+
+    // Large devices (>=1200px)
     LG_1("col-lg-offset-1"),
     LG_2("col-lg-offset-2"),
     LG_3("col-lg-offset-3"),

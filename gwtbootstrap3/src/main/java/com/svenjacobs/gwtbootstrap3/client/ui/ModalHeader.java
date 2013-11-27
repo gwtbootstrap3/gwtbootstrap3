@@ -22,14 +22,16 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.button.CloseButton;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonDismiss;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  * @see Modal
  */
-public class ModalHeader extends FlowPanel implements ModalComponent, IsClosable {
+public class ModalHeader extends FlowPanel implements ModalComponent, IsClosable, HasResponsiveness {
 
     private final Heading heading = new Heading(4);
     private final CloseButton closeButton = new CloseButton();
@@ -63,5 +65,15 @@ public class ModalHeader extends FlowPanel implements ModalComponent, IsClosable
     @Override
     public boolean isClosable() {
         return closeButton.getParent() != null;
+    }
+
+    @Override
+    public void setVisibleOn(String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }
