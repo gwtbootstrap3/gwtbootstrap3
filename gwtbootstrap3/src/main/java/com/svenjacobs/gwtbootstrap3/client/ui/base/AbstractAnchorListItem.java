@@ -23,7 +23,9 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.uibinder.client.UiChild;
 import com.google.gwt.user.client.ui.Focusable;
+import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.Anchor;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasHref;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasTargetHistoryToken;
@@ -43,6 +45,11 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
         add(anchor, getElement());
     }
 
+    @UiChild(tagname="anchor")
+    public void setWidget(final Widget widget) {
+    	anchor.getElement().appendChild(widget.getElement());
+    }
+    
     @Override
     public void setHref(final String href) {
         anchor.setHref(href);
