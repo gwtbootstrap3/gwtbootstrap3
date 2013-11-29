@@ -27,59 +27,59 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * @author Sven Jacobs
- * @author Joshua Godi
+ * @author Pontus Enmark
  */
-public class TextBox extends com.google.gwt.user.client.ui.TextBox implements HasId, HasResponsiveness, HasPlaceholder, HasAutocomplete {
+public class PasswordTextBox extends com.google.gwt.user.client.ui.PasswordTextBox implements HasId, HasResponsiveness, HasAutocomplete,
+		HasPlaceholder {
 
-    private final IdMixin<TextBox> idMixin = new IdMixin<TextBox>(this);
-
-    public TextBox() {
-        this(DOM.createInputText());
+	private final IdMixin<PasswordTextBox> idMixin = new IdMixin<PasswordTextBox>(this);
+	
+    public PasswordTextBox() {
+        this(DOM.createInputPassword());
     }
-
-    public TextBox(Element element) {
-        super(element);
-        setStyleName(Styles.FORM_CONTROL);
+    
+    public PasswordTextBox(final Element element) {
+    	super(element);
+    	setStyleName(Styles.FORM_CONTROL);
     }
 
     @Override
     public void setPlaceholder(final String placeHolder) {
         getElement().setAttribute(PLACEHOLDER, placeHolder != null ? placeHolder : "");
     }
-
+    
     @Override
-    public String getPlaceholder() {
-    	return getElement().getAttribute(PLACEHOLDER);
-    }
+	public String getPlaceholder() {
+		return getElement().getAttribute(PLACEHOLDER);
+	}
     
     @Override
     public void setAutocomplete(final boolean autoComplete) {
         getElement().setAttribute(AUTOCOMPLETE, autoComplete ? ON : OFF);
     }
-
+    
     @Override
     public String getAutocomplete() {
     	return getElement().getAttribute(AUTOCOMPLETE);
     }
     
-    @Override
-    public void setId(final String id) {
-        idMixin.setId(id);
-    }
+	@Override
+	public void setVisibleOn(String deviceSizeString) {
+		StyleHelper.setVisibleOn(this, deviceSizeString);
+	}
 
-    @Override
-    public String getId() {
-        return idMixin.getId();
-    }
+	@Override
+	public void setHiddenOn(String deviceSizeString) {
+		StyleHelper.setHiddenOn(this, deviceSizeString);
+	}
 
-    @Override
-    public void setVisibleOn(String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
+	@Override
+	public void setId(String id) {
+		idMixin.setId(id);
+	}
 
-    @Override
-    public void setHiddenOn(String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
-    }
+	@Override
+	public String getId() {
+		return idMixin.getId();
+	}
 }
