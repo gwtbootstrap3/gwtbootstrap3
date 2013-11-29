@@ -1,9 +1,5 @@
 package com.svenjacobs.gwtbootstrap3.client.shared.event;
 
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.Event;
-import com.svenjacobs.gwtbootstrap3.client.ui.Tooltip;
-
 /*
  * #%L
  * GwtBootstrap3
@@ -23,6 +19,10 @@ import com.svenjacobs.gwtbootstrap3.client.ui.Tooltip;
  * limitations under the License.
  * #L%
  */
+
+import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.Event;
+import com.svenjacobs.gwtbootstrap3.client.ui.Tooltip;
 
 /**
  * @author Pontus Enmark
