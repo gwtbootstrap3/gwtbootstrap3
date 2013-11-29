@@ -33,6 +33,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
 
@@ -43,7 +44,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
  * @author Joshua Godi
  */
 public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasToggle,
-        HasTargetHistoryToken, HasText, HasIcon, HasIconPosition, HasTabIndex, Focusable, HasResponsiveness {
+        HasTargetHistoryToken, HasText, HasIcon, HasIconPosition, HasIconSize, HasTabIndex, Focusable, HasResponsiveness {
 
     private final ToggleMixin<Anchor> toggleMixin = new ToggleMixin<Anchor>(this);
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
@@ -107,6 +108,16 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
         return iconTextMixin.getIconPosition();
     }
 
+	@Override
+	public void setIconSize(final IconSize iconSize) {
+		iconTextMixin.setIconSize(iconSize);
+	}
+
+	@Override
+	public IconSize getIconSize() {
+		return iconTextMixin.getIconSize();
+	}
+	
     @Override
     public void setHref(final String href) {
         AnchorElement.as(getElement()).setHref(href);

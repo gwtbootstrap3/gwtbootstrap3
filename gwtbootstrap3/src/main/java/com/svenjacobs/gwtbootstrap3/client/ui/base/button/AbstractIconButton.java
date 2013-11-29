@@ -23,10 +23,12 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base.button;
 import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasIcon;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasIconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.HasIconSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.Icon;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 
 /**
@@ -35,7 +37,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
  * @author Sven Jacobs
  * @see Icon
  */
-public abstract class AbstractIconButton extends AbstractButton implements HasText, HasIcon, HasIconPosition {
+public abstract class AbstractIconButton extends AbstractButton implements HasText, HasIcon, HasIconPosition, HasIconSize {
 
     IconTextMixin<AbstractIconButton> iconTextMixin = new IconTextMixin<AbstractIconButton>(this);
 
@@ -74,5 +76,15 @@ public abstract class AbstractIconButton extends AbstractButton implements HasTe
     @Override
     public IconPosition getIconPosition() {
         return iconTextMixin.getIconPosition();
+    }
+    
+    @Override
+    public void setIconSize(final IconSize iconSize) {
+    	iconTextMixin.setIconSize(iconSize);
+    }
+    
+    @Override
+    public IconSize getIconSize() {
+    	return iconTextMixin.getIconSize();
     }
 }
