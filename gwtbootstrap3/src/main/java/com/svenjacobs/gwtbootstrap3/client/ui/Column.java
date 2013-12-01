@@ -56,11 +56,11 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     /**
      * Creates column with primary size.
      * <p/>
-     * Additional sizes can be added with {@link #addSizes(ColumnSize...)}
+     * Additional sizes can be added with {@link #addSize(ColumnSize...)}
      *
      * @param size Size of column
      * @see #Column(ColumnSize...)
-     * @see #addSizes(ColumnSize...)
+     * @see #addSize(ColumnSize...)
      */
     public Column(final ColumnSize size) {
         this();
@@ -74,7 +74,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
      */
     public Column(final ColumnSize... sizes) {
         this();
-        addSizes(sizes);
+        setSize(sizes);
     }
 
     /**
@@ -88,7 +88,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     @UiConstructor
     public Column(final String size) {
         this();
-        addSizes(size);
+        setSizes(size, true);
     }
 
     /**
@@ -96,32 +96,60 @@ public class Column extends ComplexWidget implements HasResponsiveness {
      *
      * @param sizes Additional column sizes
      */
-    public void addSizes(final ColumnSize... sizes) {
-        addEnumVarargsValues(sizes);
+    public void setSize(final ColumnSize... sizes) {
+        addEnumVarargsValues(sizes, ColumnSize.class, true);
+    }
+
+    public void addSize(final ColumnSize... sizes) {
+        addEnumVarargsValues(sizes, ColumnSize.class, false);
     }
 
     public void setPull(final ColumnPull... pulls) {
-        addEnumVarargsValues(pulls);
+        addEnumVarargsValues(pulls, ColumnPull.class, true);
     }
 
     public void setPull(final String pulls) {
-        addEnumStringValues(pulls, ColumnPull.class);
+        addEnumStringValues(pulls, ColumnPull.class, true);
+    }
+
+    public void addPull(final ColumnPull... pulls) {
+        addEnumVarargsValues(pulls, ColumnPull.class, false);
+    }
+
+    public void addPull(final String pulls) {
+        addEnumStringValues(pulls, ColumnPull.class, false);
     }
 
     public void setPush(final ColumnPush... pulls) {
-        addEnumVarargsValues(pulls);
+        addEnumVarargsValues(pulls, ColumnPush.class, true);
     }
 
     public void setPush(final String pushs) {
-        addEnumStringValues(pushs, ColumnPush.class);
+        addEnumStringValues(pushs, ColumnPush.class, true);
+    }
+
+    public void addPush(final ColumnPush... pulls) {
+        addEnumVarargsValues(pulls, ColumnPush.class, false);
+    }
+
+    public void addPush(final String pushs) {
+        addEnumStringValues(pushs, ColumnPush.class, false);
     }
 
     public void setOffset(final ColumnOffset... offsets) {
-        addEnumVarargsValues(offsets);
+        addEnumVarargsValues(offsets, ColumnOffset.class, true);
     }
 
     public void setOffset(final String offsets) {
-        addEnumStringValues(offsets, ColumnOffset.class);
+        addEnumStringValues(offsets, ColumnOffset.class, true);
+    }
+
+    public void addOffset(final ColumnOffset... offsets) {
+        addEnumVarargsValues(offsets, ColumnOffset.class, false);
+    }
+
+    public void addOffset(final String offsets) {
+        addEnumStringValues(offsets, ColumnOffset.class, false);
     }
 
     @Override
@@ -134,18 +162,32 @@ public class Column extends ComplexWidget implements HasResponsiveness {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
-    private void addSizes(final String sizes) {
-        addEnumStringValues(sizes, ColumnSize.class);
+    private void setSizes(final String sizes, final boolean clearOld) {
+        addEnumStringValues(sizes, ColumnSize.class, clearOld);
     }
 
-    private <E extends Style.HasCssName> void addEnumVarargsValues(final E[] values) {
+    private <E extends Enum<? extends Style.HasCssName>> void addEnumVarargsValues(final E[] values,
+                                                                                   final Class<E> enumClass,
+                                                                                   final boolean clearOld) {
+        if (clearOld) {
+            // Remove the previous values
+            removeStyleNames(enumClass);
+        }
+
         for (final E value : values) {
-            addStyleName(value.getCssName());
+            addStyleName(((Style.HasCssName) value).getCssName());
         }
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumStringValues(final String values,
-                                                                                  final Class<E> enumClass) {
+                                                                                  final Class<E> enumClass,
+                                                                                  final boolean clearOld) {
+        if (clearOld) {
+            // Remove the previous values
+            removeStyleNames(enumClass);
+        }
+
+        // Add new ones
         String[] valuesSplit = values.split(SEPARATOR);
         for (String value : valuesSplit) {
             for (final Enum<? extends Style.HasCssName> constant : enumClass.getEnumConstants()) {
@@ -153,6 +195,12 @@ public class Column extends ComplexWidget implements HasResponsiveness {
                     addStyleName(((Style.HasCssName) constant).getCssName());
                 }
             }
+        }
+    }
+
+    private <E extends Enum<? extends Style.HasCssName>> void removeStyleNames(final Class<E> enumClass) {
+        for (final Enum<? extends Style.HasCssName> constant : enumClass.getEnumConstants()) {
+            removeStyleName(((Style.HasCssName) constant).getCssName());
         }
     }
 }
