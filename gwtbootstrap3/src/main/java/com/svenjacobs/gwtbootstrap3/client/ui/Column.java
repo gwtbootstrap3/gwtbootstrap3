@@ -39,6 +39,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnSize;
  * @see Row
  */
 public class Column extends ComplexWidget implements HasResponsiveness {
+    private static final String SEPARATOR = ",";
 
     private static final String SEPARATOR = "[, ]+";
 
@@ -142,7 +143,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumVarargsValues(final E[] values,
-            final Class<E> enumClass, final boolean clearOld) {
+                                                                                   final Class<E> enumClass, final boolean clearOld) {
         if (clearOld) {
             // Remove the previous values
             removeStyleNames(enumClass);
@@ -154,7 +155,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumStringValues(final String values,
-            final Class<E> enumClass, final boolean clearOld) {
+                                                                                  final Class<E> enumClass, final boolean clearOld) {
         if (clearOld) {
             // Remove the previous values
             removeStyleNames(enumClass);
