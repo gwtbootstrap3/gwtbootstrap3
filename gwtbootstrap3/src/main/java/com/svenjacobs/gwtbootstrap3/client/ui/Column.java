@@ -39,6 +39,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnSize;
  * @see Row
  */
 public class Column extends ComplexWidget implements HasResponsiveness {
+    private static final String SEPARATOR = ",";
 
     private Column() {
         setElement(DOM.createDiv());
@@ -145,10 +146,12 @@ public class Column extends ComplexWidget implements HasResponsiveness {
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumStringValues(final String values,
                                                                                   final Class<E> enumClass) {
-
-        for (final Enum<? extends Style.HasCssName> constant : enumClass.getEnumConstants()) {
-            if (values.contains(constant.name())) {
-                addStyleName(((Style.HasCssName) constant).getCssName());
+        String[] valuesSplit = values.split(SEPARATOR);
+        for (String value : valuesSplit) {
+            for (final Enum<? extends Style.HasCssName> constant : enumClass.getEnumConstants()) {
+                if (value.equalsIgnoreCase(constant.name())) {
+                    addStyleName(((Style.HasCssName) constant).getCssName());
+                }
             }
         }
     }
