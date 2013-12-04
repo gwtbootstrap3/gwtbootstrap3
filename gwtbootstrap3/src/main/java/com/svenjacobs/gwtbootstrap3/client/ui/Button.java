@@ -21,6 +21,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Element;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
 
@@ -53,6 +54,11 @@ public class Button extends AbstractToggleButton {
      */
     public Button(final String text) {
         setText(text);
+    }
+
+    public Button(final String text, final ClickHandler handler) {
+        this(text);
+        super.addClickHandler(handler);
     }
 
     @Override
