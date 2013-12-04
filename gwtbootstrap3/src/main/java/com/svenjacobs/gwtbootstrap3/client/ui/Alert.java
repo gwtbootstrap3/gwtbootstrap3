@@ -20,8 +20,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.safehtml.shared.SafeHtml;
-import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Event;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.AlertCloseEvent;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.AlertClosedEvent;

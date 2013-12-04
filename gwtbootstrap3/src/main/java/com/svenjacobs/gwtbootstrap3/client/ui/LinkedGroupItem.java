@@ -21,9 +21,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.AnchorElement;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.History;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -38,12 +43,12 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
 
     private final ActiveMixin<LinkedGroupItem> activeMixin = new ActiveMixin<LinkedGroupItem>(this);
 
-    private Span span = new Span();
+    private final Span span = new Span();
 
     private String targetHistoryToken;
 
     public LinkedGroupItem(final String href) {
-        setElement(DOM.createAnchor());
+        setElement(Document.get().createAnchorElement());
         setStyleName(Styles.LIST_GROUP_ITEM);
         setHref(href);
         add(span);
@@ -99,17 +104,17 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(final boolean active) {
         activeMixin.setActive(active);
     }
 

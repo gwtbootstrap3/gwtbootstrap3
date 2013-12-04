@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasActive;
@@ -34,19 +34,20 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Base class for list items.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see com.svenjacobs.gwtbootstrap3.client.ui.ListItem
  * @see com.svenjacobs.gwtbootstrap3.client.ui.ListDropDown
  */
-public abstract class AbstractListItem extends ComplexPanel implements HasEnabled, HasPull, HasActive, HasResponsiveness {
+public abstract class AbstractListItem extends ComplexPanel implements HasEnabled, HasPull, HasActive,
+        HasResponsiveness {
 
     private final ActiveMixin<AbstractListItem> activeMixin = new ActiveMixin<AbstractListItem>(this);
     private final PullMixin<AbstractListItem> pullMixin = new PullMixin<AbstractListItem>(this);
 
     protected AbstractListItem() {
-        setElement(DOM.createElement("li"));
+        setElement(Document.get().createLIElement());
     }
 
     @Override
@@ -84,12 +85,12 @@ public abstract class AbstractListItem extends ComplexPanel implements HasEnable
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

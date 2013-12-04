@@ -21,9 +21,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.AnchorElement;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
@@ -43,7 +48,7 @@ public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, Ha
     private String targetHistoryToken;
 
     public ThumbnailLink(final String href) {
-        setElement(DOM.createAnchor());
+        setElement(Document.get().createAnchorElement());
         setHref(href);
         focusableMixin = new FocusableMixin(AnchorElement.as(getElement()));
     }
@@ -119,12 +124,12 @@ public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, Ha
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

@@ -20,8 +20,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -49,7 +49,7 @@ public class PageHeader extends Widget implements HasText, HasId, HasResponsiven
     private String subText;
 
     public PageHeader() {
-        setElement(DOM.createDiv());
+        setElement(Document.get().createDivElement());
         setStyleName(Styles.PAGE_HEADER);
     }
 
@@ -60,7 +60,7 @@ public class PageHeader extends Widget implements HasText, HasId, HasResponsiven
 
     @Override
     public void setText(final String text) {
-        this.heading = text;
+        heading = text;
         render();
     }
 
@@ -80,12 +80,12 @@ public class PageHeader extends Widget implements HasText, HasId, HasResponsiven
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 

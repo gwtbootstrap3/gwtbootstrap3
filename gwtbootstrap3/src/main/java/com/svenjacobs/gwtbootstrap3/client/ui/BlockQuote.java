@@ -20,8 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 
@@ -31,16 +30,16 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 public class BlockQuote extends ComplexWidget implements HasResponsiveness {
 
     public BlockQuote() {
-        setElement(DOM.createElement("blockquote"));
+        setElement(Document.get().createBlockQuoteElement());
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

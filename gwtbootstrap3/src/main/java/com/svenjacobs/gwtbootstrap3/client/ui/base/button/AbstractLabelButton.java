@@ -20,8 +20,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Element;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasActive;
 import com.svenjacobs.gwtbootstrap3.client.ui.InputButton;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;

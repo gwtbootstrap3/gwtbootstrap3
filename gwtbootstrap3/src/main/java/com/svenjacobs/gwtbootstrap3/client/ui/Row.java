@@ -20,8 +20,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.client.DOM;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
@@ -36,25 +36,25 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 public class Row extends ComplexWidget implements HasResponsiveness {
 
     public Row() {
-        setElement(DOM.createDiv());
+        setElement(Document.get().createDivElement());
         setStyleName(Styles.ROW);
     }
 
-    public void setMarginTop(int marginTop) {
+    public void setMarginTop(final int marginTop) {
         getElement().getStyle().setMarginTop(marginTop, Style.Unit.PX);
     }
 
-    public void setMarginBottom(int marginBottom) {
+    public void setMarginBottom(final int marginBottom) {
         getElement().getStyle().setMarginBottom(marginBottom, Style.Unit.PX);
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

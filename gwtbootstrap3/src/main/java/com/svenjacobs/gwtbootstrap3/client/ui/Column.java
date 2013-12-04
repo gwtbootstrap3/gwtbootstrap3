@@ -20,9 +20,9 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.uibinder.client.UiConstructor;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -33,7 +33,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnSize;
 
 /**
  * A column of Bootstrap's fluid grid system.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Row
@@ -41,13 +41,13 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnSize;
 public class Column extends ComplexWidget implements HasResponsiveness {
 
     private Column() {
-        setElement(DOM.createDiv());
+        setElement(Document.get().createDivElement());
     }
 
     public Column(final ColumnSize size, final Widget... widgets) {
         this(size);
 
-        for (Widget widget : widgets) {
+        for (final Widget widget : widgets) {
             add(widget);
         }
     }
@@ -56,7 +56,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
      * Creates column with primary size.
      * <p/>
      * Additional sizes can be added with {@link #addSizes(ColumnSize...)}
-     *
+     * 
      * @param size Size of column
      * @see #Column(ColumnSize...)
      * @see #addSizes(ColumnSize...)
@@ -68,7 +68,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
 
     /**
      * Creates column with multiple sizes.
-     *
+     * 
      * @param sizes Column sizes
      */
     public Column(final ColumnSize... sizes) {
@@ -77,10 +77,12 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     }
 
     /**
-     * Convenience constructor for UiBinder to create a Column with one or more sizes.
+     * Convenience constructor for UiBinder to create a Column with one or more
+     * sizes.
      * <p/>
-     * Size needs to be a comma-separated String of {@link ColumnSize} enum names, e.g. "SM_SIZE_3,LG_SIZE_3"
-     *
+     * Size needs to be a comma-separated String of {@link ColumnSize} enum
+     * names, e.g. "SM_SIZE_3,LG_SIZE_3"
+     * 
      * @param size Comma-separated String of {@link ColumnSize}
      * @see ColumnSize
      */
@@ -92,7 +94,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
 
     /**
      * Adds one or more additional column sizes.
-     *
+     * 
      * @param sizes Additional column sizes
      */
     public void addSizes(final ColumnSize... sizes) {
@@ -124,12 +126,12 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
@@ -144,7 +146,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumStringValues(final String values,
-                                                                                  final Class<E> enumClass) {
+            final Class<E> enumClass) {
 
         for (final Enum<? extends Style.HasCssName> constant : enumClass.getEnumConstants()) {
             if (values.contains(constant.name())) {

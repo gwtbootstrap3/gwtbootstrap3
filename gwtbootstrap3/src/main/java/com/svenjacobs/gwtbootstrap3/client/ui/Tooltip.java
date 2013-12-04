@@ -22,7 +22,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 
 import java.util.Iterator;
 
-import com.google.gwt.user.client.Element;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;

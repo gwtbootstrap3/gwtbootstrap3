@@ -20,22 +20,26 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.uibinder.client.UiConstructor;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.*;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconFlip;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconRotate;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconSize;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Simple put, an icon.
- *
+ * 
  * @author Sven Jacobs
  * @see IconType
  */
 public class Icon extends Widget implements HasType<IconType>, HasResponsiveness {
 
     public Icon() {
-        setElement(DOM.createElement("i"));
+        setElement(Document.get().createElement("i"));
         addStyleName(Styles.FONT_AWESOME_BASE);
     }
 
@@ -56,12 +60,12 @@ public class Icon extends Widget implements HasType<IconType>, HasResponsiveness
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
@@ -92,7 +96,6 @@ public class Icon extends Widget implements HasType<IconType>, HasResponsiveness
     public void setSpin(final boolean spin) {
         StyleHelper.toggleStyleName(this, spin, Styles.ICON_SPIN);
     }
-
 
     public void setRotate(final IconRotate iconRotate) {
         if (iconRotate == null || iconRotate == IconRotate.NONE) {

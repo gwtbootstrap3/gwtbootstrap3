@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.Element;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.ModalHiddenEvent;
