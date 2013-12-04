@@ -27,7 +27,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * A lightweight, flexible component to showcase key content.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  */

@@ -25,7 +25,7 @@ import com.google.gwt.user.client.Element;
 
 /**
  * A {@link Button} with {@code type="submit"}.
- *
+ * 
  * @author Sven Jacobs
  * @see Button
  */

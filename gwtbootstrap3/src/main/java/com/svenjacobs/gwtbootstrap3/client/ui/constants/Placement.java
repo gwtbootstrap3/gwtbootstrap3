@@ -20,24 +20,20 @@ package com.svenjacobs.gwtbootstrap3.client.ui.constants;
  * #L%
  */
 
-
 /**
  * @author Pontus Enmark
  */
 public enum Placement {
-    LEFT("left"),
-    TOP("top"),
-    BOTTOM("bottom"),
-    RIGHT("right");
+    LEFT("left"), TOP("top"), BOTTOM("bottom"), RIGHT("right");
 
     private final String placement;
 
     private Placement(final String placement) {
         this.placement = placement;
     }
-    
+
     @Override
     public String toString() {
-    	return placement;
+        return placement;
     }
 }

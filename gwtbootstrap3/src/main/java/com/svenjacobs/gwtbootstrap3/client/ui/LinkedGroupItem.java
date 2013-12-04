@@ -49,8 +49,7 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
         add(span);
     }
 
-    public LinkedGroupItem(final String text,
-                           final String href) {
+    public LinkedGroupItem(final String text, final String href) {
         this(href);
         setText(text);
     }
@@ -76,7 +75,6 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
     public String getText() {
         return span.getText();
     }
-
 
     @Override
     public void setHref(final String href) {

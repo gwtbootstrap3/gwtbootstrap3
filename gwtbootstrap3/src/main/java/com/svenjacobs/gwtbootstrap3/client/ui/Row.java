@@ -28,7 +28,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * A row of Bootstrap's fluid grid system.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Column

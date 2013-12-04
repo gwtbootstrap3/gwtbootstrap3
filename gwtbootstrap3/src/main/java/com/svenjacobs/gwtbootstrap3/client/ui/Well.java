@@ -27,7 +27,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.WellSize;
 
 /**
  * Well, well Mr. Anderson...
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  */

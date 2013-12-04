@@ -26,7 +26,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 
 /**
  * Simple {@code <small>} tag to de-emphasize words
- *
+ * 
  * @author Joshua Godi
  */
 public class Small extends AbstractTextWidget implements HasHTML {

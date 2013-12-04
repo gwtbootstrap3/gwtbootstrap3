@@ -26,7 +26,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 
 /**
  * Simple {@code <em>} tag to emphasize words
- *
+ * 
  * @author Joshua Godi
  */
 public class Italics extends AbstractTextWidget implements HasHTML {

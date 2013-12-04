@@ -40,21 +40,21 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  */
 public abstract class FormElementContainer extends ComplexPanel implements HasResponsiveness {
 
-	@Override
-	public void add(final Widget w) {
-		if (w instanceof ListBox || w instanceof FileUpload) {
-			w.addStyleName(Styles.FORM_CONTROL);
-		}
-		add(w, getElement());
-	}
+    @Override
+    public void add(final Widget w) {
+        if (w instanceof ListBox || w instanceof FileUpload) {
+            w.addStyleName(Styles.FORM_CONTROL);
+        }
+        add(w, getElement());
+    }
 
-	@Override
-	public void setVisibleOn(final String deviceSizeString) {
-		StyleHelper.setVisibleOn(this, deviceSizeString);
-	}
+    @Override
+    public void setVisibleOn(final String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
 
-	@Override
-	public void setHiddenOn(final String deviceSizeString) {
-		StyleHelper.setHiddenOn(this, deviceSizeString);
-	}
+    @Override
+    public void setHiddenOn(final String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
+    }
 }

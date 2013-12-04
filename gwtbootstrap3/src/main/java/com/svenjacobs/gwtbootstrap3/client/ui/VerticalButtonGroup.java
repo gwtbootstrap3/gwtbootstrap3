@@ -27,14 +27,17 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * Vertical button group
  * <p/>
  * <h3>UiBinder example</h3>
- * <pre>{@code
+ * 
+ * <pre>
+ * {@code
  *     <b:VerticalButtonGroup>
  *         <b:Button>Button 1</b:Button>
  *         <b:Button>Button 2</b:Button>
  *         <b:Button>Button 3</b:Button>
  *     </b:VerticalButtonGroup>
- * }</pre>
- *
+ * }
+ * </pre>
+ * 
  * @author Sven Jacobs
  * @see Button
  * @see ButtonGroup

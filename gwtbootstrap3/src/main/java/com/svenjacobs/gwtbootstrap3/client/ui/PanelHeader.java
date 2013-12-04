@@ -41,7 +41,8 @@ public class PanelHeader extends Div implements HasId {
         }
         child.setStyleName(Styles.PANEL_TITLE);
 
-        // If we are adding a child, then we don't need the inner text of the div
+        // If we are adding a child, then we don't need the inner text of the
+        // div
         setText("");
 
         super.add(child);

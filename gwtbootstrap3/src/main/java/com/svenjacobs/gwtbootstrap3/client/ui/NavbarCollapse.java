@@ -25,7 +25,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Container for collapsible items within a {@link Navbar}.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see NavbarCollapseButton

@@ -39,7 +39,7 @@ public class UnorderedList extends ComplexWidget implements HasResponsiveness {
 
     /**
      * Creates a list and adds the given widgets.
-     *
+     * 
      * @param widgets widgets to be added
      */
     public UnorderedList(ListItem... widgets) {

@@ -30,16 +30,16 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.TypeAttrType;
 
 /**
- * Base class for {@link com.svenjacobs.gwtbootstrap3.client.ui.CheckBoxButton} and
- * {@link com.svenjacobs.gwtbootstrap3.client.ui.RadioButton} which are encapsulated {@code <input>} elements within
- * {@code <label>}.
- *
+ * Base class for {@link com.svenjacobs.gwtbootstrap3.client.ui.CheckBoxButton}
+ * and {@link com.svenjacobs.gwtbootstrap3.client.ui.RadioButton} which are
+ * encapsulated {@code <input>} elements within {@code <label>}.
+ * 
  * @author Sven Jacobs
  */
 public abstract class AbstractLabelButton extends AbstractIconButton implements HasActive {
 
     private final ActiveMixin<AbstractLabelButton> activeMixin = new ActiveMixin<AbstractLabelButton>(this);
-    private final InputButton input;
+    protected final InputButton input;
 
     protected AbstractLabelButton(final TypeAttrType typeAttr) {
         super(ButtonType.DEFAULT);

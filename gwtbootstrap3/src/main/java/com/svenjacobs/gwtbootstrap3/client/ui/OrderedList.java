@@ -39,7 +39,7 @@ public class OrderedList extends ComplexWidget implements HasResponsiveness {
 
     /**
      * Creates a list and adds the given widgets.
-     *
+     * 
      * @param widgets widgets to be added
      */
     public OrderedList(ListItem... widgets) {

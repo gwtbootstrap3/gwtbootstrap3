@@ -27,7 +27,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * Special button to toggle collapsible area of {@link Navbar}.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see NavbarCollapse

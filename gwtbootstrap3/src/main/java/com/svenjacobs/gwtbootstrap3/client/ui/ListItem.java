@@ -35,7 +35,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
  * <li>{@link NavPills}</li>
  * <li>{@link Navbar}</li>
  * </ul>
- *
+ * 
  * @author Sven Jacobs
  * @see DropDownMenu
  * @see NavTabs
@@ -77,13 +77,13 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
         return anchor.getIconPosition();
     }
 
-	@Override
-	public void setIconSize(IconSize iconSize) {
-		anchor.setIconSize(iconSize);
-	}
+    @Override
+    public void setIconSize(IconSize iconSize) {
+        anchor.setIconSize(iconSize);
+    }
 
-	@Override
-	public IconSize getIconSize() {
-		return anchor.getIconSize();
-	}
+    @Override
+    public IconSize getIconSize() {
+        return anchor.getIconSize();
+    }
 }

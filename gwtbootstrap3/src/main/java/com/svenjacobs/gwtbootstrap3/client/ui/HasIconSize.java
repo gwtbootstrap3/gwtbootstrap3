@@ -27,5 +27,6 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconSize;
  */
 public interface HasIconSize {
     void setIconSize(IconSize iconSize);
+
     IconSize getIconSize();
 }

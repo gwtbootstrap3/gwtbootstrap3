@@ -33,11 +33,11 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 
 /**
  * Mixin for Widgets that have text and an optional icon.
- *
+ * 
  * @author Sven Jacobs
  */
-public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIconPosition & HasIconSize>
-        implements HasText, HasIcon, HasIconPosition, HasIconSize {
+public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIconPosition & HasIconSize> implements
+        HasText, HasIcon, HasIconPosition, HasIconSize {
 
     private final T widget;
     private final Text text = new Text();
@@ -45,7 +45,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private Icon icon;
     private IconPosition iconPosition = IconPosition.LEFT;
     private IconSize iconSize = IconSize.NONE;
-    
+
     public IconTextMixin(final T widget) {
         this.widget = widget;
     }
@@ -85,18 +85,17 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
         return iconPosition;
     }
 
+    @Override
+    public void setIconSize(final IconSize iconSize) {
+        this.iconSize = iconSize;
+        render(icon);
+    }
 
-	@Override
-	public void setIconSize(final IconSize iconSize) {
-		this.iconSize = iconSize;
-		render(icon);
-	}
+    @Override
+    public IconSize getIconSize() {
+        return iconSize;
+    }
 
-	@Override
-	public IconSize getIconSize() {
-		return iconSize;
-	}
-	
     private void render(final Icon newIcon) {
         text.removeFromParent();
         separator.removeFromParent();
@@ -107,7 +106,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
         icon = newIcon;
         icon.setSize(iconSize);
-        
+
         if (iconPosition == IconPosition.LEFT) {
             widget.add(icon);
             widget.add(separator);
