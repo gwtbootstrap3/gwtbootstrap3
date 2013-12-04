@@ -20,6 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.event.logical.shared.AttachEvent;

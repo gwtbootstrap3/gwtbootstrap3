@@ -58,8 +58,8 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     /**
      * Creates column with primary size.
      * <p/>
-     * Additional sizes can be added with {@link #addSize(ColumnSize...)}
-     *
+     * Additional sizes can be added with {@link #addSizes(ColumnSize...)}
+     * 
      * @param size Size of column
      * @see #Column(ColumnSize...)
      * @see #addSize(ColumnSize...)
