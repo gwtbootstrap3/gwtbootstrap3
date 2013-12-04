@@ -23,6 +23,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnOffset;
@@ -41,6 +42,14 @@ public class Column extends ComplexWidget implements HasResponsiveness {
 
     private Column() {
         setElement(DOM.createDiv());
+    }
+
+    public Column(final ColumnSize size, final Widget... widgets) {
+        this(size);
+
+        for (Widget widget : widgets) {
+            add(widget);
+        }
     }
 
     /**
