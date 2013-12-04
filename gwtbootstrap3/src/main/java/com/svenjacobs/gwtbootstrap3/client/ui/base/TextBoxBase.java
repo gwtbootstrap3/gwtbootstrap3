@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.client.ui;
+package com.svenjacobs.gwtbootstrap3.client.ui.base;
 
 /*
  * #%L
@@ -21,27 +21,18 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.TextBoxBase;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
+import com.google.gwt.text.shared.testing.PassthroughParser;
+import com.google.gwt.text.shared.testing.PassthroughRenderer;
 
-/**
- * @author Sven Jacobs
- * @author Joshua Godi
- * @author Pontus Enmark
- */
-public class TextBox extends TextBoxBase {
+public class TextBoxBase extends ValueBoxBase<String> {
 
-    public TextBox() {
-        this(DOM.createInputText());
+    protected TextBoxBase(final Element elem) {
+        super(elem, PassthroughRenderer.instance(), PassthroughParser.instance());
     }
 
-    public TextBox(final Element element) {
-        super(element);
-        setStyleName(Styles.FORM_CONTROL);
-    }
-
-    public void clear() {
-        super.setValue(null);
+    @Override
+    public String getValue() {
+        final String raw = super.getValue();
+        return raw == null ? "" : raw;
     }
 }
