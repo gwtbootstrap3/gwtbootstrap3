@@ -219,6 +219,6 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     // @formatter:off
     
     private native void button(final Element e, final String arg) /*-{
-        $wnd.jQuery(e).button(arg);
-    }-*/;
+                                                                  $wnd.jQuery(e).button(arg);
+                                                                  }-*/;
 }

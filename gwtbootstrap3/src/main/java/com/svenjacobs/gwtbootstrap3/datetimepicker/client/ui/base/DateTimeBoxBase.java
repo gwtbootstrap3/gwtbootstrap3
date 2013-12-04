@@ -73,7 +73,6 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
 
     private final TextBox textBox;
     private String format;
-    // private DateTimeFormat dateTimeFormat;
 
     private boolean showTime = true;
     private boolean showDate = true;
@@ -237,10 +236,9 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
         }
         try {
             final JsDate date = parse(textBox.getValue(), format);
-            GWT.log(textBox.getStyleName() + " date: " + date);
             return new Date((long) date.getTime());
         } catch (final Exception e) {
-            GWT.log("wzp", e);
+            GWT.log("JS error", e);
         }
         return null;
     }
@@ -256,7 +254,6 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
         Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
             @Override
             public void execute() {
-                // textBox.setValue(format(value, format));
                 updateValue(textBox.getElement(), value);
 
                 if (fireEvents) {
