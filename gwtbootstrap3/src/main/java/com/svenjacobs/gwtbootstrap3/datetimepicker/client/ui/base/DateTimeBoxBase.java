@@ -22,7 +22,9 @@ package com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base;
 
 import java.util.Date;
 
+import com.google.gwt.core.client.JsDate;
 import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
@@ -31,7 +33,6 @@ import com.google.gwt.event.logical.shared.HasValueChangeHandlers;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasValue;
@@ -67,11 +68,12 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
         HasShowTimePicker, HasDownIcon, HasEndDate, HasStartDate, HasStrict, HasTimeIcon, HasUpIcon, HasFormat,
         HasPlaceholder {
 
-    private static final String DEFAULT_FORMAT = "yyyy-MM-dd HH:mm";
+    /** Moment.js date format */
+    private static final String DEFAULT_FORMAT = "YYYY-MM-DD HH:mm";
 
     private final TextBox textBox;
     private String format;
-    private DateTimeFormat dateTimeFormat;
+    // private DateTimeFormat dateTimeFormat;
 
     private boolean showTime = true;
     private boolean showDate = true;
@@ -174,7 +176,7 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     @Override
     public void setFormat(final String format) {
         this.format = format;
-        dateTimeFormat = DateTimeFormat.getFormat(format);
+        // dateTimeFormat = DateTimeFormat.getFormat(format);
 
         final Date oldValue = getValue();
         if (oldValue != null) {
@@ -229,12 +231,18 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
 
     @Override
     public Date getValue() {
-        try {
-            return dateTimeFormat != null && textBox.getValue() != null ? dateTimeFormat.parse(textBox.getValue())
-                    : null;
-        } catch (final Exception e) {
+        final String value = textBox.getValue();
+        if (!(value == null || "".equals(value))) {
             return null;
         }
+        try {
+            final JsDate date = parse(textBox.getValue(), format);
+            GWT.log(textBox.getStyleName() + " date: " + date);
+            return new Date((long) date.getTime());
+        } catch (final Exception e) {
+            GWT.log("wzp", e);
+        }
+        return null;
     }
 
     @Override
@@ -248,6 +256,7 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
         Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
             @Override
             public void execute() {
+                // textBox.setValue(format(value, format));
                 updateValue(textBox.getElement(), value);
 
                 if (fireEvents) {
@@ -294,7 +303,7 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     }
 
     protected void configure(final Widget w) {
-        w.getElement().setAttribute("data-date-format", format);
+        w.getElement().setAttribute("data-format", format);
         configure(w.getElement(), showTime, showDate, useStrict, timeIconClass, dateIconClass, upIconClass,
                 downIconClass);
     }
@@ -304,6 +313,14 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     }
 
     // @formatter:off
+    
+    protected native JsDate parse(final String dateStr, final String format) /*-{
+        return $wnd.moment(dateStr, format).toDate();
+    }-*/;
+    
+    protected native String format(final Date date, final String format) /*-{
+        return $wnd.moment(date).format(format);
+    }-*/;
     
     protected native void updateValue(Element e, Date newDate) /*-{
         if ($wnd.jQuery(e).data('DateTimePicker')) {
