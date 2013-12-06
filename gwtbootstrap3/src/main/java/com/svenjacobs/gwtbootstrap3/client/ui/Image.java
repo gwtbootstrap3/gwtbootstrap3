@@ -24,6 +24,7 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ImageType;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
@@ -35,33 +36,33 @@ public class Image extends com.google.gwt.user.client.ui.Image implements HasTyp
         setStyleName("");
     }
 
-    public Image(ImageResource resource) {
+    public Image(final ImageResource resource) {
         super(resource);
         setStyleName("");
     }
 
-    public Image(SafeUri url, int left, int top, int width, int height) {
+    public Image(final SafeUri url, final int left, final int top, final int width, final int height) {
         super(url, left, top, width, height);
         setStyleName("");
     }
 
-    public Image(SafeUri url) {
+    public Image(final SafeUri url) {
         super(url);
         setStyleName("");
     }
 
-    public Image(String url, int left, int top, int width, int height) {
+    public Image(final String url, final int left, final int top, final int width, final int height) {
         super(url, left, top, width, height);
         setStyleName("");
     }
 
-    public Image(String url) {
+    public Image(final String url) {
         super(url);
         setStyleName("");
     }
 
     @Override
-    public void setType(ImageType type) {
+    public void setType(final ImageType type) {
         StyleHelper.addEnumStyleName(this, type);
     }
 
@@ -71,12 +72,16 @@ public class Image extends com.google.gwt.user.client.ui.Image implements HasTyp
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
+    }
+
+    public void setResponsive(final boolean responsive) {
+        StyleHelper.toggleStyleName(this, responsive, Styles.IMG_RESPONSIVE);
     }
 }
