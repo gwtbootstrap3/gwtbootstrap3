@@ -148,6 +148,10 @@ public class Column extends ComplexWidget implements HasResponsiveness {
         addEnumStringValues(pushes, ColumnPush.class, false);
     }
 
+    public void setPush(final String pushes) {
+        addEnumStringValues(pushes, ColumnPush.class, true);
+    }
+
     public void setOffset(final ColumnOffset... offsets) {
         addEnumVarargsValues(offsets, ColumnOffset.class, true);
     }
