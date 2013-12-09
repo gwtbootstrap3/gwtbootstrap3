@@ -78,8 +78,8 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     private boolean showTime = true;
     private boolean showDate = true;
     private boolean useStrict = false;
-    private String dateIconClass = "fa fa-clock-o";
-    private String timeIconClass = "fa fa-calendar";
+    private String dateIconClass = "fa fa-calendar";
+    private String timeIconClass = "fa fa-clock-o";
     private String upIconClass = "fa fa-arrow-up";
     private String downIconClass = "fa fa-arrow-down";
 
