@@ -130,7 +130,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 |-------------|---------------|------------|
 | Modal       | Supported     | No         |
 | Scrollspy   | Supported     | No         |
-| Tooltip     | Not supported | No         |
+| Tooltip     | Supported     | Yes        |
 | Popover     | Not supported | No         |
 | Collapse    | Not supported | No         |
 | Carousel    | Not supported | No         |

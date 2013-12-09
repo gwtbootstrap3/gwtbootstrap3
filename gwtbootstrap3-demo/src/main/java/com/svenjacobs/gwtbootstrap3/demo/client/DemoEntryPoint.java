@@ -119,6 +119,8 @@ public class DemoEntryPoint implements EntryPoint {
     com.svenjacobs.gwtbootstrap3.client.ui.Jumbotron jumbotron;
     @UiField
     ListItem dateTimePickerLink;
+    @UiField
+    ListItem tooltipsLink;
 
     @UiHandler("brand")
     public void handleBrandClick(ClickEvent event) {
@@ -411,6 +413,14 @@ public class DemoEntryPoint implements EntryPoint {
             public void onClick(ClickEvent event) {
                 container.clear();
                 container.add(new Popover());
+            }
+        });
+
+        tooltipsLink.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                container.clear();
+                container.add(new Tooltips());
             }
         });
     }
