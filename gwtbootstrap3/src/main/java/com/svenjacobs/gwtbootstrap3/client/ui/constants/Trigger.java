@@ -26,17 +26,16 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 /**
  * @author Joshua Godi
  */
-public enum Placement implements Type, Style.HasCssName {
+public enum Trigger implements Type, Style.HasCssName {
     DEFAULT(""),
-    TOP("top"),
-    BOTTOM("bottom"),
-    LEFT("left"),
-    RIGHT("right"),
-    AUTO("auto");
+    CLICK("click"),
+    HOVER("hover"),
+    FOCUS("focus"),
+    MANUAL("manual");
 
     private final String cssClass;
 
-    private Placement(final String cssClass) {
+    private Trigger(final String cssClass) {
         this.cssClass = cssClass;
     }
 
@@ -45,7 +44,7 @@ public enum Placement implements Type, Style.HasCssName {
         return cssClass;
     }
 
-    public static Placement fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, Placement.class, DEFAULT);
+    public static Trigger fromStyleName(final String styleName) {
+        return EnumHelper.fromStyleName(styleName, Trigger.class, DEFAULT);
     }
 }
