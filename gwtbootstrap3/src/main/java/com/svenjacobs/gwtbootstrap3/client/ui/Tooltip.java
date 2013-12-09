@@ -20,20 +20,26 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.event.logical.shared.AttachEvent;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.Event;
 import com.google.gwt.event.logical.shared.AttachEvent;
+import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.*;
+import com.svenjacobs.gwtbootstrap3.client.shared.event.HiddenEvent;
+import com.svenjacobs.gwtbootstrap3.client.shared.event.HiddenHandler;
+import com.svenjacobs.gwtbootstrap3.client.shared.event.HideEvent;
+import com.svenjacobs.gwtbootstrap3.client.shared.event.HideHandler;
+import com.svenjacobs.gwtbootstrap3.client.shared.event.ShowEvent;
+import com.svenjacobs.gwtbootstrap3.client.shared.event.ShowHandler;
+import com.svenjacobs.gwtbootstrap3.client.shared.event.ShownEvent;
+import com.svenjacobs.gwtbootstrap3.client.shared.event.ShownHandler;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Placement;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Trigger;
-
-import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 /**
  * @author Joshua Godi
@@ -49,7 +55,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     private int hideDelayMs = 0;
     private int showDelayMs = 0;
     private String container = null;
-    private String selector = null;
+    private final String selector = null;
 
     private Widget widget;
     private String id;
@@ -90,7 +96,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         // When we attach it, configure the tooltip
         widget.addAttachHandler(new AttachEvent.Handler() {
             @Override
-            public void onAttachOrDetach(AttachEvent event) {
+            public void onAttachOrDetach(final AttachEvent event) {
                 reconfigure();
             }
         });
@@ -128,7 +134,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setIsAnimated(boolean isAnimated) {
+    public void setIsAnimated(final boolean isAnimated) {
         this.isAnimated = isAnimated;
     }
 
@@ -138,7 +144,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setIsHtml(boolean isHTML) {
+    public void setIsHtml(final boolean isHTML) {
         this.isHTML = isHTML;
     }
 
@@ -148,7 +154,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setPlacement(Placement placement) {
+    public void setPlacement(final Placement placement) {
         this.placement = placement;
     }
 
@@ -158,7 +164,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setTrigger(Trigger trigger) {
+    public void setTrigger(final Trigger trigger) {
         this.trigger = trigger;
     }
 
@@ -168,7 +174,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setShowDelayMs(int showDelayMs) {
+    public void setShowDelayMs(final int showDelayMs) {
         this.showDelayMs = showDelayMs;
     }
 
@@ -178,7 +184,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setHideDelayMs(int hideDelayMs) {
+    public void setHideDelayMs(final int hideDelayMs) {
         this.hideDelayMs = hideDelayMs;
     }
 
@@ -188,7 +194,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setContainer(String container) {
+    public void setContainer(final String container) {
         this.container = container;
     }
 
@@ -218,14 +224,14 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
             tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), selector, title,
                     trigger.getCssName(), showDelayMs, hideDelayMs, container);
         } else if (container != null) {
-            tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title,
-                    trigger.getCssName(), showDelayMs, hideDelayMs, container);
+            tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title, trigger.getCssName(),
+                    showDelayMs, hideDelayMs, container);
         } else if (selector != null) {
             tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), selector, title,
                     trigger.getCssName(), showDelayMs, hideDelayMs);
         } else {
-            tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title,
-                    trigger.getCssName(), showDelayMs, hideDelayMs);
+            tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title, trigger.getCssName(),
+                    showDelayMs, hideDelayMs);
         }
     }
 
@@ -248,7 +254,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     /**
      * Can be override by subclasses to handle Tooltip's "show" event however
      * it's recommended to add an event handler to the tooltip.
-     *
+     * 
      * @param evt Event
      * @see com.svenjacobs.gwtbootstrap3.client.shared.event.ShowEvent
      */
@@ -259,7 +265,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     /**
      * Can be override by subclasses to handle Tooltip's "shown" event however
      * it's recommended to add an event handler to the tooltip.
-     *
+     * 
      * @param evt Event
      * @see ShownEvent
      */
@@ -270,7 +276,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     /**
      * Can be override by subclasses to handle Tooltip's "hide" event however
      * it's recommended to add an event handler to the tooltip.
-     *
+     * 
      * @param evt Event
      * @see HideEvent
      */
@@ -281,7 +287,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     /**
      * Can be override by subclasses to handle Tooltip's "hidden" event however
      * it's recommended to add an event handler to the tooltip.
-     *
+     * 
      * @param evt Event
      * @see HiddenEvent
      */
@@ -289,19 +295,19 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         widget.fireEvent(new HiddenEvent(evt));
     }
 
-    public void addShowHandler(ShowHandler showHandler) {
+    public void addShowHandler(final ShowHandler showHandler) {
         widget.addHandler(showHandler, ShowEvent.getType());
     }
 
-    public void addShownHandler(ShownHandler shownHandler) {
+    public void addShownHandler(final ShownHandler shownHandler) {
         widget.addHandler(shownHandler, ShownEvent.getType());
     }
 
-    public void addHideHandler(HideHandler hideHandler) {
+    public void addHideHandler(final HideHandler hideHandler) {
         widget.addHandler(hideHandler, HideEvent.getType());
     }
 
-    public void addHiddenHandler(HiddenHandler hiddenHandler) {
+    public void addHiddenHandler(final HiddenHandler hiddenHandler) {
         widget.addHandler(hiddenHandler, HiddenEvent.getType());
     }
 
@@ -317,10 +323,12 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
             boolean hasElement = widget != null;
             Widget returned = null;
 
+            @Override
             public boolean hasNext() {
                 return hasElement;
             }
 
+            @Override
             public Widget next() {
                 if (!hasElement || (widget == null)) {
                     throw new NoSuchElementException();
@@ -329,6 +337,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
                 return (returned = widget);
             }
 
+            @Override
             public void remove() {
                 if (returned != null) {
                     Tooltip.this.remove(returned);

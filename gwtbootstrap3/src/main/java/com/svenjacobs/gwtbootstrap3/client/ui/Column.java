@@ -58,7 +58,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     /**
      * Creates column with primary size.
      * <p/>
-     * Additional sizes can be added with {@link #addSizes(ColumnSize...)}
+     * Additional sizes can be added with {@link #addSize(ColumnSize...)}
      * 
      * @param size Size of column
      * @see #Column(ColumnSize...)
@@ -85,7 +85,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
      * <p/>
      * Size needs to be a space-separated String of {@link ColumnSize} enum
      * names, e.g. "SM_3 LG_3"
-     *
+     * 
      * @param size Space-separated String of {@link ColumnSize}
      * @see ColumnSize
      */
@@ -148,10 +148,6 @@ public class Column extends ComplexWidget implements HasResponsiveness {
         addEnumStringValues(pushes, ColumnPush.class, false);
     }
 
-    public void setPush(final String pushes) {
-        addEnumStringValues(pushes, ColumnPush.class, true);
-    }
-
     public void setOffset(final ColumnOffset... offsets) {
         addEnumVarargsValues(offsets, ColumnOffset.class, true);
     }
@@ -179,7 +175,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumVarargsValues(final E[] values,
-                                                                                   final Class<E> enumClass, final boolean clearOld) {
+            final Class<E> enumClass, final boolean clearOld) {
         if (clearOld) {
             // Remove the previous values
             removeStyleNames(enumClass);
@@ -191,7 +187,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumStringValues(final String values,
-                                                                                  final Class<E> enumClass, final boolean clearOld) {
+            final Class<E> enumClass, final boolean clearOld) {
         if (clearOld) {
             // Remove the previous values
             removeStyleNames(enumClass);
