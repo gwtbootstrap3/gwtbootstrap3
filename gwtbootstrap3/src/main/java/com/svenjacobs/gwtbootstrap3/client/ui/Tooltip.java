@@ -27,11 +27,7 @@ import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.TooltipHiddenEvent;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.TooltipHideEvent;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.TooltipShowEvent;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.TooltipShownEvent;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.Placement;
+import com.svenjacobs.gwtbootstrap3.client.shared.event.*;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Placement;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Trigger;
 
@@ -248,49 +244,65 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         call(widget.getElement(), "destroy");
     }
 
-//    /**
-//     * Can be override by subclasses to handle Tooltip's "show" event however
-//     * it's recommended to add an event handler to the tooltip.
-//     *
-//     * @param evt Event
-//     * @see TooltipShowEvent
-//     */
-//    protected void onShow(final Event evt) {
-//        widget.fireEvent(new TooltipShowEvent(this, evt));
-//    }
-//
-//    /**
-//     * Can be override by subclasses to handle Tooltip's "shown" event however
-//     * it's recommended to add an event handler to the tooltip.
-//     *
-//     * @param evt Event
-//     * @see TooltipShownEvent
-//     */
-//    protected void onShown(final Event evt) {
-//        widget.fireEvent(new TooltipShownEvent(this, evt));
-//    }
-//
-//    /**
-//     * Can be override by subclasses to handle Tooltip's "hide" event however
-//     * it's recommended to add an event handler to the tooltip.
-//     *
-//     * @param evt Event
-//     * @see TooltipHideEvent
-//     */
-//    protected void onHide(final Event evt) {
-//        widget.fireEvent(new TooltipHideEvent(this, evt));
-//    }
-//
-//    /**
-//     * Can be override by subclasses to handle Tooltip's "hidden" event however
-//     * it's recommended to add an event handler to the tooltip.
-//     *
-//     * @param evt Event
-//     * @see TooltipHiddenEvent
-//     */
-//    protected void onHidden(final Event evt) {
-//        widget.fireEvent(new TooltipHiddenEvent(this, evt));
-//    }
+    /**
+     * Can be override by subclasses to handle Tooltip's "show" event however
+     * it's recommended to add an event handler to the tooltip.
+     *
+     * @param evt Event
+     * @see com.svenjacobs.gwtbootstrap3.client.shared.event.ShowEvent
+     */
+    protected void onShow(final Event evt) {
+        widget.fireEvent(new ShowEvent(evt));
+    }
+
+    /**
+     * Can be override by subclasses to handle Tooltip's "shown" event however
+     * it's recommended to add an event handler to the tooltip.
+     *
+     * @param evt Event
+     * @see ShownEvent
+     */
+    protected void onShown(final Event evt) {
+        widget.fireEvent(new ShownEvent(evt));
+    }
+
+    /**
+     * Can be override by subclasses to handle Tooltip's "hide" event however
+     * it's recommended to add an event handler to the tooltip.
+     *
+     * @param evt Event
+     * @see HideEvent
+     */
+    protected void onHide(final Event evt) {
+        widget.fireEvent(new HideEvent(evt));
+    }
+
+    /**
+     * Can be override by subclasses to handle Tooltip's "hidden" event however
+     * it's recommended to add an event handler to the tooltip.
+     *
+     * @param evt Event
+     * @see HiddenEvent
+     */
+    protected void onHidden(final Event evt) {
+        widget.fireEvent(new HiddenEvent(evt));
+    }
+
+    public void addShowHandler(ShowHandler showHandler) {
+        widget.addHandler(showHandler, ShowEvent.getType());
+    }
+
+    public void addShownHandler(ShownHandler shownHandler) {
+        widget.addHandler(shownHandler, ShownEvent.getType());
+    }
+
+    public void addHideHandler(HideHandler hideHandler) {
+        widget.addHandler(hideHandler, HideEvent.getType());
+    }
+
+    public void addHiddenHandler(HiddenHandler hiddenHandler) {
+        widget.addHandler(hiddenHandler, HiddenEvent.getType());
+    }
 
     @Override
     public void clear() {
@@ -346,21 +358,21 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         var target = this;
         var $tooltip = $wnd.jQuery(e);
 
-//        $tooltip.on('show.bs.tooltip', function (evt) {
-//            target.@com.svenjacobs.gwtbootstrap3.client.ui.Tooltip::onShow(Lcom/google/gwt/user/client/Event;)(evt);
-//        });
-//
-//        $tooltip.on('shown.bs.tooltip', function (evt) {
-//            target.@com.svenjacobs.gwtbootstrap3.client.ui.Tooltip::onShown(Lcom/google/gwt/user/client/Event;)(evt);
-//        });
-//
-//        $tooltip.on('hide.bs.tooltip', function (evt) {
-//            target.@com.svenjacobs.gwtbootstrap3.client.ui.Tooltip::onHide(Lcom/google/gwt/user/client/Event;)(evt);
-//        });
-//
-//        $tooltip.on('hidden.bs.tooltip', function (evt) {
-//            target.@com.svenjacobs.gwtbootstrap3.client.ui.Tooltip::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
-//        });
+        $tooltip.on('show.bs.tooltip', function (evt) {
+            target.@com.svenjacobs.gwtbootstrap3.client.ui.Tooltip::onShow(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+
+        $tooltip.on('shown.bs.tooltip', function (evt) {
+            target.@com.svenjacobs.gwtbootstrap3.client.ui.Tooltip::onShown(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+
+        $tooltip.on('hide.bs.tooltip', function (evt) {
+            target.@com.svenjacobs.gwtbootstrap3.client.ui.Tooltip::onHide(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+
+        $tooltip.on('hidden.bs.tooltip', function (evt) {
+            target.@com.svenjacobs.gwtbootstrap3.client.ui.Tooltip::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
+        });
     }-*/;
 
     private native void call(final Element e, final String arg) /*-{
@@ -432,4 +444,3 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         });
     }-*/;
 }
->>>>>>> Adding in support for Tooltips and putting them into the Demo, also removing some unused demo code.
