@@ -21,8 +21,12 @@ package com.svenjacobs.gwtbootstrap3.demo.client.demos.javascript;
  */
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.svenjacobs.gwtbootstrap3.client.ui.Button;
 import com.svenjacobs.gwtbootstrap3.client.ui.Row;
 
 /**
@@ -34,7 +38,28 @@ public class Popover extends Composite {
 
     private static PopoverUiBinder ourUiBinder = GWT.create(PopoverUiBinder.class);
 
+    @UiField
+    com.svenjacobs.gwtbootstrap3.client.ui.Popover forcePopover;
+    @UiField
+    Button forceShowButton;
+    @UiField
+    Button forceHideButton;
+
     public Popover() {
         initWidget(ourUiBinder.createAndBindUi(this));
+
+        forceHideButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                forcePopover.hide();
+            }
+        });
+
+        forceShowButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                forcePopover.show();
+            }
+        });
     }
 }
