@@ -70,9 +70,6 @@
                     <b:Column addStyleNames="{style.column}" size="MD_1">
                         <b:Bold text="1"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="MD_1">
-                        <b:Bold text="1"/>
-                    </b:Column>
                 </b:Row>
             </b:PanelBody>
             <b:PanelFooter>
@@ -98,40 +95,43 @@
                     so that it will be responsive without any extra code! Resize the browser to see!
                 </b:Paragraph>
                 <b:Row marginBottom="0">
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
-                    <b:Column addStyleNames="{style.column}" size="XS_6 SM_4 MD_3 LG_1">
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
+                        <b:Bold text="C"/>
+                    </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
                 </b:Row>
@@ -139,10 +139,11 @@
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
                     &lt;b:Row&gt;\n
-                    \s\s&lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
-                    \s\s&lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
-                    \s\s&lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
-                    \s\s&lt;b:Column size="XS_6 SM_4 MD_3 LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="XS_6,SM_4,MD_3,LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="XS_6,SM_4,MD_3,LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="XS_6,SM_4,MD_3,LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="XS_6,SM_4,MD_3,LG_1"&gt;...&lt;/b:Column&gt;\n
+                    \s\s&lt;b:Column size="XS_6,SM_4,MD_3,LG_1"&gt;...&lt;/b:Column&gt;\n
                     \s\s...\n
                     &lt;/b:Row&gt;\n
                 </b:Pre>

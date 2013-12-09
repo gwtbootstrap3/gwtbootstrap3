@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.client.ui;
+package com.svenjacobs.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,28 +20,32 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import com.google.gwt.dom.client.Style;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
- * Simple {@code <div>} tag
- *
  * @author Joshua Godi
  */
-public class Div extends ComplexWidget implements HasResponsiveness {
+public enum Placement implements Type, Style.HasCssName {
+    DEFAULT(""),
+    TOP("top"),
+    BOTTOM("bottom"),
+    LEFT("left"),
+    RIGHT("right"),
+    AUTO("auto");
 
-    public Div() {
-        setElement(DOM.createDiv());
+    private final String cssClass;
+
+    private Placement(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
+    public String getCssName() {
+        return cssClass;
     }
 
-    @Override
-    public void setHiddenOn(String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
+    public static Placement fromStyleName(final String styleName) {
+        return EnumHelper.fromStyleName(styleName, Placement.class, DEFAULT);
     }
 }
