@@ -36,10 +36,10 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnSize;
  * 
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @author Pontus Enmark
  * @see Row
  */
 public class Column extends ComplexWidget implements HasResponsiveness {
-    private static final String SEPARATOR = ",";
 
     private static final String SEPARATOR = "[, ]+";
 
@@ -85,7 +85,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
      * <p/>
      * Size needs to be a space-separated String of {@link ColumnSize} enum
      * names, e.g. "SM_3 LG_3"
-     * 
+     *
      * @param size Space-separated String of {@link ColumnSize}
      * @see ColumnSize
      */
