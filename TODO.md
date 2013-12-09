@@ -6,6 +6,5 @@
 * Add support for Media Objects
 * Add support for Transitions
 * Add support for Tabs
-* Add support for Popovers
 * Add support for Collapse
 * Add support for Carousel
