@@ -29,7 +29,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 public class LinkedGroupItemHeading extends Heading {
 
     @UiConstructor
-    public LinkedGroupItemHeading(int size) {
+    public LinkedGroupItemHeading(final int size) {
         super(size);
         setStyleName(Styles.LIST_GROUP_ITEM_HEADING);
     }

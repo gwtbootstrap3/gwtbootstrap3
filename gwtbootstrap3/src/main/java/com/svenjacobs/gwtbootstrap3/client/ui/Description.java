@@ -34,12 +34,12 @@ public class Description extends ComplexWidget implements HasResponsiveness {
         setElement(DOM.createElement("dl"));
     }
 
-    public void setHorizontal(boolean horizontal) {
+    public void setHorizontal(final boolean horizontal) {
         setStyleName(Styles.DL_HORIZONTAL, horizontal);
     }
 
     @Override
-    public void add(Widget child) {
+    public void add(final Widget child) {
         if (!(child instanceof DescriptionComponent)) {
             throw new IllegalArgumentException("Description can only have children of type DescriptionData and DescriptionTitle");
         }
@@ -47,12 +47,12 @@ public class Description extends ComplexWidget implements HasResponsiveness {
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

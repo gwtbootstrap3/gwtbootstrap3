@@ -32,7 +32,7 @@ public class Code extends Composite {
     interface CodeUiBinder extends UiBinder<Row, Code> {
     }
 
-    private static CodeUiBinder ourUiBinder = GWT.create(CodeUiBinder.class);
+    private static final CodeUiBinder ourUiBinder = GWT.create(CodeUiBinder.class);
 
     public Code() {
         initWidget(ourUiBinder.createAndBindUi(this));

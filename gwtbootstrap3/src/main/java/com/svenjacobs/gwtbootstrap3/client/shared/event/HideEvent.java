@@ -38,7 +38,7 @@ public class HideEvent extends GwtEvent<HideHandler> {
         this(null);
     }
 
-    public HideEvent(NativeEvent nativeEvent) {
+    public HideEvent(final NativeEvent nativeEvent) {
         this.nativeEvent = nativeEvent;
     }
 
@@ -48,7 +48,7 @@ public class HideEvent extends GwtEvent<HideHandler> {
     }
 
     @Override
-    protected void dispatch(HideHandler handler) {
+    protected void dispatch(final HideHandler handler) {
         handler.onHide(this);
     }
 

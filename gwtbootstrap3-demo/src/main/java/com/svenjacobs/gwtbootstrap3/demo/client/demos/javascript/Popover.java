@@ -36,7 +36,7 @@ public class Popover extends Composite {
     interface PopoverUiBinder extends UiBinder<Row, Popover> {
     }
 
-    private static PopoverUiBinder ourUiBinder = GWT.create(PopoverUiBinder.class);
+    private static final PopoverUiBinder ourUiBinder = GWT.create(PopoverUiBinder.class);
 
     @UiField
     com.svenjacobs.gwtbootstrap3.client.ui.Popover forcePopover;
@@ -50,14 +50,14 @@ public class Popover extends Composite {
 
         forceHideButton.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 forcePopover.hide();
             }
         });
 
         forceShowButton.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 forcePopover.show();
             }
         });

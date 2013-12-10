@@ -40,21 +40,21 @@ public class Row extends ComplexWidget implements HasResponsiveness {
         setStyleName(Styles.ROW);
     }
 
-    public void setMarginTop(int marginTop) {
+    public void setMarginTop(final int marginTop) {
         getElement().getStyle().setMarginTop(marginTop, Style.Unit.PX);
     }
 
-    public void setMarginBottom(int marginBottom) {
+    public void setMarginBottom(final int marginBottom) {
         getElement().getStyle().setMarginBottom(marginBottom, Style.Unit.PX);
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

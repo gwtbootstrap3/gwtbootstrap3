@@ -32,7 +32,7 @@ public class MediaObjects extends Composite {
     interface MediaObjectsUiBinder extends UiBinder<Row, MediaObjects> {
     }
 
-    private static MediaObjectsUiBinder ourUiBinder = GWT.create(MediaObjectsUiBinder.class);
+    private static final MediaObjectsUiBinder ourUiBinder = GWT.create(MediaObjectsUiBinder.class);
 
     public MediaObjects() {
         initWidget(ourUiBinder.createAndBindUi(this));

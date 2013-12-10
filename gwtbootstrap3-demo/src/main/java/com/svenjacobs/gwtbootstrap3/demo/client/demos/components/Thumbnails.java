@@ -32,7 +32,7 @@ public class Thumbnails extends Composite {
     interface ThumbnailsUiBinder extends UiBinder<Row, Thumbnails> {
     }
 
-    private static ThumbnailsUiBinder ourUiBinder = GWT.create(ThumbnailsUiBinder.class);
+    private static final ThumbnailsUiBinder ourUiBinder = GWT.create(ThumbnailsUiBinder.class);
 
     public Thumbnails() {
         initWidget(ourUiBinder.createAndBindUi(this));

@@ -28,16 +28,16 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  */
 public class Breadcrumbs extends OrderedList {
-    private WidgetCollection children = new WidgetCollection(this);
+    private final WidgetCollection children = new WidgetCollection(this);
 
     public Breadcrumbs() {
         setStyleName(Styles.BREADCRUMB);
     }
 
-    public Breadcrumbs(Widget... widgets) {
+    public Breadcrumbs(final Widget... widgets) {
         this();
 
-        for (Widget widget : widgets) {
+        for (final Widget widget : widgets) {
             add(widget);
         }
     }
@@ -45,7 +45,7 @@ public class Breadcrumbs extends OrderedList {
     @Override
     protected void onAttach() {
         if (!isOrWasAttached() && children.size() > 0) {
-            Widget lastWidget = children.get(children.size() - 1);
+            final Widget lastWidget = children.get(children.size() - 1);
             lastWidget.addStyleName(Styles.ACTIVE);
         }
 
@@ -57,7 +57,7 @@ public class Breadcrumbs extends OrderedList {
      * {@inheritDoc}
      */
     @Override
-    public void add(Widget w) {
+    public void add(final Widget w) {
         w.addStyleName(Styles.ACTIVE);
         super.add(w);
         children.add(w);

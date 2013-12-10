@@ -32,7 +32,7 @@ public class Pagination extends Composite {
     interface PaginationUiBinder extends UiBinder<Row, Pagination> {
     }
 
-    private static PaginationUiBinder ourUiBinder = GWT.create(PaginationUiBinder.class);
+    private static final PaginationUiBinder ourUiBinder = GWT.create(PaginationUiBinder.class);
 
     public Pagination() {
         initWidget(ourUiBinder.createAndBindUi(this));

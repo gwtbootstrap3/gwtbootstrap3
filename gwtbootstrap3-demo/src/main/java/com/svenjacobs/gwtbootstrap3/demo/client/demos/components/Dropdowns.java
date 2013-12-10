@@ -32,7 +32,7 @@ public class Dropdowns extends Composite {
     interface DropdownsUiBinder extends UiBinder<Row, Dropdowns> {
     }
 
-    private static DropdownsUiBinder ourUiBinder = GWT.create(DropdownsUiBinder.class);
+    private static final DropdownsUiBinder ourUiBinder = GWT.create(DropdownsUiBinder.class);
 
     public Dropdowns() {
         initWidget(ourUiBinder.createAndBindUi(this));

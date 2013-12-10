@@ -76,15 +76,15 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
         return textBox;
     }
 
-    public void setAlignment(ValueBoxBase.TextAlignment align) {
+    public void setAlignment(final ValueBoxBase.TextAlignment align) {
         textBox.setAlignment(align);
     }
 
-    public void setPlaceHolder(String placeHolder) {
+    public void setPlaceHolder(final String placeHolder) {
         textBox.setPlaceHolder(placeHolder);
     }
 
-    public void setReadOnly(boolean readOnly) {
+    public void setReadOnly(final boolean readOnly) {
         textBox.setReadOnly(readOnly);
     }
 
@@ -105,73 +105,73 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     }
 
     @Override
-    public void setEndDate(Date endDate) {
+    public void setEndDate(final Date endDate) {
         setEndDate(textBox.getElement(), endDate);
     }
 
     @Override
-    public void setStartDate(Date startDate) {
+    public void setStartDate(final Date startDate) {
         setStartDate(textBox.getElement(), startDate);
     }
 
     @Override
-    public void setUseStrict(boolean useStrict) {
+    public void setUseStrict(final boolean useStrict) {
         this.useStrict = useStrict;
     }
 
     @Override
-    public void setDateIcon(Icon icon) {
+    public void setDateIcon(final Icon icon) {
         this.dateIconClass = icon.getStyleName();
     }
 
     @Override
-    public void setDownIcon(Icon icon) {
+    public void setDownIcon(final Icon icon) {
         this.downIconClass = icon.getStyleName();
     }
 
     @Override
-    public void setTimeIcon(Icon icon) {
+    public void setTimeIcon(final Icon icon) {
         this.timeIconClass = icon.getStyleName();
     }
 
     @Override
-    public void setUpIcon(Icon icon) {
+    public void setUpIcon(final Icon icon) {
         this.upIconClass = icon.getStyleName();
     }
 
     @Override
-    public void setShowDatePicker(boolean showDatePicker) {
+    public void setShowDatePicker(final boolean showDatePicker) {
         this.showDate = showDatePicker;
     }
 
     @Override
-    public void setShowTimePicker(boolean showTimePicker) {
+    public void setShowTimePicker(final boolean showTimePicker) {
         this.showTime = showTimePicker;
     }
 
     @Override
-    public void setFormat(String format) {
+    public void setFormat(final String format) {
         this.format = format;
         this.dateTimeFormat = DateTimeFormat.getFormat(format);
 
-        Date oldValue = getValue();
+        final Date oldValue = getValue();
         if (oldValue != null) {
             setValue(oldValue);
         }
     }
 
     @Override
-    public HandlerRegistration addChangeHandler(ChangeHandler handler) {
+    public HandlerRegistration addChangeHandler(final ChangeHandler handler) {
         return addHandler(handler, ChangeEvent.getType());
     }
 
     @Override
-    public HandlerRegistration addHideHandler(HideHandler handler) {
+    public HandlerRegistration addHideHandler(final HideHandler handler) {
         return addHandler(handler, HideEvent.getType());
     }
 
     @Override
-    public HandlerRegistration addShowHandler(ShowHandler handler) {
+    public HandlerRegistration addShowHandler(final ShowHandler handler) {
         return addHandler(handler, ShowEvent.getType());
     }
 
@@ -181,12 +181,12 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     }
 
     @Override
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(final boolean enabled) {
         textBox.setEnabled(enabled);
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(final String id) {
         textBox.setId(id);
     }
 
@@ -196,12 +196,12 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         textBox.setVisibleOn(deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         textBox.setHiddenOn(deviceSizeString);
     }
 
@@ -215,7 +215,7 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     }
 
     @Override
-    public void setValue(Date value) {
+    public void setValue(final Date value) {
         setValue(value, false);
     }
 
@@ -235,7 +235,7 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     }
 
     @Override
-    public HandlerRegistration addValueChangeHandler(ValueChangeHandler<Date> handler) {
+    public HandlerRegistration addValueChangeHandler(final ValueChangeHandler<Date> handler) {
         return addHandler(handler, ValueChangeEvent.getType());
     }
 
@@ -258,11 +258,11 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
         ValueChangeEvent.fire(this, getValue());
     }
 
-    public void onShow(Event e) {
+    public void onShow(final Event e) {
         fireEvent(new ShowEvent(e));
     }
 
-    public void onHide(Event e) {
+    public void onHide(final Event e) {
         fireEvent(new HideEvent(e));
     }
 
@@ -270,12 +270,12 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
         configure(this);
     }
 
-    protected void configure(Widget w) {
+    protected void configure(final Widget w) {
         w.getElement().setAttribute("data-date-format", format);
         configure(w.getElement(), showTime, showDate, useStrict, timeIconClass, dateIconClass, upIconClass, downIconClass);
     }
 
-    protected void execute(String cmd) {
+    protected void execute(final String cmd) {
         execute(getElement(), cmd);
     }
 

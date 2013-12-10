@@ -32,7 +32,7 @@ public class Icons extends Composite {
     interface IconsUiBinder extends UiBinder<Row, Icons> {
     }
 
-    private static IconsUiBinder ourUiBinder = GWT.create(IconsUiBinder.class);
+    private static final IconsUiBinder ourUiBinder = GWT.create(IconsUiBinder.class);
 
     public Icons() {
         initWidget(ourUiBinder.createAndBindUi(this));

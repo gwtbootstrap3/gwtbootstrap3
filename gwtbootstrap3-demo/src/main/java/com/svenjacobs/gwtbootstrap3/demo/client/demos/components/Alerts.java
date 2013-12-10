@@ -32,7 +32,7 @@ public class Alerts extends Composite {
     interface AlertsUiBinder extends UiBinder<Row, Alerts> {
     }
 
-    private static AlertsUiBinder ourUiBinder = GWT.create(AlertsUiBinder.class);
+    private static final AlertsUiBinder ourUiBinder = GWT.create(AlertsUiBinder.class);
 
     public Alerts() {
         initWidget(ourUiBinder.createAndBindUi(this));
