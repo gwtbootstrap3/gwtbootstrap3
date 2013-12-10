@@ -22,6 +22,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 
 import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractInputGroupAddon;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -44,8 +45,10 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @see InputGroup
  * @see InputGroupButton
  */
-public class InputGroupAddon extends AbstractInputGroupAddon implements HasText {
+public class InputGroupAddon extends AbstractInputGroupAddon implements HasText, HasIcon {
 
+    private Icon icon;
+    
     public InputGroupAddon() {
         super(Styles.INPUT_GROUP_ADDON);
     }
@@ -58,5 +61,15 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText 
     @Override
     public void setText(final String text) {
         getElement().setInnerText(text);
+    }
+    
+    @Override
+    public IconType getIcon() {
+        return icon == null ? null : icon.getType();
+    }
+    
+    @Override
+    public void setIcon(final IconType iconType) {
+        this.add(icon = new Icon(iconType), this.getElement());
     }
 }
