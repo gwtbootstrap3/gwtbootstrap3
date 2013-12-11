@@ -37,7 +37,7 @@
             <b:PanelBody>
                 <b:Paragraph>
                     For available icons please check out:
-                    <a src="http://fontawesome.io/cheatsheet/">Font Awesome Cheat Sheet</a>
+                    <a href="http://fontawesome.io/cheatsheet/">Font Awesome Cheat Sheet</a>
                 </b:Paragraph>
             </b:PanelBody>
         </b:Panel>
@@ -128,7 +128,7 @@
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
                     &lt;b:IconStack&gt;\n
-                    \s\ss&lt;b:Icon type="..." stackBase="true"&gt;\n
+                    \s\s&lt;b:Icon type="..." stackBase="true"&gt;\n
                     \s\s&lt;b:Icon type="..." stackTop="true"&gt;\n
                     &lt;/b:IconStack&gt;\n
                 </b:Pre>
