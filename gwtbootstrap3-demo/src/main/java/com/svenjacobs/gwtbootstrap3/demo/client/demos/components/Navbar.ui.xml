@@ -70,7 +70,7 @@
                         </b:NavbarNav>
 
                         <b:NavbarForm pull="LEFT">
-                            <b:TextBox placeHolder="Search" addStyleNames="col-lg-8"/>
+                            <b:TextBox placeholder="Search" addStyleNames="col-lg-8"/>
                         </b:NavbarForm>
 
                         <b:NavbarText pull="RIGHT">
@@ -105,7 +105,7 @@
                     \s\s\s\s&lt;/b:NavbarNav&gt;\n
                     \n
                     \s\s\s\s&lt;b:NavbarForm pull="LEFT"&gt;\n
-                    \s\s\s\s\s\s&lt;b:TextBox placeHolder="Search" addStyleNames="col-lg-8"/&gt;\n
+                    \s\s\s\s\s\s&lt;b:TextBox placeholder="Search" addStyleNames="col-lg-8"/&gt;\n
                     \s\s\s\s&lt;/b:NavbarForm&gt;\n
                     \n
                     \s\s\s\s&lt;b:NavbarText pull="RIGHT"&gt;\n

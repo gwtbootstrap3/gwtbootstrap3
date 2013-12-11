@@ -89,7 +89,7 @@
                 </b:Popover>
                 <b:Popover title="Popover Title" content="Popover Body" trigger="FOCUS">
                     <b:TextBox width="200px" addStyleNames="{style.margin} {style.inline}"
-                               placeHolder="I have a Popover! (on focus)"/>
+                               placeholder="I have a Popover! (on focus)"/>
                 </b:Popover>
                 <b:Popover title="Popover Title" content="Popover Body" trigger="CLICK">
                     <b:Button addStyleNames="{style.margin}" text="I have a Popover! (on click)"/>

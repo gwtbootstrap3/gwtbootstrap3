@@ -1,6 +1,5 @@
 * Add support for Glyphicons and Font Awesome via separate modules
 * Add support for Tables
-* Finish support for Input Groups
 * Add support for Pagination
 * Add support for Thumbnails
 * Add support for Media Objects
