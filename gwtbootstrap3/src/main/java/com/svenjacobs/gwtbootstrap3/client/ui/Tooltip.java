@@ -20,9 +20,6 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.user.client.Event;
@@ -30,16 +27,13 @@ import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.HiddenEvent;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.HiddenHandler;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.HideEvent;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.HideHandler;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.ShowEvent;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.ShowHandler;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.ShownEvent;
-import com.svenjacobs.gwtbootstrap3.client.shared.event.ShownHandler;
+
+import com.svenjacobs.gwtbootstrap3.client.shared.event.*;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Placement;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Trigger;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * @author Joshua Godi
@@ -55,7 +49,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     private int hideDelayMs = 0;
     private int showDelayMs = 0;
     private String container = null;
-    private final String selector = null;
+    private String selector = null;
 
     private Widget widget;
     private String id;
@@ -224,14 +218,14 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
             tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), selector, title,
                     trigger.getCssName(), showDelayMs, hideDelayMs, container);
         } else if (container != null) {
-            tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title, trigger.getCssName(),
-                    showDelayMs, hideDelayMs, container);
+            tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title,
+                    trigger.getCssName(), showDelayMs, hideDelayMs, container);
         } else if (selector != null) {
             tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), selector, title,
                     trigger.getCssName(), showDelayMs, hideDelayMs);
         } else {
-            tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title, trigger.getCssName(),
-                    showDelayMs, hideDelayMs);
+            tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title,
+                    trigger.getCssName(), showDelayMs, hideDelayMs);
         }
     }
 
@@ -254,7 +248,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     /**
      * Can be override by subclasses to handle Tooltip's "show" event however
      * it's recommended to add an event handler to the tooltip.
-     * 
+     *
      * @param evt Event
      * @see com.svenjacobs.gwtbootstrap3.client.shared.event.ShowEvent
      */
@@ -265,7 +259,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     /**
      * Can be override by subclasses to handle Tooltip's "shown" event however
      * it's recommended to add an event handler to the tooltip.
-     * 
+     *
      * @param evt Event
      * @see ShownEvent
      */
@@ -276,7 +270,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     /**
      * Can be override by subclasses to handle Tooltip's "hide" event however
      * it's recommended to add an event handler to the tooltip.
-     * 
+     *
      * @param evt Event
      * @see HideEvent
      */
@@ -287,7 +281,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     /**
      * Can be override by subclasses to handle Tooltip's "hidden" event however
      * it's recommended to add an event handler to the tooltip.
-     * 
+     *
      * @param evt Event
      * @see HiddenEvent
      */
