@@ -114,7 +114,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Dropdowns                           | Supported           | Yes        |
 | Button groups                       | Supported           | Yes        |
 | Button dropdowns                    | Supported           | Yes        |
-| Input groups                        | Partially supported | Yes        |
+| Input groups                        | Supported           | Yes        |
 | Navs                                | Supported           | Yes        |
 | Navbar                              | Supported           | Yes        |
 | Breadcrumbs                         | Supported           | Yes        |
