@@ -48,6 +48,50 @@
 
         <b:Panel>
             <b:PanelHeader>
+                <b:Heading size="3" text="Icon Addons"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:InputGroup>
+                    <b:InputGroupAddon icon="USER"/>
+                    <b:TextBox placeHolder="Type here" autoComplete="false"/>
+                    <b:InputGroupAddon icon="FACEBOOK"/>
+                </b:InputGroup>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:InputGroup&gt;\n
+                    \s\s&lt;b:InputGroupAddon icon=&quot;USER&quot;/&gt;\n
+                    \s\s&lt;b:TextBox placeHolder=&quot;Type here&quot; autoComplete=&quot;false&quot;/&gt;\n
+                    \s\s&lt;b:InputGroupAddon icon=&quot;FACEBOOK&quot;/&gt;\n
+                    &lt;/b:InputGroup&gt;
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Icon and Text Mixin Addons"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:InputGroup>
+                    <b:InputGroupAddon icon="USER">User</b:InputGroupAddon>
+                    <b:TextBox placeHolder="Type here" autoComplete="false"/>
+                    <b:InputGroupAddon icon="FACEBOOK" iconPosition="RIGHT">Facebook</b:InputGroupAddon>
+                </b:InputGroup>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:InputGroup&gt;\n
+                    \s\s&lt;b:InputGroupAddon icon=&quot;USER&quot;/&gt;\n
+                    \s\s&lt;b:TextBox placeHolder=&quot;Type here&quot; autoComplete=&quot;false&quot;/&gt;\n
+                    \s\s&lt;b:InputGroupAddon icon=&quot;FACEBOOK&quot;/&gt;\n
+                    &lt;/b:InputGroup&gt;
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
                 <b:Heading size="3" text="Checkboxes and Radio Addons"/>
             </b:PanelHeader>
             <b:PanelBody>

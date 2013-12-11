@@ -22,6 +22,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 
 import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractInputGroupAddon;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -45,31 +47,41 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @see InputGroup
  * @see InputGroupButton
  */
-public class InputGroupAddon extends AbstractInputGroupAddon implements HasText, HasIcon {
+public class InputGroupAddon extends AbstractInputGroupAddon implements HasText, HasIcon, HasIconPosition {
 
-    private Icon icon;
-    
+    IconTextMixin<InputGroupAddon> iconTextMixin = new IconTextMixin<InputGroupAddon>(this);
+
     public InputGroupAddon() {
         super(Styles.INPUT_GROUP_ADDON);
     }
 
     @Override
-    public String getText() {
-        return getElement().getInnerText();
+    public void setText(final String text) {
+        iconTextMixin.setText(text);
     }
 
     @Override
-    public void setText(final String text) {
-        getElement().setInnerText(text);
+    public String getText() {
+        return iconTextMixin.getText();
     }
-    
-    @Override
-    public IconType getIcon() {
-        return icon == null ? null : icon.getType();
-    }
-    
+
     @Override
     public void setIcon(final IconType iconType) {
-        this.add(icon = new Icon(iconType), this.getElement());
+        iconTextMixin.setIcon(iconType);
+    }
+
+    @Override
+    public IconType getIcon() {
+        return iconTextMixin.getIcon();
+    }
+
+    @Override
+    public void setIconPosition(IconPosition iconPosition) {
+        iconTextMixin.setIconPosition(iconPosition);
+    }
+
+    @Override
+    public IconPosition getIconPosition() {
+        return iconTextMixin.getIconPosition();
     }
 }
