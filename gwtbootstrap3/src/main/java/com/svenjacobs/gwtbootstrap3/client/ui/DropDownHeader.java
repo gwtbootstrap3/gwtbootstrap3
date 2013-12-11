@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -30,7 +30,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * Header element within {@link DropDownMenu}
  * <p/>
  * <h3>UiBinder example</h3>
- * <pre>{@code
+ * 
+ * <pre>
+ * {@code
  *     <b:DropDownMenu>
  *         <b:DropDownHeader>Header 1</b:DropDownHeader>
  *         <b:ListItem>Action 1</b:ListItem>
@@ -39,15 +41,16 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  *         <b:ListItem>Action 3</b:ListItem>
  *         <b:ListItem>Action 4</b:ListItem>
  *     </b:DropDownMenu>
- * }</pre>
- *
+ * }
+ * </pre>
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  */
 public class DropDownHeader extends Widget implements HasText, HasResponsiveness {
 
     public DropDownHeader() {
-        setElement(DOM.createElement("li"));
+        setElement(Document.get().createLIElement());
         setStyleName(Styles.DROPDOWN_HEADER);
     }
 

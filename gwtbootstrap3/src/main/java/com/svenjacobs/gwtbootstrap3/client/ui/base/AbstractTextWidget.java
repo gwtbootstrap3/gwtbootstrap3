@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
-import com.google.gwt.user.client.Element;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasId;
@@ -30,7 +30,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 
 /**
  * Base class for {@link Widget} that just contains text.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  */

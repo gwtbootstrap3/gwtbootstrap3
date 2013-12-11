@@ -20,15 +20,15 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.client.DOM;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * A row of Bootstrap's fluid grid system.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Column
@@ -36,7 +36,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 public class Row extends ComplexWidget implements HasResponsiveness {
 
     public Row() {
-        setElement(DOM.createDiv());
+        setElement(Document.get().createDivElement());
         setStyleName(Styles.ROW);
     }
 

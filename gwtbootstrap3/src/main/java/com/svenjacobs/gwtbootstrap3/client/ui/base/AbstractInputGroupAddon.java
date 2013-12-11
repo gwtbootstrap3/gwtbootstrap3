@@ -20,14 +20,15 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.user.client.ui.ComplexPanel;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasResponsiveness;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 
 /**
- * Base class for {@link com.svenjacobs.gwtbootstrap3.client.ui.InputGroupAddon} and
- * {@link com.svenjacobs.gwtbootstrap3.client.ui.InputGroupButton}
- *
+ * Base class for {@link com.svenjacobs.gwtbootstrap3.client.ui.InputGroupAddon}
+ * and {@link com.svenjacobs.gwtbootstrap3.client.ui.InputGroupButton}
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see com.svenjacobs.gwtbootstrap3.client.ui.InputGroupAddon
@@ -36,7 +37,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 public abstract class AbstractInputGroupAddon extends ComplexWidget implements HasResponsiveness {
 
     protected AbstractInputGroupAddon(final String styleName) {
-        setElement(DOM.createSpan());
+        setElement(Document.get().createSpanElement());
         setStyleName(styleName);
     }
 

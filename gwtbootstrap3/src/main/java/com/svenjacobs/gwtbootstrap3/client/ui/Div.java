@@ -20,19 +20,19 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 
 /**
  * Simple {@code <div>} tag
- *
+ * 
  * @author Joshua Godi
  */
 public class Div extends ComplexWidget implements HasResponsiveness {
 
     public Div() {
-        setElement(DOM.createDiv());
+        setElement(Document.get().createDivElement());
     }
 
     @Override

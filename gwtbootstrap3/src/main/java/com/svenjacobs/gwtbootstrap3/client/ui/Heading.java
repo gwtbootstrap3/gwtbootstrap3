@@ -28,10 +28,21 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractTextWidget;
  * @author Sven Jacobs
  */
 public class Heading extends AbstractTextWidget {
+    private final Small subtext = new Small();
 
     @UiConstructor
     public Heading(final int size) {
         super(DOM.createElement("h" + size));
+        getElement().appendChild(subtext.getElement());
         assert size > 0 && size < 7 : "Wrong heading size (must be between 1 and 6)";
+    }
+
+    public Heading(final int size, final String text) {
+        this(size);
+        setText(text);
+    }
+
+    public void setSubtext(final String subtext) {
+        this.subtext.setText(subtext);
     }
 }

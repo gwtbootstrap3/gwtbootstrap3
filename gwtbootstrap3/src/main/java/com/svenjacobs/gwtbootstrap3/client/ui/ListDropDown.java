@@ -26,10 +26,13 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * Drop down item within a list, e.g. {@link NavTabs}, {@link NavPills} or {@link Navbar}.
+ * Drop down item within a list, e.g. {@link NavTabs}, {@link NavPills} or
+ * {@link Navbar}.
  * <p/>
  * <h3>UiBinder example</h3>
- * <pre>{@code
+ * 
+ * <pre>
+ * {@code
  *     <b:NavTabs>
  *         <b:ListItem active="true">Item 1</b:ListItem>
  *         <b:ListItem>Item 2</b:ListItem>
@@ -43,8 +46,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  *         </b:ListDropDown>
  *         <b:ListItem>Item 3</b:ListItem>
  *     </b:NavTabs>
- * }</pre>
- *
+ * }
+ * </pre>
+ * 
  * @author Sven Jacobs
  * @see NavTabs
  * @see NavPills

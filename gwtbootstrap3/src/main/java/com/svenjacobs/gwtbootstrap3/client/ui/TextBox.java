@@ -20,22 +20,20 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.TextBoxBase;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @author Pontus Enmark
  */
-public class TextBox extends com.google.gwt.user.client.ui.TextBox implements HasId, HasResponsiveness {
-
-    private final IdMixin<TextBox> idMixin = new IdMixin<TextBox>(this);
+public class TextBox extends TextBoxBase {
 
     public TextBox() {
-        this(DOM.createInputText());
+        this(Document.get().createTextInputElement());
     }
 
     public TextBox(final Element element) {
@@ -43,31 +41,7 @@ public class TextBox extends com.google.gwt.user.client.ui.TextBox implements Ha
         setStyleName(Styles.FORM_CONTROL);
     }
 
-    public void setPlaceHolder(final String placeHolder) {
-        getElement().setAttribute("placeholder", placeHolder != null ? placeHolder : "");
-    }
-
-    public void setAutoComplete(final boolean autoComplete) {
-        getElement().setAttribute("autocomplete", autoComplete ? "on" : "off");
-    }
-
-    @Override
-    public void setId(final String id) {
-        idMixin.setId(id);
-    }
-
-    @Override
-    public String getId() {
-        return idMixin.getId();
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
+    public void clear() {
+        super.setValue(null);
     }
 }

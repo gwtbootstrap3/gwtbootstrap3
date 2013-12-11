@@ -21,9 +21,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.AnchorElement;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasText;
@@ -33,17 +38,19 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * Anchor {@code <a>} element with text and optional icon.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  */
 public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasToggle,
-        HasTargetHistoryToken, HasText, HasIcon, HasIconPosition, HasTabIndex, Focusable, HasResponsiveness {
+        HasTargetHistoryToken, HasText, HasIcon, HasIconPosition, HasIconSize, HasTabIndex, Focusable,
+        HasResponsiveness {
 
     private final ToggleMixin<Anchor> toggleMixin = new ToggleMixin<Anchor>(this);
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
@@ -51,14 +58,13 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     private String targetHistoryToken;
 
     public Anchor(final String href) {
-        setElement(DOM.createAnchor());
+        setElement(Document.get().createAnchorElement());
         setHref(href);
         focusableMixin = new FocusableMixin(AnchorElement.as(getElement()));
         iconTextMixin.addTextWidgetToParent();
     }
 
-    public Anchor(final String text,
-                  final String href) {
+    public Anchor(final String text, final String href) {
         this(href);
         setText(text);
     }
@@ -105,6 +111,16 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     @Override
     public IconPosition getIconPosition() {
         return iconTextMixin.getIconPosition();
+    }
+
+    @Override
+    public void setIconSize(final IconSize iconSize) {
+        iconTextMixin.setIconSize(iconSize);
+    }
+
+    @Override
+    public IconSize getIconSize() {
+        return iconTextMixin.getIconSize();
     }
 
     @Override

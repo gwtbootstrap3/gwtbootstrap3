@@ -21,9 +21,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.AnchorElement;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
@@ -35,21 +40,20 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Toggle;
 /**
  * @author Joshua Godi
  */
-public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasToggle,
-        HasTargetHistoryToken, HasTabIndex, Focusable, HasResponsiveness {
+public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref,
+        HasToggle, HasTargetHistoryToken, HasTabIndex, Focusable, HasResponsiveness {
 
     private final ToggleMixin<ThumbnailLink> toggleMixin = new ToggleMixin<ThumbnailLink>(this);
     private final FocusableMixin focusableMixin;
     private String targetHistoryToken;
 
     public ThumbnailLink(final String href) {
-        setElement(DOM.createAnchor());
+        setElement(Document.get().createAnchorElement());
         setHref(href);
         focusableMixin = new FocusableMixin(AnchorElement.as(getElement()));
     }
 
-    public ThumbnailLink(final String text,
-                         final String href) {
+    public ThumbnailLink(final String text, final String href) {
         this(href);
     }
 

@@ -23,12 +23,18 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.ImageType;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Pull;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class Image extends com.google.gwt.user.client.ui.Image implements HasType<ImageType>, HasResponsiveness {
+public class Image extends com.google.gwt.user.client.ui.Image implements HasType<ImageType>, HasResponsiveness,
+        HasPull {
+
+    private final PullMixin<Image> pullMixin = new PullMixin<Image>(this);
 
     public Image() {
         super();
@@ -78,5 +84,19 @@ public class Image extends com.google.gwt.user.client.ui.Image implements HasTyp
     @Override
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
+    }
+
+    public void setResponsive(final boolean responsive) {
+        StyleHelper.toggleStyleName(this, responsive, Styles.IMG_RESPONSIVE);
+    }
+
+    @Override
+    public void setPull(final Pull pull) {
+        pullMixin.setPull(pull);
+    }
+
+    @Override
+    public Pull getPull() {
+        return pullMixin.getPull();
     }
 }

@@ -20,29 +20,35 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.HasEnabled;
+import com.svenjacobs.gwtbootstrap3.client.ui.HasActive;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasResponsiveness;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasTarget;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasType;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.*;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Attributes;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonDismiss;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonSize;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonType;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Abstract base class for different kinds of buttons.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public abstract class AbstractButton extends ComplexWidget
-        implements HasEnabled, HasType<ButtonType>, HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasResponsiveness {
+public abstract class AbstractButton extends ComplexWidget implements HasEnabled, HasActive, HasType<ButtonType>,
+        HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasResponsiveness {
 
     public class ButtonStateHandler {
         private ButtonStateHandler() {
@@ -58,7 +64,7 @@ public abstract class AbstractButton extends ComplexWidget
 
         /**
          * Resets button to specified text state.
-         *
+         * 
          * @param state Text state
          */
         public void reset(final String state) {
@@ -68,6 +74,7 @@ public abstract class AbstractButton extends ComplexWidget
 
     private final ButtonStateHandler buttonStateHandler = new ButtonStateHandler();
     private final TargetMixin<AbstractButton> targetMixin = new TargetMixin<AbstractButton>(this);
+    private final ActiveMixin<AbstractButton> activeMixin = new ActiveMixin<AbstractButton>(this);
 
     /**
      * Creates button with DEFAULT type.
@@ -80,6 +87,16 @@ public abstract class AbstractButton extends ComplexWidget
         setElement(createElement());
         setStyleName(Styles.BTN);
         setType(type);
+    }
+
+    @Override
+    public boolean isActive() {
+        return activeMixin.isActive();
+    }
+
+    @Override
+    public void setActive(final boolean active) {
+        activeMixin.setActive(active);
     }
 
     @Override
@@ -99,7 +116,7 @@ public abstract class AbstractButton extends ComplexWidget
 
     /**
      * Sets type of button.
-     *
+     * 
      * @param type Type of button
      */
     @Override
@@ -114,7 +131,7 @@ public abstract class AbstractButton extends ComplexWidget
 
     /**
      * Sets size of button.
-     *
+     * 
      * @param size Size of button
      */
     @Override
@@ -149,7 +166,7 @@ public abstract class AbstractButton extends ComplexWidget
 
     /**
      * Makes button a block level element that spawns full width of parent.
-     *
+     * 
      * @param block True for block level element
      */
     public void setBlock(final boolean block) {
@@ -163,10 +180,12 @@ public abstract class AbstractButton extends ComplexWidget
     /**
      * Sets dismiss type of button.
      * <p/>
-     * If button is inside a {@link com.svenjacobs.gwtbootstrap3.client.ui.Modal} and dismiss type is {@code MODAL}
-     * the button will act as the dismiss (close) button for this Modal. Same goes for
-     * {@link com.svenjacobs.gwtbootstrap3.client.ui.Alert} and dismiss type {@code ALERT}.
-     *
+     * If button is inside a
+     * {@link com.svenjacobs.gwtbootstrap3.client.ui.Modal} and dismiss type is
+     * {@code MODAL} the button will act as the dismiss (close) button for this
+     * Modal. Same goes for {@link com.svenjacobs.gwtbootstrap3.client.ui.Alert}
+     * and dismiss type {@code ALERT}.
+     * 
      * @param dismiss Dismiss type of button
      * @see com.svenjacobs.gwtbootstrap3.client.ui.Modal
      * @see com.svenjacobs.gwtbootstrap3.client.ui.Alert
@@ -197,6 +216,8 @@ public abstract class AbstractButton extends ComplexWidget
 
     protected abstract Element createElement();
 
+    // @formatter:off
+    
     private native void button(final Element e, final String arg) /*-{
         $wnd.jQuery(e).button(arg);
     }-*/;

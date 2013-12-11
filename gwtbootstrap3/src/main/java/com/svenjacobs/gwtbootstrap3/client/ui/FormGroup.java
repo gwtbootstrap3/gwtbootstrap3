@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.form.FormElementContainer;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
@@ -32,7 +32,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ValidationState;
 public class FormGroup extends FormElementContainer implements HasValidationState {
 
     public FormGroup() {
-        setElement(DOM.createDiv());
+        setElement(Document.get().createDivElement());
         setStyleName(Styles.FORM_GROUP);
     }
 

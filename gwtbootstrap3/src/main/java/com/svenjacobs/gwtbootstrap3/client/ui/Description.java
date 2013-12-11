@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -31,7 +31,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  */
 public class Description extends ComplexWidget implements HasResponsiveness {
     public Description() {
-        setElement(DOM.createElement("dl"));
+        setElement(Document.get().createDLElement());
     }
 
     public void setHorizontal(final boolean horizontal) {
@@ -41,7 +41,8 @@ public class Description extends ComplexWidget implements HasResponsiveness {
     @Override
     public void add(final Widget child) {
         if (!(child instanceof DescriptionComponent)) {
-            throw new IllegalArgumentException("Description can only have children of type DescriptionData and DescriptionTitle");
+            throw new IllegalArgumentException(
+                    "Description can only have children of type DescriptionData and DescriptionTitle");
         }
         super.add(child);
     }

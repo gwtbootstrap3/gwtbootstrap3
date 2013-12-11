@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasResponsiveness;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -33,7 +33,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 class Caret extends Widget implements HasResponsiveness {
 
     public Caret() {
-        setElement(DOM.createSpan());
+        setElement(Document.get().createSpanElement());
         setStyleName(Styles.CARET);
     }
 

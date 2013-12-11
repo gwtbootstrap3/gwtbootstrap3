@@ -33,7 +33,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.ColumnSize;
 
 /**
  * A column of Bootstrap's fluid grid system.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  * @author Pontus Enmark
@@ -71,7 +71,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
 
     /**
      * Creates column with multiple sizes.
-     *
+     * 
      * @param sizes Column sizes
      */
     public Column(final ColumnSize... sizes) {
@@ -97,7 +97,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
 
     /**
      * Adds one or more additional column sizes.
-     *
+     * 
      * @param sizes Additional column sizes
      */
     public void setSize(final ColumnSize... sizes) {
@@ -110,6 +110,10 @@ public class Column extends ComplexWidget implements HasResponsiveness {
 
     public void addSize(final ColumnSize... sizes) {
         addEnumVarargsValues(sizes, ColumnSize.class, false);
+    }
+
+    public void addSize(final String sizes) {
+        addEnumStringValues(sizes, ColumnSize.class, false);
     }
 
     public void setPull(final ColumnPull... pulls) {
@@ -128,20 +132,20 @@ public class Column extends ComplexWidget implements HasResponsiveness {
         addEnumStringValues(pulls, ColumnPull.class, false);
     }
 
-    public void setPush(final ColumnPush... pulls) {
-        addEnumVarargsValues(pulls, ColumnPush.class, true);
+    public void setPush(final ColumnPush... pushes) {
+        addEnumVarargsValues(pushes, ColumnPush.class, true);
     }
 
     public void setPush(final String pushes) {
         addEnumStringValues(pushes, ColumnPush.class, true);
     }
 
-    public void addPush(final ColumnPush... pulls) {
-        addEnumVarargsValues(pulls, ColumnPush.class, false);
+    public void addPush(final ColumnPush... pushes) {
+        addEnumVarargsValues(pushes, ColumnPush.class, false);
     }
 
-    public void addPush(final String pushs) {
-        addEnumStringValues(pushs, ColumnPush.class, false);
+    public void addPush(final String pushes) {
+        addEnumStringValues(pushes, ColumnPush.class, false);
     }
 
     public void setOffset(final ColumnOffset... offsets) {
@@ -171,7 +175,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumVarargsValues(final E[] values,
-                                                                                   final Class<E> enumClass, final boolean clearOld) {
+            final Class<E> enumClass, final boolean clearOld) {
         if (clearOld) {
             // Remove the previous values
             removeStyleNames(enumClass);
@@ -183,7 +187,7 @@ public class Column extends ComplexWidget implements HasResponsiveness {
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumStringValues(final String values,
-                                                                                  final Class<E> enumClass, final boolean clearOld) {
+            final Class<E> enumClass, final boolean clearOld) {
         if (clearOld) {
             // Remove the previous values
             removeStyleNames(enumClass);

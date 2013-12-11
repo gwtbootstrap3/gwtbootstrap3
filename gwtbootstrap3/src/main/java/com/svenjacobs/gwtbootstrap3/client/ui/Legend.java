@@ -25,7 +25,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 
 /**
  * Legend to be used within {@link Form}
- *
+ * 
  * @author Sven Jacobs
  * @see Form
  */

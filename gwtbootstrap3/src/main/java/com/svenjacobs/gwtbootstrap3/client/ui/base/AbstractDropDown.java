@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
-import com.google.gwt.user.client.Element;
+import com.google.gwt.dom.client.Element;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasResponsiveness;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;

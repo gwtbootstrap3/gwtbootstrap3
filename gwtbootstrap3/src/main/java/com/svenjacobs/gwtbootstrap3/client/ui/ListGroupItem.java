@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
@@ -32,7 +32,7 @@ public class ListGroupItem extends ComplexWidget implements HasResponsiveness {
     private final Span span = new Span();
 
     public ListGroupItem() {
-        setElement(DOM.createElement("li"));
+        setElement(Document.get().createLIElement());
         setStyleName(Styles.LIST_GROUP_ITEM);
 
         add(span);

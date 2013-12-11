@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -32,13 +32,13 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 public class IconStack extends ComplexPanel implements HasResponsiveness {
 
     public IconStack() {
-        setElement(DOM.createSpan());
+        setElement(Document.get().createSpanElement());
         getElement().addClassName(Styles.ICON_STACK);
     }
 
     /**
      * Adds an icon onto the icon stack
-     *
+     * 
      * @param icon Icon
      * @param base Bottom icon or not
      */

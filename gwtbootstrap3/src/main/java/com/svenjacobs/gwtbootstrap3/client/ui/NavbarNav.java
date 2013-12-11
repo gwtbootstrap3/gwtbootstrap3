@@ -24,7 +24,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Container for {@link ListItem} or {@link ListDropDown} within {@link Navbar}.
- *
+ * 
  * @author Sven Jacobs
  * @see Navbar
  * @see ListItem

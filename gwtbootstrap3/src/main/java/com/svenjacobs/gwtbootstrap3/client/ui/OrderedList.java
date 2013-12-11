@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
@@ -34,12 +34,12 @@ public class OrderedList extends ComplexWidget implements HasResponsiveness {
      * Creates an empty list.
      */
     public OrderedList() {
-        setElement(DOM.createElement("ol"));
+        setElement(Document.get().createOLElement());
     }
 
     /**
      * Creates a list and adds the given widgets.
-     *
+     * 
      * @param widgets widgets to be added
      */
     public OrderedList(final ListItem... widgets) {

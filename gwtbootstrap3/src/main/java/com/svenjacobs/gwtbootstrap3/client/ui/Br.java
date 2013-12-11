@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 
@@ -30,7 +30,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 public class Br extends ComplexWidget implements HasResponsiveness {
 
     public Br() {
-        setElement(DOM.createElement("br"));
+        setElement(Document.get().createBRElement());
     }
 
     @Override

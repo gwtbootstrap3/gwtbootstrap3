@@ -21,11 +21,11 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.Element;
+import com.google.gwt.dom.client.Element;
 
 /**
  * A {@link Button} with {@code type="submit"}.
- *
+ * 
  * @author Sven Jacobs
  * @see Button
  */

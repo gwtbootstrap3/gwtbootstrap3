@@ -20,21 +20,21 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * A lightweight, flexible component to showcase key content.
- *
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  */
 public class Jumbotron extends ComplexWidget implements HasResponsiveness {
 
     public Jumbotron() {
-        setElement(DOM.createDiv());
+        setElement(Document.get().createDivElement());
         setStyleName(Styles.JUMBOTRON);
     }
 

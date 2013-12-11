@@ -26,13 +26,27 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.TypeAttrType;
 /**
  * Button representing a radio box.
  * <p/>
- * Used within a {@link com.svenjacobs.gwtbootstrap3.client.ui.ButtonGroup} that has toggle set to {@code Toogle.BUTTONS}.
- *
+ * Used within a {@link com.svenjacobs.gwtbootstrap3.client.ui.ButtonGroup} that
+ * has toggle set to {@code Toogle.BUTTONS}.
+ * 
  * @author Sven Jacobs
  */
 public class RadioButton extends AbstractLabelButton {
 
     public RadioButton() {
         super(TypeAttrType.RADIO);
+    }
+
+    public RadioButton(final String group, final String label) {
+        this();
+        setText(label);
+    }
+
+    public void setFormValue(final String value) {
+        input.getElement().setAttribute("value", value);
+    }
+
+    public String getFormValue() {
+        return input.getElement().getAttribute("value");
     }
 }

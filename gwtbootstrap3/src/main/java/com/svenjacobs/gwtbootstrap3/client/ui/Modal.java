@@ -20,7 +20,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.Element;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.ModalHiddenEvent;
@@ -38,7 +38,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * Modal dialog.
  * <p/>
  * <h3>UiBinder example</h3>
- * <pre>{@code
+ * 
+ * <pre>
+ * {@code
  *     <b:Modal title="Important information" b:id="modal1">
  *         <b:ModalBody>
  *             <g:HTML>Lorem ipsum...</g:HTML>
@@ -49,10 +51,13 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  *         </b:ModalFooter>
  *     </b:Modal>
  *     <b:Button target="#modal1" toggle="MODAL">Show modal</b:Button>
- * }</pre>
+ * }
+ * </pre>
  * <p/>
  * It's also possible to specify a custom modal header:
- * <pre>{@code
+ * 
+ * <pre>
+ * {@code
  *     <b:Modal>
  *         <b:ModalHeader>
  *             <g:HTML>
@@ -61,8 +66,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  *         </b:ModalHeader>
  *         ...
  *     </b:Modal>
- * }</pre>
- *
+ * }
+ * </pre>
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see ModalHeader
@@ -132,7 +138,7 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
 
     /**
      * If set Modal will fade in/out.
-     *
+     * 
      * @param fade If {@code true} modal will fade in/out
      */
     public void setFade(final boolean fade) {
@@ -145,7 +151,7 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
 
     /**
      * Sets backdrop of modal.
-     *
+     * 
      * @param backdrop Backdrop of modal
      * @see ModalBackdrop
      */
@@ -174,9 +180,9 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
     }
 
     /**
-     * Can be override by subclasses to handle Modal's "show" event
-     * however it's recommended to add an event handler to the modal.
-     *
+     * Can be override by subclasses to handle Modal's "show" event however it's
+     * recommended to add an event handler to the modal.
+     * 
      * @param evt Event
      * @see ModalShowEvent
      */
@@ -185,9 +191,9 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
     }
 
     /**
-     * Can be override by subclasses to handle Modal's "shown" event
-     * however it's recommended to add an event handler to the modal.
-     *
+     * Can be override by subclasses to handle Modal's "shown" event however
+     * it's recommended to add an event handler to the modal.
+     * 
      * @param evt Event
      * @see ModalShownEvent
      */
@@ -196,9 +202,9 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
     }
 
     /**
-     * Can be override by subclasses to handle Modal's "hide" event
-     * however it's recommended to add an event handler to the modal.
-     *
+     * Can be override by subclasses to handle Modal's "hide" event however it's
+     * recommended to add an event handler to the modal.
+     * 
      * @param evt Event
      * @see ModalHideEvent
      */
@@ -207,9 +213,9 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
     }
 
     /**
-     * Can be override by subclasses to handle Modal's "hidden" event
-     * however it's recommended to add an event handler to the modal.
-     *
+     * Can be override by subclasses to handle Modal's "hidden" event however
+     * it's recommended to add an event handler to the modal.
+     * 
      * @param evt Event
      * @see ModalHiddenEvent
      */
@@ -218,27 +224,27 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
     }
 
     private native void bindJavaScriptEvents(final Element e) /*-{
-        var target = this;
-        var $modal = $wnd.jQuery(e);
+                                                              var target = this;
+                                                              var $modal = $wnd.jQuery(e);
 
-        $modal.on('show.bs.modal', function (evt) {
-            target.@com.svenjacobs.gwtbootstrap3.client.ui.Modal::onShow(Lcom/google/gwt/user/client/Event;)(evt);
-        });
+                                                              $modal.on('show.bs.modal', function (evt) {
+                                                              target.@com.svenjacobs.gwtbootstrap3.client.ui.Modal::onShow(Lcom/google/gwt/user/client/Event;)(evt);
+                                                              });
 
-        $modal.on('shown.bs.modal', function (evt) {
-            target.@com.svenjacobs.gwtbootstrap3.client.ui.Modal::onShown(Lcom/google/gwt/user/client/Event;)(evt);
-        });
+                                                              $modal.on('shown.bs.modal', function (evt) {
+                                                              target.@com.svenjacobs.gwtbootstrap3.client.ui.Modal::onShown(Lcom/google/gwt/user/client/Event;)(evt);
+                                                              });
 
-        $modal.on('hide.bs.modal', function (evt) {
-            target.@com.svenjacobs.gwtbootstrap3.client.ui.Modal::onHide(Lcom/google/gwt/user/client/Event;)(evt);
-        });
+                                                              $modal.on('hide.bs.modal', function (evt) {
+                                                              target.@com.svenjacobs.gwtbootstrap3.client.ui.Modal::onHide(Lcom/google/gwt/user/client/Event;)(evt);
+                                                              });
 
-        $modal.on('hidden.bs.modal', function (evt) {
-            target.@com.svenjacobs.gwtbootstrap3.client.ui.Modal::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-    }-*/;
+                                                              $modal.on('hidden.bs.modal', function (evt) {
+                                                              target.@com.svenjacobs.gwtbootstrap3.client.ui.Modal::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
+                                                              });
+                                                              }-*/;
 
     private native void modal(final Element e, final String arg) /*-{
-        $wnd.jQuery(e).modal(arg);
-    }-*/;
+                                                                 $wnd.jQuery(e).modal(arg);
+                                                                 }-*/;
 }

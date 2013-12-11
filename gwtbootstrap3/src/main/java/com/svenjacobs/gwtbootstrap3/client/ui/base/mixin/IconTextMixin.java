@@ -23,25 +23,28 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base.mixin;
 import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasIcon;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasIconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.HasIconSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.Icon;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.ComplexWidget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.Text;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 
 /**
  * Mixin for Widgets that have text and an optional icon.
- *
+ * 
  * @author Sven Jacobs
  */
-public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIconPosition>
-        implements HasText, HasIcon, HasIconPosition {
+public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIconPosition & HasIconSize> implements
+        HasText, HasIcon, HasIconPosition, HasIconSize {
 
     private final T widget;
     private final Text text = new Text();
     private final Text separator = new Text(" ");
     private Icon icon;
     private IconPosition iconPosition = IconPosition.LEFT;
+    private IconSize iconSize = IconSize.NONE;
 
     public IconTextMixin(final T widget) {
         this.widget = widget;
@@ -82,6 +85,17 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
         return iconPosition;
     }
 
+    @Override
+    public void setIconSize(final IconSize iconSize) {
+        this.iconSize = iconSize;
+        render(icon);
+    }
+
+    @Override
+    public IconSize getIconSize() {
+        return iconSize;
+    }
+
     private void render(final Icon newIcon) {
         text.removeFromParent();
         separator.removeFromParent();
@@ -91,6 +105,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
         }
 
         icon = newIcon;
+        icon.setSize(iconSize);
 
         if (iconPosition == IconPosition.LEFT) {
             widget.add(icon);

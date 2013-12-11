@@ -26,8 +26,9 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractAnchorListItem;
 /**
  * A {@code <li>} list item that contains further widgets.
  * <p/>
- * Use it instead of a {@link ListItem} if you for example want to embed a {@link Nav} within a {@code <li>}.
- *
+ * Use it instead of a {@link ListItem} if you for example want to embed a
+ * {@link Nav} within a {@code <li>}.
+ * 
  * @author Sven Jacobs
  * @see ListItem
  */

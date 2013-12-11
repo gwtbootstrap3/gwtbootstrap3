@@ -20,8 +20,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -32,10 +32,13 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * Page header with optional subtext
  * <p/>
  * <h3>UiBinder example</h3>
- * <pre>{@code
+ * 
+ * <pre>
+ * {@code
  *     <b:PageHeader subText="Some subtext">Page header title</b:PageHeader>
- * }</pre>
- *
+ * }
+ * </pre>
+ * 
  * @author Sven Jacobs
  * @author Joshua Godi
  */
@@ -46,7 +49,7 @@ public class PageHeader extends Widget implements HasText, HasId, HasResponsiven
     private String subText;
 
     public PageHeader() {
-        setElement(DOM.createDiv());
+        setElement(Document.get().createDivElement());
         setStyleName(Styles.PAGE_HEADER);
     }
 
@@ -57,7 +60,7 @@ public class PageHeader extends Widget implements HasText, HasId, HasResponsiven
 
     @Override
     public void setText(final String text) {
-        this.heading = text;
+        heading = text;
         render();
     }
 

@@ -23,6 +23,7 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractAnchorListItem;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 
 /**
@@ -34,14 +35,14 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
  * <li>{@link NavPills}</li>
  * <li>{@link Navbar}</li>
  * </ul>
- *
+ * 
  * @author Sven Jacobs
  * @see DropDownMenu
  * @see NavTabs
  * @see NavPills
  * @see Navbar
  */
-public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon, HasIconPosition {
+public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon, HasIconSize, HasIconPosition {
 
     public ListItem() {
     }
@@ -74,5 +75,15 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     @Override
     public IconPosition getIconPosition() {
         return anchor.getIconPosition();
+    }
+
+    @Override
+    public void setIconSize(IconSize iconSize) {
+        anchor.setIconSize(iconSize);
+    }
+
+    @Override
+    public IconSize getIconSize() {
+        return anchor.getIconSize();
     }
 }

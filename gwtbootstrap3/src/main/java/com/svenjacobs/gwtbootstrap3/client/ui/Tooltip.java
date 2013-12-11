@@ -20,13 +20,14 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.logical.shared.AttachEvent;
-import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
+
 import com.svenjacobs.gwtbootstrap3.client.shared.event.*;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Placement;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Trigger;
@@ -316,10 +317,12 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
             boolean hasElement = widget != null;
             Widget returned = null;
 
+            @Override
             public boolean hasNext() {
                 return hasElement;
             }
 
+            @Override
             public Widget next() {
                 if (!hasElement || (widget == null)) {
                     throw new NoSuchElementException();
@@ -328,6 +331,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
                 return (returned = widget);
             }
 
+            @Override
             public void remove() {
                 if (returned != null) {
                     Tooltip.this.remove(returned);

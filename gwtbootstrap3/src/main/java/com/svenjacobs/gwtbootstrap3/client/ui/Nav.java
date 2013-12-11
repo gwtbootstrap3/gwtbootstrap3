@@ -25,7 +25,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Nav container and base class for navigations.
- *
+ * 
  * @author Sven Jacobs
  * @see NavTabs
  * @see NavPills
