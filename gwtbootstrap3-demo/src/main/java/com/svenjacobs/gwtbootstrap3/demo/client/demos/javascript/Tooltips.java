@@ -17,7 +17,7 @@ public class Tooltips extends Composite {
     interface TooltipsUiBinder extends UiBinder<Widget, Tooltips> {
     }
 
-    private static TooltipsUiBinder ourUiBinder = GWT.create(TooltipsUiBinder.class);
+    private static final TooltipsUiBinder ourUiBinder = GWT.create(TooltipsUiBinder.class);
 
     @UiField
     Tooltip forceTooltip;
@@ -31,14 +31,14 @@ public class Tooltips extends Composite {
 
         forceHideButton.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 forceTooltip.hide();
             }
         });
 
         forceShowButton.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 forceTooltip.show();
             }
         });

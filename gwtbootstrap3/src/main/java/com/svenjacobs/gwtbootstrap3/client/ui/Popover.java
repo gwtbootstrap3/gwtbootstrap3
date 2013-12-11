@@ -28,7 +28,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     private int hideDelayMs = 0;
     private int showDelayMs = 0;
     private String container = null;
-    private String selector = null;
+    private final String selector = null;
 
     private Widget widget;
     private String id;
@@ -69,7 +69,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         // When we attach it, configure the tooltip
         widget.addAttachHandler(new AttachEvent.Handler() {
             @Override
-            public void onAttachOrDetach(AttachEvent event) {
+            public void onAttachOrDetach(final AttachEvent event) {
                 reconfigure();
             }
         });
@@ -107,7 +107,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setIsAnimated(boolean isAnimated) {
+    public void setIsAnimated(final boolean isAnimated) {
         this.isAnimated = isAnimated;
     }
 
@@ -117,7 +117,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setIsHtml(boolean isHTML) {
+    public void setIsHtml(final boolean isHTML) {
         this.isHTML = isHTML;
     }
 
@@ -127,7 +127,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setPlacement(Placement placement) {
+    public void setPlacement(final Placement placement) {
         this.placement = placement;
     }
 
@@ -137,7 +137,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setTrigger(Trigger trigger) {
+    public void setTrigger(final Trigger trigger) {
         this.trigger = trigger;
     }
 
@@ -147,7 +147,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setShowDelayMs(int showDelayMs) {
+    public void setShowDelayMs(final int showDelayMs) {
         this.showDelayMs = showDelayMs;
     }
 
@@ -157,7 +157,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setHideDelayMs(int hideDelayMs) {
+    public void setHideDelayMs(final int hideDelayMs) {
         this.hideDelayMs = hideDelayMs;
     }
 
@@ -167,7 +167,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     @Override
-    public void setContainer(String container) {
+    public void setContainer(final String container) {
         this.container = container;
     }
 
@@ -268,19 +268,19 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         widget.fireEvent(new HiddenEvent(evt));
     }
 
-    public void addShowHandler(ShowHandler showHandler) {
+    public void addShowHandler(final ShowHandler showHandler) {
         widget.addHandler(showHandler, ShowEvent.getType());
     }
 
-    public void addShownHandler(ShownHandler shownHandler) {
+    public void addShownHandler(final ShownHandler shownHandler) {
         widget.addHandler(shownHandler, ShownEvent.getType());
     }
 
-    public void addHideHandler(HideHandler hideHandler) {
+    public void addHideHandler(final HideHandler hideHandler) {
         widget.addHandler(hideHandler, HideEvent.getType());
     }
 
-    public void addHiddenHandler(HiddenHandler hiddenHandler) {
+    public void addHiddenHandler(final HiddenHandler hiddenHandler) {
         widget.addHandler(hiddenHandler, HiddenEvent.getType());
     }
 

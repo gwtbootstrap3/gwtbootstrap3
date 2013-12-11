@@ -29,7 +29,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  */
 public class ProgressBar extends Div implements HasType<ProgressBarType> {
-    private Span span = new Span();
+    private final Span span = new Span();
 
     public ProgressBar() {
         // Default attributes
@@ -44,11 +44,11 @@ public class ProgressBar extends Div implements HasType<ProgressBarType> {
         add(span);
     }
 
-    public void setSrOnly(boolean srOnly) {
+    public void setSrOnly(final boolean srOnly) {
         span.setStyleName(Styles.SR_ONLY, srOnly);
     }
 
-    public void setText(String text) {
+    public void setText(final String text) {
         span.setText(text);
     }
 
@@ -56,17 +56,17 @@ public class ProgressBar extends Div implements HasType<ProgressBarType> {
         return span.getText();
     }
 
-    public void setPercent(int percent) {
+    public void setPercent(final int percent) {
         getElement().getStyle().setWidth(percent, Style.Unit.PCT);
     }
 
     public int getPercent() {
-        String width = getElement().getStyle().getWidth();
+        final String width = getElement().getStyle().getWidth();
         return width == null ? 0 : Integer.valueOf(width.substring(0, width.indexOf("%")));
     }
 
     @Override
-    public void setType(ProgressBarType type) {
+    public void setType(final ProgressBarType type) {
         StyleHelper.addEnumStyleName(this, type);
     }
 

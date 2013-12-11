@@ -32,7 +32,7 @@ public class Navbar extends Composite {
     interface NavbarUiBinder extends UiBinder<Row, Navbar> {
     }
 
-    private static NavbarUiBinder ourUiBinder = GWT.create(NavbarUiBinder.class);
+    private static final NavbarUiBinder ourUiBinder = GWT.create(NavbarUiBinder.class);
 
     public Navbar() {
         initWidget(ourUiBinder.createAndBindUi(this));

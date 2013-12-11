@@ -32,7 +32,7 @@ public class ProgressBars extends Composite {
     interface ProgressBarsUiBinder extends UiBinder<Row, ProgressBars> {
     }
 
-    private static ProgressBarsUiBinder ourUiBinder = GWT.create(ProgressBarsUiBinder.class);
+    private static final ProgressBarsUiBinder ourUiBinder = GWT.create(ProgressBarsUiBinder.class);
 
     public ProgressBars() {
         initWidget(ourUiBinder.createAndBindUi(this));

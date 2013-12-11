@@ -32,7 +32,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 public class Abbreviation extends AbstractTextWidget {
 
     @UiConstructor
-    public Abbreviation(String title) {
+    public Abbreviation(final String title) {
         super(DOM.createElement("abbr"));
         setTitle(title);
     }

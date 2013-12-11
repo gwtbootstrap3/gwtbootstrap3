@@ -38,7 +38,7 @@ public class TextBox extends com.google.gwt.user.client.ui.TextBox implements Ha
         this(DOM.createInputText());
     }
 
-    public TextBox(Element element) {
+    public TextBox(final Element element) {
         super(element);
         setStyleName(Styles.FORM_CONTROL);
     }
@@ -62,12 +62,12 @@ public class TextBox extends com.google.gwt.user.client.ui.TextBox implements Ha
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

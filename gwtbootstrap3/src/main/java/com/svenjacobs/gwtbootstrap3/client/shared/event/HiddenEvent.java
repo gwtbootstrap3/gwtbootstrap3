@@ -18,7 +18,7 @@ public class HiddenEvent extends GwtEvent<HiddenHandler> {
         this(null);
     }
 
-    public HiddenEvent(NativeEvent nativeEvent) {
+    public HiddenEvent(final NativeEvent nativeEvent) {
         this.nativeEvent = nativeEvent;
     }
 
@@ -28,7 +28,7 @@ public class HiddenEvent extends GwtEvent<HiddenHandler> {
     }
 
     @Override
-    protected void dispatch(HiddenHandler handler) {
+    protected void dispatch(final HiddenHandler handler) {
         handler.onHidden(this);
     }
 

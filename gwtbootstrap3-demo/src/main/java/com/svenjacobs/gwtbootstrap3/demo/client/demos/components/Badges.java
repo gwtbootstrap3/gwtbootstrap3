@@ -32,7 +32,7 @@ public class Badges extends Composite {
     interface BadgesUiBinder extends UiBinder<Row, Badges> {
     }
 
-    private static BadgesUiBinder ourUiBinder = GWT.create(BadgesUiBinder.class);
+    private static final BadgesUiBinder ourUiBinder = GWT.create(BadgesUiBinder.class);
 
     public Badges() {
         initWidget(ourUiBinder.createAndBindUi(this));

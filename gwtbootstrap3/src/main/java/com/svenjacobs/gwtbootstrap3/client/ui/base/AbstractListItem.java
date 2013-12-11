@@ -84,12 +84,12 @@ public abstract class AbstractListItem extends ComplexPanel implements HasEnable
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

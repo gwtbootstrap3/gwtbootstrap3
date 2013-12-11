@@ -32,7 +32,7 @@ public class PageHeader extends Composite {
     interface PageHeaderUiBinder extends UiBinder<Row, PageHeader> {
     }
 
-    private static PageHeaderUiBinder ourUiBinder = GWT.create(PageHeaderUiBinder.class);
+    private static final PageHeaderUiBinder ourUiBinder = GWT.create(PageHeaderUiBinder.class);
 
     public PageHeader() {
         initWidget(ourUiBinder.createAndBindUi(this));

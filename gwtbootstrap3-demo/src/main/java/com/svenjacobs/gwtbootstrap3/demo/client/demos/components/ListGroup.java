@@ -32,7 +32,7 @@ public class ListGroup extends Composite {
     interface ListGroupUiBinder extends UiBinder<Row, ListGroup> {
     }
 
-    private static ListGroupUiBinder ourUiBinder = GWT.create(ListGroupUiBinder.class);
+    private static final ListGroupUiBinder ourUiBinder = GWT.create(ListGroupUiBinder.class);
 
     public ListGroup() {
         initWidget(ourUiBinder.createAndBindUi(this));

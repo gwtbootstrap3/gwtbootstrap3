@@ -32,7 +32,7 @@ public class Affix extends Composite {
     interface AffixUiBinder extends UiBinder<Row, Affix> {
     }
 
-    private static AffixUiBinder ourUiBinder = GWT.create(AffixUiBinder.class);
+    private static final AffixUiBinder ourUiBinder = GWT.create(AffixUiBinder.class);
 
     public Affix() {
         initWidget(ourUiBinder.createAndBindUi(this));

@@ -42,30 +42,30 @@ public class OrderedList extends ComplexWidget implements HasResponsiveness {
      *
      * @param widgets widgets to be added
      */
-    public OrderedList(ListItem... widgets) {
+    public OrderedList(final ListItem... widgets) {
         this();
-        for (ListItem li : widgets) {
+        for (final ListItem li : widgets) {
             add(li);
         }
     }
 
-    public void setUnstyled(boolean unstyled) {
+    public void setUnstyled(final boolean unstyled) {
         setStyleName(Styles.UNSTYLED, unstyled);
     }
 
-    public void setInline(boolean inline) {
+    public void setInline(final boolean inline) {
         if (inline) {
             addStyleName(Styles.LIST_INLINE);
         }
     }
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

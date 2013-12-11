@@ -32,7 +32,7 @@ public class ButtonDropdowns extends Composite {
     interface ButtonDropdownsUiBinder extends UiBinder<Row, ButtonDropdowns> {
     }
 
-    private static ButtonDropdownsUiBinder ourUiBinder = GWT.create(ButtonDropdownsUiBinder.class);
+    private static final ButtonDropdownsUiBinder ourUiBinder = GWT.create(ButtonDropdownsUiBinder.class);
 
     public ButtonDropdowns() {
         initWidget(ourUiBinder.createAndBindUi(this));

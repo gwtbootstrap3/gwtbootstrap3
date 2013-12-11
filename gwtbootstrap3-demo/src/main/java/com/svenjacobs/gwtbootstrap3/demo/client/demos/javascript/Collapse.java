@@ -32,7 +32,7 @@ public class Collapse extends Composite {
     interface CollapseUiBinder extends UiBinder<Row, Collapse> {
     }
 
-    private static CollapseUiBinder ourUiBinder = GWT.create(CollapseUiBinder.class);
+    private static final CollapseUiBinder ourUiBinder = GWT.create(CollapseUiBinder.class);
 
     public Collapse() {
         initWidget(ourUiBinder.createAndBindUi(this));

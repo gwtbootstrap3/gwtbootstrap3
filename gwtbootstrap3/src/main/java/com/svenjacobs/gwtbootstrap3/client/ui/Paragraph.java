@@ -47,7 +47,7 @@ public class Paragraph extends AbstractTextWidget implements HasHTML, HasAlignme
     }
 
     @Override
-    public void setAlignment(Alignment alignment) {
+    public void setAlignment(final Alignment alignment) {
         StyleHelper.addUniqueEnumStyleName(this, Alignment.class, alignment);
     }
 
@@ -57,7 +57,7 @@ public class Paragraph extends AbstractTextWidget implements HasHTML, HasAlignme
     }
 
     @Override
-    public void setEmphasis(Emphasis emphasis) {
+    public void setEmphasis(final Emphasis emphasis) {
         StyleHelper.addUniqueEnumStyleName(this, Emphasis.class, emphasis);
     }
 

@@ -32,7 +32,7 @@ public class InputGroups extends Composite {
     interface InputGroupsUiBinder extends UiBinder<Row, InputGroups> {
     }
 
-    private static InputGroupsUiBinder ourUiBinder = GWT.create(InputGroupsUiBinder.class);
+    private static final InputGroupsUiBinder ourUiBinder = GWT.create(InputGroupsUiBinder.class);
 
     public InputGroups() {
         initWidget(ourUiBinder.createAndBindUi(this));

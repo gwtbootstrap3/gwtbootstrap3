@@ -32,7 +32,7 @@ public class Forms extends Composite {
     interface FormsUiBinder extends UiBinder<Row, Forms> {
     }
 
-    private static FormsUiBinder ourUiBinder = GWT.create(FormsUiBinder.class);
+    private static final FormsUiBinder ourUiBinder = GWT.create(FormsUiBinder.class);
 
     public Forms() {
         initWidget(ourUiBinder.createAndBindUi(this));

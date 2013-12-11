@@ -32,7 +32,7 @@ public class ButtonGroups extends Composite {
     interface ButtonGroupsUiBinder extends UiBinder<Row, ButtonGroups> {
     }
 
-    private static ButtonGroupsUiBinder ourUiBinder = GWT.create(ButtonGroupsUiBinder.class);
+    private static final ButtonGroupsUiBinder ourUiBinder = GWT.create(ButtonGroupsUiBinder.class);
 
     public ButtonGroups() {
         initWidget(ourUiBinder.createAndBindUi(this));

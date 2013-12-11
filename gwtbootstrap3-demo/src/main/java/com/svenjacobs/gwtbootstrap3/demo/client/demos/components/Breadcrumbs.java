@@ -32,7 +32,7 @@ public class Breadcrumbs extends Composite {
     interface BreadcrumbsUiBinder extends UiBinder<Row, Breadcrumbs> {
     }
 
-    private static BreadcrumbsUiBinder ourUiBinder = GWT.create(BreadcrumbsUiBinder.class);
+    private static final BreadcrumbsUiBinder ourUiBinder = GWT.create(BreadcrumbsUiBinder.class);
 
     public Breadcrumbs() {
         initWidget(ourUiBinder.createAndBindUi(this));

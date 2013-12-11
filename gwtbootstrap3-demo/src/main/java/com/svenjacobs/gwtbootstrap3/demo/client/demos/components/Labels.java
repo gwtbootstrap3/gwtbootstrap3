@@ -32,7 +32,7 @@ public class Labels extends Composite {
     interface LabelsUiBinder extends UiBinder<Row, Labels> {
     }
 
-    private static LabelsUiBinder ourUiBinder = GWT.create(LabelsUiBinder.class);
+    private static final LabelsUiBinder ourUiBinder = GWT.create(LabelsUiBinder.class);
 
     public Labels() {
         initWidget(ourUiBinder.createAndBindUi(this));

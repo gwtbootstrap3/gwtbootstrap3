@@ -27,7 +27,9 @@ import com.svenjacobs.gwtbootstrap3.client.shared.event.AlertCloseEvent;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.AlertClosedEvent;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.button.CloseButton;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import com.svenjacobs.gwtbootstrap3.client.ui.constants.*;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.AlertType;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.ButtonDismiss;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Alert block.
@@ -140,12 +142,12 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
     }-*/;
 
     @Override
-    public void setVisibleOn(String deviceSizeString) {
+    public void setVisibleOn(final String deviceSizeString) {
         StyleHelper.setVisibleOn(this, deviceSizeString);
     }
 
     @Override
-    public void setHiddenOn(String deviceSizeString) {
+    public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

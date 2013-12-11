@@ -32,7 +32,7 @@ public class ResponsiveUtilities extends Composite {
     interface ResponsiveUtilitiesUiBinder extends UiBinder<Row, ResponsiveUtilities> {
     }
 
-    private static ResponsiveUtilitiesUiBinder ourUiBinder = GWT.create(ResponsiveUtilitiesUiBinder.class);
+    private static final ResponsiveUtilitiesUiBinder ourUiBinder = GWT.create(ResponsiveUtilitiesUiBinder.class);
 
     public ResponsiveUtilities() {
         initWidget(ourUiBinder.createAndBindUi(this));
