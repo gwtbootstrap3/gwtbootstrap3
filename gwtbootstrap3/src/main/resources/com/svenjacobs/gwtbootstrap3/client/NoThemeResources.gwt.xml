@@ -32,4 +32,5 @@
     <script src="js/bootstrap.min.js"/>
     <script src="js/moment.min.js"/>
     <script src="js/bootstrap-datetimepicker.min.js"/>
+    <script src="js/bootbox.min.js"/>
 </module>

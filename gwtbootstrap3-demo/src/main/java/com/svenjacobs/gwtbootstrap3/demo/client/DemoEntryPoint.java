@@ -121,6 +121,8 @@ public class DemoEntryPoint implements EntryPoint {
     ListItem dateTimePickerLink;
     @UiField
     ListItem tooltipsLink;
+    @UiField
+    ListItem bootboxLink;
 
     @UiHandler("brand")
     public void handleBrandClick(ClickEvent event) {
@@ -421,6 +423,14 @@ public class DemoEntryPoint implements EntryPoint {
             public void onClick(ClickEvent event) {
                 container.clear();
                 container.add(new Tooltips());
+            }
+        });
+
+        bootboxLink.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                container.clear();
+                container.add(new BootboxJS());
             }
         });
     }

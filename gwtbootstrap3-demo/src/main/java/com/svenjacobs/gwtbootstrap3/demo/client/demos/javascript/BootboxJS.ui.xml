@@ -1,0 +1,158 @@
+<!--
+  #%L
+  GwtBootstrap3
+  %%
+  Copyright (C) 2013 Sven Jacobs
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <ui:style>
+        .logRow {
+            border: 1px solid #888888;
+            padding: 5px;
+        }
+
+        .logTitle {
+            margin-right: 10px;
+        }
+
+        .danger {
+            background-color: #fcf2f2;
+            border-color: #dFb5b4;
+        }
+
+        .margin-fix {
+            margin-top: 0 !important;
+        }
+
+        .spacing {
+            margin-right: 3px;
+        }
+
+        .spacing2 {
+            margin-right: 3px;
+            margin-top: 3px;
+        }
+    </ui:style>
+
+    <b:Row>
+
+        <b:PageHeader text="Bootbox"/>
+
+        <b:BlockQuote addStyleNames="{style.danger}">
+            <b:Heading addStyleNames="{style.margin-fix}" size="4" text="Required for use"/>
+            <b:Paragraph>
+                To use these Bootbox, you must first inherit the GWT Module into your *.gwt.xml for your project:
+            </b:Paragraph>
+            <b:Pre addStyleNames="prettyprint lang-xml">
+                <inherits name="com.svenjacobs.gwtbootstrap3.bootbox.Bootbox"/>
+            </b:Pre>
+            <b:Paragraph>
+                Then, you can call static method from Bootbox class in GWT client code:
+            </b:Paragraph>
+            <b:Pre addStyleNames="prettyprint lang-java">
+                Bootbox.alert("Message");
+            </b:Pre>
+        </b:BlockQuote>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Alert"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Button type="PRIMARY" icon="PLAY" ui:field="alertButton">Run Example</b:Button>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-java">
+                    @UiHandler("button")\n
+                    public void handleButton(ClickEvent event) {\n
+                    \s\sBootbox.alert("Hello World");\n
+                    }
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Alert with Callback"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Button type="PRIMARY" icon="PLAY" ui:field="alertCallbackButton">Run Example</b:Button>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-java">
+                    @UiHandler("button")\n
+                    public void handleButton(ClickEvent event) {\n
+                    \s\sBootbox.alert("Hello World", new AlertCallback() {\n
+                    \s\s\s\s@Override\n
+                    \s\s\s\spublic void callback() {\n
+                    \s\s\s\s\s\sWindow.alert("Hello World Callback");\n
+                    \s\s\s\s}\n
+                    \s\s});\n
+                    }
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Confirm"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Button type="PRIMARY" icon="PLAY" ui:field="confirmButton">Run Example</b:Button>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-java">
+                    @UiHandler("button")\n
+                    public void handleButton(ClickEvent event) {\n
+                    \s\sBootbox.confirm("Hello World", new ConfirmCallback() {\n
+                    \s\s\s\s@Override\n
+                    \s\s\s\spublic void callback(boolean result) {\n
+                    \s\s\s\s\s\sWindow.alert("Return: " + result);\n
+                    \s\s\s\s}\n
+                    \s\s});\n
+                    }
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Prompt"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Button type="PRIMARY" icon="PLAY" ui:field="promptButton">Run Example</b:Button>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-java">
+                    @UiHandler("button")\n
+                    public void handleButton(ClickEvent event) {\n
+                    \s\sBootbox.prompt("Hello World", new PromptCallback() {\n
+                    \s\s\s\s@Override\n
+                    \s\s\s\spublic void callback(String result) {\n
+                    \s\s\s\s\s\sWindow.alert("Return: " + result);\n
+                    \s\s\s\s}\n
+                    \s\s});\n
+                    }
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+    </b:Row>
+
+</ui:UiBinder>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   #%L
   GwtBootstrap3
@@ -17,20 +18,11 @@
   limitations under the License.
   #L%
   -->
-<module>
-    <public path="resource">
-        <include name="css/*.css"/>
-        <include name="js/*.js"/>
-        <include name="fonts/*"/>
-    </public>
 
-    <stylesheet src="css/bootstrap.min.css"/>
-    <stylesheet src="css/font-awesome.min.css"/>
-    <stylesheet src="css/bootstrap-datetimepicker.min.css"/>
+<module rename-to='bootbox'>
+    <source path='client'/>
 
-    <script src="js/jquery-1.10.2.min.js"/>
-    <script src="js/bootstrap.min.js"/>
-    <script src="js/moment.min.js"/>
-    <script src="js/bootstrap-datetimepicker.min.js"/>
-    <script src="js/bootbox.min.js"/>
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.svenjacobs.gwtbootstrap3.GwtBootstrap3'/>
+
 </module>
