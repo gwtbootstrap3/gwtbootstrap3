@@ -21,7 +21,6 @@ package com.svenjacobs.gwtbootstrap3.client.ui.base;
  */
 
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.ComplexPanel;
 import com.svenjacobs.gwtbootstrap3.client.ui.HasResponsiveness;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 
@@ -34,7 +33,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
  * @see com.svenjacobs.gwtbootstrap3.client.ui.InputGroupAddon
  * @see com.svenjacobs.gwtbootstrap3.client.ui.InputGroupButton
  */
-public abstract class AbstractInputGroupAddon extends ComplexPanel implements HasResponsiveness {
+public abstract class AbstractInputGroupAddon extends ComplexWidget implements HasResponsiveness {
 
     protected AbstractInputGroupAddon(final String styleName) {
         setElement(DOM.createSpan());

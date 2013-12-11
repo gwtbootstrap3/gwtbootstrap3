@@ -21,6 +21,7 @@
     <inherits name="com.google.gwt.uibinder.UiBinder"/>
     <inherits name="com.svenjacobs.gwtbootstrap3.GwtBootstrap3"/>
     <inherits name="com.svenjacobs.gwtbootstrap3.datetimepicker.DateTimePicker"/>
+    <inherits name="com.svenjacobs.gwtbootstrap3.bootbox.Bootbox"/>
 
     <public path='resource'>
         <include name='css/*.css'/>
