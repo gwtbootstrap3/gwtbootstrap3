@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.svenjacobs.gwtbootstrap3</groupId>
         <artifactId>gwtbootstrap3-parent</artifactId>
-        <version>0.3-SNAPSHOT</version>
+        <version>0.3</version>
     </parent>
 
     <artifactId>gwtbootstrap3-demo</artifactId>
