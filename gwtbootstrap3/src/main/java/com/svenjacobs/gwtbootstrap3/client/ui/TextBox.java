@@ -20,8 +20,8 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.TextBoxBase;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -33,7 +33,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 public class TextBox extends TextBoxBase {
 
     public TextBox() {
-        this(DOM.createInputText());
+        this(Document.get().createTextInputElement());
     }
 
     public TextBox(final Element element) {

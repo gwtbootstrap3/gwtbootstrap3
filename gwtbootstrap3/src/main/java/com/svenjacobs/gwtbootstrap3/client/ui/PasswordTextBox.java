@@ -22,8 +22,6 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -31,10 +29,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class PasswordTextBox extends com.google.gwt.user.client.ui.PasswordTextBox implements HasId, HasResponsiveness,
-        HasAutocomplete, HasPlaceholder {
-
-    private final IdMixin<PasswordTextBox> idMixin = new IdMixin<PasswordTextBox>(this);
+public class PasswordTextBox extends TextBox {
 
     public PasswordTextBox() {
         this(Document.get().createPasswordInputElement());
@@ -43,45 +38,5 @@ public class PasswordTextBox extends com.google.gwt.user.client.ui.PasswordTextB
     public PasswordTextBox(final Element element) {
         super(element);
         setStyleName(Styles.FORM_CONTROL);
-    }
-
-    @Override
-    public void setPlaceholder(final String placeHolder) {
-        getElement().setAttribute(PLACEHOLDER, placeHolder != null ? placeHolder : "");
-    }
-
-    @Override
-    public String getPlaceholder() {
-        return getElement().getAttribute(PLACEHOLDER);
-    }
-
-    @Override
-    public void setAutocomplete(final boolean autoComplete) {
-        getElement().setAttribute(AUTOCOMPLETE, autoComplete ? ON : OFF);
-    }
-
-    @Override
-    public String getAutocomplete() {
-        return getElement().getAttribute(AUTOCOMPLETE);
-    }
-
-    @Override
-    public void setVisibleOn(String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setId(String id) {
-        idMixin.setId(id);
-    }
-
-    @Override
-    public String getId() {
-        return idMixin.getId();
     }
 }
