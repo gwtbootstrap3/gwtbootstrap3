@@ -14,7 +14,7 @@ Add the dependency to your Maven POM:
 <dependency>
     <groupId>com.svenjacobs.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3</artifactId>
-    <version>0.2</version>
+    <version>0.3</version>
     <scope>provided</scope>
 </dependency>
 ```
@@ -25,7 +25,7 @@ or if you want to use the snapshot release:
 <dependency>
     <groupId>com.svenjacobs.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.4-SNAPSHOT</version>
     <scope>provided</scope>
 </dependency>
 ```
