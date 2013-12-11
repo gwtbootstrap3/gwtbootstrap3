@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.demo.client.demos.components;
+package com.svenjacobs.gwtbootstrap3.bootbox.client.callback;
 
 /*
  * #%L
@@ -20,21 +20,8 @@ package com.svenjacobs.gwtbootstrap3.demo.client.demos.components;
  * #L%
  */
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.user.client.ui.Composite;
-import com.svenjacobs.gwtbootstrap3.client.ui.Row;
-
 /**
- * @author Joshua Godi
+ * Created by kyle on 2013/12/11.
  */
-public class Dropdowns extends Composite {
-    interface DropdownsUiBinder extends UiBinder<Row, Dropdowns> {
-    }
-
-    private static final DropdownsUiBinder ourUiBinder = GWT.create(DropdownsUiBinder.class);
-
-    public Dropdowns() {
-        initWidget(ourUiBinder.createAndBindUi(this));
-    }
+public interface Callback {
 }

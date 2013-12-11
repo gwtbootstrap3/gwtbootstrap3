@@ -32,7 +32,7 @@ public class Jumbotron extends Composite {
     interface JumbotronUiBinder extends UiBinder<Row, Jumbotron> {
     }
 
-    private static JumbotronUiBinder ourUiBinder = GWT.create(JumbotronUiBinder.class);
+    private static final JumbotronUiBinder ourUiBinder = GWT.create(JumbotronUiBinder.class);
 
     public Jumbotron() {
         initWidget(ourUiBinder.createAndBindUi(this));

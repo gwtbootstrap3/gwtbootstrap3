@@ -32,7 +32,7 @@ public class GridSystem extends Composite {
     interface GridSystemUiBinder extends UiBinder<Row, GridSystem> {
     }
 
-    private static GridSystemUiBinder ourUiBinder = GWT.create(GridSystemUiBinder.class);
+    private static final GridSystemUiBinder ourUiBinder = GWT.create(GridSystemUiBinder.class);
 
     public GridSystem() {
         initWidget(ourUiBinder.createAndBindUi(this));

@@ -33,14 +33,14 @@ public class Progress extends Div implements HasType<ProgressType> {
         setStyleName(Styles.PROGRESS);
     }
 
-    public void setActive(boolean active) {
+    public void setActive(final boolean active) {
         if (active) {
             addStyleName(Styles.ACTIVE);
         }
     }
 
     @Override
-    public void setType(ProgressType type) {
+    public void setType(final ProgressType type) {
         StyleHelper.addEnumStyleName(this, type);
     }
 

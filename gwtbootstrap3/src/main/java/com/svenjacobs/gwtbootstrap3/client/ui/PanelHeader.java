@@ -35,7 +35,7 @@ public class PanelHeader extends Div implements HasId {
     }
 
     @Override
-    public void add(Widget child) {
+    public void add(final Widget child) {
         if (!(child instanceof Heading)) {
             throw new IllegalArgumentException("PanelHeader can only have children that are of type Heading");
         }
@@ -48,7 +48,7 @@ public class PanelHeader extends Div implements HasId {
         super.add(child);
     }
 
-    public void setText(String text) {
+    public void setText(final String text) {
         // Only want text to be available if the widget count is 0!
         // This is a safety net for if people use setText and add a Heading!
         if (getWidgetCount() == 0) {
@@ -57,7 +57,7 @@ public class PanelHeader extends Div implements HasId {
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(final String id) {
         idMixin.setId(id);
     }
 

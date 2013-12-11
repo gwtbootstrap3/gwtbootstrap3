@@ -32,7 +32,7 @@ public class Typography extends Composite {
     interface TypographyUiBinder extends UiBinder<Row, Typography> {
     }
 
-    private static TypographyUiBinder ourUiBinder = GWT.create(TypographyUiBinder.class);
+    private static final TypographyUiBinder ourUiBinder = GWT.create(TypographyUiBinder.class);
 
     public Typography() {
         initWidget(ourUiBinder.createAndBindUi(this));

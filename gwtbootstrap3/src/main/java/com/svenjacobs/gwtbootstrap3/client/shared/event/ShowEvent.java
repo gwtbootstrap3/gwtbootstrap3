@@ -38,7 +38,7 @@ public class ShowEvent extends GwtEvent<ShowHandler> {
         this(null);
     }
 
-    public ShowEvent(NativeEvent nativeEvent) {
+    public ShowEvent(final NativeEvent nativeEvent) {
         this.nativeEvent = nativeEvent;
     }
 
@@ -48,7 +48,7 @@ public class ShowEvent extends GwtEvent<ShowHandler> {
     }
 
     @Override
-    protected void dispatch(ShowHandler handler) {
+    protected void dispatch(final ShowHandler handler) {
         handler.onShow(this);
     }
 

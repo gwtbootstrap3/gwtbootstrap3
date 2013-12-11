@@ -32,7 +32,7 @@ public class Modals extends Composite {
     interface ModalsUiBinder extends UiBinder<Row, Modals> {
     }
 
-    private static ModalsUiBinder ourUiBinder = GWT.create(ModalsUiBinder.class);
+    private static final ModalsUiBinder ourUiBinder = GWT.create(ModalsUiBinder.class);
 
     public Modals() {
         initWidget(ourUiBinder.createAndBindUi(this));

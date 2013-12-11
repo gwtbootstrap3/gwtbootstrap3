@@ -32,7 +32,7 @@ public class Panels extends Composite {
     interface PanelsUiBinder extends UiBinder<Row, Panels> {
     }
 
-    private static PanelsUiBinder ourUiBinder = GWT.create(PanelsUiBinder.class);
+    private static final PanelsUiBinder ourUiBinder = GWT.create(PanelsUiBinder.class);
 
     public Panels() {
         initWidget(ourUiBinder.createAndBindUi(this));

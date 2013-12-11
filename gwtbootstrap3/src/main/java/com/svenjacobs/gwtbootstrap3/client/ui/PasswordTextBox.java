@@ -20,14 +20,16 @@ package com.svenjacobs.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Pontus Enmark
+ * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public class PasswordTextBox extends com.google.gwt.user.client.ui.PasswordTextBox implements HasId, HasResponsiveness,
         HasAutocomplete, HasPlaceholder {
@@ -35,7 +37,7 @@ public class PasswordTextBox extends com.google.gwt.user.client.ui.PasswordTextB
     private final IdMixin<PasswordTextBox> idMixin = new IdMixin<PasswordTextBox>(this);
 
     public PasswordTextBox() {
-        this(DOM.createInputPassword());
+        this(Document.get().createPasswordInputElement());
     }
 
     public PasswordTextBox(final Element element) {

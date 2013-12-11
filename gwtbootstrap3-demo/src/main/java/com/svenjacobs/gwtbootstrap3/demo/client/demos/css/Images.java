@@ -32,7 +32,7 @@ public class Images extends Composite {
     interface ImagesUiBinder extends UiBinder<Row, Images> {
     }
 
-    private static ImagesUiBinder ourUiBinder = GWT.create(ImagesUiBinder.class);
+    private static final ImagesUiBinder ourUiBinder = GWT.create(ImagesUiBinder.class);
 
     public Images() {
         initWidget(ourUiBinder.createAndBindUi(this));

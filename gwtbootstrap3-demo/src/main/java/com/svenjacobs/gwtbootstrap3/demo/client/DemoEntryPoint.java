@@ -43,7 +43,7 @@ public class DemoEntryPoint implements EntryPoint {
     interface DemoEntryPointUiBinder extends UiBinder<Widget, DemoEntryPoint> {
     }
 
-    private static DemoEntryPointUiBinder ourUiBinder = GWT.create(DemoEntryPointUiBinder.class);
+    private static final DemoEntryPointUiBinder ourUiBinder = GWT.create(DemoEntryPointUiBinder.class);
 
     @UiField
     Row container;
@@ -121,9 +121,11 @@ public class DemoEntryPoint implements EntryPoint {
     ListItem dateTimePickerLink;
     @UiField
     ListItem tooltipsLink;
+    @UiField
+    ListItem bootboxLink;
 
     @UiHandler("brand")
-    public void handleBrandClick(ClickEvent event) {
+    public void handleBrandClick(final ClickEvent event) {
         container.clear();
         container.add(jumbotron);
     }
@@ -138,7 +140,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         gridSystemLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new GridSystem());
             }
@@ -146,7 +148,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         typographyLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Typography());
             }
@@ -154,7 +156,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         codeLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new com.svenjacobs.gwtbootstrap3.demo.client.demos.css.Code());
             }
@@ -162,7 +164,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         tablesLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Tables());
             }
@@ -170,7 +172,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         formsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Forms());
             }
@@ -178,7 +180,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         buttonsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Buttons());
             }
@@ -186,7 +188,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         imagesLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Images());
             }
@@ -194,7 +196,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         responsiveUtilitiesLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new ResponsiveUtilities());
             }
@@ -206,7 +208,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         alertsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Alerts());
             }
@@ -214,7 +216,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         badgesLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Badges());
             }
@@ -222,7 +224,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         breadcrumbsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Breadcrumbs());
             }
@@ -230,7 +232,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         buttonDropdownsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new ButtonDropdowns());
             }
@@ -238,7 +240,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         buttonGroupsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new ButtonGroups());
             }
@@ -246,7 +248,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         dropdownsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Dropdowns());
             }
@@ -254,7 +256,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         iconsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Icons());
             }
@@ -262,7 +264,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         inputGroupsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new InputGroups());
             }
@@ -270,7 +272,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         jumobtronLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Jumbotron());
             }
@@ -278,7 +280,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         labelsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Labels());
             }
@@ -286,7 +288,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         listGroupLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new ListGroup());
             }
@@ -294,7 +296,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         mediaObjectsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new MediaObjects());
             }
@@ -302,7 +304,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         navBarLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Navbar());
             }
@@ -310,7 +312,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         navsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Navs());
             }
@@ -318,7 +320,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         pageHeaderLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new PageHeader());
             }
@@ -326,7 +328,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         paginationLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Pagination());
             }
@@ -334,7 +336,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         panelsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Panels());
             }
@@ -342,7 +344,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         progressBarLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new ProgressBars());
             }
@@ -350,7 +352,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         thumbnailsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Thumbnails());
             }
@@ -358,7 +360,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         wellsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Wells());
             }
@@ -370,7 +372,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         affixLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Affix());
             }
@@ -378,7 +380,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         carouselLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Carousel());
             }
@@ -386,7 +388,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         collapseLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Collapse());
             }
@@ -394,7 +396,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         dateTimePickerLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new DateTimePickers());
             }
@@ -402,7 +404,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         modalsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Modals());
             }
@@ -410,7 +412,7 @@ public class DemoEntryPoint implements EntryPoint {
 
         popoverLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Popover());
             }
@@ -418,9 +420,17 @@ public class DemoEntryPoint implements EntryPoint {
 
         tooltipsLink.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 container.clear();
                 container.add(new Tooltips());
+            }
+        });
+
+        bootboxLink.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                container.clear();
+                container.add(new BootboxJS());
             }
         });
     }

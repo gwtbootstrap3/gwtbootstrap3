@@ -32,7 +32,7 @@ public class Carousel extends Composite {
     interface CarouselUiBinder extends UiBinder<Row, Carousel> {
     }
 
-    private static CarouselUiBinder ourUiBinder = GWT.create(CarouselUiBinder.class);
+    private static final CarouselUiBinder ourUiBinder = GWT.create(CarouselUiBinder.class);
 
     public Carousel() {
         initWidget(ourUiBinder.createAndBindUi(this));

@@ -49,7 +49,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     private int hideDelayMs = 0;
     private int showDelayMs = 0;
     private String container = null;
-    private String selector = null;
+    private final String selector = null;
 
     private Widget widget;
     private String id;

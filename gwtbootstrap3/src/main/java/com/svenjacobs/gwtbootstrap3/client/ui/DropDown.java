@@ -37,6 +37,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  *         </b:DropDownMenu>
  *     </b:DropDown>
  * }</pre>
+ *
  * @author Sven Jacobs
  * @see DropDownMenu
  */

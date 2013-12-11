@@ -48,7 +48,7 @@ public class DateTimePickers extends Composite {
     interface DateTimePickersUiBinder extends UiBinder<Widget, DateTimePickers> {
     }
 
-    private static DateTimePickersUiBinder ourUiBinder = GWT.create(DateTimePickersUiBinder.class);
+    private static final DateTimePickersUiBinder ourUiBinder = GWT.create(DateTimePickersUiBinder.class);
 
     @UiField
     Button clearLogButton;
@@ -84,57 +84,57 @@ public class DateTimePickers extends Composite {
     Button setStartDate;
 
     @UiHandler("setStartDate")
-    public void handleSetStartDate(ClickEvent event) {
+    public void handleSetStartDate(final ClickEvent event) {
         methodsBox.setStartDate(new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 10)));
     }
 
     @UiHandler("setEndDate")
-    public void handleSetEndDate(ClickEvent event) {
+    public void handleSetEndDate(final ClickEvent event) {
         methodsBox.setEndDate(new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 10)));
     }
 
     @UiHandler("show")
-    public void handleShow(ClickEvent event) {
+    public void handleShow(final ClickEvent event) {
         methodsBox.show();
     }
 
     @UiHandler("hide")
-    public void handleHide(ClickEvent event) {
+    public void handleHide(final ClickEvent event) {
         methodsBox.hide();
     }
 
     @UiHandler("disable")
-    public void handleDisable(ClickEvent event) {
+    public void handleDisable(final ClickEvent event) {
         methodsBox.setEnabled(false);
     }
 
     @UiHandler("enable")
-    public void handleEnable(ClickEvent event) {
+    public void handleEnable(final ClickEvent event) {
         methodsBox.setEnabled(true);
     }
 
     @UiHandler("setValue")
-    public void handleSetValue(ClickEvent event) {
+    public void handleSetValue(final ClickEvent event) {
         methodsBox.setValue(new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 3)));
     }
 
     @UiHandler("getValue")
-    public void handleGetValue(ClickEvent event) {
+    public void handleGetValue(final ClickEvent event) {
         Window.alert(methodsBox.getValue().toString());
     }
 
     @UiHandler("clearLogButton")
-    public void handleClearLog(ClickEvent event) {
+    public void handleClearLog(final ClickEvent event) {
         logRow.clear();
     }
 
     @UiHandler("getDateValue")
-    public void handleGetDateValue(ClickEvent event) {
+    public void handleGetDateValue(final ClickEvent event) {
         Window.alert(justDateBox.getValue().toString());
     }
 
     @UiHandler("getTimeValue")
-    public void handleGetTimeValue(ClickEvent event) {
+    public void handleGetTimeValue(final ClickEvent event) {
         Window.alert(justTimeBox.getValue().toString());
     }
 
@@ -143,8 +143,8 @@ public class DateTimePickers extends Composite {
 
         eventDateTimeBox.addValueChangeHandler(new ValueChangeHandler<Date>() {
             @Override
-            public void onValueChange(ValueChangeEvent<Date> event) {
-                Paragraph logEntry = new Paragraph();
+            public void onValueChange(final ValueChangeEvent<Date> event) {
+                final Paragraph logEntry = new Paragraph();
                 logEntry.setText("Value Changed Event Fired! (" + event.getValue().toString() + ")");
                 logRow.add(logEntry);
             }
@@ -152,8 +152,8 @@ public class DateTimePickers extends Composite {
 
         eventDateTimeBox.addShowHandler(new ShowHandler() {
             @Override
-            public void onShow(ShowEvent showEvent) {
-                Paragraph logEntry = new Paragraph();
+            public void onShow(final ShowEvent showEvent) {
+                final Paragraph logEntry = new Paragraph();
                 logEntry.setText("Show Event Fired");
                 logRow.add(logEntry);
             }
@@ -161,8 +161,8 @@ public class DateTimePickers extends Composite {
 
         eventDateTimeBox.addHideHandler(new HideHandler() {
             @Override
-            public void onHide(HideEvent hideEvent) {
-                Paragraph logEntry = new Paragraph();
+            public void onHide(final HideEvent hideEvent) {
+                final Paragraph logEntry = new Paragraph();
                 logEntry.setText("Hide Event Fired");
                 logRow.add(logEntry);
             }

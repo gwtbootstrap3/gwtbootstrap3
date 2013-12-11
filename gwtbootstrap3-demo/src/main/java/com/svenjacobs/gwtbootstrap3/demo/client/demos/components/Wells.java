@@ -32,7 +32,7 @@ public class Wells extends Composite {
     interface WellsUiBinder extends UiBinder<Row, Wells> {
     }
 
-    private static WellsUiBinder ourUiBinder = GWT.create(WellsUiBinder.class);
+    private static final WellsUiBinder ourUiBinder = GWT.create(WellsUiBinder.class);
 
     public Wells() {
         initWidget(ourUiBinder.createAndBindUi(this));

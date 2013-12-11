@@ -88,6 +88,7 @@
                                 <b:ListItem ui:field="modalsLink">Modals</b:ListItem>
                                 <b:ListItem ui:field="popoverLink">Popover</b:ListItem>
                                 <b:ListItem ui:field="tooltipsLink">Tooltips</b:ListItem>
+                                <b:ListItem ui:field="bootboxLink">Bootbox</b:ListItem>
                             </b:DropDownMenu>
                         </b:ListDropDown>
                     </b:NavbarNav>

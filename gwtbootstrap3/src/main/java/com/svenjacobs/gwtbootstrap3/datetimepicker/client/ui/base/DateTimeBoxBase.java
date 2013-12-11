@@ -301,8 +301,7 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
 
     protected void configure(final Widget w) {
         w.getElement().setAttribute("data-format", format);
-        configure(w.getElement(), showTime, showDate, useStrict, timeIconClass, dateIconClass, upIconClass,
-                downIconClass);
+        configure(w.getElement(), showTime, showDate, useStrict, timeIconClass, dateIconClass, upIconClass, downIconClass);
     }
 
     protected void execute(final String cmd) {

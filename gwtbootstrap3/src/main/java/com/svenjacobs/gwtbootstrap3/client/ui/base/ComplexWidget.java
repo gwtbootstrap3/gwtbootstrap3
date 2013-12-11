@@ -44,12 +44,12 @@ public class ComplexWidget extends ComplexPanel implements HasId {
      * @param child       - widget to be inserted
      * @param beforeIndex - index for the widget
      */
-    public void insert(Widget child, int beforeIndex) {
+    public void insert(final Widget child, final int beforeIndex) {
         insert(child, getElement(), beforeIndex, true);
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(final String id) {
         idMixin.setId(id);
     }
 
