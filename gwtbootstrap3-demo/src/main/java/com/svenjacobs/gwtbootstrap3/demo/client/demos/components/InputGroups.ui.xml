@@ -31,7 +31,7 @@
             <b:PanelBody>
                 <b:InputGroup>
                     <b:InputGroupAddon>P</b:InputGroupAddon>
-                    <b:TextBox placeHolder="Type here" autoComplete="false"/>
+                    <b:TextBox placeholder="Type here" autocomplete="false"/>
                     <b:InputGroupAddon>A</b:InputGroupAddon>
                 </b:InputGroup>
             </b:PanelBody>
@@ -39,7 +39,7 @@
                 <b:Pre addStyleNames="prettyprint lang-xml">
                     &lt;b:InputGroup&gt;\n
                     \s\s&lt;b:InputGroupAddon&gt;P&lt;/b:InputGroupAddon&gt;\n
-                    \s\s&lt;b:TextBox placeHolder="Type here" autoComplete="false"/&gt;\n
+                    \s\s&lt;b:TextBox placeholder="Type here" autocomplete="false"/&gt;\n
                     \s\s&lt;b:InputGroupAddon&gt;A&lt;/b:InputGroupAddon&gt;\n
                     &lt;/b:InputGroup&gt;
                 </b:Pre>
@@ -53,7 +53,7 @@
             <b:PanelBody>
                 <b:InputGroup>
                     <b:InputGroupAddon icon="USER"/>
-                    <b:TextBox placeHolder="Type here" autoComplete="false"/>
+                    <b:TextBox placeholder="Type here" autocomplete="false"/>
                     <b:InputGroupAddon icon="FACEBOOK"/>
                 </b:InputGroup>
             </b:PanelBody>
@@ -61,7 +61,7 @@
                 <b:Pre addStyleNames="prettyprint lang-xml">
                     &lt;b:InputGroup&gt;\n
                     \s\s&lt;b:InputGroupAddon icon=&quot;USER&quot;/&gt;\n
-                    \s\s&lt;b:TextBox placeHolder=&quot;Type here&quot; autoComplete=&quot;false&quot;/&gt;\n
+                    \s\s&lt;b:TextBox placeholder=&quot;Type here&quot; autocomplete=&quot;false&quot;/&gt;\n
                     \s\s&lt;b:InputGroupAddon icon=&quot;FACEBOOK&quot;/&gt;\n
                     &lt;/b:InputGroup&gt;
                 </b:Pre>
@@ -75,7 +75,7 @@
             <b:PanelBody>
                 <b:InputGroup>
                     <b:InputGroupAddon icon="USER">User</b:InputGroupAddon>
-                    <b:TextBox placeHolder="Type here" autoComplete="false"/>
+                    <b:TextBox placeholder="Type here" autocomplete="false"/>
                     <b:InputGroupAddon icon="FACEBOOK" iconPosition="RIGHT">Facebook</b:InputGroupAddon>
                 </b:InputGroup>
             </b:PanelBody>
@@ -83,7 +83,7 @@
                 <b:Pre addStyleNames="prettyprint lang-xml">
                     &lt;b:InputGroup&gt;\n
                     \s\s&lt;b:InputGroupAddon icon=&quot;USER&quot;&gt;User&lt;/b:InputGroupAddon&gt;\n
-                    \s\s&lt;b:TextBox placeHolder=&quot;Type here&quot; autoComplete=&quot;false&quot;/&gt;\n
+                    \s\s&lt;b:TextBox placeholder=&quot;Type here&quot; autocomplete=&quot;false&quot;/&gt;\n
                     \s\s&lt;b:InputGroupAddon icon=&quot;FACEBOOK&quot; iconPosition=&quot;RIGHT&quot;&gt;Facebook&lt;/b:InputGroupAddon&gt;\n
                     &lt;/b:InputGroup&gt;
                 </b:Pre>
@@ -101,7 +101,7 @@
                             <b:InputGroupButton>
                                 <b:CheckBoxButton/>
                             </b:InputGroupButton>
-                            <b:TextBox autoComplete="false"/>
+                            <b:TextBox autocomplete="false"/>
                         </b:InputGroup>
                     </b:Column>
                     <b:Column size="MD_6">
@@ -109,7 +109,7 @@
                             <b:InputGroupButton>
                                 <b:RadioButton/>
                             </b:InputGroupButton>
-                            <b:TextBox autoComplete="false"/>
+                            <b:TextBox autocomplete="false"/>
                         </b:InputGroup>
                     </b:Column>
                 </b:Row>
@@ -120,14 +120,14 @@
                     \s\s&lt;b:InputGroupButton&gt;\n
                     \s\s\s\s&lt;b:CheckButton&gt;\n
                     \s\s&lt;/b:InputGroupButton&gt;\n
-                    \s\s&lt;b:TextBox placeHolder="Type here" autoComplete="false"/&gt;\n
+                    \s\s&lt;b:TextBox placeholder="Type here" autocomplete="false"/&gt;\n
                     &lt;/b:InputGroup&gt;\n
                     \n
                     &lt;b:InputGroup&gt;\n
                     \s\s&lt;b:InputGroupButton&gt;\n
                     \s\s\s\s&lt;b:RadioButton&gt;\n
                     \s\s&lt;/b:InputGroupButton&gt;\n
-                    \s\s&lt;b:TextBox placeHolder="Type here" autoComplete="false"/&gt;\n
+                    \s\s&lt;b:TextBox placeholder="Type here" autocomplete="false"/&gt;\n
                     &lt;/b:InputGroup&gt;\n
                 </b:Pre>
             </b:PanelFooter>
@@ -142,7 +142,7 @@
                     <b:InputGroupButton>
                         <b:Button text="Go!"/>
                     </b:InputGroupButton>
-                    <b:TextBox autoComplete="false"/>
+                    <b:TextBox autocomplete="false"/>
                 </b:InputGroup>
             </b:PanelBody>
             <b:PanelFooter>
@@ -151,7 +151,7 @@
                     \s\s&lt;b:InputGroupButton&gt;\n
                     \s\s\s\s&lt;b:Button text="..."&gt;\n
                     \s\s&lt;/b:InputGroupButton&gt;\n
-                    \s\s&lt;b:TextBox placeHolder="Type here" autoComplete="false"/&gt;\n
+                    \s\s&lt;b:TextBox placeholder="Type here" autocomplete="false"/&gt;\n
                     &lt;/b:InputGroup&gt;
                 </b:Pre>
             </b:PanelFooter>

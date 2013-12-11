@@ -89,7 +89,7 @@
                 </b:Tooltip>
                 <b:Tooltip title="I am a Tooltip!" trigger="FOCUS">
                     <b:TextBox width="200px" addStyleNames="{style.margin} {style.inline}"
-                               placeHolder="I have a Tooltip! (on focus)"/>
+                               placeholder="I have a Tooltip! (on focus)"/>
                 </b:Tooltip>
                 <b:Tooltip title="I am a Tooltip!" trigger="CLICK">
                     <b:Button addStyleNames="{style.margin}" text="I have a Tooltip! (on click)"/>

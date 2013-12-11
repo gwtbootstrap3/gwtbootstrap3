@@ -121,11 +121,11 @@
                         <b:Legend>Sample form</b:Legend>
 
                         <b:FormGroup>
-                            <b:TextBox placeHolder="Enter email"/>
+                            <b:TextBox placeholder="Enter email"/>
                         </b:FormGroup>
 
                         <b:FormGroup>
-                            <b:PasswordTextBox placeHolder="Enter password"/>
+                            <b:PasswordTextBox placeholder="Enter password"/>
                         </b:FormGroup>
 
                         <b:FormGroup>
@@ -141,11 +141,11 @@
                     \s\s\s\s&lt;b:Legend&gt;Sample form&lt;/b:Legend&gt;\n
                     \n
                     \s\s\s\s&lt;b:FormGroup&gt;\n
-                    \s\s\s\s\s\s&lt;b:TextBox placeHolder=&quot;Enter email&quot;/&gt;\n
+                    \s\s\s\s\s\s&lt;b:TextBox placeholder=&quot;Enter email&quot;/&gt;\n
                     \s\s\s\s&lt;/b:FormGroup&gt;\n
                     \n
                     \s\s\s\s&lt;b:FormGroup&gt;\n
-                    \s\s\s\s\s\s&lt;b:PasswordTextBox placeHolder=&quot;Enter password&quot;/&gt;\n
+                    \s\s\s\s\s\s&lt;b:PasswordTextBox placeholder=&quot;Enter password&quot;/&gt;\n
                     \s\s\s\s&lt;/b:FormGroup&gt;\n
                     \n
                     \s\s\s\s&lt;b:FormGroup&gt;\n

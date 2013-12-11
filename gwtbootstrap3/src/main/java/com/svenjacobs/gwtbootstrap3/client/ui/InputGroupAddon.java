@@ -24,6 +24,7 @@ import com.google.gwt.user.client.ui.HasText;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.AbstractInputGroupAddon;
 import com.svenjacobs.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconPosition;
+import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconSize;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.IconType;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -47,7 +48,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
  * @see InputGroup
  * @see InputGroupButton
  */
-public class InputGroupAddon extends AbstractInputGroupAddon implements HasText, HasIcon, HasIconPosition {
+public class InputGroupAddon extends AbstractInputGroupAddon implements HasText, HasIcon, HasIconPosition, HasIconSize {
 
     IconTextMixin<InputGroupAddon> iconTextMixin = new IconTextMixin<InputGroupAddon>(this);
 
@@ -85,5 +86,15 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText,
     @Override
     public IconPosition getIconPosition() {
         return iconTextMixin.getIconPosition();
+    }
+
+    @Override
+    public void setIconSize(IconSize iconSize) {
+        iconTextMixin.setIconSize(iconSize);
+    }
+
+    @Override
+    public IconSize getIconSize() {
+        return iconTextMixin.getIconSize();
     }
 }
