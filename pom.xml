@@ -15,9 +15,9 @@
     </parent>
 
     <scm>
-        <connection>scm:git:git@github.com:Sarkhee/gwtbootstrap3.git</connection>
-        <developerConnection>scm:git:git@github.com:Sarkhee/gwtbootstrap3.git</developerConnection>
-        <url>git@github.com:Sarkhee/gwtbootstrap3.git</url>
+        <connection>scm:git:git@github.com:svenjacobs/gwtbootstrap3.git</connection>
+        <developerConnection>scm:git:git@github.com:svenjacobs/gwtbootstrap3.git</developerConnection>
+        <url>git@github.com:svenjacobs/gwtbootstrap3.git</url>
     </scm>
 
     <licenses>
