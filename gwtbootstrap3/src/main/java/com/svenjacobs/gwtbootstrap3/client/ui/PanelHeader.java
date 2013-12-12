@@ -36,10 +36,9 @@ public class PanelHeader extends Div implements HasId {
 
     @Override
     public void add(final Widget child) {
-        if (!(child instanceof Heading)) {
-            throw new IllegalArgumentException("PanelHeader can only have children that are of type Heading");
+        if ((child instanceof Heading)) {
+            child.setStyleName(Styles.PANEL_TITLE);
         }
-        child.setStyleName(Styles.PANEL_TITLE);
 
         // If we are adding a child, then we don't need the inner text of the
         // div
