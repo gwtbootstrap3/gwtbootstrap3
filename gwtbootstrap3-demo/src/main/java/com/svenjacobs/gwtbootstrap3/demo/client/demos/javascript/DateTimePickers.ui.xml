@@ -92,7 +92,7 @@
             <b:PanelBody>
                 <b:Row>
                     <b:Column size="MD_6">
-                        <b2:DateTimeBox showTimePicker="false" format="MM/dd/yyyy" ui:field="justDateBox"/>
+                        <b2:DateTimeBox showTimePicker="false" format="MM/DD/YYYY" ui:field="justDateBox"/>
                     </b:Column>
                     <b:Column size="MD_6">
                         <b:Button type="PRIMARY" text="Get Value" addStyleNames="pull-right" ui:field="getDateValue"/>
@@ -101,7 +101,7 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b2:DateTimeBox showTimePicker="false" format="MM/dd/yyyy"/&gt;\n
+                    &lt;b2:DateTimeBox showTimePicker="false" format="MM/DD/YYYY"/&gt;\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>

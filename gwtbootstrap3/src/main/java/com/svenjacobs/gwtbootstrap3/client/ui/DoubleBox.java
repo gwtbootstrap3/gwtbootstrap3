@@ -27,6 +27,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.base.ValueBoxBase;
 import com.svenjacobs.gwtbootstrap3.client.ui.constants.Styles;
 
 public class DoubleBox extends ValueBoxBase<Double> {
+
     public DoubleBox() {
         super(Document.get().createTextInputElement(), DoubleRenderer.instance(), DoubleParser.instance());
         addStyleName(Styles.FORM_CONTROL);

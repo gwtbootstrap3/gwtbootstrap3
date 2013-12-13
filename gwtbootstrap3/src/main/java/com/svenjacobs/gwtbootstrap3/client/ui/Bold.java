@@ -35,6 +35,11 @@ public class Bold extends AbstractTextWidget implements HasHTML {
         super(DOM.createElement("strong"));
     }
 
+    public Bold(String text) {
+        this();
+        setText(text);
+    }
+
     @Override
     public String getHTML() {
         return getElement().getInnerHTML();

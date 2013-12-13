@@ -20,8 +20,6 @@ package com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base;
  * #L%
  */
 
-import java.util.Date;
-
 import com.google.gwt.core.client.JsDate;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.shared.GWT;
@@ -34,31 +32,16 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.HasEnabled;
-import com.google.gwt.user.client.ui.HasValue;
-import com.google.gwt.user.client.ui.HasVisibility;
-import com.google.gwt.user.client.ui.ValueBoxBase;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.HideEvent;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.HideHandler;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.ShowEvent;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.ShowHandler;
-import com.svenjacobs.gwtbootstrap3.client.ui.HasId;
-import com.svenjacobs.gwtbootstrap3.client.ui.HasPlaceholder;
-import com.svenjacobs.gwtbootstrap3.client.ui.HasResponsiveness;
-import com.svenjacobs.gwtbootstrap3.client.ui.Icon;
+import com.svenjacobs.gwtbootstrap3.client.ui.*;
 import com.svenjacobs.gwtbootstrap3.client.ui.TextBox;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasDateIcon;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasDownIcon;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasEndDate;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasFormat;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasShowDatePicker;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasShowTimePicker;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasStartDate;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasStrict;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasTimeIcon;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasUpIcon;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.HasVisibleHandlers;
+import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.base.constant.*;
+
+import java.util.Date;
 
 /**
  * @author Joshua Godi
@@ -231,7 +214,7 @@ public class DateTimeBoxBase extends Widget implements HasValue<Date>, HasEnable
     @Override
     public Date getValue() {
         final String value = textBox.getValue();
-        if (!(value == null || "".equals(value))) {
+        if (value == null || "".equals(value)) {
             return null;
         }
         try {

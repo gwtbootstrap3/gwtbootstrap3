@@ -43,17 +43,17 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Panel&gt;
-                    \s\s&lt;b:PanelHeader&gt;
-                    \s\s\s\s&lt;b:Heading size="3" text="..."/&gt;
-                    \s\s&lt;/b:PanelHeader&gt;
-                    \s\s&lt;b:PanelBody&gt;
-                    \s\s\s\s&lt;b:Bold text="..."/&gt;
-                    \s\s&lt;/b:PanelBody&gt;
-                    \s\s&lt;b:PanelFooter&gt;
-                    \s\s\s\s&lt;b:Bold text="..."/&gt;
-                    \s\s&lt;/b:PanelFooter&gt;
-                    &lt;/b:Panel&gt;
+                    &lt;b:Panel&gt;\n
+                    \s\s&lt;b:PanelHeader&gt;\n
+                    \s\s\s\s&lt;b:Heading size="3" text="..."/&gt;\n
+                    \s\s&lt;/b:PanelHeader&gt;\n
+                    \s\s&lt;b:PanelBody&gt;\n
+                    \s\s\s\s&lt;b:Bold text="..."/&gt;\n
+                    \s\s&lt;/b:PanelBody&gt;\n
+                    \s\s&lt;b:PanelFooter&gt;\n
+                    \s\s\s\s&lt;b:Bold text="..."/&gt;\n
+                    \s\s&lt;/b:PanelFooter&gt;\n
+                    &lt;/b:Panel&gt;\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>

@@ -45,6 +45,11 @@ public class Badge extends AbstractTextWidget implements HasPull {
         setStyleName(Styles.BADGE);
     }
 
+    public Badge(String text) {
+        this();
+        setText(text);
+    }
+
     @Override
     public void setPull(final Pull pull) {
         pullMixin.setPull(pull);
