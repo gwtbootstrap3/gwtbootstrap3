@@ -31,4 +31,9 @@ public class Span extends AbstractTextWidget {
     public Span() {
         super(DOM.createSpan());
     }
+
+    public Span(String text) {
+        this();
+        setText(text);
+    }
 }

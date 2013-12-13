@@ -70,6 +70,9 @@
                     <b:Column addStyleNames="{style.column}" size="MD_1">
                         <b:Bold text="1"/>
                     </b:Column>
+                    <b:Column addStyleNames="{style.column}" size="MD_1">
+                        <b:Bold text="1"/>
+                    </b:Column>
                 </b:Row>
             </b:PanelBody>
             <b:PanelFooter>
@@ -95,9 +98,6 @@
                     so that it will be responsive without any extra code! Resize the browser to see!
                 </b:Paragraph>
                 <b:Row marginBottom="0">
-                    <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
-                        <b:Bold text="C"/>
-                    </b:Column>
                     <b:Column addStyleNames="{style.column}" size="XS_6,SM_4,MD_3,LG_1">
                         <b:Bold text="C"/>
                     </b:Column>
