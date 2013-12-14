@@ -40,6 +40,7 @@
                 </b:NavbarHeader>
                 <b:NavbarCollapse b:id="navbar-collapse">
                     <b:NavbarNav>
+                        <b:ListItem text="Setup" ui:field="setupLink"/>
                         <b:ListDropDown>
                             <b:AnchorButton toggle="DROPDOWN">CSS</b:AnchorButton>
                             <b:DropDownMenu>
