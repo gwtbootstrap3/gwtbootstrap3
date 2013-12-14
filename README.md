@@ -65,6 +65,30 @@ instead of `GwtBootstrap3`.
 Make sure to not inherit GWT's default styles or any other styles because
 Bootstrap brings its own styles which are provided by the GwtBootstrap3 module.
 
+Use the widgets in your UiBinder XML:
+
+```xml
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
+
+    <b:Container>
+        <b:PageHeader>Yay buttons!</b:PageHeader>
+
+        <b:Button>Some button</b:Button>
+        <b:Button type="DANGER" size="LARGE">Dangerous button</b:Button>
+    </b:Container>
+
+</ui:UiBinder>
+```
+
+or create them in code if that's what you prefer.
+
+**Tip:** GwtBootstrap3's styles and widgets, especially the fluid grid system,
+work best when using the "classic" [panels](http://www.gwtproject.org/doc/latest/DevGuideUiPanels.html)
+throughout your application and **not** the absolute positioned layout panels
+introduced in GWT 2.0.
+
 # Using a Custom Bootstrap Theme
 
 If you want to use a Custom Bootstrap v3 Theme from websites like [wrapbootstrap](https://wrapbootstrap.com/) its super easy.
@@ -92,30 +116,6 @@ If you have any questions, please refer to the Google Group above.
     <script src='js/theme.js'/>
 </module>
 ```
-
-Use the widgets in your UiBinder XML:
-
-```xml
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-             xmlns:g="urn:import:com.google.gwt.user.client.ui"
-             xmlns:b="urn:import:com.svenjacobs.gwtbootstrap3.client.ui">
-
-    <b:Container>
-        <b:PageHeader>Yay buttons!</b:PageHeader>
-
-        <b:Button>Some button</b:Button>
-        <b:Button type="DANGER" size="LARGE">Dangerous button</b:Button>
-    </b:Container>
-
-</ui:UiBinder>
-```
-
-or create them in code if that's what you prefer.
-
-**Tip:** GwtBootstrap3's styles and widgets, especially the fluid grid system,
-work best when using the "classic" [panels](http://www.gwtproject.org/doc/latest/DevGuideUiPanels.html)
-throughout your application and **not** the absolute positioned layout panels
-introduced in GWT 2.0.
 
 # Feature matrix
 
