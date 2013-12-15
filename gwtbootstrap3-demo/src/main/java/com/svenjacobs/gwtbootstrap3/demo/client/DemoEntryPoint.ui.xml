@@ -40,6 +40,7 @@
                 </b:NavbarHeader>
                 <b:NavbarCollapse b:id="navbar-collapse">
                     <b:NavbarNav>
+                        <b:ListItem text="Setup" ui:field="setupLink"/>
                         <b:ListDropDown>
                             <b:AnchorButton toggle="DROPDOWN">CSS</b:AnchorButton>
                             <b:DropDownMenu>
@@ -99,13 +100,18 @@
         <!-- Container Content -->
         <b:Row ui:field="container" width="100%">
             <b:Jumbotron ui:field="jumbotron">
-                <b:Heading size="1">GwtBootstrap3</b:Heading>
+                <b:Heading size="1">Demo for GwtBootstrap3</b:Heading>
 
                 <b:Paragraph>
-                    A Twitter
-                    <a href="http://getbootstrap.com/">Bootstrap</a>
+                    A
+                    <a href="http://getbootstrap.com/">Twitter Bootstrap</a>
                     wrapper for
                     <a href="http://gwtproject.org/">GWT</a>
+                </b:Paragraph>
+
+                <b:Paragraph>
+                    This is the demo for GwtBootstrap3 version 0.4. For previous releases please go to:
+                    <a href="https://github.com/svenjacobs/gwtbootstrap3/releases">Previous Releases</a>
                 </b:Paragraph>
             </b:Jumbotron>
         </b:Row>

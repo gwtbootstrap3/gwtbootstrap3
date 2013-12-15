@@ -89,6 +89,34 @@ work best when using the "classic" [panels](http://www.gwtproject.org/doc/latest
 throughout your application and **not** the absolute positioned layout panels
 introduced in GWT 2.0.
 
+# Using a Custom Bootstrap Theme
+
+If you want to use a Custom Bootstrap v3 Theme from websites like [wrapbootstrap](https://wrapbootstrap.com/) its super easy.
+
+* Inherit GWTBootstrap3 module like normal
+* Download the theme that you want (make sure that it is Twitter Bootstrap v3 compatible (** Will not work with Twitter Bootstrap v2.x.x themes **)
+* Put the CSS files and any needed JS files into the public folder or create a resources folder for these files
+* Link this file as "public" in your *.gwt.xml
+* After the inhert of GWTBoostrap3 module, put stylesheet linkers for these CSS/JS files
+
+With the inheritance of CSS, the stylesheet that was added last will be the priority. Hence this will override the default theme.
+
+If you have any questions, please refer to the Google Group above.
+
+```xml
+<module>
+    <inherits name="com.svenjacobs.gwtbootstrap3.GwtBootstrap3"/>
+
+    <public path='resource'>
+        <include name='css/*.css'/>
+        <include name='js/*.js'/>
+    </public>
+
+    <stylesheet src='css/theme.css'/>
+    <script src='js/theme.js'/>
+</module>
+```
+
 # Feature matrix
 
 Following Bootstrap features are natively supported by GwtBootstrap3 through
@@ -142,7 +170,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Tooltip     | Supported     | Yes        |
 | Popover     | Supported     | Yes        |
 | Collapse    | Not supported | No         |
-| Carousel    | Not supported | No         |
+| Carousel    | Supported     | Yes        |
 | Affix       | Supported     | No         |
 
 # Relationship between raw Bootstrap components and GWT widgets 
