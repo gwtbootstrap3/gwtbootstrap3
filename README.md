@@ -170,7 +170,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Tooltip     | Supported     | Yes        |
 | Popover     | Supported     | Yes        |
 | Collapse    | Not supported | No         |
-| Carousel    | Not supported | No         |
+| Carousel    | Supported     | Yes        |
 | Affix       | Supported     | No         |
 
 # Relationship between raw Bootstrap components and GWT widgets 
