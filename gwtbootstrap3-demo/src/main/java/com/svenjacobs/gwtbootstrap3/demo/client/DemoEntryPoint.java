@@ -35,6 +35,7 @@ import com.svenjacobs.gwtbootstrap3.client.ui.Row;
 import com.svenjacobs.gwtbootstrap3.demo.client.demos.components.*;
 import com.svenjacobs.gwtbootstrap3.demo.client.demos.css.*;
 import com.svenjacobs.gwtbootstrap3.demo.client.demos.javascript.*;
+import com.svenjacobs.gwtbootstrap3.demo.client.demos.setup.Setup;
 
 /**
  * @author Joshua Godi
@@ -123,6 +124,8 @@ public class DemoEntryPoint implements EntryPoint {
     ListItem tooltipsLink;
     @UiField
     ListItem bootboxLink;
+    @UiField
+    ListItem setupLink;
 
     @UiHandler("brand")
     public void handleBrandClick(final ClickEvent event) {
@@ -133,6 +136,14 @@ public class DemoEntryPoint implements EntryPoint {
     @Override
     public void onModuleLoad() {
         RootPanel.get().add(ourUiBinder.createAndBindUi(this));
+
+        setupLink.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                container.clear();
+                container.add(new Setup());
+            }
+        });
 
         /**
          * CSS LINKS
