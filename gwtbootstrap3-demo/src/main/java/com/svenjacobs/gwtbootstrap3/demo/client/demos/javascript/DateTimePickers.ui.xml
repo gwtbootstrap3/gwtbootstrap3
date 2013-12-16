@@ -58,13 +58,24 @@
         <b:BlockQuote addStyleNames="{style.danger}">
             <b:Heading addStyleNames="{style.margin-fix}" size="4" text="Required for use"/>
             <b:Paragraph>
-                To use these DateTimePicker, you must first inherit the GWT Module into your *.gwt.xml for your project:
+                To use the DateTimePicker, you must first add the extras module to your project. In Maven:
             </b:Paragraph>
             <b:Pre addStyleNames="prettyprint lang-xml">
-                <inherits name="com.svenjacobs.gwtbootstrap3.datetimepicker.DateTimePicker"/>
+                &lt;dependency&gt;\n
+                \s\s\s\s&lt;groupId&gt;com.svenjacobs.gwtbootstrap3&lt;/groupId&gt;\n
+                \s\s\s\s&lt;artifactId&gt;gwtbootstrap3-extras&lt;/artifactId&gt;\n
+                \s\s\s\s&lt;version&gt;VERSION&lt;/version&gt;\n
+                \s\s\s\s&lt;scope&gt;provided&lt;/scope&gt;\n
+                &lt;/dependency&gt;
             </b:Pre>
             <b:Paragraph>
-                Then, you must add this namespace to your *.ui.xml (don't have to name it b2):
+                Then you need to inherit the GWT Module into your *.gwt.xml for your project:
+            </b:Paragraph>
+            <b:Pre addStyleNames="prettyprint lang-xml">
+                &lt;inherits name="com.svenjacobs.gwtbootstrap3.extras.datetimepicker.DateTimePicker"/&gt;
+            </b:Pre>
+            <b:Paragraph>
+                Last but not least must add this namespace to your *.ui.xml (don't have to name it b2):
             </b:Paragraph>
             <b:Pre addStyleNames="prettyprint lang-xml">
                 xmlns:b2="urn:import:com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui"
