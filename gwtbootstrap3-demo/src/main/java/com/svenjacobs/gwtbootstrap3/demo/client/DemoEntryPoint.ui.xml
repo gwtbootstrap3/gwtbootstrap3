@@ -92,7 +92,7 @@
                                 <b:ListItem ui:field="bootboxLink">Bootbox</b:ListItem>
                             </b:DropDownMenu>
                         </b:ListDropDown>
-                        <b:ListItem text="Fork on GitHub" href="https://github.com/svenjacobs/gwtbootstrap3"
+                        <b:ListItem text="Fork on GitHub" href="https://github.com/gwtbootstrap3/gwtbootstrap3"
                                     ui:field="forkLink"/>
                     </b:NavbarNav>
                 </b:NavbarCollapse>
@@ -113,7 +113,7 @@
 
                 <b:Paragraph>
                     This is the demo for GwtBootstrap3 version 0.4. For previous releases please go to:
-                    <a href="https://github.com/svenjacobs/gwtbootstrap3/releases">Previous Releases</a>
+                    <a href="https://github.com/gwtbootstrap3/gwtbootstrap3/releases">Previous Releases</a>
                 </b:Paragraph>
             </b:Jumbotron>
         </b:Row>
