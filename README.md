@@ -3,8 +3,8 @@
 GwtBootstrap3 is a GWT wrapper for Twitter's Bootstrap library version 3
 containing design templates, styles and beautiful widgets.
 
-Have a look at the [demo](http://svenjacobs.github.io/gwtbootstrap3/) and its
-[source code](https://github.com/svenjacobs/gwtbootstrap3/tree/master/gwtbootstrap3-demo/src/main/java/com/svenjacobs/gwtbootstrap3/demo/client). Also use the [Google Group](https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3) for help/discussion.
+Have a look at the [demo](http://gwtbootstrap3.github.io/gwtbootstrap3/) and its
+[source code](https://github.com/gwtbootstrap3/gwtbootstrap3/tree/master/gwtbootstrap3-demo/src/main/java/com/svenjacobs/gwtbootstrap3/demo/client). Also use the [Google Group](https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3) for help/discussion.
 
 **Note:** This library is **not yet** feature complete. Patches / pull requests are welcome. See *Feature matrix* below.
 
