@@ -28,11 +28,11 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import com.svenjacobs.gwtbootstrap3.bootbox.client.Bootbox;
-import com.svenjacobs.gwtbootstrap3.bootbox.client.callback.AlertCallback;
-import com.svenjacobs.gwtbootstrap3.bootbox.client.callback.ConfirmCallback;
-import com.svenjacobs.gwtbootstrap3.bootbox.client.callback.PromptCallback;
 import com.svenjacobs.gwtbootstrap3.client.ui.Button;
+import com.svenjacobs.gwtbootstrap3.extras.bootbox.client.Bootbox;
+import com.svenjacobs.gwtbootstrap3.extras.bootbox.client.callback.AlertCallback;
+import com.svenjacobs.gwtbootstrap3.extras.bootbox.client.callback.ConfirmCallback;
+import com.svenjacobs.gwtbootstrap3.extras.bootbox.client.callback.PromptCallback;
 
 /**
  * @author lyhcode
@@ -57,12 +57,12 @@ public class BootboxJS extends Composite {
     }
 
     @UiHandler("alertButton")
-    public void handleAlertButton(ClickEvent event) {
+    public void handleAlertButton(final ClickEvent event) {
         Bootbox.alert("Hello World");
     }
 
     @UiHandler("alertCallbackButton")
-    public void handleAlertCallbackButton(ClickEvent event) {
+    public void handleAlertCallbackButton(final ClickEvent event) {
         Bootbox.alert("Hello World", new AlertCallback() {
             @Override
             public void callback() {
@@ -72,20 +72,20 @@ public class BootboxJS extends Composite {
     }
 
     @UiHandler("confirmButton")
-    public void handleConfirmButton(ClickEvent event) {
+    public void handleConfirmButton(final ClickEvent event) {
         Bootbox.confirm("Hello World", new ConfirmCallback() {
             @Override
-            public void callback(boolean result) {
+            public void callback(final boolean result) {
                 Window.alert("Return: " + result);
             }
         });
     }
 
     @UiHandler("promptButton")
-    public void handlePromptButton(ClickEvent event) {
+    public void handlePromptButton(final ClickEvent event) {
         Bootbox.prompt("Hello World", new PromptCallback() {
             @Override
-            public void callback(String result) {
+            public void callback(final String result) {
                 Window.alert("Return: " + result);
             }
         });

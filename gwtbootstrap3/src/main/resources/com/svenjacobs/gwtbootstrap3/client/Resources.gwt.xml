@@ -27,11 +27,8 @@
 
     <stylesheet src="css/bootstrap.min.css"/>
     <stylesheet src="css/font-awesome.min.css"/>
-    <stylesheet src="css/bootstrap-datetimepicker.min.css"/>
 
     <script src="js/jquery-1.10.2.min.js"/>
     <script src="js/bootstrap.min.js"/>
     <script src="js/moment.min.js"/>
-    <script src="js/bootstrap-datetimepicker.min.js"/>
-    <script src="js/bootbox.min.js"/>
 </module>

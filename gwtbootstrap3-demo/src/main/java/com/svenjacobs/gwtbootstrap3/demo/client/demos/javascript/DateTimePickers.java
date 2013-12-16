@@ -37,7 +37,7 @@ import com.svenjacobs.gwtbootstrap3.client.shared.event.ShowEvent;
 import com.svenjacobs.gwtbootstrap3.client.shared.event.ShowHandler;
 import com.svenjacobs.gwtbootstrap3.client.ui.Button;
 import com.svenjacobs.gwtbootstrap3.client.ui.Paragraph;
-import com.svenjacobs.gwtbootstrap3.datetimepicker.client.ui.DateTimeBox;
+import com.svenjacobs.gwtbootstrap3.extras.datetimepicker.client.ui.DateTimeBox;
 
 import java.util.Date;
 
