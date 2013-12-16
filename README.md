@@ -1,4 +1,4 @@
-[![Build Status](https://buildhive.cloudbees.com/job/svenjacobs/job/gwtbootstrap3/badge/icon)](https://buildhive.cloudbees.com/job/svenjacobs/job/gwtbootstrap3/)
+[![Build Status](https://buildhive.cloudbees.com/job/gwtbootstrap3/job/gwtbootstrap3/badge/icon)](https://buildhive.cloudbees.com/job/gwtbootstrap3/job/gwtbootstrap3/)
 
 GwtBootstrap3 is a GWT wrapper for Twitter's Bootstrap library version 3
 containing design templates, styles and beautiful widgets.
