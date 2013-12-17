@@ -54,7 +54,6 @@
 
     <modules>
         <module>gwtbootstrap3</module>
-        <module>gwtbootstrap3-demo</module>
     </modules>
 
     <properties>

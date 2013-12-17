@@ -19,15 +19,7 @@
   #L%
   -->
 <module>
-    <public path="resource">
-        <include name="css/*.css"/>
-        <include name="js/*.js"/>
-        <include name="fonts/*"/>
-    </public>
+    <inherits name="org.gwtbootstrap3.client.NoThemeResources"/>
 
     <stylesheet src="css/bootstrap.min.css"/>
-    <stylesheet src="css/font-awesome.min.css"/>
-
-    <script src="js/jquery-1.10.2.min.js"/>
-    <script src="js/bootstrap.min.js"/>
 </module>
