@@ -14,9 +14,9 @@ Add the dependency to your Maven POM:
 
 ```xml
 <dependency>
-    <groupId>com.github.gwtbootstrap3</groupId>
+    <groupId>org.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3</artifactId>
-    <version>0.3</version>
+    <version>0.4-SNAPSHOT</version>
     <scope>provided</scope>
 </dependency>
 ```
@@ -25,7 +25,7 @@ or if you want to use the snapshot release:
 
 ```xml
 <dependency>
-    <groupId>com.github.gwtbootstrap3</groupId>
+    <groupId>org.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3</artifactId>
     <version>0.4-SNAPSHOT</version>
     <scope>provided</scope>
@@ -54,7 +54,7 @@ Inherit the GwtBootstrap3 module in your GWT module:
 
 ```xml
 <module>
-    <inherits name="com.github.gwtbootstrap3.GwtBootstrap3"/>
+    <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
     ...
 </module>
 ```
@@ -70,7 +70,7 @@ Use the widgets in your UiBinder XML:
 ```xml
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
-             xmlns:b="urn:import:com.github.gwtbootstrap3.client.ui">
+             xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
 
     <b:Container>
         <b:PageHeader>Yay buttons!</b:PageHeader>
@@ -105,7 +105,7 @@ If you have any questions, please refer to the Google Group above.
 
 ```xml
 <module>
-    <inherits name="com.github.gwtbootstrap3.GwtBootstrap3"/>
+    <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
 
     <public path='resource'>
         <include name='css/*.css'/>

@@ -1,0 +1,256 @@
+<!--
+  #%L
+  GwtBootstrap3
+  %%
+  Copyright (C) 2013 Sven Jacobs
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
+
+    <b:Row>
+
+        <b:PageHeader text="Typography" subText="Built in text support"/>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Headings"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Heading size="1" text="h1. Bootstrap heading"/>
+                <b:Heading size="2" text="h2. Bootstrap heading"/>
+                <b:Heading size="3" text="h3. Bootstrap heading"/>
+                <b:Heading size="4" text="h4. Bootstrap heading"/>
+                <b:Heading size="5" text="h5. Bootstrap heading"/>
+                <b:Heading size="6" text="h6. Bootstrap heading"/>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Heading size="1"/&gt;\n
+                    &lt;b:Heading size="2"/&gt;\n
+                    &lt;b:Heading size="3"/&gt;\n
+                    &lt;b:Heading size="4"/&gt;\n
+                    &lt;b:Heading size="5"/&gt;\n
+                    &lt;b:Heading size="6"/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Body Copy"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Lead text="Make a paragraph stand out!"/>
+                <b:Small text="This line of text is meant to be treated as fine print."/>
+                <b:ClearFix/>
+                <b:Bold text="The following snippet of text is rendered as bold text."/>
+                <b:ClearFix/>
+                <b:Italics text="The following snippet of text is rendered as italicized text."/>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Lead text=""/&gt;\n
+                    &lt;b:Small text=""/&gt;\n
+                    &lt;b:Bold text=""/&gt;\n
+                    &lt;b:Italics text=""/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Text Emphasis"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Paragraph emphasis="MUTED">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                <b:Paragraph emphasis="PRIMARY">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                <b:Paragraph emphasis="SUCCESS">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                <b:Paragraph emphasis="INFO">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                <b:Paragraph emphasis="WARNING">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+                <b:Paragraph emphasis="DANGER">Fusce dapibus, tellus ac cursus commodo</b:Paragraph>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Paragraph emphasis="MUTED"/&gt;\n
+                    &lt;b:Paragraph emphasis="PRIMARY"/&gt;\n
+                    &lt;b:Paragraph emphasis="SUCCESS"/&gt;\n
+                    &lt;b:Paragraph emphasis="INFO"/&gt;\n
+                    &lt;b:Paragraph emphasis="WARNING"/&gt;\n
+                    &lt;b:Paragraph emphasis="DANGER"/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Text Alignment"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Paragraph alignment="LEFT">Align Left</b:Paragraph>
+                <b:Paragraph alignment="CENTER">Align Center</b:Paragraph>
+                <b:Paragraph alignment="RIGHT">Align Right</b:Paragraph>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Paragraph align="LEFT"/&gt;\n
+                    &lt;b:Paragraph align="CENTER"/&gt;\n
+                    &lt;b:Paragraph align="RIGHT"/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Abbreviations"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <g:HTMLPanel>
+                    An abbreviation of the word attribute is
+                    <b:Abbreviation title="attribute">attr.</b:Abbreviation>
+                </g:HTMLPanel>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Abbreviation title=""/&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Block Quotes"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:BlockQuote>
+                    <b:Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+                        erat a ante.
+                    </b:Paragraph>
+                </b:BlockQuote>
+                <b:ClearFix/>
+                <b:BlockQuote>
+                    <b:Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+                        erat a ante.
+                    </b:Paragraph>
+                    <b:Small>Someone Famous</b:Small>
+                </b:BlockQuote>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:BlockQuote&gt;\n
+                    \s\s&lt;b:Paragraph/&gt;\n
+                    &lt;/b:BlockQuote&gt;\n
+                </b:Pre>
+                <b:ClearFix/>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:BlockQuote&gt;\n
+                    \s\s&lt;b:Paragraph/&gt;\n
+                    \s\s&lt;b:Small/&gt;\n
+                    &lt;/b:BlockQuote&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Lists"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:OrderedList>
+                    <b:ListItem text="Item"/>
+                    <b:ListItem text="Item"/>
+                    <b:ListItem text="Item"/>
+                    <b:ListItem text="Item"/>
+                </b:OrderedList>
+
+                <b:UnorderedList>
+                    <b:ListItem text="Item"/>
+                    <b:ListItem text="Item"/>
+                    <b:ListItem text="Item"/>
+                    <b:ListItem text="Item"/>
+                </b:UnorderedList>
+
+                <b:UnorderedList inline="true">
+                    <b:ListItem text="Item"/>
+                    <b:ListItem text="Item"/>
+                    <b:ListItem text="Item"/>
+                    <b:ListItem text="Item"/>
+                </b:UnorderedList>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:OrderedList&gt;\n
+                    \s\s&lt;b:ListItem/&gt;\n
+                    &lt;/b:OrderedList&gt;\n
+                </b:Pre>
+                <b:ClearFix/>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:UnorderedList&gt;\n
+                    \s\s&lt;b:ListItem/&gt;\n
+                    &lt;/b:UnorderedList&gt;\n
+                </b:Pre>
+                <b:ClearFix/>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:UnorderedList inline="true"&gt;\n
+                    \s\s&lt;b:ListItem/&gt;\n
+                    &lt;/b:UnorderedList&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+        <b:Panel>
+            <b:PanelHeader>
+                <b:Heading size="3" text="Description"/>
+            </b:PanelHeader>
+            <b:PanelBody>
+                <b:Description>
+                    <b:DescriptionTitle text="Euismod"/>
+                    <b:DescriptionData text="Etiam porta sem malesuada magna mollis euismod."/>
+                    <b:DescriptionTitle text="Malesuada porta"/>
+                    <b:DescriptionData text="Etiam porta sem malesuada magna mollis euismod."/>
+                    <b:DescriptionTitle text="Semper"/>
+                    <b:DescriptionData text="Etiam porta sem malesuada magna mollis euismod."/>
+                </b:Description>
+
+                <b:Description horizontal="true">
+                    <b:DescriptionTitle text="Euismod"/>
+                    <b:DescriptionData text="Etiam porta sem malesuada magna mollis euismod."/>
+                    <b:DescriptionTitle text="Malesuada porta"/>
+                    <b:DescriptionData text="Etiam porta sem malesuada magna mollis euismod."/>
+                    <b:DescriptionTitle text="Semper"/>
+                    <b:DescriptionData text="Etiam porta sem malesuada magna mollis euismod."/>
+                </b:Description>
+            </b:PanelBody>
+            <b:PanelFooter>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Description&gt;\n
+                    \s\s&lt;b:DescriptionTitle text=""/&gt;\n
+                    \s\s&lt;b:DescriptionDescription text=""/&gt;\n
+                    &lt;/b:Description&gt;\n
+                </b:Pre>
+                <b:ClearFix/>
+                <b:Pre addStyleNames="prettyprint lang-xml">
+                    &lt;b:Description horizontal="true"&gt;\n
+                    \s\s&lt;b:DescriptionTitle text=""/&gt;\n
+                    \s\s&lt;b:DescriptionDescription text=""/&gt;\n
+                    &lt;/b:Description&gt;\n
+                </b:Pre>
+            </b:PanelFooter>
+        </b:Panel>
+
+    </b:Row>
+
+</ui:UiBinder>
