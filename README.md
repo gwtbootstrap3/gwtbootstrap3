@@ -212,7 +212,3 @@ Compare this to the HTML version:
     </ul>
 </div>
 ```
-
-# Acknowledgement
-
-Huge thanks go to [Joshua Godi](https://github.com/jgodi) who added many missing components and reworked the library!
