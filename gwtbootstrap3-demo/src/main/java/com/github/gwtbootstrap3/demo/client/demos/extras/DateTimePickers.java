@@ -20,8 +20,13 @@ package com.github.gwtbootstrap3.demo.client.demos.extras;
  * #L%
  */
 
+import com.github.gwtbootstrap3.client.shared.event.HideEvent;
+import com.github.gwtbootstrap3.client.shared.event.HideHandler;
+import com.github.gwtbootstrap3.client.shared.event.ShowEvent;
+import com.github.gwtbootstrap3.client.shared.event.ShowHandler;
 import com.github.gwtbootstrap3.client.ui.Button;
 import com.github.gwtbootstrap3.client.ui.Paragraph;
+import com.github.gwtbootstrap3.extras.datetimepicker.client.ui.DateTimeBox;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
@@ -33,7 +38,6 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.svenjacobs.gwtbootstrap3.extras.datetimepicker.client.ui.DateTimeBox;
 
 import java.util.Date;
 
@@ -146,22 +150,22 @@ public class DateTimePickers extends Composite {
             }
         });
 
-//        eventDateTimeBox.addShowHandler(new ShowHandler() {
-//            @Override
-//            public void onShow(final ShowEvent showEvent) {
-//                final Paragraph logEntry = new Paragraph();
-//                logEntry.setText("Show Event Fired");
-//                logRow.add(logEntry);
-//            }
-//        });
-//
-//        eventDateTimeBox.addHideHandler(new HideHandler() {
-//            @Override
-//            public void onHide(final HideEvent hideEvent) {
-//                final Paragraph logEntry = new Paragraph();
-//                logEntry.setText("Hide Event Fired");
-//                logRow.add(logEntry);
-//            }
-//        });
+        eventDateTimeBox.addShowHandler(new ShowHandler() {
+            @Override
+            public void onShow(final ShowEvent showEvent) {
+                final Paragraph logEntry = new Paragraph();
+                logEntry.setText("Show Event Fired");
+                logRow.add(logEntry);
+            }
+        });
+
+        eventDateTimeBox.addHideHandler(new HideHandler() {
+            @Override
+            public void onHide(final HideEvent hideEvent) {
+                final Paragraph logEntry = new Paragraph();
+                logEntry.setText("Hide Event Fired");
+                logRow.add(logEntry);
+            }
+        });
     }
 }

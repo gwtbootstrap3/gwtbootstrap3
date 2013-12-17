@@ -21,6 +21,10 @@ package com.github.gwtbootstrap3.demo.client.demos.extras;
  */
 
 import com.github.gwtbootstrap3.client.ui.Button;
+import com.github.gwtbootstrap3.extras.bootbox.client.Bootbox;
+import com.github.gwtbootstrap3.extras.bootbox.client.callback.AlertCallback;
+import com.github.gwtbootstrap3.extras.bootbox.client.callback.ConfirmCallback;
+import com.github.gwtbootstrap3.extras.bootbox.client.callback.PromptCallback;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -29,10 +33,6 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import com.svenjacobs.gwtbootstrap3.extras.bootbox.client.Bootbox;
-import com.svenjacobs.gwtbootstrap3.extras.bootbox.client.callback.AlertCallback;
-import com.svenjacobs.gwtbootstrap3.extras.bootbox.client.callback.ConfirmCallback;
-import com.svenjacobs.gwtbootstrap3.extras.bootbox.client.callback.PromptCallback;
 
 /**
  * @author lyhcode
