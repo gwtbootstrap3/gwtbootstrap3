@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui.constants;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 Sven Jacobs
+ * Copyright (C) 2013 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
