@@ -85,10 +85,15 @@
                                 <b:ListItem ui:field="affixLink">Affix</b:ListItem>
                                 <b:ListItem ui:field="carouselLink">Carousel</b:ListItem>
                                 <b:ListItem ui:field="collapseLink">Collapse</b:ListItem>
-                                <b:ListItem ui:field="dateTimePickerLink">DateTimePicker</b:ListItem>
                                 <b:ListItem ui:field="modalsLink">Modals</b:ListItem>
                                 <b:ListItem ui:field="popoverLink">Popover</b:ListItem>
                                 <b:ListItem ui:field="tooltipsLink">Tooltips</b:ListItem>
+                            </b:DropDownMenu>
+                        </b:ListDropDown>
+                        <b:ListDropDown>
+                            <b:AnchorButton toggle="DROPDOWN">Extras</b:AnchorButton>
+                            <b:DropDownMenu>
+                                <b:ListItem ui:field="dateTimePickerLink">DateTimePicker</b:ListItem>
                                 <b:ListItem ui:field="bootboxLink">Bootbox</b:ListItem>
                             </b:DropDownMenu>
                         </b:ListDropDown>

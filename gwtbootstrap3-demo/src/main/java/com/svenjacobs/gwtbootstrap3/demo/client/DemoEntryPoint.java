@@ -34,6 +34,8 @@ import com.svenjacobs.gwtbootstrap3.client.ui.NavbarBrand;
 import com.svenjacobs.gwtbootstrap3.client.ui.Row;
 import com.svenjacobs.gwtbootstrap3.demo.client.demos.components.*;
 import com.svenjacobs.gwtbootstrap3.demo.client.demos.css.*;
+import com.svenjacobs.gwtbootstrap3.demo.client.demos.extras.BootboxJS;
+import com.svenjacobs.gwtbootstrap3.demo.client.demos.extras.DateTimePickers;
 import com.svenjacobs.gwtbootstrap3.demo.client.demos.javascript.*;
 import com.svenjacobs.gwtbootstrap3.demo.client.demos.setup.Setup;
 

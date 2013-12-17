@@ -1,4 +1,4 @@
-package com.svenjacobs.gwtbootstrap3.demo.client.demos.javascript;
+package com.svenjacobs.gwtbootstrap3.demo.client.demos.extras;
 
 /*
  * #%L
