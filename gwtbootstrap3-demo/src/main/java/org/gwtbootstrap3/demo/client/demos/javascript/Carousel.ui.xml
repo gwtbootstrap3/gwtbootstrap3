@@ -74,14 +74,14 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Carousel b:id="carousel-basic"/&gt;\n
+                    &lt;b:Carousel b:id="carousel-basic"&gt;\n
                     \s\s&lt;b:CarouselIndicators&gt;\n
                     \s\s\s\s&lt;b:CarouselIndicator dataTarget="#carousel-basic" dataSlideTo="0" active="true"/&gt;\n
                     \s\s\s\s&lt;b:CarouselIndicator dataTarget="#carousel-basic" dataSlideTo="1"/&gt;\n
                     \s\s\s\s&lt;b:CarouselIndicator dataTarget="#carousel-basic" dataSlideTo="2"/&gt;\n
                     \s\s&lt;/b:CarouselIndicators&gt;\n
                     \s\s&lt;b:CarouselInner&gt;\n
-                    \s\s\s\s&lt;b:CarouselSlide/&gt;\n
+                    \s\s\s\s&lt;b:CarouselSlide&gt;\n
                     \s\s\s\s\s\s&lt;b:Image url=".../&gt;\n
                     \s\s\s\s&lt;/b:CarouselSlide&gt;\n
                     \s\s&lt;/b:CarouselInner&gt;\n
@@ -132,14 +132,14 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Carousel b:id="carousel-captions"/&gt;\n
+                    &lt;b:Carousel b:id="carousel-captions"&gt;\n
                     \s\s&lt;b:CarouselIndicators&gt;\n
                     \s\s\s\s&lt;b:CarouselIndicator dataTarget="#carousel-captions" dataSlideTo="0" active="true"/&gt;\n
                     \s\s\s\s&lt;b:CarouselIndicator dataTarget="#carousel-captions" dataSlideTo="1"/&gt;\n
                     \s\s\s\s&lt;b:CarouselIndicator dataTarget="#carousel-captions" dataSlideTo="2"/&gt;\n
                     \s\s&lt;/b:CarouselIndicators&gt;\n
                     \s\s&lt;b:CarouselInner&gt;\n
-                    \s\s\s\s&lt;b:CarouselSlide/&gt;\n
+                    \s\s\s\s&lt;b:CarouselSlide&gt;\n
                     \s\s\s\s\s\s&lt;b:Image url=".../&gt;\n
                     \s\s\s\s\s\s&lt;b:CarouselCaption&gt;\n
                     \s\s\s\s\s\s\s\s&lt;b:Heading size="..." text="..."/&gt;\n
@@ -153,7 +153,6 @@
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>
-
     </b:Row>
 
 </ui:UiBinder>

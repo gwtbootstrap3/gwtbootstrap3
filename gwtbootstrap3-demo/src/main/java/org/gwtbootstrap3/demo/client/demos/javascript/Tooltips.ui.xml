@@ -63,18 +63,18 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Tooltip title="..."/&gt;\n
+                    &lt;b:Tooltip title="..."&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Tooltip title="..."/&gt;\n\n
-                    &lt;b:Tooltip title="..." placement="LEFT"/&gt;\n
+                    &lt;/b:Tooltip&gt;\n\n
+                    &lt;b:Tooltip title="..." placement="LEFT"&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Tooltip title="..."/&gt;\n\n
-                    &lt;b:Tooltip title="..." placement="BOTTOM"/&gt;\n
+                    &lt;/b:Tooltip&gt;\n\n
+                    &lt;b:Tooltip title="..." placement="BOTTOM"&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Tooltip title="..."/&gt;\n\n
-                    &lt;b:Tooltip title="..." placement="RIGHT"/&gt;\n
+                    &lt;/b:Tooltip&gt;\n\n
+                    &lt;b:Tooltip title="..." placement="RIGHT"&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Tooltip title="..."/&gt;\n\n
+                    &lt;/b:Tooltip&gt;\n\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>
@@ -102,18 +102,18 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Tooltip title="..."/&gt;\n
+                    &lt;b:Tooltip title="..."&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Tooltip title="..."/&gt;\n\n
-                    &lt;b:Tooltip title="..." trigger="FOCUS"/&gt;\n
+                    &lt;/b:Tooltip&gt;\n\n
+                    &lt;b:Tooltip title="..." trigger="FOCUS"&gt;\n
                     \s\s&lt;b:TextBox/&gt;\n
-                    &lt;/b:Tooltip title="..."/&gt;\n\n
-                    &lt;b:Tooltip title="..." trigger="CLICK"/&gt;\n
+                    &lt;/b:Tooltip&gt;\n\n
+                    &lt;b:Tooltip title="..." trigger="CLICK"&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Tooltip title="..."/&gt;\n\n
-                    &lt;b:Tooltip title="..." trigger="MANUAL"/&gt;\n
+                    &lt;/b:Tooltip&gt;\n\n
+                    &lt;b:Tooltip title="..." trigger="MANUAL"&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Tooltip title="..."/&gt;\n\n
+                    &lt;/b:Tooltip&gt;\n\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>

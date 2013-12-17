@@ -63,18 +63,18 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Popover title="..."/&gt;\n
+                    &lt;b:Popover title="..."&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Popover title="..."/&gt;\n\n
-                    &lt;b:Popover title="..." placement="LEFT"/&gt;\n
+                    &lt;/b:Popover&gt;\n\n
+                    &lt;b:Popover title="..." placement="LEFT"&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Popover title="..."/&gt;\n\n
-                    &lt;b:Popover title="..." placement="BOTTOM"/&gt;\n
+                    &lt;/b:Popover&gt;\n\n
+                    &lt;b:Popover title="..." placement="BOTTOM"&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Popover title="..."/&gt;\n\n
-                    &lt;b:Popover title="..." placement="RIGHT"/&gt;\n
+                    &lt;/b:Popover&gt;\n\n
+                    &lt;b:Popover title="..." placement="RIGHT"&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Popover title="..."/&gt;\n\n
+                    &lt;/b:Popover&gt;\n\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>
@@ -102,18 +102,18 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Popover title="..."/&gt;\n
+                    &lt;b:Popover title="..."&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Popover title="..."/&gt;\n\n
+                    &lt;/b:Popover&gt;\n\n
                     &lt;b:Popover title="..." trigger="FOCUS"/&gt;\n
                     \s\s&lt;b:TextBox/&gt;\n
-                    &lt;/b:Popover title="..."/&gt;\n\n
+                    &lt;/b:Popover&gt;\n\n
                     &lt;b:Popover title="..." trigger="CLICK"/&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Popover title="..."/&gt;\n\n
-                    &lt;b:Popover title="..." trigger="MANUAL"/&gt;\n
+                    &lt;/b:Popover&gt;\n\n
+                    &lt;b:Popover title="..." trigger="MANUAL"&gt;\n
                     \s\s&lt;b:Button text="..."/&gt;\n
-                    &lt;/b:Popover title="..."/&gt;\n\n
+                    &lt;/b:Popover&gt;\n\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>

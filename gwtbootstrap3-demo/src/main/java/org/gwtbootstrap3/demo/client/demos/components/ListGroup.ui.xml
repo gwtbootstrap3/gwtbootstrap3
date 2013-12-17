@@ -38,7 +38,7 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:ListGroup/&gt;\n
+                    &lt;b:ListGroup&gt;\n
                     \s\s&lt;b:ListGroupItem text=""/&gt;\n
                     \s\s&lt;b:ListGroupItem text=""/&gt;\n
                     \s\s&lt;b:ListGroupItem text=""/&gt;\n
@@ -69,7 +69,7 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:ListGroup/&gt;\n
+                    &lt;b:ListGroup&gt;\n
                     \s\s&lt;b:ListGroupItem text=""&gt;\n
                     \s\s\s\s&lt;b:Badge text=""/&gt;\n
                     \s\s&lt;/b:ListGroupItem&gt;\n
@@ -98,7 +98,7 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:LinkedGroup/&gt;\n
+                    &lt;b:LinkedGroup&gt;\n
                     \s\s&lt;b:LinkedGroupItem active="true" text=""/&gt;\n
                     \s\s&lt;b:LinkedGroupItem text=""/&gt;\n
                     \s\s&lt;b:LinkedGroupItem text=""/&gt;\n
@@ -129,7 +129,7 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:LinkedGroup/&gt;\n
+                    &lt;b:LinkedGroup&gt;\n
                     \s\s&lt;b:LinkedGroupItem active="true" text=""/&gt;\n
                     \s\s&lt;b:LinkedGroupItem text=""/&gt;\n
                     \s\s&lt;b:LinkedGroupItem text=""/&gt;\n

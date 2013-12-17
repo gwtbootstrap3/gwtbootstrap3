@@ -69,7 +69,8 @@
                 &lt;/dependency&gt;
             </b:Pre>
             <b:Paragraph>
-                Then you need to inherit the GWT Module into your *.gwt.xml for your project:
+                Then you need to inherit the following GWT Module <strong>additionally</strong> to any GwtBootstrap3
+                module into your *.gwt.xml of your project:
             </b:Paragraph>
             <b:Pre addStyleNames="prettyprint lang-xml">
                 &lt;inherits name="org.gwtbootstrap3.extras.datetimepicker.DateTimePicker"/&gt;

@@ -33,7 +33,7 @@
                     For the basic setup just inherit the basic GwtBootstrap3 module into your *.gwt.xml.
                 </b:Paragraph>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;module/&gt;\n
+                    &lt;module&gt;\n
                     \s\s&lt;inherits name="org.gwtbootstrap3.GwtBootstrap3"/&gt;\n
                     &lt;/module&gt;\n
                 </b:Pre>
@@ -46,10 +46,10 @@
             </b:PanelHeader>
             <b:PanelBody>
                 <b:Paragraph>
-                    For the setup with a Bootstrap2 look-a-like theme inherit the GwtBootstrap3Theme your *.gwt.xml.
+                    For the setup with a Bootstrap2 look-a-like theme inherit the GwtBootstrap3Theme into your *.gwt.xml.
                 </b:Paragraph>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;module/&gt;\n
+                    &lt;module&gt;\n
                     \s\s&lt;inherits name="org.gwtbootstrap3.GwtBootstrap3Theme"/&gt;\n
                     &lt;/module&gt;\n
                 </b:Pre>
@@ -77,19 +77,18 @@
                     priority over the others, giving you the custom theme.
                 </b:Paragraph>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;module/&gt;\n
+                    &lt;module&gt;\n
                     \s\s&lt;inherits name="org.gwtbootstrap3.GwtBootstrap3"/&gt;\n\n
                     \s\s&lt;public path='resource'&gt;\n
                     \s\s\s\s&lt;include name='css/*.css'/&gt;\n
                     \s\s\s\s&lt;include name='js/*.js'/&gt;\n
                     \s\s&lt;/public&gt;\n\n
-                    \s\s&lt;stylesheet src='css/theme.css'&gt;\n
-                    \s\s&lt;script src='js/theme.js'&gt;\n
+                    \s\s&lt;stylesheet src='css/theme.css'/&gt;\n
+                    \s\s&lt;script src='js/theme.js'/&gt;\n
                     &lt;/module&gt;\n
                 </b:Pre>
             </b:PanelBody>
         </b:Panel>
-
     </b:Row>
 
 </ui:UiBinder>

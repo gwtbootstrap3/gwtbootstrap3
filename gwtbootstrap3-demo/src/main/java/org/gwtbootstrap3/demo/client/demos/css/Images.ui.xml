@@ -57,9 +57,9 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Image type="ROUNDED" url="..."&gt;\n
-                    &lt;b:Image type="CIRCLE" url="..."&gt;\n
-                    &lt;b:Image type="THUMBNAIL" url="..."&gt;\n
+                    &lt;b:Image type="ROUNDED" url="..."/&gt;\n
+                    &lt;b:Image type="CIRCLE" url="..."/&gt;\n
+                    &lt;b:Image type="THUMBNAIL" url="..."/&gt;\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>

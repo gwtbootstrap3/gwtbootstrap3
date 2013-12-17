@@ -51,7 +51,7 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Icon type="..."&gt;
+                    &lt;b:Icon type="..."/&gt;
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>
@@ -69,11 +69,11 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Icon type="..." size="LARGE"&gt;\n
-                    &lt;b:Icon type="..." size="TIMES2"&gt;\n
-                    &lt;b:Icon type="..." size="TIMES3"&gt;\n
-                    &lt;b:Icon type="..." size="TIMES4"&gt;\n
-                    &lt;b:Icon type="..." size="TIMES5"&gt;\n
+                    &lt;b:Icon type="..." size="LARGE"/&gt;\n
+                    &lt;b:Icon type="..." size="TIMES2"/&gt;\n
+                    &lt;b:Icon type="..." size="TIMES3"/&gt;\n
+                    &lt;b:Icon type="..." size="TIMES4"/&gt;\n
+                    &lt;b:Icon type="..." size="TIMES5"/&gt;\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>
@@ -88,7 +88,7 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Icon type="..." size="LARGE" spin="true"&gt;
+                    &lt;b:Icon type="..." size="LARGE" spin="true"/&gt;
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>
@@ -106,11 +106,11 @@
             </b:PanelBody>
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
-                    &lt;b:Icon type="..." size="LARGE" rotate="ROTATE_90"&gt;\n
-                    &lt;b:Icon type="..." size="LARGE" rotate="ROTATE_180"&gt;\n
-                    &lt;b:Icon type="..." size="LARGE" rotate="ROTATE_270"&gt;\n
-                    &lt;b:Icon type="..." size="LARGE" flip="HORIZONTAL"&gt;\n
-                    &lt;b:Icon type="..." size="LARGE" flip="VERTICAL"&gt;\n
+                    &lt;b:Icon type="..." size="LARGE" rotate="ROTATE_90"/&gt;\n
+                    &lt;b:Icon type="..." size="LARGE" rotate="ROTATE_180"/&gt;\n
+                    &lt;b:Icon type="..." size="LARGE" rotate="ROTATE_270"/&gt;\n
+                    &lt;b:Icon type="..." size="LARGE" flip="HORIZONTAL"/&gt;\n
+                    &lt;b:Icon type="..." size="LARGE" flip="VERTICAL"/&gt;\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>
@@ -128,13 +128,12 @@
             <b:PanelFooter>
                 <b:Pre addStyleNames="prettyprint lang-xml">
                     &lt;b:IconStack&gt;\n
-                    \s\s&lt;b:Icon type="..." stackBase="true"&gt;\n
-                    \s\s&lt;b:Icon type="..." stackTop="true"&gt;\n
+                    \s\s&lt;b:Icon type="..." stackBase="true"/&gt;\n
+                    \s\s&lt;b:Icon type="..." stackTop="true"/&gt;\n
                     &lt;/b:IconStack&gt;\n
                 </b:Pre>
             </b:PanelFooter>
         </b:Panel>
-
     </b:Row>
 
 </ui:UiBinder>
