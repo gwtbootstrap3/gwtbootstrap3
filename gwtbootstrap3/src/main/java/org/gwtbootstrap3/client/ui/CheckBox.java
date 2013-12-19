@@ -20,6 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
@@ -34,7 +38,8 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  *
  * @author Sven Jacobs
  */
-public class CheckBox extends Div implements HasName, HasActive, HasText, HasIcon, HasIconPosition, HasIconSize {
+public class CheckBox extends Div implements HasName, HasEnabled, HasActive, HasText, HasIcon, HasIconPosition,
+        HasIconSize, HasClickHandlers {
 
     private final CheckBoxButton button;
 
@@ -53,6 +58,16 @@ public class CheckBox extends Div implements HasName, HasActive, HasText, HasIco
     @Override
     public String getName() {
         return button.getName();
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return button.isEnabled();
+    }
+
+    @Override
+    public void setEnabled(final boolean enabled) {
+        button.setEnabled(enabled);
     }
 
     @Override
@@ -103,5 +118,10 @@ public class CheckBox extends Div implements HasName, HasActive, HasText, HasIco
     @Override
     public IconSize getIconSize() {
         return button.getIconSize();
+    }
+
+    @Override
+    public HandlerRegistration addClickHandler(final ClickHandler handler) {
+        return button.addClickHandler(handler);
     }
 }
