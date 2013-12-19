@@ -22,6 +22,7 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.HasName;
 import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
@@ -33,7 +34,7 @@ import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
  * @see Button
  * @see org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton
  */
-public class InputButton extends AbstractToggleButton {
+public class InputButton extends AbstractToggleButton implements HasName {
 
     public InputButton() {
         this(TypeAttrType.BUTTON);
@@ -55,6 +56,16 @@ public class InputButton extends AbstractToggleButton {
 
     public void setTypeAttr(final TypeAttrType type) {
         getElement().setAttribute(Attributes.TYPE, type.getInputType());
+    }
+
+    @Override
+    public void setName(final String name) {
+        getElement().setPropertyString("name", name);
+    }
+
+    @Override
+    public String getName() {
+        return getElement().getPropertyString("name");
     }
 
     @Override

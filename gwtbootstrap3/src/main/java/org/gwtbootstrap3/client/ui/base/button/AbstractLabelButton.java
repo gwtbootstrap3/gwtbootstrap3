@@ -22,6 +22,7 @@ package org.gwtbootstrap3.client.ui.base.button;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.HasName;
 import org.gwtbootstrap3.client.ui.HasActive;
 import org.gwtbootstrap3.client.ui.InputButton;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
@@ -36,7 +37,7 @@ import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
  *
  * @author Sven Jacobs
  */
-public abstract class AbstractLabelButton extends AbstractIconButton implements HasActive {
+public abstract class AbstractLabelButton extends AbstractIconButton implements HasActive, HasName {
 
     private final ActiveMixin<AbstractLabelButton> activeMixin = new ActiveMixin<AbstractLabelButton>(this);
     protected final InputButton input;
@@ -75,6 +76,16 @@ public abstract class AbstractLabelButton extends AbstractIconButton implements 
     @Override
     public boolean isActive() {
         return activeMixin.isActive();
+    }
+
+    @Override
+    public void setName(final String name) {
+        input.setName(name);
+    }
+
+    @Override
+    public String getName() {
+        return input.getName();
     }
 
     @Override
