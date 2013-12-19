@@ -20,21 +20,15 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.constants.InputType;
 
 /**
  * @author Joshua Godi
  */
-public class HiddenInput extends TextBox {
+public interface HasInputType {
+    public static final String TYPE = "type";
 
-    public HiddenInput() {
-        this(Document.get().createHiddenInputElement());
-    }
+    void setType(InputType inputType);
 
-    public HiddenInput(final Element element) {
-        super(element);
-        setStyleName(Styles.FORM_CONTROL);
-    }
+    InputType getType();
 }

@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,22 +20,31 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import org.gwtbootstrap3.client.ui.constants.Styles;
-
 /**
  * @author Joshua Godi
  */
-public class TelephoneTextBox extends TextBox {
+public enum InputType implements Type {
+    PASSWORD("password"),
+    DATETIME("datetime"),
+    DATETIME_LOCAL("datetime-local"),
+    DATE("date"),
+    MONTH("month"),
+    TIME("time"),
+    WEEK("week"),
+    NUMBER("number"),
+    EMAIL("email"),
+    URL("url"),
+    SEARCH("search"),
+    TEL("tel"),
+    COLOR("color");
 
-    public TelephoneTextBox() {
-        this(Document.get().createElement("input"));
+    private String type;
+
+    private InputType(String type) {
+        this.type = type;
     }
 
-    public TelephoneTextBox(final Element element) {
-        super(element);
-        getElement().setAttribute("type", "tel");
-        setStyleName(Styles.FORM_CONTROL);
+    public String getType() {
+        return type;
     }
 }
