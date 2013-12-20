@@ -165,7 +165,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 
 | Feature     | Status        | In Demo    |
 |-------------|---------------|------------|
-| Modal       | Supported     | No         |
+| Modal       | Supported     | Yes        |
 | Scrollspy   | Supported     | No         |
 | Tooltip     | Supported     | Yes        |
 | Popover     | Supported     | Yes        |
