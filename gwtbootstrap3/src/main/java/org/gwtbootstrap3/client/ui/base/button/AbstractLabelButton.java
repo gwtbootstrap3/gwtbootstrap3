@@ -21,10 +21,14 @@ package org.gwtbootstrap3.client.ui.base.button;
  */
 
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasName;
+import com.google.gwt.user.client.ui.HasValue;
+import org.gwtbootstrap3.client.ui.CheckableInputButton;
 import org.gwtbootstrap3.client.ui.HasActive;
-import org.gwtbootstrap3.client.ui.InputButton;
+import org.gwtbootstrap3.client.ui.HasFormValue;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -37,19 +41,26 @@ import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
  *
  * @author Sven Jacobs
  */
-public abstract class AbstractLabelButton extends AbstractIconButton implements HasActive, HasName {
+public abstract class AbstractLabelButton extends AbstractIconButton implements HasActive, HasName, HasFormValue, HasValue<Boolean> {
 
     private final ActiveMixin<AbstractLabelButton> activeMixin = new ActiveMixin<AbstractLabelButton>(this);
-    protected final InputButton input;
+    protected final CheckableInputButton input;
 
     protected AbstractLabelButton(final TypeAttrType typeAttr) {
         super(ButtonType.DEFAULT);
 
-        input = new InputButton(typeAttr);
+        input = new CheckableInputButton(typeAttr);
         input.setStyleName("");
 
         add(input, getElement());
         iconTextMixin.addTextWidgetToParent();
+    }
+
+    protected AbstractLabelButton(final TypeAttrType typeAttr,
+                                  final String label) {
+
+        this(typeAttr);
+        setText(label);
     }
 
     @Override
@@ -70,7 +81,7 @@ public abstract class AbstractLabelButton extends AbstractIconButton implements 
 
     @Override
     public void setActive(final boolean active) {
-        activeMixin.setActive(active);
+        setValue(active);
     }
 
     @Override
@@ -86,6 +97,37 @@ public abstract class AbstractLabelButton extends AbstractIconButton implements 
     @Override
     public String getName() {
         return input.getName();
+    }
+
+    @Override
+    public String getFormValue() {
+        return input.getFormValue();
+    }
+
+    @Override
+    public void setFormValue(final String value) {
+        input.setFormValue(value);
+    }
+
+    @Override
+    public void setValue(final Boolean value) {
+        setValue(value, false);
+    }
+
+    @Override
+    public void setValue(final Boolean value, final boolean fireEvents) {
+        activeMixin.setActive(value);
+        input.setValue(value, fireEvents);
+    }
+
+    @Override
+    public Boolean getValue() {
+        return input.getValue();
+    }
+
+    @Override
+    public HandlerRegistration addValueChangeHandler(final ValueChangeHandler<Boolean> handler) {
+        return input.addValueChangeHandler(handler);
     }
 
     @Override

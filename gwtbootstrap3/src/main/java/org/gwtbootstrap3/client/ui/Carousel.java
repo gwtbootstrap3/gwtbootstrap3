@@ -49,15 +49,15 @@ public class Carousel extends Div {
         bindJavaScriptEvents(getElement());
     }
 
-    public void setInterval(int interval) {
+    public void setInterval(final int interval) {
         this.interval = interval;
     }
 
-    public void setPause(String pause) {
+    public void setPause(final String pause) {
         this.pause = pause;
     }
 
-    public void setWrap(boolean wrap) {
+    public void setWrap(final boolean wrap) {
         this.wrap = wrap;
     }
 
@@ -78,7 +78,7 @@ public class Carousel extends Div {
     /**
      * Causes the carousel to jump to that slide
      */
-    public void jumpToSlide(int slideNumber) {
+    public void jumpToSlide(final int slideNumber) {
         fireMethod(getElement(), slideNumber);
     }
 
@@ -96,11 +96,11 @@ public class Carousel extends Div {
         fireMethod(getElement(), "next");
     }
 
-    public void addSlideHandler(SlideHandler slideHandler) {
+    public void addSlideHandler(final SlideHandler slideHandler) {
         addHandler(slideHandler, SlideEvent.getType());
     }
 
-    public void addSlidHandler(SlidHandler slidHandler) {
+    public void addSlidHandler(final SlidHandler slidHandler) {
         addHandler(slidHandler, SlidEvent.getType());
     }
 

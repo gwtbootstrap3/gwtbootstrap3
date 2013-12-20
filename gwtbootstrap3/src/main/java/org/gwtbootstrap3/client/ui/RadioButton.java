@@ -37,16 +37,7 @@ public class RadioButton extends AbstractLabelButton {
         super(TypeAttrType.RADIO);
     }
 
-    public RadioButton(final String group, final String label) {
-        this();
-        setText(label);
-    }
-
-    public void setFormValue(final String value) {
-        input.getElement().setAttribute("value", value);
-    }
-
-    public String getFormValue() {
-        return input.getElement().getAttribute("value");
+    public RadioButton(final String label) {
+        super(TypeAttrType.RADIO, label);
     }
 }

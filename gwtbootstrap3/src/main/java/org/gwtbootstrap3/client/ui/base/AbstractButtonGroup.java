@@ -20,6 +20,8 @@ package org.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
+import com.google.gwt.user.client.ui.HasName;
+import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.*;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
@@ -36,13 +38,40 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @see org.gwtbootstrap3.client.ui.ButtonGroup
  * @see org.gwtbootstrap3.client.ui.VerticalButtonGroup
  */
-public abstract class AbstractButtonGroup extends FlowPanel implements HasToggle, HasJustified, HasPull, HasResponsiveness {
+public abstract class AbstractButtonGroup extends FlowPanel implements HasName, HasToggle, HasJustified, HasPull, HasResponsiveness {
 
     private final PullMixin<AbstractButtonGroup> pullMixin = new PullMixin<AbstractButtonGroup>(this);
     private final ToggleMixin<AbstractButtonGroup> toggleMixin = new ToggleMixin<AbstractButtonGroup>(this);
+    private String name;
 
     protected AbstractButtonGroup(final String styleName) {
         setStyleName(styleName);
+    }
+
+    /**
+     * Convenience method that will set the name of all child widgets that can have a name
+     *
+     * @param name Name of group
+     * @see #add(com.google.gwt.user.client.ui.Widget)
+     */
+    @Override
+    public void setName(final String name) {
+        this.name = name;
+
+        if (name == null) {
+            return;
+        }
+
+        for (final Widget w : getChildren()) {
+            if (w instanceof HasName) {
+                ((HasName) w).setName(name);
+            }
+        }
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     @Override
@@ -106,6 +135,20 @@ public abstract class AbstractButtonGroup extends FlowPanel implements HasToggle
             addStyleName(Styles.DROP_UP);
         } else {
             removeStyleName(Styles.DROP_UP);
+        }
+    }
+
+    @Override
+    public void add(final Widget w) {
+        super.add(w);
+
+        if (name == null) {
+            return;
+        }
+
+        // Add group's name to child widgets that can have a name
+        if (w instanceof HasName) {
+            ((HasName) w).setName(name);
         }
     }
 }

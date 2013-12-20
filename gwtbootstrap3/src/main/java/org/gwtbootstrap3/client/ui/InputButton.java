@@ -21,6 +21,7 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasName;
 import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
@@ -34,7 +35,7 @@ import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
  * @see Button
  * @see org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton
  */
-public class InputButton extends AbstractToggleButton implements HasName {
+public class InputButton extends AbstractToggleButton implements HasName, HasFormValue {
 
     public InputButton() {
         this(TypeAttrType.BUTTON);
@@ -60,12 +61,22 @@ public class InputButton extends AbstractToggleButton implements HasName {
 
     @Override
     public void setName(final String name) {
-        getElement().setPropertyString("name", name);
+        InputElement.as(getElement()).setName(name);
     }
 
     @Override
     public String getName() {
-        return getElement().getPropertyString("name");
+        return InputElement.as(getElement()).getName();
+    }
+
+    @Override
+    public String getFormValue() {
+        return InputElement.as(getElement()).getValue();
+    }
+
+    @Override
+    public void setFormValue(final String value) {
+        InputElement.as(getElement()).setValue(value);
     }
 
     @Override

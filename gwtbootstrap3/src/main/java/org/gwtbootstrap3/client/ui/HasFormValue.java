@@ -20,23 +20,18 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.base.button.AbstractLabelButton;
-import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
 
 /**
- * Button representing a checkbox used within a {@link ButtonGroup} that has toggle set to {@code Toogle.BUTTONS}.
+ * Interface for Widgets that can be put into a {@link Form} and can have a form value,
+ * which is the "value" attribute of the element that is passed to the form's receiver on submit.
  * <p/>
- * If you are looking for a classic checkbox see {@link CheckBox}.
+ * Not to be confused with {@link com.google.gwt.user.client.ui.HasValue}.
  *
  * @author Sven Jacobs
  */
-public class CheckBoxButton extends AbstractLabelButton {
+public interface HasFormValue {
 
-    public CheckBoxButton() {
-        super(TypeAttrType.CHECKBOX);
-    }
+    String getFormValue();
 
-    public CheckBoxButton(final String label) {
-        super(TypeAttrType.CHECKBOX, label);
-    }
+    void setFormValue(final String value);
 }
