@@ -117,6 +117,18 @@ If you have any questions, please refer to the Google Group above.
 </module>
 ```
 
+# Disabling default theme
+
+If for some reason you need to completely disable the serving of the internal bootstrap css, simply inherit the GwtBootstrap3NoTheme module
+instead of GwtBootstrap3.
+
+```xml
+<module>
+    <inherits name="org.gwtbootstrap3.GwtBootstrap3NoTheme"/>
+    ...
+</module>
+```
+
 # Feature matrix
 
 Following Bootstrap features are natively supported by GwtBootstrap3 through
