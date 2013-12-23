@@ -26,7 +26,23 @@ import com.google.gwt.dom.client.Style;
  * @author Sven Jacobs
  */
 public enum ColumnPush implements Size, Style.HasCssName {
+    // Extra small devices (<768px)
+    XS_0("col-xs-push-0"),
+    XS_1("col-xs-push-1"),
+    XS_2("col-xs-push-2"),
+    XS_3("col-xs-push-3"),
+    XS_4("col-xs-push-4"),
+    XS_5("col-xs-push-5"),
+    XS_6("col-xs-push-6"),
+    XS_7("col-xs-push-7"),
+    XS_8("col-xs-push-8"),
+    XS_9("col-xs-push-9"),
+    XS_10("col-xs-push-10"),
+    XS_11("col-xs-push-11"),
+    XS_12("col-xs-push-12"),
+
     // Small devices (>=768px)
+    SM_0("col-sm-push-0"),
     SM_1("col-sm-push-1"),
     SM_2("col-sm-push-2"),
     SM_3("col-sm-push-3"),
@@ -40,6 +56,7 @@ public enum ColumnPush implements Size, Style.HasCssName {
     SM_11("col-sm-push-11"),
 
     // Medium devices (>=992px)
+    MD_0("col-md-push-0"),
     MD_1("col-md-push-1"),
     MD_2("col-md-push-2"),
     MD_3("col-md-push-3"),
@@ -53,6 +70,7 @@ public enum ColumnPush implements Size, Style.HasCssName {
     MD_11("col-md-push-11"),
 
     // Large devices (>=1200px)
+    LG_0("col-lg-push-0"),
     LG_1("col-lg-push-1"),
     LG_2("col-lg-push-2"),
     LG_3("col-lg-push-3"),
