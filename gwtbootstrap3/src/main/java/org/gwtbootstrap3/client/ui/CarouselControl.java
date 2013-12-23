@@ -30,7 +30,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  */
 public class CarouselControl extends ComplexWidget {
-    private Icon icon = new Icon();
+    private final Icon icon = new Icon();
 
     public CarouselControl() {
         setElement(DOM.createAnchor());
@@ -39,22 +39,22 @@ public class CarouselControl extends ComplexWidget {
         add(icon);
     }
 
-    public void setIconType(IconType iconType) {
+    public void setIconType(final IconType iconType) {
         icon.setType(iconType);
     }
 
-    public void setHref(String href) {
+    public void setHref(final String href) {
         getElement().setAttribute("href", href);
     }
 
-    public void setPrev(boolean prev) {
+    public void setPrev(final boolean prev) {
         getElement().removeAttribute("data-slide");
         getElement().setAttribute("data-slide", "prev");
         StyleHelper.toggleStyleName(this, prev, Styles.LEFT);
         icon.addStyleName(Styles.ICON_PREV);
     }
 
-    public void setNext(boolean next) {
+    public void setNext(final boolean next) {
         getElement().removeAttribute("data-slide");
         getElement().setAttribute("data-slide", "next");
         StyleHelper.toggleStyleName(this, next, Styles.RIGHT);

@@ -31,7 +31,7 @@ public class Lead extends Paragraph {
         setStyleName(Styles.LEAD);
     }
 
-    public Lead(String text) {
+    public Lead(final String text) {
         this();
         setText(text);
     }

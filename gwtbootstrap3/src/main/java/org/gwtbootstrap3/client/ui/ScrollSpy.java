@@ -26,23 +26,18 @@ import com.google.gwt.user.client.ui.UIObject;
 
 /**
  * A ScrollSpy handles scrolling events (typically on {@code <body>}) and
- * updates "active" states of a {@link Nav} accordingly. <h3>Note</h3> The
- * target element <strong>must</strong> be a parent element of a
+ * updates "active" states of a {@link Nav} accordingly.
+ * <h3>Note</h3> The target element <strong>must</strong> be a parent element of a
  * {@code <ul class="nav">} or {@link Nav}.
  * <p/>
  * Also the ScrollSpy must be initialized when the target element has been added
- * to the DOM, for example in
- * {@link com.google.gwt.user.client.ui.Widget#onAttach()}.
- * <p/>
- * <pre>
- * {@code
- *     &#64;Override
- *     protected void onAttach() {
- *         super.onAttach();
- *         ScrollSpy.scrollSpy(this);
- *     }
- * }
- * </pre>
+ * to the DOM, for example in {@link com.google.gwt.user.client.ui.Widget#onAttach()}.
+ * <pre>{@code
+ * &#64;Override
+ * protected void onAttach() {
+ *     super.onAttach();
+ *     ScrollSpy.scrollSpy(this);
+ * }}</pre>
  * <p/>
  * See Bootstrap's <a
  * href="http://getbootstrap.com/javascript/#scrollspy">documentation</a>.

@@ -35,7 +35,7 @@ public class Bold extends AbstractTextWidget implements HasHTML {
         super(DOM.createElement("strong"));
     }
 
-    public Bold(String text) {
+    public Bold(final String text) {
         this();
         setText(text);
     }

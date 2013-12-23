@@ -45,7 +45,7 @@ public class Badge extends AbstractTextWidget implements HasPull {
         setStyleName(Styles.BADGE);
     }
 
-    public Badge(String text) {
+    public Badge(final String text) {
         this();
         setText(text);
     }

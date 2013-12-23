@@ -31,7 +31,7 @@ public class CarouselSlide extends Div {
         setStyleName(Styles.ITEM);
     }
 
-    public void setActive(boolean active) {
+    public void setActive(final boolean active) {
         StyleHelper.toggleStyleName(this, active, Styles.ACTIVE);
     }
 }

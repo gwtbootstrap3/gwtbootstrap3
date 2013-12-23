@@ -78,7 +78,7 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     }
 
     @Override
-    public void setIconSize(IconSize iconSize) {
+    public void setIconSize(final IconSize iconSize) {
         anchor.setIconSize(iconSize);
     }
 

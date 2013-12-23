@@ -79,7 +79,7 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText,
     }
 
     @Override
-    public void setIconPosition(IconPosition iconPosition) {
+    public void setIconPosition(final IconPosition iconPosition) {
         iconTextMixin.setIconPosition(iconPosition);
     }
 
@@ -89,7 +89,7 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText,
     }
 
     @Override
-    public void setIconSize(IconSize iconSize) {
+    public void setIconSize(final IconSize iconSize) {
         iconTextMixin.setIconSize(iconSize);
     }
 

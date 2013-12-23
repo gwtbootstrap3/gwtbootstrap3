@@ -38,9 +38,9 @@ public enum InputType implements Type {
     TEL("tel"),
     COLOR("color");
 
-    private String type;
+    private final String type;
 
-    private InputType(String type) {
+    private InputType(final String type) {
         this.type = type;
     }
 

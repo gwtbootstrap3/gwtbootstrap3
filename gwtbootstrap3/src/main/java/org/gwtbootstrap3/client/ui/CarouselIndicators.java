@@ -36,7 +36,7 @@ public class CarouselIndicators extends ComplexWidget {
     }
 
     @Override
-    public void add(Widget child) {
+    public void add(final Widget child) {
         if (!(child instanceof CarouselIndicator)) {
             throw new IllegalArgumentException("Children can only be of type CarouselIndicator");
         }

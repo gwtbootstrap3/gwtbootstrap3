@@ -35,7 +35,7 @@ public class Italics extends AbstractTextWidget implements HasHTML {
         super(DOM.createElement("em"));
     }
 
-    public Italics(String text) {
+    public Italics(final String text) {
         this();
         setText(text);
     }

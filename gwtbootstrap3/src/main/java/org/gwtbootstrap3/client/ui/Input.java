@@ -37,21 +37,21 @@ public class Input extends ComplexWidget implements HasInputType, HasPlaceholder
     }
 
     @UiConstructor
-    public Input(InputType type) {
+    public Input(final InputType type) {
         this();
         setType(type);
     }
 
-    public void setMin(String min) {
+    public void setMin(final String min) {
         getElement().setAttribute("min", min);
     }
 
-    public void setMax(String max) {
+    public void setMax(final String max) {
         getElement().setAttribute("max", max);
     }
 
     @Override
-    public void setType(InputType inputType) {
+    public void setType(final InputType inputType) {
         getElement().setAttribute(TYPE, inputType.getType());
     }
 

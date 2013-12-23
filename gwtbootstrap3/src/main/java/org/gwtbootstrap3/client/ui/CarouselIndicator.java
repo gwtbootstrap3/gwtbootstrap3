@@ -34,15 +34,15 @@ public class CarouselIndicator extends ComplexWidget {
         setElement(DOM.createElement("li"));
     }
 
-    public void setDataTarget(String dataTarget) {
+    public void setDataTarget(final String dataTarget) {
         getElement().setAttribute("data-target", dataTarget);
     }
 
-    public void setDataSlideTo(String dataSlideTo) {
+    public void setDataSlideTo(final String dataSlideTo) {
         getElement().setAttribute("data-slide-to", dataSlideTo);
     }
 
-    public void setActive(boolean active) {
+    public void setActive(final boolean active) {
         StyleHelper.toggleStyleName(this, active, Styles.ACTIVE);
     }
 }
