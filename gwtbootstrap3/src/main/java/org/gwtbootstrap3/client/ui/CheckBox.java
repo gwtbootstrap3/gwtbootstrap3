@@ -9,9 +9,9 @@ package org.gwtbootstrap3.client.ui;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,10 +22,13 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasValue;
+
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
@@ -39,7 +42,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Sven Jacobs
  */
 public class CheckBox extends Div implements HasName, HasEnabled, HasActive, HasText, HasIcon, HasIconPosition,
-        HasIconSize, HasClickHandlers {
+        HasIconSize, HasClickHandlers, HasFormValue, HasValue<Boolean> {
 
     private final CheckBoxButton button;
 
@@ -124,4 +127,34 @@ public class CheckBox extends Div implements HasName, HasEnabled, HasActive, Has
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
         return button.addClickHandler(handler);
     }
+
+	@Override
+	public String getFormValue() {
+		return button.getFormValue();
+	}
+
+	@Override
+	public void setFormValue(String value) {
+		button.setFormValue(value);
+	}
+
+	@Override
+	public HandlerRegistration addValueChangeHandler(ValueChangeHandler<Boolean> handler) {
+		return button.addValueChangeHandler(handler);
+	}
+
+	@Override
+	public Boolean getValue() {
+		return button.getValue();
+	}
+
+	@Override
+	public void setValue(Boolean value) {
+		button.setValue(value);
+	}
+
+	@Override
+	public void setValue(Boolean value, boolean fireEvents) {
+		button.setValue(value, fireEvents);
+	}
 }
