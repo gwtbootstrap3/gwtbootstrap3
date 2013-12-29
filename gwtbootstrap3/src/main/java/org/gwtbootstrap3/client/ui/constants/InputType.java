@@ -36,6 +36,7 @@ public enum InputType implements Type {
     URL("url"),
     SEARCH("search"),
     TEL("tel"),
+    TEXT("text"),
     COLOR("color");
 
     private final String type;
