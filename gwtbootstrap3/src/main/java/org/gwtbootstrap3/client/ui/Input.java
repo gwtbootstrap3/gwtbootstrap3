@@ -79,8 +79,16 @@ public class Input extends ComplexWidget implements HasInputType, HasPlaceholder
         return InputElement.as(getElement()).getValue();
     }
 
-    @Override
-    public void setFormValue(final String value) {
-        InputElement.as(getElement()).setValue(value);
-    }
+	@Override
+	public void setFormValue(String value) {
+		InputElement.as(getElement()).setValue(value);
+	}
+
+	public String getName() {
+		return InputElement.as(getElement()).getName();
+	}
+
+	public void setName(String name) {
+		InputElement.as(getElement()).setName(name);
+	}
 }

@@ -24,6 +24,8 @@ import org.gwtbootstrap3.client.ui.base.form.AbstractForm;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.FormType;
 
+import com.google.gwt.dom.client.FormElement;
+
 /**
  * A form.
  *
@@ -35,13 +37,29 @@ import org.gwtbootstrap3.client.ui.constants.FormType;
  */
 public class Form extends AbstractForm implements HasType<FormType> {
 
-    @Override
-    public void setType(final FormType type) {
-        StyleHelper.addUniqueEnumStyleName(this, FormType.class, type);
-    }
+	@Override
+	public void setType(final FormType type) {
+		StyleHelper.addUniqueEnumStyleName(this, FormType.class, type);
+	}
 
-    @Override
-    public FormType getType() {
-        return FormType.fromStyleName(getStyleName());
-    }
+	@Override
+	public FormType getType() {
+		return FormType.fromStyleName(getStyleName());
+	}
+
+	public String getAction() {
+		return FormElement.as(getElement()).getAction();
+	}
+
+	public void setAction(String action) {
+		FormElement.as(getElement()).setAction(action);
+	}
+
+	public String getMethod() {
+		return FormElement.as(getElement()).getMethod();
+	}
+
+	public void setMethod(String method) {
+		FormElement.as(getElement()).setMethod(method);
+	}
 }
