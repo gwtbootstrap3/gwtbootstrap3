@@ -128,6 +128,17 @@ If for some reason you need to completely disable the serving of the internal Bo
 </module>
 ```
 
+# Using a CDN for Resources
+
+If for some reason you need to completely serve the JS/CSS for your project from CDNs, simply inherit the `GwtBootstrap3CDN` module instead of `GwtBootstrap3`.
+
+```xml
+<module>
+    <inherits name="org.gwtbootstrap3.GwtBootstrap3CDN"/>
+    ...
+</module>
+```
+
 # Feature matrix
 
 Following Bootstrap features are natively supported by GwtBootstrap3 through
