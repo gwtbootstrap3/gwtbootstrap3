@@ -22,10 +22,12 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
@@ -39,7 +41,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Sven Jacobs
  */
 public class CheckBox extends Div implements HasName, HasEnabled, HasActive, HasText, HasIcon, HasIconPosition,
-        HasIconSize, HasClickHandlers {
+        HasIconSize, HasClickHandlers, HasFormValue, HasValue<Boolean> {
 
     private final CheckBoxButton button;
 
@@ -123,5 +125,35 @@ public class CheckBox extends Div implements HasName, HasEnabled, HasActive, Has
     @Override
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
         return button.addClickHandler(handler);
+    }
+
+    @Override
+    public String getFormValue() {
+        return button.getFormValue();
+    }
+
+    @Override
+    public void setFormValue(final String value) {
+        button.setFormValue(value);
+    }
+
+    @Override
+    public HandlerRegistration addValueChangeHandler(final ValueChangeHandler<Boolean> handler) {
+        return button.addValueChangeHandler(handler);
+    }
+
+    @Override
+    public Boolean getValue() {
+        return button.getValue();
+    }
+
+    @Override
+    public void setValue(final Boolean value) {
+        button.setValue(value);
+    }
+
+    @Override
+    public void setValue(final Boolean value, final boolean fireEvents) {
+        button.setValue(value, fireEvents);
     }
 }

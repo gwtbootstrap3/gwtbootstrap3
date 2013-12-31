@@ -21,7 +21,9 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.uibinder.client.UiConstructor;
+import com.google.gwt.user.client.ui.HasName;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.InputType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -29,7 +31,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Joshua Godi
  */
-public class Input extends ComplexWidget implements HasInputType, HasPlaceholder {
+public class Input extends ComplexWidget implements HasInputType, HasPlaceholder, HasFormValue, HasName {
 
     public Input() {
         setElement(Document.get().createElement("input"));
@@ -71,5 +73,25 @@ public class Input extends ComplexWidget implements HasInputType, HasPlaceholder
     @Override
     public String getPlaceholder() {
         return getElement().getAttribute(PLACEHOLDER);
+    }
+
+    @Override
+    public String getFormValue() {
+        return InputElement.as(getElement()).getValue();
+    }
+
+    @Override
+    public void setFormValue(final String value) {
+        InputElement.as(getElement()).setValue(value);
+    }
+
+    @Override
+    public String getName() {
+        return InputElement.as(getElement()).getName();
+    }
+
+    @Override
+    public void setName(final String name) {
+        InputElement.as(getElement()).setName(name);
     }
 }

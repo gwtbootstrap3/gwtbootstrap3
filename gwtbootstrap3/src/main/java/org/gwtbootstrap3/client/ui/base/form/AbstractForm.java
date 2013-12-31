@@ -1,6 +1,7 @@
 package org.gwtbootstrap3.client.ui.base.form;
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.FormElement;
 
 /*
  * #%L
@@ -29,5 +30,21 @@ public abstract class AbstractForm extends FormElementContainer {
 
     public AbstractForm() {
         setElement(Document.get().createFormElement());
+    }
+
+    public String getAction() {
+        return FormElement.as(getElement()).getAction();
+    }
+
+    public void setAction(final String action) {
+        FormElement.as(getElement()).setAction(action);
+    }
+
+    public String getMethod() {
+        return FormElement.as(getElement()).getMethod();
+    }
+
+    public void setMethod(final String method) {
+        FormElement.as(getElement()).setMethod(method);
     }
 }
