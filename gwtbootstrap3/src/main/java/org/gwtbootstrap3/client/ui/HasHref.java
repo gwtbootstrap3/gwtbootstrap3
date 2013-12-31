@@ -24,6 +24,8 @@ package org.gwtbootstrap3.client.ui;
  * @author Sven Jacobs
  */
 public interface HasHref {
+    public static final String HREF = "href";
+
     void setHref(String href);
 
     String getHref();

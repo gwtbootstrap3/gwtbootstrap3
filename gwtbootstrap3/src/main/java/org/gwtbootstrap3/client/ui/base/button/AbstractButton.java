@@ -25,6 +25,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.HasEnabled;
 import org.gwtbootstrap3.client.ui.*;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
@@ -40,7 +41,7 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Joshua Godi
  */
 public abstract class AbstractButton extends ComplexWidget implements HasEnabled, HasActive, HasType<ButtonType>,
-        HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasResponsiveness {
+        HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasResponsiveness, HasTargetHistoryToken, HasHref {
 
     public class ButtonStateHandler {
         private ButtonStateHandler() {
@@ -67,6 +68,7 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     private final ButtonStateHandler buttonStateHandler = new ButtonStateHandler();
     private final TargetMixin<AbstractButton> targetMixin = new TargetMixin<AbstractButton>(this);
     private final ActiveMixin<AbstractButton> activeMixin = new ActiveMixin<AbstractButton>(this);
+    private String targetHistoryToken;
 
     /**
      * Creates button with DEFAULT type.
@@ -154,6 +156,28 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     @Override
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setTargetHistoryToken(final String targetHistoryToken) {
+        this.targetHistoryToken = targetHistoryToken;
+        final String hash = History.encodeHistoryToken(targetHistoryToken);
+        setHref("#" + hash);
+    }
+
+    @Override
+    public String getTargetHistoryToken() {
+        return targetHistoryToken;
+    }
+
+    @Override
+    public void setHref(final String href) {
+        getElement().setAttribute(HREF, href);
+    }
+
+    @Override
+    public String getHref() {
+        return getElement().getAttribute(HREF);
     }
 
     /**
