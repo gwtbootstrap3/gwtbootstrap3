@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.NavbarPosition;
 import org.gwtbootstrap3.client.ui.constants.NavbarType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -41,7 +42,7 @@ public class Navbar extends ComplexWidget implements HasType<NavbarType>, HasRes
         setElement(Document.get().createElement("nav"));
         setStyleName(Styles.NAVBAR);
         setType(NavbarType.DEFAULT);
-        getElement().setAttribute("role", "navigation");
+        getElement().setAttribute(Attributes.ROLE, "navigation");
     }
 
     @Override
