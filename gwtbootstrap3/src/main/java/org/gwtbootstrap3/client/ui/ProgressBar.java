@@ -33,7 +33,7 @@ public class ProgressBar extends Div implements HasType<ProgressBarType> {
 
     public ProgressBar() {
         // Default attributes
-//        getElement().setAttribute("role", "progressbar");
+//        getElement().setAttribute(Attributes.ROLE, "progressbar");
 //        getElement().setAttribute("aria-valuemin", "0");
 //        getElement().setAttribute("aria-valuemax", "100");
 
