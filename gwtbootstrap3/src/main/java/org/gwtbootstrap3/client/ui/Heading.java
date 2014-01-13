@@ -23,11 +23,13 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.Emphasis;
 
 /**
  * @author Sven Jacobs
  */
-public class Heading extends AbstractTextWidget {
+public class Heading extends AbstractTextWidget implements HasEmphasis {
     private final Small subtext = new Small();
 
     @UiConstructor
@@ -44,5 +46,15 @@ public class Heading extends AbstractTextWidget {
 
     public void setSubtext(final String subtext) {
         this.subtext.setText(subtext);
+    }
+
+    @Override
+    public void setEmphasis(Emphasis emphasis) {
+        StyleHelper.addUniqueEnumStyleName(this, Emphasis.class, emphasis);
+    }
+
+    @Override
+    public Emphasis getEmphasis() {
+        return Emphasis.fromStyleName(getStyleName());
     }
 }
