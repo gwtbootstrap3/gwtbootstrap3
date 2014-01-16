@@ -20,6 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.NavbarPull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -30,10 +32,20 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see ListItem
  * @see ListDropDown
  */
-public class NavbarNav extends UnorderedList {
+public class NavbarNav extends UnorderedList implements HasNavbarPull {
 
     public NavbarNav() {
         setStyleName(Styles.NAV);
         addStyleName(Styles.NAVBAR_NAV);
+    }
+
+    @Override
+    public void setPull(final NavbarPull pull) {
+        StyleHelper.addUniqueEnumStyleName(this, NavbarPull.class, pull);
+    }
+
+    @Override
+    public NavbarPull getPull() {
+        return NavbarPull.fromStyleName(getStyleName());
     }
 }
