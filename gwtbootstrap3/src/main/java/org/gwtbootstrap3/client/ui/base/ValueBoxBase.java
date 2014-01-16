@@ -32,6 +32,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 
 public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasResponsiveness,
         HasPlaceholder, HasAutocomplete {
+
     private final IdMixin<ValueBoxBase<T>> idMixin = new IdMixin<ValueBoxBase<T>>(this);
 
     /**
