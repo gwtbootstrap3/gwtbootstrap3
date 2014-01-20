@@ -152,7 +152,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Grid system | Supported           | Yes        |
 | Typography  | Supported           | Yes        |
 | Code        | Supported           | Yes        |
-| Tables      | Not supported       | No         |
+| Tables      | Supported           | Yes        |
 | Forms       | Supported           | Yes        |
 | Buttons     | Supported           | Yes        |
 | Images      | Supported           | Yes        |
@@ -170,7 +170,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Navs                                | Supported           | Yes        |
 | Navbar                              | Supported           | Yes        |
 | Breadcrumbs                         | Supported           | Yes        |
-| Pagination                          | Not supported       | No         |
+| Pagination                          | Supported           | Yes        |
 | Labels                              | Supported           | Yes        |
 | Badges                              | Supported           | Yes        |
 | Jumbotron                           | Supported           | Yes        |
