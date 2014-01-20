@@ -149,6 +149,8 @@ public final class Styles {
     public static final String NAVBAR_LEFT = "navbar-left";
     public static final String NAVBAR_RIGHT = "navbar-right";
 
+    public static final String NEXT = "next";
+
     public static final String PANEL = "panel";
     public static final String PANEL_HEADING = "panel-heading";
     public static final String PANEL_TITLE = "panel-title";
@@ -157,7 +159,13 @@ public final class Styles {
 
     public static final String PAGE_HEADER = "page-header";
 
+    public static final String PAGER = "pager";
+
+    public static final String PAGINATION = "pagination";
+
     public static final String PRE_SCROLLABLE = "pre-scrollable";
+
+    public static final String PREVIOUS = "previous";
 
     public static final String PROGRESS = "progress";
     public static final String PROGRESS_BAR = "progress-bar";
