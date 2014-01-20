@@ -181,6 +181,8 @@ public final class Styles {
 
     public static final String SR_ONLY = "sr-only";
 
+    public static final String TABLE = "table";
+
     public static final String THUMBNAIL = "thumbnail";
 
     public static final String TOOLTIP = "tooltip";

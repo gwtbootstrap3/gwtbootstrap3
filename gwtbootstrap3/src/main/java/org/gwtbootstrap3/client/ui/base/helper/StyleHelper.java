@@ -80,6 +80,20 @@ public final class StyleHelper {
     }
 
     /**
+     * Adds enum value style name to UIObject unless style is {@code null}.
+     *
+     * @param uiObject Object to add style to
+     * @param style    Style name
+     */
+    public static <E extends Style.HasCssName> void removeEnumStyleName(final UIObject uiObject,
+                                                                        final E style) {
+
+        if (style != null && style.getCssName() != null && !style.getCssName().isEmpty()) {
+            uiObject.removeStyleName(style.getCssName());
+        }
+    }
+
+    /**
      * Returns {@code true} if specified style is contained in space-separated list of styles
      *
      * @param styleNames Space-separated list of styles
