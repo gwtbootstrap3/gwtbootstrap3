@@ -22,21 +22,26 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
-import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
+import com.google.gwt.user.client.ui.HasText;
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Emphasis;
 
 /**
  * @author Sven Jacobs
  */
-public class Heading extends AbstractTextWidget implements HasEmphasis {
+public class Heading extends ComplexWidget implements HasEmphasis, HasText {
     private final Small subtext = new Small();
+    private final Text text = new Text();
+    private final Text spacer = new Text(" ");
 
     @UiConstructor
     public Heading(final int size) {
-        super(DOM.createElement("h" + size));
-        getElement().appendChild(subtext.getElement());
+        setElement(DOM.createElement("h" + size));
         assert size > 0 && size < 7 : "Wrong heading size (must be between 1 and 6)";
+        add(text);
+        add(spacer);
+        add(subtext);
     }
 
     public Heading(final int size, final String text) {
@@ -56,5 +61,15 @@ public class Heading extends AbstractTextWidget implements HasEmphasis {
     @Override
     public Emphasis getEmphasis() {
         return Emphasis.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public String getText() {
+        return text.getText();
+    }
+
+    @Override
+    public void setText(String text) {
+        this.text.setText(text);
     }
 }
