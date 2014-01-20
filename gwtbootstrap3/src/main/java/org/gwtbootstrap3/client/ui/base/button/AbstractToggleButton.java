@@ -21,7 +21,7 @@ package org.gwtbootstrap3.client.ui.base.button;
  */
 
 import org.gwtbootstrap3.client.ui.HasToggle;
-import org.gwtbootstrap3.client.ui.base.Text;
+import org.gwtbootstrap3.client.ui.Text;
 import org.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.gwtbootstrap3.client.ui.constants.Styles;

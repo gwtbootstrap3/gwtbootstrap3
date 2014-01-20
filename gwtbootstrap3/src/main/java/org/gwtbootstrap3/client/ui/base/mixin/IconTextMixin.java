@@ -21,12 +21,8 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import com.google.gwt.user.client.ui.HasText;
-import org.gwtbootstrap3.client.ui.HasIcon;
-import org.gwtbootstrap3.client.ui.HasIconPosition;
-import org.gwtbootstrap3.client.ui.HasIconSize;
-import org.gwtbootstrap3.client.ui.Icon;
+import org.gwtbootstrap3.client.ui.*;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.Text;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
