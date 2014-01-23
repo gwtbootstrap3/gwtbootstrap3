@@ -20,30 +20,27 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 
 /**
- * Container with the h(1-6) tag so that you can do layouts like:
+ * Container with the span tag so that you can do layouts like:
  * <p/>
- * <HeadingContainer>
+ * <SpanPanel>
  * <Icon/>
  * <Text/>
- * </HeadingContainer>
+ * </SpanPanel>
  * <p/>
  * Please note, this doesn't enforce any requirements on the children. It is up to
  * you to make sure you produce valid HTML code.
  *
  * @author godi
  */
-public class HeadingContainer extends ComplexWidget implements HasResponsiveness {
+public class SpanPanel extends ComplexWidget implements HasResponsiveness {
 
-    @UiConstructor
-    public HeadingContainer(final int size) {
-        setElement(DOM.createElement("h" + size));
-        assert size > 0 && size < 7 : "Wrong heading size (must be between 1 and 6)";
+    public SpanPanel() {
+        setElement(DOM.createSpan());
     }
 
     @Override

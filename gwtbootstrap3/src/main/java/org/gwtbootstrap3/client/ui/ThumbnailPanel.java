@@ -25,9 +25,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Joshua Godi
  */
-public class ThumbnailContainer extends Div {
+public class ThumbnailPanel extends Div {
 
-    public ThumbnailContainer() {
+    public ThumbnailPanel() {
         addStyleName(Styles.THUMBNAIL);
     }
 }
