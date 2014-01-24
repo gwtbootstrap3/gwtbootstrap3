@@ -31,8 +31,8 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author godi
  */
 public class Pager extends UnorderedList implements HasResponsiveness {
-    private ListItem previous;
-    private ListItem next;
+    private final ListItem previous;
+    private final ListItem next;
 
     public Pager() {
         setStyleName(Styles.PAGER);

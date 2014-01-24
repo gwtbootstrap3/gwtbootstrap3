@@ -382,7 +382,6 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         $wnd.jQuery(e).tooltip(arg);
     }-*/;
 
-
     private native void tooltip(Element e, boolean animation, boolean html, String placement, String selector,
                                 String title, String trigger, int showDelay, int hideDelay, String container) /*-{
         $wnd.jQuery(e).tooltip({

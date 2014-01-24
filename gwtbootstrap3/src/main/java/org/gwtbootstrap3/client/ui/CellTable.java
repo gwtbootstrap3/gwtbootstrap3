@@ -57,7 +57,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      * @param keyProvider an instance of ProvidesKey<T>, or null if the record
      *                    object should act as its own key
      */
-    public CellTable(ProvidesKey<T> keyProvider) {
+    public CellTable(final ProvidesKey<T> keyProvider) {
         this(DEFAULT_PAGESIZE, keyProvider);
     }
 
@@ -68,7 +68,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      * @param pageSize  the page size
      * @param resources the resources to use for this widget
      */
-    public CellTable(int pageSize, Resources resources) {
+    public CellTable(final int pageSize, final Resources resources) {
         this(pageSize, resources, null);
     }
 
@@ -80,7 +80,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      * @param keyProvider an instance of ProvidesKey<T>, or null if the record
      *                    object should act as its own key
      */
-    public CellTable(int pageSize, ProvidesKey<T> keyProvider) {
+    public CellTable(final int pageSize, final ProvidesKey<T> keyProvider) {
         this(pageSize, getDefaultResources(), keyProvider);
     }
 
@@ -93,7 +93,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      * @param keyProvider an instance of ProvidesKey<T>, or null if the record
      *                    object should act as its own key
      */
-    public CellTable(final int pageSize, Resources resources, ProvidesKey<T> keyProvider) {
+    public CellTable(final int pageSize, final Resources resources, final ProvidesKey<T> keyProvider) {
         this(pageSize, resources, keyProvider, createDefaultLoadingIndicator(resources));
     }
 
@@ -108,8 +108,8 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      * @param loadingIndicator the widget to use as a loading indicator, or null
      *                         to disable
      */
-    public CellTable(final int pageSize, Resources resources, ProvidesKey<T> keyProvider,
-                     Widget loadingIndicator) {
+    public CellTable(final int pageSize, final Resources resources, final ProvidesKey<T> keyProvider,
+                     final Widget loadingIndicator) {
         this(pageSize, resources, keyProvider, loadingIndicator, true, true);
     }
 
@@ -133,8 +133,8 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      *                           can call {@link #getTableLoadingSection} and attach it to other elements outside the
      *                           table element
      */
-    public CellTable(final int pageSize, Resources resources, ProvidesKey<T> keyProvider,
-                     Widget loadingIndicator, boolean enableColGroup, boolean attachLoadingPanel) {
+    public CellTable(final int pageSize, final Resources resources, final ProvidesKey<T> keyProvider,
+                     final Widget loadingIndicator, final boolean enableColGroup, final boolean attachLoadingPanel) {
         super(pageSize, resources, keyProvider, loadingIndicator, enableColGroup, attachLoadingPanel);
         StyleHelper.addEnumStyleName(this, TableType.DEFAULT);
     }
@@ -146,8 +146,8 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      * @param resources the resources
      * @return a widget loading indicator
      */
-    private static Widget createDefaultLoadingIndicator(Resources resources) {
-        ImageResource loadingImg = resources.cellTableLoading();
+    private static Widget createDefaultLoadingIndicator(final Resources resources) {
+        final ImageResource loadingImg = resources.cellTableLoading();
         return (loadingImg == null) ? null : new com.google.gwt.user.client.ui.Image(loadingImg);
     }
 
@@ -168,7 +168,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
-    public void setStriped(boolean striped) {
+    public void setStriped(final boolean striped) {
         if (striped) {
             StyleHelper.addEnumStyleName(this, TableType.STRIPED);
         } else {
@@ -176,7 +176,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         }
     }
 
-    public void setBordered(boolean bordered) {
+    public void setBordered(final boolean bordered) {
         if (bordered) {
             StyleHelper.addEnumStyleName(this, TableType.BORDERED);
         } else {
@@ -184,7 +184,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         }
     }
 
-    public void setCondensed(boolean condensed) {
+    public void setCondensed(final boolean condensed) {
         if (condensed) {
             StyleHelper.addEnumStyleName(this, TableType.CONDENSED);
         } else {
@@ -192,7 +192,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         }
     }
 
-    public void setHover(boolean hover) {
+    public void setHover(final boolean hover) {
         if (hover) {
             StyleHelper.addEnumStyleName(this, TableType.HOVER);
         } else {

@@ -54,7 +54,7 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText {
     }
 
     @Override
-    public void setEmphasis(Emphasis emphasis) {
+    public void setEmphasis(final Emphasis emphasis) {
         StyleHelper.addUniqueEnumStyleName(this, Emphasis.class, emphasis);
     }
 
@@ -69,7 +69,7 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText {
     }
 
     @Override
-    public void setText(String text) {
+    public void setText(final String text) {
         this.text.setText(text);
     }
 }
