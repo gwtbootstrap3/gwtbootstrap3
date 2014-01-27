@@ -36,7 +36,7 @@ public class ListItemPanel extends AbstractAnchorListItem {
 
     @Override
     public void add(final Widget child) {
-        add(child, getElement());
+        anchor.add(child);
     }
 
     public void setText(final String text) {
