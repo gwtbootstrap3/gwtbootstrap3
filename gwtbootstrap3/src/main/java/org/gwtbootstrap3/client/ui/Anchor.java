@@ -47,9 +47,6 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
         HasTargetHistoryToken, HasText, HasIcon, HasIconPosition, HasIconSize, HasTabIndex, Focusable,
         HasResponsiveness {
 
-    // Empty HREF to avoid issues when clicking!
-    private static final String EMPTY_HREF = "javascript:void;";
-
     private final ToggleMixin<Anchor> toggleMixin = new ToggleMixin<Anchor>(this);
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
     private final FocusableMixin focusableMixin;

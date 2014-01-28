@@ -53,7 +53,7 @@ public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, Ha
     }
 
     public ThumbnailLink() {
-        this("#");
+        this(EMPTY_HREF);
     }
 
     @Override

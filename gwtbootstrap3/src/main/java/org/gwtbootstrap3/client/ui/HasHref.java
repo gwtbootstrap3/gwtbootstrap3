@@ -24,6 +24,9 @@ package org.gwtbootstrap3.client.ui;
  * @author Sven Jacobs
  */
 public interface HasHref {
+    // Empty HREF to avoid issues when clicking!
+    public static final String EMPTY_HREF = "javascript:void;";
+
     public static final String HREF = "href";
 
     void setHref(String href);

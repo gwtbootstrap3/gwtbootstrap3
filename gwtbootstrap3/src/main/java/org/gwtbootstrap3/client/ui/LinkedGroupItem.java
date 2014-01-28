@@ -55,7 +55,7 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
     }
 
     public LinkedGroupItem() {
-        this("#");
+        this(EMPTY_HREF);
     }
 
     @Override
