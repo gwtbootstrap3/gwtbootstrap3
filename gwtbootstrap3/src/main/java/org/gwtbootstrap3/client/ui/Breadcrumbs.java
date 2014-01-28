@@ -52,7 +52,6 @@ public class Breadcrumbs extends OrderedList {
         super.onAttach();
     }
 
-
     /**
      * {@inheritDoc}
      */

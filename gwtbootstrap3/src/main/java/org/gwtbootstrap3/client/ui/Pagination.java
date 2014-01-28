@@ -36,13 +36,13 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
         setStyleName(Styles.PAGINATION);
     }
 
-    public Pagination(PaginationSize paginationSize) {
+    public Pagination(final PaginationSize paginationSize) {
         this();
         setPaginationSize(paginationSize);
     }
 
     @Override
-    public void setPaginationSize(PaginationSize paginationSize) {
+    public void setPaginationSize(final PaginationSize paginationSize) {
         StyleHelper.addUniqueEnumStyleName(this, PaginationSize.class, paginationSize);
     }
 
@@ -64,5 +64,4 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
         add(listItem);
         return listItem;
     }
-
 }

@@ -379,7 +379,6 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         $wnd.jQuery(e).popover(arg);
     }-*/;
 
-
     private native void popover(Element e, boolean animation, boolean html, String placement, String selector,
                                 String title, String content, String trigger, int showDelay, int hideDelay, String container) /*-{
         $wnd.jQuery(e).popover({

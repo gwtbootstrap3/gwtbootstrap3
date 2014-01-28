@@ -47,7 +47,7 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     public ListItem() {
     }
 
-    public ListItem(String text) {
+    public ListItem(final String text) {
         setText(text);
     }
 
