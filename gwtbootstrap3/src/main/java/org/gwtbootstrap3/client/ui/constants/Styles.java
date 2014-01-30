@@ -9,9 +9,9 @@ package org.gwtbootstrap3.client.ui.constants;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -105,6 +105,8 @@ public final class Styles {
 
     public static final String IMG_RESPONSIVE = "img-responsive";
 
+    public static final String IN = "in";
+
     public static final String INPUT_GROUP = "input-group";
     public static final String INPUT_GROUP_ADDON = "input-group-addon";
     public static final String INPUT_GROUP_BTN = "input-group-btn";
@@ -153,8 +155,10 @@ public final class Styles {
 
     public static final String PANEL = "panel";
     public static final String PANEL_HEADING = "panel-heading";
+    public static final String PANEL_GROUP = "panel-group";
     public static final String PANEL_TITLE = "panel-title";
     public static final String PANEL_BODY = "panel-body";
+    public static final String PANEL_COLLAPSE = "panel-collapse";
     public static final String PANEL_FOOTER = "panel-footer";
 
     public static final String PAGE_HEADER = "page-header";
