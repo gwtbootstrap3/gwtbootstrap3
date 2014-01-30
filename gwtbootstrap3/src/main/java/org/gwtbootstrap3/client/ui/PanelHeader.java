@@ -20,9 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * @author Joshua Godi
@@ -36,7 +37,7 @@ public class PanelHeader extends Div implements HasId {
 
     @Override
     public void add(final Widget child) {
-        if ((child instanceof Heading)) {
+        if ((child instanceof Heading) || (child instanceof HeadingPanel)) {
             child.setStyleName(Styles.PANEL_TITLE);
         }
 

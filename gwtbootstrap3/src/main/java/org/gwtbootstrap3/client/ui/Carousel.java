@@ -9,9 +9,9 @@ package org.gwtbootstrap3.client.ui;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -20,12 +20,14 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.Event;
 import org.gwtbootstrap3.client.shared.event.SlidEvent;
 import org.gwtbootstrap3.client.shared.event.SlidHandler;
 import org.gwtbootstrap3.client.shared.event.SlideEvent;
 import org.gwtbootstrap3.client.shared.event.SlideHandler;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.Event;
 
 /**
  * @author Joshua Godi
@@ -96,12 +98,12 @@ public class Carousel extends Div {
         fireMethod(getElement(), "next");
     }
 
-    public void addSlideHandler(final SlideHandler slideHandler) {
-        addHandler(slideHandler, SlideEvent.getType());
+    public HandlerRegistration addSlideHandler(final SlideHandler slideHandler) {
+        return addHandler(slideHandler, SlideEvent.getType());
     }
 
-    public void addSlidHandler(final SlidHandler slidHandler) {
-        addHandler(slidHandler, SlidEvent.getType());
+    public HandlerRegistration addSlidHandler(final SlidHandler slidHandler) {
+        return addHandler(slidHandler, SlidEvent.getType());
     }
 
     /**
@@ -119,33 +121,34 @@ public class Carousel extends Div {
     }
 
     private native void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) /*-{
-        var target = this;
-        var $carousel = $wnd.jQuery(e);
+                                                                                        var target = this;
+                                                                                        var $carousel = $wnd.jQuery(e);
 
-        $carousel.on('slide.bs.carousel', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Carousel::onSlide(Lcom/google/gwt/user/client/Event;)(evt);
-        });
+                                                                                        $carousel.on('slide.bs.carousel', function (evt) {
+                                                                                        target.@org.gwtbootstrap3.client.ui.Carousel::onSlide(Lcom/google/gwt/user/client/Event;)(evt);
+                                                                                        });
 
-        $carousel.on('slid.bs.carousel', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Carousel::onSlid(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-    }-*/;
+                                                                                        $carousel.on('slid.bs.carousel', function (evt) {
+                                                                                        target.@org.gwtbootstrap3.client.ui.Carousel::onSlid(Lcom/google/gwt/user/client/Event;)(evt);
+                                                                                        });
+                                                                                        }-*/;
 
-    private native void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause, final boolean wrap) /*-{
-        $wnd.jQuery(e).carousel({
-            interval: interval,
-            pause: pause,
-            wrap: wrap
-        });
-    }-*/;
+    private native void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause,
+            final boolean wrap) /*-{
+                                $wnd.jQuery(e).carousel({
+                                interval: interval,
+                                pause: pause,
+                                wrap: wrap
+                                });
+                                }-*/;
 
     private native void fireMethod(final com.google.gwt.dom.client.Element e, String method) /*-{
-        $wnd.jQuery(e).carousel(method);
-    }-*/;
+                                                                                             $wnd.jQuery(e).carousel(method);
+                                                                                             }-*/;
 
     private native void fireMethod(final com.google.gwt.dom.client.Element e, int slideNumber) /*-{
-        $wnd.jQuery(e).carousel(slideNumber);
-    }-*/;
+                                                                                               $wnd.jQuery(e).carousel(slideNumber);
+                                                                                               }-*/;
 
     @Override
     protected void onLoad() {
