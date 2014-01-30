@@ -191,9 +191,18 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Scrollspy   | Supported     | No         |
 | Tooltip     | Supported     | Yes        |
 | Popover     | Supported     | Yes        |
-| Collapse    | Not supported | No         |
+| Collapse    | Supported     | Yes        |
 | Carousel    | Supported     | Yes        |
 | Affix       | Supported     | No         |
+
+## Implemented Bootstrap Plugins
+
+| Plugin         | Status        | In Demo    |
+|----------------|---------------|------------|
+| Bootbox        | Supported     | Yes        |
+| Slider         | Supported     | Yes        |
+| DateTimePicker | Supported     | Yes        |
+| TypeAhead      | Not Supported | No         |
 
 # Relationship between raw Bootstrap components and GWT widgets 
 
