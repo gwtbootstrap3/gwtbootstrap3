@@ -22,8 +22,10 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
+
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.Alignment;
 
 /**
  * Container with the h(1-6) tag so that you can do layouts like:
@@ -38,12 +40,22 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
  *
  * @author godi
  */
-public class HeadingPanel extends ComplexWidget implements HasResponsiveness {
+public class HeadingPanel extends ComplexWidget implements HasResponsiveness, HasAlignment {
 
     @UiConstructor
     public HeadingPanel(final int size) {
         setElement(DOM.createElement("h" + size));
         assert size > 0 && size < 7 : "Wrong heading size (must be between 1 and 6)";
+    }
+
+    @Override
+    public void setAlignment(final Alignment alignment) {
+        StyleHelper.addUniqueEnumStyleName(this, Alignment.class, alignment);
+    }
+
+    @Override
+    public Alignment getAlignment() {
+        return Alignment.fromStyleName(getStyleName());
     }
 
     @Override

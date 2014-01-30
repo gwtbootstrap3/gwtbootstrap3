@@ -23,14 +23,16 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasText;
+
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.Alignment;
 import org.gwtbootstrap3.client.ui.constants.Emphasis;
 
 /**
  * @author Sven Jacobs
  */
-public class Heading extends ComplexWidget implements HasEmphasis, HasText {
+public class Heading extends ComplexWidget implements HasEmphasis, HasText, HasAlignment {
     private final Small subtext = new Small();
     private final Text text = new Text();
     private final Text spacer = new Text(" ");
@@ -61,6 +63,16 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText {
     @Override
     public Emphasis getEmphasis() {
         return Emphasis.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public void setAlignment(final Alignment alignment) {
+        StyleHelper.addUniqueEnumStyleName(this, Alignment.class, alignment);
+    }
+
+    @Override
+    public Alignment getAlignment() {
+        return Alignment.fromStyleName(getStyleName());
     }
 
     @Override
