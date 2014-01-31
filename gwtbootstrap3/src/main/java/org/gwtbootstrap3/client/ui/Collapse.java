@@ -49,6 +49,13 @@ public class Collapse extends Div {
     }
 
     /**
+     * Sets the default state to show or hide. Show is true.
+     */
+    public void setToggle(boolean toggle) {
+    	this.toggle = toggle;
+    }
+
+    /**
      * Causes the collapse to show or hide
      */
     public void toggle() {
