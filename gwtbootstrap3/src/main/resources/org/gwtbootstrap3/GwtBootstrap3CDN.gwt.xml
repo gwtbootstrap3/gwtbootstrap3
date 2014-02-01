@@ -24,8 +24,6 @@
     <inherits name="com.google.gwt.text.Text"/>
     <inherits name="com.google.gwt.event.dom.DomEvent"/>
 
-    <entry-point class="org.gwtbootstrap3.client.GwtBootstrap3"/>
-
     <source path="client"/>
     <source path="shared"/>
 </module>

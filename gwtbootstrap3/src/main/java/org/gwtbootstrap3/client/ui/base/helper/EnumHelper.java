@@ -36,6 +36,7 @@ public class EnumHelper {
      * @param <E>
      * @return First enum constant found or default value
      */
+    @SuppressWarnings("unchecked")
     public static <E extends Enum<? extends Style.HasCssName>> E fromStyleName(final String styleName,
                                                                                final Class<E> enumClass,
                                                                                final E defaultValue) {
@@ -49,7 +50,6 @@ public class EnumHelper {
             final String cssClass = anEnum.getCssName();
 
             if (cssClass != null && StyleHelper.containsStyle(styleName, cssClass)) {
-                //noinspection unchecked
                 return (E) anEnum;
             }
         }

@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client;
 
 /*
  * #%L
@@ -20,11 +20,17 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-/**
- * @author Grant Slender
- */
-public interface HasParent {
-    void setDataParent(String href);
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.ScriptInjector;
 
-    String getDataParent();
+/**
+ * @author Sven Jacobs
+ */
+public class GwtBootstrap3EntryPoint implements EntryPoint {
+
+    @Override
+    public void onModuleLoad() {
+        ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText()).inject();
+        ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.bootstrap().getText()).inject();
+    }
 }

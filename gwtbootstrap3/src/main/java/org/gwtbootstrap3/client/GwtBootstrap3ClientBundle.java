@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2014 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,13 +20,21 @@ package org.gwtbootstrap3.client;
  * #L%
  */
 
-import com.google.gwt.core.client.EntryPoint;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.resources.client.ClientBundle;
+import com.google.gwt.resources.client.TextResource;
 
 /**
  * @author Sven Jacobs
  */
-public class GwtBootstrap3 implements EntryPoint {
-    @Override
-    public void onModuleLoad() {
-    }
+interface GwtBootstrap3ClientBundle extends ClientBundle {
+
+    static final GwtBootstrap3ClientBundle INSTANCE = GWT.create(GwtBootstrap3ClientBundle.class);
+
+    @Source("resource/js/jquery-1.10.2.min.js")
+    TextResource jQuery();
+
+    @Source("resource/js/bootstrap.min.js")
+    TextResource bootstrap();
 }

@@ -26,7 +26,4 @@
     </public>
 
     <stylesheet src="css/font-awesome.min.css"/>
-
-    <script src="js/jquery-1.10.2.min.js"/>
-    <script src="js/bootstrap.min.js"/>
 </module>
