@@ -42,7 +42,7 @@ import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
-import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasHTML;
 
 /**
  * Anchor {@code <a>} element with text and optional icon.
@@ -52,7 +52,7 @@ import com.google.gwt.user.client.ui.HasText;
  * @author Grant Slender
  */
 public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasToggle, HasParent,
-        HasTargetHistoryToken, HasText, HasIcon, HasIconPosition, HasIconSize, HasTabIndex, Focusable, HasResponsiveness {
+        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, HasIconSize, HasTabIndex, Focusable, HasResponsiveness {
 
     private final ToggleMixin<Anchor> toggleMixin = new ToggleMixin<Anchor>(this);
     private final ParentMixin<Anchor> parentMixin = new ParentMixin<Anchor>(this);
@@ -197,4 +197,14 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
+
+	@Override
+	public String getHTML() {
+		return getElement().getInnerHTML();
+	}
+
+	@Override
+	public void setHTML(String html) {
+		getElement().setInnerHTML(html);		
+	}
 }
