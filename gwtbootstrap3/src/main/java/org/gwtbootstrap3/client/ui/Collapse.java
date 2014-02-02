@@ -9,9 +9,9 @@ package org.gwtbootstrap3.client.ui;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -20,10 +20,18 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.shared.event.HiddenEvent;
+import org.gwtbootstrap3.client.shared.event.HiddenHandler;
+import org.gwtbootstrap3.client.shared.event.HideEvent;
+import org.gwtbootstrap3.client.shared.event.HideHandler;
+import org.gwtbootstrap3.client.shared.event.ShowEvent;
+import org.gwtbootstrap3.client.shared.event.ShowHandler;
+import org.gwtbootstrap3.client.shared.event.ShownEvent;
+import org.gwtbootstrap3.client.shared.event.ShownHandler;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
-import org.gwtbootstrap3.client.shared.event.*;
-import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Grant Slender
@@ -35,16 +43,13 @@ public class Collapse extends Div {
     public Collapse() {
         // Set the default styles
         setStyleName(Styles.COLLAPSE);
-
-        // Bind jquery events
-        bindJavaScriptEvents(getElement());
     }
 
     /**
      * Sets the default state to show or hide. Show is true.
      */
-    public void setToggle(boolean toggle) {
-    	this.toggle = toggle;
+    public void setToggle(final boolean toggle) {
+        this.toggle = toggle;
     }
 
     /**
@@ -150,6 +155,9 @@ public class Collapse extends Div {
     @Override
     protected void onLoad() {
         super.onLoad();
+
+        // Bind jquery events
+        bindJavaScriptEvents(getElement());
 
         // Configure the collapse
         collapse(getElement(), toggle);
