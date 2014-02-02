@@ -61,6 +61,7 @@ public final class Styles {
     public static final String COLLAPSE = "collapse";
 
     public static final String CONTAINER = "container";
+    public static final String CONTAINER_FLUID = "container-fluid";
 
     public static final String CONTROL_LABEL = "control-label";
 

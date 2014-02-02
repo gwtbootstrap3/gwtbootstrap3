@@ -20,12 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.client.ui.HasText;
-import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -42,14 +38,12 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class PageHeader extends Widget implements HasText, HasId, HasResponsiveness {
+public class PageHeader extends Div implements HasText {
 
-    private final IdMixin<PageHeader> idMixin = new IdMixin<PageHeader>(this);
     private String heading;
     private String subText;
 
     public PageHeader() {
-        setElement(Document.get().createDivElement());
         setStyleName(Styles.PAGE_HEADER);
     }
 
@@ -67,26 +61,6 @@ public class PageHeader extends Widget implements HasText, HasId, HasResponsiven
     @Override
     public String getText() {
         return heading;
-    }
-
-    @Override
-    public void setId(final String id) {
-        idMixin.setId(id);
-    }
-
-    @Override
-    public String getId() {
-        return idMixin.getId();
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     private void render() {

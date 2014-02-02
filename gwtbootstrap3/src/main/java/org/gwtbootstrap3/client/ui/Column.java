@@ -20,12 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.ColumnOffset;
 import org.gwtbootstrap3.client.ui.constants.ColumnPull;
 import org.gwtbootstrap3.client.ui.constants.ColumnPush;
@@ -39,13 +36,9 @@ import org.gwtbootstrap3.client.ui.constants.ColumnSize;
  * @author Pontus Enmark
  * @see Row
  */
-public class Column extends ComplexWidget implements HasResponsiveness {
+public class Column extends Div {
 
     private static final String SEPARATOR = "[, ]+";
-
-    private Column() {
-        setElement(Document.get().createDivElement());
-    }
 
     public Column(final ColumnSize size, final Widget... widgets) {
         this(size);
@@ -75,7 +68,6 @@ public class Column extends ComplexWidget implements HasResponsiveness {
      * @param sizes Column sizes
      */
     public Column(final ColumnSize... sizes) {
-        this();
         setSize(sizes);
     }
 
@@ -162,16 +154,6 @@ public class Column extends ComplexWidget implements HasResponsiveness {
 
     public void addOffset(final String offsets) {
         addEnumStringValues(offsets, ColumnOffset.class, false);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumVarargsValues(final E[] values,

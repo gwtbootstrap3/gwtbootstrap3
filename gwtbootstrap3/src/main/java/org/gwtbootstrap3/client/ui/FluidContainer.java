@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2014 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,16 +23,15 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * Div element that automatically centers contents. Fixed-width.
+ * Div element that automatically centers contents. Full-width.
  *
- * @author Sven Jacobs
  * @author Joshua Godi
  * @see Row
  * @see Column
  */
-public class Container extends Div {
+public class FluidContainer extends Div {
 
-    public Container() {
-        setStyleName(Styles.CONTAINER);
+    public FluidContainer() {
+        setStyleName(Styles.CONTAINER_FLUID);
     }
 }

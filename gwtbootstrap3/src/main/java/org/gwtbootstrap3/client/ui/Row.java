@@ -20,10 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -33,10 +30,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  * @see Column
  */
-public class Row extends ComplexWidget implements HasResponsiveness {
+public class Row extends Div {
 
     public Row() {
-        setElement(Document.get().createDivElement());
         setStyleName(Styles.ROW);
     }
 
@@ -46,15 +42,5 @@ public class Row extends ComplexWidget implements HasResponsiveness {
 
     public void setMarginBottom(final int marginBottom) {
         getElement().getStyle().setMarginBottom(marginBottom, Style.Unit.PX);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

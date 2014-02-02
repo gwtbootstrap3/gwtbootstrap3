@@ -20,9 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -31,20 +28,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class Jumbotron extends ComplexWidget implements HasResponsiveness {
+public class Jumbotron extends Div {
 
     public Jumbotron() {
-        setElement(Document.get().createDivElement());
         setStyleName(Styles.JUMBOTRON);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }
