@@ -30,9 +30,12 @@ public class GwtBootstrap3EntryPoint implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText()).setWindow(ScriptInjector.TOP_WINDOW)
+        ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW)
                 .inject();
-        ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.bootstrap().getText()).setWindow(ScriptInjector.TOP_WINDOW)
+
+        ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.bootstrap().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW)
                 .inject();
     }
 }

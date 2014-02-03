@@ -29,6 +29,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  * @see Row
  * @see Column
+ * @see FluidContainer
  */
 public class Container extends Div {
 
