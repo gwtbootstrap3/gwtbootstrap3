@@ -27,6 +27,8 @@ import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.Anchor;
 import org.gwtbootstrap3.client.ui.HasHref;
 import org.gwtbootstrap3.client.ui.HasTargetHistoryToken;
+import org.gwtbootstrap3.client.ui.HasToggle;
+import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * Base class for list items that contain an {@link org.gwtbootstrap3.client.ui.Anchor} link.
@@ -34,7 +36,7 @@ import org.gwtbootstrap3.client.ui.HasTargetHistoryToken;
  * @author Sven Jacobs
  */
 public abstract class AbstractAnchorListItem extends AbstractListItem
-        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable {
+        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasToggle {
 
     protected final Anchor anchor;
 
@@ -86,5 +88,15 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     @Override
     public void setTabIndex(final int index) {
         anchor.setTabIndex(index);
+    }
+
+    @Override
+    public void setToggle(Toggle toggle) {
+        anchor.setToggle(toggle);
+    }
+
+    @Override
+    public Toggle getToggle() {
+        return anchor.getToggle();
     }
 }

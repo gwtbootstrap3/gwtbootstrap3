@@ -1,10 +1,10 @@
-package org.gwtbootstrap3.client.ui.constants;
+package org.gwtbootstrap3.client.ui;
 
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2014 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,24 +20,22 @@ package org.gwtbootstrap3.client.ui.constants;
  * #L%
  */
 
+import com.google.gwt.user.client.ui.Widget;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+
 /**
- * @author Sven Jacobs
+ * @author godi
  */
-public enum Toggle {
-    BUTTON("button"),
-    BUTTONS("buttons"),
-    COLLAPSE("collapse"),
-    DROPDOWN("dropdown"),
-    TAB("tab"),
-    MODAL("modal");
-
-    private final String toggle;
-
-    private Toggle(final String toggle) {
-        this.toggle = toggle;
+public class TabContent extends Div {
+    public TabContent() {
+        setStyleName(Styles.TAB_CONTENT);
     }
 
-    public String getToggle() {
-        return toggle;
+    @Override
+    public void add(Widget child) {
+        if (!(child instanceof TabPane)) {
+            throw new IllegalArgumentException("TabContent must have children of type TabPane.");
+        }
+        super.add(child);
     }
 }

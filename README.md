@@ -194,6 +194,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | Collapse    | Supported     | Yes        |
 | Carousel    | Supported     | Yes        |
 | Affix       | Supported     | No         |
+| Tabs        | Supported     | Yes        |
 
 ## Implemented Bootstrap Plugins
 
