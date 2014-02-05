@@ -203,6 +203,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | [Slider](http://www.eyecon.ro/bootstrap-slider/)                       | Supported     | Yes        |
 | [DateTimePicker](http://eonasdan.github.io/bootstrap-datetimepicker/)  | Supported     | Yes        |
 | TypeAhead                                                              | Not Supported | No         |
+| [Summernote's WYSIWYG Editor](http://hackerwins.github.io/summernote)  | Supported     | Yes        |
 
 # Relationship between raw Bootstrap components and GWT widgets 
 
