@@ -9,9 +9,9 @@ package org.gwtbootstrap3.client.ui;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -20,18 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.shared.event.HiddenEvent;
-import org.gwtbootstrap3.client.shared.event.HiddenHandler;
-import org.gwtbootstrap3.client.shared.event.HideEvent;
-import org.gwtbootstrap3.client.shared.event.HideHandler;
-import org.gwtbootstrap3.client.shared.event.ShowEvent;
-import org.gwtbootstrap3.client.shared.event.ShowHandler;
-import org.gwtbootstrap3.client.shared.event.ShownEvent;
-import org.gwtbootstrap3.client.shared.event.ShownHandler;
-import org.gwtbootstrap3.client.ui.constants.Styles;
-
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
+import org.gwtbootstrap3.client.shared.event.*;
+import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Grant Slender
@@ -118,39 +110,39 @@ public class Collapse extends Div {
     }
 
     private native void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) /*-{
-                                                                                        var target = this;
-                                                                                        var $collapse = $wnd.jQuery(e);
+        var target = this;
+        var $collapse = $wnd.jQuery(e);
 
-                                                                                        $collapse.on('show.bs.collapse', function (evt) {
-                                                                                        target.@org.gwtbootstrap3.client.ui.Collapse::onShow(Lcom/google/gwt/user/client/Event;)(evt);
-                                                                                        });
+        $collapse.on('show.bs.collapse', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Collapse::onShow(Lcom/google/gwt/user/client/Event;)(evt);
+        });
 
-                                                                                        $collapse.on('shown.bs.collapse', function (evt) {
-                                                                                        target.@org.gwtbootstrap3.client.ui.Collapse::onShown(Lcom/google/gwt/user/client/Event;)(evt);
-                                                                                        });
+        $collapse.on('shown.bs.collapse', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Collapse::onShown(Lcom/google/gwt/user/client/Event;)(evt);
+        });
 
-                                                                                        $collapse.on('hide.bs.collapse', function (evt) {
-                                                                                        target.@org.gwtbootstrap3.client.ui.Collapse::onHide(Lcom/google/gwt/user/client/Event;)(evt);
-                                                                                        });
+        $collapse.on('hide.bs.collapse', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Collapse::onHide(Lcom/google/gwt/user/client/Event;)(evt);
+        });
 
-                                                                                        $collapse.on('hidden.bs.collapse', function (evt) {
-                                                                                        target.@org.gwtbootstrap3.client.ui.Collapse::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
-                                                                                        });
-                                                                                        }-*/;
+        $collapse.on('hidden.bs.collapse', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Collapse::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+    }-*/;
 
     private native void collapse(final com.google.gwt.dom.client.Element e, final boolean toggle) /*-{
-                                                                                                  $wnd.jQuery(e).collapse({
-                                                                                                  toggle: toggle
-                                                                                                  });
-                                                                                                  }-*/;
+        $wnd.jQuery(e).collapse({
+            toggle: toggle
+        });
+    }-*/;
 
     private native void fireMethod(final com.google.gwt.dom.client.Element e, String method) /*-{
-                                                                                             $wnd.jQuery(e).collapse(method);
-                                                                                             }-*/;
+        $wnd.jQuery(e).collapse(method);
+    }-*/;
 
     private native void fireMethod(final com.google.gwt.dom.client.Element e, int slideNumber) /*-{
-                                                                                               $wnd.jQuery(e).collapse(slideNumber);
-                                                                                               }-*/;
+        $wnd.jQuery(e).collapse(slideNumber);
+    }-*/;
 
     @Override
     protected void onLoad() {

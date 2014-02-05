@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.shared.event.ShowEvent;
 import org.gwtbootstrap3.client.shared.event.ShowHandler;
 import org.gwtbootstrap3.client.shared.event.ShownEvent;
@@ -31,7 +32,7 @@ import org.gwtbootstrap3.client.shared.event.ShownHandler;
 /**
  * @author godi
  */
-public class TabListItem extends ListItem {
+public class TabListItem extends ListItem implements HasHTML {
 
     public TabListItem() {
         super();
@@ -59,6 +60,16 @@ public class TabListItem extends ListItem {
 
         // Bind JS Events
         bindJsEvents(anchor.getElement());
+    }
+
+    @Override
+    public String getHTML() {
+        return anchor.getHTML();
+    }
+
+    @Override
+    public void setHTML(String html) {
+        anchor.setHTML(html);
     }
 
     /**

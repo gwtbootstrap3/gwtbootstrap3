@@ -186,6 +186,7 @@ public final class Styles {
 
     public static final String SR_ONLY = "sr-only";
 
+    public static final String TABBABLE = "tabbable";
     public static final String TAB_CONTENT = "tab-content";
     public static final String TAB_PANE = "tab-pane";
 
