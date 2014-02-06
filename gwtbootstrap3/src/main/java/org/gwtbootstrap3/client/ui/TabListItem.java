@@ -29,6 +29,7 @@ import org.gwtbootstrap3.client.shared.event.ShowHandler;
 import org.gwtbootstrap3.client.shared.event.ShownEvent;
 import org.gwtbootstrap3.client.shared.event.ShownHandler;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
+import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * @author godi
@@ -36,11 +37,12 @@ import org.gwtbootstrap3.client.ui.constants.Attributes;
 public class TabListItem extends ListItem implements HasHTML {
 
     public TabListItem() {
-        super();
+        this("");
     }
 
     public TabListItem(final String text) {
         super(text);
+        setToggle(Toggle.TAB);
     }
 
     public void showTab() {
