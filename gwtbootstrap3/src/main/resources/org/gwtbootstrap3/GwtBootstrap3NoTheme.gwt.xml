@@ -29,7 +29,7 @@ for you.
     <inherits name="com.google.gwt.resources.Resources"/>
     <inherits name="org.gwtbootstrap3.client.NoThemeResources"/>
 
-    <entry-point class="org.gwtbootstrap3.client.GwtBootstrap3EntryPoint"/>
+    <entry-point class="org.gwtbootstrap3.client.GwtBootstrap3Entry"/>
 
     <source path="client"/>
     <source path="shared"/>
