@@ -26,7 +26,7 @@ import com.google.gwt.core.client.ScriptInjector;
 /**
  * @author Sven Jacobs
  */
-public class GwtBootstrap3EntryPoint implements EntryPoint {
+public class GwtBootstrap3Entry implements EntryPoint {
 
     @Override
     public void onModuleLoad() {

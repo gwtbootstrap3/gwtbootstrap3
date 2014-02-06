@@ -18,12 +18,11 @@
   limitations under the License.
   #L%
   -->
-<module rename-to="GwtBootstrap3">
+<module rename-to="GwtBootstrap3NoResources">
     <inherits name="com.google.gwt.core.Core"/>
     <inherits name="com.google.gwt.resources.Resources"/>
-    <inherits name="org.gwtbootstrap3.client.Resources"/>
 
-    <entry-point class="org.gwtbootstrap3.client.GwtBootstrap3Entry"/>
+    <entry-point class="org.gwtbootstrap3.client.GwtBootstrap3NoResourcesEntry"/>
 
     <source path="client"/>
     <source path="shared"/>
