@@ -22,5 +22,4 @@
     <inherits name="org.gwtbootstrap3.client.NoThemeResources"/>
 
     <stylesheet src="css/bootstrap.min.css"/>
-    <stylesheet src="css/bootstrap-tabs.css"/>
 </module>
