@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -35,11 +36,11 @@ public class CarouselIndicator extends ComplexWidget {
     }
 
     public void setDataTarget(final String dataTarget) {
-        getElement().setAttribute("data-target", dataTarget);
+        getElement().setAttribute(Attributes.DATA_TARGET, dataTarget);
     }
 
     public void setDataSlideTo(final String dataSlideTo) {
-        getElement().setAttribute("data-slide-to", dataSlideTo);
+        getElement().setAttribute(Attributes.DATA_SLIDE_TO, dataSlideTo);
     }
 
     public void setActive(final boolean active) {

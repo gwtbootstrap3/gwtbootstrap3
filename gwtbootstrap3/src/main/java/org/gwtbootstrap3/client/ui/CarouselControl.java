@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -48,15 +49,15 @@ public class CarouselControl extends ComplexWidget {
     }
 
     public void setPrev(final boolean prev) {
-        getElement().removeAttribute("data-slide");
-        getElement().setAttribute("data-slide", "prev");
+        getElement().removeAttribute(Attributes.DATA_SLIDE);
+        getElement().setAttribute(Attributes.DATA_SLIDE, "prev");
         StyleHelper.toggleStyleName(this, prev, Styles.LEFT);
         icon.addStyleName(Styles.ICON_PREV);
     }
 
     public void setNext(final boolean next) {
-        getElement().removeAttribute("data-slide");
-        getElement().setAttribute("data-slide", "next");
+        getElement().removeAttribute(Attributes.DATA_SLIDE);
+        getElement().setAttribute(Attributes.DATA_SLIDE, "next");
         StyleHelper.toggleStyleName(this, next, Styles.RIGHT);
         icon.addStyleName(Styles.ICON_NEXT);
     }

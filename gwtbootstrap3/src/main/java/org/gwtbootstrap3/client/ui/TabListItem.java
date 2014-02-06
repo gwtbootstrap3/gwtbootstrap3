@@ -28,6 +28,7 @@ import org.gwtbootstrap3.client.shared.event.ShowEvent;
 import org.gwtbootstrap3.client.shared.event.ShowHandler;
 import org.gwtbootstrap3.client.shared.event.ShownEvent;
 import org.gwtbootstrap3.client.shared.event.ShownHandler;
+import org.gwtbootstrap3.client.ui.constants.Attributes;
 
 /**
  * @author godi
@@ -52,6 +53,24 @@ public class TabListItem extends ListItem implements HasHTML {
 
     public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
         return addHandler(shownHandler, ShownEvent.getType());
+    }
+
+    /**
+     * We override set href here because we want to ensure that projects with gwt places and gwtp
+     * don't try to execute a place change event with it being clicked
+     */
+    @Override
+    public void setHref(String href) {
+        // Ensuring that the data target has # in it
+        if (!href.contains("#")) {
+            href = "#" + href;
+        }
+        anchor.getElement().setAttribute(Attributes.DATA_TARGET, href);
+    }
+
+    @Override
+    public String getHref() {
+        return anchor.getElement().getAttribute(Attributes.DATA_TARGET);
     }
 
     @Override

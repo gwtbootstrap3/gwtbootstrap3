@@ -26,6 +26,7 @@ import org.gwtbootstrap3.client.shared.event.SlidEvent;
 import org.gwtbootstrap3.client.shared.event.SlidHandler;
 import org.gwtbootstrap3.client.shared.event.SlideEvent;
 import org.gwtbootstrap3.client.shared.event.SlideHandler;
+import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -44,7 +45,7 @@ public class Carousel extends Div {
         addStyleName(Styles.SLIDE);
 
         // Set the default attribute
-        getElement().setAttribute("data-ride", "carousel");
+        getElement().setAttribute(Attributes.DATA_RIDE, "carousel");
 
         // Bind jquery events
         bindJavaScriptEvents(getElement());

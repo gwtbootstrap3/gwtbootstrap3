@@ -33,6 +33,9 @@ public class Attributes {
     public static final String DATA_TARGET = "data-target";
     public static final String DATA_TOGGLE = "data-toggle";
     public static final String DATA_PARENT = "data-parent";
+    public static final String DATA_SLIDE_TO = "data-slide-to";
+    public static final String DATA_RIDE = "data-ride";
+    public static final String DATA_SLIDE = "data-slide";
 
     public static final String FOR = "for";
 
