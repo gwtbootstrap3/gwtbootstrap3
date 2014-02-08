@@ -77,16 +77,4 @@ public class Pre extends AbstractTextWidget implements HasHTML {
             removeStyleName(Styles.PRE_SCROLLABLE);
         }
     }
-
-    @Override
-    protected void onLoad() {
-        super.onLoad();
-
-        // When the widget loads, force the styling of pretty print
-        prettyPrint();
-    }
-
-    private native void prettyPrint() /*-{
-        $wnd.prettyPrint();
-    }-*/;
 }

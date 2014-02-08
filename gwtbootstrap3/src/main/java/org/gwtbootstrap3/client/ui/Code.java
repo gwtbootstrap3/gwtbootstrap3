@@ -63,16 +63,4 @@ public class Code extends AbstractTextWidget implements HasHTML {
 
         getElement().setInnerHTML(builder.toSafeHtml().asString());
     }
-
-    @Override
-    protected void onLoad() {
-        super.onLoad();
-
-        // When the widget loads, force the styling of pretty print
-        prettyPrint();
-    }
-
-    private native void prettyPrint() /*-{
-        $wnd.prettyPrint();
-    }-*/;
 }
