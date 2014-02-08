@@ -46,9 +46,17 @@ public class Carousel extends Div {
 
         // Set the default attribute
         getElement().setAttribute(Attributes.DATA_RIDE, "carousel");
+    }
+
+    @Override
+    protected void onLoad() {
+        super.onLoad();
 
         // Bind jquery events
         bindJavaScriptEvents(getElement());
+
+        // Configure the carousel
+        carousel(getElement(), interval, pause, wrap);
     }
 
     public void setInterval(final int interval) {
@@ -121,40 +129,32 @@ public class Carousel extends Div {
     }
 
     private native void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) /*-{
-                                                                                        var target = this;
-                                                                                        var $carousel = $wnd.jQuery(e);
+        var target = this;
+        var $carousel = $wnd.jQuery(e);
 
-                                                                                        $carousel.on('slide.bs.carousel', function (evt) {
-                                                                                        target.@org.gwtbootstrap3.client.ui.Carousel::onSlide(Lcom/google/gwt/user/client/Event;)(evt);
-                                                                                        });
+        $carousel.on('slide.bs.carousel', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Carousel::onSlide(Lcom/google/gwt/user/client/Event;)(evt);
+        });
 
-                                                                                        $carousel.on('slid.bs.carousel', function (evt) {
-                                                                                        target.@org.gwtbootstrap3.client.ui.Carousel::onSlid(Lcom/google/gwt/user/client/Event;)(evt);
-                                                                                        });
-                                                                                        }-*/;
+        $carousel.on('slid.bs.carousel', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Carousel::onSlid(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+    }-*/;
 
     private native void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause,
-            final boolean wrap) /*-{
-                                $wnd.jQuery(e).carousel({
-                                interval: interval,
-                                pause: pause,
-                                wrap: wrap
-                                });
-                                }-*/;
+                                 final boolean wrap) /*-{
+        $wnd.jQuery(e).carousel({
+            interval: interval,
+            pause: pause,
+            wrap: wrap
+        });
+    }-*/;
 
     private native void fireMethod(final com.google.gwt.dom.client.Element e, String method) /*-{
-                                                                                             $wnd.jQuery(e).carousel(method);
-                                                                                             }-*/;
+        $wnd.jQuery(e).carousel(method);
+    }-*/;
 
     private native void fireMethod(final com.google.gwt.dom.client.Element e, int slideNumber) /*-{
-                                                                                               $wnd.jQuery(e).carousel(slideNumber);
-                                                                                               }-*/;
-
-    @Override
-    protected void onLoad() {
-        super.onLoad();
-
-        // Configure the carousel
-        carousel(getElement(), interval, pause, wrap);
-    }
+        $wnd.jQuery(e).carousel(slideNumber);
+    }-*/;
 }

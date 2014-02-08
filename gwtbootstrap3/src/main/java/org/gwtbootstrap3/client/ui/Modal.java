@@ -93,7 +93,11 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
         dialog.add(content);
 
         add(dialog);
+    }
 
+    @Override
+    protected void onLoad() {
+        super.onLoad();
         bindJavaScriptEvents(getElement());
     }
 

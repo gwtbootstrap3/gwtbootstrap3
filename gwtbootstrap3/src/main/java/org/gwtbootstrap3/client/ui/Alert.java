@@ -52,12 +52,9 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
         setType(AlertType.WARNING);
 
         closeButton.setDismiss(ButtonDismiss.ALERT);
-
-        bindJavaScriptEvents(getElement());
     }
 
     public Alert(final String html, final AlertType type) {
-
         this(html);
         setType(type);
     }
@@ -67,8 +64,13 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
     }
 
     public Alert(final SafeHtml safeHtml, final AlertType type) {
-
         this(safeHtml.asString(), type);
+    }
+
+    @Override
+    protected void onLoad() {
+        super.onLoad();
+        bindJavaScriptEvents(getElement());
     }
 
     /**

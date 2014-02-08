@@ -80,7 +80,7 @@ public class TabListItem extends ListItem implements HasHTML {
         super.onLoad();
 
         // Bind JS Events
-        bindJsEvents(anchor.getElement());
+        bindJavaScriptEvents(anchor.getElement());
     }
 
     @Override
@@ -89,7 +89,7 @@ public class TabListItem extends ListItem implements HasHTML {
     }
 
     @Override
-    public void setHTML(String html) {
+    public void setHTML(final String html) {
         anchor.setHTML(html);
     }
 
@@ -120,7 +120,7 @@ public class TabListItem extends ListItem implements HasHTML {
     }-*/;
 
     // @formatter:off
-    private native void bindJsEvents(final Element e) /*-{
+    private native void bindJavaScriptEvents(final Element e) /*-{
         var target = this;
         var $tab = $wnd.jQuery(e);
 
