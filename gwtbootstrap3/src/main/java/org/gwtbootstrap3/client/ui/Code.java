@@ -20,11 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
+import org.gwtbootstrap3.client.ui.base.helper.SourceCodeHelper;
 
 /**
  * Simple {@code <code>} block for inline code emphasis.
@@ -53,14 +52,6 @@ public class Code extends AbstractTextWidget implements HasHTML {
      */
     @Override
     public void setHTML(final String html) {
-        final SafeHtmlBuilder builder = new SafeHtmlBuilder();
-        final String[] splitted = html.replaceAll("\\\\s", " ").split("\\\\n\\s?");
-
-        for (final String s : splitted) {
-            builder.append(SafeHtmlUtils.fromTrustedString(SafeHtmlUtils.htmlEscapeAllowEntities(s)));
-            builder.appendHtmlConstant("<br>");
-        }
-
-        getElement().setInnerHTML(builder.toSafeHtml().asString());
+        getElement().setInnerHTML(SourceCodeHelper.parseCode(html).asString());
     }
 }
