@@ -104,3 +104,8 @@
     border-color: #ddd #ddd #ddd transparent;
     *border-left-color: #ffffff;
 }
+
+.tabs-right > .tab-content,
+.tabs-left > .tab-content {
+    float: left;
+}
