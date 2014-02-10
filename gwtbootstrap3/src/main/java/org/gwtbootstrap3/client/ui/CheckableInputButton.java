@@ -39,6 +39,11 @@ public class CheckableInputButton extends InputButton implements HasValue<Boolea
 
     public CheckableInputButton(final TypeAttrType type) {
         super(type);
+    }
+
+    @Override
+    protected void onLoad() {
+        super.onLoad();
         bindJavaScriptEvents(getElement());
     }
 

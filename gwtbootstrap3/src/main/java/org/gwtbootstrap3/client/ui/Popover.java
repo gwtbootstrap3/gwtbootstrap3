@@ -84,7 +84,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         }
 
         // Bind jquery events
-        bindJsEvents(widget.getElement());
+        bindJavaScriptEvents(widget.getElement());
 
         // When we attach it, configure the tooltip
         widget.addAttachHandler(new AttachEvent.Handler() {
@@ -354,7 +354,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     // @formatter:off
-    private native void bindJsEvents(final Element e) /*-{
+    private native void bindJavaScriptEvents(final Element e) /*-{
         var target = this;
         var $popover = $wnd.jQuery(e);
 

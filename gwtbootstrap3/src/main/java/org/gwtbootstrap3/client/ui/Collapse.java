@@ -37,6 +37,17 @@ public class Collapse extends Div {
         setStyleName(Styles.COLLAPSE);
     }
 
+    @Override
+    protected void onLoad() {
+        super.onLoad();
+
+        // Bind jquery events
+        bindJavaScriptEvents(getElement());
+
+        // Configure the collapse
+        collapse(getElement(), toggle);
+    }
+
     /**
      * Sets the default state to show or hide. Show is true.
      */
@@ -143,15 +154,4 @@ public class Collapse extends Div {
     private native void fireMethod(final com.google.gwt.dom.client.Element e, int slideNumber) /*-{
         $wnd.jQuery(e).collapse(slideNumber);
     }-*/;
-
-    @Override
-    protected void onLoad() {
-        super.onLoad();
-
-        // Bind jquery events
-        bindJavaScriptEvents(getElement());
-
-        // Configure the collapse
-        collapse(getElement(), toggle);
-    }
 }
