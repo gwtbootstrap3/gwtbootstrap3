@@ -24,10 +24,10 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.HasHTML;
-import org.gwtbootstrap3.client.shared.event.ShowEvent;
-import org.gwtbootstrap3.client.shared.event.ShowHandler;
-import org.gwtbootstrap3.client.shared.event.ShownEvent;
-import org.gwtbootstrap3.client.shared.event.ShownHandler;
+import org.gwtbootstrap3.client.shared.event.TabShowEvent;
+import org.gwtbootstrap3.client.shared.event.TabShowHandler;
+import org.gwtbootstrap3.client.shared.event.TabShownEvent;
+import org.gwtbootstrap3.client.shared.event.TabShownHandler;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
@@ -46,15 +46,23 @@ public class TabListItem extends ListItem implements HasHTML {
     }
 
     public void showTab() {
+        showTab(true);
+    }
+
+    public void showTab(boolean fireEvents) {
         showTab(anchor.getElement());
+
+        if (fireEvents) {
+            fireEvent(new TabShowEvent(this, null));
+        }
     }
 
-    public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
-        return addHandler(showHandler, ShowEvent.getType());
+    public HandlerRegistration addShowHandler(final TabShowHandler showHandler) {
+        return addHandler(showHandler, TabShowEvent.getType());
     }
 
-    public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
-        return addHandler(shownHandler, ShownEvent.getType());
+    public HandlerRegistration addShownHandler(final TabShownHandler shownHandler) {
+        return addHandler(shownHandler, TabShownEvent.getType());
     }
 
     /**
@@ -101,7 +109,7 @@ public class TabListItem extends ListItem implements HasHTML {
      * @see org.gwtbootstrap3.client.shared.event.ShowEvent
      */
     protected void onShow(final Event evt) {
-        fireEvent(new ShowEvent(evt));
+        fireEvent(new TabShowEvent(this, evt));
     }
 
     /**
@@ -112,7 +120,7 @@ public class TabListItem extends ListItem implements HasHTML {
      * @see org.gwtbootstrap3.client.shared.event.ShownEvent
      */
     protected void onShown(final Event evt) {
-        fireEvent(new ShownEvent(evt));
+        fireEvent(new TabShownEvent(this, evt));
     }
 
     private native void showTab(Element e) /*-{
