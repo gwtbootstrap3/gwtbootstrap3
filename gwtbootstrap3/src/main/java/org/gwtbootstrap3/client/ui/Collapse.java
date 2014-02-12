@@ -29,6 +29,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Grant Slender
  */
 public class Collapse extends Div {
+    private static final String TOGGLE = "toggle";
+    private static final String SHOW = "show";
+    private static final String HIDE = "hdie";
 
     private boolean toggle = true;
 
@@ -59,21 +62,21 @@ public class Collapse extends Div {
      * Causes the collapse to show or hide
      */
     public void toggle() {
-        fireMethod(getElement(), "toggle");
+        fireMethod(getElement(), TOGGLE);
     }
 
     /**
      * Causes the collapse to show
      */
     public void show() {
-        fireMethod(getElement(), "show");
+        fireMethod(getElement(), SHOW);
     }
 
     /**
      * Causes the collapse to hide
      */
     public void hide() {
-        fireMethod(getElement(), "hide");
+        fireMethod(getElement(), HIDE);
     }
 
     public HandlerRegistration addShowHandler(final ShowHandler showHandler) {

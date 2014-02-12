@@ -31,6 +31,7 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
  * @see Form
  */
 public class FieldSet extends ComplexWidget implements HasEnabled, HasResponsiveness {
+    private static final String DISABLED = "disabled";
 
     public FieldSet() {
         setElement(Document.get().createFieldSetElement());
@@ -38,12 +39,12 @@ public class FieldSet extends ComplexWidget implements HasEnabled, HasResponsive
 
     @Override
     public void setEnabled(final boolean enabled) {
-        getElement().setPropertyBoolean("disabled", !enabled);
+        getElement().setPropertyBoolean(DISABLED, !enabled);
     }
 
     @Override
     public boolean isEnabled() {
-        return !getElement().getPropertyBoolean("disabled");
+        return !getElement().getPropertyBoolean(DISABLED);
     }
 
     @Override

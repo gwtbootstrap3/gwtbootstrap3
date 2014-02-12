@@ -20,30 +20,45 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
-import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class CarouselIndicator extends ComplexWidget {
+public class CarouselIndicator extends ComplexWidget implements HasTarget, HasActive {
+
+    private final TargetMixin<CarouselIndicator> targetMixin = new TargetMixin<CarouselIndicator>(this);
+    private final ActiveMixin<CarouselIndicator> activeMixin = new ActiveMixin<CarouselIndicator>(this);
 
     public CarouselIndicator() {
-        setElement(DOM.createElement("li"));
-    }
-
-    public void setDataTarget(final String dataTarget) {
-        getElement().setAttribute(Attributes.DATA_TARGET, dataTarget);
+        setElement(Document.get().createLIElement());
     }
 
     public void setDataSlideTo(final String dataSlideTo) {
         getElement().setAttribute(Attributes.DATA_SLIDE_TO, dataSlideTo);
     }
 
+    @Override
     public void setActive(final boolean active) {
-        StyleHelper.toggleStyleName(this, active, Styles.ACTIVE);
+        activeMixin.setActive(active);
+    }
+
+    @Override
+    public boolean isActive() {
+        return activeMixin.isActive();
+    }
+
+    @Override
+    public void setTarget(String target) {
+        targetMixin.setTarget(target);
+    }
+
+    @Override
+    public String getTarget() {
+        return targetMixin.getTarget();
     }
 }

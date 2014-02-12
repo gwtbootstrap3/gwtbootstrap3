@@ -23,10 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.constants.Attributes;
-import org.gwtbootstrap3.client.ui.constants.NavbarPosition;
-import org.gwtbootstrap3.client.ui.constants.NavbarType;
-import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
  * @author Sven Jacobs
@@ -37,12 +34,13 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see NavbarText
  */
 public class Navbar extends ComplexWidget implements HasType<NavbarType>, HasResponsiveness {
+    private static final String NAVIGATION = "navigation";
 
     public Navbar() {
-        setElement(Document.get().createElement("nav"));
+        setElement(Document.get().createElement(ElementTags.NAV));
         setStyleName(Styles.NAVBAR);
         setType(NavbarType.DEFAULT);
-        getElement().setAttribute(Attributes.ROLE, "navigation");
+        getElement().setAttribute(Attributes.ROLE, NAVIGATION);
     }
 
     @Override

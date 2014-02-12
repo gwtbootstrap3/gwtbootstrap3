@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.shared.event;
 
 /*
  * #%L
@@ -20,16 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.text.client.IntegerParser;
-import com.google.gwt.text.client.IntegerRenderer;
-import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
-import org.gwtbootstrap3.client.ui.constants.Styles;
+import com.google.gwt.event.shared.EventHandler;
 
-public class IntegerBox extends ValueBoxBase<Integer> {
-
-    public IntegerBox() {
-        super(Document.get().createTextInputElement(), IntegerRenderer.instance(), IntegerParser.instance());
-        addStyleName(Styles.FORM_CONTROL);
-    }
+/**
+ * @author Joshua Godi
+ */
+public interface CarouselSlidHandler extends EventHandler {
+    void onSlid(CarouselSlidEvent carouselSlidEvent);
 }

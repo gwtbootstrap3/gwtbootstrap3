@@ -26,6 +26,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  */
 public class PanelFooter extends Div {
+
     public PanelFooter() {
         setStyleName(Styles.PANEL_FOOTER);
     }

@@ -35,7 +35,7 @@ import org.gwtbootstrap3.client.ui.constants.*;
 public class Icon extends Widget implements HasType<IconType>, HasResponsiveness {
 
     public Icon() {
-        setElement(Document.get().createElement("i"));
+        setElement(Document.get().createElement(ElementTags.I));
         addStyleName(Styles.FONT_AWESOME_BASE);
     }
 

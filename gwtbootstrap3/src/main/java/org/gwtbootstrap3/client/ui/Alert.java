@@ -42,6 +42,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see org.gwtbootstrap3.client.shared.event.AlertClosedEvent
  */
 public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiveness {
+    private static final String CLOSE = "close";
 
     private final CloseButton closeButton = new CloseButton();
 
@@ -112,7 +113,7 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
      * Closes alert.
      */
     public void close() {
-        alert(getElement(), "close");
+        alert(getElement(), CLOSE);
     }
 
     protected void onClose(final Event evt) {

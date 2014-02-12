@@ -28,10 +28,11 @@ import org.gwtbootstrap3.client.ui.constants.Attributes;
  * @author Sven Jacobs
  */
 public abstract class AbstractForm extends FormElementContainer {
+    private static final String FORM = "form";
 
     public AbstractForm() {
         setElement(Document.get().createFormElement());
-        getElement().setAttribute(Attributes.ROLE, "form");
+        getElement().setAttribute(Attributes.ROLE, FORM);
     }
 
     public String getAction() {

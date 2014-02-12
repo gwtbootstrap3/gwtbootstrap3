@@ -20,7 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -30,7 +30,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 public class FormStatic extends AbstractTextWidget {
 
     public FormStatic() {
-        super(DOM.createElement("p"));
+        super(Document.get().createPElement());
         setStyleName(Styles.FORM_CONTROL_STATIC);
     }
 }

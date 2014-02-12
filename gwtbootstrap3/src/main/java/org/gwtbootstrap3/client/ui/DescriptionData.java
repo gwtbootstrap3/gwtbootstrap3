@@ -22,12 +22,14 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
+import org.gwtbootstrap3.client.ui.constants.ElementTags;
 
 /**
  * @author Joshua Godi
  */
 public class DescriptionData extends AbstractTextWidget implements DescriptionComponent {
+
     public DescriptionData() {
-        super(DOM.createElement("dd"));
+        super(DOM.createElement(ElementTags.DD));
     }
 }

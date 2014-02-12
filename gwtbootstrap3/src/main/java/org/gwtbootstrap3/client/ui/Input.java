@@ -26,6 +26,7 @@ import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasName;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.constants.ElementTags;
 import org.gwtbootstrap3.client.ui.constants.InputType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -33,9 +34,12 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  */
 public class Input extends ComplexWidget implements HasEnabled, HasInputType, HasPlaceholder, HasFormValue, HasName {
+    private static final String MIN = "min";
+    private static final String MAX = "max";
+    private static final String DISABLED = "disabled";
 
     public Input() {
-        setElement(Document.get().createElement("input"));
+        setElement(Document.get().createElement(ElementTags.INPUT));
         addStyleName(Styles.FORM_CONTROL);
     }
 
@@ -46,21 +50,21 @@ public class Input extends ComplexWidget implements HasEnabled, HasInputType, Ha
     }
 
     public void setMin(final String min) {
-        getElement().setAttribute("min", min);
+        getElement().setAttribute(MIN, min);
     }
 
     public void setMax(final String max) {
-        getElement().setAttribute("max", max);
+        getElement().setAttribute(MAX, max);
     }
 
     @Override
     public void setEnabled(final boolean enabled) {
-        getElement().setPropertyBoolean("disabled", !enabled);
+        getElement().setPropertyBoolean(DISABLED, !enabled);
     }
 
     @Override
     public boolean isEnabled() {
-        return !getElement().getPropertyBoolean("disabled");
+        return !getElement().getPropertyBoolean(DISABLED);
     }
 
     @Override

@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
+import org.gwtbootstrap3.client.ui.constants.ElementTags;
 
 /**
  * Simple {@code <em>} tag to emphasize words
@@ -32,7 +33,7 @@ import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 public class Italics extends AbstractTextWidget implements HasHTML {
 
     public Italics() {
-        super(DOM.createElement("em"));
+        super(DOM.createElement(ElementTags.EM));
     }
 
     public Italics(final String text) {

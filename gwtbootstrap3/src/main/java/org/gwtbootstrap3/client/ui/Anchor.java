@@ -29,10 +29,7 @@ import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.ParentMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.*;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
@@ -46,11 +43,12 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @author Grant Slender
  */
 public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasToggle, HasParent,
-        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, HasIconSize, HasTabIndex, Focusable, HasResponsiveness {
+        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, HasIconSize, HasTabIndex, Focusable, HasResponsiveness, HasTarget {
 
     private final ToggleMixin<Anchor> toggleMixin = new ToggleMixin<Anchor>(this);
     private final ParentMixin<Anchor> parentMixin = new ParentMixin<Anchor>(this);
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
+    private final TargetMixin<Anchor> targetMixin = new TargetMixin<Anchor>(this);
     private final FocusableMixin focusableMixin;
     private String targetHistoryToken;
 
@@ -201,4 +199,14 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
 	public void setHTML(String html) {
 		getElement().setInnerHTML(html);		
 	}
+
+    @Override
+    public void setTarget(String target) {
+        targetMixin.setTarget(target);
+    }
+
+    @Override
+    public String getTarget() {
+        return targetMixin.getTarget();
+    }
 }

@@ -34,12 +34,13 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see ButtonGroup
  */
 public class DropDownMenu extends UnorderedList implements HasPull {
+    private static final String MENU = "menu";
 
     private final PullMixin<DropDownMenu> pullMixin = new PullMixin<DropDownMenu>(this);
 
     public DropDownMenu() {
         setStyleName(Styles.DROPDOWN_MENU);
-        getElement().setAttribute(Attributes.ROLE, "menu");
+        getElement().setAttribute(Attributes.ROLE, MENU);
     }
 
     @Override

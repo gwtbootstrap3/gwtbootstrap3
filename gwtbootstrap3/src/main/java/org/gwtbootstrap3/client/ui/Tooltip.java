@@ -39,6 +39,11 @@ import java.util.NoSuchElementException;
  * @author Pontus Enmark
  */
 public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHover {
+    private static final String TOGGLE = "toggle";
+    private static final String SHOW = "show";
+    private static final String HIDE = "hide";
+    private static final String DESTROY = "destroy";
+
     // Defaults from http://getbootstrap.com/javascript/#tooltips
     private boolean isAnimated = true;
     private boolean isHTML = false;
@@ -229,19 +234,19 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     public void toggle() {
-        call(widget.getElement(), "toggle");
+        call(widget.getElement(), TOGGLE);
     }
 
     public void show() {
-        call(widget.getElement(), "show");
+        call(widget.getElement(), SHOW);
     }
 
     public void hide() {
-        call(widget.getElement(), "hide");
+        call(widget.getElement(), HIDE);
     }
 
     public void destroy() {
-        call(widget.getElement(), "destroy");
+        call(widget.getElement(), DESTROY);
     }
 
     /**

@@ -24,6 +24,7 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.base.helper.SourceCodeHelper;
+import org.gwtbootstrap3.client.ui.constants.ElementTags;
 
 /**
  * Simple {@code <code>} block for inline code emphasis.
@@ -34,7 +35,7 @@ import org.gwtbootstrap3.client.ui.base.helper.SourceCodeHelper;
 public class Code extends AbstractTextWidget implements HasHTML {
 
     public Code() {
-        super(DOM.createElement("code"));
+        super(DOM.createElement(ElementTags.CODE));
     }
 
     @Override

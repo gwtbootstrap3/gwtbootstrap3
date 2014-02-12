@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.shared.event;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2014 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,11 +20,14 @@ package org.gwtbootstrap3.client.shared.event;
  * #L%
  */
 
-import com.google.gwt.event.shared.EventHandler;
+import com.google.gwt.user.client.Event;
+import org.gwtbootstrap3.client.ui.Carousel;
 
 /**
- * @author Joshua Godi
+ * @author godi
  */
-public interface SlidHandler extends EventHandler {
-    void onSlid(SlidEvent slidEvent);
+public interface CarouselEvent {
+    Carousel getCarousel();
+
+    Event getNativeEvent();
 }

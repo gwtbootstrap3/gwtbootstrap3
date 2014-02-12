@@ -80,6 +80,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see org.gwtbootstrap3.client.shared.event.ModalHiddenEvent
  */
 public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
+    private final String TOGGLE = "toggle";
+    private final String HIDE = "hide";
+    private final String SHOW = "show";
 
     private final ModalContent content = new ModalContent();
     private ModalHeader header = new ModalHeader();
@@ -172,15 +175,15 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
     }
 
     public void toggle() {
-        modal(getElement(), "toggle");
+        modal(getElement(), TOGGLE);
     }
 
     public void show() {
-        modal(getElement(), "show");
+        modal(getElement(), SHOW);
     }
 
     public void hide() {
-        modal(getElement(), "hide");
+        modal(getElement(), HIDE);
     }
 
     /**

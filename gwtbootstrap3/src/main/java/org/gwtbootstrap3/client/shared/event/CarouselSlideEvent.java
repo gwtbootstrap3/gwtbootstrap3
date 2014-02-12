@@ -20,45 +20,46 @@ package org.gwtbootstrap3.client.shared.event;
  * #L%
  */
 
-import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.Event;
+import org.gwtbootstrap3.client.ui.Carousel;
 
 /**
  * @author Joshua Godi
  */
-public class SlideEvent extends GwtEvent<SlideHandler> {
-    private static final Type<SlideHandler> TYPE = new Type<SlideHandler>();
-    private final NativeEvent nativeEvent;
+public class CarouselSlideEvent extends GwtEvent<CarouselSlideHandler> implements CarouselEvent {
 
-    public static Type<SlideHandler> getType() {
+    private static final Type<CarouselSlideHandler> TYPE = new Type<CarouselSlideHandler>();
+
+    private final Carousel carousel;
+    private final Event nativeEvent;
+
+    public static Type<CarouselSlideHandler> getType() {
         return TYPE;
     }
 
-    public SlideEvent() {
-        this(null);
-    }
-
-    public SlideEvent(final NativeEvent nativeEvent) {
+    public CarouselSlideEvent(final Carousel carousel, final Event nativeEvent) {
+        this.carousel = carousel;
         this.nativeEvent = nativeEvent;
     }
 
     @Override
-    public final Type<SlideHandler> getAssociatedType() {
+    public Carousel getCarousel() {
+        return carousel;
+    }
+
+    @Override
+    public Event getNativeEvent() {
+        return nativeEvent;
+    }
+
+    @Override
+    public Type<CarouselSlideHandler> getAssociatedType() {
         return TYPE;
     }
 
     @Override
-    protected void dispatch(final SlideHandler handler) {
+    protected void dispatch(final CarouselSlideHandler handler) {
         handler.onSlide(this);
-    }
-
-    public final void preventDefault() {
-        if (nativeEvent == null) return;
-        nativeEvent.preventDefault();
-    }
-
-    public final void stopPropagation() {
-        if (nativeEvent == null) return;
-        nativeEvent.stopPropagation();
     }
 }

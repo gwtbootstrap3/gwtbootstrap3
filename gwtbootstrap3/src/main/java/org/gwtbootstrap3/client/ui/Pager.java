@@ -31,14 +31,17 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author godi
  */
 public class Pager extends UnorderedList implements HasResponsiveness {
+    private static final String DEFAULT_PREVIOUS = "Previous";
+    private static final String DEFAULT_NEXT = "Next";
+
     private final ListItem previous;
     private final ListItem next;
 
     public Pager() {
         setStyleName(Styles.PAGER);
 
-        previous = new ListItem("Previous");
-        next = new ListItem("Next");
+        previous = new ListItem(DEFAULT_PREVIOUS);
+        next = new ListItem(DEFAULT_NEXT);
 
         add(previous);
         add(next);

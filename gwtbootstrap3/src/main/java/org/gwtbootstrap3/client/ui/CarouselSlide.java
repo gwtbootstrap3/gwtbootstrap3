@@ -20,18 +20,26 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class CarouselSlide extends Div {
+public class CarouselSlide extends Div implements HasActive {
+    private final ActiveMixin<CarouselSlide> activeMixin = new ActiveMixin<CarouselSlide>(this);
+
     public CarouselSlide() {
         setStyleName(Styles.ITEM);
     }
 
+    @Override
     public void setActive(final boolean active) {
-        StyleHelper.toggleStyleName(this, active, Styles.ACTIVE);
+        activeMixin.setActive(active);
+    }
+
+    @Override
+    public boolean isActive() {
+        return activeMixin.isActive();
     }
 }

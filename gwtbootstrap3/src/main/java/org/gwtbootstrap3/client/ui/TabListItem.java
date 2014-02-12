@@ -28,13 +28,12 @@ import org.gwtbootstrap3.client.shared.event.TabShowEvent;
 import org.gwtbootstrap3.client.shared.event.TabShowHandler;
 import org.gwtbootstrap3.client.shared.event.TabShownEvent;
 import org.gwtbootstrap3.client.shared.event.TabShownHandler;
-import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * @author godi
  */
-public class TabListItem extends ListItem implements HasHTML {
+public class TabListItem extends ListItem implements HasHTML, HasTarget {
 
     public TabListItem() {
         this("");
@@ -49,7 +48,7 @@ public class TabListItem extends ListItem implements HasHTML {
         showTab(true);
     }
 
-    public void showTab(boolean fireEvents) {
+    public void showTab(final boolean fireEvents) {
         showTab(anchor.getElement());
 
         if (fireEvents) {
@@ -71,16 +70,22 @@ public class TabListItem extends ListItem implements HasHTML {
      */
     @Override
     public void setHref(String href) {
-        // Ensuring that the data target has # in it
-        if (!href.contains("#")) {
-            href = "#" + href;
-        }
-        anchor.getElement().setAttribute(Attributes.DATA_TARGET, href);
+        setTarget(href);
     }
 
     @Override
     public String getHref() {
-        return anchor.getElement().getAttribute(Attributes.DATA_TARGET);
+        return getTarget();
+    }
+
+    @Override
+    public void setTarget(final String target) {
+        anchor.setTarget(target);
+    }
+
+    @Override
+    public String getTarget() {
+        return anchor.getTarget();
     }
 
     @Override

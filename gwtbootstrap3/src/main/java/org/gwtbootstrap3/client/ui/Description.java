@@ -30,6 +30,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  */
 public class Description extends ComplexWidget implements HasResponsiveness {
+
     public Description() {
         setElement(Document.get().createDLElement());
     }

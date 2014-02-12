@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
+import org.gwtbootstrap3.client.ui.constants.ElementTags;
 
 /**
  * Simple {@code <strong>} tag to emphasize words
@@ -32,7 +33,7 @@ import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 public class Bold extends AbstractTextWidget implements HasHTML {
 
     public Bold() {
-        super(DOM.createElement("strong"));
+        super(DOM.createElement(ElementTags.STRONG));
     }
 
     public Bold(final String text) {

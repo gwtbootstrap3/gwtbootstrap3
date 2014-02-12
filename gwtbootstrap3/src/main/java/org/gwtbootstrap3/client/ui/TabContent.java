@@ -27,6 +27,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author godi
  */
 public class TabContent extends Div {
+
     public TabContent() {
         setStyleName(Styles.TAB_CONTENT);
     }
