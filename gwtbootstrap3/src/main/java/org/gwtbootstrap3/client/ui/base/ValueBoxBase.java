@@ -30,6 +30,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 
 public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasResponsiveness, HasEnabled,
         HasPlaceholder, HasAutocomplete {
+    private static final String MAX_LENGTH = "maxlength";
 
     private final IdMixin<ValueBoxBase<T>> idMixin = new IdMixin<ValueBoxBase<T>>(this);
     private final EnabledMixin<ValueBoxBase<T>> enabledMixin = new EnabledMixin<ValueBoxBase<T>>(this);
@@ -42,6 +43,10 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
      */
     protected ValueBoxBase(final Element elem, final Renderer<T> renderer, final Parser<T> parser) {
         super(elem, renderer, parser);
+    }
+
+    public void setMaxLength(int maxLength) {
+        getElement().setAttribute(MAX_LENGTH, Integer.toString(maxLength));
     }
 
     @Override
@@ -93,6 +98,4 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
     }
-
-
 }
