@@ -27,6 +27,7 @@ import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap3.client.shared.event.*;
 import org.gwtbootstrap3.client.ui.constants.Placement;
 import org.gwtbootstrap3.client.ui.constants.Trigger;
@@ -293,20 +294,20 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         widget.fireEvent(new HiddenEvent(evt));
     }
 
-    public void addShowHandler(final ShowHandler showHandler) {
-        widget.addHandler(showHandler, ShowEvent.getType());
+    public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
+        return widget.addHandler(showHandler, ShowEvent.getType());
     }
 
-    public void addShownHandler(final ShownHandler shownHandler) {
-        widget.addHandler(shownHandler, ShownEvent.getType());
+    public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
+        return widget.addHandler(shownHandler, ShownEvent.getType());
     }
 
-    public void addHideHandler(final HideHandler hideHandler) {
-        widget.addHandler(hideHandler, HideEvent.getType());
+    public HandlerRegistration addHideHandler(final HideHandler hideHandler) {
+        return widget.addHandler(hideHandler, HideEvent.getType());
     }
 
-    public void addHiddenHandler(final HiddenHandler hiddenHandler) {
-        widget.addHandler(hiddenHandler, HiddenEvent.getType());
+    public HandlerRegistration addHiddenHandler(final HiddenHandler hiddenHandler) {
+        return widget.addHandler(hiddenHandler, HiddenEvent.getType());
     }
 
     @Override
