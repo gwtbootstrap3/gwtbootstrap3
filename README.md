@@ -205,6 +205,7 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 | [DateTimePicker](http://eonasdan.github.io/bootstrap-datetimepicker/)  | Supported     | Yes        |
 | TypeAhead                                                              | Not Supported | No         |
 | [Summernote's WYSIWYG Editor](http://hackerwins.github.io/summernote)  | Supported     | Yes        |
+| [Bootstrap Select](https://github.com/silviomoreto/bootstrap-select)   | Supported     | Yes        |
 
 # Relationship between raw Bootstrap components and GWT widgets 
 
