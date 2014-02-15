@@ -23,7 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.constants.PaginationSize;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public interface HasPaginationSize {
     void setPaginationSize(PaginationSize paginationSize);

@@ -23,7 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public class TabPane extends Div {
 

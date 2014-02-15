@@ -25,7 +25,7 @@ import org.gwtbootstrap3.client.ui.HasEnabled;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public class EnabledMixin<T extends UIObject & HasEnabled> extends AbstractMixin implements HasEnabled {
 

@@ -53,6 +53,7 @@ public final class Styles {
     public static final String CAROUSEL_INNER = "carousel-inner";
 
     public static final String CHECKBOX = "checkbox";
+    public static final String CHECKBOX_INLINE = "checkbox-inline";
 
     public static final String CLEARFIX = "clearfix";
 
@@ -177,6 +178,9 @@ public final class Styles {
 
     public static final String PULL_LEFT = "pull-left";
     public static final String PULL_RIGHT = "pull-right";
+
+    public static final String RADIO = "radio";
+    public static final String RADIO_INLINE = "radio-inline";
 
     public static final String RIGHT = "right";
 

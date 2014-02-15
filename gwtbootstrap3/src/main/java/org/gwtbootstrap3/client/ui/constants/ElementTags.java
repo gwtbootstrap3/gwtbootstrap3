@@ -21,7 +21,7 @@ package org.gwtbootstrap3.client.ui.constants;
  */
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public class ElementTags {
     public static final String ABBR = "abbr";

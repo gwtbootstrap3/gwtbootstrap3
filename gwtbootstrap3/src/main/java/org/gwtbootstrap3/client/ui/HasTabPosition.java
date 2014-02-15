@@ -23,7 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.constants.TabPosition;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public interface HasTabPosition {
     void setTabPosition(TabPosition tabPosition);

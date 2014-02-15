@@ -35,7 +35,7 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
  * Please note, this doesn't enforce any requirements on the children. It is up to
  * you to make sure you produce valid HTML code.
  *
- * @author godi
+ * @author Joshua Godi
  */
 public class SpanPanel extends ComplexWidget implements HasResponsiveness {
 

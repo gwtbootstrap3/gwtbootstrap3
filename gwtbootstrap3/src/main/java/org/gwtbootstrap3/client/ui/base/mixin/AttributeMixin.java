@@ -23,7 +23,7 @@ package org.gwtbootstrap3.client.ui.base.mixin;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public class AttributeMixin<T extends UIObject> extends AbstractMixin {
 

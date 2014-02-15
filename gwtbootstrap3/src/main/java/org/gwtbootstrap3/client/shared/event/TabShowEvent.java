@@ -25,7 +25,7 @@ import com.google.gwt.user.client.Event;
 import org.gwtbootstrap3.client.ui.TabListItem;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public class TabShowEvent extends GwtEvent<TabShowHandler> implements TabEvent {
 

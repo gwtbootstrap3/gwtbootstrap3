@@ -24,7 +24,7 @@ import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public enum TabPosition implements Type, Style.HasCssName {
     LEFT("tabs-left"),

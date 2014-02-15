@@ -21,7 +21,7 @@ package org.gwtbootstrap3.client.ui;
  */
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public interface HasEnabled {
     public static final String DISABLED = "disabled";
