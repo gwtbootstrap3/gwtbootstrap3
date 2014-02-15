@@ -28,7 +28,7 @@ import com.google.gwt.resources.client.TextResource;
 /**
  * @author Sven Jacobs
  */
-interface GwtBootstrap3ClientBundle extends ClientBundle {
+public interface GwtBootstrap3ClientBundle extends ClientBundle {
 
     static final GwtBootstrap3ClientBundle INSTANCE = GWT.create(GwtBootstrap3ClientBundle.class);
 
@@ -37,4 +37,7 @@ interface GwtBootstrap3ClientBundle extends ClientBundle {
 
     @Source("resource/js/bootstrap.min.js")
     TextResource bootstrap();
+
+    @Source("resource/css/bootstrap-tabs.min.css")
+    TextResource bootstrapTabsCss();
 }

@@ -26,5 +26,4 @@
     </public>
 
     <stylesheet src="css/font-awesome.min.css"/>
-    <stylesheet src="css/bootstrap-tabs.css"/>
 </module>

@@ -24,7 +24,7 @@ import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
- * See fontawesome.js helper script in root folder of this module.
+ * You can use the fontawesome-enum-helper.js to grab and enum names (located in the client/resource/css folder
  *
  * @author Sven Jacobs
  * @author Joshua Godi

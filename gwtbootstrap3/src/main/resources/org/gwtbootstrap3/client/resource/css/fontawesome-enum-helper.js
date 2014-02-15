@@ -2,7 +2,7 @@
 // for IconType class
 //
 // Usage:
-// node fontawesome.js /path/to/font-awesome.css
+// node fontawesome-enum-helper.js /path/to/font-awesome.css
 //
 // @author Sven Jacobs
 
