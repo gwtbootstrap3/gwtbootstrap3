@@ -20,43 +20,29 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
-import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
-import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
-import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Badge for highlighting new or unread items.
  * <p/>
  * <h3>UiBinder example</h3>
- * <pre>{@code
+ * 
+ * <pre>
+ * {@code
  *     <b:Badge>42</b:Badge>
- * }</pre>
- *
+ * }
+ * </pre>
+ * 
  * @author Sven Jacobs
  */
-public class Badge extends AbstractTextWidget implements HasPull {
-
-    private final PullMixin<Badge> pullMixin = new PullMixin<Badge>(this);
+public class Badge extends Span {
 
     public Badge() {
-        super(DOM.createSpan());
         setStyleName(Styles.BADGE);
     }
 
-    public Badge(final String text) {
-        this();
-        setText(text);
-    }
-
-    @Override
-    public void setPull(final Pull pull) {
-        pullMixin.setPull(pull);
-    }
-
-    @Override
-    public Pull getPull() {
-        return pullMixin.getPull();
+    public Badge(final String html) {
+        super(html);
+        setStyleName(Styles.BADGE);
     }
 }

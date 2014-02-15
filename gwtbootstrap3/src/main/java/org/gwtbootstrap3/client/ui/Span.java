@@ -20,20 +20,25 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
-import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
-
 /**
- * @author Sven Jacobs
+ * @author Sven Jacobs & Grant Slender
  */
-public class Span extends AbstractTextWidget {
+public class Span extends HTMLPanel {
 
     public Span() {
-        super(DOM.createSpan());
+        super("span", "");
     }
 
-    public Span(final String text) {
+    public Span(final String html) {
         this();
-        setText(text);
+        getElement().setInnerHTML(html);
+    }
+
+    public void setText(final String text) {
+        getElement().setInnerText(text);
+    }
+
+    public String getText() {
+        return getElement().getInnerText();
     }
 }
