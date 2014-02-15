@@ -23,12 +23,13 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.ListGroupItemType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class ListGroupItem extends ComplexWidget implements HasResponsiveness {
+public class ListGroupItem extends ComplexWidget implements HasResponsiveness, HasType<ListGroupItemType> {
     private final Span span = new Span();
 
     public ListGroupItem() {
@@ -54,5 +55,15 @@ public class ListGroupItem extends ComplexWidget implements HasResponsiveness {
     @Override
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setType(final ListGroupItemType type) {
+        StyleHelper.addUniqueEnumStyleName(this, ListGroupItemType.class, type);
+    }
+
+    @Override
+    public ListGroupItemType getType() {
+        return ListGroupItemType.fromStyleName(getStyleName());
     }
 }
