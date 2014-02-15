@@ -22,6 +22,8 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.InputElement;
+import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasName;
@@ -33,7 +35,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Joshua Godi
  */
-public class Input extends ComplexWidget implements HasEnabled, HasInputType, HasPlaceholder, HasFormValue, HasName {
+public class Input extends ComplexWidget implements HasEnabled, HasInputType, HasPlaceholder, HasFormValue, HasName, HasAllKeyHandlers {
     private static final String MIN = "min";
     private static final String MAX = "max";
     private static final String DISABLED = "disabled";
@@ -108,5 +110,20 @@ public class Input extends ComplexWidget implements HasEnabled, HasInputType, Ha
     @Override
     public void setName(final String name) {
         InputElement.as(getElement()).setName(name);
+    }
+
+    @Override
+    public HandlerRegistration addKeyDownHandler(KeyDownHandler handler) {
+        return addDomHandler(handler, KeyDownEvent.getType());
+    }
+
+    @Override
+    public HandlerRegistration addKeyPressHandler(KeyPressHandler handler) {
+        return addDomHandler(handler, KeyPressEvent.getType());
+    }
+
+    @Override
+    public HandlerRegistration addKeyUpHandler(KeyUpHandler handler) {
+        return addDomHandler(handler, KeyUpEvent.getType());
     }
 }
