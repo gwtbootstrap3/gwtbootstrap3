@@ -24,7 +24,7 @@ import com.google.gwt.user.client.Event;
 import org.gwtbootstrap3.client.ui.TabListItem;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public interface TabEvent {
     TabListItem getTab();

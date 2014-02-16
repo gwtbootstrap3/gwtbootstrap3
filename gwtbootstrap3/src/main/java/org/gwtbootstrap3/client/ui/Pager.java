@@ -28,7 +28,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * Support for Bootstrap pager (http://getbootstrap.com/components/#pagination-pager)
  *
- * @author godi
+ * @author Joshua Godi
  */
 public class Pager extends UnorderedList implements HasResponsiveness {
     private static final String DEFAULT_PREVIOUS = "Previous";

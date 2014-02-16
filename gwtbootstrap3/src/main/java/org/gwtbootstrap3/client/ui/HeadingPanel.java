@@ -22,7 +22,6 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
-
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
@@ -38,7 +37,7 @@ import org.gwtbootstrap3.client.ui.constants.Alignment;
  * Please note, this doesn't enforce any requirements on the children. It is up to
  * you to make sure you produce valid HTML code.
  *
- * @author godi
+ * @author Joshua Godi
  */
 public class HeadingPanel extends ComplexWidget implements HasResponsiveness, HasAlignment {
 

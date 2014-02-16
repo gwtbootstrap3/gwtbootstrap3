@@ -27,7 +27,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.TabPosition;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public class TabPanel extends Div implements HasTabPosition {
 

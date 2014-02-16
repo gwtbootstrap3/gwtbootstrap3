@@ -24,7 +24,7 @@ import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public class TabContent extends Div {
 

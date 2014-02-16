@@ -23,7 +23,7 @@ package org.gwtbootstrap3.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public interface TabShowHandler extends EventHandler {
     void onShow(final TabShowEvent event);

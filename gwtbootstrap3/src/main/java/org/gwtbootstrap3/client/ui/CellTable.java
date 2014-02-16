@@ -28,7 +28,7 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.TableType;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<T> implements HasResponsiveness {
     private static final int DEFAULT_PAGESIZE = 15;

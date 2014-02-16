@@ -24,7 +24,7 @@ import com.google.gwt.user.client.Event;
 import org.gwtbootstrap3.client.ui.Carousel;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public interface CarouselEvent {
     Carousel getCarousel();

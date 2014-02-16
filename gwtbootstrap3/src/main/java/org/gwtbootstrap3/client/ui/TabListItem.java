@@ -31,7 +31,7 @@ import org.gwtbootstrap3.client.shared.event.TabShownHandler;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
- * @author godi
+ * @author Joshua Godi
  */
 public class TabListItem extends ListItem implements HasHTML, HasTarget {
 

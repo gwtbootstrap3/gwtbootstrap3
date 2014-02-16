@@ -28,7 +28,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * Support for Bootstrap pagination (http://getbootstrap.com/components/#pagination)
  *
- * @author godi
+ * @author Joshua Godi
  */
 public class Pagination extends UnorderedList implements HasResponsiveness, HasPaginationSize {
 
