@@ -1,8 +1,4 @@
-package org.gwtbootstrap3.client.ui;
-
-import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
-
-import com.google.gwt.user.client.ui.HasHTML;
+package org.gwtbootstrap3.client.ui.base.mixin;
 
 /*
  * #%L
@@ -13,9 +9,9 @@ import com.google.gwt.user.client.ui.HasHTML;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -24,39 +20,25 @@ import com.google.gwt.user.client.ui.HasHTML;
  * #L%
  */
 
+import com.google.gwt.user.client.ui.HasHTML;
+import com.google.gwt.user.client.ui.UIObject;
+
 /**
- * @author Sven Jacobs & Grant Slender
+ * @author Grant Slender
  */
-public class Span extends HTMLPanel implements HasHTML {
+public class HTMLMixin<T extends UIObject & HasHTML> extends TextMixin<T> implements HasHTML {
 
-    private final HTMLMixin<Span> textMixin = new HTMLMixin<Span>(this);
-
-    public Span() {
-        super("span", "");
-    }
-
-    public Span(final String html) {
-        this();
-        getElement().setInnerHTML(html);
-    }
-
-    @Override
-    public void setText(final String text) {
-        textMixin.setText(text);
-    }
-
-    @Override
-    public String getText() {
-        return textMixin.getText();
+    public HTMLMixin(final T uiObject) {
+        super(uiObject);
     }
 
     @Override
     public String getHTML() {
-        return textMixin.getHTML();
+        return uiObject.getElement().getInnerHTML();
     }
 
     @Override
     public void setHTML(final String html) {
-        textMixin.setHTML(html);
+        uiObject.getElement().setInnerHTML(html);
     }
 }
