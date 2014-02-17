@@ -20,18 +20,23 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.safehtml.shared.SafeHtml;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.SpyMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
+import com.google.gwt.safehtml.shared.SafeHtml;
+
 /**
  * @author Sven Jacobs
+ * @author Grant Slender
  */
-public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implements HasSpy, HasTarget {
+public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implements HasId, HasSpy, HasTarget, HasResponsiveness {
 
     private final SpyMixin<HTMLPanel> spyMixin = new SpyMixin<HTMLPanel>(this);
     private final TargetMixin<HTMLPanel> targetMixin = new TargetMixin<HTMLPanel>(this);
+    private final IdMixin<HTMLPanel> idMixin = new IdMixin<HTMLPanel>(this);
 
     public HTMLPanel(final String html) {
         super(html);
@@ -43,6 +48,16 @@ public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implement
 
     public HTMLPanel(final String tag, final String html) {
         super(tag, html);
+    }
+
+    @Override
+    public void setId(final String id) {
+        idMixin.setId(id);
+    }
+
+    @Override
+    public String getId() {
+        return idMixin.getId();
     }
 
     @Override
@@ -63,5 +78,15 @@ public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implement
     @Override
     public String getTarget() {
         return targetMixin.getTarget();
+    }
+
+    @Override
+    public void setVisibleOn(final String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(final String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

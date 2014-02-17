@@ -28,7 +28,7 @@ import com.google.gwt.dom.client.SpanElement;
  * @author Sven Jacobs
  * @author Grant Slender
  */
-public class Span extends HTMLPanel {
+public class Span extends HTMLPanel implements HasHTML {
 
     private final HTMLMixin<Span> textMixin = new HTMLMixin<Span>(this);
 
@@ -41,18 +41,22 @@ public class Span extends HTMLPanel {
         getElement().setInnerHTML(html);
     }
 
+    @Override
     public void setText(final String text) {
         textMixin.setText(text);
     }
 
+    @Override
     public String getText() {
         return textMixin.getText();
     }
 
+    @Override
     public String getHTML() {
         return textMixin.getHTML();
     }
 
+    @Override
     public void setHTML(final String html) {
         textMixin.setHTML(html);
     }
