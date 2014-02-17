@@ -6,9 +6,11 @@ containing design templates, styles and beautiful widgets.
 Have a look at the [demo](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/) and its
 [source code](https://github.com/gwtbootstrap3/gwtbootstrap3-demo/tree/master/src/main/java/org/gwtbootstrap3/demo/client). Also use the [Google Group](https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3) for help/discussion.
 
-**Note:** This library is **not yet** feature complete. Patches / pull requests are welcome. See *Feature matrix* below.
+**Note:** This library is **almost** feature complete. Patches / pull requests are welcome. See *Feature matrix* below.
 
 # Usage
+
+View the online [JavaDocs](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/apidocs/index.html)
 
 Add the dependency to your Maven POM:
 
