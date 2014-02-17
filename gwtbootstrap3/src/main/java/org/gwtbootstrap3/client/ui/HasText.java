@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui.base.mixin;
+package org.gwtbootstrap3.client.ui;
 
 /*
  * #%L
@@ -20,26 +20,11 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.HasHTML;
-
-import com.google.gwt.user.client.ui.UIObject;
-
 /**
  * @author Grant Slender
  */
-public class HTMLMixin<T extends UIObject & HasHTML> extends TextMixin<T> implements HasHTML {
+public interface HasText {
+    void setText(String text);
 
-    public HTMLMixin(final T uiObject) {
-        super(uiObject);
-    }
-
-    @Override
-    public String getHTML() {
-        return uiObject.getElement().getInnerHTML();
-    }
-
-    @Override
-    public void setHTML(final String html) {
-        uiObject.getElement().setInnerHTML(html);
-    }
+    String getText();
 }
