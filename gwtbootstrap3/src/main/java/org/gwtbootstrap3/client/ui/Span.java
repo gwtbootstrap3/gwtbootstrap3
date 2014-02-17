@@ -2,6 +2,7 @@ package org.gwtbootstrap3.client.ui;
 
 import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 
+import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.user.client.ui.HasHTML;
 
 /*
@@ -25,14 +26,15 @@ import com.google.gwt.user.client.ui.HasHTML;
  */
 
 /**
- * @author Sven Jacobs & Grant Slender
+ * @author Sven Jacobs
+ * @author Grant Slender
  */
 public class Span extends HTMLPanel implements HasHTML {
 
     private final HTMLMixin<Span> textMixin = new HTMLMixin<Span>(this);
 
     public Span() {
-        super("span", "");
+        super(SpanElement.TAG, "");
     }
 
     public Span(final String html) {
