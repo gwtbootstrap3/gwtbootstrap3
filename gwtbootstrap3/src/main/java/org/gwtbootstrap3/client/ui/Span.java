@@ -3,7 +3,6 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 
 import com.google.gwt.dom.client.SpanElement;
-import com.google.gwt.user.client.ui.HasHTML;
 
 /*
  * #%L
@@ -29,7 +28,7 @@ import com.google.gwt.user.client.ui.HasHTML;
  * @author Sven Jacobs
  * @author Grant Slender
  */
-public class Span extends HTMLPanel implements HasHTML {
+public class Span extends HTMLPanel {
 
     private final HTMLMixin<Span> textMixin = new HTMLMixin<Span>(this);
 
@@ -42,22 +41,18 @@ public class Span extends HTMLPanel implements HasHTML {
         getElement().setInnerHTML(html);
     }
 
-    @Override
     public void setText(final String text) {
         textMixin.setText(text);
     }
 
-    @Override
     public String getText() {
         return textMixin.getText();
     }
 
-    @Override
     public String getHTML() {
         return textMixin.getHTML();
     }
 
-    @Override
     public void setHTML(final String html) {
         textMixin.setHTML(html);
     }
