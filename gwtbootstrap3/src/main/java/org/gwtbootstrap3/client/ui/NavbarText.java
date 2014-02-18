@@ -30,10 +30,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  * @see NavbarLink
  */
-public class NavbarText extends HTMLPanel implements HasNavbarPull, HasResponsiveness {
+public class NavbarText extends Paragraph implements HasNavbarPull, HasResponsiveness {
 
     public NavbarText() {
-        super("p", "");
         setStyleName(Styles.NAVBAR_TEXT);
     }
 

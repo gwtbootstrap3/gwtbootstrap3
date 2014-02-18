@@ -1,8 +1,7 @@
 package org.gwtbootstrap3.client.ui;
 
-import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
-
 import com.google.gwt.dom.client.SpanElement;
+import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 
 /*
  * #%L
@@ -38,7 +37,7 @@ public class Span extends HTMLPanel implements HasHTML {
 
     public Span(final String html) {
         this();
-        getElement().setInnerHTML(html);
+        setHTML(html);
     }
 
     @Override

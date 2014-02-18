@@ -20,30 +20,46 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.ui.HasHTML;
-import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
+import com.google.gwt.dom.client.ParagraphElement;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
 import org.gwtbootstrap3.client.ui.constants.Emphasis;
 
 /**
  * @author Sven Jacobs
  */
-public class Paragraph extends AbstractTextWidget implements HasHTML, HasAlignment, HasEmphasis {
+public class Paragraph extends HTMLPanel implements HasHTML, HasAlignment, HasEmphasis {
+
+    private final HTMLMixin<Paragraph> textMixin = new HTMLMixin<Paragraph>(this);
 
     public Paragraph() {
-        super(Document.get().createPElement());
+        super(ParagraphElement.TAG, "");
+    }
+
+    public Paragraph(final String html) {
+        this();
+        setHTML(html);
+    }
+
+    @Override
+    public void setText(final String text) {
+        textMixin.setText(text);
+    }
+
+    @Override
+    public String getText() {
+        return textMixin.getText();
     }
 
     @Override
     public String getHTML() {
-        return getElement().getInnerHTML();
+        return textMixin.getHTML();
     }
 
     @Override
     public void setHTML(final String html) {
-        getElement().setInnerHTML(html);
+        textMixin.setHTML(html);
     }
 
     @Override
