@@ -22,9 +22,7 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.base.AbstractAnchorListItem;
-import org.gwtbootstrap3.client.ui.constants.IconPosition;
-import org.gwtbootstrap3.client.ui.constants.IconSize;
-import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
  * Represents a list item with text contents which is used in multiple widgets.
@@ -42,7 +40,7 @@ import org.gwtbootstrap3.client.ui.constants.IconType;
  * @see NavPills
  * @see Navbar
  */
-public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon, HasIconSize, HasIconPosition {
+public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon, HasIconPosition {
 
     public ListItem() {
     }
@@ -89,5 +87,65 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     @Override
     public IconSize getIconSize() {
         return anchor.getIconSize();
+    }
+
+    @Override
+    public void setIconFlip(IconFlip iconFlip) {
+        anchor.setIconFlip(iconFlip);
+    }
+
+    @Override
+    public IconFlip getIconFlip() {
+        return anchor.getIconFlip();
+    }
+
+    @Override
+    public void setIconRotate(IconRotate iconRotate) {
+        anchor.setIconRotate(iconRotate);
+    }
+
+    @Override
+    public IconRotate getIconRotate() {
+        return anchor.getIconRotate();
+    }
+
+    @Override
+    public void setIconBordered(boolean iconBordered) {
+        anchor.setIconBordered(iconBordered);
+    }
+
+    @Override
+    public boolean isIconBordered() {
+        return anchor.isIconBordered();
+    }
+
+    @Override
+    public void setIconMuted(boolean iconMuted) {
+        anchor.setIconMuted(iconMuted);
+    }
+
+    @Override
+    public boolean isIconMuted() {
+        return anchor.isIconMuted();
+    }
+
+    @Override
+    public void setIconLight(boolean iconLight) {
+        anchor.setIconLight(iconLight);
+    }
+
+    @Override
+    public boolean isIconLight() {
+        return anchor.isIconLight();
+    }
+
+    @Override
+    public void setIconSpin(boolean iconSpin) {
+        anchor.setIconSpin(iconSpin);
+    }
+
+    @Override
+    public boolean isIconSpin() {
+        return anchor.isIconSpin();
     }
 }

@@ -22,7 +22,7 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.uibinder.client.UiConstructor;
-import com.google.gwt.user.client.ui.Widget;
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.*;
 
@@ -32,7 +32,7 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Sven Jacobs
  * @see org.gwtbootstrap3.client.ui.constants.IconType
  */
-public class Icon extends Widget implements HasType<IconType>, HasResponsiveness {
+public class Icon extends ComplexWidget implements HasType<IconType>, HasResponsiveness {
 
     public Icon() {
         setElement(Document.get().createElement(ElementTags.I));

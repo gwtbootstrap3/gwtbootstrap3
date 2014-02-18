@@ -23,10 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.base.AbstractInputGroupAddon;
 import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
-import org.gwtbootstrap3.client.ui.constants.IconPosition;
-import org.gwtbootstrap3.client.ui.constants.IconSize;
-import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
  * Prepends or appends texts to input fields.
@@ -48,7 +45,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see InputGroup
  * @see InputGroupButton
  */
-public class InputGroupAddon extends AbstractInputGroupAddon implements HasText, HasIcon, HasIconPosition, HasIconSize {
+public class InputGroupAddon extends AbstractInputGroupAddon implements HasText, HasIcon, HasIconPosition {
 
     IconTextMixin<InputGroupAddon> iconTextMixin = new IconTextMixin<InputGroupAddon>(this);
 
@@ -96,5 +93,65 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText,
     @Override
     public IconSize getIconSize() {
         return iconTextMixin.getIconSize();
+    }
+
+    @Override
+    public void setIconFlip(final IconFlip iconFlip) {
+        iconTextMixin.setIconFlip(iconFlip);
+    }
+
+    @Override
+    public IconFlip getIconFlip() {
+        return iconTextMixin.getIconFlip();
+    }
+
+    @Override
+    public void setIconRotate(final IconRotate iconRotate) {
+        iconTextMixin.setIconRotate(iconRotate);
+    }
+
+    @Override
+    public IconRotate getIconRotate() {
+        return iconTextMixin.getIconRotate();
+    }
+
+    @Override
+    public void setIconBordered(final boolean iconBordered) {
+        iconTextMixin.setIconBordered(iconBordered);
+    }
+
+    @Override
+    public boolean isIconBordered() {
+        return iconTextMixin.isIconBordered();
+    }
+
+    @Override
+    public void setIconMuted(final boolean iconMuted) {
+        iconTextMixin.setIconMuted(iconMuted);
+    }
+
+    @Override
+    public boolean isIconMuted() {
+        return iconTextMixin.isIconMuted();
+    }
+
+    @Override
+    public void setIconLight(final boolean iconLight) {
+        iconTextMixin.setIconLight(iconLight);
+    }
+
+    @Override
+    public boolean isIconLight() {
+        return iconTextMixin.isIconLight();
+    }
+
+    @Override
+    public void setIconSpin(final boolean iconSpin) {
+        iconTextMixin.setIconSpin(iconSpin);
+    }
+
+    @Override
+    public boolean isIconSpin() {
+        return iconTextMixin.isIconSpin();
     }
 }

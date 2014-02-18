@@ -20,13 +20,46 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 
 /**
+ * Interface for all the properties of Icons
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public interface HasIcon {
     void setIcon(IconType iconType);
 
     IconType getIcon();
+
+    void setIconSize(IconSize iconSize);
+
+    IconSize getIconSize();
+
+    void setIconFlip(IconFlip iconFlip);
+
+    IconFlip getIconFlip();
+
+    void setIconRotate(IconRotate iconRotate);
+
+    IconRotate getIconRotate();
+
+    void setIconBordered(boolean iconBordered);
+
+    boolean isIconBordered();
+
+    void setIconMuted(boolean iconMuted);
+
+    boolean isIconMuted();
+
+    void setIconLight(boolean iconLight);
+
+    boolean isIconLight();
+
+    void setIconSpin(boolean iconSpin);
+
+    boolean isIconSpin();
 }

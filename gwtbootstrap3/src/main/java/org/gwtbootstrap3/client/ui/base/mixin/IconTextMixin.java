@@ -21,19 +21,20 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import com.google.gwt.user.client.ui.HasText;
-import org.gwtbootstrap3.client.ui.*;
+import org.gwtbootstrap3.client.ui.HasIcon;
+import org.gwtbootstrap3.client.ui.HasIconPosition;
+import org.gwtbootstrap3.client.ui.Icon;
+import org.gwtbootstrap3.client.ui.Text;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.constants.IconPosition;
-import org.gwtbootstrap3.client.ui.constants.IconSize;
-import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
  * Mixin for Widgets that have text and an optional icon.
  *
  * @author Sven Jacobs
  */
-public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIconPosition & HasIconSize> implements
-        HasText, HasIcon, HasIconPosition, HasIconSize {
+public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIconPosition> implements
+        HasText, HasIcon, HasIconPosition {
 
     private final T widget;
     private final Text text = new Text();
@@ -41,6 +42,12 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private Icon icon;
     private IconPosition iconPosition = IconPosition.LEFT;
     private IconSize iconSize = IconSize.NONE;
+    private IconFlip iconFlip = IconFlip.NONE;
+    private IconRotate iconRotate = IconRotate.NONE;
+    private boolean iconMuted = false;
+    private boolean iconSpin = false;
+    private boolean iconBordered = false;
+    private boolean iconLight = false;
 
     public IconTextMixin(final T widget) {
         this.widget = widget;
@@ -92,6 +99,72 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
         return iconSize;
     }
 
+    @Override
+    public void setIconFlip(IconFlip iconFlip) {
+        this.iconFlip = iconFlip;
+        render(icon);
+    }
+
+    @Override
+    public IconFlip getIconFlip() {
+        return iconFlip;
+    }
+
+    @Override
+    public void setIconRotate(IconRotate iconRotate) {
+        this.iconRotate = iconRotate;
+        render(icon);
+    }
+
+    @Override
+    public IconRotate getIconRotate() {
+        return iconRotate;
+    }
+
+    @Override
+    public void setIconBordered(boolean iconBordered) {
+        this.iconBordered = iconBordered;
+        render(icon);
+    }
+
+    @Override
+    public boolean isIconBordered() {
+        return iconBordered;
+    }
+
+    @Override
+    public void setIconMuted(boolean iconMuted) {
+        this.iconMuted = iconMuted;
+        render(icon);
+    }
+
+    @Override
+    public boolean isIconMuted() {
+        return iconMuted;
+    }
+
+    @Override
+    public void setIconLight(boolean iconLight) {
+        this.iconLight = iconLight;
+        render(icon);
+    }
+
+    @Override
+    public boolean isIconLight() {
+        return iconLight;
+    }
+
+    @Override
+    public void setIconSpin(boolean iconSpin) {
+        this.iconSpin = iconSpin;
+        render(icon);
+    }
+
+    @Override
+    public boolean isIconSpin() {
+        return iconSpin;
+    }
+
     private void render(final Icon newIcon) {
         text.removeFromParent();
         separator.removeFromParent();
@@ -102,6 +175,12 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
         icon = newIcon;
         icon.setSize(iconSize);
+        icon.setFlip(iconFlip);
+        icon.setRotate(iconRotate);
+        icon.setMuted(iconMuted);
+        icon.setSpin(iconSpin);
+        icon.setBorder(iconBordered);
+        icon.setLight(iconLight);
 
         if (iconPosition == IconPosition.LEFT) {
             widget.add(icon);
