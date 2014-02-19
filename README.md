@@ -1,6 +1,6 @@
 [![Build Status](https://buildhive.cloudbees.com/job/gwtbootstrap3/job/gwtbootstrap3/badge/icon)](https://buildhive.cloudbees.com/job/gwtbootstrap3/job/gwtbootstrap3/)
 
-GwtBootstrap3 is a GWT wrapper for Twitter's Bootstrap library version 3
+GwtBootstrap3 is a GWT wrapper for the Bootstrap front-end framework version 3
 containing design templates, styles and beautiful widgets.
 
 Have a look at the [demo](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/) and its
@@ -96,7 +96,7 @@ introduced in GWT 2.0.
 If you want to use a Custom Bootstrap v3 Theme from websites like [wrapbootstrap](https://wrapbootstrap.com/) its super easy.
 
 * Inherit GWTBootstrap3 module like normal
-* Download the theme that you want (make sure that it is Twitter Bootstrap v3 compatible (** Will not work with Twitter Bootstrap v2.x.x themes **)
+* Download the theme that you want (make sure that it is Bootstrap v3 compatible (** Will not work with Bootstrap v2.x.x themes **)
 * Put the CSS files and any needed JS files into the public folder or create a resources folder for these files
 * Link this file as "public" in your *.gwt.xml
 * After the inhert of GWTBoostrap3 module, put stylesheet linkers for these CSS/JS files
