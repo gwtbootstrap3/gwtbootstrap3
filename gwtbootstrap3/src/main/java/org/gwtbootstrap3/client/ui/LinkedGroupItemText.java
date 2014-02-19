@@ -30,4 +30,9 @@ public class LinkedGroupItemText extends Paragraph {
     public LinkedGroupItemText() {
         setStyleName(Styles.LIST_GROUP_ITEM_TEXT);
     }
+
+    public LinkedGroupItemText(final String html) {
+        this();
+        setHTML(html);
+    }
 }
