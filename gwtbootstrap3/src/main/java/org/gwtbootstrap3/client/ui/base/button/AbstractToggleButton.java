@@ -46,7 +46,7 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
 
     protected AbstractToggleButton(final ButtonType type) {
         setType(type);
-        iconTextMixin.addTextWidgetToParent();
+//        iconTextMixin.addTextWidgetToParent();
     }
 
     /**
