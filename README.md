@@ -91,6 +91,17 @@ work best when using the "classic" [panels](http://www.gwtproject.org/doc/latest
 throughout your application and **not** the absolute positioned layout panels
 introduced in GWT 2.0.
 
+# Support for IE8
+
+For support in IE8, you will need to inherit the Respond module as well.
+
+```xml
+<module>
+    <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
+    <inherits name="org.gwtbootstrap3.extras.respond.Respond"/>
+</module>
+```
+
 # Using a Custom Bootstrap Theme
 
 If you want to use a Custom Bootstrap v3 Theme from websites like [wrapbootstrap](https://wrapbootstrap.com/) its super easy.
