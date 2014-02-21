@@ -211,14 +211,14 @@ JavaScript, see Bootstrap's [documentation](http://getbootstrap.com/).
 
 ## Implemented Bootstrap Plugins
 
-| Plugin                                                                 | Status        | In Demo    |
-|------------------------------------------------------------------------|---------------|------------|
-| [Bootbox](http://bootboxjs.com/)                                       | Supported     | Yes        |
-| [Slider](http://www.eyecon.ro/bootstrap-slider/)                       | Supported     | Yes        |
-| [DateTimePicker](http://eonasdan.github.io/bootstrap-datetimepicker/)  | Supported     | Yes        |
-| TypeAhead                                                              | Not Supported | No         |
-| [Summernote's WYSIWYG Editor](http://hackerwins.github.io/summernote)  | Supported     | Yes        |
-| [Bootstrap Select](https://github.com/silviomoreto/bootstrap-select)   | Supported     | Yes        |
+| Plugin                                                                    | Status        | In Demo    |
+|---------------------------------------------------------------------------|---------------|------------|
+| [Bootbox](http://bootboxjs.com/)                                          | Supported     | Yes        |
+| [Slider](http://www.eyecon.ro/bootstrap-slider/)                          | Supported     | Yes        |
+| [DateTimePicker](http://www.malot.fr/bootstrap-datetimepicker/index.php)  | Supported     | Yes        |
+| TypeAhead                                                                 | Not Supported | No         |
+| [Summernote's WYSIWYG Editor](http://hackerwins.github.io/summernote)     | Supported     | Yes        |
+| [Bootstrap Select](https://github.com/silviomoreto/bootstrap-select)      | Supported     | Yes        |
 
 # Relationship between raw Bootstrap components and GWT widgets 
 
