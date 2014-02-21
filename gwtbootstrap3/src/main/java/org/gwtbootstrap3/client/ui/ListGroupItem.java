@@ -29,7 +29,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Joshua Godi
  */
-public class ListGroupItem extends ComplexWidget implements HasResponsiveness, HasType<ListGroupItemType> {
+public class ListGroupItem extends ComplexWidget implements HasType<ListGroupItemType> {
     private final Span span = new Span();
 
     public ListGroupItem() {
@@ -45,16 +45,6 @@ public class ListGroupItem extends ComplexWidget implements HasResponsiveness, H
 
     public void setText(final String text) {
         span.setText(text);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     @Override

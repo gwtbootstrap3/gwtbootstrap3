@@ -41,7 +41,7 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Joshua Godi
  */
 public abstract class AbstractButton extends ComplexWidget implements HasEnabled, HasActive, HasType<ButtonType>,
-        HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasResponsiveness, HasTargetHistoryToken, HasHref {
+        HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasTargetHistoryToken, HasHref {
 
     public class ButtonStateHandler {
         private ButtonStateHandler() {
@@ -146,16 +146,6 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     @Override
     public String getTarget() {
         return targetMixin.getTarget();
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     @Override

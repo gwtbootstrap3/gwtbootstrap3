@@ -39,7 +39,7 @@ import org.gwtbootstrap3.client.ui.constants.Alignment;
  *
  * @author Joshua Godi
  */
-public class HeadingPanel extends ComplexWidget implements HasResponsiveness, HasAlignment {
+public class HeadingPanel extends ComplexWidget implements HasAlignment {
 
     @UiConstructor
     public HeadingPanel(final int size) {
@@ -55,15 +55,5 @@ public class HeadingPanel extends ComplexWidget implements HasResponsiveness, Ha
     @Override
     public Alignment getAlignment() {
         return Alignment.fromStyleName(getStyleName());
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

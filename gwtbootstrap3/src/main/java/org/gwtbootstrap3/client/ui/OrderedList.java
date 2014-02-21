@@ -22,13 +22,12 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class OrderedList extends ComplexWidget implements HasResponsiveness {
+public class OrderedList extends ComplexWidget {
 
     /**
      * Creates an empty list.
@@ -57,15 +56,5 @@ public class OrderedList extends ComplexWidget implements HasResponsiveness {
         if (inline) {
             addStyleName(Styles.LIST_INLINE);
         }
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

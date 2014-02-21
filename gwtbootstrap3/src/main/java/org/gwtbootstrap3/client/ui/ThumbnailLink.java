@@ -27,7 +27,6 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
@@ -36,7 +35,7 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @author Joshua Godi
  */
 public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref,
-        HasToggle, HasTargetHistoryToken, HasTabIndex, Focusable, HasResponsiveness {
+        HasToggle, HasTargetHistoryToken, HasTabIndex, Focusable {
 
     private final ToggleMixin<ThumbnailLink> toggleMixin = new ToggleMixin<ThumbnailLink>(this);
     private final FocusableMixin focusableMixin;
@@ -116,15 +115,5 @@ public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, Ha
     @Override
     public void setFocus(final boolean focused) {
         focusableMixin.setFocus(focused);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

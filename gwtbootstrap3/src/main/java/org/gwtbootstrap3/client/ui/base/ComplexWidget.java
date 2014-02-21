@@ -23,6 +23,8 @@ package org.gwtbootstrap3.client.ui.base;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.HasId;
+import org.gwtbootstrap3.client.ui.HasResponsiveness;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 
 /**
@@ -30,7 +32,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
  *
  * @author Sven Jacobs
  */
-public class ComplexWidget extends ComplexPanel implements HasId {
+public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiveness {
     private final IdMixin<ComplexWidget> idMixin = new IdMixin<ComplexWidget>(this);
 
     @Override
@@ -56,5 +58,15 @@ public class ComplexWidget extends ComplexPanel implements HasId {
     @Override
     public String getId() {
         return idMixin.getId();
+    }
+
+    @Override
+    public void setVisibleOn(final String deviceSizeString) {
+        StyleHelper.setVisibleOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setHiddenOn(final String deviceSizeString) {
+        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

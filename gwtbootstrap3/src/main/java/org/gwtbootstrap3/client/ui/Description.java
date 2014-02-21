@@ -23,13 +23,12 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class Description extends ComplexWidget implements HasResponsiveness {
+public class Description extends ComplexWidget {
 
     public Description() {
         setElement(Document.get().createDLElement());
@@ -46,15 +45,5 @@ public class Description extends ComplexWidget implements HasResponsiveness {
                     "Description can only have children of type DescriptionData and DescriptionTitle");
         }
         super.add(child);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

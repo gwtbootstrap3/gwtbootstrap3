@@ -32,7 +32,7 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Sven Jacobs
  * @see org.gwtbootstrap3.client.ui.constants.IconType
  */
-public class Icon extends ComplexWidget implements HasType<IconType>, HasResponsiveness {
+public class Icon extends ComplexWidget implements HasType<IconType> {
 
     public Icon() {
         setElement(Document.get().createElement(ElementTags.I));
@@ -53,16 +53,6 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasRespons
     @Override
     public IconType getType() {
         return IconType.fromStyleName(getStyleName());
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     public void setLight(final boolean light) {

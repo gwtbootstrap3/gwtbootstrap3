@@ -21,8 +21,6 @@ package org.gwtbootstrap3.client.ui.base;
  */
 
 import com.google.gwt.dom.client.Document;
-import org.gwtbootstrap3.client.ui.HasResponsiveness;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 
 /**
  * Base class for {@link org.gwtbootstrap3.client.ui.InputGroupAddon}
@@ -33,20 +31,10 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
  * @see org.gwtbootstrap3.client.ui.InputGroupAddon
  * @see org.gwtbootstrap3.client.ui.InputGroupButton
  */
-public abstract class AbstractInputGroupAddon extends ComplexWidget implements HasResponsiveness {
+public abstract class AbstractInputGroupAddon extends ComplexWidget {
 
     protected AbstractInputGroupAddon(final String styleName) {
         setElement(Document.get().createSpanElement());
         setStyleName(styleName);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

@@ -362,6 +362,11 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         return widget;
     }
 
+    @Override
+    public String toString() {
+        return asWidget().toString();
+    }
+
     // @formatter:off
     private native void bindJavaScriptEvents(final Element e) /*-{
         var target = this;

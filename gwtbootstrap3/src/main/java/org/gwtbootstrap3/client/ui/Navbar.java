@@ -33,7 +33,7 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @see NavbarForm
  * @see NavbarText
  */
-public class Navbar extends ComplexWidget implements HasType<NavbarType>, HasResponsiveness {
+public class Navbar extends ComplexWidget implements HasType<NavbarType> {
     private static final String NAVIGATION = "navigation";
 
     public Navbar() {
@@ -51,16 +51,6 @@ public class Navbar extends ComplexWidget implements HasType<NavbarType>, HasRes
     @Override
     public NavbarType getType() {
         return NavbarType.fromStyleName(getStyleName());
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     public void setPosition(final NavbarPosition type) {
