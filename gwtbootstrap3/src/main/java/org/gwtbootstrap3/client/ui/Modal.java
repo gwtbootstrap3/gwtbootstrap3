@@ -87,6 +87,8 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
     private final ModalContent content = new ModalContent();
     private ModalHeader header = new ModalHeader();
 
+    private boolean hideOtherModals = false;
+
     public Modal() {
         setStyleName(Styles.MODAL);
 
@@ -131,6 +133,10 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
     @Override
     public boolean isClosable() {
         return header.isClosable();
+    }
+
+    public void setHideOtherModals(boolean hideOtherModals) {
+        this.hideOtherModals = hideOtherModals;
     }
 
     @Override
@@ -194,6 +200,9 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
      * @see org.gwtbootstrap3.client.shared.event.ModalShowEvent
      */
     protected void onShow(final Event evt) {
+        if(hideOtherModals) {
+            hideOtherModals();
+        }
         fireEvent(new ModalShowEvent(this, evt));
     }
 
@@ -253,5 +262,9 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
 
     private native void modal(final Element e, final String arg) /*-{
         $wnd.jQuery(e).modal(arg);
+    }-*/;
+
+    private native void hideOtherModals() /*-{
+        $wnd.jQuery('.modal').modal('hide');
     }-*/;
 }
