@@ -37,13 +37,23 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 public class Label extends AbstractTextWidget implements HasType<LabelType> {
 
     public Label() {
-        this(LabelType.DEFAULT);
+        super(DOM.createSpan());
+        setStyleName(Styles.LABEL);
+        setType(LabelType.DEFAULT);
     }
 
     public Label(final LabelType type) {
-        super(DOM.createSpan());
-        setStyleName(Styles.LABEL);
+        this();
         setType(type);
+    }
+
+    public Label(final String text) {
+        this(LabelType.DEFAULT, text);
+    }
+
+    public Label(final LabelType type, final String text) {
+        this(type);
+        setText(text);
     }
 
     /**

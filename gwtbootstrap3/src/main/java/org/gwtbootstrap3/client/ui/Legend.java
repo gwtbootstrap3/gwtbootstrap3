@@ -34,4 +34,9 @@ public class Legend extends AbstractTextWidget {
     public Legend() {
         super(DOM.createLegend());
     }
+
+    public Legend(final String text) {
+        this();
+        setText(text);
+    }
 }
