@@ -20,12 +20,14 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class TabPane extends Div {
+public class TabPane extends Div implements HasActive {
+    private final ActiveMixin<TabPane> activeMixin = new ActiveMixin<TabPane>(this);
 
     public TabPane() {
         setStyleName(Styles.TAB_PANE);
@@ -47,11 +49,13 @@ public class TabPane extends Div {
         }
     }
 
+    @Override
     public void setActive(boolean active) {
-        if (active) {
-            addStyleName(Styles.ACTIVE);
-        } else {
-            removeStyleName(Styles.ACTIVE);
-        }
+        activeMixin.setActive(active);
+    }
+
+    @Override
+    public boolean isActive() {
+        return activeMixin.isActive();
     }
 }
