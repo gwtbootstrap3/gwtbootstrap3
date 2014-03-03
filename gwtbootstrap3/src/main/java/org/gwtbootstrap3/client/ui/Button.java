@@ -24,6 +24,7 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickHandler;
 import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
+import org.gwtbootstrap3.client.ui.constants.IconType;
 
 /**
  * Button based on {@code <button>} element with different types and sizes.
@@ -62,6 +63,11 @@ public class Button extends AbstractToggleButton {
     public Button(final String text, final ClickHandler handler) {
         this(text);
         super.addClickHandler(handler);
+    }
+
+    public Button(final String text, final IconType iconType, final ClickHandler clickHandler) {
+        this(text, clickHandler);
+        setIcon(iconType);
     }
 
     @Override

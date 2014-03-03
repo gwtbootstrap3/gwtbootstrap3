@@ -20,6 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -27,14 +31,14 @@ import org.gwtbootstrap3.client.ui.constants.LabelType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * Bootstrap's label, see <a href="http://getbootstrap.com/components/#labels">documentation</a>.
+ * Bootstrap's label, see <a href="http://getbootstrap.com/components/#labels">documentation</Ga>.
  * <p/>
  * Not to be confused with {@code <label>} (see {@link FormLabel}) or GWT's {@link com.google.gwt.user.client.ui.Label}
  *
  * @author Sven Jacobs
  * @see FormLabel
  */
-public class Label extends AbstractTextWidget implements HasType<LabelType> {
+public class Label extends AbstractTextWidget implements HasType<LabelType>, HasClickHandlers {
 
     public Label() {
         super(DOM.createSpan());
@@ -69,5 +73,10 @@ public class Label extends AbstractTextWidget implements HasType<LabelType> {
     @Override
     public LabelType getType() {
         return LabelType.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public HandlerRegistration addClickHandler(ClickHandler handler) {
+        return addDomHandler(handler, ClickEvent.getType());
     }
 }
