@@ -33,6 +33,9 @@ import org.gwtbootstrap3.client.ui.constants.WellSize;
  */
 public class Well extends HTMLPanel implements HasSize<WellSize>, HasResponsiveness {
 
+    public Well() {
+        this("");
+    }
     public Well(final String html) {
         super(html);
         setStyleName(Styles.WELL);
