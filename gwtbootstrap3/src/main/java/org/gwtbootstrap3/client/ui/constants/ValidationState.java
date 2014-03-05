@@ -25,8 +25,10 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public enum ValidationState implements Style.HasCssName {
+    NONE(""),
     WARNING("has-warning"),
     ERROR("has-error"),
     SUCCESS("has-success");
@@ -43,6 +45,6 @@ public enum ValidationState implements Style.HasCssName {
     }
 
     public static ValidationState fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, ValidationState.class, null);
+        return EnumHelper.fromStyleName(styleName, ValidationState.class, NONE);
     }
 }

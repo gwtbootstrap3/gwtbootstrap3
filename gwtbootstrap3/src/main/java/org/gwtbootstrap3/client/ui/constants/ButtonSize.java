@@ -25,10 +25,11 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public enum ButtonSize implements Size, Style.HasCssName {
     LARGE("btn-lg"),
-    DEFAULT(null),
+    DEFAULT(""),
     SMALL("btn-sm"),
     EXTRA_SMALL("btn-xs");
 

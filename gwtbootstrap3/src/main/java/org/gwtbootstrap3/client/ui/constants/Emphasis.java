@@ -27,7 +27,7 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
  * @author Joshua Godi
  */
 public enum Emphasis implements Style.HasCssName {
-    DEFAULT(null),
+    DEFAULT(""),
     MUTED("text-muted"),
     PRIMARY("text-primary"),
     SUCCESS("text-success"),

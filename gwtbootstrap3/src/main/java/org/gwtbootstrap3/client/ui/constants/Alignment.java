@@ -27,7 +27,7 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
  * @author Joshua Godi
  */
 public enum Alignment implements Style.HasCssName {
-    DEFAULT(null),
+    DEFAULT(""),
     LEFT("text-left"),
     CENTER("text-center"),
     RIGHT("text-right");

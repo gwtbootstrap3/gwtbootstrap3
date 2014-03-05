@@ -25,8 +25,10 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public enum NavbarPull implements Style.HasCssName {
+    NONE(""),
     LEFT(Styles.NAVBAR_LEFT),
     RIGHT(Styles.NAVBAR_RIGHT);
 
@@ -42,6 +44,6 @@ public enum NavbarPull implements Style.HasCssName {
     }
 
     public static NavbarPull fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, NavbarPull.class, null);
+        return EnumHelper.fromStyleName(styleName, NavbarPull.class, NONE);
     }
 }

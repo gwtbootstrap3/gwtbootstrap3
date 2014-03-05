@@ -25,8 +25,10 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public enum Pull implements Style.HasCssName {
+    NONE(""),
     LEFT(Styles.PULL_LEFT),
     RIGHT(Styles.PULL_RIGHT);
 
@@ -42,6 +44,6 @@ public enum Pull implements Style.HasCssName {
     }
 
     public static Pull fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, Pull.class, null);
+        return EnumHelper.fromStyleName(styleName, Pull.class, NONE);
     }
 }

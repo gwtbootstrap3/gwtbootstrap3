@@ -25,10 +25,11 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public enum WellSize implements Size, Style.HasCssName {
     LARGE("well-lg"),
-    DEFAULT(null),
+    DEFAULT(""),
     SMALL("well-sm");
 
     private final String cssClass;

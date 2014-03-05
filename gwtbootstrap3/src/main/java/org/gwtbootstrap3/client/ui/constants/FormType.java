@@ -25,9 +25,10 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public enum FormType implements Type, Style.HasCssName {
-    DEFAULT(null),
+    DEFAULT(""),
     INLINE("form-inline"),
     HORIZONTAL("form-horizontal");
 

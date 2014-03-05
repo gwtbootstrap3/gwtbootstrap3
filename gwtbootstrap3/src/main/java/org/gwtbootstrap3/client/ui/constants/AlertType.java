@@ -25,8 +25,10 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public enum AlertType implements Type, Style.HasCssName {
+    DEFAULT(""),
     SUCCESS("alert-success"),
     INFO("alert-info"),
     WARNING("alert-warning"),
@@ -44,6 +46,6 @@ public enum AlertType implements Type, Style.HasCssName {
     }
 
     public static AlertType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, AlertType.class, null);
+        return EnumHelper.fromStyleName(styleName, AlertType.class, DEFAULT);
     }
 }

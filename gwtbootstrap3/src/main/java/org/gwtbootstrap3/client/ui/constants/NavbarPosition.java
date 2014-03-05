@@ -25,9 +25,10 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
 /**
  * @author Sven Jacobs
+ * @author Joshua Godi
  */
 public enum NavbarPosition implements Type, Style.HasCssName {
-    DEFAULT(null),
+    DEFAULT(""),
     FIXED_TOP("navbar-fixed-top"),
     FIXED_BOTTOM("navbar-fixed-bottom"),
     STATIC_TOP("navbar-static-top");
