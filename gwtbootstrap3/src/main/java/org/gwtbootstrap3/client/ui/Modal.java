@@ -23,10 +23,8 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.shared.event.ModalHiddenEvent;
-import org.gwtbootstrap3.client.shared.event.ModalHideEvent;
-import org.gwtbootstrap3.client.shared.event.ModalShowEvent;
-import org.gwtbootstrap3.client.shared.event.ModalShownEvent;
+import com.google.web.bindery.event.shared.HandlerRegistration;
+import org.gwtbootstrap3.client.shared.event.*;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap3.client.ui.base.modal.ModalDialog;
@@ -79,7 +77,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see org.gwtbootstrap3.client.shared.event.ModalHideEvent
  * @see org.gwtbootstrap3.client.shared.event.ModalHiddenEvent
  */
-public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
+public class Modal extends Div implements IsClosable, HasResponsiveness {
     private final String TOGGLE = "toggle";
     private final String HIDE = "hide";
     private final String SHOW = "show";
@@ -135,8 +133,28 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
         return header.isClosable();
     }
 
-    public void setHideOtherModals(boolean hideOtherModals) {
+    /**
+     * If set to true, when the modal is shown it will force hide all other modals
+     * @param hideOtherModals - true to force hide other modals, false to keep them shown
+     */
+    public void setHideOtherModals(final boolean hideOtherModals) {
         this.hideOtherModals = hideOtherModals;
+    }
+
+    /**
+     * If set to true, will remove the modal from the DOM completely and unbind any events to the modal
+     * @param removeOnHide - true to remove modal and unbind events on hide, false to keep it in the DOM
+     */
+    public void setRemoveOnHide(final boolean removeOnHide) {
+        if (removeOnHide) {
+            addHiddenHandler(new ModalHiddenHandler() {
+                @Override
+                public void onHidden(ModalHiddenEvent evt) {
+                    unbindAllHandlers(getElement());
+                    removeFromParent();
+                }
+            });
+        }
     }
 
     @Override
@@ -192,6 +210,22 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
         modal(getElement(), HIDE);
     }
 
+    public HandlerRegistration addShowHandler(final ModalShowHandler modalShowHandler) {
+        return addHandler(modalShowHandler, ModalShowEvent.getType());
+    }
+
+    public HandlerRegistration addShownHandler(final ModalShownHandler modalShownHandler) {
+        return addHandler(modalShownHandler, ModalShownEvent.getType());
+    }
+
+    public HandlerRegistration addHideHandler(final ModalHideHandler modalHideHandler) {
+        return addHandler(modalHideHandler, ModalHideEvent.getType());
+    }
+
+    public HandlerRegistration addHiddenHandler(final ModalHiddenHandler modalHiddenHandler) {
+        return addHandler(modalHiddenHandler, ModalHiddenEvent.getType());
+    }
+
     /**
      * Can be override by subclasses to handle Modal's "show" event however it's
      * recommended to add an event handler to the modal.
@@ -200,7 +234,7 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
      * @see org.gwtbootstrap3.client.shared.event.ModalShowEvent
      */
     protected void onShow(final Event evt) {
-        if(hideOtherModals) {
+        if (hideOtherModals) {
             hideOtherModals();
         }
         fireEvent(new ModalShowEvent(this, evt));
@@ -264,7 +298,17 @@ public class Modal extends FlowPanel implements IsClosable, HasResponsiveness {
         $wnd.jQuery(e).modal(arg);
     }-*/;
 
+    // Will iterate over all the modals, if they are visible it will hide them
     private native void hideOtherModals() /*-{
-        $wnd.jQuery('.modal').modal('hide');
+        $wnd.jQuery('.modal.in').modal('hide');
+    }-*/;
+
+    // Unbinds all the handlers
+    private native void unbindAllHandlers(final Element e) /*-{
+        var $e = $wnd.jQuery(e);
+        $e.off('show.bs.modal');
+        $e.off('shown.bs.modal');
+        $e.off('hide.bs.modal');
+        $e.off('hidden.bs.modal');
     }-*/;
 }
