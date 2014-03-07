@@ -46,7 +46,6 @@ public abstract class AbstractIconButton extends AbstractButton implements HasTe
     @Override
     public void setText(final String text) {
         iconTextMixin.setText(text);
-        iconTextMixin.addTextWidgetToParent();
     }
 
     @Override

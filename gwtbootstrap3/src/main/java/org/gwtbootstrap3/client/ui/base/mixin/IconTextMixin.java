@@ -166,12 +166,8 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     }
 
     private void render(final Icon newIcon) {
-        if (text.isAttached()) {
-            text.removeFromParent();
-        }
-        if (separator.isAttached()) {
-            separator.removeFromParent();
-        }
+        text.removeFromParent();
+        separator.removeFromParent();
 
         if (icon != null) {
             icon.removeFromParent();
@@ -191,9 +187,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
             widget.add(separator);
         }
 
-        if (text.getText() != null && text.getText().length() > 0) {
-            widget.add(text);
-        }
+        widget.add(text);
 
         if (iconPosition == IconPosition.RIGHT) {
             widget.add(separator);
