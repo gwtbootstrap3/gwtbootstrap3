@@ -22,6 +22,7 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap3.client.shared.event.*;
@@ -135,6 +136,7 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
 
     /**
      * If set to true, when the modal is shown it will force hide all other modals
+     *
      * @param hideOtherModals - true to force hide other modals, false to keep them shown
      */
     public void setHideOtherModals(final boolean hideOtherModals) {
@@ -143,6 +145,7 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
 
     /**
      * If set to true, will remove the modal from the DOM completely and unbind any events to the modal
+     *
      * @param removeOnHide - true to remove modal and unbind events on hide, false to keep it in the DOM
      */
     public void setRemoveOnHide(final boolean removeOnHide) {
@@ -203,6 +206,7 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
     }
 
     public void show() {
+        checkIsAttached();
         modal(getElement(), SHOW);
     }
 
@@ -271,6 +275,12 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
      */
     protected void onHidden(final Event evt) {
         fireEvent(new ModalHiddenEvent(this, evt));
+    }
+
+    private void checkIsAttached() {
+        if (!this.isAttached()) {
+            RootPanel.get().add(this);
+        }
     }
 
     private native void bindJavaScriptEvents(final Element e) /*-{
