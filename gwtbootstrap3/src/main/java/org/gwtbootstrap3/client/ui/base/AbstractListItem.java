@@ -24,10 +24,12 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.HasEnabled;
 import org.gwtbootstrap3.client.ui.HasActive;
+import org.gwtbootstrap3.client.ui.HasId;
 import org.gwtbootstrap3.client.ui.HasPull;
 import org.gwtbootstrap3.client.ui.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -41,10 +43,11 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see org.gwtbootstrap3.client.ui.ListDropDown
  */
 public abstract class AbstractListItem extends ComplexPanel implements HasEnabled, HasPull, HasActive,
-        HasResponsiveness {
+        HasResponsiveness, HasId {
 
     private final ActiveMixin<AbstractListItem> activeMixin = new ActiveMixin<AbstractListItem>(this);
     private final PullMixin<AbstractListItem> pullMixin = new PullMixin<AbstractListItem>(this);
+    private final IdMixin<AbstractListItem> idMixin = new IdMixin<AbstractListItem>(this);
 
     protected AbstractListItem() {
         setElement(Document.get().createLIElement());
@@ -92,5 +95,15 @@ public abstract class AbstractListItem extends ComplexPanel implements HasEnable
     @Override
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setId(String id) {
+        idMixin.setId(id);
+    }
+
+    @Override
+    public String getId() {
+        return idMixin.getId();
     }
 }
