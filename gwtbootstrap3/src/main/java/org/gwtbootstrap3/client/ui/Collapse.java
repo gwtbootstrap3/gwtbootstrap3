@@ -31,7 +31,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 public class Collapse extends Div {
     private static final String TOGGLE = "toggle";
     private static final String SHOW = "show";
-    private static final String HIDE = "hdie";
+    private static final String HIDE = "hide";
 
     private boolean toggle = true;
 
