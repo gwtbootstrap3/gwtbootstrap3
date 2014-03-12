@@ -32,11 +32,6 @@ public class ProgressBar extends Div implements HasType<ProgressBarType> {
     private final Span span = new Span();
 
     public ProgressBar() {
-        // Default attributes
-//        getElement().setAttribute(Attributes.ROLE, "progressbar");
-//        getElement().setAttribute("aria-valuemin", "0");
-//        getElement().setAttribute("aria-valuemax", "100");
-
         // Default style
         setStyleName(Styles.PROGRESS_BAR);
 
@@ -56,13 +51,13 @@ public class ProgressBar extends Div implements HasType<ProgressBarType> {
         return span.getText();
     }
 
-    public void setPercent(final int percent) {
+    public void setPercent(final double percent) {
         getElement().getStyle().setWidth(percent, Style.Unit.PCT);
     }
 
-    public int getPercent() {
+    public double getPercent() {
         final String width = getElement().getStyle().getWidth();
-        return width == null ? 0 : Integer.valueOf(width.substring(0, width.indexOf("%")));
+        return width == null ? 0 : Double.valueOf(width.substring(0, width.indexOf("%")));
     }
 
     @Override
