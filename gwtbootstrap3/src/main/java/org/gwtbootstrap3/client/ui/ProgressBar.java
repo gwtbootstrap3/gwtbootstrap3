@@ -62,7 +62,7 @@ public class ProgressBar extends Div implements HasType<ProgressBarType> {
 
     @Override
     public void setType(final ProgressBarType type) {
-        StyleHelper.addEnumStyleName(this, type);
+        StyleHelper.addUniqueEnumStyleName(this, ProgressBarType.class, type);
     }
 
     @Override

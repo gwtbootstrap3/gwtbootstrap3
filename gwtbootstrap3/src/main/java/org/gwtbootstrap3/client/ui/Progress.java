@@ -21,27 +21,33 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.constants.ProgressType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class Progress extends Div implements HasType<ProgressType> {
+public class Progress extends Div implements HasType<ProgressType>, HasActive {
+    private final ActiveMixin<Progress> activeMixin = new ActiveMixin<Progress>(this);
 
     public Progress() {
         setStyleName(Styles.PROGRESS);
     }
 
+    @Override
     public void setActive(final boolean active) {
-        if (active) {
-            addStyleName(Styles.ACTIVE);
-        }
+        activeMixin.setActive(active);
+    }
+
+    @Override
+    public boolean isActive() {
+        return activeMixin.isActive();
     }
 
     @Override
     public void setType(final ProgressType type) {
-        StyleHelper.addEnumStyleName(this, type);
+        StyleHelper.addUniqueEnumStyleName(this, ProgressType.class, type);
     }
 
     @Override
