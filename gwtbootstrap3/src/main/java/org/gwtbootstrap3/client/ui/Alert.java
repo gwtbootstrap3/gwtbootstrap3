@@ -71,7 +71,17 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
     @Override
     protected void onLoad() {
         super.onLoad();
+
+        // Bind the events
         bindJavaScriptEvents(getElement());
+    }
+
+    @Override
+    protected void onUnload() {
+        super.onUnload();
+
+        // Unbind the events
+        unbindJavaScriptEvents(getElement());
     }
 
     /**
@@ -151,5 +161,10 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
         $alert.on('closed.bs.alert', function (evt) {
             target.@org.gwtbootstrap3.client.ui.Alert::onClosed(Lcom/google/gwt/user/client/Event;)(evt);
         });
+    }-*/;
+
+    private native void unbindJavaScriptEvents(final Element e) /*-{
+        $wnd.jQuery(e).off('close.bs.alert');
+        $wnd.jQuery(e).off('closed.bs.alert');
     }-*/;
 }

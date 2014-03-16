@@ -65,6 +65,14 @@ public class Carousel extends Div {
         carousel(getElement(), interval, pause, wrap);
     }
 
+    @Override
+    protected void onUnload() {
+        super.onUnload();
+
+        // Unbind events
+        unbindJavaScriptEvents(getElement());
+    }
+
     public void setInterval(final int interval) {
         this.interval = interval;
     }
@@ -145,6 +153,11 @@ public class Carousel extends Div {
         $carousel.on('slid.bs.carousel', function (evt) {
             target.@org.gwtbootstrap3.client.ui.Carousel::onSlid(Lcom/google/gwt/user/client/Event;)(evt);
         });
+    }-*/;
+
+    private native void unbindJavaScriptEvents(final com.google.gwt.dom.client.Element e) /*-{
+        $wnd.jQuery(e).off('slide.bs.carousel');
+        $wnd.jQuery(e).off('slid.bs.carousel');
     }-*/;
 
     private native void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause,

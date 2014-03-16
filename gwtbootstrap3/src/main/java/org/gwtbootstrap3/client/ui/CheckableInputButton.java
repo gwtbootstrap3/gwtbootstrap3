@@ -44,7 +44,17 @@ public class CheckableInputButton extends InputButton implements HasValue<Boolea
     @Override
     protected void onLoad() {
         super.onLoad();
+
+        // Bind the events
         bindJavaScriptEvents(getElement());
+    }
+
+    @Override
+    protected void onUnload() {
+        super.onUnload();
+
+        // Unbind the events
+        unbindJavaScriptEvents(getElement());
     }
 
     @Override
@@ -81,5 +91,9 @@ public class CheckableInputButton extends InputButton implements HasValue<Boolea
         $e.on('change', function (evt) {
             target.@org.gwtbootstrap3.client.ui.CheckableInputButton::onChange(Lcom/google/gwt/user/client/Event;)(evt);
         });
+    }-*/;
+
+    private native void unbindJavaScriptEvents(final Element e) /*-{
+        $wnd.jQuery(e).off('change');
     }-*/;
 }

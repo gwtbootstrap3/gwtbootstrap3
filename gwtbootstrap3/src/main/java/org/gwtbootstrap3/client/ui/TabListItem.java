@@ -97,6 +97,14 @@ public class TabListItem extends ListItem implements HasHTML, HasTarget {
     }
 
     @Override
+    protected void onUnload() {
+        super.onUnload();
+
+        // Unbind JS events
+        unbindJavaScriptEvents(anchor.getElement());
+    }
+
+    @Override
     public String getHTML() {
         return anchor.getHTML();
     }
@@ -144,5 +152,10 @@ public class TabListItem extends ListItem implements HasHTML, HasTarget {
         $tab.on('shown.bs.tab', function (evt) {
             target.@org.gwtbootstrap3.client.ui.TabListItem::onShown(Lcom/google/gwt/user/client/Event;)(evt);
         });
+    }-*/;
+
+    private native void unbindJavaScriptEvents(final Element e) /*-{
+        $wnd.jQuery(e).off('show.bs.tab');
+        $wnd.jQuery(e).off('shown.bs.tab');
     }-*/;
 }

@@ -51,6 +51,14 @@ public class Collapse extends Div {
         collapse(getElement(), toggle);
     }
 
+    @Override
+    protected void onUnload() {
+        super.onUnload();
+
+        // Unbind the events
+        unbindJavaScriptEvents(getElement());
+    }
+
     /**
      * Sets the default state to show or hide. Show is true.
      */
@@ -142,6 +150,13 @@ public class Collapse extends Div {
         $collapse.on('hidden.bs.collapse', function (evt) {
             target.@org.gwtbootstrap3.client.ui.Collapse::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
         });
+    }-*/;
+
+    private native void unbindJavaScriptEvents(final com.google.gwt.dom.client.Element e) /*-{
+        $wnd.jQuery(e).off('show.bs.collapse');
+        $wnd.jQuery(e).off('shown.bs.collapse');
+        $wnd.jQuery(e).off('hide.bs.collapse');
+        $wnd.jQuery(e).off('hidden.bs.collapse');
     }-*/;
 
     private native void collapse(final com.google.gwt.dom.client.Element e, final boolean toggle) /*-{
