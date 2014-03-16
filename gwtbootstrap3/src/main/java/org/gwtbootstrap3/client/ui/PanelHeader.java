@@ -20,16 +20,15 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
-import org.gwtbootstrap3.client.ui.constants.Styles;
-
 import com.google.gwt.user.client.ui.Widget;
+import org.gwtbootstrap3.client.ui.base.mixin.TextMixin;
+import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class PanelHeader extends Div implements HasId {
-    private final IdMixin<PanelHeader> idMixin = new IdMixin<PanelHeader>(this);
+public class PanelHeader extends Div implements HasId, HasText {
+    private final TextMixin<PanelHeader> textMixin = new TextMixin<PanelHeader>(this);
 
     public PanelHeader() {
         setStyleName(Styles.PANEL_HEADING);
@@ -48,21 +47,17 @@ public class PanelHeader extends Div implements HasId {
         super.add(child);
     }
 
+    @Override
+    public String getText() {
+        return textMixin.getText();
+    }
+
+    @Override
     public void setText(final String text) {
         // Only want text to be available if the widget count is 0!
         // This is a safety net for if people use setText and add a Heading!
         if (getWidgetCount() == 0) {
-            getElement().setInnerText(text);
+            textMixin.setText(text);
         }
-    }
-
-    @Override
-    public void setId(final String id) {
-        idMixin.setId(id);
-    }
-
-    @Override
-    public String getId() {
-        return idMixin.getId();
     }
 }
