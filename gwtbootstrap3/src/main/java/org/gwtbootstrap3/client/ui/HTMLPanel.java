@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.SpyMixin;
@@ -32,7 +33,7 @@ import com.google.gwt.safehtml.shared.SafeHtml;
  * @author Sven Jacobs
  * @author Grant Slender
  */
-public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implements HasId, HasSpy, HasTarget, HasResponsiveness {
+public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implements HasId, HasSpy, HasTarget, HasResponsiveness, HasInlineStyle {
 
     private final SpyMixin<HTMLPanel> spyMixin = new SpyMixin<HTMLPanel>(this);
     private final TargetMixin<HTMLPanel> targetMixin = new TargetMixin<HTMLPanel>(this);
@@ -88,5 +89,45 @@ public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implement
     @Override
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setMarginTop(double margin) {
+        getElement().getStyle().setMarginTop(margin, Style.Unit.PX);
+    }
+
+    @Override
+    public void setMarginLeft(double margin) {
+        getElement().getStyle().setMarginLeft(margin, Style.Unit.PX);
+    }
+
+    @Override
+    public void setMarginRight(double margin) {
+        getElement().getStyle().setMarginRight(margin, Style.Unit.PX);
+    }
+
+    @Override
+    public void setMarginBottom(double margin) {
+        getElement().getStyle().setMarginBottom(margin, Style.Unit.PX);
+    }
+
+    @Override
+    public void setPaddingTop(double padding) {
+        getElement().getStyle().setPaddingTop(padding, Style.Unit.PX);
+    }
+
+    @Override
+    public void setPaddingLeft(double padding) {
+        getElement().getStyle().setPaddingLeft(padding, Style.Unit.PX);
+    }
+
+    @Override
+    public void setPaddingRight(double padding) {
+        getElement().getStyle().setPaddingRight(padding, Style.Unit.PX);
+    }
+
+    @Override
+    public void setPaddingBottom(double padding) {
+        getElement().getStyle().setPaddingBottom(padding, Style.Unit.PX);
     }
 }
