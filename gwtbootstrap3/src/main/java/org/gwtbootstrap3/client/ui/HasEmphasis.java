@@ -23,10 +23,23 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.constants.Emphasis;
 
 /**
+ * An object that implements this interface has emphasis, which can be set and
+ * retrieved using these methods.
+ *
  * @author Joshua Godi
  */
 public interface HasEmphasis {
+    /**
+     * Sets the object's emphasis.
+     *
+     * @param emphasis the object's new emphasis
+     */
     void setEmphasis(Emphasis emphasis);
 
+    /**
+     * Get the object's emphasis.
+     *
+     * @return the object's emphasis
+     */
     Emphasis getEmphasis();
 }

@@ -23,10 +23,23 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
 
 /**
+ * An object that implements this interface has alignment, which can be set and
+ * retrieved using these methods.
+ *
  * @author Joshua Godi
  */
 public interface HasAlignment {
+    /**
+     * Sets this object's alignment.
+     *
+     * @param alignment the object's new alignment
+     */
     void setAlignment(Alignment alignment);
 
+    /**
+     * Get the object's alignment.
+     *
+     * @return the object's alignment
+     */
     Alignment getAlignment();
 }
