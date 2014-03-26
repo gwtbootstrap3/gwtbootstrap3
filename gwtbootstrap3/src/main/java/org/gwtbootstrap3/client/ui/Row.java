@@ -20,7 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -34,13 +33,5 @@ public class Row extends Div {
 
     public Row() {
         setStyleName(Styles.ROW);
-    }
-
-    public void setMarginTop(final int marginTop) {
-        getElement().getStyle().setMarginTop(marginTop, Style.Unit.PX);
-    }
-
-    public void setMarginBottom(final int marginBottom) {
-        getElement().getStyle().setMarginBottom(marginBottom, Style.Unit.PX);
     }
 }
