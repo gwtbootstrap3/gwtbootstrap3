@@ -23,8 +23,11 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.Event;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap3.client.shared.event.AlertCloseEvent;
+import org.gwtbootstrap3.client.shared.event.AlertCloseHandler;
 import org.gwtbootstrap3.client.shared.event.AlertClosedEvent;
+import org.gwtbootstrap3.client.shared.event.AlertClosedHandler;
 import org.gwtbootstrap3.client.ui.base.button.CloseButton;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.AlertType;
@@ -132,6 +135,14 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
 
     protected void onClosed(final Event evt) {
         fireEvent(new AlertClosedEvent(evt));
+    }
+
+    public HandlerRegistration addCloseHandler(final AlertCloseHandler handler) {
+        return addHandler(handler, AlertCloseEvent.getType());
+    }
+
+    public HandlerRegistration addClosedHandler(final AlertClosedHandler handler) {
+        return addHandler(handler, AlertClosedEvent.getType());
     }
 
     @Override
