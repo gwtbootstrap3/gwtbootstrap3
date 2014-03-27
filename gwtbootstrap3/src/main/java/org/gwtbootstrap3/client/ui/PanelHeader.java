@@ -20,7 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
+
 import org.gwtbootstrap3.client.ui.base.mixin.TextMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
