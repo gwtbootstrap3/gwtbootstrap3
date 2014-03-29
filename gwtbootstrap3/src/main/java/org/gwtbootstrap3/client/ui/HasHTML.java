@@ -1,5 +1,7 @@
 package org.gwtbootstrap3.client.ui;
 
+import com.google.gwt.user.client.ui.HasText;
+
 /*
  * #%L
  * GwtBootstrap3
