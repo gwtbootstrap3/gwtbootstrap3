@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.mixin.TextMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -27,7 +28,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Joshua Godi
  */
-public class PanelHeader extends Div implements HasId, HasText {
+public class PanelHeader extends Div implements HasId, HasWidgets, HasText {
     private final TextMixin<PanelHeader> textMixin = new TextMixin<PanelHeader>(this);
 
     public PanelHeader() {
