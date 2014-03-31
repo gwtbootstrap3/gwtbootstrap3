@@ -20,8 +20,8 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.UIObject;
+import org.gwtbootstrap3.client.ui.HasText;
 
 /**
  * @author Grant Slender

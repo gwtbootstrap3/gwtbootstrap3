@@ -23,8 +23,8 @@ package org.gwtbootstrap3.client.ui;
 /**
  * @author Grant Slender
  */
-public interface HasHTML extends HasText {
-    void setHTML(String html);
+public interface HasText {
+    void setText(String text);
 
-    String getHTML();
+    String getText();
 }
