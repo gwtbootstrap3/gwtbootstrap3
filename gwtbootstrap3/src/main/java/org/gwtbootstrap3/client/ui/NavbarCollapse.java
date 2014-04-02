@@ -50,27 +50,19 @@ public class NavbarCollapse extends FlowPanel implements HasResponsiveness {
     }
 
     public void show() {
-        show(getElement());
+        command(getElement(), "show");
     }
 
     public void hide() {
-        hide(getElement());
+        command(getElement(), "hide");
     }
 
     public void toggle() {
-        toggle(getElement());
+        command(getElement(), "toggle");
     }
-
-    private native void show(final Element e) /*-{
+    
+    private native void command(final Element e, final String command) /*-{
         $wnd.jQuery(e).collapse('show');
-    }-*/;
-
-    private native void hide(final Element e) /*-{
-        $wnd.jQuery(e).collapse('hide');
-    }-*/;
-
-    private native void toggle(final Element e) /*-{
-        $wnd.jQuery(e).collapse('toggle');
     }-*/;
 
 }
