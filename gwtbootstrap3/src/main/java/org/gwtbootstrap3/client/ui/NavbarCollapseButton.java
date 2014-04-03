@@ -22,6 +22,8 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.user.client.ui.Composite;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
+import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
@@ -32,8 +34,9 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @author Joshua Godi
  * @see NavbarCollapse
  */
-public class NavbarCollapseButton extends Composite implements HasTarget, HasResponsiveness {
+public class NavbarCollapseButton extends Composite implements HasTarget, HasResponsiveness, HasPull {
 
+    private final PullMixin<NavbarCollapseButton> pullMixin = new PullMixin<NavbarCollapseButton>(this);
     private final Button button;
 
     public NavbarCollapseButton() {
@@ -66,6 +69,16 @@ public class NavbarCollapseButton extends Composite implements HasTarget, HasRes
     @Override
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setPull(final Pull pull) {
+        pullMixin.setPull(pull);
+    }
+
+    @Override
+    public Pull getPull() {
+        return pullMixin.getPull();
     }
 
     private Span newBarIcon() {
