@@ -20,6 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.cellview.client.SimplePager;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.PaginationSize;
@@ -63,5 +66,60 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
         listItem.setIcon(IconType.ANGLE_DOUBLE_RIGHT);
         add(listItem);
         return listItem;
+    }
+
+    /**
+     * This will help to rebuild the Pagination based on the data inside the SimplePager passed in.
+     *
+     * Make sure to all this after adding/remove data from any of the grid to ensure that this stays
+     * current with the SimplePager.
+     *
+     * ex.
+     * dataProvider.getList().addAll(newData);
+     * pagination.rebuild(mySimplePager);
+     *
+     * @param pager the SimplePager of the CellTable/DataGrid
+     */
+    public void rebuild(final SimplePager pager) {
+        clear();
+
+        if (pager.getPageCount() == 0) {
+            return;
+        }
+
+        ListItem prev = addPreviousLink();
+        prev.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                pager.previousPage();
+            }
+        });
+        prev.setEnabled(pager.hasPreviousPage());
+
+        for (int i = 0; i < pager.getPageCount(); i++) {
+            final int display = i + 1;
+            ListItem page = new ListItem(String.valueOf(display));
+            page.addClickHandler(new ClickHandler() {
+                @Override
+                public void onClick(ClickEvent event) {
+                    pager.setPage(display - 1);
+                }
+            });
+
+            if (i == pager.getPage()) {
+                page.setActive(true);
+            }
+
+            add(page);
+        }
+
+        ListItem next = addNextLink();
+        next.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                pager.nextPage();
+            }
+        });
+        next.setEnabled(pager.hasNextPage());
     }
 }
