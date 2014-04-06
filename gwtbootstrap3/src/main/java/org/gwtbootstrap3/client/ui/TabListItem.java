@@ -89,6 +89,18 @@ public class TabListItem extends ListItem implements HasHTML, HasTarget {
     }
 
     @Override
+    public void setEnabled(final boolean enabled) {
+        super.setEnabled(enabled);
+
+        // On enable/disable we need to add/remove the data toggle for it to work properly
+        if (enabled) {
+            setToggle(Toggle.TAB);
+        } else {
+            setToggle(null);
+        }
+    }
+
+    @Override
     protected void onLoad() {
         super.onLoad();
 
