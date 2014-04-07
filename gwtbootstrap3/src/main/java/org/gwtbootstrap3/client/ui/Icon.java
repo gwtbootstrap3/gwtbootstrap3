@@ -24,7 +24,12 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.uibinder.client.UiConstructor;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.constants.*;
+import org.gwtbootstrap3.client.ui.constants.ElementTags;
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Simple put, an icon.
@@ -59,24 +64,48 @@ public class Icon extends ComplexWidget implements HasType<IconType> {
         StyleHelper.toggleStyleName(this, light, Styles.ICON_LIGHT);
     }
 
+    public boolean isLight() {
+        return StyleHelper.containsStyle(Styles.ICON_LIGHT, getStyleName());
+    }
+
     public void setMuted(final boolean muted) {
         StyleHelper.toggleStyleName(this, muted, Styles.ICON_MUTED);
+    }
+
+    public boolean isMuted() {
+        return StyleHelper.containsStyle(Styles.ICON_MUTED, getStyleName());
     }
 
     public void setBorder(final boolean border) {
         StyleHelper.toggleStyleName(this, border, Styles.ICON_BORDER);
     }
 
+    public boolean isBorder() {
+        return StyleHelper.containsStyle(Styles.ICON_BORDER, getStyleName());
+    }
+
     public void setStackBase(final boolean stackBase) {
         StyleHelper.toggleStyleName(this, stackBase, Styles.ICON_STACK_BASE);
+    }
+
+    public boolean isStackBase() {
+        return StyleHelper.containsStyle(Styles.ICON_STACK_BASE, getStyleName());
     }
 
     public void setFixedWidth(final boolean fixedWidth) {
         StyleHelper.toggleStyleName(this, fixedWidth, Styles.ICON_FIXED_WIDTH);
     }
 
+    public boolean isFixedWidth() {
+        return StyleHelper.containsStyle(Styles.ICON_FIXED_WIDTH, getStyleName());
+    }
+
     public void setStackTop(final boolean stackTop) {
         StyleHelper.toggleStyleName(this, stackTop, Styles.ICON_STACK_TOP);
+    }
+
+    public boolean isStackTop() {
+        return StyleHelper.containsStyle(Styles.ICON_STACK_TOP, getStyleName());
     }
 
     public void setSpin(final boolean spin) {
@@ -84,26 +113,38 @@ public class Icon extends ComplexWidget implements HasType<IconType> {
     }
 
     public void setRotate(final IconRotate iconRotate) {
-        if (iconRotate == null || iconRotate == IconRotate.NONE) {
+        if (iconRotate == null) {
             return;
         }
 
         StyleHelper.addUniqueEnumStyleName(this, IconRotate.class, iconRotate);
     }
 
+    public IconRotate getRotate() {
+        return IconRotate.fromStyleName(getStyleName());
+    }
+
     public void setFlip(final IconFlip iconFlip) {
-        if (iconFlip == null || iconFlip == IconFlip.NONE) {
+        if (iconFlip == null) {
             return;
         }
 
         StyleHelper.addUniqueEnumStyleName(this, IconFlip.class, iconFlip);
     }
 
+    public IconFlip getFlip() {
+        return IconFlip.fromStyleName(getStyleName());
+    }
+
     public void setSize(final IconSize iconSize) {
-        if (iconSize == null || iconSize == IconSize.NONE) {
+        if (iconSize == null) {
             return;
         }
 
         StyleHelper.addUniqueEnumStyleName(this, IconSize.class, iconSize);
+    }
+
+    public IconSize getSize() {
+        return IconSize.fromStyleName(getStyleName());
     }
 }
