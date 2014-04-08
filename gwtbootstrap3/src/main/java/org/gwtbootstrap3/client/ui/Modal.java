@@ -25,7 +25,14 @@ import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
-import org.gwtbootstrap3.client.shared.event.*;
+import org.gwtbootstrap3.client.shared.event.ModalHiddenEvent;
+import org.gwtbootstrap3.client.shared.event.ModalHiddenHandler;
+import org.gwtbootstrap3.client.shared.event.ModalHideEvent;
+import org.gwtbootstrap3.client.shared.event.ModalHideHandler;
+import org.gwtbootstrap3.client.shared.event.ModalShowEvent;
+import org.gwtbootstrap3.client.shared.event.ModalShowHandler;
+import org.gwtbootstrap3.client.shared.event.ModalShownEvent;
+import org.gwtbootstrap3.client.shared.event.ModalShownHandler;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap3.client.ui.base.modal.ModalDialog;
@@ -84,6 +91,7 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
     private final String SHOW = "show";
 
     private final ModalContent content = new ModalContent();
+    private final ModalDialog dialog = new ModalDialog();
     private ModalHeader header = new ModalHeader();
 
     private boolean hideOtherModals = false;
@@ -91,12 +99,14 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
     public Modal() {
         setStyleName(Styles.MODAL);
 
-        final ModalDialog dialog = new ModalDialog();
-
         content.add(header);
         dialog.add(content);
 
         add(dialog);
+    }
+
+    public void setWidth(String width) {
+        dialog.setWidth(width);
     }
 
     @Override
