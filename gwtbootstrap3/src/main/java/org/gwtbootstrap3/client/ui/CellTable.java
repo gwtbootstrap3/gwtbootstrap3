@@ -224,6 +224,8 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
     }
 
     private static class StyleAdapter implements CellTable.Style {
+        private static final String B = "gwtb3-";
+
         @Override
         public boolean ensureInjected() {
             return true;
@@ -231,137 +233,137 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
         @Override
         public String cellTableCell() {
-            return "";
+            return B + "cellTableCell";
         }
 
         @Override
         public String cellTableEvenRow() {
-            return "";
+            return B + "cellTableEvenRow";
         }
 
         @Override
         public String cellTableEvenRowCell() {
-            return "";
+            return B + "cellTableEvenRowCell";
         }
 
         @Override
         public String cellTableFirstColumn() {
-            return "";
+            return B + "cellTableFirtColumn";
         }
 
         @Override
         public String cellTableFirstColumnFooter() {
-            return "";
+            return B + "cellTableFirstColumnFooter";
         }
 
         @Override
         public String cellTableFirstColumnHeader() {
-            return "";
+            return B + "cellTableFirstColumnHeader";
         }
 
         @Override
         public String cellTableFooter() {
-            return "";
+            return B + "cellTableFooter";
         }
 
         @Override
         public String cellTableHeader() {
-            return "";
+            return B + "cellTableHeader";
         }
 
         @Override
         public String cellTableHoveredRow() {
-            return "";
+            return B + "cellTableHoveredRow";
         }
 
         @Override
         public String cellTableHoveredRowCell() {
-            return "";
+            return B + "cellTableHoveredRowCell";
         }
 
         @Override
         public String cellTableKeyboardSelectedCell() {
-            return "";
+            return B + "cellTableKeyboardSelectedCell";
         }
 
         @Override
         public String cellTableKeyboardSelectedRow() {
-            return "";
+            return B + "cellTableKeyboardSelectedRow";
         }
 
         @Override
         public String cellTableKeyboardSelectedRowCell() {
-            return "";
+            return B + "cellTableKeyboardSelectedRowCell";
         }
 
         @Override
         public String cellTableLastColumn() {
-            return "";
+            return B + "cellTableLastColumn";
         }
 
         @Override
         public String cellTableLastColumnFooter() {
-            return "";
+            return B + "cellTableLastColumnFooter";
         }
 
         @Override
         public String cellTableLastColumnHeader() {
-            return "";
+            return B + "cellTableLastColumnHeader";
         }
 
         @Override
         public String cellTableLoading() {
-            return "";
+            return B + "cellTableLoading";
         }
 
         @Override
         public String cellTableOddRow() {
-            return "";
+            return B + "cellTableOddRow";
         }
 
         @Override
         public String cellTableOddRowCell() {
-            return "";
+            return B + "cellTableOddRowCell";
         }
 
         @Override
         public String cellTableSelectedRow() {
-            return "";
+            return B + "cellTableSelectedRow";
         }
 
         @Override
         public String cellTableSelectedRowCell() {
-            return "";
+            return B + "cellTableSelectedRowCell";
         }
 
         @Override
         public String cellTableSortableHeader() {
-            return "";
+            return B + "cellTableSortableHeader";
         }
 
         @Override
         public String cellTableSortedHeaderAscending() {
-            return "";
+            return B + "cellTableSortedHeaderAscending";
         }
 
         @Override
         public String cellTableSortedHeaderDescending() {
-            return "";
+            return B + "cellTableSortedHeaderDescending";
         }
 
         @Override
         public String cellTableWidget() {
-            return "";
+            return B + "cellTableWidget";
         }
 
         @Override
         public String getText() {
-            return "";
+            return B;
         }
 
         @Override
         public String getName() {
-            return "";
+            return B;
         }
     }
 }
