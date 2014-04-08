@@ -195,6 +195,8 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
     }
 
     private static class StyleAdapter implements DataGrid.Style {
+        private static final String B = "gwtb3-";
+        
         @Override
         public boolean ensureInjected() {
             return true;
@@ -202,132 +204,132 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
 
         @Override
         public String getText() {
-            return "";
+            return B;
         }
 
         @Override
         public String getName() {
-            return "";
+            return B;
         }
 
         @Override
         public String dataGridCell() {
-            return "";
+            return B + "dataGridCell";
         }
 
         @Override
         public String dataGridEvenRow() {
-            return "";
+            return B + "dataGridEvenRow";
         }
 
         @Override
         public String dataGridEvenRowCell() {
-            return "";
+            return B + "dataGridEvenRowCell";
         }
 
         @Override
         public String dataGridFirstColumn() {
-            return "";
+            return B + "dataGridFirstColumn";
         }
 
         @Override
         public String dataGridFirstColumnFooter() {
-            return "";
+            return B + "dataGridFirstColumnFooter";
         }
 
         @Override
         public String dataGridFirstColumnHeader() {
-            return "";
+            return B + "dataGridFirstColumnHeader";
         }
 
         @Override
         public String dataGridFooter() {
-            return "";
+            return B + "dataGridFooter";
         }
 
         @Override
         public String dataGridHeader() {
-            return "";
+            return B + "dataGridHeader";
         }
 
         @Override
         public String dataGridHoveredRow() {
-            return "";
+            return B + "dataGridHoveredRow";
         }
 
         @Override
         public String dataGridHoveredRowCell() {
-            return "";
+            return B + "dataGridHoveredRowCell";
         }
 
         @Override
         public String dataGridKeyboardSelectedCell() {
-            return "";
+            return B + "dataGridKeyboardSelectedCell";
         }
 
         @Override
         public String dataGridKeyboardSelectedRow() {
-            return "";
+            return B + "dataGridKeyboardSelectedRow";
         }
 
         @Override
         public String dataGridKeyboardSelectedRowCell() {
-            return "";
+            return B + "dataGridKeyboardSelectedRowCell";
         }
 
         @Override
         public String dataGridLastColumn() {
-            return "";
+            return B + "dataGridLastColumn";
         }
 
         @Override
         public String dataGridLastColumnFooter() {
-            return "";
+            return B + "dataGridLastColumnFooter";
         }
 
         @Override
         public String dataGridLastColumnHeader() {
-            return "";
+            return B + "dataGridLastColumnHeader";
         }
 
         @Override
         public String dataGridOddRow() {
-            return "";
+            return B + "dataGridOddRow";
         }
 
         @Override
         public String dataGridOddRowCell() {
-            return "";
+            return B + "dataGridOddRowCell";
         }
 
         @Override
         public String dataGridSelectedRow() {
-            return "";
+            return B + "dataGridSelectedRow";
         }
 
         @Override
         public String dataGridSelectedRowCell() {
-            return "";
+            return B + "dataGridSelectedRowCell";
         }
 
         @Override
         public String dataGridSortableHeader() {
-            return "";
+            return B + "dataGridSortableHeader";
         }
 
         @Override
         public String dataGridSortedHeaderAscending() {
-            return "";
+            return B + "dataGridSortedHeaderAscending";
         }
 
         @Override
         public String dataGridSortedHeaderDescending() {
-            return "";
+            return B + "dataGridSortedHeaderDescending";
         }
 
         @Override
         public String dataGridWidget() {
-            return "";
+            return B + "dataGridWidget";
         }
     }
 }
