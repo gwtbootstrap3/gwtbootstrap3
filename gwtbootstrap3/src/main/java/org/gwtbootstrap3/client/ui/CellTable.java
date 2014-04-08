@@ -225,6 +225,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
     private static class StyleAdapter implements CellTable.Style {
         private static final String B = "gwtb3-";
+        private static final String DUMMY = B + "d";
 
         @Override
         public boolean ensureInjected() {
@@ -233,127 +234,127 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
         @Override
         public String cellTableCell() {
-            return B + "cellTableCell";
+            return B + "cell";
         }
 
         @Override
         public String cellTableEvenRow() {
-            return B + "cellTableEvenRow";
+          return "even";
         }
 
         @Override
         public String cellTableEvenRowCell() {
-            return B + "cellTableEvenRowCell";
+            return DUMMY;
         }
 
         @Override
         public String cellTableFirstColumn() {
-            return B + "cellTableFirtColumn";
+            return DUMMY; // Bootstrap3 uses "smart selectors"
         }
 
         @Override
         public String cellTableFirstColumnFooter() {
-            return B + "cellTableFirstColumnFooter";
+            return DUMMY;
         }
 
         @Override
         public String cellTableFirstColumnHeader() {
-            return B + "cellTableFirstColumnHeader";
+            return DUMMY;
         }
 
         @Override
         public String cellTableFooter() {
-            return B + "cellTableFooter";
+          return DUMMY;
         }
 
         @Override
         public String cellTableHeader() {
-            return B + "cellTableHeader";
+          return DUMMY;
         }
 
         @Override
         public String cellTableHoveredRow() {
-            return B + "cellTableHoveredRow";
+            return DUMMY; // Note: Setting 'active' on the row disables 'bg-primary' :/
         }
 
         @Override
         public String cellTableHoveredRowCell() {
-            return B + "cellTableHoveredRowCell";
+            return DUMMY; // Note: Setting 'active' on the cell disables 'bg-primary' :/
         }
 
         @Override
         public String cellTableKeyboardSelectedCell() {
-            return B + "cellTableKeyboardSelectedCell";
+            return DUMMY;
         }
 
         @Override
         public String cellTableKeyboardSelectedRow() {
-            return B + "cellTableKeyboardSelectedRow";
+            return DUMMY;
         }
 
         @Override
         public String cellTableKeyboardSelectedRowCell() {
-            return B + "cellTableKeyboardSelectedRowCell";
+            return DUMMY;
         }
 
         @Override
         public String cellTableLastColumn() {
-            return B + "cellTableLastColumn";
+            return DUMMY;
         }
 
         @Override
         public String cellTableLastColumnFooter() {
-            return B + "cellTableLastColumnFooter";
+            return DUMMY;
         }
 
         @Override
         public String cellTableLastColumnHeader() {
-            return B + "cellTableLastColumnHeader";
+            return DUMMY;
         }
 
         @Override
         public String cellTableLoading() {
-            return B + "cellTableLoading";
+            return DUMMY;
         }
 
         @Override
         public String cellTableOddRow() {
-            return B + "cellTableOddRow";
+            return "odd";
         }
 
         @Override
         public String cellTableOddRowCell() {
-            return B + "cellTableOddRowCell";
+          return DUMMY;
         }
 
         @Override
         public String cellTableSelectedRow() {
-            return B + "cellTableSelectedRow";
+            return "bg-primary"; // Bootstrap3 helper class
         }
 
         @Override
         public String cellTableSelectedRowCell() {
-            return B + "cellTableSelectedRowCell";
+            return DUMMY;
         }
 
         @Override
         public String cellTableSortableHeader() {
-            return B + "cellTableSortableHeader";
+          return DUMMY;
         }
 
         @Override
         public String cellTableSortedHeaderAscending() {
-            return B + "cellTableSortedHeaderAscending";
+          return DUMMY;
         }
 
         @Override
         public String cellTableSortedHeaderDescending() {
-            return B + "cellTableSortedHeaderDescending";
+          return DUMMY;
         }
 
         @Override
         public String cellTableWidget() {
-            return B + "cellTableWidget";
+            return "table";
         }
 
         @Override
