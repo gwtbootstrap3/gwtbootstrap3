@@ -196,6 +196,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
 
     private static class StyleAdapter implements DataGrid.Style {
         private static final String B = "gwtb3-";
+        private static final String DUMMY = B + "d";
         
         @Override
         public boolean ensureInjected() {
@@ -214,122 +215,122 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
 
         @Override
         public String dataGridCell() {
-            return B + "dataGridCell";
+            return B + "cell";
         }
 
         @Override
         public String dataGridEvenRow() {
-            return B + "dataGridEvenRow";
+            return "even";
         }
 
         @Override
         public String dataGridEvenRowCell() {
-            return B + "dataGridEvenRowCell";
+            return DUMMY;
         }
 
         @Override
         public String dataGridFirstColumn() {
-            return B + "dataGridFirstColumn";
+            return DUMMY; // Bootstrap3 uses "smart selectors"
         }
 
         @Override
         public String dataGridFirstColumnFooter() {
-            return B + "dataGridFirstColumnFooter";
+            return DUMMY;
         }
 
         @Override
         public String dataGridFirstColumnHeader() {
-            return B + "dataGridFirstColumnHeader";
+            return DUMMY;
         }
 
         @Override
         public String dataGridFooter() {
-            return B + "dataGridFooter";
+            return DUMMY;
         }
 
         @Override
         public String dataGridHeader() {
-            return B + "dataGridHeader";
+            return DUMMY;
         }
 
         @Override
         public String dataGridHoveredRow() {
-            return B + "dataGridHoveredRow";
+            return DUMMY; // Note: Setting 'active' on the cell disables 'bg-primary'
         }
 
         @Override
         public String dataGridHoveredRowCell() {
-            return B + "dataGridHoveredRowCell";
+            return DUMMY; // Note: Setting 'active' on the cell disables 'bg-primary'
         }
 
         @Override
         public String dataGridKeyboardSelectedCell() {
-            return B + "dataGridKeyboardSelectedCell";
+            return DUMMY;
         }
 
         @Override
         public String dataGridKeyboardSelectedRow() {
-            return B + "dataGridKeyboardSelectedRow";
+            return DUMMY;
         }
 
         @Override
         public String dataGridKeyboardSelectedRowCell() {
-            return B + "dataGridKeyboardSelectedRowCell";
+            return DUMMY;
         }
 
         @Override
         public String dataGridLastColumn() {
-            return B + "dataGridLastColumn";
+            return DUMMY;
         }
 
         @Override
         public String dataGridLastColumnFooter() {
-            return B + "dataGridLastColumnFooter";
+            return DUMMY;
         }
 
         @Override
         public String dataGridLastColumnHeader() {
-            return B + "dataGridLastColumnHeader";
+            return DUMMY;
         }
 
         @Override
         public String dataGridOddRow() {
-            return B + "dataGridOddRow";
+            return "odd";
         }
 
         @Override
         public String dataGridOddRowCell() {
-            return B + "dataGridOddRowCell";
+            return DUMMY;
         }
 
         @Override
         public String dataGridSelectedRow() {
-            return B + "dataGridSelectedRow";
+            return "bg-primary"; // Bootstrap3 helper class
         }
 
         @Override
         public String dataGridSelectedRowCell() {
-            return B + "dataGridSelectedRowCell";
+            return DUMMY;
         }
 
         @Override
         public String dataGridSortableHeader() {
-            return B + "dataGridSortableHeader";
+            return DUMMY;
         }
 
         @Override
         public String dataGridSortedHeaderAscending() {
-            return B + "dataGridSortedHeaderAscending";
+            return DUMMY;
         }
 
         @Override
         public String dataGridSortedHeaderDescending() {
-            return B + "dataGridSortedHeaderDescending";
+            return DUMMY;
         }
 
         @Override
         public String dataGridWidget() {
-            return B + "dataGridWidget";
+            return "table";
         }
     }
 }
