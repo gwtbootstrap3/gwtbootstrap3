@@ -37,7 +37,4 @@ public interface GwtBootstrap3ClientBundle extends ClientBundle {
 
     @Source("resource/js/bootstrap.min.js")
     TextResource bootstrap();
-
-    @Source("resource/css/bootstrap-tabs.min.css")
-    TextResource bootstrapTabsCss();
 }

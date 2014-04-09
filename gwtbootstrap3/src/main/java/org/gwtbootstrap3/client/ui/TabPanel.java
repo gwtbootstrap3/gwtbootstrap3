@@ -20,8 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.StyleInjector;
-import org.gwtbootstrap3.client.GwtBootstrap3ClientBundle;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.TabPosition;
@@ -37,10 +35,8 @@ public class TabPanel extends Div implements HasTabPosition {
 
     @Override
     public void setTabPosition(TabPosition tabPosition) {
-        // If the tab position if not the default TOP, we need to add the custom CSS for LEFT/RIGHT/BOTTOM tabs
-        if (!TabPosition.TOP.equals(tabPosition)) {
-            StyleInjector.inject(GwtBootstrap3ClientBundle.INSTANCE.bootstrapTabsCss().getText());
-        }
+        // When setting TabPosition that isn't TOP, make sure to inherit the
+        // PositionedTabs module from Extra's in order to get the CSS injected!
         StyleHelper.addUniqueEnumStyleName(this, TabPosition.class, tabPosition);
     }
 
