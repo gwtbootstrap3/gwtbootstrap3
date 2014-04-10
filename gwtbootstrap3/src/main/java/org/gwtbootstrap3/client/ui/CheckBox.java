@@ -20,6 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.editor.client.IsEditor;
+import com.google.gwt.editor.client.LeafValueEditor;
+import com.google.gwt.editor.client.adapters.TakesValueEditor;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
@@ -38,9 +41,10 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Sven Jacobs
  */
 public class CheckBox extends Div implements HasName, HasEnabled, HasActive, HasText, HasIcon, HasIconPosition,
-        HasClickHandlers, HasFormValue, HasValue<Boolean> {
+        HasClickHandlers, HasFormValue, HasValue<Boolean>, IsEditor<LeafValueEditor<Boolean>> {
 
     private final CheckBoxButton button;
+    private LeafValueEditor<Boolean> editor;
 
     public CheckBox() {
         setStyleName(Styles.CHECKBOX);
@@ -213,4 +217,13 @@ public class CheckBox extends Div implements HasName, HasEnabled, HasActive, Has
     public void setValue(final Boolean value, final boolean fireEvents) {
         button.setValue(value, fireEvents);
     }
+
+    @Override
+    public LeafValueEditor<Boolean> asEditor() {
+        if (editor == null) {
+            editor = TakesValueEditor.of(this);
+        }
+        return editor;
+    }
+
 }
