@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
@@ -32,9 +33,15 @@ public class PanelCollapse extends Div {
         addStyleName(Styles.COLLAPSE);
     }
 
-    public void setIn(final boolean isIn) {
-        if (isIn) {
+    public void setIn(final boolean in) {
+        if (in) {
             addStyleName(Styles.IN);
+        } else {
+            removeStyleName(Styles.IN);
         }
+    }
+
+    public boolean isIn() {
+        return StyleHelper.containsStyle(getStyleName(), Styles.IN);
     }
 }
