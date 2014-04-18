@@ -21,28 +21,53 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import com.google.gwt.dom.client.AnchorElement;
+import com.google.gwt.dom.client.ButtonElement;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.user.client.ui.Focusable;
+import com.google.gwt.user.client.ui.UIObject;
 
 /**
  * @author Sven Jacobs
  */
-public class FocusableMixin extends TabIndexMixin<AnchorElement> implements Focusable {
+public class FocusableMixin<T extends UIObject & Focusable> implements Focusable {
 
-    public FocusableMixin(final AnchorElement element) {
-        super(element);
+    private final T uiObject;
+
+    public FocusableMixin(final T uiObject) {
+        this.uiObject = uiObject;
+    }
+
+    @Override
+    public int getTabIndex() {
+        return uiObject.getElement().getTabIndex();
+    }
+
+    @Override
+    public void setTabIndex(final int index) {
+        uiObject.getElement().setTabIndex(index);
     }
 
     @Override
     public void setAccessKey(final char key) {
-        element.setAccessKey(Character.toString(key));
+        final Element element = uiObject.getElement();
+        final String accessKey = Character.toString(key);
+
+        if (AnchorElement.is(element)) {
+            AnchorElement.as(element).setAccessKey(accessKey);
+        } else if (ButtonElement.is(element)) {
+            ButtonElement.as(element).setAccessKey(accessKey);
+        } else if (InputElement.is(element)) {
+            InputElement.as(element).setAccessKey(accessKey);
+        }
     }
 
     @Override
     public void setFocus(final boolean focused) {
         if (focused) {
-            element.focus();
+            uiObject.getElement().focus();
         } else {
-            element.blur();
+            uiObject.getElement().blur();
         }
     }
 }

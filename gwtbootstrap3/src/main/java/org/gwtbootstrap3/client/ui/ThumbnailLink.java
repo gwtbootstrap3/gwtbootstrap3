@@ -35,16 +35,16 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @author Joshua Godi
  */
 public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref,
-        HasToggle, HasTargetHistoryToken, HasTabIndex, Focusable {
+        HasToggle, HasTargetHistoryToken, Focusable {
 
     private final ToggleMixin<ThumbnailLink> toggleMixin = new ToggleMixin<ThumbnailLink>(this);
-    private final FocusableMixin focusableMixin;
+    private final FocusableMixin<ThumbnailLink> focusableMixin;
     private String targetHistoryToken;
 
     public ThumbnailLink(final String href) {
         setElement(Document.get().createAnchorElement());
         setHref(href);
-        focusableMixin = new FocusableMixin(AnchorElement.as(getElement()));
+        focusableMixin = new FocusableMixin<ThumbnailLink>(this);
     }
 
     public ThumbnailLink(final String text, final String href) {

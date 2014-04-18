@@ -23,9 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
-import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 
 /**
@@ -35,14 +33,11 @@ import org.gwtbootstrap3.client.ui.constants.ButtonType;
  * @see Button
  * @see org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton
  */
-public class AnchorButton extends AbstractToggleButton implements HasHref, Focusable {
-
-    private final FocusableMixin focusableMixin;
+public class AnchorButton extends AbstractToggleButton implements HasHref {
 
     public AnchorButton(final ButtonType type) {
         super(type);
         setHref(EMPTY_HREF);
-        focusableMixin = new FocusableMixin(getAnchorElement());
     }
 
     public AnchorButton() {
@@ -62,26 +57,6 @@ public class AnchorButton extends AbstractToggleButton implements HasHref, Focus
     @Override
     protected Element createElement() {
         return DOM.createAnchor();
-    }
-
-    @Override
-    public int getTabIndex() {
-        return focusableMixin.getTabIndex();
-    }
-
-    @Override
-    public void setAccessKey(final char key) {
-        focusableMixin.setAccessKey(key);
-    }
-
-    @Override
-    public void setFocus(final boolean focused) {
-        focusableMixin.setFocus(focused);
-    }
-
-    @Override
-    public void setTabIndex(final int index) {
-        focusableMixin.setTabIndex(index);
     }
 
     private AnchorElement getAnchorElement() {

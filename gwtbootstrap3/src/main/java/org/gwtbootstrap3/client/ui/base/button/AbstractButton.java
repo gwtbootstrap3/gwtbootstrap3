@@ -26,11 +26,13 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
+import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasEnabled;
 import org.gwtbootstrap3.client.ui.*;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
 import org.gwtbootstrap3.client.ui.constants.*;
 
@@ -41,7 +43,7 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Joshua Godi
  */
 public abstract class AbstractButton extends ComplexWidget implements HasEnabled, HasActive, HasType<ButtonType>,
-        HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasTargetHistoryToken, HasHref {
+        HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasTargetHistoryToken, HasHref, Focusable {
 
     public class ButtonStateHandler {
         private ButtonStateHandler() {
@@ -68,6 +70,8 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     private final ButtonStateHandler buttonStateHandler = new ButtonStateHandler();
     private final TargetMixin<AbstractButton> targetMixin = new TargetMixin<AbstractButton>(this);
     private final ActiveMixin<AbstractButton> activeMixin = new ActiveMixin<AbstractButton>(this);
+    private final FocusableMixin<AbstractButton> focusableMixin = new FocusableMixin<AbstractButton>(this);
+
     private String targetHistoryToken;
 
     /**
@@ -168,6 +172,26 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     @Override
     public String getHref() {
         return getElement().getAttribute(HREF);
+    }
+
+    @Override
+    public int getTabIndex() {
+        return focusableMixin.getTabIndex();
+    }
+
+    @Override
+    public void setAccessKey(final char key) {
+        focusableMixin.setAccessKey(key);
+    }
+
+    @Override
+    public void setFocus(final boolean focused) {
+        focusableMixin.setFocus(focused);
+    }
+
+    @Override
+    public void setTabIndex(final int index) {
+        focusableMixin.setTabIndex(index);
     }
 
     /**

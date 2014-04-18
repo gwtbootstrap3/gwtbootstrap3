@@ -39,19 +39,19 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Grant Slender
  */
 public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasToggle, HasParent,
-        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, HasTabIndex, Focusable, HasTarget {
+        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasTarget {
 
     private final ToggleMixin<Anchor> toggleMixin = new ToggleMixin<Anchor>(this);
     private final ParentMixin<Anchor> parentMixin = new ParentMixin<Anchor>(this);
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
     private final TargetMixin<Anchor> targetMixin = new TargetMixin<Anchor>(this);
-    private final FocusableMixin focusableMixin;
+    private final FocusableMixin<Anchor> focusableMixin;
     private String targetHistoryToken;
 
     public Anchor(final String href) {
         setElement(Document.get().createAnchorElement());
         setHref(href);
-        focusableMixin = new FocusableMixin(AnchorElement.as(getElement()));
+        focusableMixin = new FocusableMixin<Anchor>(this);
         iconTextMixin.addTextWidgetToParent();
     }
 
@@ -242,12 +242,12 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
 	}
 
 	@Override
-	public void setHTML(String html) {
-		getElement().setInnerHTML(html);		
+    public void setHTML(final String html) {
+        getElement().setInnerHTML(html);
 	}
 
     @Override
-    public void setTarget(String target) {
+    public void setTarget(final String target) {
         targetMixin.setTarget(target);
     }
 
