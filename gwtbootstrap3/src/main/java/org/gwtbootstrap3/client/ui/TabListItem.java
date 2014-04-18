@@ -69,7 +69,7 @@ public class TabListItem extends ListItem implements HasHTML, HasTarget {
      * don't try to execute a place change event with it being clicked
      */
     @Override
-    public void setHref(String href) {
+    public void setHref(final String href) {
         setTarget(href);
     }
 

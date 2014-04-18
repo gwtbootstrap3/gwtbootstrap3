@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -39,7 +40,7 @@ public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiven
 
     @Override
     public void add(final Widget child) {
-        add(child, getElement());
+        add(child, (Element) getElement());
     }
 
     /**
@@ -49,7 +50,7 @@ public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiven
      * @param beforeIndex - index for the widget
      */
     public void insert(final Widget child, final int beforeIndex) {
-        insert(child, getElement(), beforeIndex, true);
+        insert(child, (Element) getElement(), beforeIndex, true);
     }
 
     @Override
@@ -73,42 +74,42 @@ public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiven
     }
 
     @Override
-    public void setMarginTop(double margin) {
+    public void setMarginTop(final double margin) {
         getElement().getStyle().setMarginTop(margin, Style.Unit.PX);
     }
 
     @Override
-    public void setMarginLeft(double margin) {
+    public void setMarginLeft(final double margin) {
         getElement().getStyle().setMarginLeft(margin, Style.Unit.PX);
     }
 
     @Override
-    public void setMarginRight(double margin) {
+    public void setMarginRight(final double margin) {
         getElement().getStyle().setMarginRight(margin, Style.Unit.PX);
     }
 
     @Override
-    public void setMarginBottom(double margin) {
+    public void setMarginBottom(final double margin) {
         getElement().getStyle().setMarginBottom(margin, Style.Unit.PX);
     }
 
     @Override
-    public void setPaddingTop(double padding) {
+    public void setPaddingTop(final double padding) {
         getElement().getStyle().setPaddingTop(padding, Style.Unit.PX);
     }
 
     @Override
-    public void setPaddingLeft(double padding) {
+    public void setPaddingLeft(final double padding) {
         getElement().getStyle().setPaddingLeft(padding, Style.Unit.PX);
     }
 
     @Override
-    public void setPaddingRight(double padding) {
+    public void setPaddingRight(final double padding) {
         getElement().getStyle().setPaddingRight(padding, Style.Unit.PX);
     }
 
     @Override
-    public void setPaddingBottom(double padding) {
+    public void setPaddingBottom(final double padding) {
         getElement().getStyle().setPaddingBottom(padding, Style.Unit.PX);
     }
 }

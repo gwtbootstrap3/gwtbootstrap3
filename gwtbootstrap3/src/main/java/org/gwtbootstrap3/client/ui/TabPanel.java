@@ -34,7 +34,7 @@ public class TabPanel extends Div implements HasTabPosition {
     }
 
     @Override
-    public void setTabPosition(TabPosition tabPosition) {
+    public void setTabPosition(final TabPosition tabPosition) {
         // When setting TabPosition that isn't TOP, make sure to inherit the
         // PositionedTabs module from Extra's in order to get the CSS injected!
         StyleHelper.addUniqueEnumStyleName(this, TabPosition.class, tabPosition);

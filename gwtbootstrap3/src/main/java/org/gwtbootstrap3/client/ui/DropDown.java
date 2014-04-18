@@ -20,7 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.AbstractDropDown;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -44,7 +44,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 public class DropDown extends AbstractDropDown {
 
     public DropDown() {
-        super(DOM.createDiv());
+        super(Document.get().createDivElement());
         setStyleName(Styles.DROPDOWN);
     }
 }

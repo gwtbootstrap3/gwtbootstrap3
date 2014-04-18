@@ -20,10 +20,10 @@ package org.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.CheckableInputButton;
@@ -52,7 +52,7 @@ public abstract class AbstractLabelButton extends AbstractIconButton implements 
         input = new CheckableInputButton(typeAttr);
         input.setStyleName("");
 
-        add(input, getElement());
+        add(input, (Element) getElement());
         iconTextMixin.addTextWidgetToParent();
     }
 
@@ -132,6 +132,6 @@ public abstract class AbstractLabelButton extends AbstractIconButton implements 
 
     @Override
     protected Element createElement() {
-        return DOM.createLabel();
+        return Document.get().createLabelElement();
     }
 }

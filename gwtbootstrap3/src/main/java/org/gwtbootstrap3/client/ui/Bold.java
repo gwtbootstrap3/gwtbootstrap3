@@ -20,7 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
@@ -33,7 +33,7 @@ import org.gwtbootstrap3.client.ui.constants.ElementTags;
 public class Bold extends AbstractTextWidget implements HasHTML {
 
     public Bold() {
-        super(DOM.createElement(ElementTags.STRONG));
+        super(Document.get().createElement(ElementTags.STRONG));
     }
 
     public Bold(final String text) {

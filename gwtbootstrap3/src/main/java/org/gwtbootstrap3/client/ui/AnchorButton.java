@@ -21,8 +21,8 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.AnchorElement;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 
@@ -56,7 +56,7 @@ public class AnchorButton extends AbstractToggleButton implements HasHref {
 
     @Override
     protected Element createElement() {
-        return DOM.createAnchor();
+        return Document.get().createAnchorElement();
     }
 
     private AnchorElement getAnchorElement() {

@@ -20,10 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.uibinder.client.UiConstructor;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasText;
-
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
@@ -31,21 +30,21 @@ import org.gwtbootstrap3.client.ui.constants.Emphasis;
 
 /**
  * Represents a Heading tag, has an optional subtext.
- *
+ * <p/>
  * <h3>Bootstrap's Documentation</h3>
  * <a href="http://getbootstrap.com/css/#type">Typography</a>
- *
+ * <p/>
  * <h3>Usage in UiBinder</h3>
- *
+ * <p/>
  * <pre>
  * {@code
  * <b:Heading size="1">Heading Text</b:Heading>
  * <b:Heading size="1" subtext="Subtext Text">Heading Text</b:Heading>
  * }
  * </pre>
- *
+ * <p/>
  * <h3>Usage in Java</h3>
- *
+ * <p/>
  * <pre>
  * Heading h1 = new Heading(1, "Heading Text");
  * h1.setSubtext("Subtext Text); // optional
@@ -65,7 +64,7 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText, HasA
      */
     @UiConstructor
     public Heading(final int size) {
-        setElement(DOM.createElement("h" + size));
+        setElement(Document.get().createElement("h" + size));
         assert size > 0 && size < 7 : "Wrong heading size (must be between 1 and 6)";
     }
 

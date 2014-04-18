@@ -20,8 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.uibinder.client.UiConstructor;
-import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
@@ -43,7 +43,7 @@ public class HeadingPanel extends ComplexWidget implements HasAlignment {
 
     @UiConstructor
     public HeadingPanel(final int size) {
-        setElement(DOM.createElement("h" + size));
+        setElement(Document.get().createElement("h" + size));
         assert size > 0 && size < 7 : "Wrong heading size (must be between 1 and 6)";
     }
 

@@ -62,7 +62,7 @@ public class Text extends Widget implements HasText {
 
     @Override
     protected void onAttach() {
-        if(isAttached()) {
+        if (isAttached()) {
             throw new IllegalStateException("Text is already attached!");
         }
         isAttached = true;
@@ -72,10 +72,10 @@ public class Text extends Widget implements HasText {
 
     @Override
     protected void onDetach() {
-        if(!isAttached()) {
+        if (!isAttached()) {
             throw new IllegalStateException("Text is not attached!");
         }
         isAttached = false;
-        AttachEvent.fire(this, isAttached);
+        AttachEvent.fire(this, false);
     }
 }

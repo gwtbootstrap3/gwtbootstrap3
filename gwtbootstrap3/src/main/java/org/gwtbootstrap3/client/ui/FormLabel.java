@@ -20,7 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -31,7 +31,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 public class FormLabel extends AbstractTextWidget {
 
     public FormLabel() {
-        super(DOM.createLabel());
+        super(Document.get().createLabelElement());
         setStyleName(Styles.CONTROL_LABEL);
     }
 

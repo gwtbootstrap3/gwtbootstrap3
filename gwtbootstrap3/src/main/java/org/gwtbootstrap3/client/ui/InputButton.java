@@ -20,9 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasName;
 import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
@@ -82,6 +82,6 @@ public class InputButton extends AbstractToggleButton implements HasName, HasFor
 
     @Override
     protected Element createElement() {
-        return DOM.createElement(ElementTags.INPUT);
+        return Document.get().createElement(ElementTags.INPUT);
     }
 }

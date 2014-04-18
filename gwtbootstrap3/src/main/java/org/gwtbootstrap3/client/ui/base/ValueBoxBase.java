@@ -23,7 +23,10 @@ package org.gwtbootstrap3.client.ui.base;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.text.shared.Parser;
 import com.google.gwt.text.shared.Renderer;
-import org.gwtbootstrap3.client.ui.*;
+import org.gwtbootstrap3.client.ui.HasAutocomplete;
+import org.gwtbootstrap3.client.ui.HasId;
+import org.gwtbootstrap3.client.ui.HasPlaceholder;
+import org.gwtbootstrap3.client.ui.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 
@@ -43,7 +46,7 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
         super(elem, renderer, parser);
     }
 
-    public void setMaxLength(int maxLength) {
+    public void setMaxLength(final int maxLength) {
         getElement().setAttribute(MAX_LENGTH, Integer.toString(maxLength));
     }
 

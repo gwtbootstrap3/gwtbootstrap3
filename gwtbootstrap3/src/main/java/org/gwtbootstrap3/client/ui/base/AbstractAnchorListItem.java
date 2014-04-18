@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -42,7 +43,7 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
 
     protected AbstractAnchorListItem() {
         anchor = new Anchor();
-        add(anchor, getElement());
+        add(anchor, (Element) getElement());
     }
 
     @Override
@@ -91,7 +92,7 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     }
 
     @Override
-    public void setToggle(Toggle toggle) {
+    public void setToggle(final Toggle toggle) {
         anchor.setToggle(toggle);
     }
 

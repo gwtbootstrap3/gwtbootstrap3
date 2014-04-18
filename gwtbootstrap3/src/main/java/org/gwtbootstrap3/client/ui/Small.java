@@ -20,7 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
@@ -33,7 +33,7 @@ import org.gwtbootstrap3.client.ui.constants.ElementTags;
 public class Small extends AbstractTextWidget implements HasHTML {
 
     public Small() {
-        super(DOM.createElement(ElementTags.SMALL));
+        super(Document.get().createElement(ElementTags.SMALL));
     }
 
     @Override

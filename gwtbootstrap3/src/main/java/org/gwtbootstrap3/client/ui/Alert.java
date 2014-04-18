@@ -110,7 +110,7 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
      */
     public void setDismissable(final boolean dismissable) {
         if (dismissable) {
-            insert(closeButton, getElement(), 0, true);
+            insert(closeButton, (Element) getElement(), 0, true);
             addStyleName(Styles.ALERT_DISMISSABLE);
         } else {
             closeButton.removeFromParent();

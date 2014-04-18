@@ -21,6 +21,7 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -53,7 +54,7 @@ public class IconStack extends ComplexPanel implements HasResponsiveness {
             throw new IllegalArgumentException("An IconStack can only have children that are of type Icon.");
         }
 
-        add(child, getElement());
+        add(child, (Element) getElement());
     }
 
     @Override

@@ -33,7 +33,7 @@ public class TabPane extends Div implements HasActive {
         setStyleName(Styles.TAB_PANE);
     }
 
-    public void setFade(boolean fade) {
+    public void setFade(final boolean fade) {
         if (fade) {
             addStyleName(Styles.FADE);
         } else {
@@ -41,7 +41,7 @@ public class TabPane extends Div implements HasActive {
         }
     }
 
-    public void setIn(boolean in) {
+    public void setIn(final boolean in) {
         if (in) {
             addStyleName(Styles.IN);
         } else {
@@ -50,7 +50,7 @@ public class TabPane extends Div implements HasActive {
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setActive(final boolean active) {
         activeMixin.setActive(active);
     }
 

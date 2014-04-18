@@ -70,10 +70,10 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
 
     /**
      * This will help to rebuild the Pagination based on the data inside the SimplePager passed in.
-     *
+     * <p/>
      * Make sure to all this after adding/remove data from any of the grid to ensure that this stays
      * current with the SimplePager.
-     *
+     * <p/>
      * ex.
      * dataProvider.getList().addAll(newData);
      * pagination.rebuild(mySimplePager);
@@ -87,10 +87,10 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
             return;
         }
 
-        ListItem prev = addPreviousLink();
+        final ListItem prev = addPreviousLink();
         prev.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 pager.previousPage();
             }
         });
@@ -98,10 +98,10 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
 
         for (int i = 0; i < pager.getPageCount(); i++) {
             final int display = i + 1;
-            ListItem page = new ListItem(String.valueOf(display));
+            final ListItem page = new ListItem(String.valueOf(display));
             page.addClickHandler(new ClickHandler() {
                 @Override
-                public void onClick(ClickEvent event) {
+                public void onClick(final ClickEvent event) {
                     pager.setPage(display - 1);
                 }
             });
@@ -113,10 +113,10 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
             add(page);
         }
 
-        ListItem next = addNextLink();
+        final ListItem next = addNextLink();
         next.addClickHandler(new ClickHandler() {
             @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(final ClickEvent event) {
                 pager.nextPage();
             }
         });

@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.editor.client.IsEditor;
 import com.google.gwt.editor.client.LeafValueEditor;
 import com.google.gwt.editor.client.adapters.TakesValueEditor;
@@ -50,7 +51,7 @@ public class CheckBox extends Div implements HasName, HasEnabled, HasActive, Has
         setStyleName(Styles.CHECKBOX);
         button = new CheckBoxButton();
         button.setStyleName("");
-        add(button, getElement());
+        add(button, (Element) getElement());
     }
 
     @Override

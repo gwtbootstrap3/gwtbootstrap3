@@ -34,7 +34,7 @@ public class EnabledMixin<T extends UIObject & HasEnabled> extends AbstractMixin
     }
 
     @Override
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(final boolean enabled) {
         if (enabled) {
             uiObject.removeStyleName(Styles.DISABLED);
             uiObject.getElement().removeAttribute(DISABLED);

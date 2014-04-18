@@ -90,7 +90,7 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     }
 
     @Override
-    public void setIconFlip(IconFlip iconFlip) {
+    public void setIconFlip(final IconFlip iconFlip) {
         anchor.setIconFlip(iconFlip);
     }
 
@@ -100,7 +100,7 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     }
 
     @Override
-    public void setIconRotate(IconRotate iconRotate) {
+    public void setIconRotate(final IconRotate iconRotate) {
         anchor.setIconRotate(iconRotate);
     }
 
@@ -110,7 +110,7 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     }
 
     @Override
-    public void setIconBordered(boolean iconBordered) {
+    public void setIconBordered(final boolean iconBordered) {
         anchor.setIconBordered(iconBordered);
     }
 
@@ -120,7 +120,7 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     }
 
     @Override
-    public void setIconMuted(boolean iconMuted) {
+    public void setIconMuted(final boolean iconMuted) {
         anchor.setIconMuted(iconMuted);
     }
 
@@ -130,7 +130,7 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     }
 
     @Override
-    public void setIconLight(boolean iconLight) {
+    public void setIconLight(final boolean iconLight) {
         anchor.setIconLight(iconLight);
     }
 
@@ -140,7 +140,7 @@ public class ListItem extends AbstractAnchorListItem implements HasText, HasIcon
     }
 
     @Override
-    public void setIconSpin(boolean iconSpin) {
+    public void setIconSpin(final boolean iconSpin) {
         anchor.setIconSpin(iconSpin);
     }
 

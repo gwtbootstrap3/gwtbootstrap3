@@ -25,14 +25,7 @@ import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
-import org.gwtbootstrap3.client.shared.event.ModalHiddenEvent;
-import org.gwtbootstrap3.client.shared.event.ModalHiddenHandler;
-import org.gwtbootstrap3.client.shared.event.ModalHideEvent;
-import org.gwtbootstrap3.client.shared.event.ModalHideHandler;
-import org.gwtbootstrap3.client.shared.event.ModalShowEvent;
-import org.gwtbootstrap3.client.shared.event.ModalShowHandler;
-import org.gwtbootstrap3.client.shared.event.ModalShownEvent;
-import org.gwtbootstrap3.client.shared.event.ModalShownHandler;
+import org.gwtbootstrap3.client.shared.event.*;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap3.client.ui.base.modal.ModalDialog;
@@ -105,7 +98,7 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
         add(dialog);
     }
 
-    public void setWidth(String width) {
+    public void setWidth(final String width) {
         dialog.setWidth(width);
     }
 
@@ -162,7 +155,7 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
         if (removeOnHide) {
             addHiddenHandler(new ModalHiddenHandler() {
                 @Override
-                public void onHidden(ModalHiddenEvent evt) {
+                public void onHidden(final ModalHiddenEvent evt) {
                     unbindAllHandlers(getElement());
                     removeFromParent();
                 }

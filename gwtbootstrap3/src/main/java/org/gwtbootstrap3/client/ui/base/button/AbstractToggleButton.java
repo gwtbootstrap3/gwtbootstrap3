@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.HasToggle;
 import org.gwtbootstrap3.client.ui.Text;
 import org.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
@@ -67,8 +68,8 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
         if (toggle == Toggle.DROPDOWN) {
             addStyleName(Styles.DROPDOWN_TOGGLE);
 
-            add(separator, getElement());
-            add(caret, getElement());
+            add(separator, (Element) getElement());
+            add(caret, (Element) getElement());
         }
     }
 

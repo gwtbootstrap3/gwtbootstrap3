@@ -101,7 +101,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
 
     private static DataGrid.Resources getDefaultResources() {
         if (DEFAULT_RESOURCES == null) {
-            DataGrid.Resources dataGridResources = GWT.create(Resources.class);
+            final DataGrid.Resources dataGridResources = GWT.create(Resources.class);
             DEFAULT_RESOURCES = new ResourcesAdapter(dataGridResources);
         }
         return DEFAULT_RESOURCES;
@@ -168,7 +168,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
         private final DataGrid.Resources resources;
         private final StyleAdapter style;
 
-        public ResourcesAdapter(DataGrid.Resources resources) {
+        public ResourcesAdapter(final DataGrid.Resources resources) {
             this.resources = resources;
             this.style = new StyleAdapter();
         }
@@ -197,7 +197,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
     private static class StyleAdapter implements DataGrid.Style {
         private static final String B = "gwtb3-";
         private static final String DUMMY = B + "d";
-        
+
         @Override
         public boolean ensureInjected() {
             return true;

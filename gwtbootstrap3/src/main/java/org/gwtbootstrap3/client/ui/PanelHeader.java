@@ -21,6 +21,8 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.DivElement;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -42,7 +44,17 @@ public class PanelHeader extends HTMLPanel implements HasHTML {
     }
 
     @Override
-    public void addAndReplaceElement(Widget widget, com.google.gwt.user.client.Element toReplace) {
+    public void addAndReplaceElement(final IsWidget widget, final Element toReplace) {
+        if ((widget instanceof Heading) || (widget instanceof HeadingPanel)) {
+            widget.asWidget().setStyleName(Styles.PANEL_TITLE);
+        }
+
+        super.addAndReplaceElement(widget, toReplace);
+    }
+
+    @Override
+    @Deprecated
+    public void addAndReplaceElement(final Widget widget, final com.google.gwt.user.client.Element toReplace) {
         if ((widget instanceof Heading) || (widget instanceof HeadingPanel)) {
             widget.setStyleName(Styles.PANEL_TITLE);
         }

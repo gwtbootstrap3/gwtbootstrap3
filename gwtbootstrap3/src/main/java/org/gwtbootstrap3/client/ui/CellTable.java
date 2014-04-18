@@ -127,7 +127,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
     private static Resources getDefaultResources() {
         if (DEFAULT_RESOURCES == null) {
-            CellTable.Resources cellTableResources = GWT.create(CellTable.Resources.class);
+            final CellTable.Resources cellTableResources = GWT.create(CellTable.Resources.class);
             DEFAULT_RESOURCES = new ResourcesAdapter(cellTableResources);
         }
         return DEFAULT_RESOURCES;
@@ -182,7 +182,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         private final CellTable.Resources resources;
         private final StyleAdapter style;
 
-        public ResourcesAdapter(CellTable.Resources resources) {
+        public ResourcesAdapter(final CellTable.Resources resources) {
             this.resources = resources;
             this.style = new StyleAdapter();
         }
@@ -239,7 +239,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
         @Override
         public String cellTableEvenRow() {
-          return "even";
+            return "even";
         }
 
         @Override
@@ -264,12 +264,12 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
         @Override
         public String cellTableFooter() {
-          return DUMMY;
+            return DUMMY;
         }
 
         @Override
         public String cellTableHeader() {
-          return DUMMY;
+            return DUMMY;
         }
 
         @Override
@@ -324,7 +324,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
         @Override
         public String cellTableOddRowCell() {
-          return DUMMY;
+            return DUMMY;
         }
 
         @Override
@@ -339,17 +339,17 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
         @Override
         public String cellTableSortableHeader() {
-          return DUMMY;
+            return DUMMY;
         }
 
         @Override
         public String cellTableSortedHeaderAscending() {
-          return DUMMY;
+            return DUMMY;
         }
 
         @Override
         public String cellTableSortedHeaderDescending() {
-          return DUMMY;
+            return DUMMY;
         }
 
         @Override

@@ -20,7 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
@@ -37,7 +37,7 @@ public class CarouselControl extends ComplexWidget implements HasTarget {
     private final Icon icon = new Icon();
 
     public CarouselControl() {
-        setElement(DOM.createAnchor());
+        setElement(Document.get().createAnchorElement());
         setStyleName(Styles.CAROUSEL_CONTROL);
 
         add(icon);
@@ -62,7 +62,7 @@ public class CarouselControl extends ComplexWidget implements HasTarget {
     }
 
     @Override
-    public void setTarget(String target) {
+    public void setTarget(final String target) {
         targetMixin.setTarget(target);
     }
 

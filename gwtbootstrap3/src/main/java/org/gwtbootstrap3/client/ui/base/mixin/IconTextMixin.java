@@ -100,7 +100,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     }
 
     @Override
-    public void setIconFlip(IconFlip iconFlip) {
+    public void setIconFlip(final IconFlip iconFlip) {
         this.iconFlip = iconFlip;
         render(icon);
     }
@@ -111,7 +111,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     }
 
     @Override
-    public void setIconRotate(IconRotate iconRotate) {
+    public void setIconRotate(final IconRotate iconRotate) {
         this.iconRotate = iconRotate;
         render(icon);
     }
@@ -122,7 +122,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     }
 
     @Override
-    public void setIconBordered(boolean iconBordered) {
+    public void setIconBordered(final boolean iconBordered) {
         this.iconBordered = iconBordered;
         render(icon);
     }
@@ -133,7 +133,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     }
 
     @Override
-    public void setIconMuted(boolean iconMuted) {
+    public void setIconMuted(final boolean iconMuted) {
         this.iconMuted = iconMuted;
         render(icon);
     }
@@ -144,7 +144,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     }
 
     @Override
-    public void setIconLight(boolean iconLight) {
+    public void setIconLight(final boolean iconLight) {
         this.iconLight = iconLight;
         render(icon);
     }
@@ -155,7 +155,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     }
 
     @Override
-    public void setIconSpin(boolean iconSpin) {
+    public void setIconSpin(final boolean iconSpin) {
         this.iconSpin = iconSpin;
         render(icon);
     }

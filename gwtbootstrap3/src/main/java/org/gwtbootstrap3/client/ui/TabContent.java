@@ -33,7 +33,7 @@ public class TabContent extends Div {
     }
 
     @Override
-    public void add(Widget child) {
+    public void add(final Widget child) {
         if (!(child instanceof TabPane)) {
             throw new IllegalArgumentException("TabContent must have children of type TabPane.");
         }

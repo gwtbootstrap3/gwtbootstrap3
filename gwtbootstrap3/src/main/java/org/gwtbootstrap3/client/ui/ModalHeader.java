@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.FlowPanel;
 import org.gwtbootstrap3.client.ui.base.button.CloseButton;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -56,7 +57,7 @@ public class ModalHeader extends FlowPanel implements ModalComponent, IsClosable
     @Override
     public void setClosable(final boolean closable) {
         if (closable) {
-            insert(closeButton, getElement(), 0, true);
+            insert(closeButton, (Element) getElement(), 0, true);
         } else {
             closeButton.removeFromParent();
         }

@@ -98,7 +98,7 @@ public abstract class AbstractListItem extends ComplexPanel implements HasEnable
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(final String id) {
         idMixin.setId(id);
     }
 

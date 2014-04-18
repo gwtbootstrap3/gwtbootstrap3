@@ -20,11 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.LabelType;
@@ -41,7 +41,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 public class Label extends AbstractTextWidget implements HasType<LabelType>, HasClickHandlers {
 
     public Label() {
-        super(DOM.createSpan());
+        super(Document.get().createSpanElement());
         setStyleName(Styles.LABEL);
         setType(LabelType.DEFAULT);
     }
@@ -76,7 +76,7 @@ public class Label extends AbstractTextWidget implements HasType<LabelType>, Has
     }
 
     @Override
-    public HandlerRegistration addClickHandler(ClickHandler handler) {
+    public HandlerRegistration addClickHandler(final ClickHandler handler) {
         return addDomHandler(handler, ClickEvent.getType());
     }
 }

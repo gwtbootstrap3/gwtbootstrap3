@@ -53,7 +53,7 @@ public class CarouselIndicator extends ComplexWidget implements HasTarget, HasAc
     }
 
     @Override
-    public void setTarget(String target) {
+    public void setTarget(final String target) {
         targetMixin.setTarget(target);
     }
 

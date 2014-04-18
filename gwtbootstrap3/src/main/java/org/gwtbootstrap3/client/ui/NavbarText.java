@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.NavbarPull;
@@ -53,7 +54,7 @@ public class NavbarText extends Paragraph implements HasNavbarPull, HasResponsiv
 
     @Override
     public void add(final Widget child) {
-        add(child, getElement());
+        add(child, (Element) getElement());
     }
 
     @Override

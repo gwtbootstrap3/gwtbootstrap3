@@ -47,7 +47,7 @@ public class Pager extends UnorderedList implements HasResponsiveness {
         add(next);
     }
 
-    public void setAlignToSides(boolean alignToSides) {
+    public void setAlignToSides(final boolean alignToSides) {
         if (alignToSides) {
             previous.setStyleName(Styles.PREVIOUS);
             next.setStyleName(Styles.NEXT);
@@ -57,28 +57,28 @@ public class Pager extends UnorderedList implements HasResponsiveness {
         }
     }
 
-    public void setPreviousText(String text) {
+    public void setPreviousText(final String text) {
         previous.setText(text);
     }
 
-    public void setPreviousIcon(IconType icon) {
+    public void setPreviousIcon(final IconType icon) {
         previous.setIcon(icon);
     }
 
-    public void setPreviousIconSize(IconSize iconSize) {
+    public void setPreviousIconSize(final IconSize iconSize) {
         previous.setIconSize(iconSize);
     }
 
-    public void setNextText(String text) {
+    public void setNextText(final String text) {
         next.setText(text);
     }
 
-    public void setNextIcon(IconType icon) {
+    public void setNextIcon(final IconType icon) {
         next.setIcon(icon);
         next.setIconPosition(IconPosition.RIGHT);
     }
 
-    public void setNextIconSize(IconSize iconSize) {
+    public void setNextIconSize(final IconSize iconSize) {
         next.setIconSize(iconSize);
     }
 }

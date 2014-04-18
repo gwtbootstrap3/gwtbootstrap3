@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -38,6 +39,6 @@ public class ListGroup extends UnorderedList {
             throw new IllegalArgumentException("Only ListGroupItems can be inside a ListGroup.");
         }
 
-        add(child, getElement());
+        add(child, (Element) getElement());
     }
 }

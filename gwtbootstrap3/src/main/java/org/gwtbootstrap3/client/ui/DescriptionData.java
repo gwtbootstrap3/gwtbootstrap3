@@ -20,7 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
 
@@ -30,6 +30,6 @@ import org.gwtbootstrap3.client.ui.constants.ElementTags;
 public class DescriptionData extends AbstractTextWidget implements DescriptionComponent {
 
     public DescriptionData() {
-        super(DOM.createElement(ElementTags.DD));
+        super(Document.get().createElement(ElementTags.DD));
     }
 }
