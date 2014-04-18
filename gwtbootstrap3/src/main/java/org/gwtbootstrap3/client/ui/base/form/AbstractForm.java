@@ -1,6 +1,7 @@
 package org.gwtbootstrap3.client.ui.base.form;
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.FormElement;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 
@@ -36,18 +37,44 @@ public abstract class AbstractForm extends FormElementContainer {
     }
 
     public String getAction() {
-        return FormElement.as(getElement()).getAction();
+        return getFormElement().getAction();
     }
 
     public void setAction(final String action) {
-        FormElement.as(getElement()).setAction(action);
+        getFormElement().setAction(action);
     }
 
     public String getMethod() {
-        return FormElement.as(getElement()).getMethod();
+        return getFormElement().getMethod();
     }
 
     public void setMethod(final String method) {
-        FormElement.as(getElement()).setMethod(method);
+        getFormElement().setMethod(method);
     }
+
+    /**
+     * Submits form
+     */
+    public void submit() {
+        submit(getElement());
+    }
+
+    /**
+     * Resets form
+     */
+    public void reset() {
+        reset(getElement());
+    }
+
+    FormElement getFormElement() {
+        return FormElement.as(getElement());
+    }
+
+    private native void submit(final Element e) /*-{
+        e.submit();
+    }-*/;
+
+    private native void reset(final Element e) /*-{
+        e.reset();
+    }-*/;
 }
