@@ -20,13 +20,13 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Toggle;
+import org.gwtbootstrap3.client.ui.constants.Spy;
 
 /**
  * @author Sven Jacobs
  */
-public interface HasToggle {
-    void setToggle(Toggle toggle);
+public interface HasDataSpy {
+    void setDataSpy(Spy spy);
 
-    Toggle getToggle();
+    Spy getDataSpy();
 }

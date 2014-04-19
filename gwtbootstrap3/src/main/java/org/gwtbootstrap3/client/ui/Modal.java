@@ -192,7 +192,7 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
      * @param backdrop Backdrop of modal
      * @see org.gwtbootstrap3.client.ui.constants.ModalBackdrop
      */
-    public void setBackdrop(final ModalBackdrop backdrop) {
+    public void setDataBackdrop(final ModalBackdrop backdrop) {
         if (backdrop != null) {
             getElement().setAttribute(Attributes.DATA_BACKDROP, backdrop.getBackdrop());
         } else {
@@ -200,7 +200,7 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
         }
     }
 
-    public void setKeyboard(final boolean keyboard) {
+    public void setDataKeyboard(final boolean keyboard) {
         getElement().setAttribute(Attributes.DATA_KEYBOARD, Boolean.toString(keyboard));
     }
 

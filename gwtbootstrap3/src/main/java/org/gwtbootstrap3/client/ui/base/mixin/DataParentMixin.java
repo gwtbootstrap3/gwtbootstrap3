@@ -21,31 +21,30 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import com.google.gwt.user.client.ui.UIObject;
-import org.gwtbootstrap3.client.ui.HasToggle;
+import org.gwtbootstrap3.client.ui.HasDataParent;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
-import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
- * @author Sven Jacobs
+ * @author Grant Slender
  */
-public class ToggleMixin<T extends UIObject & HasToggle> extends AbstractMixin implements HasToggle {
+public class DataParentMixin<T extends UIObject & HasDataParent> extends AbstractMixin implements HasDataParent {
 
-    public ToggleMixin(final T uiObject) {
+    public DataParentMixin(final T uiObject) {
         super(uiObject);
     }
 
     @Override
-    public void setToggle(final Toggle toggle) {
-        if (toggle != null) {
-            uiObject.getElement().setAttribute(Attributes.DATA_TOGGLE, toggle.getToggle());
+    public void setDataParent(final String dataParent) {
+        if (dataParent != null) {
+            uiObject.getElement().setAttribute(Attributes.DATA_PARENT, dataParent);
         } else {
-            uiObject.getElement().removeAttribute(Attributes.DATA_TOGGLE);
+            uiObject.getElement().removeAttribute(Attributes.DATA_PARENT);
         }
     }
 
     @Override
-    public Toggle getToggle() {
-        final String toggle = uiObject.getElement().getAttribute(Attributes.DATA_TOGGLE);
-        return toggle != null ? Toggle.valueOf(toggle) : null;
+    public String getDataParent() {
+        return uiObject.getElement().getAttribute(Attributes.DATA_PARENT);
     }
+
 }

@@ -32,8 +32,8 @@ import org.gwtbootstrap3.client.ui.*;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
 import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
@@ -43,7 +43,7 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Joshua Godi
  */
 public abstract class AbstractButton extends ComplexWidget implements HasEnabled, HasActive, HasType<ButtonType>,
-        HasSize<ButtonSize>, HasTarget, HasClickHandlers, HasTargetHistoryToken, HasHref, Focusable {
+        HasSize<ButtonSize>, HasDataTarget, HasClickHandlers, HasTargetHistoryToken, HasHref, Focusable {
 
     public class ButtonStateHandler {
         private ButtonStateHandler() {
@@ -68,7 +68,7 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     }
 
     private final ButtonStateHandler buttonStateHandler = new ButtonStateHandler();
-    private final TargetMixin<AbstractButton> targetMixin = new TargetMixin<AbstractButton>(this);
+    private final DataTargetMixin<AbstractButton> targetMixin = new DataTargetMixin<AbstractButton>(this);
     private final ActiveMixin<AbstractButton> activeMixin = new ActiveMixin<AbstractButton>(this);
     private final FocusableMixin<AbstractButton> focusableMixin = new FocusableMixin<AbstractButton>(this);
 
@@ -143,13 +143,13 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     }
 
     @Override
-    public void setTarget(final String target) {
-        targetMixin.setTarget(target);
+    public void setDataTarget(final String dataTarget) {
+        targetMixin.setDataTarget(dataTarget);
     }
 
     @Override
-    public String getTarget() {
-        return targetMixin.getTarget();
+    public String getDataTarget() {
+        return targetMixin.getDataTarget();
     }
 
     @Override
@@ -220,7 +220,7 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
      * @see org.gwtbootstrap3.client.ui.Modal
      * @see org.gwtbootstrap3.client.ui.Alert
      */
-    public void setDismiss(final ButtonDismiss dismiss) {
+    public void setDataDismiss(final ButtonDismiss dismiss) {
         if (dismiss != null) {
             getElement().setAttribute(Attributes.DATA_DISMISS, dismiss.getDismiss());
         } else {
@@ -228,7 +228,7 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
         }
     }
 
-    public void setLoadingText(final String loadingText) {
+    public void setDataLoadingText(final String loadingText) {
         if (loadingText != null) {
             getElement().setAttribute(Attributes.DATA_LOADING_TEXT, loadingText);
         } else {

@@ -24,8 +24,8 @@ import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.*;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
 import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
@@ -38,10 +38,10 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @see org.gwtbootstrap3.client.ui.ButtonGroup
  * @see org.gwtbootstrap3.client.ui.VerticalButtonGroup
  */
-public abstract class AbstractButtonGroup extends FlowPanel implements HasName, HasToggle, HasJustified, HasPull, HasResponsiveness {
+public abstract class AbstractButtonGroup extends FlowPanel implements HasName, HasDataToggle, HasJustified, HasPull, HasResponsiveness {
 
     private final PullMixin<AbstractButtonGroup> pullMixin = new PullMixin<AbstractButtonGroup>(this);
-    private final ToggleMixin<AbstractButtonGroup> toggleMixin = new ToggleMixin<AbstractButtonGroup>(this);
+    private final DataToggleMixin<AbstractButtonGroup> toggleMixin = new DataToggleMixin<AbstractButtonGroup>(this);
     private String name;
 
     protected AbstractButtonGroup(final String styleName) {
@@ -75,13 +75,13 @@ public abstract class AbstractButtonGroup extends FlowPanel implements HasName, 
     }
 
     @Override
-    public void setToggle(final Toggle toggle) {
-        toggleMixin.setToggle(toggle);
+    public void setDataToggle(final Toggle toggle) {
+        toggleMixin.setDataToggle(toggle);
     }
 
     @Override
-    public Toggle getToggle() {
-        return toggleMixin.getToggle();
+    public Toggle getDataToggle() {
+        return toggleMixin.getDataToggle();
     }
 
     /**

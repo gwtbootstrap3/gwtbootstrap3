@@ -21,21 +21,21 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import com.google.gwt.user.client.ui.UIObject;
-import org.gwtbootstrap3.client.ui.HasSpy;
+import org.gwtbootstrap3.client.ui.HasDataSpy;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
 /**
  * @author Sven Jacobs
  */
-public class SpyMixin<T extends UIObject & HasSpy> extends AbstractMixin implements HasSpy {
+public class DataSpyMixin<T extends UIObject & HasDataSpy> extends AbstractMixin implements HasDataSpy {
 
-    public SpyMixin(final T uiObject) {
+    public DataSpyMixin(final T uiObject) {
         super(uiObject);
     }
 
     @Override
-    public void setSpy(final Spy spy) {
+    public void setDataSpy(final Spy spy) {
         if (spy != null) {
             uiObject.getElement().setAttribute(Attributes.DATA_SPY, spy.getSpy());
         } else {
@@ -44,7 +44,7 @@ public class SpyMixin<T extends UIObject & HasSpy> extends AbstractMixin impleme
     }
 
     @Override
-    public Spy getSpy() {
+    public Spy getDataSpy() {
         final String spy = uiObject.getElement().getAttribute(Attributes.DATA_SPY);
         return spy != null ? Spy.valueOf(spy) : null;
     }

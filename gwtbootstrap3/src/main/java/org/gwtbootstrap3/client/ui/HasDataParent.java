@@ -23,8 +23,8 @@ package org.gwtbootstrap3.client.ui;
 /**
  * @author Grant Slender
  */
-public interface HasParent {
-    void setDataParent(String href);
+public interface HasDataParent {
+    void setDataParent(String dataParent);
 
     String getDataParent();
 }

@@ -41,7 +41,7 @@ public class ModalHeader extends FlowPanel implements ModalComponent, IsClosable
         setStyleName(Styles.MODAL_HEADER);
 
         heading.setStyleName(Styles.MODAL_TITLE);
-        closeButton.setDismiss(ButtonDismiss.MODAL);
+        closeButton.setDataDismiss(ButtonDismiss.MODAL);
 
         add(closeButton);
     }

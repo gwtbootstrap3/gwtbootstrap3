@@ -21,31 +21,29 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import com.google.gwt.user.client.ui.UIObject;
-import org.gwtbootstrap3.client.ui.HasParent;
-import org.gwtbootstrap3.client.ui.HasToggle;
+import org.gwtbootstrap3.client.ui.HasDataTarget;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 
 /**
- * @author Grant Slender
+ * @author Sven Jacobs
  */
-public class ParentMixin<T extends UIObject & HasToggle> extends AbstractMixin implements HasParent {
+public class DataTargetMixin<T extends UIObject & HasDataTarget> extends AbstractMixin implements HasDataTarget {
 
-    public ParentMixin(final T uiObject) {
+    public DataTargetMixin(final T uiObject) {
         super(uiObject);
     }
 
     @Override
-    public void setDataParent(final String href) {
-        if (href != null) {
-            uiObject.getElement().setAttribute(Attributes.DATA_PARENT, href);
+    public void setDataTarget(final String dataTarget) {
+        if (dataTarget != null) {
+            uiObject.getElement().setAttribute(Attributes.DATA_TARGET, dataTarget);
         } else {
-            uiObject.getElement().removeAttribute(Attributes.DATA_PARENT);
+            uiObject.getElement().removeAttribute(Attributes.DATA_TARGET);
         }
     }
 
     @Override
-    public String getDataParent() {
-        return uiObject.getElement().getAttribute(Attributes.DATA_PARENT);
+    public String getDataTarget() {
+        return uiObject.getElement().getAttribute(Attributes.DATA_TARGET);
     }
-
 }

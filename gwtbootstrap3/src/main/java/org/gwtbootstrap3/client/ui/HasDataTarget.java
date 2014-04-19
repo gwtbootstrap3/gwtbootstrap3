@@ -20,13 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Spy;
-
 /**
  * @author Sven Jacobs
  */
-public interface HasSpy {
-    void setSpy(Spy spy);
+public interface HasDataTarget {
+    void setDataTarget(String dataTarget);
 
-    Spy getSpy();
+    String getDataTarget();
 }

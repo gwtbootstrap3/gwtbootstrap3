@@ -55,7 +55,7 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
         setStyleName(Styles.ALERT);
         setType(AlertType.WARNING);
 
-        closeButton.setDismiss(ButtonDismiss.ALERT);
+        closeButton.setDataDismiss(ButtonDismiss.ALERT);
     }
 
     public Alert(final String html, final AlertType type) {

@@ -21,9 +21,9 @@ package org.gwtbootstrap3.client.ui.base.button;
  */
 
 import com.google.gwt.dom.client.Element;
-import org.gwtbootstrap3.client.ui.HasToggle;
+import org.gwtbootstrap3.client.ui.HasDataToggle;
 import org.gwtbootstrap3.client.ui.Text;
-import org.gwtbootstrap3.client.ui.base.mixin.ToggleMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
@@ -35,9 +35,9 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @see AbstractButton
  * @see org.gwtbootstrap3.client.ui.constants.Toggle
  */
-public abstract class AbstractToggleButton extends AbstractIconButton implements HasToggle {
+public abstract class AbstractToggleButton extends AbstractIconButton implements HasDataToggle {
 
-    private final ToggleMixin<AbstractToggleButton> toggleMixin = new ToggleMixin<AbstractToggleButton>(this);
+    private final DataToggleMixin<AbstractToggleButton> toggleMixin = new DataToggleMixin<AbstractToggleButton>(this);
     private final Text separator = new Text(" ");
     private final Caret caret = new Caret();
 
@@ -59,8 +59,8 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
      * @param toggle Kind of toggle
      */
     @Override
-    public void setToggle(final Toggle toggle) {
-        toggleMixin.setToggle(toggle);
+    public void setDataToggle(final Toggle toggle) {
+        toggleMixin.setDataToggle(toggle);
 
         separator.removeFromParent();
         caret.removeFromParent();
@@ -74,7 +74,7 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
     }
 
     @Override
-    public Toggle getToggle() {
-        return toggleMixin.getToggle();
+    public Toggle getDataToggle() {
+        return toggleMixin.getDataToggle();
     }
 }

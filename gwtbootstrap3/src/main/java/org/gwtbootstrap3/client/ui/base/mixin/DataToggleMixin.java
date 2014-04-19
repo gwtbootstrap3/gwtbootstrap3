@@ -21,29 +21,31 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import com.google.gwt.user.client.ui.UIObject;
-import org.gwtbootstrap3.client.ui.HasTarget;
+import org.gwtbootstrap3.client.ui.HasDataToggle;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
+import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * @author Sven Jacobs
  */
-public class TargetMixin<T extends UIObject & HasTarget> extends AbstractMixin implements HasTarget {
+public class DataToggleMixin<T extends UIObject & HasDataToggle> extends AbstractMixin implements HasDataToggle {
 
-    public TargetMixin(final T uiObject) {
+    public DataToggleMixin(final T uiObject) {
         super(uiObject);
     }
 
     @Override
-    public void setTarget(final String target) {
-        if (target != null) {
-            uiObject.getElement().setAttribute(Attributes.DATA_TARGET, target);
+    public void setDataToggle(final Toggle toggle) {
+        if (toggle != null) {
+            uiObject.getElement().setAttribute(Attributes.DATA_TOGGLE, toggle.getToggle());
         } else {
-            uiObject.getElement().removeAttribute(Attributes.DATA_TARGET);
+            uiObject.getElement().removeAttribute(Attributes.DATA_TOGGLE);
         }
     }
 
     @Override
-    public String getTarget() {
-        return uiObject.getElement().getAttribute(Attributes.DATA_TARGET);
+    public Toggle getDataToggle() {
+        final String toggle = uiObject.getElement().getAttribute(Attributes.DATA_TOGGLE);
+        return toggle != null ? Toggle.valueOf(toggle) : null;
     }
 }

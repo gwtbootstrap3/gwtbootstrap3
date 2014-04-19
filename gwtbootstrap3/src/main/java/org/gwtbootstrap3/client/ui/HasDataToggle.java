@@ -20,11 +20,13 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.constants.Toggle;
+
 /**
  * @author Sven Jacobs
  */
-public interface HasTarget {
-    void setTarget(String target);
+public interface HasDataToggle {
+    void setDataToggle(Toggle toggle);
 
-    String getTarget();
+    Toggle getDataToggle();
 }

@@ -23,7 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -31,8 +31,8 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Joshua Godi
  */
-public class CarouselControl extends ComplexWidget implements HasTarget {
-    private final TargetMixin<CarouselControl> targetMixin = new TargetMixin<CarouselControl>(this);
+public class CarouselControl extends ComplexWidget implements HasDataTarget {
+    private final DataTargetMixin<CarouselControl> targetMixin = new DataTargetMixin<CarouselControl>(this);
 
     private final Icon icon = new Icon();
 
@@ -62,12 +62,12 @@ public class CarouselControl extends ComplexWidget implements HasTarget {
     }
 
     @Override
-    public void setTarget(final String target) {
-        targetMixin.setTarget(target);
+    public void setDataTarget(final String dataTarget) {
+        targetMixin.setDataTarget(dataTarget);
     }
 
     @Override
-    public String getTarget() {
-        return targetMixin.getTarget();
+    public String getDataTarget() {
+        return targetMixin.getDataTarget();
     }
 }

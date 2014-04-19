@@ -26,9 +26,9 @@ import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.Anchor;
+import org.gwtbootstrap3.client.ui.HasDataToggle;
 import org.gwtbootstrap3.client.ui.HasHref;
 import org.gwtbootstrap3.client.ui.HasTargetHistoryToken;
-import org.gwtbootstrap3.client.ui.HasToggle;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
@@ -37,7 +37,7 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @author Sven Jacobs
  */
 public abstract class AbstractAnchorListItem extends AbstractListItem
-        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasToggle {
+        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasDataToggle {
 
     protected final Anchor anchor;
 
@@ -92,12 +92,12 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     }
 
     @Override
-    public void setToggle(final Toggle toggle) {
-        anchor.setToggle(toggle);
+    public void setDataToggle(final Toggle toggle) {
+        anchor.setDataToggle(toggle);
     }
 
     @Override
-    public Toggle getToggle() {
-        return anchor.getToggle();
+    public Toggle getDataToggle() {
+        return anchor.getDataToggle();
     }
 }

@@ -33,7 +33,7 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
 /**
  * @author Joshua Godi
  */
-public class TabListItem extends ListItem implements HasHTML, HasTarget {
+public class TabListItem extends ListItem implements HasHTML, HasDataTarget {
 
     public TabListItem() {
         this("");
@@ -41,7 +41,7 @@ public class TabListItem extends ListItem implements HasHTML, HasTarget {
 
     public TabListItem(final String text) {
         super(text);
-        setToggle(Toggle.TAB);
+        setDataToggle(Toggle.TAB);
     }
 
     public void showTab() {
@@ -70,22 +70,22 @@ public class TabListItem extends ListItem implements HasHTML, HasTarget {
      */
     @Override
     public void setHref(final String href) {
-        setTarget(href);
+        setDataTarget(href);
     }
 
     @Override
     public String getHref() {
-        return getTarget();
+        return getDataTarget();
     }
 
     @Override
-    public void setTarget(final String target) {
-        anchor.setTarget(target);
+    public void setDataTarget(final String dataTarget) {
+        anchor.setDataTarget(dataTarget);
     }
 
     @Override
-    public String getTarget() {
-        return anchor.getTarget();
+    public String getDataTarget() {
+        return anchor.getDataTarget();
     }
 
     @Override
@@ -94,9 +94,9 @@ public class TabListItem extends ListItem implements HasHTML, HasTarget {
 
         // On enable/disable we need to add/remove the data toggle for it to work properly
         if (enabled) {
-            setToggle(Toggle.TAB);
+            setDataToggle(Toggle.TAB);
         } else {
-            setToggle(null);
+            setDataToggle(null);
         }
     }
 

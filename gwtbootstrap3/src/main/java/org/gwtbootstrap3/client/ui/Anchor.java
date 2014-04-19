@@ -33,18 +33,18 @@ import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
  * Anchor {@code <a>} element with text and optional icon.
- * 
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @author Grant Slender
  */
-public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasToggle, HasParent,
-        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasTarget {
+public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasDataToggle, HasDataParent,
+        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget {
 
-    private final ToggleMixin<Anchor> toggleMixin = new ToggleMixin<Anchor>(this);
-    private final ParentMixin<Anchor> parentMixin = new ParentMixin<Anchor>(this);
+    private final DataToggleMixin<Anchor> toggleMixin = new DataToggleMixin<Anchor>(this);
+    private final DataParentMixin<Anchor> parentMixin = new DataParentMixin<Anchor>(this);
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
-    private final TargetMixin<Anchor> targetMixin = new TargetMixin<Anchor>(this);
+    private final DataTargetMixin<Anchor> targetMixin = new DataTargetMixin<Anchor>(this);
     private final FocusableMixin<Anchor> focusableMixin;
     private String targetHistoryToken;
 
@@ -197,8 +197,8 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     }
 
     @Override
-    public void setDataParent(final String href) {
-        parentMixin.setDataParent(href);
+    public void setDataParent(final String dataParent) {
+        parentMixin.setDataParent(dataParent);
     }
 
     @Override
@@ -207,13 +207,13 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     }
 
     @Override
-    public void setToggle(final Toggle toggle) {
-        toggleMixin.setToggle(toggle);
+    public void setDataToggle(final Toggle toggle) {
+        toggleMixin.setDataToggle(toggle);
     }
 
     @Override
-    public Toggle getToggle() {
-        return toggleMixin.getToggle();
+    public Toggle getDataToggle() {
+        return toggleMixin.getDataToggle();
     }
 
     @Override
@@ -236,23 +236,23 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
         focusableMixin.setFocus(focused);
     }
 
-	@Override
-	public String getHTML() {
-		return getElement().getInnerHTML();
-	}
-
-	@Override
-    public void setHTML(final String html) {
-        getElement().setInnerHTML(html);
-	}
-
     @Override
-    public void setTarget(final String target) {
-        targetMixin.setTarget(target);
+    public String getHTML() {
+        return getElement().getInnerHTML();
     }
 
     @Override
-    public String getTarget() {
-        return targetMixin.getTarget();
+    public void setHTML(final String html) {
+        getElement().setInnerHTML(html);
+    }
+
+    @Override
+    public void setDataTarget(final String dataTarget) {
+        targetMixin.setDataTarget(dataTarget);
+    }
+
+    @Override
+    public String getDataTarget() {
+        return targetMixin.getDataTarget();
     }
 }

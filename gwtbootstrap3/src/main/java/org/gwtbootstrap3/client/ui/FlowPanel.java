@@ -20,38 +20,38 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.mixin.DataSpyMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.SpyMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
 /**
  * @author Sven Jacobs
  */
-public class FlowPanel extends com.google.gwt.user.client.ui.FlowPanel implements HasSpy, HasId, HasTarget {
+public class FlowPanel extends com.google.gwt.user.client.ui.FlowPanel implements HasDataSpy, HasId, HasDataTarget {
 
-    private final SpyMixin<FlowPanel> spyMixin = new SpyMixin<FlowPanel>(this);
+    private final DataSpyMixin<FlowPanel> spyMixin = new DataSpyMixin<FlowPanel>(this);
     private final IdMixin<FlowPanel> idMixin = new IdMixin<FlowPanel>(this);
-    private final TargetMixin<FlowPanel> targetMixin = new TargetMixin<FlowPanel>(this);
+    private final DataTargetMixin<FlowPanel> targetMixin = new DataTargetMixin<FlowPanel>(this);
 
     @Override
-    public void setSpy(final Spy spy) {
-        spyMixin.setSpy(spy);
+    public void setDataSpy(final Spy spy) {
+        spyMixin.setDataSpy(spy);
     }
 
     @Override
-    public Spy getSpy() {
-        return spyMixin.getSpy();
+    public Spy getDataSpy() {
+        return spyMixin.getDataSpy();
     }
 
     @Override
-    public void setTarget(final String target) {
-        targetMixin.setTarget(target);
+    public void setDataTarget(final String dataTarget) {
+        targetMixin.setDataTarget(dataTarget);
     }
 
     @Override
-    public String getTarget() {
-        return targetMixin.getTarget();
+    public String getDataTarget() {
+        return targetMixin.getDataTarget();
     }
 
     @Override

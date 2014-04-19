@@ -23,19 +23,19 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.DataSpyMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.SpyMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
 /**
  * @author Sven Jacobs
  * @author Grant Slender
  */
-public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implements HasId, HasSpy, HasTarget, HasResponsiveness, HasInlineStyle {
+public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implements HasId, HasDataSpy, HasDataTarget, HasResponsiveness, HasInlineStyle {
 
-    private final SpyMixin<HTMLPanel> spyMixin = new SpyMixin<HTMLPanel>(this);
-    private final TargetMixin<HTMLPanel> targetMixin = new TargetMixin<HTMLPanel>(this);
+    private final DataSpyMixin<HTMLPanel> spyMixin = new DataSpyMixin<HTMLPanel>(this);
+    private final DataTargetMixin<HTMLPanel> targetMixin = new DataTargetMixin<HTMLPanel>(this);
     private final IdMixin<HTMLPanel> idMixin = new IdMixin<HTMLPanel>(this);
 
     public HTMLPanel(final String html) {
@@ -61,23 +61,23 @@ public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implement
     }
 
     @Override
-    public void setSpy(final Spy spy) {
-        spyMixin.setSpy(spy);
+    public void setDataSpy(final Spy spy) {
+        spyMixin.setDataSpy(spy);
     }
 
     @Override
-    public Spy getSpy() {
-        return spyMixin.getSpy();
+    public Spy getDataSpy() {
+        return spyMixin.getDataSpy();
     }
 
     @Override
-    public void setTarget(final String target) {
-        targetMixin.setTarget(target);
+    public void setDataTarget(final String dataTarget) {
+        targetMixin.setDataTarget(dataTarget);
     }
 
     @Override
-    public String getTarget() {
-        return targetMixin.getTarget();
+    public String getDataTarget() {
+        return targetMixin.getDataTarget();
     }
 
     @Override

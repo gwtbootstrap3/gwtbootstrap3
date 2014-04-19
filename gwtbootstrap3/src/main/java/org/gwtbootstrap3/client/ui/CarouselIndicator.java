@@ -23,15 +23,15 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.TargetMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 
 /**
  * @author Joshua Godi
  */
-public class CarouselIndicator extends ComplexWidget implements HasTarget, HasActive {
+public class CarouselIndicator extends ComplexWidget implements HasDataTarget, HasActive {
 
-    private final TargetMixin<CarouselIndicator> targetMixin = new TargetMixin<CarouselIndicator>(this);
+    private final DataTargetMixin<CarouselIndicator> targetMixin = new DataTargetMixin<CarouselIndicator>(this);
     private final ActiveMixin<CarouselIndicator> activeMixin = new ActiveMixin<CarouselIndicator>(this);
 
     public CarouselIndicator() {
@@ -40,6 +40,10 @@ public class CarouselIndicator extends ComplexWidget implements HasTarget, HasAc
 
     public void setDataSlideTo(final String dataSlideTo) {
         getElement().setAttribute(Attributes.DATA_SLIDE_TO, dataSlideTo);
+    }
+
+    public String getDataSlideTo() {
+        return getElement().getAttribute(Attributes.DATA_SLIDE_TO);
     }
 
     @Override
@@ -53,12 +57,12 @@ public class CarouselIndicator extends ComplexWidget implements HasTarget, HasAc
     }
 
     @Override
-    public void setTarget(final String target) {
-        targetMixin.setTarget(target);
+    public void setDataTarget(final String dataTarget) {
+        targetMixin.setDataTarget(dataTarget);
     }
 
     @Override
-    public String getTarget() {
-        return targetMixin.getTarget();
+    public String getDataTarget() {
+        return targetMixin.getDataTarget();
     }
 }
