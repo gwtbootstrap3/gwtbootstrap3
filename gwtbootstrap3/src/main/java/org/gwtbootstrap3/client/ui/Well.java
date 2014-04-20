@@ -20,48 +20,54 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.safehtml.shared.SafeHtml;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.WellSize;
 
 /**
- * Well, well Mr. Anderson...
+ * Widget representing the Bootstrap Well
+ * <p/>
+ * <a href="http://getbootstrap.com/components/#wells">Bootstrap Documentation</a>
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <p/>
+ * <pre>
+ * {@code
+ *     <b:Well>
+ *         ...
+ *     </b:Well>
+ * }
+ * </pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class Well extends HTMLPanel implements HasSize<WellSize>, HasResponsiveness {
+public class Well extends Div implements HasSize<WellSize>, HasResponsiveness {
 
+    /**
+     * Creates a Well with the default Bootstrap styling
+     */
     public Well() {
-        this("");
-    }
-    public Well(final String html) {
-        super(html);
         setStyleName(Styles.WELL);
     }
 
-    public Well(final SafeHtml safeHtml) {
-        this(safeHtml.asString());
-    }
-
+    /**
+     * Sets the size of the well: SMALL | LARGE | NORMAL
+     *
+     * @param size desired size of the well
+     */
     @Override
     public void setSize(final WellSize size) {
         StyleHelper.addUniqueEnumStyleName(this, WellSize.class, size);
     }
 
+    /**
+     * Gets the WellSize of the well
+     *
+     * @return the well's WellSize
+     */
     @Override
     public WellSize getSize() {
         return WellSize.fromStyleName(getStyleName());
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }
