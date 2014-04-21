@@ -22,7 +22,12 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
@@ -32,6 +37,19 @@ import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
+ *  Widget representing the Bootstrap Thumbnail as a clickable image
+ * <p/>
+ * <a href="http://getbootstrap.com/components/#thumbnails">Bootstrap Documentation</a>
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <p/>
+ * <pre>
+ * {@code
+ * <b:ThumbnailLink>
+ *    Image
+ * </b:ThumbnailLink>
+ * }
+ * </pre>
  * @author Joshua Godi
  */
 public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref,
@@ -41,40 +59,58 @@ public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, Ha
     private final FocusableMixin<ThumbnailLink> focusableMixin;
     private String targetHistoryToken;
 
+    /**
+     * Creates the default ThumbnailLink with the specified HREF
+     * @param href String href to use
+     */
     public ThumbnailLink(final String href) {
         setElement(Document.get().createAnchorElement());
         setHref(href);
         focusableMixin = new FocusableMixin<ThumbnailLink>(this);
     }
 
-    public ThumbnailLink(final String text, final String href) {
-        this(href);
-    }
-
+    /**
+     * Creates the default ThumbnailLink with a default HREF
+     */
     public ThumbnailLink() {
         this(EMPTY_HREF);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
         return addDomHandler(handler, ClickEvent.getType());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public HandlerRegistration addDoubleClickHandler(final DoubleClickHandler handler) {
         return addDomHandler(handler, DoubleClickEvent.getType());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setHref(final String href) {
         AnchorElement.as(getElement()).setHref(href);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getHref() {
         return AnchorElement.as(getElement()).getHref();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setTargetHistoryToken(final String targetHistoryToken) {
         this.targetHistoryToken = targetHistoryToken;
@@ -82,36 +118,57 @@ public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, Ha
         setHref("#" + hash);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getTargetHistoryToken() {
         return targetHistoryToken;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setDataToggle(final Toggle toggle) {
         toggleMixin.setDataToggle(toggle);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Toggle getDataToggle() {
         return toggleMixin.getDataToggle();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getTabIndex() {
         return focusableMixin.getTabIndex();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setTabIndex(final int index) {
         focusableMixin.setTabIndex(index);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setAccessKey(final char key) {
         focusableMixin.setAccessKey(key);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setFocus(final boolean focused) {
         focusableMixin.setFocus(focused);

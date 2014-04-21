@@ -26,7 +26,15 @@ import org.gwtbootstrap3.client.ui.constants.Size;
  * @author Sven Jacobs
  */
 public interface HasSize<T extends Size> {
+    /**
+     * Set the size of the widget
+     * @param size T size of the widget
+     */
     void setSize(T size);
 
+    /**
+     * Get the size of the widget
+     * @return T size of the widget
+     */
     T getSize();
 }

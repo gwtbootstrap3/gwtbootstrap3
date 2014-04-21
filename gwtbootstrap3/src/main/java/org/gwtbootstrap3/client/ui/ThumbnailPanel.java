@@ -23,10 +23,28 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
+ * Widget representing the Bootstrap Thumbnail for use with other components
+ * <p/>
+ * <a href="http://getbootstrap.com/components/#thumbnails">Bootstrap Documentation</a> (Custom Content section)
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <p/>
+ * <pre>
+ * {@code
+ * <b:ThumbnailPanel>
+ *    Image
+ *    <b:Heading size="...">Label</b:Heading>
+ *    <b:Paragraph>Content</b:Paragraph>
+ * </b:ThumbnailPanel>
+ * }
+ * </pre>
  * @author Joshua Godi
  */
 public class ThumbnailPanel extends Div {
 
+    /**
+     * Creates the ThumbnailPanel with the default styles
+     */
     public ThumbnailPanel() {
         addStyleName(Styles.THUMBNAIL);
     }

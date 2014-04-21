@@ -36,9 +36,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * <p/>
  * <pre>
  * {@code
- *     <b:UnorderedList>
- *         ... [ListItems]
- *     </b:UnorderedList>
+ * <b:UnorderedList>
+ *    ... [ListItems]
+ * </b:UnorderedList>
  * }
  * </pre>
  *
@@ -82,7 +82,7 @@ public class UnorderedList extends ComplexWidget {
     }
 
     /**
-     * Sets the UnorderList to be unstyled
+     * Sets the UnorderedList to be unstyled
      *
      * @param unstyled boolean true/false to make unstyled
      */

@@ -33,16 +33,16 @@ import org.gwtbootstrap3.client.ui.constants.WellSize;
  * <p/>
  * <pre>
  * {@code
- *     <b:Well>
- *         ...
- *     </b:Well>
+ * <b:Well>
+ *    ...
+ * </b:Well>
  * }
  * </pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class Well extends Div implements HasSize<WellSize>, HasResponsiveness {
+public class Well extends Div implements HasSize<WellSize> {
 
     /**
      * Creates a Well with the default Bootstrap styling
@@ -52,9 +52,7 @@ public class Well extends Div implements HasSize<WellSize>, HasResponsiveness {
     }
 
     /**
-     * Sets the size of the well: SMALL | LARGE | NORMAL
-     *
-     * @param size desired size of the well
+     * {@inheritDoc}
      */
     @Override
     public void setSize(final WellSize size) {
@@ -62,9 +60,7 @@ public class Well extends Div implements HasSize<WellSize>, HasResponsiveness {
     }
 
     /**
-     * Gets the WellSize of the well
-     *
-     * @return the well's WellSize
+     * {@inheritDoc}
      */
     @Override
     public WellSize getSize() {

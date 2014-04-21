@@ -24,7 +24,15 @@ package org.gwtbootstrap3.client.ui;
  * @author Sven Jacobs
  */
 public interface HasId {
+    /**
+     * Sets the ID on the widget
+     * @param id String desired ID
+     */
     void setId(String id);
 
+    /**
+     * Gets the ID of the widget
+     * @return String widget ID
+     */
     String getId();
 }

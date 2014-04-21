@@ -28,7 +28,14 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
-import org.gwtbootstrap3.client.shared.event.*;
+import org.gwtbootstrap3.client.shared.event.HiddenEvent;
+import org.gwtbootstrap3.client.shared.event.HiddenHandler;
+import org.gwtbootstrap3.client.shared.event.HideEvent;
+import org.gwtbootstrap3.client.shared.event.HideHandler;
+import org.gwtbootstrap3.client.shared.event.ShowEvent;
+import org.gwtbootstrap3.client.shared.event.ShowHandler;
+import org.gwtbootstrap3.client.shared.event.ShownEvent;
+import org.gwtbootstrap3.client.shared.event.ShownHandler;
 import org.gwtbootstrap3.client.ui.constants.Placement;
 import org.gwtbootstrap3.client.ui.constants.Trigger;
 
@@ -36,6 +43,23 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
+ * Basic implementation for the Bootstrap tooltip
+ * <p/>
+ * <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap Documentation</a>
+ * <p/>
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <p/>
+ * <pre>
+ * {@code
+ * <b:Tooltip text="...">
+ *    ...
+ * </b:Tooltip>
+ * }
+ * </pre>
+ * <p/>
+ * ** Must call reconfigure() after altering any/all Tooltips!
+ *
  * @author Joshua Godi
  * @author Pontus Enmark
  */
@@ -59,13 +83,24 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     private Widget widget;
     private String id;
 
+    /**
+     * Creates the empty Tooltip
+     */
     public Tooltip() {
     }
 
+    /**
+     * Creates the tooltip around this widget
+     *
+     * @param w widget for the tooltip
+     */
     public Tooltip(final Widget w) {
         setWidget(w);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setWidget(final Widget w) {
         // Validate
@@ -101,6 +136,9 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         });
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void add(final Widget child) {
         if (getWidget() != null) {
@@ -109,16 +147,25 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         setWidget(child);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setWidget(final IsWidget w) {
         widget = (w == null) ? null : w.asWidget();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Widget getWidget() {
         return widget;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setId(final String id) {
         this.id = id;
@@ -127,6 +174,9 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getId() {
         return (widget == null) ? id : widget.getElement().getId();
@@ -137,36 +187,57 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         this.isAnimated = isAnimated;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isAnimated() {
         return isAnimated;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIsHtml(final boolean isHTML) {
         this.isHTML = isHTML;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isHtml() {
         return isHTML;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setPlacement(final Placement placement) {
         this.placement = placement;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Placement getPlacement() {
         return placement;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setTrigger(final Trigger trigger) {
         this.trigger = trigger;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Trigger getTrigger() {
         return trigger;
@@ -177,43 +248,73 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         this.showDelayMs = showDelayMs;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getShowDelayMs() {
         return showDelayMs;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setHideDelayMs(final int hideDelayMs) {
         this.hideDelayMs = hideDelayMs;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getHideDelayMs() {
         return hideDelayMs;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setContainer(final String container) {
         this.container = container;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getContainer() {
         return container;
     }
 
+    /**
+     * Gets the tooltip's display string
+     * @return String tooltip display string
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Sets the tooltip's display string
+     * @param text String display string
+     */
     public void setText(final String text) {
         setTitle(text);
     }
 
+    /**
+     * Sets the tooltip's display string
+     * @param title String display string
+     */
     public void setTitle(final String title) {
         this.title = title;
     }
 
+    /**
+     * Reconfigures the tooltip, must be called when altering any tooltip after it has already been shown
+     */
     public void reconfigure() {
         // First destroy the old tooltip
         destroy();
@@ -234,18 +335,30 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         }
     }
 
+    /**
+     * Toggle the Tooltip to either show/hide
+     */
     public void toggle() {
         call(widget.getElement(), TOGGLE);
     }
 
+    /**
+     * Force show the Tooltip
+     */
     public void show() {
         call(widget.getElement(), SHOW);
     }
 
+    /**
+     * Force hide the Tooltip
+     */
     public void hide() {
         call(widget.getElement(), HIDE);
     }
 
+    /**
+     * Force the Tooltip to be destroyed
+     */
     public void destroy() {
         call(widget.getElement(), DESTROY);
     }
@@ -294,27 +407,53 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         widget.fireEvent(new HiddenEvent(evt));
     }
 
+    /**
+     * Adds a show handler to the Tooltip that will be fired when the Tooltip's show event is fired
+     * @param showHandler ShowHandler to handle the show event
+     * @return HandlerRegistration of the handler
+     */
     public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
         return widget.addHandler(showHandler, ShowEvent.getType());
     }
 
+    /**
+     * Adds a shown handler to the Tooltip that will be fired when the Tooltip's shown event is fired
+     * @param shownHandler ShownHandler to handle the shown event
+     * @return HandlerRegistration of the handler
+     */
     public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
         return widget.addHandler(shownHandler, ShownEvent.getType());
     }
 
+    /**
+     * Adds a hide handler to the Tooltip that will be fired when the Tooltip's hide event is fired
+     * @param hideHandler HideHandler to handle the hide event
+     * @return HandlerRegistration of the handler
+     */
     public HandlerRegistration addHideHandler(final HideHandler hideHandler) {
         return widget.addHandler(hideHandler, HideEvent.getType());
     }
 
+    /**
+     * Adds a hidden handler to the Tooltip that will be fired when the Tooltip's hidden event is fired
+     * @param hiddenHandler HiddenHandler to handle the hidden event
+     * @return HandlerRegistration of the handler
+     */
     public HandlerRegistration addHiddenHandler(final HiddenHandler hiddenHandler) {
         return widget.addHandler(hiddenHandler, HiddenEvent.getType());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void clear() {
         widget = null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Iterator<Widget> iterator() {
         // Simple iterator for the widget
@@ -345,6 +484,9 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         };
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean remove(final Widget w) {
         // Validate.
@@ -357,11 +499,17 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Widget asWidget() {
         return widget;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return asWidget().toString();
