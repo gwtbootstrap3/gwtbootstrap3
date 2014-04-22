@@ -37,7 +37,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
- *  Widget representing the Bootstrap Thumbnail as a clickable image
+ * Widget representing the Bootstrap Thumbnail as a clickable image
  * <p/>
  * <a href="http://getbootstrap.com/components/#thumbnails">Bootstrap Documentation</a>
  * <p/>
