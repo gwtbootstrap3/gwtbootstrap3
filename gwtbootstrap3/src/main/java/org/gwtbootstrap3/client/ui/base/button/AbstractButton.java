@@ -20,14 +20,18 @@ package org.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DomEvent;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasEnabled;
+
 import org.gwtbootstrap3.client.ui.*;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -242,6 +246,11 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
 
     public ButtonStateHandler state() {
         return buttonStateHandler;
+    }
+
+    public void click() {
+        NativeEvent event = Document.get().createClickEvent(0, 0, 0, 0, 0, false, false, false, false);
+        DomEvent.fireNativeEvent(event, this);
     }
 
     protected abstract Element createElement();
