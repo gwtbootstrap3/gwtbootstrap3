@@ -21,7 +21,6 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -66,19 +65,6 @@ public class UnorderedList extends ComplexWidget {
         for (final ListItem li : widgets) {
             add(li);
         }
-    }
-
-    /**
-     * Make sure the children are of the right type!
-     *
-     * @param child ListItem children only
-     */
-    @Override
-    public void add(Widget child) {
-        if (!(child instanceof ListItem)) {
-            throw new IllegalArgumentException("Children can only be of type ListItem");
-        }
-        super.add(child);
     }
 
     /**
