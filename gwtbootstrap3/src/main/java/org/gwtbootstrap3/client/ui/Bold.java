@@ -21,7 +21,6 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
 
@@ -30,7 +29,7 @@ import org.gwtbootstrap3.client.ui.constants.ElementTags;
  *
  * @author Joshua Godi
  */
-public class Bold extends AbstractTextWidget implements HasHTML {
+public class Bold extends AbstractTextWidget {
 
     public Bold() {
         super(Document.get().createElement(ElementTags.STRONG));
@@ -38,16 +37,6 @@ public class Bold extends AbstractTextWidget implements HasHTML {
 
     public Bold(final String text) {
         this();
-        setText(text);
-    }
-
-    @Override
-    public String getHTML() {
-        return getElement().getInnerHTML();
-    }
-
-    @Override
-    public void setHTML(final String html) {
-        getElement().setInnerHTML(html);
+        setHTML(text);
     }
 }

@@ -22,11 +22,11 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.uibinder.client.UiConstructor;
-import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
 import org.gwtbootstrap3.client.ui.constants.Emphasis;
+import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Represents a Heading tag, has an optional subtext.
@@ -38,8 +38,11 @@ import org.gwtbootstrap3.client.ui.constants.Emphasis;
  * <p/>
  * <pre>
  * {@code
- * <b:Heading size="1">Heading Text</b:Heading>
- * <b:Heading size="1" subtext="Subtext Text">Heading Text</b:Heading>
+ * <b:Heading size="1">
+ *     <b:Text>Heading Text</b:Text>
+ *     <b:Small>Subheading text</b:Small>
+ * </b:Heading>
+ * <b:Heading size="1" text="Heading Text" subtext="Subtext Text"/>
  * }
  * </pre>
  * <p/>
@@ -53,9 +56,9 @@ import org.gwtbootstrap3.client.ui.constants.Emphasis;
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class Heading extends ComplexWidget implements HasEmphasis, HasText, HasAlignment {
-    private String text;
-    private String subtext;
+public class Heading extends ComplexWidget implements HasEmphasis, HasAlignment {
+    private Small subtext = new Small();
+    private Text text = new Text();
 
     /**
      * Creates a Heading with the passed in size.
@@ -64,8 +67,7 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText, HasA
      */
     @UiConstructor
     public Heading(final int size) {
-        setElement(Document.get().createElement("h" + size));
-        assert size > 0 && size < 7 : "Wrong heading size (must be between 1 and 6)";
+        setElement(Document.get().createHElement(size));
     }
 
     /**
@@ -80,15 +82,27 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText, HasA
     }
 
     /**
+     * Creates a Heading with the passed in size and text.
+     *
+     * @param size    size of the heading
+     * @param text    text for the heading
+     * @param subtext subtext for the heading
+     */
+    public Heading(final int size, final String text, final String subtext) {
+        this(size, text);
+        setSubtext(subtext);
+    }
+
+    /**
      * Sets the subtext for the heading (wrapped in a Small tag).
+     * <p/>
+     * When using the setter for this, the subtext will be added after the text
      *
      * @param subtext the subtext of the heading
      */
     public void setSubtext(final String subtext) {
-        this.subtext = subtext;
-
-        // Render the inner html of the element
-        render();
+        this.subtext.setText(" " + subtext);
+        add(this.subtext);
     }
 
     /**
@@ -97,7 +111,7 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText, HasA
      * @return subtext of the heading
      */
     public String getSubtext() {
-        return subtext;
+        return subtext.getText();
     }
 
     /**
@@ -105,9 +119,8 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText, HasA
      *
      * @return text of the heading
      */
-    @Override
     public String getText() {
-        return text;
+        return text.getText();
     }
 
     /**
@@ -115,12 +128,9 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText, HasA
      *
      * @param text the text of the heading
      */
-    @Override
     public void setText(final String text) {
-        this.text = text;
-
-        // Render the inner html of the element
-        render();
+        this.text.setText(text);
+        insert(this.text, 0);
     }
 
     /**
@@ -155,27 +165,15 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasText, HasA
         return Alignment.fromStyleName(getStyleName());
     }
 
-    /**
-     * Renders the element's inner html depending on what is set. This ensures that we don't have the small
-     * tag always there if the user doesn't want to use it.
-     */
-    private void render() {
-        StringBuilder builder = new StringBuilder();
+    @Override
+    protected void onAttach() {
+        super.onAttach();
 
-        // If the text isn't null, add it to the builder
-        if (text != null) {
-            builder = builder.append(text);
+        // Adding styles to the heading depending on the parent
+        if(getParent() != null) {
+            if(getParent() instanceof LinkedGroupItem) {
+                setStyleName(Styles.LIST_GROUP_ITEM_HEADING);
+            }
         }
-
-        // If the subtext isn't null, add a space and it to the builder (wrapped inside a small tag)
-        if (subtext != null) {
-            builder = builder.append(" ")
-                    .append("<small>")
-                    .append(subtext)
-                    .append("</small>");
-        }
-
-        // Set the inner html of the element to the builder
-        getElement().setInnerHTML(builder.toString());
     }
 }
