@@ -30,12 +30,23 @@ public class GwtBootstrap3EntryPoint implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText())
-                .setWindow(ScriptInjector.TOP_WINDOW)
-                .inject();
+        if (!isjQueryLoaded()) {
+            ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText())
+                    .setWindow(ScriptInjector.TOP_WINDOW)
+                    .inject();
+        }
 
         ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.bootstrap().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW)
                 .inject();
     }
+
+    /**
+     * Check to see if jQuery is loaded already
+     *
+     * @return true is jQuery is loaded, false otherwise
+     */
+    private native boolean isjQueryLoaded() /*-{
+        return $wnd['jQuery'];
+    }-*/;
 }
