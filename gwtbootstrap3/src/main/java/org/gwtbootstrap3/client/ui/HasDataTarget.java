@@ -24,7 +24,17 @@ package org.gwtbootstrap3.client.ui;
  * @author Sven Jacobs
  */
 public interface HasDataTarget {
+    /**
+     * Sets the data target for the widget
+     *
+     * @param dataTarget data target string
+     */
     void setDataTarget(String dataTarget);
 
+    /**
+     * Gets the data target of the widget
+     *
+     * @return data target
+     */
     String getDataTarget();
 }

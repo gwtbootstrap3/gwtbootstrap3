@@ -24,7 +24,15 @@ package org.gwtbootstrap3.client.ui;
  * @author Sven Jacobs
  */
 public interface HasActive {
+    /**
+     * Sets the widget with the active styles or not
+     * @param active true=gets active styles, false=removes active styles
+     */
     void setActive(boolean active);
 
+    /**
+     * Gets whether or not the widget has the active styles
+     * @return true=has active styles, false=does not have active styles
+     */
     boolean isActive();
 }

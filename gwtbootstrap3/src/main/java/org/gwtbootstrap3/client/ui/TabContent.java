@@ -24,14 +24,39 @@ import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
+ * Container widget for the tab content
+ * <p/>
+ * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <p/>
+ * <pre>
+ * {@code
+ * <b:TabContent>
+ *    <b:TabPane/>
+ *    <b:TabPane/>
+ * </b:TabContent>
+ * }
+ * </pre>
+ *
  * @author Joshua Godi
+ * @see org.gwtbootstrap3.client.ui.TabPane
  */
 public class TabContent extends Div {
 
+    /**
+     * Creates the default widget with the default styles
+     */
     public TabContent() {
         setStyleName(Styles.TAB_CONTENT);
     }
 
+    /**
+     * We override the add to make sure only children of type TabPane can be added!
+     *
+     * @param child widget to be added
+     * @see org.gwtbootstrap3.client.ui.TabPane
+     */
     @Override
     public void add(final Widget child) {
         if (!(child instanceof TabPane)) {
