@@ -45,7 +45,7 @@ public class PanelHeader extends HTMLPanel implements HasHTML {
 
     @Override
     public void addAndReplaceElement(final IsWidget widget, final Element toReplace) {
-        if ((widget instanceof Heading) || (widget instanceof HeadingPanel)) {
+        if (widget instanceof Heading) {
             widget.asWidget().setStyleName(Styles.PANEL_TITLE);
         }
 
@@ -55,7 +55,7 @@ public class PanelHeader extends HTMLPanel implements HasHTML {
     @Override
     @Deprecated
     public void addAndReplaceElement(final Widget widget, final com.google.gwt.user.client.Element toReplace) {
-        if ((widget instanceof Heading) || (widget instanceof HeadingPanel)) {
+        if (widget instanceof Heading) {
             widget.setStyleName(Styles.PANEL_TITLE);
         }
         super.addAndReplaceElement(widget, toReplace);
