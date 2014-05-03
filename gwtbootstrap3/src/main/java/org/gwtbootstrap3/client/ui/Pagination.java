@@ -27,6 +27,7 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.PaginationSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.UnorderedList;
 
 /**
  * Support for Bootstrap pagination (http://getbootstrap.com/components/#pagination)

@@ -21,6 +21,7 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
  * Widget representing the Bootstrap Thumbnail for use with other components
@@ -38,6 +39,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * </b:ThumbnailPanel>
  * }
  * </pre>
+ *
  * @author Joshua Godi
  */
 public class ThumbnailPanel extends Div {

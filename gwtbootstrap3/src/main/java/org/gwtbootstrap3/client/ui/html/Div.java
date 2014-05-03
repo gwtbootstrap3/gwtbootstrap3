@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.html;
 
 /*
  * #%L

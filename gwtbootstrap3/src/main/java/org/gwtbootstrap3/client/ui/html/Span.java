@@ -1,6 +1,8 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.html;
 
 import com.google.gwt.dom.client.SpanElement;
+import org.gwtbootstrap3.client.ui.HTMLPanel;
+import org.gwtbootstrap3.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 
 /*

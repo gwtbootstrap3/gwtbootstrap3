@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.html;
 
 /*
  * #%L
@@ -53,6 +53,7 @@ public class Text extends Widget implements HasText {
 
     /**
      * Creates a text node with the desired text
+     *
      * @param txt String text to display
      */
     public Text(final String txt) {

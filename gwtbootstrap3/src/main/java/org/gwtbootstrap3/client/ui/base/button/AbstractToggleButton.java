@@ -22,11 +22,11 @@ package org.gwtbootstrap3.client.ui.base.button;
 
 import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.HasDataToggle;
-import org.gwtbootstrap3.client.ui.Text;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
+import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
  * Base class for buttons that can be toggle buttons

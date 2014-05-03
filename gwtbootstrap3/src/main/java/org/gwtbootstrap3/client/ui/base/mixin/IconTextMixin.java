@@ -24,9 +24,13 @@ import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.HasIcon;
 import org.gwtbootstrap3.client.ui.HasIconPosition;
 import org.gwtbootstrap3.client.ui.Icon;
-import org.gwtbootstrap3.client.ui.Text;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.constants.*;
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconPosition;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
  * Mixin for Widgets that have text and an optional icon.

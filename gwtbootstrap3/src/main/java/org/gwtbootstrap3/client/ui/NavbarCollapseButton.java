@@ -26,6 +26,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
+import org.gwtbootstrap3.client.ui.html.Span;
 
 /**
  * Special button to toggle collapsible area of {@link Navbar}.

@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.html;
 
 /*
  * #%L
@@ -25,17 +25,17 @@ import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
 
 /**
- * Simple {@code <em>} tag to emphasize words
+ * Simple {@code <strong>} tag to emphasize words
  *
  * @author Joshua Godi
  */
-public class Italics extends AbstractTextWidget {
+public class Bold extends AbstractTextWidget {
 
-    public Italics() {
-        super(Document.get().createElement(ElementTags.EM));
+    public Bold() {
+        super(Document.get().createElement(ElementTags.STRONG));
     }
 
-    public Italics(final String text) {
+    public Bold(final String text) {
         this();
         setHTML(text);
     }

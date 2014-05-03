@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
  * Page header with optional subtext

@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.html;
 
 /*
  * #%L
@@ -26,9 +26,9 @@ import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 /**
  * @author Joshua Godi
  */
-public class Hr extends ComplexWidget {
+public class Br extends ComplexWidget {
 
-    public Hr() {
-        setElement(Document.get().createHRElement());
+    public Br() {
+        setElement(Document.get().createBRElement());
     }
 }

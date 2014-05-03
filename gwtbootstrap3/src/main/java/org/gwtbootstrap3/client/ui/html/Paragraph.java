@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.html;
 
 /*
  * #%L
@@ -21,6 +21,10 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.ParagraphElement;
+import org.gwtbootstrap3.client.ui.HTMLPanel;
+import org.gwtbootstrap3.client.ui.HasAlignment;
+import org.gwtbootstrap3.client.ui.HasEmphasis;
+import org.gwtbootstrap3.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 import org.gwtbootstrap3.client.ui.constants.Alignment;

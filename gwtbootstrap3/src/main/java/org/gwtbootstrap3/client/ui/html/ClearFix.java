@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.html;
 
 /*
  * #%L
@@ -20,15 +20,14 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class Br extends ComplexWidget {
+public class ClearFix extends Div {
 
-    public Br() {
-        setElement(Document.get().createBRElement());
+    public ClearFix() {
+        addStyleName(Styles.CLEARFIX);
     }
 }

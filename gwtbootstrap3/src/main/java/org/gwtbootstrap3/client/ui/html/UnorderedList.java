@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.html;
 
 /*
  * #%L
@@ -21,6 +21,7 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
+import org.gwtbootstrap3.client.ui.ListItem;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
