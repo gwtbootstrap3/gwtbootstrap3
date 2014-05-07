@@ -47,6 +47,6 @@ public class GwtBootstrap3EntryPoint implements EntryPoint {
      * @return true is jQuery is loaded, false otherwise
      */
     private native boolean isjQueryLoaded() /*-{
-        return $wnd['jQuery'];
+        return $wnd['jQuery'] || (typeof $wnd['jQuery'] !== 'undefined');
     }-*/;
 }
