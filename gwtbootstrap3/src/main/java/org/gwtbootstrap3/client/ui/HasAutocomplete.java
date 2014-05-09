@@ -20,13 +20,22 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-public interface HasAutocomplete {
+public interface HasAutoComplete {
+    public static final String AUTO_COMPLETE = "autocomplete";
+    public static final String ON = "on";
+    public static final String OFF = "off";
 
-    String AUTOCOMPLETE = "autocomplete";
-    String ON = "on";
-    String OFF = "off";
+    /**
+     * Sets the auto complete property on the widget
+     *
+     * @param autoComplete auto complete setting for the widget
+     */
+    void setAutoComplete(boolean autoComplete);
 
-    void setAutocomplete(boolean autocomplete);
-
-    String getAutocomplete();
+    /**
+     * Get the auto complete attribute from the widget
+     *
+     * @return auto complete attribute
+     */
+    String getAutoComplete();
 }
