@@ -24,7 +24,6 @@ import com.google.gwt.dom.client.ParagraphElement;
 import org.gwtbootstrap3.client.ui.HTMLPanel;
 import org.gwtbootstrap3.client.ui.HasAlignment;
 import org.gwtbootstrap3.client.ui.HasEmphasis;
-import org.gwtbootstrap3.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
@@ -33,7 +32,7 @@ import org.gwtbootstrap3.client.ui.constants.Emphasis;
 /**
  * @author Sven Jacobs
  */
-public class Paragraph extends HTMLPanel implements HasHTML, HasAlignment, HasEmphasis {
+public class Paragraph extends HTMLPanel implements HasAlignment, HasEmphasis {
 
     private final HTMLMixin<Paragraph> textMixin = new HTMLMixin<Paragraph>(this);
 
@@ -46,22 +45,18 @@ public class Paragraph extends HTMLPanel implements HasHTML, HasAlignment, HasEm
         setHTML(html);
     }
 
-    @Override
     public void setText(final String text) {
         textMixin.setText(text);
     }
 
-    @Override
     public String getText() {
         return textMixin.getText();
     }
 
-    @Override
     public String getHTML() {
         return textMixin.getHTML();
     }
 
-    @Override
     public void setHTML(final String html) {
         textMixin.setHTML(html);
     }

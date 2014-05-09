@@ -35,14 +35,14 @@ public class Pager extends UnorderedList implements HasResponsiveness {
     private static final String DEFAULT_PREVIOUS = "Previous";
     private static final String DEFAULT_NEXT = "Next";
 
-    private final ListItem previous;
-    private final ListItem next;
+    private final AnchorListItem previous;
+    private final AnchorListItem next;
 
     public Pager() {
         setStyleName(Styles.PAGER);
 
-        previous = new ListItem(DEFAULT_PREVIOUS);
-        next = new ListItem(DEFAULT_NEXT);
+        previous = new AnchorListItem(DEFAULT_PREVIOUS);
+        next = new AnchorListItem(DEFAULT_NEXT);
 
         add(previous);
         add(next);

@@ -72,8 +72,8 @@ import org.gwtbootstrap3.client.ui.html.Text;
  * @author Joshua Godi
  */
 public class Heading extends ComplexWidget implements HasEmphasis, HasAlignment {
-    private Small subtext = new Small();
-    private Text text = new Text();
+    private final Small subtext = new Small();
+    private final Text text = new Text();
 
     /**
      * Creates a Heading with the passed in size.
@@ -181,6 +181,10 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasAlignment 
         return Alignment.fromStyleName(getStyleName());
     }
 
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onAttach() {
         super.onAttach();
@@ -188,7 +192,9 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasAlignment 
         // Adding styles to the heading depending on the parent
         if (getParent() != null) {
             if (getParent() instanceof LinkedGroupItem) {
-                setStyleName(Styles.LIST_GROUP_ITEM_HEADING);
+                addStyleName(Styles.LIST_GROUP_ITEM_HEADING);
+            } else if (getParent() instanceof PanelHeader) {
+                addStyleName(Styles.PANEL_TITLE);
             }
         }
     }

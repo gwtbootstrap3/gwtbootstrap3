@@ -30,11 +30,18 @@ import org.gwtbootstrap3.client.ui.html.Div;
  * @author Joshua Godi
  * @see Row
  * @see Column
- * @see FluidContainer
  */
 public class Container extends Div {
 
     public Container() {
         setStyleName(Styles.CONTAINER);
+    }
+
+    public void setFluid(final boolean isFluid) {
+        if (isFluid) {
+            setStyleName(Styles.CONTAINER_FLUID);
+        } else {
+            setStyleName(Styles.CONTAINER);
+        }
     }
 }

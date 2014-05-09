@@ -20,27 +20,24 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.NavbarPull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
-import org.gwtbootstrap3.client.ui.html.Paragraph;
 
 /**
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see NavbarLink
  */
-public class NavbarText extends Paragraph implements HasNavbarPull, HasResponsiveness {
+public class NavbarText extends ComplexWidget implements HasNavbarPull, HasResponsiveness {
 
     public NavbarText() {
+        setElement(Document.get().createPElement());
         setStyleName(Styles.NAVBAR_TEXT);
-    }
-
-    public NavbarText(final String html) {
-        this();
-        getElement().setInnerHTML(html);
     }
 
     @Override

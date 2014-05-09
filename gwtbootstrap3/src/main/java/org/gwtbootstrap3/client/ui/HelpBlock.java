@@ -20,20 +20,17 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
-import org.gwtbootstrap3.client.ui.html.Span;
 
 /**
  * @author Joshua Godi
  */
-public class HelpBlock extends Span {
+public class HelpBlock extends ComplexWidget {
 
     public HelpBlock() {
+        setElement(Document.get().createSpanElement());
         setStyleName(Styles.HELP_BLOCK);
-    }
-
-    public HelpBlock(final String html) {
-        this();
-        setHTML(html);
     }
 }

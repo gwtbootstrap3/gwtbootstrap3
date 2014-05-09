@@ -55,15 +55,15 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
         return PaginationSize.fromStyleName(getStyleName());
     }
 
-    public ListItem addPreviousLink() {
-        final ListItem listItem = new ListItem();
+    public AnchorListItem addPreviousLink() {
+        final AnchorListItem listItem = new AnchorListItem();
         listItem.setIcon(IconType.ANGLE_DOUBLE_LEFT);
         insert(listItem, 0);
         return listItem;
     }
 
-    public ListItem addNextLink() {
-        final ListItem listItem = new ListItem();
+    public AnchorListItem addNextLink() {
+        final AnchorListItem listItem = new AnchorListItem();
         listItem.setIcon(IconType.ANGLE_DOUBLE_RIGHT);
         add(listItem);
         return listItem;
@@ -88,7 +88,7 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
             return;
         }
 
-        final ListItem prev = addPreviousLink();
+        final AnchorListItem prev = addPreviousLink();
         prev.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(final ClickEvent event) {
@@ -99,7 +99,7 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
 
         for (int i = 0; i < pager.getPageCount(); i++) {
             final int display = i + 1;
-            final ListItem page = new ListItem(String.valueOf(display));
+            final AnchorListItem page = new AnchorListItem(String.valueOf(display));
             page.addClickHandler(new ClickHandler() {
                 @Override
                 public void onClick(final ClickEvent event) {
@@ -114,7 +114,7 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
             add(page);
         }
 
-        final ListItem next = addNextLink();
+        final AnchorListItem next = addNextLink();
         next.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(final ClickEvent event) {

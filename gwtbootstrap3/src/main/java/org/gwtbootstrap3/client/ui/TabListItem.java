@@ -23,7 +23,6 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.shared.event.TabShowEvent;
 import org.gwtbootstrap3.client.shared.event.TabShowHandler;
 import org.gwtbootstrap3.client.shared.event.TabShownEvent;
@@ -49,7 +48,7 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @author Joshua Godi
  * @see org.gwtbootstrap3.client.ui.NavTabs
  */
-public class TabListItem extends ListItem implements HasHTML, HasDataTarget {
+public class TabListItem extends AnchorListItem implements HasDataTarget {
 
     /**
      * Creates the default widget with no text
@@ -178,18 +177,10 @@ public class TabListItem extends ListItem implements HasHTML, HasDataTarget {
         unbindJavaScriptEvents(anchor.getElement());
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public String getHTML() {
         return anchor.getHTML();
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public void setHTML(final String html) {
         anchor.setHTML(html);
     }

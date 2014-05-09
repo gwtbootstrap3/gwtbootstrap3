@@ -20,8 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
-import org.gwtbootstrap3.client.ui.html.Span;
 
 /**
  * Badge for highlighting new or unread items.
@@ -36,14 +37,10 @@ import org.gwtbootstrap3.client.ui.html.Span;
  *
  * @author Sven Jacobs
  */
-public class Badge extends Span {
+public class Badge extends ComplexWidget {
 
     public Badge() {
-        setStyleName(Styles.BADGE);
-    }
-
-    public Badge(final String html) {
-        super(html);
+        setElement(Document.get().createSpanElement());
         setStyleName(Styles.BADGE);
     }
 }

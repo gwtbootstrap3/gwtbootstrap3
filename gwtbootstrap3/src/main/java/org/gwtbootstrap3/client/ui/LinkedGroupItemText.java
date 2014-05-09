@@ -20,20 +20,17 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
-import org.gwtbootstrap3.client.ui.html.Paragraph;
 
 /**
  * @author Joshua Godi
  */
-public class LinkedGroupItemText extends Paragraph {
+public class LinkedGroupItemText extends ComplexWidget {
 
     public LinkedGroupItemText() {
+        setElement(Document.get().createPElement());
         setStyleName(Styles.LIST_GROUP_ITEM_TEXT);
-    }
-
-    public LinkedGroupItemText(final String html) {
-        this();
-        setHTML(html);
     }
 }

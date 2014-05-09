@@ -21,7 +21,7 @@ package org.gwtbootstrap3.client.ui.html;
  */
 
 import com.google.gwt.dom.client.Document;
-import org.gwtbootstrap3.client.ui.ListItem;
+import org.gwtbootstrap3.client.ui.base.AbstractListItem;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -42,9 +42,9 @@ public class OrderedList extends ComplexWidget {
      *
      * @param widgets widgets to be added
      */
-    public OrderedList(final ListItem... widgets) {
+    public OrderedList(final AbstractListItem... widgets) {
         this();
-        for (final ListItem li : widgets) {
+        for (final AbstractListItem li : widgets) {
             add(li);
         }
     }
