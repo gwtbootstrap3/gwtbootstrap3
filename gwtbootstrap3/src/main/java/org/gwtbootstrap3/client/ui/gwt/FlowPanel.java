@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.gwt;
 
 /*
  * #%L
@@ -20,6 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.HasDataSpy;
+import org.gwtbootstrap3.client.ui.HasDataTarget;
+import org.gwtbootstrap3.client.ui.HasId;
 import org.gwtbootstrap3.client.ui.base.mixin.DataSpyMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;

@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
 /**
  * Container for collapsible items within a {@link Navbar}.
@@ -59,7 +60,7 @@ public class NavbarCollapse extends FlowPanel implements HasResponsiveness {
     public void toggle() {
         command(getElement(), "toggle");
     }
-    
+
     private native void command(final Element e, final String command) /*-{
         $wnd.jQuery(e).collapse(command);
     }-*/;

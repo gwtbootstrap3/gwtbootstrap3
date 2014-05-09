@@ -22,13 +22,17 @@ package org.gwtbootstrap3.client.ui.base;
 
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.ui.*;
+import org.gwtbootstrap3.client.ui.HasDataToggle;
+import org.gwtbootstrap3.client.ui.HasJustified;
+import org.gwtbootstrap3.client.ui.HasPull;
+import org.gwtbootstrap3.client.ui.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
+import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
 /**
  * Abstract base class for button groups.
