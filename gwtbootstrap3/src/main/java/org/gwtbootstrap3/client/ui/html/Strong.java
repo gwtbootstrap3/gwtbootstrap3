@@ -29,13 +29,13 @@ import org.gwtbootstrap3.client.ui.constants.ElementTags;
  *
  * @author Joshua Godi
  */
-public class Bold extends AbstractTextWidget {
+public class Strong extends AbstractTextWidget {
 
-    public Bold() {
+    public Strong() {
         super(Document.get().createElement(ElementTags.STRONG));
     }
 
-    public Bold(final String text) {
+    public Strong(final String text) {
         this();
         setHTML(text);
     }

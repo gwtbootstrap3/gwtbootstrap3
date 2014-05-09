@@ -29,13 +29,13 @@ import org.gwtbootstrap3.client.ui.constants.ElementTags;
  *
  * @author Joshua Godi
  */
-public class Italics extends AbstractTextWidget {
+public class Italic extends AbstractTextWidget {
 
-    public Italics() {
+    public Italic() {
         super(Document.get().createElement(ElementTags.EM));
     }
 
-    public Italics(final String text) {
+    public Italic(final String text) {
         this();
         setHTML(text);
     }
