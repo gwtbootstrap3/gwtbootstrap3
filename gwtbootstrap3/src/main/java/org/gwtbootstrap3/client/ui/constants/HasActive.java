@@ -1,10 +1,10 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 - 2014 GwtBootstrap3
+ * Copyright (C) 2013 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,22 +20,21 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.TabPosition;
-
 /**
- * @author Joshua Godi
+ * @author Sven Jacobs
  */
-public interface HasTabPosition {
+public interface HasActive {
     /**
-     * Sets the positions of the tab (left, right, bottom, top)
-     * Default: TOP
-     * @param tabPosition position of the tabs
+     * Sets the widget with the active styles or not
+     *
+     * @param active true=gets active styles, false=removes active styles
      */
-    void setTabPosition(TabPosition tabPosition);
+    void setActive(boolean active);
 
     /**
-     * Gets the tab position
-     * @return tab position
+     * Gets whether or not the widget has the active styles
+     *
+     * @return true=has active styles, false=does not have active styles
      */
-    TabPosition getTabPosition();
+    boolean isActive();
 }

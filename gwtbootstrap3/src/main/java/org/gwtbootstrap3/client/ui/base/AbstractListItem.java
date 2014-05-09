@@ -23,14 +23,14 @@ package org.gwtbootstrap3.client.ui.base;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.HasEnabled;
-import org.gwtbootstrap3.client.ui.HasActive;
-import org.gwtbootstrap3.client.ui.HasId;
-import org.gwtbootstrap3.client.ui.HasPull;
-import org.gwtbootstrap3.client.ui.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
+import org.gwtbootstrap3.client.ui.constants.HasActive;
+import org.gwtbootstrap3.client.ui.constants.HasId;
+import org.gwtbootstrap3.client.ui.constants.HasPull;
+import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 

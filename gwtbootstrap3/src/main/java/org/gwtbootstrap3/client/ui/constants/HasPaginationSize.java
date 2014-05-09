@@ -1,10 +1,10 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2014 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,16 +21,10 @@ package org.gwtbootstrap3.client.ui;
  */
 
 /**
- * Interface for Widgets that can be put into a {@link Form} and can have a form value,
- * which is the "value" attribute of the element that is passed to the form's receiver on submit.
- * <p/>
- * Not to be confused with {@link com.google.gwt.user.client.ui.HasValue}.
- *
- * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public interface HasFormValue {
+public interface HasPaginationSize {
+    void setPaginationSize(PaginationSize paginationSize);
 
-    String getFormValue();
-
-    void setFormValue(final String value);
+    PaginationSize getPaginationSize();
 }

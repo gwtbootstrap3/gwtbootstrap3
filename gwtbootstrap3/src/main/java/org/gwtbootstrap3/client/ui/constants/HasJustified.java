@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,13 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Pull;
-
 /**
  * @author Sven Jacobs
  */
-public interface HasPull {
-    void setPull(Pull pull);
+public interface HasJustified {
+    void setJustified(boolean justified);
 
-    Pull getPull();
+    boolean isJustified();
 }

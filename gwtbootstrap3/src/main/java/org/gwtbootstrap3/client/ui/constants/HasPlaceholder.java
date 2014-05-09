@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,15 +20,13 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.InputType;
-
 /**
- * @author Joshua Godi
+ * @author Pontus Enmark
  */
-public interface HasInputType {
-    public static final String TYPE = "type";
+public interface HasPlaceholder {
+    String PLACEHOLDER = "placeholder";
 
-    void setType(InputType inputType);
+    void setPlaceholder(String placeholder);
 
-    InputType getType();
+    String getPlaceholder();
 }

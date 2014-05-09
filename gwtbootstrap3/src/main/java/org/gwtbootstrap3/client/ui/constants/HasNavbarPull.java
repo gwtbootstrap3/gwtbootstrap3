@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,13 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.IconPosition;
-
 /**
  * @author Sven Jacobs
  */
-public interface HasIconPosition {
-    void setIconPosition(IconPosition iconPosition);
+public interface HasNavbarPull {
+    void setPull(NavbarPull pull);
 
-    IconPosition getIconPosition();
+    NavbarPull getPull();
 }

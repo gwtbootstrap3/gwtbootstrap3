@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -21,10 +21,12 @@ package org.gwtbootstrap3.client.ui;
  */
 
 /**
- * @author Grant Slender
+ * @author Joshua Godi
  */
-public interface HasDataParent {
-    void setDataParent(String dataParent);
+public interface HasInputType {
+    public static final String TYPE = "type";
 
-    String getDataParent();
+    void setType(InputType inputType);
+
+    InputType getType();
 }

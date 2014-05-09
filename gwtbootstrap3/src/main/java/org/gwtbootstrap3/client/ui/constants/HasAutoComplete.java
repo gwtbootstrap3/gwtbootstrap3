@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,23 +20,22 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-/**
- * @author Sven Jacobs
- */
-public interface HasHref {
-    // Empty HREF to avoid issues when clicking!
-    public static final String EMPTY_HREF = "javascript:;";
-    public static final String HREF = "href";
+public interface HasAutoComplete {
+    public static final String AUTO_COMPLETE = "autocomplete";
+    public static final String ON = "on";
+    public static final String OFF = "off";
 
     /**
-     * Set's the HREF of the widget
-     * @param href String href
+     * Sets the auto complete property on the widget
+     *
+     * @param autoComplete auto complete setting for the widget
      */
-    void setHref(String href);
+    void setAutoComplete(boolean autoComplete);
 
     /**
-     * Get the HREF of the widget
-     * @return String href
+     * Get the auto complete attribute from the widget
+     *
+     * @return auto complete attribute
      */
-    String getHref();
+    String getAutoComplete();
 }

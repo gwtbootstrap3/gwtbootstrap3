@@ -1,10 +1,10 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2014 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,22 +20,13 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Spy;
-
 /**
- * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public interface HasDataSpy {
-    /**
-     * Set the data spy attribute on the widget
-     *
-     * @param spy data spy attribute for the widget
-     */
-    void setDataSpy(Spy spy);
+public interface HasEnabled {
+    public static final String DISABLED = "disabled";
 
-    /**
-     * Gets the data spy attribute for the widget
-     * @return data spy attribute on the widget
-     */
-    Spy getDataSpy();
+    void setEnabled(boolean enabled);
+
+    boolean isEnabled();
 }

@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -21,30 +21,23 @@ package org.gwtbootstrap3.client.ui;
  */
 
 /**
- * Interface to set the visibility and hidden properties of elements
- * <p/>
- * Example:
- * <p/>
- * hiddenOn="SM MD"
- * visibleOn="SM LG"
- * hiddenOn="LG"
+ * An object that implements this interface has alignment, which can be set and
+ * retrieved using these methods.
  *
  * @author Joshua Godi
  */
-public interface HasResponsiveness {
+public interface HasAlignment {
     /**
-     * Sets the devices that the element is visible on
+     * Sets this object's alignment.
      *
-     * @param deviceSizeString space separated list of device sizes
-     * @see org.gwtbootstrap3.client.ui.constants.DeviceSize
+     * @param alignment the object's new alignment
      */
-    void setVisibleOn(String deviceSizeString);
+    void setAlignment(Alignment alignment);
 
     /**
-     * Sets the devices that the element is hidden on
+     * Get the object's alignment.
      *
-     * @param deviceSizeString space separated list of device sizes
-     * @see org.gwtbootstrap3.client.ui.constants.DeviceSize
+     * @return the object's alignment
      */
-    void setHiddenOn(String deviceSizeString);
+    Alignment getAlignment();
 }

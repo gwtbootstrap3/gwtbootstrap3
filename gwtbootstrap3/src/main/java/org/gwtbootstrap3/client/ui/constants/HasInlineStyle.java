@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,13 +20,23 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.PaginationSize;
-
 /**
  * @author Joshua Godi
  */
-public interface HasPaginationSize {
-    void setPaginationSize(PaginationSize paginationSize);
+public interface HasInlineStyle {
+    void setMarginTop(double margin);
 
-    PaginationSize getPaginationSize();
+    void setMarginLeft(double margin);
+
+    void setMarginRight(double margin);
+
+    void setMarginBottom(double margin);
+
+    void setPaddingTop(double padding);
+
+    void setPaddingLeft(double padding);
+
+    void setPaddingRight(double padding);
+
+    void setPaddingBottom(double padding);
 }

@@ -36,6 +36,8 @@ import org.gwtbootstrap3.client.shared.event.ShowEvent;
 import org.gwtbootstrap3.client.shared.event.ShowHandler;
 import org.gwtbootstrap3.client.shared.event.ShownEvent;
 import org.gwtbootstrap3.client.shared.event.ShownHandler;
+import org.gwtbootstrap3.client.ui.constants.HasHover;
+import org.gwtbootstrap3.client.ui.constants.HasId;
 import org.gwtbootstrap3.client.ui.constants.Placement;
 import org.gwtbootstrap3.client.ui.constants.Trigger;
 
@@ -290,6 +292,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
 
     /**
      * Gets the tooltip's display string
+     *
      * @return String tooltip display string
      */
     public String getTitle() {
@@ -298,6 +301,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
 
     /**
      * Sets the tooltip's display string
+     *
      * @param text String display string
      */
     public void setText(final String text) {
@@ -306,6 +310,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
 
     /**
      * Sets the tooltip's display string
+     *
      * @param title String display string
      */
     public void setTitle(final String title) {
@@ -409,6 +414,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
 
     /**
      * Adds a show handler to the Tooltip that will be fired when the Tooltip's show event is fired
+     *
      * @param showHandler ShowHandler to handle the show event
      * @return HandlerRegistration of the handler
      */
@@ -418,6 +424,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
 
     /**
      * Adds a shown handler to the Tooltip that will be fired when the Tooltip's shown event is fired
+     *
      * @param shownHandler ShownHandler to handle the shown event
      * @return HandlerRegistration of the handler
      */
@@ -427,6 +434,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
 
     /**
      * Adds a hide handler to the Tooltip that will be fired when the Tooltip's hide event is fired
+     *
      * @param hideHandler HideHandler to handle the hide event
      * @return HandlerRegistration of the handler
      */
@@ -436,6 +444,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
 
     /**
      * Adds a hidden handler to the Tooltip that will be fired when the Tooltip's hidden event is fired
+     *
      * @param hiddenHandler HiddenHandler to handle the hidden event
      * @return HandlerRegistration of the handler
      */

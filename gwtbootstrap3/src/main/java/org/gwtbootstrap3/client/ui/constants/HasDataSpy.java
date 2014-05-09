@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,22 +20,21 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.ValidationState;
-
 /**
  * @author Sven Jacobs
  */
-public interface HasValidationState {
+public interface HasDataSpy {
     /**
-     * Sets the validation state on the widget
+     * Set the data spy attribute on the widget
      *
-     * @param state validation state
+     * @param spy data spy attribute for the widget
      */
-    void setValidationState(ValidationState state);
+    void setDataSpy(Spy spy);
 
     /**
-     * Gets the validation state of the widget
-     * @return widget's validation state
+     * Gets the data spy attribute for the widget
+     *
+     * @return data spy attribute on the widget
      */
-    ValidationState getValidationState();
+    Spy getDataSpy();
 }

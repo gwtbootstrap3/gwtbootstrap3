@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,26 +20,21 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Alignment;
-
 /**
- * An object that implements this interface has alignment, which can be set and
- * retrieved using these methods.
- *
- * @author Joshua Godi
+ * @author Sven Jacobs
  */
-public interface HasAlignment {
+public interface HasType<T extends Type> {
     /**
-     * Sets this object's alignment.
+     * Sets the type on the widget
      *
-     * @param alignment the object's new alignment
+     * @param type T type
      */
-    void setAlignment(Alignment alignment);
+    void setType(T type);
 
     /**
-     * Get the object's alignment.
+     * Gets the type of the widget
      *
-     * @return the object's alignment
+     * @return type of the widget
      */
-    Alignment getAlignment();
+    T getType();
 }

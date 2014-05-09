@@ -1,10 +1,10 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2014 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,22 +20,22 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Type;
-
 /**
- * @author Sven Jacobs
+ * @author Joshua Godi
  */
-public interface HasType<T extends Type> {
+public interface HasTabPosition {
     /**
-     * Sets the type on the widget
+     * Sets the positions of the tab (left, right, bottom, top)
+     * Default: TOP
      *
-     * @param type T type
+     * @param tabPosition position of the tabs
      */
-    void setType(T type);
+    void setTabPosition(TabPosition tabPosition);
 
     /**
-     * Gets the type of the widget
-     * @return type of the widget
+     * Gets the tab position
+     *
+     * @return tab position
      */
-    T getType();
+    TabPosition getTabPosition();
 }

@@ -22,6 +22,7 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
+import org.gwtbootstrap3.client.ui.constants.DescriptionComponent;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
 
 /**

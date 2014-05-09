@@ -27,10 +27,10 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.CheckableInputButton;
-import org.gwtbootstrap3.client.ui.HasActive;
-import org.gwtbootstrap3.client.ui.HasFormValue;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
+import org.gwtbootstrap3.client.ui.constants.HasActive;
+import org.gwtbootstrap3.client.ui.constants.HasFormValue;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
 

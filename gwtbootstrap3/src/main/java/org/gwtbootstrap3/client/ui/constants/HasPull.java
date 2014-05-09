@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -23,18 +23,8 @@ package org.gwtbootstrap3.client.ui;
 /**
  * @author Sven Jacobs
  */
-public interface HasDataTarget {
-    /**
-     * Sets the data target for the widget
-     *
-     * @param dataTarget data target string
-     */
-    void setDataTarget(String dataTarget);
+public interface HasPull {
+    void setPull(Pull pull);
 
-    /**
-     * Gets the data target of the widget
-     *
-     * @return data target
-     */
-    String getDataTarget();
+    Pull getPull();
 }

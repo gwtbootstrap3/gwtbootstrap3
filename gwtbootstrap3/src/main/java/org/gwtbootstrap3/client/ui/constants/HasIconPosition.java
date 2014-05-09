@@ -1,10 +1,10 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 - 2014 GwtBootstrap3
+ * Copyright (C) 2013 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,22 +21,10 @@ package org.gwtbootstrap3.client.ui;
  */
 
 /**
- * @author Joshua Godi
+ * @author Sven Jacobs
  */
-public interface HasInlineStyle {
-    void setMarginTop(double margin);
+public interface HasIconPosition {
+    void setIconPosition(IconPosition iconPosition);
 
-    void setMarginLeft(double margin);
-
-    void setMarginRight(double margin);
-
-    void setMarginBottom(double margin);
-
-    void setPaddingTop(double padding);
-
-    void setPaddingLeft(double padding);
-
-    void setPaddingRight(double padding);
-
-    void setPaddingBottom(double padding);
+    IconPosition getIconPosition();
 }

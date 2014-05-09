@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -23,8 +23,18 @@ package org.gwtbootstrap3.client.ui;
 /**
  * @author Sven Jacobs
  */
-public interface HasStacked {
-    void setStacked(boolean stacked);
+public interface HasSize<T extends Size> {
+    /**
+     * Set the size of the widget
+     *
+     * @param size T size of the widget
+     */
+    void setSize(T size);
 
-    boolean isStacked();
+    /**
+     * Get the size of the widget
+     *
+     * @return T size of the widget
+     */
+    T getSize();
 }

@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,21 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Toggle;
-
 /**
- * @author Sven Jacobs
+ * @author Grant Slender
  */
-public interface HasDataToggle {
-    /**
-     * Sets the attribute data-toggle on the widget
-     * @param toggle Toggle toggle attribute
-     */
-    void setDataToggle(Toggle toggle);
+public interface HasDataParent {
+    void setDataParent(String dataParent);
 
-    /**
-     * Gets the data-toggle attribute on the widget
-     * @return Toggle data-toggle attribute
-     */
-    Toggle getDataToggle();
+    String getDataParent();
 }

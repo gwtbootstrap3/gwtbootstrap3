@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -26,12 +26,14 @@ package org.gwtbootstrap3.client.ui;
 public interface HasTargetHistoryToken {
     /**
      * Set the target history token for the widget
+     *
      * @param targetHistoryToken String target history token of the widget
      */
     void setTargetHistoryToken(String targetHistoryToken);
 
     /**
      * Get the target history token for the widget
+     *
      * @return String the widget's target history token
      */
     String getTargetHistoryToken();

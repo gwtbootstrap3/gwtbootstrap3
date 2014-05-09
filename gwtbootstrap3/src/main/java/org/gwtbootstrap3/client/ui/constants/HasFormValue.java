@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -21,10 +21,16 @@ package org.gwtbootstrap3.client.ui;
  */
 
 /**
+ * Interface for Widgets that can be put into a {@link org.gwtbootstrap3.client.ui.Form} and can have a form value,
+ * which is the "value" attribute of the element that is passed to the form's receiver on submit.
+ * <p/>
+ * Not to be confused with {@link com.google.gwt.user.client.ui.HasValue}.
+ *
  * @author Sven Jacobs
  */
-public interface HasJustified {
-    void setJustified(boolean justified);
+public interface HasFormValue {
 
-    boolean isJustified();
+    String getFormValue();
+
+    void setFormValue(final String value);
 }

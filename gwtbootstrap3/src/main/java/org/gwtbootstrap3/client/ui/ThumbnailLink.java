@@ -34,6 +34,9 @@ import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
+import org.gwtbootstrap3.client.ui.constants.HasDataToggle;
+import org.gwtbootstrap3.client.ui.constants.HasHref;
+import org.gwtbootstrap3.client.ui.constants.HasTargetHistoryToken;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
@@ -50,6 +53,7 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * </b:ThumbnailLink>
  * }
  * </pre>
+ *
  * @author Joshua Godi
  */
 public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref,
@@ -61,6 +65,7 @@ public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, Ha
 
     /**
      * Creates the default ThumbnailLink with the specified HREF
+     *
      * @param href String href to use
      */
     public ThumbnailLink(final String href) {

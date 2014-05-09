@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,22 +20,21 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-public interface HasAutoComplete {
-    public static final String AUTO_COMPLETE = "autocomplete";
-    public static final String ON = "on";
-    public static final String OFF = "off";
+/**
+ * @author Sven Jacobs
+ */
+public interface HasDataToggle {
+    /**
+     * Sets the attribute data-toggle on the widget
+     *
+     * @param toggle Toggle toggle attribute
+     */
+    void setDataToggle(Toggle toggle);
 
     /**
-     * Sets the auto complete property on the widget
+     * Gets the data-toggle attribute on the widget
      *
-     * @param autoComplete auto complete setting for the widget
+     * @return Toggle data-toggle attribute
      */
-    void setAutoComplete(boolean autoComplete);
-
-    /**
-     * Get the auto complete attribute from the widget
-     *
-     * @return auto complete attribute
-     */
-    String getAutoComplete();
+    Toggle getDataToggle();
 }

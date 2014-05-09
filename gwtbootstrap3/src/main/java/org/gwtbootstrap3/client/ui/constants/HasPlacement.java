@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -21,18 +21,10 @@ package org.gwtbootstrap3.client.ui;
  */
 
 /**
- * @author Sven Jacobs
+ * @author Pontus Enmark
  */
-public interface HasId {
-    /**
-     * Sets the ID on the widget
-     * @param id String desired ID
-     */
-    void setId(String id);
+public interface HasPlacement {
+    void setPlacement(Placement placement);
 
-    /**
-     * Gets the ID of the widget
-     * @return String widget ID
-     */
-    String getId();
+    Placement getPlacement();
 }

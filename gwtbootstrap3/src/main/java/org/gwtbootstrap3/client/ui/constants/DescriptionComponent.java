@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,26 +20,12 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Emphasis;
-
 /**
- * An object that implements this interface has emphasis, which can be set and
- * retrieved using these methods.
+ * Marker interface for {@link org.gwtbootstrap3.client.ui.Description} components.
  *
  * @author Joshua Godi
+ * @see org.gwtbootstrap3.client.ui.DescriptionTitle
+ * @see org.gwtbootstrap3.client.ui.DescriptionData
  */
-public interface HasEmphasis {
-    /**
-     * Sets the object's emphasis.
-     *
-     * @param emphasis the object's new emphasis
-     */
-    void setEmphasis(Emphasis emphasis);
-
-    /**
-     * Get the object's emphasis.
-     *
-     * @return the object's emphasis
-     */
-    Emphasis getEmphasis();
+public interface DescriptionComponent {
 }

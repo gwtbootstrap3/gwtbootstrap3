@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -21,11 +21,20 @@ package org.gwtbootstrap3.client.ui;
  */
 
 /**
- * Marker interface for {@link Description} components.
- *
- * @author Joshua Godi
- * @see DescriptionTitle
- * @see DescriptionData
+ * @author Sven Jacobs
  */
-public interface DescriptionComponent {
+public interface HasId {
+    /**
+     * Sets the ID on the widget
+     *
+     * @param id String desired ID
+     */
+    void setId(String id);
+
+    /**
+     * Gets the ID of the widget
+     *
+     * @return String widget ID
+     */
+    String getId();
 }

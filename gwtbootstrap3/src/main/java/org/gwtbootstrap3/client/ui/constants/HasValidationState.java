@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -23,16 +23,18 @@ package org.gwtbootstrap3.client.ui;
 /**
  * @author Sven Jacobs
  */
-public interface HasActive {
+public interface HasValidationState {
     /**
-     * Sets the widget with the active styles or not
-     * @param active true=gets active styles, false=removes active styles
+     * Sets the validation state on the widget
+     *
+     * @param state validation state
      */
-    void setActive(boolean active);
+    void setValidationState(ValidationState state);
 
     /**
-     * Gets whether or not the widget has the active styles
-     * @return true=has active styles, false=does not have active styles
+     * Gets the validation state of the widget
+     *
+     * @return widget's validation state
      */
-    boolean isActive();
+    ValidationState getValidationState();
 }

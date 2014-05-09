@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,21 +20,25 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Size;
-
 /**
  * @author Sven Jacobs
  */
-public interface HasSize<T extends Size> {
-    /**
-     * Set the size of the widget
-     * @param size T size of the widget
-     */
-    void setSize(T size);
+public interface HasHref {
+    // Empty HREF to avoid issues when clicking!
+    public static final String EMPTY_HREF = "javascript:;";
+    public static final String HREF = "href";
 
     /**
-     * Get the size of the widget
-     * @return T size of the widget
+     * Set's the HREF of the widget
+     *
+     * @param href String href
      */
-    T getSize();
+    void setHref(String href);
+
+    /**
+     * Get the HREF of the widget
+     *
+     * @return String href
+     */
+    String getHref();
 }

@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -21,12 +21,20 @@ package org.gwtbootstrap3.client.ui;
  */
 
 /**
- * @author Pontus Enmark
+ * @author Sven Jacobs
  */
-public interface HasPlaceholder {
-    String PLACEHOLDER = "placeholder";
+public interface HasDataTarget {
+    /**
+     * Sets the data target for the widget
+     *
+     * @param dataTarget data target string
+     */
+    void setDataTarget(String dataTarget);
 
-    void setPlaceholder(String placeholder);
-
-    String getPlaceholder();
+    /**
+     * Gets the data target of the widget
+     *
+     * @return data target
+     */
+    String getDataTarget();
 }
