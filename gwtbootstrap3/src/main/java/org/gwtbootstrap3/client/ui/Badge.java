@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
  * Badge for highlighting new or unread items.
@@ -38,9 +39,29 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Sven Jacobs
  */
 public class Badge extends ComplexWidget {
+    private final Text text = new Text();
 
     public Badge() {
         setElement(Document.get().createSpanElement());
         setStyleName(Styles.BADGE);
+    }
+
+    /**
+     * Returns the text of the badge.
+     *
+     * @return text of the badge
+     */
+    public String getText() {
+        return text.getText();
+    }
+
+    /**
+     * Sets the text for the badge
+     *
+     * @param text the text of the badge
+     */
+    public void setText(final String text) {
+        this.text.setText(text);
+        insert(this.text, 0);
     }
 }

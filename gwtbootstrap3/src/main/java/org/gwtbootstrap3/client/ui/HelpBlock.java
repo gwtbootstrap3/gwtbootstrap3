@@ -21,16 +21,16 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
-import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class HelpBlock extends ComplexWidget {
+public class HelpBlock extends AbstractTextWidget {
 
     public HelpBlock() {
-        setElement(Document.get().createSpanElement());
+        super(Document.get().createSpanElement());
         setStyleName(Styles.HELP_BLOCK);
     }
 }
