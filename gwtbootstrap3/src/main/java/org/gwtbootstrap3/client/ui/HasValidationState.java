@@ -26,7 +26,16 @@ import org.gwtbootstrap3.client.ui.constants.ValidationState;
  * @author Sven Jacobs
  */
 public interface HasValidationState {
+    /**
+     * Sets the validation state on the widget
+     *
+     * @param state validation state
+     */
     void setValidationState(ValidationState state);
 
+    /**
+     * Gets the validation state of the widget
+     * @return widget's validation state
+     */
     ValidationState getValidationState();
 }

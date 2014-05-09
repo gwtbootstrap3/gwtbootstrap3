@@ -26,7 +26,16 @@ import org.gwtbootstrap3.client.ui.constants.Spy;
  * @author Sven Jacobs
  */
 public interface HasDataSpy {
+    /**
+     * Set the data spy attribute on the widget
+     *
+     * @param spy data spy attribute for the widget
+     */
     void setDataSpy(Spy spy);
 
+    /**
+     * Gets the data spy attribute for the widget
+     * @return data spy attribute on the widget
+     */
     Spy getDataSpy();
 }
