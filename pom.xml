@@ -9,10 +9,14 @@
     <name>GwtBootstrap3 Parent</name>
 
     <parent>
-        <groupId>com.svenjacobs</groupId>
-        <artifactId>sonatype-parent</artifactId>
-        <version>1</version>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
     </parent>
+
+    <prerequisites>
+        <maven>3.0.5</maven>
+    </prerequisites>
 
     <scm>
         <connection>scm:git:git@github.com:gwtbootstrap3/gwtbootstrap3.git</connection>
@@ -57,6 +61,7 @@
     </modules>
 
     <properties>
+        <source.version>1.6</source.version>
         <gwt.version>2.5.1</gwt.version>
     </properties>
 
@@ -114,8 +119,48 @@
                     </executions>
                     <inherited>true</inherited>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>${source.version}</source>
+                        <target>${source.version}</target>
+                        <compilerArgument>-Xlint:all</compilerArgument>
+                        <showWarnings>true</showWarnings>
+                        <showDeprecation>true</showDeprecation>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
+
+    <repositories>
+        <repository>
+            <id>sonatype-nexus</id>
+            <name>Sonatype Nexus</name>
+            <url>http://repository.sonatype.org/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sonatype-nexus-plugins</id>
+            <url>http://repository.sonatype.org/content/groups/public/</url>
+            <name>Sonatype Nexus Plugins</name>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
