@@ -20,12 +20,12 @@ package org.gwtbootstrap3.client.ui.gwt;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.HasDataSpy;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasId;
 import org.gwtbootstrap3.client.ui.base.mixin.DataSpyMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
-import org.gwtbootstrap3.client.ui.constants.HasDataSpy;
-import org.gwtbootstrap3.client.ui.constants.HasDataTarget;
-import org.gwtbootstrap3.client.ui.constants.HasId;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
 /**

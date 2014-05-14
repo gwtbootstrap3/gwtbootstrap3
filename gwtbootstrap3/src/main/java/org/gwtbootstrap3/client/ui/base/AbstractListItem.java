@@ -27,10 +27,6 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
-import org.gwtbootstrap3.client.ui.constants.HasActive;
-import org.gwtbootstrap3.client.ui.constants.HasId;
-import org.gwtbootstrap3.client.ui.constants.HasPull;
-import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 

@@ -31,10 +31,10 @@ import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasActive;
+import org.gwtbootstrap3.client.ui.base.HasHref;
+import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
-import org.gwtbootstrap3.client.ui.constants.HasActive;
-import org.gwtbootstrap3.client.ui.constants.HasHref;
-import org.gwtbootstrap3.client.ui.constants.HasTargetHistoryToken;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Span;
 

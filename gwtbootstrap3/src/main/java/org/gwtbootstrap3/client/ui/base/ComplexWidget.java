@@ -26,9 +26,6 @@ import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
-import org.gwtbootstrap3.client.ui.constants.HasId;
-import org.gwtbootstrap3.client.ui.constants.HasInlineStyle;
-import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
 
 /**
  * Base class for widgets that contain further widgets.

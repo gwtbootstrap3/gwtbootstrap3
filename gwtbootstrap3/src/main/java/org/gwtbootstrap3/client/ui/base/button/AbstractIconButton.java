@@ -21,10 +21,10 @@ package org.gwtbootstrap3.client.ui.base.button;
  */
 
 import com.google.gwt.user.client.ui.HasText;
+import org.gwtbootstrap3.client.ui.base.HasIcon;
+import org.gwtbootstrap3.client.ui.base.HasIconPosition;
 import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
-import org.gwtbootstrap3.client.ui.constants.HasIcon;
-import org.gwtbootstrap3.client.ui.constants.HasIconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconFlip;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconRotate;

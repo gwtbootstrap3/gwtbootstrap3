@@ -22,15 +22,15 @@ package org.gwtbootstrap3.client.ui.gwt;
 
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.safehtml.shared.SafeHtml;
+import org.gwtbootstrap3.client.ui.base.HasDataSpy;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasId;
+import org.gwtbootstrap3.client.ui.base.HasInlineStyle;
+import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.DataSpyMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
-import org.gwtbootstrap3.client.ui.constants.HasDataSpy;
-import org.gwtbootstrap3.client.ui.constants.HasDataTarget;
-import org.gwtbootstrap3.client.ui.constants.HasId;
-import org.gwtbootstrap3.client.ui.constants.HasInlineStyle;
-import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
 /**

@@ -129,6 +129,7 @@ public class TextArea extends TextBoxBase {
 
     /**
      * Get the TextAreaElement for the widget
+     *
      * @return TextAreaElement element of the widget
      */
     private TextAreaElement getTextAreaElement() {

@@ -31,14 +31,22 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasEnabled;
-
-import org.gwtbootstrap3.client.ui.*;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasActive;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasHref;
+import org.gwtbootstrap3.client.ui.base.HasSize;
+import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
+import org.gwtbootstrap3.client.ui.base.HasType;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
-import org.gwtbootstrap3.client.ui.constants.*;
+import org.gwtbootstrap3.client.ui.constants.Attributes;
+import org.gwtbootstrap3.client.ui.constants.ButtonDismiss;
+import org.gwtbootstrap3.client.ui.constants.ButtonSize;
+import org.gwtbootstrap3.client.ui.constants.ButtonType;
+import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Abstract base class for different kinds of buttons.

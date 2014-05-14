@@ -21,9 +21,9 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
+import org.gwtbootstrap3.client.ui.base.HasValidationState;
 import org.gwtbootstrap3.client.ui.base.form.FormElementContainer;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.constants.HasValidationState;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.ValidationState;
 

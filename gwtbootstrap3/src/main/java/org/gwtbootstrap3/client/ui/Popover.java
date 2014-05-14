@@ -36,8 +36,8 @@ import org.gwtbootstrap3.client.shared.event.ShowEvent;
 import org.gwtbootstrap3.client.shared.event.ShowHandler;
 import org.gwtbootstrap3.client.shared.event.ShownEvent;
 import org.gwtbootstrap3.client.shared.event.ShownHandler;
-import org.gwtbootstrap3.client.ui.constants.HasHover;
-import org.gwtbootstrap3.client.ui.constants.HasId;
+import org.gwtbootstrap3.client.ui.base.HasHover;
+import org.gwtbootstrap3.client.ui.base.HasId;
 import org.gwtbootstrap3.client.ui.constants.Placement;
 import org.gwtbootstrap3.client.ui.constants.Trigger;
 

@@ -32,7 +32,16 @@ import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasValue;
-import org.gwtbootstrap3.client.ui.constants.*;
+import org.gwtbootstrap3.client.ui.base.HasActive;
+import org.gwtbootstrap3.client.ui.base.HasFormValue;
+import org.gwtbootstrap3.client.ui.base.HasIcon;
+import org.gwtbootstrap3.client.ui.base.HasIconPosition;
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconPosition;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
 
 /**

@@ -22,10 +22,10 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
-import org.gwtbootstrap3.client.ui.constants.HasDataTarget;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 

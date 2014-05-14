@@ -20,10 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.HasType;
 import org.gwtbootstrap3.client.ui.base.form.AbstractForm;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.FormType;
-import org.gwtbootstrap3.client.ui.constants.HasType;
 
 /**
  * A form.

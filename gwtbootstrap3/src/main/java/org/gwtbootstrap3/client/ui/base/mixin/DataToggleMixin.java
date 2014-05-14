@@ -21,8 +21,8 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import com.google.gwt.user.client.ui.UIObject;
+import org.gwtbootstrap3.client.ui.base.HasDataToggle;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
-import org.gwtbootstrap3.client.ui.constants.HasDataToggle;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**

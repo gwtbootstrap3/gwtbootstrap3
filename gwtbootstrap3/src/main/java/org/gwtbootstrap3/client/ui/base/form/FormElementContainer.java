@@ -25,8 +25,8 @@ import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
+import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**

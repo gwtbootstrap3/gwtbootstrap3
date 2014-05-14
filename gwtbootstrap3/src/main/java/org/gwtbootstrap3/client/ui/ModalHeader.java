@@ -22,10 +22,10 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.FlowPanel;
+import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.button.CloseButton;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.ButtonDismiss;
-import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**

@@ -21,7 +21,7 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import com.google.gwt.user.client.ui.UIObject;
-import org.gwtbootstrap3.client.ui.constants.HasEnabled;
+import org.gwtbootstrap3.client.ui.base.HasEnabled;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**

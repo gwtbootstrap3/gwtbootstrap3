@@ -24,10 +24,10 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.user.client.ui.HasName;
+import org.gwtbootstrap3.client.ui.base.HasFormValue;
 import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
-import org.gwtbootstrap3.client.ui.constants.HasFormValue;
 import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
 
 /**

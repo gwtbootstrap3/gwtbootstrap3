@@ -23,7 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.constants.DescriptionComponent;
+import org.gwtbootstrap3.client.ui.base.DescriptionComponent;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**

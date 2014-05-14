@@ -20,8 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.HasNavbarPull;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.constants.HasNavbarPull;
 import org.gwtbootstrap3.client.ui.constants.NavbarPull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.UnorderedList;

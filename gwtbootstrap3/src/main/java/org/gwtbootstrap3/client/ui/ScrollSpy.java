@@ -23,7 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.UIObject;
-import org.gwtbootstrap3.client.ui.constants.HasId;
+import org.gwtbootstrap3.client.ui.base.HasId;
 
 /**
  * A ScrollSpy handles scrolling events (typically on {@code <body>}) and

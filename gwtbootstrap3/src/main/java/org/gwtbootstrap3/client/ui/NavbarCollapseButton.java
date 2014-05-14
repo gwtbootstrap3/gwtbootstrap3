@@ -21,11 +21,11 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.user.client.ui.Composite;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasPull;
+import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
-import org.gwtbootstrap3.client.ui.constants.HasDataTarget;
-import org.gwtbootstrap3.client.ui.constants.HasPull;
-import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;

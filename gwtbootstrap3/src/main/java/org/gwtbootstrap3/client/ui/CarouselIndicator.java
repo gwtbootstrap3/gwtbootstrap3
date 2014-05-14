@@ -22,11 +22,11 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasActive;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
-import org.gwtbootstrap3.client.ui.constants.HasActive;
-import org.gwtbootstrap3.client.ui.constants.HasDataTarget;
 
 /**
  * @author Joshua Godi

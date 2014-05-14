@@ -27,7 +27,7 @@ import org.gwtbootstrap3.client.shared.event.TabShowEvent;
 import org.gwtbootstrap3.client.shared.event.TabShowHandler;
 import org.gwtbootstrap3.client.shared.event.TabShownEvent;
 import org.gwtbootstrap3.client.shared.event.TabShownHandler;
-import org.gwtbootstrap3.client.ui.constants.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**

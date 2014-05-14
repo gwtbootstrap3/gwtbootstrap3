@@ -32,11 +32,11 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasDataToggle;
+import org.gwtbootstrap3.client.ui.base.HasHref;
+import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
-import org.gwtbootstrap3.client.ui.constants.HasDataToggle;
-import org.gwtbootstrap3.client.ui.constants.HasHref;
-import org.gwtbootstrap3.client.ui.constants.HasTargetHistoryToken;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**

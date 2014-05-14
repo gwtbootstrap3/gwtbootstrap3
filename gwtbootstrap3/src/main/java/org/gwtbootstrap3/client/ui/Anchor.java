@@ -33,12 +33,25 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasDataParent;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasDataToggle;
+import org.gwtbootstrap3.client.ui.base.HasHref;
+import org.gwtbootstrap3.client.ui.base.HasIcon;
+import org.gwtbootstrap3.client.ui.base.HasIconPosition;
+import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
 import org.gwtbootstrap3.client.ui.base.mixin.DataParentMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
-import org.gwtbootstrap3.client.ui.constants.*;
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconPosition;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * Anchor {@code <a>} element with text and optional icon.

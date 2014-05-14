@@ -25,10 +25,6 @@ import com.google.gwt.text.shared.Parser;
 import com.google.gwt.text.shared.Renderer;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
-import org.gwtbootstrap3.client.ui.constants.HasAutoComplete;
-import org.gwtbootstrap3.client.ui.constants.HasId;
-import org.gwtbootstrap3.client.ui.constants.HasPlaceholder;
-import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
 
 public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasResponsiveness,
         HasPlaceholder, HasAutoComplete {

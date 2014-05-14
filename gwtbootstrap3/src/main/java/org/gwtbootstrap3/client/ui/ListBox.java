@@ -20,8 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.HasId;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
-import org.gwtbootstrap3.client.ui.constants.HasId;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**

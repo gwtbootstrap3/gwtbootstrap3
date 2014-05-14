@@ -26,7 +26,12 @@ import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.Anchor;
-import org.gwtbootstrap3.client.ui.constants.*;
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconPosition;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * Base class for list items that contain an {@link org.gwtbootstrap3.client.ui.Anchor} link.
