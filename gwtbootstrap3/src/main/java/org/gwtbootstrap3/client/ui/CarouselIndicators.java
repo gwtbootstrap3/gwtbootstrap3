@@ -20,7 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.OrderedList;
@@ -31,7 +30,6 @@ import org.gwtbootstrap3.client.ui.html.OrderedList;
 public class CarouselIndicators extends OrderedList {
 
     public CarouselIndicators() {
-        setElement(Document.get().createOLElement());
         setStyleName(Styles.CAROUSEL_INDICATORS);
     }
 
