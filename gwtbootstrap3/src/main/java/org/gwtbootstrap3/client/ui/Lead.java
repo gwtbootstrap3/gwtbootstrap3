@@ -20,19 +20,38 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
  * @author Joshua Godi
  */
-public class Lead extends Paragraph {
+public class Lead extends ComplexWidget {
+    private final Text text = new Text();
 
     public Lead() {
+        setElement(Document.get().createPElement());
         setStyleName(Styles.LEAD);
     }
 
-    public Lead(final String text) {
-        this();
-        setText(text);
+    /**
+     * Returns the text of the lead.
+     *
+     * @return text of the lead
+     */
+    public String getText() {
+        return text.getText();
+    }
+
+    /**
+     * Sets the text for the lead
+     *
+     * @param text the text of the lead
+     */
+    public void setText(final String text) {
+        this.text.setText(text);
+        insert(this.text, 0);
     }
 }

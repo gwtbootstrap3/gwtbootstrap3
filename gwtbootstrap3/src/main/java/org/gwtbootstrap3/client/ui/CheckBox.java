@@ -33,11 +33,12 @@ import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.constants.*;
+import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
  * A checkbox with a label for use within a {@link Form}.
  * <p/>
- * Basically this is a non-styled {@link CheckBoxButton} encapsulated in a {@link Div}.
+ * Basically this is a non-styled {@link CheckBoxButton} encapsulated in a {@link org.gwtbootstrap3.client.ui.html.Div}.
  *
  * @author Sven Jacobs
  */

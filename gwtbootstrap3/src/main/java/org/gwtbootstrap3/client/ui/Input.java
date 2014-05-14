@@ -24,9 +24,9 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.text.shared.testing.PassthroughParser;
 import com.google.gwt.text.shared.testing.PassthroughRenderer;
 import com.google.gwt.uibinder.client.UiConstructor;
-
 import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
+import org.gwtbootstrap3.client.ui.constants.HasInputType;
 import org.gwtbootstrap3.client.ui.constants.InputType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -39,7 +39,7 @@ public class Input extends ValueBoxBase<String> implements HasInputType {
     private static final String MAX = "max";
 
     public Input() {
-    	super(Document.get().createElement(ElementTags.INPUT), PassthroughRenderer.instance(), PassthroughParser.instance());
+        super(Document.get().createElement(ElementTags.INPUT), PassthroughRenderer.instance(), PassthroughParser.instance());
         addStyleName(Styles.FORM_CONTROL);
     }
 

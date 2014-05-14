@@ -21,6 +21,7 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
  * Div element that automatically centers contents. Fixed-width.
@@ -29,11 +30,18 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  * @see Row
  * @see Column
- * @see FluidContainer
  */
 public class Container extends Div {
 
     public Container() {
         setStyleName(Styles.CONTAINER);
+    }
+
+    public void setFluid(final boolean isFluid) {
+        if (isFluid) {
+            setStyleName(Styles.CONTAINER_FLUID);
+        } else {
+            setStyleName(Styles.CONTAINER);
+        }
     }
 }

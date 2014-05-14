@@ -83,11 +83,17 @@ public class TextArea extends TextBoxBase {
         return getTextAreaElement().getCols();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getCursorPos() {
         return getImpl().getTextAreaCursorPos(getElement());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSelectionLength() {
         return getImpl().getTextAreaSelectionLength(getElement());
@@ -121,10 +127,17 @@ public class TextArea extends TextBoxBase {
         getTextAreaElement().setRows(lines);
     }
 
+    /**
+     * Get the TextAreaElement for the widget
+     * @return TextAreaElement element of the widget
+     */
     private TextAreaElement getTextAreaElement() {
         return getElement().cast();
     }
 
+    /**
+     * Clear the value
+     */
     public void clear() {
         super.setValue(null);
     }

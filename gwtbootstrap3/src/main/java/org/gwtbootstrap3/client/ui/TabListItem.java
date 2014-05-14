@@ -23,31 +23,63 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.shared.event.TabShowEvent;
 import org.gwtbootstrap3.client.shared.event.TabShowHandler;
 import org.gwtbootstrap3.client.shared.event.TabShownEvent;
 import org.gwtbootstrap3.client.shared.event.TabShownHandler;
+import org.gwtbootstrap3.client.ui.constants.HasDataTarget;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
+ * List item for the nav tabs, needs special toggle and JS to make it work properly
+ * <p/>
+ * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <p/>
+ * <pre>
+ * {@code
+ * <b:NavTabs>
+ *    <b:TabListItem/>
+ *    <b:TabListItem/>
+ * </b:NavTabs>
+ * }
+ * </pre>
+ *
  * @author Joshua Godi
+ * @see org.gwtbootstrap3.client.ui.NavTabs
  */
-public class TabListItem extends ListItem implements HasHTML, HasDataTarget {
+public class TabListItem extends AnchorListItem implements HasDataTarget {
 
+    /**
+     * Creates the default widget with no text
+     */
     public TabListItem() {
         this("");
     }
 
+    /**
+     * Creates the default widget with the desired text
+     *
+     * @param text text for the list item
+     */
     public TabListItem(final String text) {
         super(text);
         setDataToggle(Toggle.TAB);
     }
 
+    /**
+     * Forces the tab pane associated with this list item to be shown and default fires the events
+     */
     public void showTab() {
         showTab(true);
     }
 
+    /**
+     * Forces the tab pane associated with this list item to be shown
+     *
+     * @param fireEvents true=fire show/hide events, false=don't fire show/hide events
+     */
     public void showTab(final boolean fireEvents) {
         showTab(anchor.getElement());
 
@@ -56,10 +88,22 @@ public class TabListItem extends ListItem implements HasHTML, HasDataTarget {
         }
     }
 
+    /**
+     * Add a show handler for the tab
+     *
+     * @param showHandler show handler
+     * @return HandlerRegistration to manage handles
+     */
     public HandlerRegistration addShowHandler(final TabShowHandler showHandler) {
         return addHandler(showHandler, TabShowEvent.getType());
     }
 
+    /**
+     * Add a shown handler for the tab
+     *
+     * @param shownHandler show handler
+     * @return HandlerRegistration to manage handles
+     */
     public HandlerRegistration addShownHandler(final TabShownHandler shownHandler) {
         return addHandler(shownHandler, TabShownEvent.getType());
     }
@@ -73,21 +117,33 @@ public class TabListItem extends ListItem implements HasHTML, HasDataTarget {
         setDataTarget(href);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getHref() {
         return getDataTarget();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setDataTarget(final String dataTarget) {
         anchor.setDataTarget(dataTarget);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDataTarget() {
         return anchor.getDataTarget();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setEnabled(final boolean enabled) {
         super.setEnabled(enabled);
@@ -100,6 +156,9 @@ public class TabListItem extends ListItem implements HasHTML, HasDataTarget {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onLoad() {
         super.onLoad();
@@ -108,6 +167,9 @@ public class TabListItem extends ListItem implements HasHTML, HasDataTarget {
         bindJavaScriptEvents(anchor.getElement());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onUnload() {
         super.onUnload();
@@ -116,12 +178,10 @@ public class TabListItem extends ListItem implements HasHTML, HasDataTarget {
         unbindJavaScriptEvents(anchor.getElement());
     }
 
-    @Override
     public String getHTML() {
         return anchor.getHTML();
     }
 
-    @Override
     public void setHTML(final String html) {
         anchor.setHTML(html);
     }

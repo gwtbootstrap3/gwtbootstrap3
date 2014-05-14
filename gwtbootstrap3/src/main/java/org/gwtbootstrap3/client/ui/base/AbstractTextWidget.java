@@ -21,12 +21,14 @@ package org.gwtbootstrap3.client.ui.base;
  */
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.dom.client.Style;
+import com.google.gwt.user.client.ui.HasHTML;
 import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.ui.HasId;
-import org.gwtbootstrap3.client.ui.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
+import org.gwtbootstrap3.client.ui.constants.HasId;
+import org.gwtbootstrap3.client.ui.constants.HasInlineStyle;
+import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
 
 /**
  * Base class for {@link Widget} that just contains text.
@@ -34,7 +36,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public abstract class AbstractTextWidget extends Widget implements HasId, HasText, HasResponsiveness {
+public abstract class AbstractTextWidget extends Widget implements HasId, HasHTML, HasResponsiveness, HasInlineStyle {
 
     private final IdMixin<AbstractTextWidget> idMixin = new IdMixin<AbstractTextWidget>(this);
 
@@ -54,12 +56,23 @@ public abstract class AbstractTextWidget extends Widget implements HasId, HasTex
 
     @Override
     public void setText(final String text) {
-        getElement().setInnerText(text);
+        // Set innerHTML instead to allow for spacing and HTML code!
+        getElement().setInnerHTML(text);
     }
 
     @Override
     public String getText() {
         return getElement().getInnerText();
+    }
+
+    @Override
+    public String getHTML() {
+        return getElement().getInnerHTML();
+    }
+
+    @Override
+    public void setHTML(final String html) {
+        getElement().setInnerHTML(html);
     }
 
     @Override
@@ -70,5 +83,45 @@ public abstract class AbstractTextWidget extends Widget implements HasId, HasTex
     @Override
     public void setHiddenOn(final String deviceSizeString) {
         StyleHelper.setHiddenOn(this, deviceSizeString);
+    }
+
+    @Override
+    public void setMarginTop(final double margin) {
+        getElement().getStyle().setMarginTop(margin, Style.Unit.PX);
+    }
+
+    @Override
+    public void setMarginLeft(final double margin) {
+        getElement().getStyle().setMarginLeft(margin, Style.Unit.PX);
+    }
+
+    @Override
+    public void setMarginRight(final double margin) {
+        getElement().getStyle().setMarginRight(margin, Style.Unit.PX);
+    }
+
+    @Override
+    public void setMarginBottom(final double margin) {
+        getElement().getStyle().setMarginBottom(margin, Style.Unit.PX);
+    }
+
+    @Override
+    public void setPaddingTop(final double padding) {
+        getElement().getStyle().setPaddingTop(padding, Style.Unit.PX);
+    }
+
+    @Override
+    public void setPaddingLeft(final double padding) {
+        getElement().getStyle().setPaddingLeft(padding, Style.Unit.PX);
+    }
+
+    @Override
+    public void setPaddingRight(final double padding) {
+        getElement().getStyle().setPaddingRight(padding, Style.Unit.PX);
+    }
+
+    @Override
+    public void setPaddingBottom(final double padding) {
+        getElement().getStyle().setPaddingBottom(padding, Style.Unit.PX);
     }
 }

@@ -22,13 +22,13 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.OrderedList;
 
 /**
  * @author Joshua Godi
  */
-public class CarouselIndicators extends ComplexWidget {
+public class CarouselIndicators extends OrderedList {
 
     public CarouselIndicators() {
         setElement(Document.get().createOLElement());

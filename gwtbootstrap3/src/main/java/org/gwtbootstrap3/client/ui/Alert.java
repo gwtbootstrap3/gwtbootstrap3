@@ -21,7 +21,6 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.Event;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap3.client.shared.event.AlertCloseEvent;
@@ -32,7 +31,11 @@ import org.gwtbootstrap3.client.ui.base.button.CloseButton;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.AlertType;
 import org.gwtbootstrap3.client.ui.constants.ButtonDismiss;
+import org.gwtbootstrap3.client.ui.constants.HasResponsiveness;
+import org.gwtbootstrap3.client.ui.constants.HasType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.Div;
+import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
  * Alert block.
@@ -44,31 +47,40 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see org.gwtbootstrap3.client.shared.event.AlertCloseEvent
  * @see org.gwtbootstrap3.client.shared.event.AlertClosedEvent
  */
-public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiveness {
+public class Alert extends Div implements HasType<AlertType>, HasResponsiveness {
     private static final String CLOSE = "close";
 
+    private final Text text = new Text();
     private final CloseButton closeButton = new CloseButton();
 
-    public Alert(final String html) {
-        super(html);
-
+    /**
+     * Builds a default alert
+     */
+    public Alert() {
         setStyleName(Styles.ALERT);
         setType(AlertType.WARNING);
-
         closeButton.setDataDismiss(ButtonDismiss.ALERT);
     }
 
-    public Alert(final String html, final AlertType type) {
-        this(html);
+    /**
+     * Builds a default alert with the desired text
+     *
+     * @param text text for the alert
+     */
+    public Alert(final String text) {
+        this();
+        setText(text);
+    }
+
+    /**
+     * Builds an alert with the desired text and type
+     *
+     * @param text text for the alert
+     * @param type type for the alert
+     */
+    public Alert(final String text, final AlertType type) {
+        this(text);
         setType(type);
-    }
-
-    public Alert(final SafeHtml safeHtml) {
-        this(safeHtml.asString());
-    }
-
-    public Alert(final SafeHtml safeHtml, final AlertType type) {
-        this(safeHtml.asString(), type);
     }
 
     @Override
@@ -88,16 +100,35 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
     }
 
     /**
-     * Sets alert type.
+     * Returns the text of the alert.
      *
-     * @param type Alert type
-     * @see AlertType
+     * @return text of the alert
+     */
+    public String getText() {
+        return text.getText();
+    }
+
+    /**
+     * Sets the text for the alert
+     *
+     * @param text the text of the alert
+     */
+    public void setText(final String text) {
+        this.text.setText(text);
+        insert(this.text, 0);
+    }
+
+    /**
+     * {@inheritDoc}
      */
     @Override
     public void setType(final AlertType type) {
         StyleHelper.addUniqueEnumStyleName(this, AlertType.class, type);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public AlertType getType() {
         return AlertType.fromStyleName(getStyleName());
@@ -118,6 +149,11 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
         }
     }
 
+    /**
+     * Returns if the alert can be closed or not
+     *
+     * @return true = alert can be closed, false = alert cannot be closed
+     */
     public boolean isDismissable() {
         return closeButton.getParent() != null;
     }
@@ -129,34 +165,45 @@ public class Alert extends HTMLPanel implements HasType<AlertType>, HasResponsiv
         alert(getElement(), CLOSE);
     }
 
+    /**
+     * Event fired when the close is initiated on the alert
+     *
+     * @param evt event
+     */
     protected void onClose(final Event evt) {
         fireEvent(new AlertCloseEvent(evt));
     }
 
+    /**
+     * Event fired when the alert is fully closed
+     *
+     * @param evt event
+     */
     protected void onClosed(final Event evt) {
         fireEvent(new AlertClosedEvent(evt));
     }
 
+    /**
+     * Add a handler to be used when the close event is fired
+     *
+     * @param handler handler for event
+     * @return handler registration for the handler
+     */
     public HandlerRegistration addCloseHandler(final AlertCloseHandler handler) {
         return addHandler(handler, AlertCloseEvent.getType());
     }
 
+    /**
+     * Add a handler to be used when the closed event is fired
+     *
+     * @param handler handler for event
+     * @return handler registration for the handler
+     */
     public HandlerRegistration addClosedHandler(final AlertClosedHandler handler) {
         return addHandler(handler, AlertClosedEvent.getType());
     }
 
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
-    }
-
     // @formatter:off
-
     private native void alert(final Element e, final String arg) /*-{
         $wnd.jQuery(e).alert(arg);
     }-*/;

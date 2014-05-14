@@ -21,18 +21,43 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.HasTabPosition;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.TabPosition;
+import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
+ * Container widget for tabs
+ * <p/>
+ * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <p/>
+ * <pre>
+ * {@code
+ * <b:TabPanel>
+ *    <b:NavTabs/>
+ *    <b:TabContent/>
+ * </b:TabPanel>
+ * }
+ * </pre>
+ *
  * @author Joshua Godi
+ * @see org.gwtbootstrap3.client.ui.TabContent
+ * @see org.gwtbootstrap3.client.ui.NavTabs
  */
 public class TabPanel extends Div implements HasTabPosition {
 
+    /**
+     * Creates the widget with the default styles
+     */
     public TabPanel() {
         setStyleName(Styles.TABBABLE);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setTabPosition(final TabPosition tabPosition) {
         // When setting TabPosition that isn't TOP, make sure to inherit the
@@ -40,6 +65,9 @@ public class TabPanel extends Div implements HasTabPosition {
         StyleHelper.addUniqueEnumStyleName(this, TabPosition.class, tabPosition);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public TabPosition getTabPosition() {
         return TabPosition.fromStyleName(getStyleName());

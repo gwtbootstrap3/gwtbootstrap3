@@ -20,19 +20,17 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Document;
+import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
-public class HelpBlock extends Span {
+public class HelpBlock extends AbstractTextWidget {
 
     public HelpBlock() {
+        super(Document.get().createSpanElement());
         setStyleName(Styles.HELP_BLOCK);
-    }
-
-    public HelpBlock(final String html) {
-        this();
-        setHTML(html);
     }
 }

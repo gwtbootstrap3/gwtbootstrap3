@@ -25,6 +25,7 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
+import org.gwtbootstrap3.client.ui.constants.HasHref;
 
 /**
  * Button based on {@code <a>} element.

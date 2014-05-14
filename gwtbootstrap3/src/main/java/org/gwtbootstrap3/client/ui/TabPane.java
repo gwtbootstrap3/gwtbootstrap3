@@ -21,18 +21,45 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
+import org.gwtbootstrap3.client.ui.constants.HasActive;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
+ * Container widget for the tab pane
+ * <p/>
+ * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <p/>
+ * <pre>
+ * {@code
+ * <b:TabContent>
+ *    <b:TabPane/>
+ *    <b:TabPane/>
+ * </b:TabContent>
+ * }
+ * </pre>
+ *
  * @author Joshua Godi
+ * @see org.gwtbootstrap3.client.ui.TabContent
  */
 public class TabPane extends Div implements HasActive {
     private final ActiveMixin<TabPane> activeMixin = new ActiveMixin<TabPane>(this);
 
+    /**
+     * Creates the default widget with the default styles
+     */
     public TabPane() {
         setStyleName(Styles.TAB_PANE);
     }
 
+    /**
+     * Sets whether or not to fade the tab pane in/out when clicked
+     * Must set in="true" on the first tab if using fade!!
+     *
+     * @param fade true=fade content in/out, false=don't fade
+     */
     public void setFade(final boolean fade) {
         if (fade) {
             addStyleName(Styles.FADE);
@@ -41,6 +68,11 @@ public class TabPane extends Div implements HasActive {
         }
     }
 
+    /**
+     * When using fade, but set the first tabpane with in="true" to work properly
+     *
+     * @param in whether or not the first tab pane will be faded properly
+     */
     public void setIn(final boolean in) {
         if (in) {
             addStyleName(Styles.IN);
@@ -49,11 +81,17 @@ public class TabPane extends Div implements HasActive {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setActive(final boolean active) {
         activeMixin.setActive(active);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isActive() {
         return activeMixin.isActive();

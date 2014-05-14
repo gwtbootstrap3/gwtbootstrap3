@@ -22,13 +22,22 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasHTML;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.mixin.*;
+import org.gwtbootstrap3.client.ui.base.mixin.DataParentMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
 import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
@@ -48,6 +57,11 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     private final FocusableMixin<Anchor> focusableMixin;
     private String targetHistoryToken;
 
+    /**
+     * Creates an anchor widget with the desired HREF
+     *
+     * @param href href for the anchor
+     */
     public Anchor(final String href) {
         setElement(Document.get().createAnchorElement());
         setHref(href);
@@ -55,135 +69,219 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
         iconTextMixin.addTextWidgetToParent();
     }
 
+    /**
+     * Creates an achor widget with the desired HREF and text
+     *
+     * @param text text for the anchor
+     * @param href href for the anchor
+     */
     public Anchor(final String text, final String href) {
         this(href);
         setText(text);
     }
 
+    /**
+     * Creates a default anchor with a default href
+     */
     public Anchor() {
         this(EMPTY_HREF);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
         return addDomHandler(handler, ClickEvent.getType());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public HandlerRegistration addDoubleClickHandler(final DoubleClickHandler handler) {
         return addDomHandler(handler, DoubleClickEvent.getType());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setText(final String text) {
         iconTextMixin.setText(text);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getText() {
         return iconTextMixin.getText();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIcon(final IconType iconType) {
         iconTextMixin.setIcon(iconType);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public IconType getIcon() {
         return iconTextMixin.getIcon();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconPosition(final IconPosition iconPosition) {
         iconTextMixin.setIconPosition(iconPosition);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public IconPosition getIconPosition() {
         return iconTextMixin.getIconPosition();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconSize(final IconSize iconSize) {
         iconTextMixin.setIconSize(iconSize);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public IconSize getIconSize() {
         return iconTextMixin.getIconSize();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconFlip(final IconFlip iconFlip) {
         iconTextMixin.setIconFlip(iconFlip);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public IconFlip getIconFlip() {
         return iconTextMixin.getIconFlip();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconRotate(final IconRotate iconRotate) {
         iconTextMixin.setIconRotate(iconRotate);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public IconRotate getIconRotate() {
         return iconTextMixin.getIconRotate();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconBordered(final boolean iconBordered) {
         iconTextMixin.setIconBordered(iconBordered);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isIconBordered() {
         return iconTextMixin.isIconBordered();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconMuted(final boolean iconMuted) {
         iconTextMixin.setIconMuted(iconMuted);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isIconMuted() {
         return iconTextMixin.isIconMuted();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconLight(final boolean iconLight) {
         iconTextMixin.setIconLight(iconLight);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isIconLight() {
         return iconTextMixin.isIconLight();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconSpin(final boolean iconSpin) {
         iconTextMixin.setIconSpin(iconSpin);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isIconSpin() {
         return iconTextMixin.isIconSpin();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setHref(final String href) {
         AnchorElement.as(getElement()).setHref(href);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getHref() {
         return AnchorElement.as(getElement()).getHref();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setTargetHistoryToken(final String targetHistoryToken) {
         this.targetHistoryToken = targetHistoryToken;
@@ -191,68 +289,122 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
         setHref("#" + hash);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getTargetHistoryToken() {
         return targetHistoryToken;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setDataParent(final String dataParent) {
         parentMixin.setDataParent(dataParent);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDataParent() {
         return parentMixin.getDataParent();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setDataToggle(final Toggle toggle) {
         toggleMixin.setDataToggle(toggle);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Toggle getDataToggle() {
         return toggleMixin.getDataToggle();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getTabIndex() {
         return focusableMixin.getTabIndex();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setTabIndex(final int index) {
         focusableMixin.setTabIndex(index);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setAccessKey(final char key) {
         focusableMixin.setAccessKey(key);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setFocus(final boolean focused) {
         focusableMixin.setFocus(focused);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getHTML() {
         return getElement().getInnerHTML();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setHTML(final String html) {
         getElement().setInnerHTML(html);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setDataTarget(final String dataTarget) {
         targetMixin.setDataTarget(dataTarget);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDataTarget() {
         return targetMixin.getDataTarget();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onAttach() {
+        super.onAttach();
+
+        // Adding styles to the heading depending on the parent
+        if (getParent() != null) {
+            if (getParent() instanceof Alert) {
+                addStyleName(Styles.ALERT_LINK);
+            }
+        }
     }
 }

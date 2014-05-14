@@ -27,6 +27,7 @@ import org.gwtbootstrap3.client.ui.constants.ColumnOffset;
 import org.gwtbootstrap3.client.ui.constants.ColumnPull;
 import org.gwtbootstrap3.client.ui.constants.ColumnPush;
 import org.gwtbootstrap3.client.ui.constants.ColumnSize;
+import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
  * A column of Bootstrap's fluid grid system.
