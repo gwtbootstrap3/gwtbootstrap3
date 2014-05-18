@@ -20,14 +20,24 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.HasDataParent;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasDataToggle;
+import org.gwtbootstrap3.client.ui.base.mixin.DataParentMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.constants.Toggle;
 import org.gwtbootstrap3.client.ui.html.Div;
 import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
  * @author Joshua Godi
  */
-public class PanelHeader extends Div {
+public class PanelHeader extends Div implements HasDataToggle, HasDataTarget, HasDataParent {
+    private final DataParentMixin<PanelHeader> parentMixin = new DataParentMixin<PanelHeader>(this);
+    private final DataTargetMixin<PanelHeader> targetMixin = new DataTargetMixin<PanelHeader>(this);
+    private final DataToggleMixin<PanelHeader> toggleMixin = new DataToggleMixin<PanelHeader>(this);
     private final Text text = new Text();
 
     public PanelHeader() {
@@ -51,5 +61,53 @@ public class PanelHeader extends Div {
     public void setText(final String text) {
         this.text.setText(text);
         insert(this.text, 0);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setDataTarget(final String dataTarget) {
+        targetMixin.setDataTarget(dataTarget);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getDataTarget() {
+        return targetMixin.getDataTarget();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setDataToggle(final Toggle toggle) {
+        toggleMixin.setDataToggle(toggle);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Toggle getDataToggle() {
+        return toggleMixin.getDataToggle();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setDataParent(final String dataParent) {
+        parentMixin.setDataParent(dataParent);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getDataParent() {
+        return parentMixin.getDataParent();
     }
 }
