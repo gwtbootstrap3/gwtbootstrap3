@@ -74,12 +74,12 @@ public abstract class AbstractTextWidget extends Widget implements HasId, HasHTM
     }
 
     @Override
-    public void setVisibleOn(DeviceSize deviceSize) {
+    public void setVisibleOn(final DeviceSize deviceSize) {
         StyleHelper.setVisibleOn(this, deviceSize);
     }
 
     @Override
-    public void setHiddenOn(DeviceSize deviceSize) {
+    public void setHiddenOn(final DeviceSize deviceSize) {
         StyleHelper.setHiddenOn(this, deviceSize);
     }
 

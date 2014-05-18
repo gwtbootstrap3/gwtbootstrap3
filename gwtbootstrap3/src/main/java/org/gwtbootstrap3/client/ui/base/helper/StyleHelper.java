@@ -145,11 +145,11 @@ public final class StyleHelper {
                                    final DeviceSize deviceSize) {
         // Split the enum up by _ to get the different devices
         // Separates the SM_MD into [SM, MD] so we can add the right styles
-        String[] deviceString = deviceSize.name().split("_");
+        final String[] deviceString = deviceSize.name().split("_");
 
-        for (String device : deviceString) {
+        for (final String device : deviceString) {
             // Case back to basic enum (PRINT, XS, SM, MD, LG)
-            DeviceSize size = DeviceSize.valueOf(device);
+            final DeviceSize size = DeviceSize.valueOf(device);
             switch (size) {
                 case PRINT:
                     addEnumStyleName(uiObject, Responsiveness.HIDDEN_PRINT);
@@ -180,11 +180,11 @@ public final class StyleHelper {
                                     final DeviceSize deviceSize) {
         // Split the enum up by _ to get the different devices
         // Separates the SM_MD into [SM, MD] so we can add the right styles
-        String[] deviceString = deviceSize.name().split("_");
+        final String[] deviceString = deviceSize.name().split("_");
 
-        for (String device : deviceString) {
+        for (final String device : deviceString) {
             // Case back to basic enum (PRINT, XS, SM, MD, LG)
-            DeviceSize size = DeviceSize.valueOf(device);
+            final DeviceSize size = DeviceSize.valueOf(device);
             switch (size) {
                 case PRINT:
                     addEnumStyleName(uiObject, Responsiveness.VISIBLE_PRINT);
