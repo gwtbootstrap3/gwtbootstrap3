@@ -25,12 +25,7 @@ import org.gwtbootstrap3.client.ui.base.AbstractInputGroupAddon;
 import org.gwtbootstrap3.client.ui.base.HasIcon;
 import org.gwtbootstrap3.client.ui.base.HasIconPosition;
 import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
-import org.gwtbootstrap3.client.ui.constants.IconFlip;
-import org.gwtbootstrap3.client.ui.constants.IconPosition;
-import org.gwtbootstrap3.client.ui.constants.IconRotate;
-import org.gwtbootstrap3.client.ui.constants.IconSize;
-import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
  * Prepends or appends texts to input fields.
@@ -58,7 +53,6 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText,
 
     public InputGroupAddon() {
         super(Styles.INPUT_GROUP_ADDON);
-
         iconTextMixin.addTextWidgetToParent();
     }
 

@@ -20,16 +20,13 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.Icon;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasIcon;
 import org.gwtbootstrap3.client.ui.base.HasIconPosition;
-import org.gwtbootstrap3.client.ui.constants.IconFlip;
-import org.gwtbootstrap3.client.ui.constants.IconPosition;
-import org.gwtbootstrap3.client.ui.constants.IconRotate;
-import org.gwtbootstrap3.client.ui.constants.IconSize;
-import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.*;
 import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
@@ -44,6 +41,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private final Text text = new Text();
     private final Text separator = new Text(" ");
     private Icon icon;
+    private IconType iconType;
     private IconPosition iconPosition = IconPosition.LEFT;
     private IconSize iconSize = IconSize.NONE;
     private IconFlip iconFlip = IconFlip.NONE;
@@ -73,7 +71,8 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
     @Override
     public void setIcon(final IconType iconType) {
-        render(new Icon(iconType));
+        this.iconType = iconType;
+        render();
     }
 
     @Override
@@ -84,7 +83,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setIconPosition(final IconPosition iconPosition) {
         this.iconPosition = iconPosition;
-        render(icon);
+        render();
     }
 
     @Override
@@ -95,7 +94,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setIconSize(final IconSize iconSize) {
         this.iconSize = iconSize;
-        render(icon);
+        render();
     }
 
     @Override
@@ -106,7 +105,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setIconFlip(final IconFlip iconFlip) {
         this.iconFlip = iconFlip;
-        render(icon);
+        render();
     }
 
     @Override
@@ -117,7 +116,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setIconRotate(final IconRotate iconRotate) {
         this.iconRotate = iconRotate;
-        render(icon);
+        render();
     }
 
     @Override
@@ -128,7 +127,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setIconBordered(final boolean iconBordered) {
         this.iconBordered = iconBordered;
-        render(icon);
+        render();
     }
 
     @Override
@@ -139,7 +138,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setIconMuted(final boolean iconMuted) {
         this.iconMuted = iconMuted;
-        render(icon);
+        render();
     }
 
     @Override
@@ -150,7 +149,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setIconLight(final boolean iconLight) {
         this.iconLight = iconLight;
-        render(icon);
+        render();
     }
 
     @Override
@@ -161,7 +160,6 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setIconSpin(final boolean iconSpin) {
         this.iconSpin = iconSpin;
-        render(icon);
     }
 
     @Override
@@ -169,33 +167,39 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
         return iconSpin;
     }
 
-    private void render(final Icon newIcon) {
-        text.removeFromParent();
-        separator.removeFromParent();
+    private void render() {
+        Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+            @Override
+            public void execute() {
+                text.removeFromParent();
+                separator.removeFromParent();
 
-        if (icon != null) {
-            icon.removeFromParent();
-        }
+                if (icon != null) {
+                    icon.removeFromParent();
+                }
 
-        icon = newIcon;
-        icon.setSize(iconSize);
-        icon.setFlip(iconFlip);
-        icon.setRotate(iconRotate);
-        icon.setMuted(iconMuted);
-        icon.setSpin(iconSpin);
-        icon.setBorder(iconBordered);
-        icon.setLight(iconLight);
+                icon = new Icon();
+                icon.setType(iconType);
+                icon.setSize(iconSize);
+                icon.setFlip(iconFlip);
+                icon.setRotate(iconRotate);
+                icon.setMuted(iconMuted);
+                icon.setSpin(iconSpin);
+                icon.setBorder(iconBordered);
+                icon.setLight(iconLight);
 
-        if (iconPosition == IconPosition.LEFT) {
-            widget.add(icon);
-            widget.add(separator);
-        }
+                if (iconPosition == IconPosition.LEFT) {
+                    widget.add(icon);
+                    widget.add(separator);
+                }
 
-        widget.add(text);
+                widget.add(text);
 
-        if (iconPosition == IconPosition.RIGHT) {
-            widget.add(separator);
-            widget.add(icon);
-        }
+                if (iconPosition == IconPosition.RIGHT) {
+                    widget.add(separator);
+                    widget.add(icon);
+                }
+            }
+        });
     }
 }
