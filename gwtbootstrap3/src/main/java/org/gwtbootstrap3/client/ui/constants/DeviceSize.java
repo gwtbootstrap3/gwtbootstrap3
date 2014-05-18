@@ -30,5 +30,18 @@ public enum DeviceSize {
     XS, /* Phones <768px */
     SM, /* Tablets >=768px */
     MD, /* Desktops >=992px */
-    LG /* Desktops >=1200px */
+    LG, /* Desktops >=1200px */
+
+    //    Helper sizes for different types for Hidden/Visible
+    XS_SM,
+    XS_MD,
+    XS_LG,
+    SM_MD,
+    SM_LG,
+    MD_LG,
+    XS_SM_MD,
+    XS_SM_LG,
+    XS_MD_LG,
+    SM_MD_LG,
+    XS_SM_MD_LG
 }

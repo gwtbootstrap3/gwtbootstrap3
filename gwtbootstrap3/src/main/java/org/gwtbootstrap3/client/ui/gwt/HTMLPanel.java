@@ -22,15 +22,12 @@ package org.gwtbootstrap3.client.ui.gwt;
 
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.safehtml.shared.SafeHtml;
-import org.gwtbootstrap3.client.ui.base.HasDataSpy;
-import org.gwtbootstrap3.client.ui.base.HasDataTarget;
-import org.gwtbootstrap3.client.ui.base.HasId;
-import org.gwtbootstrap3.client.ui.base.HasInlineStyle;
-import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
+import org.gwtbootstrap3.client.ui.base.*;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.DataSpyMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
+import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
 /**
@@ -86,13 +83,13 @@ public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implement
     }
 
     @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
+    public void setVisibleOn(DeviceSize deviceSize) {
+        StyleHelper.setVisibleOn(this, deviceSize);
     }
 
     @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
+    public void setHiddenOn(DeviceSize deviceSize) {
+        StyleHelper.setHiddenOn(this, deviceSize);
     }
 
     @Override

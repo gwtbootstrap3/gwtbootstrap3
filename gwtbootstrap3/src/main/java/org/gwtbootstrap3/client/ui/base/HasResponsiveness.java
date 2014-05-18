@@ -20,13 +20,17 @@ package org.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.constants.DeviceSize;
+
 /**
  * Interface to set the visibility and hidden properties of elements
  * <p/>
  * Example:
  * <p/>
  * hiddenOn="SM MD"
+ * hiddenOn="SM,MD"
  * visibleOn="SM LG"
+ * visibleOn="MD,LG"
  * hiddenOn="LG"
  *
  * @author Joshua Godi
@@ -35,16 +39,16 @@ public interface HasResponsiveness {
     /**
      * Sets the devices that the element is visible on
      *
-     * @param deviceSizeString space separated list of device sizes
+     * @param deviceSize device size
      * @see org.gwtbootstrap3.client.ui.constants.DeviceSize
      */
-    void setVisibleOn(String deviceSizeString);
+    void setVisibleOn(DeviceSize deviceSize);
 
     /**
      * Sets the devices that the element is hidden on
      *
-     * @param deviceSizeString space separated list of device sizes
+     * @param deviceSize device sizes
      * @see org.gwtbootstrap3.client.ui.constants.DeviceSize
      */
-    void setHiddenOn(String deviceSizeString);
+    void setHiddenOn(DeviceSize deviceSize);
 }

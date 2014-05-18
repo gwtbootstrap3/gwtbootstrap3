@@ -23,15 +23,18 @@ package org.gwtbootstrap3.client.ui.gwt;
 import org.gwtbootstrap3.client.ui.base.HasDataSpy;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.HasId;
+import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.DataSpyMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
+import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
 /**
  * @author Sven Jacobs
  */
-public class FlowPanel extends com.google.gwt.user.client.ui.FlowPanel implements HasDataSpy, HasId, HasDataTarget {
+public class FlowPanel extends com.google.gwt.user.client.ui.FlowPanel implements HasDataSpy, HasId, HasDataTarget, HasResponsiveness {
 
     private final DataSpyMixin<FlowPanel> spyMixin = new DataSpyMixin<FlowPanel>(this);
     private final IdMixin<FlowPanel> idMixin = new IdMixin<FlowPanel>(this);
@@ -65,5 +68,15 @@ public class FlowPanel extends com.google.gwt.user.client.ui.FlowPanel implement
     @Override
     public String getId() {
         return idMixin.getId();
+    }
+
+    @Override
+    public void setVisibleOn(DeviceSize deviceSize) {
+        StyleHelper.setVisibleOn(this, deviceSize);
+    }
+
+    @Override
+    public void setHiddenOn(DeviceSize deviceSize) {
+        StyleHelper.setHiddenOn(this, deviceSize);
     }
 }

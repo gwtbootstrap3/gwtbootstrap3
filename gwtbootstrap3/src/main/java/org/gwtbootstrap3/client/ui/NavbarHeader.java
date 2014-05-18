@@ -20,8 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
@@ -29,19 +27,9 @@ import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class NavbarHeader extends FlowPanel implements HasResponsiveness {
+public class NavbarHeader extends FlowPanel {
 
     public NavbarHeader() {
         setStyleName(Styles.NAVBAR_HEADER);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

@@ -28,7 +28,7 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
  */
 public enum Responsiveness implements Type, Style.HasCssName {
     DEFAULT(""),
-    VISIBLE_PRINT("visible"),
+    VISIBLE_PRINT("visible-print"),
     VISIBLE_XS("visible-xs"),
     VISIBLE_SM("visible-sm"),
     VISIBLE_MD("visible-md"),

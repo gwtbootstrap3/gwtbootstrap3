@@ -25,16 +25,7 @@ import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
-import org.gwtbootstrap3.client.shared.event.ModalHiddenEvent;
-import org.gwtbootstrap3.client.shared.event.ModalHiddenHandler;
-import org.gwtbootstrap3.client.shared.event.ModalHideEvent;
-import org.gwtbootstrap3.client.shared.event.ModalHideHandler;
-import org.gwtbootstrap3.client.shared.event.ModalShowEvent;
-import org.gwtbootstrap3.client.shared.event.ModalShowHandler;
-import org.gwtbootstrap3.client.shared.event.ModalShownEvent;
-import org.gwtbootstrap3.client.shared.event.ModalShownHandler;
-import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.shared.event.*;
 import org.gwtbootstrap3.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap3.client.ui.base.modal.ModalDialog;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
@@ -87,7 +78,7 @@ import org.gwtbootstrap3.client.ui.html.Div;
  * @see org.gwtbootstrap3.client.shared.event.ModalHideEvent
  * @see org.gwtbootstrap3.client.shared.event.ModalHiddenEvent
  */
-public class Modal extends Div implements IsClosable, HasResponsiveness {
+public class Modal extends Div implements IsClosable {
     private final String TOGGLE = "toggle";
     private final String HIDE = "hide";
     private final String SHOW = "show";
@@ -170,16 +161,6 @@ public class Modal extends Div implements IsClosable, HasResponsiveness {
                 }
             });
         }
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     /**

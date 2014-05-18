@@ -20,10 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.FlowPanel;
-import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
 /**
  * Combines multiple button groups.
@@ -46,19 +44,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  * @see ButtonGroup
  */
-public class ButtonToolBar extends FlowPanel implements HasResponsiveness {
+public class ButtonToolBar extends FlowPanel {
 
     public ButtonToolBar() {
         setStyleName(Styles.BTN_TOOLBAR);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

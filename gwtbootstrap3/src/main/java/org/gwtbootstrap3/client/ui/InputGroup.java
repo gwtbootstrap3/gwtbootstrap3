@@ -20,10 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.FlowPanel;
-import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
 /**
  * Input group parent element of {@link InputGroupAddon}.
@@ -32,19 +30,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Joshua Godi
  * @see InputGroupAddon
  */
-public class InputGroup extends FlowPanel implements HasResponsiveness {
+public class InputGroup extends FlowPanel {
 
     public InputGroup() {
         setStyleName(Styles.INPUT_GROUP);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

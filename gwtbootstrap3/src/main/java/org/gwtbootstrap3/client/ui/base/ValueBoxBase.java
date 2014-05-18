@@ -25,6 +25,7 @@ import com.google.gwt.text.shared.Parser;
 import com.google.gwt.text.shared.Renderer;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
+import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 
 public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasResponsiveness,
         HasPlaceholder, HasAutoComplete {
@@ -77,12 +78,12 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     }
 
     @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
+    public void setVisibleOn(DeviceSize deviceSize) {
+        StyleHelper.setVisibleOn(this, deviceSize);
     }
 
     @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
+    public void setHiddenOn(DeviceSize deviceSize) {
+        StyleHelper.setHiddenOn(this, deviceSize);
     }
 }

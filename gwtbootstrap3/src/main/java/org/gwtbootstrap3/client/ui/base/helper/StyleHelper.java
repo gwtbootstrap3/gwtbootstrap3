@@ -136,48 +136,6 @@ public final class StyleHelper {
     }
 
     /**
-     * Sets the ui object to be visible on the device size
-     *
-     * @param uiObject   object to be visible on the device size
-     * @param deviceSize device size
-     */
-    public static void setVisibleOn(final UIObject uiObject,
-                                    final DeviceSize deviceSize) {
-        switch (deviceSize) {
-            case PRINT:
-                addEnumStyleName(uiObject, Responsiveness.VISIBLE_PRINT);
-                break;
-            case XS:
-                addEnumStyleName(uiObject, Responsiveness.VISIBLE_XS);
-                break;
-            case SM:
-                addEnumStyleName(uiObject, Responsiveness.VISIBLE_SM);
-                break;
-            case MD:
-                addEnumStyleName(uiObject, Responsiveness.VISIBLE_MD);
-                break;
-            case LG:
-                addEnumStyleName(uiObject, Responsiveness.VISIBLE_LG);
-                break;
-        }
-    }
-
-    /**
-     * Sets the ui object to be visible on the device size
-     *
-     * @param uiObject         object to be visible on the device size
-     * @param deviceSizeString device size string (space separated list of device sizes)
-     */
-    public static void setVisibleOn(final UIObject uiObject,
-                                    final String deviceSizeString) {
-        for (final DeviceSize deviceSize : DeviceSize.values()) {
-            if (deviceSizeString.contains(deviceSize.name())) {
-                setVisibleOn(uiObject, deviceSize);
-            }
-        }
-    }
-
-    /**
      * Sets the ui object to be hidden on the device size
      *
      * @param uiObject   object to be hidden on the device size
@@ -185,36 +143,64 @@ public final class StyleHelper {
      */
     public static void setHiddenOn(final UIObject uiObject,
                                    final DeviceSize deviceSize) {
-        switch (deviceSize) {
-            case PRINT:
-                addEnumStyleName(uiObject, Responsiveness.HIDDEN_PRINT);
-                break;
-            case XS:
-                addEnumStyleName(uiObject, Responsiveness.HIDDEN_XS);
-                break;
-            case SM:
-                addEnumStyleName(uiObject, Responsiveness.HIDDEN_SM);
-                break;
-            case MD:
-                addEnumStyleName(uiObject, Responsiveness.HIDDEN_MD);
-                break;
-            case LG:
-                addEnumStyleName(uiObject, Responsiveness.HIDDEN_LG);
-                break;
+        // Split the enum up by _ to get the different devices
+        // Separates the SM_MD into [SM, MD] so we can add the right styles
+        String[] deviceString = deviceSize.name().split("_");
+
+        for (String device : deviceString) {
+            // Case back to basic enum (PRINT, XS, SM, MD, LG)
+            DeviceSize size = DeviceSize.valueOf(device);
+            switch (size) {
+                case PRINT:
+                    addEnumStyleName(uiObject, Responsiveness.HIDDEN_PRINT);
+                    break;
+                case XS:
+                    addEnumStyleName(uiObject, Responsiveness.HIDDEN_XS);
+                    break;
+                case SM:
+                    addEnumStyleName(uiObject, Responsiveness.HIDDEN_SM);
+                    break;
+                case MD:
+                    addEnumStyleName(uiObject, Responsiveness.HIDDEN_MD);
+                    break;
+                case LG:
+                    addEnumStyleName(uiObject, Responsiveness.HIDDEN_LG);
+                    break;
+            }
         }
     }
 
     /**
-     * Sets the ui object to be hidden on the device size
+     * Sets the ui object to be visible on the device size
      *
-     * @param uiObject         object to be hidden on the device size
-     * @param deviceSizeString device size string (space separated list of device sizes)
+     * @param uiObject   object to be visible on the device size
+     * @param deviceSize device size
      */
-    public static void setHiddenOn(final UIObject uiObject,
-                                   final String deviceSizeString) {
-        for (final DeviceSize deviceSize : DeviceSize.values()) {
-            if (deviceSizeString.contains(deviceSize.name())) {
-                setHiddenOn(uiObject, deviceSize);
+    public static void setVisibleOn(final UIObject uiObject,
+                                    final DeviceSize deviceSize) {
+        // Split the enum up by _ to get the different devices
+        // Separates the SM_MD into [SM, MD] so we can add the right styles
+        String[] deviceString = deviceSize.name().split("_");
+
+        for (String device : deviceString) {
+            // Case back to basic enum (PRINT, XS, SM, MD, LG)
+            DeviceSize size = DeviceSize.valueOf(device);
+            switch (size) {
+                case PRINT:
+                    addEnumStyleName(uiObject, Responsiveness.VISIBLE_PRINT);
+                    break;
+                case XS:
+                    addEnumStyleName(uiObject, Responsiveness.VISIBLE_XS);
+                    break;
+                case SM:
+                    addEnumStyleName(uiObject, Responsiveness.VISIBLE_SM);
+                    break;
+                case MD:
+                    addEnumStyleName(uiObject, Responsiveness.VISIBLE_MD);
+                    break;
+                case LG:
+                    addEnumStyleName(uiObject, Responsiveness.VISIBLE_LG);
+                    break;
             }
         }
     }

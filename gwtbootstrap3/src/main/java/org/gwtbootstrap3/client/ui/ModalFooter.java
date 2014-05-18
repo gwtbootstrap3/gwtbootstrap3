@@ -20,29 +20,17 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.FlowPanel;
-import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
 /**
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Modal
  */
-public class ModalFooter extends FlowPanel implements ModalComponent, HasResponsiveness {
+public class ModalFooter extends FlowPanel implements ModalComponent {
 
     public ModalFooter() {
         setStyleName(Styles.MODAL_FOOTER);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 }

@@ -26,6 +26,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.ProvidesKey;
 import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.TableType;
 
 /**
@@ -135,13 +136,13 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
     }
 
     @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
+    public void setVisibleOn(DeviceSize deviceSize) {
+        StyleHelper.setVisibleOn(this, deviceSize);
     }
 
     @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
+    public void setHiddenOn(DeviceSize deviceSize) {
+        StyleHelper.setHiddenOn(this, deviceSize);
     }
 
     public void setStriped(final boolean striped) {

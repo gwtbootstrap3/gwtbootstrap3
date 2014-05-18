@@ -41,6 +41,5 @@ import org.gwtbootstrap3.client.ui.base.AbstractListItem;
 public class ListItem extends AbstractListItem {
 
     public ListItem() {
-
     }
 }

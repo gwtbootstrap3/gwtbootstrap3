@@ -21,8 +21,6 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Element;
-import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
@@ -33,21 +31,11 @@ import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
  * @author Joshua Godi
  * @see NavbarCollapseButton
  */
-public class NavbarCollapse extends FlowPanel implements HasResponsiveness {
+public class NavbarCollapse extends FlowPanel {
 
     public NavbarCollapse() {
         setStyleName(Styles.COLLAPSE);
         addStyleName(Styles.NAVBAR_COLLAPSE);
-    }
-
-    @Override
-    public void setVisibleOn(final String deviceSizeString) {
-        StyleHelper.setVisibleOn(this, deviceSizeString);
-    }
-
-    @Override
-    public void setHiddenOn(final String deviceSizeString) {
-        StyleHelper.setHiddenOn(this, deviceSizeString);
     }
 
     public void show() {
@@ -65,5 +53,4 @@ public class NavbarCollapse extends FlowPanel implements HasResponsiveness {
     private native void command(final Element e, final String command) /*-{
         $wnd.jQuery(e).collapse(command);
     }-*/;
-
 }
