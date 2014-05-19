@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.base.HasDataToggle;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
@@ -62,15 +63,21 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
     public void setDataToggle(final Toggle toggle) {
         toggleMixin.setDataToggle(toggle);
 
-        separator.removeFromParent();
-        caret.removeFromParent();
+        // We defer to make sure the elements are available to manipulate their position
+        Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+            @Override
+            public void execute() {
+                separator.removeFromParent();
+                caret.removeFromParent();
 
-        if (toggle == Toggle.DROPDOWN) {
-            addStyleName(Styles.DROPDOWN_TOGGLE);
+                if (toggle == Toggle.DROPDOWN) {
+                    addStyleName(Styles.DROPDOWN_TOGGLE);
 
-            add(separator, (Element) getElement());
-            add(caret, (Element) getElement());
-        }
+                    add(separator, (Element) getElement());
+                    add(caret, (Element) getElement());
+                }
+            }
+        });
     }
 
     @Override

@@ -168,6 +168,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     }
 
     private void render() {
+        // We defer to make sure the elements are available to manipulate their positions
         Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
             @Override
             public void execute() {
@@ -188,16 +189,20 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                 icon.setBorder(iconBordered);
                 icon.setLight(iconLight);
 
+                // Since we are dealing with Icon/Text, we can insert them at the right position
+                // Helps on widgets like ButtonDropDown, where it has a caret added
+                int position = 0;
+
                 if (iconPosition == IconPosition.LEFT) {
-                    widget.add(icon);
-                    widget.add(separator);
+                    widget.insert(icon, position++);
+                    widget.insert(separator, position++);
                 }
 
-                widget.add(text);
+                widget.insert(text, position++);
 
                 if (iconPosition == IconPosition.RIGHT) {
-                    widget.add(separator);
-                    widget.add(icon);
+                    widget.insert(separator, position++);
+                    widget.insert(icon, position);
                 }
             }
         });
