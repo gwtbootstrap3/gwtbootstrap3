@@ -80,32 +80,32 @@ public class Label extends AbstractTextWidget implements HasType<LabelType>, Has
     }
 
     @Override
-    public HandlerRegistration addMouseDownHandler(MouseDownHandler handler) {
+    public HandlerRegistration addMouseDownHandler(final MouseDownHandler handler) {
         return addDomHandler(handler, MouseDownEvent.getType());
     }
 
     @Override
-    public HandlerRegistration addMouseMoveHandler(MouseMoveHandler handler) {
+    public HandlerRegistration addMouseMoveHandler(final MouseMoveHandler handler) {
         return addDomHandler(handler, MouseMoveEvent.getType());
     }
 
     @Override
-    public HandlerRegistration addMouseOutHandler(MouseOutHandler handler) {
+    public HandlerRegistration addMouseOutHandler(final MouseOutHandler handler) {
         return addDomHandler(handler, MouseOutEvent.getType());
     }
 
     @Override
-    public HandlerRegistration addMouseOverHandler(MouseOverHandler handler) {
+    public HandlerRegistration addMouseOverHandler(final MouseOverHandler handler) {
         return addDomHandler(handler, MouseOverEvent.getType());
     }
 
     @Override
-    public HandlerRegistration addMouseUpHandler(MouseUpHandler handler) {
+    public HandlerRegistration addMouseUpHandler(final MouseUpHandler handler) {
         return addDomHandler(handler, MouseUpEvent.getType());
     }
 
     @Override
-    public HandlerRegistration addMouseWheelHandler(MouseWheelHandler handler) {
+    public HandlerRegistration addMouseWheelHandler(final MouseWheelHandler handler) {
         return addDomHandler(handler, MouseWheelEvent.getType());
     }
 }
