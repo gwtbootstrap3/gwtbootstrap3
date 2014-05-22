@@ -26,12 +26,11 @@ import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
-import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.HasDataToggle;
-import org.gwtbootstrap3.client.ui.base.HasHref;
-import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
+import org.gwtbootstrap3.client.ui.base.*;
+import org.gwtbootstrap3.client.ui.base.mixin.AttributeMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
+import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
@@ -52,9 +51,10 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @author Joshua Godi
  */
 public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref,
-        HasDataToggle, HasTargetHistoryToken, Focusable {
+        HasDataToggle, HasTargetHistoryToken, Focusable, HasTarget {
 
     private final DataToggleMixin<ThumbnailLink> toggleMixin = new DataToggleMixin<ThumbnailLink>(this);
+    private final AttributeMixin<ThumbnailLink> attributeMixin = new AttributeMixin<ThumbnailLink>(this);
     private final FocusableMixin<ThumbnailLink> focusableMixin;
     private String targetHistoryToken;
 
@@ -172,5 +172,21 @@ public class ThumbnailLink extends ComplexWidget implements HasClickHandlers, Ha
     @Override
     public void setFocus(final boolean focused) {
         focusableMixin.setFocus(focused);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setTarget(final String target) {
+        attributeMixin.setAttribute(Attributes.TARGET, target);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getTarget() {
+        return attributeMixin.getAttribute(Attributes.TARGET);
     }
 }

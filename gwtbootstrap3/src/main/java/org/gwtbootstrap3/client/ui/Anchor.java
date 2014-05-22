@@ -22,36 +22,14 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.DoubleClickEvent;
-import com.google.gwt.event.dom.client.DoubleClickHandler;
-import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
+import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasHTML;
-import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.HasDataParent;
-import org.gwtbootstrap3.client.ui.base.HasDataTarget;
-import org.gwtbootstrap3.client.ui.base.HasDataToggle;
-import org.gwtbootstrap3.client.ui.base.HasHref;
-import org.gwtbootstrap3.client.ui.base.HasIcon;
-import org.gwtbootstrap3.client.ui.base.HasIconPosition;
-import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
-import org.gwtbootstrap3.client.ui.base.mixin.DataParentMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
-import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
-import org.gwtbootstrap3.client.ui.constants.IconFlip;
-import org.gwtbootstrap3.client.ui.constants.IconPosition;
-import org.gwtbootstrap3.client.ui.constants.IconRotate;
-import org.gwtbootstrap3.client.ui.constants.IconSize;
-import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.gwtbootstrap3.client.ui.constants.Styles;
-import org.gwtbootstrap3.client.ui.constants.Toggle;
+import org.gwtbootstrap3.client.ui.base.*;
+import org.gwtbootstrap3.client.ui.base.mixin.*;
+import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
  * Anchor {@code <a>} element with text and optional icon.
@@ -61,12 +39,13 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
  * @author Grant Slender
  */
 public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasDataToggle, HasDataParent,
-        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget {
+        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget, HasTarget {
 
     private final DataToggleMixin<Anchor> toggleMixin = new DataToggleMixin<Anchor>(this);
     private final DataParentMixin<Anchor> parentMixin = new DataParentMixin<Anchor>(this);
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
     private final DataTargetMixin<Anchor> targetMixin = new DataTargetMixin<Anchor>(this);
+    private final AttributeMixin<Anchor> attributeMixin = new AttributeMixin<Anchor>(this);
     private final FocusableMixin<Anchor> focusableMixin;
     private String targetHistoryToken;
 
@@ -404,6 +383,22 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     @Override
     public String getDataTarget() {
         return targetMixin.getDataTarget();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setTarget(final String target) {
+        attributeMixin.setAttribute(Attributes.TARGET, target);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getTarget() {
+        return attributeMixin.getAttribute(Attributes.TARGET);
     }
 
     /**
