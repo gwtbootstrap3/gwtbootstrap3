@@ -12,4 +12,4 @@ For help getting started, check out the [project wiki](https://github.com/gwtboo
 
 If you have any questions, please ask them on our [Google Group](https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3)
 
-**Note:** This library is **almost** feature complete. Patches / pull requests are welcome. See [supported features](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Supported-Features) on the project wiki.
+**Note:** This library is feature complete and has support for every Bootstrap element as of v3.1.1. See [supported features](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Supported-Features) on the project wiki.
