@@ -21,7 +21,6 @@ package org.gwtbootstrap3.client.ui.base;
  */
 
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.HasEnabled;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
@@ -39,7 +38,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @see org.gwtbootstrap3.client.ui.ListItem
  * @see org.gwtbootstrap3.client.ui.ListDropDown
  */
-public abstract class AbstractListItem extends ComplexPanel implements HasEnabled, HasPull, HasActive,
+public abstract class AbstractListItem extends ComplexWidget implements HasEnabled, HasPull, HasActive,
         HasResponsiveness, HasId {
 
     private final ActiveMixin<AbstractListItem> activeMixin = new ActiveMixin<AbstractListItem>(this);
