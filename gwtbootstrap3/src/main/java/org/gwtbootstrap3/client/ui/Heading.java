@@ -197,6 +197,8 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasAlignment 
                 addStyleName(Styles.LIST_GROUP_ITEM_HEADING);
             } else if (getParent() instanceof PanelHeader) {
                 addStyleName(Styles.PANEL_TITLE);
+            } else if (getParent() instanceof MediaBody) {
+                addStyleName(Styles.MEDIA_HEADING);
             }
         }
     }

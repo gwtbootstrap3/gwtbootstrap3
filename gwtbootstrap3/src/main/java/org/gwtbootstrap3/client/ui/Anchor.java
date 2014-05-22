@@ -39,8 +39,9 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Grant Slender
  */
 public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasDataToggle, HasDataParent,
-        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget, HasTarget {
+        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget, HasTarget, HasPull {
 
+    private final PullMixin<Anchor> pullMixin = new PullMixin<Anchor>(this);
     private final DataToggleMixin<Anchor> toggleMixin = new DataToggleMixin<Anchor>(this);
     private final DataParentMixin<Anchor> parentMixin = new DataParentMixin<Anchor>(this);
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
@@ -399,6 +400,22 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     @Override
     public String getTarget() {
         return attributeMixin.getAttribute(Attributes.TARGET);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setPull(final Pull pull) {
+        pullMixin.setPull(pull);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Pull getPull() {
+        return pullMixin.getPull();
     }
 
     /**

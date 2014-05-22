@@ -127,6 +127,12 @@ public final class Styles {
     public static final String LIST_GROUP_ITEM_HEADING = "list-group-item-heading";
     public static final String LIST_GROUP_ITEM_TEXT = "list-group-item-text";
 
+    public static final String MEDIA_LIST = "media-list";
+    public static final String MEDIA = "media";
+    public static final String MEDIA_OBJECT = "media-object";
+    public static final String MEDIA_BODY = "media-body";
+    public static final String MEDIA_HEADING = "media-heading";
+
     public static final String MODAL = "modal";
     public static final String MODAL_BODY = "modal-body";
     public static final String MODAL_CONTENT = "modal-content";
