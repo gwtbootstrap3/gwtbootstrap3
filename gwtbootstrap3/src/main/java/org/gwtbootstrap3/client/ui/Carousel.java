@@ -131,6 +131,8 @@ public class Carousel extends Div {
 
     /**
      * Fired when the carousel is starting to change slides
+     *
+     * @param evt event
      */
     private void onSlide(final Event evt) {
         fireEvent(new CarouselSlideEvent(this, evt));
@@ -138,6 +140,8 @@ public class Carousel extends Div {
 
     /**
      * Fired when the carousel is finished changing slides
+     *
+     * @param evt event
      */
     private void onSlid(final Event evt) {
         fireEvent(new CarouselSlidEvent(this, evt));

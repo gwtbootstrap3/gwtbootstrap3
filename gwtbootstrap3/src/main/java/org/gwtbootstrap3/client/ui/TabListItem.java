@@ -32,11 +32,11 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * List item for the nav tabs, needs special toggle and JS to make it work properly
- * <p/>
+ *
  * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
- * <p/>
+ *
  * <h3>UiBinder example</h3>
- * <p/>
+ *
  * <pre>
  * {@code
  * <b:NavTabs>

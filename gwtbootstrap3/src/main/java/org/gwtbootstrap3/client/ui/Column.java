@@ -51,7 +51,7 @@ public class Column extends Div {
 
     /**
      * Creates column with primary size.
-     * <p/>
+     *
      * Additional sizes can be added with {@link #addSize(ColumnSize...)}
      *
      * @param size Size of column
@@ -75,7 +75,7 @@ public class Column extends Div {
     /**
      * Convenience constructor for UiBinder to create a Column with one or more
      * sizes.
-     * <p/>
+     *
      * Size needs to be a space-separated String of {@link ColumnSize} enum
      * names, e.g. "SM_3 LG_3"
      *

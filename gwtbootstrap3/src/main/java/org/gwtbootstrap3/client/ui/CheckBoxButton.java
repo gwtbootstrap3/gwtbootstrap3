@@ -25,7 +25,7 @@ import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
 
 /**
  * Button representing a checkbox used within a {@link ButtonGroup} that has toggle set to {@code Toogle.BUTTONS}.
- * <p/>
+ *
  * If you are looking for a classic checkbox see {@link CheckBox}.
  *
  * @author Sven Jacobs

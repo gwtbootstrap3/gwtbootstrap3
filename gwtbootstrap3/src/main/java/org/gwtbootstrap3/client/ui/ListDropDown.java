@@ -29,9 +29,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * Drop down item within a list, e.g. {@link NavTabs}, {@link NavPills} or
  * {@link Navbar}.
- * <p/>
+ *
  * <h3>UiBinder example</h3>
- * <p/>
+ *
  * <pre>
  * {@code
  *     <b:NavTabs>

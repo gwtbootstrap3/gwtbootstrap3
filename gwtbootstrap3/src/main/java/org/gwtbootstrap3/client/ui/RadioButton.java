@@ -25,7 +25,7 @@ import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
 
 /**
  * Button representing a radio box.
- * <p/>
+ *
  * Used within a {@link ButtonGroup} that
  * has toggle set to {@code Toogle.BUTTONS}.
  *

@@ -57,7 +57,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
      * {@link ProvidesKey key provider}.
      *
      * @param pageSize    the page size
-     * @param keyProvider an instance of ProvidesKey<T>, or null if the record
+     * @param keyProvider an instance of ProvidesKey, or null if the record
      *                    object should act as its own key
      */
     public DataGrid(final int pageSize, final ProvidesKey<T> keyProvider) {
@@ -81,7 +81,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
      *
      * @param pageSize         the page size
      * @param resources        the resources to use for this widget
-     * @param keyProvider      an instance of ProvidesKey<T>, or null if the record
+     * @param keyProvider      an instance of ProvidesKey, or null if the record
      *                         object should act as its own key
      * @param loadingIndicator the widget to use as a loading indicator, or null
      *                         to disable
@@ -94,7 +94,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
      * Constructs a table with a default page size of 50, and the given
      * {@link ProvidesKey key provider}.
      *
-     * @param keyProvider an instance of ProvidesKey<T>, or null if the record
+     * @param keyProvider an instance of ProvidesKey, or null if the record
      *                    object should act as its own key
      */
     public DataGrid(final ProvidesKey<T> keyProvider) {

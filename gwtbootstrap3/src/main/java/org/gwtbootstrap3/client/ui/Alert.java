@@ -39,7 +39,7 @@ import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
  * Alert block.
- * <p/>
+ *
  * Use {@link #setDismissable(boolean)} to add a close ("x") button.
  *
  * @author Sven Jacobs

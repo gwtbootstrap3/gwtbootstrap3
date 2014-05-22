@@ -22,12 +22,7 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.DoubleClickEvent;
-import com.google.gwt.event.dom.client.DoubleClickHandler;
-import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
+import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
@@ -41,11 +36,11 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * Widget representing the Bootstrap Thumbnail as a clickable image
- * <p/>
+ *
  * <a href="http://getbootstrap.com/components/#thumbnails">Bootstrap Documentation</a>
- * <p/>
+ *
  * <h3>UiBinder example</h3>
- * <p/>
+ *
  * <pre>
  * {@code
  * <b:ThumbnailLink>

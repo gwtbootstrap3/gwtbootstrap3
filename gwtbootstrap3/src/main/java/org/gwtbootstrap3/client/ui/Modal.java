@@ -35,9 +35,9 @@ import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
  * Modal dialog.
- * <p/>
+ *
  * <h3>UiBinder example</h3>
- * <p/>
+ *
  * <pre>
  * {@code
  *     <b:Modal title="Important information" b:id="modal1">
@@ -52,9 +52,9 @@ import org.gwtbootstrap3.client.ui.html.Div;
  *     <b:Button target="#modal1" toggle="MODAL">Show modal</b:Button>
  * }
  * </pre>
- * <p/>
+ *
  * It's also possible to specify a custom modal header:
- * <p/>
+ *
  * <pre>
  * {@code
  *     <b:Modal>

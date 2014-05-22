@@ -30,7 +30,7 @@ import org.gwtbootstrap3.client.ui.base.HasId;
  * updates "active" states of a {@link Nav} accordingly.
  * <h3>Note</h3> The target element <strong>must</strong> be a parent element of a
  * {@code <ul class="nav">} or {@link Nav}.
- * <p/>
+ *
  * Also the ScrollSpy must be initialized when the target element has been added
  * to the DOM, for example in {@link com.google.gwt.user.client.ui.Widget#onAttach()}.
  * <pre>{@code
@@ -39,7 +39,7 @@ import org.gwtbootstrap3.client.ui.base.HasId;
  *     super.onAttach();
  *     ScrollSpy.scrollSpy(this);
  * }}</pre>
- * <p/>
+ *
  * See Bootstrap's <a
  * href="http://getbootstrap.com/javascript/#scrollspy">documentation</a>.
  *
@@ -55,6 +55,7 @@ public class ScrollSpy {
      * target CSS selector.
      *
      * @param selector CSS selector for target element
+     * @return ScrollSpy
      */
     public static ScrollSpy scrollSpy(final String selector) {
         return new ScrollSpy((Element) Document.get().getBody().cast(), selector);
@@ -65,6 +66,7 @@ public class ScrollSpy {
      * target element that <strong>must</strong> have an ID.
      *
      * @param target Target element having an ID
+     * @return ScrollSpy
      */
     public static ScrollSpy scrollSpy(final HasId target) {
         return new ScrollSpy((Element) Document.get().getBody().cast(), target);
@@ -75,6 +77,7 @@ public class ScrollSpy {
      *
      * @param spyOn    Spy on this object
      * @param selector CSS selector of target element
+     * @return ScrollSpy
      */
     public static ScrollSpy scrollSpy(final UIObject spyOn, final String selector) {
         return new ScrollSpy(spyOn.getElement(), selector);
@@ -85,6 +88,7 @@ public class ScrollSpy {
      *
      * @param spyOn  Spy on this object
      * @param target Target element having an ID
+     * @return ScrollSpy
      */
     public static ScrollSpy scrollSpy(final UIObject spyOn, final HasId target) {
         return new ScrollSpy(spyOn.getElement(), target);
@@ -95,6 +99,7 @@ public class ScrollSpy {
      *
      * @param spyOn    Spy on this element
      * @param selector CSS selector of target element
+     * @return ScrollSpy
      */
     public static ScrollSpy scrollSpy(final Element spyOn, final String selector) {
         return new ScrollSpy(spyOn, selector);

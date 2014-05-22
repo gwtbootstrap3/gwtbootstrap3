@@ -22,14 +22,7 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
-import org.gwtbootstrap3.client.shared.event.HiddenEvent;
-import org.gwtbootstrap3.client.shared.event.HiddenHandler;
-import org.gwtbootstrap3.client.shared.event.HideEvent;
-import org.gwtbootstrap3.client.shared.event.HideHandler;
-import org.gwtbootstrap3.client.shared.event.ShowEvent;
-import org.gwtbootstrap3.client.shared.event.ShowHandler;
-import org.gwtbootstrap3.client.shared.event.ShownEvent;
-import org.gwtbootstrap3.client.shared.event.ShownHandler;
+import org.gwtbootstrap3.client.shared.event.*;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
 
@@ -69,6 +62,7 @@ public class Collapse extends Div {
 
     /**
      * Sets the default state to show or hide. Show is true.
+     * @param toggle toggle the collapse
      */
     public void setToggle(final boolean toggle) {
         this.toggle = toggle;

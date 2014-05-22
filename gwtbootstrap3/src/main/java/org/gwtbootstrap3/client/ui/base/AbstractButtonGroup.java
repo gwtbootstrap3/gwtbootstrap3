@@ -87,7 +87,7 @@ public abstract class AbstractButtonGroup extends FlowPanel implements HasName, 
 
     /**
      * Make a group of buttons stretch at the same size to span the entire width of its parent.
-     * <p/>
+     *
      * <strong>Note:</strong> Justified button groups only work with {@link org.gwtbootstrap3.client.ui.AnchorButton} child elements!
      *
      * @param justified Stretch button group
@@ -129,7 +129,7 @@ public abstract class AbstractButtonGroup extends FlowPanel implements HasName, 
     /**
      * Makes this a "drop up" container for dropdown menus where the menu opens upwards.
      *
-     * @param dropUp
+     * @param dropUp display up or not
      */
     public void setDropUp(final boolean dropUp) {
         if (dropUp) {

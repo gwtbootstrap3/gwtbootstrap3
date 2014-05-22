@@ -36,17 +36,12 @@ import org.gwtbootstrap3.client.ui.base.HasActive;
 import org.gwtbootstrap3.client.ui.base.HasFormValue;
 import org.gwtbootstrap3.client.ui.base.HasIcon;
 import org.gwtbootstrap3.client.ui.base.HasIconPosition;
-import org.gwtbootstrap3.client.ui.constants.IconFlip;
-import org.gwtbootstrap3.client.ui.constants.IconPosition;
-import org.gwtbootstrap3.client.ui.constants.IconRotate;
-import org.gwtbootstrap3.client.ui.constants.IconSize;
-import org.gwtbootstrap3.client.ui.constants.IconType;
-import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.constants.*;
 import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
  * A checkbox with a label for use within a {@link Form}.
- * <p/>
+ *
  * Basically this is a non-styled {@link CheckBoxButton} encapsulated in a {@link org.gwtbootstrap3.client.ui.html.Div}.
  *
  * @author Sven Jacobs

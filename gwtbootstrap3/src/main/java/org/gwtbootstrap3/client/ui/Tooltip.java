@@ -28,14 +28,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
-import org.gwtbootstrap3.client.shared.event.HiddenEvent;
-import org.gwtbootstrap3.client.shared.event.HiddenHandler;
-import org.gwtbootstrap3.client.shared.event.HideEvent;
-import org.gwtbootstrap3.client.shared.event.HideHandler;
-import org.gwtbootstrap3.client.shared.event.ShowEvent;
-import org.gwtbootstrap3.client.shared.event.ShowHandler;
-import org.gwtbootstrap3.client.shared.event.ShownEvent;
-import org.gwtbootstrap3.client.shared.event.ShownHandler;
+import org.gwtbootstrap3.client.shared.event.*;
 import org.gwtbootstrap3.client.ui.base.HasHover;
 import org.gwtbootstrap3.client.ui.base.HasId;
 import org.gwtbootstrap3.client.ui.constants.Placement;
@@ -46,12 +39,12 @@ import java.util.NoSuchElementException;
 
 /**
  * Basic implementation for the Bootstrap tooltip
- * <p/>
+ *
  * <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap Documentation</a>
- * <p/>
- * <p/>
+ *
+ *
  * <h3>UiBinder example</h3>
- * <p/>
+ *
  * <pre>
  * {@code
  * <b:Tooltip text="...">
@@ -59,7 +52,7 @@ import java.util.NoSuchElementException;
  * </b:Tooltip>
  * }
  * </pre>
- * <p/>
+ *
  * ** Must call reconfigure() after altering any/all Tooltips!
  *
  * @author Joshua Godi

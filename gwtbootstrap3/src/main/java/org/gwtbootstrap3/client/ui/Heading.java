@@ -34,12 +34,12 @@ import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
  * Represents a Heading tag, has an optional subtext.
- * <p/>
+ *
  * <h3>Bootstrap's Documentation</h3>
  * <a href="http://getbootstrap.com/css/#type">Typography</a>
- * <p/>
+ *
  * <h3>Usage in UiBinder</h3>
- * <p/>
+ *
  * <pre>
  * {@code
  * <b:Heading size="1">
@@ -62,9 +62,9 @@ import org.gwtbootstrap3.client.ui.html.Text;
  * </b:Heading>
  * }
  * </pre>
- * <p/>
+ *
  * <h3>Usage in Java</h3>
- * <p/>
+ *
  * <pre>
  * Heading h1 = new Heading(1, "Heading Text");
  * h1.setSubtext("Subtext Text); // optional
@@ -112,7 +112,7 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasAlignment 
 
     /**
      * Sets the subtext for the heading (wrapped in a Small tag).
-     * <p/>
+     *
      * When using the setter for this, the subtext will be added after the text
      *
      * @param subtext the subtext of the heading

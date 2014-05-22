@@ -56,7 +56,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      * Constructs a table with a default page size of 15, and the given
      * {@link ProvidesKey key provider}.
      *
-     * @param keyProvider an instance of ProvidesKey<T>, or null if the record
+     * @param keyProvider an instance of ProvidesKey, or null if the record
      *                    object should act as its own key
      */
     public CellTable(final ProvidesKey<T> keyProvider) {
@@ -79,7 +79,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      * {@link ProvidesKey key provider}.
      *
      * @param pageSize    the page size
-     * @param keyProvider an instance of ProvidesKey<T>, or null if the record
+     * @param keyProvider an instance of ProvidesKey, or null if the record
      *                    object should act as its own key
      */
     public CellTable(final int pageSize, final ProvidesKey<T> keyProvider) {
@@ -92,7 +92,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      *
      * @param pageSize         the page size
      * @param resources        the resources to use for this widget
-     * @param keyProvider      an instance of ProvidesKey<T>, or null if the record
+     * @param keyProvider      an instance of ProvidesKey, or null if the record
      *                         object should act as its own key
      * @param loadingIndicator the widget to use as a loading indicator, or null
      *                         to disable
@@ -107,7 +107,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
      *
      * @param pageSize           the page size
      * @param resources          the resources to use for this widget
-     * @param keyProvider        an instance of ProvidesKey<T>, or null if the record
+     * @param keyProvider        an instance of ProvidesKey, or null if the record
      *                           object should act as its own key
      * @param loadingIndicator   the widget to use as a loading indicator, or null
      *                           to disable
