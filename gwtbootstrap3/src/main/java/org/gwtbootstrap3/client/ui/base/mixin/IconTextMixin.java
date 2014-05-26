@@ -172,8 +172,12 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
         Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
             @Override
             public void execute() {
-                text.removeFromParent();
-                separator.removeFromParent();
+                if (text.isAttached()) {
+                    text.removeFromParent();
+                }
+                if (separator.isAttached()) {
+                    separator.removeFromParent();
+                }
 
                 if (icon != null) {
                     icon.removeFromParent();
@@ -198,7 +202,9 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                     widget.insert(separator, position++);
                 }
 
-                widget.insert(text, position++);
+                if (text.getText() != null && text.getText().length() > 0) {
+                    widget.insert(text, position);
+                }
 
                 if (iconPosition == IconPosition.RIGHT) {
                     widget.insert(separator, position++);
