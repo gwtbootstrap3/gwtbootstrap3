@@ -22,6 +22,8 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.uibinder.client.UiConstructor;
+import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasAlignment;
 import org.gwtbootstrap3.client.ui.base.HasEmphasis;
@@ -73,7 +75,7 @@ import org.gwtbootstrap3.client.ui.html.Text;
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class Heading extends ComplexWidget implements HasEmphasis, HasAlignment {
+public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEmphasis, HasAlignment {
     private final Small subtext = new Small();
     private final Text text = new Text();
 
@@ -133,19 +135,17 @@ public class Heading extends ComplexWidget implements HasEmphasis, HasAlignment 
     }
 
     /**
-     * Returns the text of the heading.
-     *
-     * @return text of the heading
+     * {@inheritDoc}
      */
+    @Override
     public String getText() {
         return text.getText();
     }
 
     /**
-     * Sets the text for the heading
-     *
-     * @param text the text of the heading
+     * {@inheritDoc}
      */
+    @Override
     public void setText(final String text) {
         this.text.setText(text);
         insert(this.text, 0);

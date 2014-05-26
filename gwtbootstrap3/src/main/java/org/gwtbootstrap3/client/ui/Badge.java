@@ -21,6 +21,8 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Text;
@@ -38,7 +40,7 @@ import org.gwtbootstrap3.client.ui.html.Text;
  *
  * @author Sven Jacobs
  */
-public class Badge extends ComplexWidget {
+public class Badge extends ComplexWidget implements HasWidgets, HasText {
     private final Text text = new Text();
 
     public Badge() {
@@ -47,19 +49,17 @@ public class Badge extends ComplexWidget {
     }
 
     /**
-     * Returns the text of the badge.
-     *
-     * @return text of the badge
+     * {@inheritDoc}
      */
+    @Override
     public String getText() {
         return text.getText();
     }
 
     /**
-     * Sets the text for the badge
-     *
-     * @param text the text of the badge
+     * {@inheritDoc}
      */
+    @Override
     public void setText(final String text) {
         this.text.setText(text);
         insert(this.text, 0);

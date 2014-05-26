@@ -22,6 +22,8 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap3.client.shared.event.AlertCloseEvent;
 import org.gwtbootstrap3.client.shared.event.AlertCloseHandler;
@@ -47,7 +49,7 @@ import org.gwtbootstrap3.client.ui.html.Text;
  * @see org.gwtbootstrap3.client.shared.event.AlertCloseEvent
  * @see org.gwtbootstrap3.client.shared.event.AlertClosedEvent
  */
-public class Alert extends Div implements HasType<AlertType>, HasResponsiveness {
+public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType>, HasResponsiveness {
     private static final String CLOSE = "close";
 
     private final Text text = new Text();
@@ -100,19 +102,17 @@ public class Alert extends Div implements HasType<AlertType>, HasResponsiveness 
     }
 
     /**
-     * Returns the text of the alert.
-     *
-     * @return text of the alert
+     * {@inheritDoc}
      */
+    @Override
     public String getText() {
         return text.getText();
     }
 
     /**
-     * Sets the text for the alert
-     *
-     * @param text the text of the alert
+     * {@inheritDoc}
      */
+    @Override
     public void setText(final String text) {
         this.text.setText(text);
         insert(this.text, 0);

@@ -21,6 +21,8 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.gwtbootstrap3.client.ui.base.AbstractListItem;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Text;
@@ -41,7 +43,7 @@ import org.gwtbootstrap3.client.ui.html.Text;
  * @see NavPills
  * @see Navbar
  */
-public class ListItem extends AbstractListItem {
+public class ListItem extends AbstractListItem implements HasWidgets, HasText {
     private Text text;
 
     /**
@@ -61,20 +63,18 @@ public class ListItem extends AbstractListItem {
     }
 
     /**
-     * Set the text for the list item
-     *
-     * @param text String text
+     * {@inheritDoc}
      */
+    @Override
     public void setText(final String text) {
         this.text = new Text(text);
         add(this.text, (Element) getElement());
     }
 
     /**
-     * Get the text of the list item
-     *
-     * @return text of the list item
+     * {@inheritDoc}
      */
+    @Override
     public String getText() {
         return text.getText();
     }

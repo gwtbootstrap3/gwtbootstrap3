@@ -21,6 +21,8 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Text;
@@ -28,7 +30,7 @@ import org.gwtbootstrap3.client.ui.html.Text;
 /**
  * @author Joshua Godi
  */
-public class Lead extends ComplexWidget {
+public class Lead extends ComplexWidget implements HasWidgets, HasText {
     private final Text text = new Text();
 
     public Lead() {
@@ -37,19 +39,17 @@ public class Lead extends ComplexWidget {
     }
 
     /**
-     * Returns the text of the lead.
-     *
-     * @return text of the lead
+     * {@inheritDoc}
      */
+    @Override
     public String getText() {
         return text.getText();
     }
 
     /**
-     * Sets the text for the lead
-     *
-     * @param text the text of the lead
+     * {@inheritDoc}
      */
+    @Override
     public void setText(final String text) {
         this.text.setText(text);
         insert(this.text, 0);

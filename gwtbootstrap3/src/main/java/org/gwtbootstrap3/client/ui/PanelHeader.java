@@ -20,6 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.gwtbootstrap3.client.ui.base.HasDataParent;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.HasDataToggle;
@@ -34,7 +36,7 @@ import org.gwtbootstrap3.client.ui.html.Text;
 /**
  * @author Joshua Godi
  */
-public class PanelHeader extends Div implements HasDataToggle, HasDataTarget, HasDataParent {
+public class PanelHeader extends Div implements HasWidgets, HasText, HasDataToggle, HasDataTarget, HasDataParent {
     private final DataParentMixin<PanelHeader> parentMixin = new DataParentMixin<PanelHeader>(this);
     private final DataTargetMixin<PanelHeader> targetMixin = new DataTargetMixin<PanelHeader>(this);
     private final DataToggleMixin<PanelHeader> toggleMixin = new DataToggleMixin<PanelHeader>(this);
@@ -45,19 +47,17 @@ public class PanelHeader extends Div implements HasDataToggle, HasDataTarget, Ha
     }
 
     /**
-     * Returns the text of the panel header.
-     *
-     * @return text of the panel header
+     * {@inheritDoc}
      */
+    @Override
     public String getText() {
         return text.getText();
     }
 
     /**
-     * Sets the text for the panel header
-     *
-     * @param text the text of the panel header
+     * {@inheritDoc}
      */
+    @Override
     public void setText(final String text) {
         this.text.setText(text);
         insert(this.text, 0);
