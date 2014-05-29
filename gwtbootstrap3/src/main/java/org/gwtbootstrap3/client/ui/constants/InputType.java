@@ -33,6 +33,7 @@ public enum InputType implements Type {
     WEEK("week"),
     NUMBER("number"),
     EMAIL("email"),
+    FILE("file"),
     URL("url"),
     SEARCH("search"),
     TEL("tel"),
