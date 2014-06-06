@@ -51,6 +51,16 @@ public class CheckBox extends Div implements HasName, HasEnabled, HasActive, Has
 
     private final CheckBoxButton button;
     private LeafValueEditor<Boolean> editor;
+    
+    /**
+     * Creates a check box with the specified text label.
+     * 
+     * @param label the check box's label
+     */
+    public CheckBox(String label) {
+		this();
+		setText(label);
+    }
 
     public CheckBox() {
         setStyleName(Styles.CHECKBOX);
