@@ -49,7 +49,7 @@ import org.gwtbootstrap3.client.ui.html.Div;
 public class CheckBox extends Div implements HasName, HasEnabled, HasActive, HasText, HasIcon, HasIconPosition,
         HasClickHandlers, HasFormValue, HasValue<Boolean>, IsEditor<LeafValueEditor<Boolean>> {
 
-    private final CheckBoxButton button;
+    private final CheckBoxButton button = new CheckBoxButton();
     private LeafValueEditor<Boolean> editor;
     
     /**
@@ -64,7 +64,6 @@ public class CheckBox extends Div implements HasName, HasEnabled, HasActive, Has
 
     public CheckBox() {
         setStyleName(Styles.CHECKBOX);
-        button = new CheckBoxButton();
         button.setStyleName("");
         add(button, (Element) getElement());
     }
