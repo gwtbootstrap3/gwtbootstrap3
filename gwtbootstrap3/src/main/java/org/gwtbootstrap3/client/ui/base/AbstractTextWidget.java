@@ -54,8 +54,7 @@ public abstract class AbstractTextWidget extends Widget implements HasId, HasHTM
 
     @Override
     public void setText(final String text) {
-        // Set innerHTML instead to allow for spacing and HTML code!
-        getElement().setInnerHTML(text);
+        getElement().setInnerText(text);
     }
 
     @Override
