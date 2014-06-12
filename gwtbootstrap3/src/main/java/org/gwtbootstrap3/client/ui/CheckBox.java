@@ -49,12 +49,21 @@ import org.gwtbootstrap3.client.ui.html.Div;
 public class CheckBox extends Div implements HasName, HasEnabled, HasActive, HasText, HasIcon, HasIconPosition,
         HasClickHandlers, HasFormValue, HasValue<Boolean>, IsEditor<LeafValueEditor<Boolean>> {
 
-    private final CheckBoxButton button;
+    private final CheckBoxButton button = new CheckBoxButton();
     private LeafValueEditor<Boolean> editor;
+    
+    /**
+     * Creates a check box with the specified text label.
+     * 
+     * @param label the check box's label
+     */
+    public CheckBox(String label) {
+		this();
+		setText(label);
+    }
 
     public CheckBox() {
         setStyleName(Styles.CHECKBOX);
-        button = new CheckBoxButton();
         button.setStyleName("");
         add(button, (Element) getElement());
     }
