@@ -30,6 +30,7 @@ import org.gwtbootstrap3.client.ui.base.HasEmphasis;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
 import org.gwtbootstrap3.client.ui.constants.Emphasis;
+import org.gwtbootstrap3.client.ui.constants.HeadingSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Small;
 import org.gwtbootstrap3.client.ui.html.Text;
@@ -44,20 +45,20 @@ import org.gwtbootstrap3.client.ui.html.Text;
  *
  * <pre>
  * {@code
- * <b:Heading size="1">
+ * <b:Heading size="H1">
  *     <b:Text text="Heading"/>
  *     <b:Small text=" subtext"/>
  * </b:Heading>
  *
- * <b:Heading size="1" text="Heading Text" subtext="Subtext Text"/>
- * <b:Heading size="1" subtext="Subtext Text" text="Heading Text"/>
+ * <b:Heading size="H1" text="Heading Text" subtext="Subtext Text"/>
+ * <b:Heading size="H1" subtext="Subtext Text" text="Heading Text"/>
  *
- * <b:Heading size="1">
+ * <b:Heading size="H1">
  *     <b:Icon type="..."/>
  *     <b:Text text="Heading with icon"/>
  * </b:Heading>
  *
- * <b:Heading size="1">
+ * <b:Heading size="H1">
  *     <b:Icon type="..."/>
  *     <b:Text text="Heading with icon"/>
  *     <b:Small text=" subtext"/>
@@ -85,8 +86,8 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
      * @param size size of the heading
      */
     @UiConstructor
-    public Heading(final int size) {
-        setElement(Document.get().createHElement(size));
+    public Heading(final HeadingSize size) {
+        setElement(Document.get().createHElement(size.getHeadingSize()));
     }
 
     /**
@@ -95,7 +96,7 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
      * @param size size of the heading
      * @param text text for the heading
      */
-    public Heading(final int size, final String text) {
+    public Heading(final HeadingSize size, final String text) {
         this(size);
         setText(text);
     }
@@ -107,7 +108,7 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
      * @param text    text for the heading
      * @param subtext subtext for the heading
      */
-    public Heading(final int size, final String text, final String subtext) {
+    public Heading(final HeadingSize size, final String text, final String subtext) {
         this(size, text);
         setSubtext(subtext);
     }

@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.base.button.CloseButton;
 import org.gwtbootstrap3.client.ui.constants.ButtonDismiss;
+import org.gwtbootstrap3.client.ui.constants.HeadingSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
@@ -33,7 +34,7 @@ import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
  */
 public class ModalHeader extends FlowPanel implements ModalComponent, IsClosable {
 
-    private final Heading heading = new Heading(4);
+    private final Heading heading = new Heading(HeadingSize.H4);
     private final CloseButton closeButton = new CloseButton();
 
     public ModalHeader() {
