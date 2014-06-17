@@ -1,7 +1,11 @@
 package org.gwtbootstrap3.client.ui.html;
 
 import com.google.gwt.dom.client.SpanElement;
+
+import org.gwtbootstrap3.client.ui.base.HasContextualBackground;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
+import org.gwtbootstrap3.client.ui.constants.ContextualBackground;
 import org.gwtbootstrap3.client.ui.gwt.HTMLPanel;
 
 /*
@@ -27,8 +31,9 @@ import org.gwtbootstrap3.client.ui.gwt.HTMLPanel;
 /**
  * @author Sven Jacobs
  * @author Grant Slender
+ * @author David Buhler
  */
-public class Span extends HTMLPanel {
+public class Span extends HTMLPanel implements HasContextualBackground {
 
     private final HTMLMixin<Span> textMixin = new HTMLMixin<Span>(this);
 
@@ -55,5 +60,15 @@ public class Span extends HTMLPanel {
 
     public void setHTML(final String html) {
         textMixin.setHTML(html);
+    }
+    
+    @Override
+    public void setContextualBackground(final ContextualBackground contextualBackground) {
+    	StyleHelper.addUniqueEnumStyleName(this, ContextualBackground.class, contextualBackground);
+    }
+    
+    @Override
+    public ContextualBackground getContextualBackground() {
+    	return ContextualBackground.fromStyleName(getStyleName());
     }
 }

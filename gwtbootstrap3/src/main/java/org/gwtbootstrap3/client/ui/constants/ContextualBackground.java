@@ -27,30 +27,26 @@ import com.google.gwt.dom.client.Style;
 /**
  * @author David Buhler
  */
-public enum ContextualBackground implements Style.HasCssName
-{
+public enum ContextualBackground implements Style.HasCssName{
 	DEFAULT(""),
 	DANGER("bg-danger"),
 	INFO("bg-info"),
 	PRIMARY("bg-primary"),
 	SUCCESS("bg-success"),
 	WARNING("bg-warning");
+
+	private final String	cssClass;
 	
-	public static ContextualBackground fromStyleName(final String styleName)
-	{
+	public static ContextualBackground fromStyleName(final String styleName) {
 		return EnumHelper.fromStyleName(styleName, ContextualBackground.class, DEFAULT);
 	}
 
-	private final String	cssClass;
-
-	private ContextualBackground(final String cssClass)
-	{
+	private ContextualBackground(final String cssClass) {
 		this.cssClass = cssClass;
 	}
 
 	@Override
-	public String getCssName()
-	{
+	public String getCssName() {
 		return cssClass;
 	}
 }

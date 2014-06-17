@@ -21,18 +21,22 @@ package org.gwtbootstrap3.client.ui.html;
  */
 
 import com.google.gwt.dom.client.ParagraphElement;
+
 import org.gwtbootstrap3.client.ui.base.HasAlignment;
+import org.gwtbootstrap3.client.ui.base.HasContextualBackground;
 import org.gwtbootstrap3.client.ui.base.HasEmphasis;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
+import org.gwtbootstrap3.client.ui.constants.ContextualBackground;
 import org.gwtbootstrap3.client.ui.constants.Emphasis;
 import org.gwtbootstrap3.client.ui.gwt.HTMLPanel;
 
 /**
  * @author Sven Jacobs
+ * @author David Buhler
  */
-public class Paragraph extends HTMLPanel implements HasAlignment, HasEmphasis {
+public class Paragraph extends HTMLPanel implements HasAlignment, HasContextualBackground, HasEmphasis {
 
     private final HTMLMixin<Paragraph> textMixin = new HTMLMixin<Paragraph>(this);
 
@@ -79,5 +83,15 @@ public class Paragraph extends HTMLPanel implements HasAlignment, HasEmphasis {
     @Override
     public Emphasis getEmphasis() {
         return Emphasis.fromStyleName(getStyleName());
+    }
+    
+    @Override
+    public void setContextualBackground(final ContextualBackground contextualBackground) {
+    	StyleHelper.addUniqueEnumStyleName(this, ContextualBackground.class, contextualBackground);
+    }
+    
+    @Override
+    public ContextualBackground getContextualBackground() {
+    	return ContextualBackground.fromStyleName(getStyleName());
     }
 }
