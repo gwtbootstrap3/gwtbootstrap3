@@ -20,6 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
@@ -57,6 +59,26 @@ public class Pager extends UnorderedList implements HasResponsiveness {
             previous.removeStyleName(Styles.PREVIOUS);
             next.removeStyleName(Styles.NEXT);
         }
+    }
+
+    /**
+     * Adds a click handler to the previous button
+     *
+     * @param clickHandler click handler
+     * @return handler registration of the handler
+     */
+    public HandlerRegistration addPreviousClickHandler(final ClickHandler clickHandler) {
+        return previous.addClickHandler(clickHandler);
+    }
+
+    /**
+     * Adds a click handler to the next button
+     *
+     * @param clickHandler click handler
+     * @return handler registration of the handler
+     */
+    public HandlerRegistration addNextClickHandler(final ClickHandler clickHandler) {
+        return next.addClickHandler(clickHandler);
     }
 
     public void setPreviousText(final String text) {
