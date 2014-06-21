@@ -20,9 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.base.HasNavbarPull;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.NavbarPull;
+import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.UnorderedList;
 
@@ -34,7 +34,7 @@ import org.gwtbootstrap3.client.ui.html.UnorderedList;
  * @see ListItem
  * @see ListDropDown
  */
-public class NavbarNav extends UnorderedList implements HasNavbarPull {
+public class NavbarNav extends UnorderedList {
 
     public NavbarNav() {
         setStyleName(Styles.NAV);
@@ -42,12 +42,26 @@ public class NavbarNav extends UnorderedList implements HasNavbarPull {
     }
 
     @Override
-    public void setPull(final NavbarPull pull) {
-        StyleHelper.addUniqueEnumStyleName(this, NavbarPull.class, pull);
+    public void setPull(final Pull pull) {
+        NavbarPull navbarPull = NavbarPull.NONE;
+
+        if (pull == Pull.LEFT) {
+            navbarPull = NavbarPull.LEFT;
+        } else {
+            navbarPull = NavbarPull.RIGHT;
+        }
+
+        StyleHelper.addUniqueEnumStyleName(this, NavbarPull.class, navbarPull);
     }
 
     @Override
-    public NavbarPull getPull() {
-        return NavbarPull.fromStyleName(getStyleName());
+    public Pull getPull() {
+        NavbarPull navbarPull = NavbarPull.fromStyleName(getStyleName());
+
+        if (navbarPull == NavbarPull.NONE) {
+            return Pull.NONE;
+        }
+
+        return navbarPull == NavbarPull.RIGHT ? Pull.RIGHT : Pull.LEFT;
     }
 }
