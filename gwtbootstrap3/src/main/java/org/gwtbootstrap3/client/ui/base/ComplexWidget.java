@@ -26,16 +26,22 @@ import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
+import org.gwtbootstrap3.client.ui.constants.Pull;
 
 /**
  * Base class for widgets that contain further widgets.
  *
  * @author Sven Jacobs
  */
-public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiveness, HasInlineStyle {
+public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiveness, HasInlineStyle, HasPull {
     private final IdMixin<ComplexWidget> idMixin = new IdMixin<ComplexWidget>(this);
+    private final PullMixin<ComplexWidget> pullMixin = new PullMixin<ComplexWidget>(this);
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void add(final Widget child) {
         add(child, (Element) getElement());
@@ -51,63 +57,115 @@ public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiven
         insert(child, (Element) getElement(), beforeIndex, true);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setId(final String id) {
         idMixin.setId(id);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getId() {
         return idMixin.getId();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setVisibleOn(final DeviceSize deviceSize) {
         StyleHelper.setVisibleOn(this, deviceSize);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setHiddenOn(final DeviceSize deviceSize) {
         StyleHelper.setHiddenOn(this, deviceSize);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setMarginTop(final double margin) {
         getElement().getStyle().setMarginTop(margin, Style.Unit.PX);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setMarginLeft(final double margin) {
         getElement().getStyle().setMarginLeft(margin, Style.Unit.PX);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setMarginRight(final double margin) {
         getElement().getStyle().setMarginRight(margin, Style.Unit.PX);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setMarginBottom(final double margin) {
         getElement().getStyle().setMarginBottom(margin, Style.Unit.PX);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setPaddingTop(final double padding) {
         getElement().getStyle().setPaddingTop(padding, Style.Unit.PX);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setPaddingLeft(final double padding) {
         getElement().getStyle().setPaddingLeft(padding, Style.Unit.PX);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setPaddingRight(final double padding) {
         getElement().getStyle().setPaddingRight(padding, Style.Unit.PX);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setPaddingBottom(final double padding) {
         getElement().getStyle().setPaddingBottom(padding, Style.Unit.PX);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setPull(final Pull pull) {
+        pullMixin.setPull(pull);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Pull getPull() {
+        return pullMixin.getPull();
     }
 }
