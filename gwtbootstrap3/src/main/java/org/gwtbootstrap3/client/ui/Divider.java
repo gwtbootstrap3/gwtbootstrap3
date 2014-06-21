@@ -28,7 +28,7 @@ import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * Divider used within {@link DropDownMenu} between {@link ListItem} elements.
+ * Divider used within {@link DropDownMenu} between {@link AnchorListItem} elements.
  *
  * @author Sven Jacobs
  * @author Joshua Godi

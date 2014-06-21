@@ -40,9 +40,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  *     <b:ButtonGroup>
  *         <b:Button toggle="DROPDOWN">Dropdown</b:Button>
  *         <b:DropDownMenu>
- *             <b:ListItem>ListItem 1</b:ListItem>
- *             <b:ListItem>ListItem 2</b:ListItem>
- *             <b:ListItem>ListItem 3</b:ListItem>
+ *             <b:AnchorListItem>ListItem 1</b:AnchorListItem>
+ *             <b:AnchorListItem>ListItem 2</b:AnchorListItem>
+ *             <b:AnchorListItem>ListItem 3</b:AnchorListItem>
  *         </b:DropDownMenu>
  *     </b:ButtonGroup>
  * }</pre>

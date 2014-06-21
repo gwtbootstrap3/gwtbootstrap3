@@ -24,7 +24,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Sven Jacobs
- * @see ListItem
+ * @see AnchorListItem
  */
 public class NavTabs extends Nav {
 

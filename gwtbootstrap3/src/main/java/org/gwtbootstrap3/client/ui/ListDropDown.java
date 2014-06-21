@@ -35,17 +35,17 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * <pre>
  * {@code
  *     <b:NavTabs>
- *         <b:ListItem active="true">Item 1</b:ListItem>
- *         <b:ListItem>Item 2</b:ListItem>
+ *         <b:AnchorListItem active="true">Item 1</b:AnchorListItem>
+ *         <b:AnchorListItem>Item 2</b:AnchorListItem>
  *         <b:ListDropDown>
  *             <b:AnchorButton toggle="DROPDOWN">Dropdown</b:AnchorButton>
  *             <b:DropDownMenu>
- *                 <b:ListItem>Dropdown 1</b:ListItem>
- *                 <b:ListItem>Dropdown 2</b:ListItem>
- *                 <b:ListItem>Dropdown 3</b:ListItem>
+ *                 <b:AnchorListItem>Dropdown 1</b:AnchorListItem>
+ *                 <b:AnchorListItem>Dropdown 2</b:AnchorListItem>
+ *                 <b:AnchorListItem>Dropdown 3</b:AnchorListItem>
  *             </b:DropDownMenu>
  *         </b:ListDropDown>
- *         <b:ListItem>Item 3</b:ListItem>
+ *         <b:AnchorListItem>Item 3</b:AnchorListItem>
  *     </b:NavTabs>
  * }
  * </pre>

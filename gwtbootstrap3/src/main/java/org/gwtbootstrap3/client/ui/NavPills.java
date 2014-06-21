@@ -26,7 +26,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Sven Jacobs
- * @see ListItem
+ * @see AnchorListItem
  */
 public class NavPills extends Nav implements HasStacked {
 

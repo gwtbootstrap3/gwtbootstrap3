@@ -37,11 +37,11 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * {@code
  *     <b:DropDownMenu>
  *         <b:DropDownHeader>Header 1</b:DropDownHeader>
- *         <b:ListItem>Action 1</b:ListItem>
- *         <b:ListItem>Action 2</b:ListItem>
+ *         <b:AnchorListItem>Action 1</b:AnchorListItem>
+ *         <b:AnchorListItem>Action 2</b:AnchorListItem>
  *         <b:DropDownHeader>Header 2</b:DropDownHeader>
- *         <b:ListItem>Action 3</b:ListItem>
- *         <b:ListItem>Action 4</b:ListItem>
+ *         <b:AnchorListItem>Action 3</b:AnchorListItem>
+ *         <b:AnchorListItem>Action 4</b:AnchorListItem>
  *     </b:DropDownMenu>
  * }
  * </pre>

@@ -32,8 +32,8 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  *     <b:DropDown>
  *         <b:Anchor toggle="DROPDOWN">Click to toggle dropdown</b:Anchor>
  *         <b:DropDownMenu>
- *             <b:ListItem>Action 1</b:ListItem>
- *             <b:ListItem>Action 2</b:ListItem>
+ *             <b:AnchorListItem>Action 1</b:AnchorListItem>
+ *             <b:AnchorListItem>Action 2</b:AnchorListItem>
  *         </b:DropDownMenu>
  *     </b:DropDown>
  * }</pre>

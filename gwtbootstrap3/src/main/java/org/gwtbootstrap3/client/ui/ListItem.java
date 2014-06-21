@@ -28,14 +28,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
- * Represents a list item with text contents which is used in multiple widgets.
- * <h3>Widgets using ListItem</h3>
- * <ul>
- * <li>{@link DropDownMenu}</li>
- * <li>{@link NavTabs}</li>
- * <li>{@link NavPills}</li>
- * <li>{@link Navbar}</li>
- * </ul>
+ * Represents a list item with text contents
  *
  * @author Sven Jacobs
  * @see DropDownMenu
