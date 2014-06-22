@@ -20,14 +20,15 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
+import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.UIObject;
-import org.gwtbootstrap3.client.ui.base.HasEnabled;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi
  */
 public class EnabledMixin<T extends UIObject & HasEnabled> extends AbstractMixin implements HasEnabled {
+    private static final String DISABLED = "disabled";
 
     public EnabledMixin(final T uiObject) {
         super(uiObject);
