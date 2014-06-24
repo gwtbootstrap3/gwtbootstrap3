@@ -31,7 +31,7 @@ import org.gwtbootstrap3.client.ui.constants.FormType;
  * @author Sven Jacobs
  * @see FormGroup
  * @see FormLabel
- * @see FormStatic
+ * @see FormControlStatic
  * @see Legend
  */
 public class Form extends AbstractForm implements HasType<FormType> {
