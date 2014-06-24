@@ -174,22 +174,23 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
         }
 
         icon = newIcon;
-        icon.setSize(iconSize);
-        icon.setFlip(iconFlip);
-        icon.setRotate(iconRotate);
-        icon.setMuted(iconMuted);
-        icon.setSpin(iconSpin);
-        icon.setBorder(iconBordered);
-        icon.setLight(iconLight);
-
-        if (iconPosition == IconPosition.LEFT) {
+        if (icon != null) {
+          icon.setSize(iconSize);
+          icon.setFlip(iconFlip);
+          icon.setRotate(iconRotate);
+          icon.setMuted(iconMuted);
+          icon.setSpin(iconSpin);
+          icon.setBorder(iconBordered);
+          icon.setLight(iconLight);
+        }
+        if (icon != null && iconPosition == IconPosition.LEFT) {
             widget.add(icon);
             widget.add(separator);
         }
 
         widget.add(text);
 
-        if (iconPosition == IconPosition.RIGHT) {
+        if (icon != null && iconPosition == IconPosition.RIGHT) {
             widget.add(separator);
             widget.add(icon);
         }
