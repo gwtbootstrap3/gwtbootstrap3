@@ -276,12 +276,12 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
         @Override
         public String cellTableHoveredRow() {
-            return DUMMY; // Note: Setting 'active' on the row disables 'bg-primary' :/
+            return "active";
         }
 
         @Override
         public String cellTableHoveredRowCell() {
-            return DUMMY; // Note: Setting 'active' on the cell disables 'bg-primary' :/
+            return "active";
         }
 
         @Override
@@ -331,7 +331,7 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
         @Override
         public String cellTableSelectedRow() {
-            return "bg-primary"; // Bootstrap3 helper class
+            return "info";
         }
 
         @Override
