@@ -20,7 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import java.util.List;
+
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.user.client.ui.Widget;
+
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -60,6 +64,16 @@ public class CarouselControl extends ComplexWidget implements HasDataTarget {
         getElement().setAttribute(Attributes.DATA_SLIDE, Carousel.NEXT);
         StyleHelper.toggleStyleName(this, next, Styles.RIGHT);
         icon.addStyleName(Styles.ICON_NEXT);
+    }
+    
+    @Override
+    public void setDataTargetWidgets(List<Widget> widgets) {
+    	targetMixin.setDataTargetWidgets(widgets);
+    }
+    
+    @Override
+    public void setDataTargetWidget(Widget widget) {
+    	targetMixin.setDataTargetWidget(widget);
     }
 
     @Override

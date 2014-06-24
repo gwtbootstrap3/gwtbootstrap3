@@ -20,7 +20,12 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
+import java.util.List;
+
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.UIObject;
+import com.google.gwt.user.client.ui.Widget;
+
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 
@@ -31,6 +36,22 @@ public class DataTargetMixin<T extends UIObject & HasDataTarget> extends Abstrac
 
     public DataTargetMixin(final T uiObject) {
         super(uiObject);
+    }
+    
+    @Override
+    public void setDataTargetWidget(Widget widget) {
+    	String id = Document.get().createUniqueId();
+    	widget.getElement().setId(id);
+    	this.setDataTarget("#" + id);
+    }
+
+    @Override
+    public void setDataTargetWidgets(List<Widget> widgets) {
+        String styleName = Document.get().createUniqueId();
+        for (Widget widget : widgets) {
+            widget.addStyleName(styleName);
+        }
+        this.setDataTarget("." + styleName);
     }
 
     @Override
