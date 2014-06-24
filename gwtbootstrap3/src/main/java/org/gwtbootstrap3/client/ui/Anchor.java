@@ -20,6 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import java.util.List;
+
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.event.dom.client.*;
@@ -27,6 +29,8 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasHTML;
+import com.google.gwt.user.client.ui.Widget;
+
 import org.gwtbootstrap3.client.ui.base.*;
 import org.gwtbootstrap3.client.ui.base.mixin.*;
 import org.gwtbootstrap3.client.ui.constants.*;
@@ -368,6 +372,16 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     @Override
     public void setHTML(final String html) {
         getElement().setInnerHTML(html);
+    }
+    
+    @Override
+    public void setDataTargetWidgets(List<Widget> widgets) {
+    	targetMixin.setDataTargetWidgets(widgets);
+    }
+
+    @Override
+    public void setDataTargetWidget(Widget widget) {
+    	targetMixin.setDataTargetWidget(widget);
     }
 
     /**

@@ -20,8 +20,12 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import java.util.List;
+
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.gwt.user.client.ui.Widget;
+
 import org.gwtbootstrap3.client.ui.base.HasDataParent;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.HasDataToggle;
@@ -61,6 +65,16 @@ public class PanelHeader extends Div implements HasWidgets, HasText, HasDataTogg
     public void setText(final String text) {
         this.text.setText(text);
         insert(this.text, 0);
+    }
+    
+    @Override
+    public void setDataTargetWidgets(List<Widget> widgets) {
+    	targetMixin.setDataTargetWidgets(widgets);
+    }
+    
+    @Override
+    public void setDataTargetWidget(Widget widget) {
+    	targetMixin.setDataTargetWidget(widget);
     }
 
     /**

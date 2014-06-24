@@ -20,7 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import java.util.List;
+
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Widget;
+
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.HasPull;
 import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
@@ -54,6 +58,16 @@ public class NavbarCollapseButton extends Composite implements HasDataTarget, Ha
         button.add(newBarIcon());
 
         initWidget(button);
+    }
+    
+    @Override
+    public void setDataTargetWidgets(List<Widget> widgets) {
+    	button.setDataTargetWidgets(widgets);
+    }
+    
+    @Override
+    public void setDataTargetWidget(Widget widget) {
+    	button.setDataTargetWidget(widget);
     }
 
     @Override

@@ -1,5 +1,9 @@
 package org.gwtbootstrap3.client.ui.base;
 
+import java.util.List;
+
+import com.google.gwt.user.client.ui.Widget;
+
 /*
  * #%L
  * GwtBootstrap3
@@ -24,6 +28,11 @@ package org.gwtbootstrap3.client.ui.base;
  * @author Sven Jacobs
  */
 public interface HasDataTarget {
+	
+	void setDataTargetWidget(Widget widget);
+
+	void setDataTargetWidgets(List<Widget> widget);
+	
     /**
      * Sets the data target for the widget
      *

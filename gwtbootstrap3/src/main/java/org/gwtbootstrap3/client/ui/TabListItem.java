@@ -20,9 +20,13 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import java.util.List;
+
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.ui.Widget;
+
 import org.gwtbootstrap3.client.shared.event.TabShowEvent;
 import org.gwtbootstrap3.client.shared.event.TabShowHandler;
 import org.gwtbootstrap3.client.shared.event.TabShownEvent;
@@ -123,6 +127,16 @@ public class TabListItem extends AnchorListItem implements HasDataTarget {
     @Override
     public String getHref() {
         return getDataTarget();
+    }
+    
+    @Override
+    public void setDataTargetWidgets(List<Widget> widgets) {
+    	anchor.setDataTargetWidgets(widgets);
+    }
+    
+    @Override
+    public void setDataTargetWidget(Widget widget) {
+    	anchor.setDataTargetWidget(widget);
     }
 
     /**
