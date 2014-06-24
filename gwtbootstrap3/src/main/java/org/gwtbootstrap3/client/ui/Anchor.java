@@ -20,16 +20,48 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasContextualBackground;
+import org.gwtbootstrap3.client.ui.base.HasDataParent;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasDataToggle;
+import org.gwtbootstrap3.client.ui.base.HasHref;
+import org.gwtbootstrap3.client.ui.base.HasIcon;
+import org.gwtbootstrap3.client.ui.base.HasIconPosition;
+import org.gwtbootstrap3.client.ui.base.HasPull;
+import org.gwtbootstrap3.client.ui.base.HasTarget;
+import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
+import org.gwtbootstrap3.client.ui.base.mixin.AttributeMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.ContextualBackgroundMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataParentMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
+import org.gwtbootstrap3.client.ui.constants.Attributes;
+import org.gwtbootstrap3.client.ui.constants.ContextualBackground;
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconPosition;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.Pull;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.constants.Toggle;
+
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasHTML;
-import org.gwtbootstrap3.client.ui.base.*;
-import org.gwtbootstrap3.client.ui.base.mixin.*;
-import org.gwtbootstrap3.client.ui.constants.*;
 
 /**
  * Anchor {@code <a>} element with text and optional icon.
@@ -38,9 +70,10 @@ import org.gwtbootstrap3.client.ui.constants.*;
  * @author Joshua Godi
  * @author Grant Slender
  */
-public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasDataToggle, HasDataParent,
+public class Anchor extends ComplexWidget implements HasClickHandlers, HasContextualBackground,  HasDoubleClickHandlers, HasHref, HasDataToggle, HasDataParent,
         HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget, HasTarget, HasPull {
 
+	private final ContextualBackgroundMixin<Anchor> contextualBackgroundMixin = new ContextualBackgroundMixin<Anchor>(this);
     private final PullMixin<Anchor> pullMixin = new PullMixin<Anchor>(this);
     private final DataToggleMixin<Anchor> toggleMixin = new DataToggleMixin<Anchor>(this);
     private final DataParentMixin<Anchor> parentMixin = new DataParentMixin<Anchor>(this);
@@ -422,6 +455,22 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
      * {@inheritDoc}
      */
     @Override
+    public void setContextualBackground(final ContextualBackground contextualBackground) {
+    	contextualBackgroundMixin.setContextualBackground(contextualBackground);
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ContextualBackground getContextualBackground() {
+    	return contextualBackgroundMixin.getContextualBackground();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     protected void onAttach() {
         super.onAttach();
 
@@ -432,4 +481,5 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
             }
         }
     }
+
 }

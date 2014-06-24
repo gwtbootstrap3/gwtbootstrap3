@@ -27,9 +27,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * @author Sven Jacobs
  */
-public class FormStatic extends AbstractTextWidget {
+public class FormControlStatic extends AbstractTextWidget {
 
-    public FormStatic() {
+    public FormControlStatic() {
         super(Document.get().createPElement());
         setStyleName(Styles.FORM_CONTROL_STATIC);
     }
