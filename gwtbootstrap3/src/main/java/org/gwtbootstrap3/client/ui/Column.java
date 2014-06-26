@@ -42,6 +42,25 @@ public class Column extends Div {
     private static final String SEPARATOR = "[, ]+";
 
     /**
+     * Creates a column with one size, and with one or more additional widgets added.
+     *
+     * Additional sizes can be added with {@link #addSize(ColumnSize...)}.
+     * Additional widgets can be added with {@link #add(Widget)}.
+     *
+     * @param size Size of column
+     * @param firstWidget Widget to add
+     * @param otherWidgets Other widgets to add
+     */
+    public Column(final ColumnSize size, final Widget firstWidget, final Widget... otherWidgets) {
+        this(size);
+
+        add(firstWidget);
+        for (final Widget widget : otherWidgets) {
+            add(widget);
+        }
+    }
+
+    /**
      * Creates column with one or more additional sizes.
      *
      * Additional sizes can be added with {@link #addSize(ColumnSize...)}
@@ -50,7 +69,6 @@ public class Column extends Div {
      * @param otherSizes Other sizes of column
      * @see #addSize(ColumnSize...)
      */
-    @UiConstructor
     public Column(final ColumnSize firstSize, final ColumnSize... otherSizes) {
         setSize(firstSize, otherSizes);
         setStyleName(firstSize.getCssName());
