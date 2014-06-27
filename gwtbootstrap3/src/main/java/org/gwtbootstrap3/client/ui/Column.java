@@ -41,35 +41,36 @@ public class Column extends Div {
 
     private static final String SEPARATOR = "[, ]+";
 
-    public Column(final ColumnSize size, final Widget... widgets) {
+    /**
+     * Creates a column with one size, and with one or more additional widgets added.
+     *
+     * Additional sizes can be added with {@link #addSize(ColumnSize...)}.
+     * Additional widgets can be added with {@link #add(Widget)}.
+     *
+     * @param size Size of column
+     * @param firstWidget Widget to add
+     * @param otherWidgets Other widgets to add
+     */
+    public Column(final ColumnSize size, final Widget firstWidget, final Widget... otherWidgets) {
         this(size);
 
-        for (final Widget widget : widgets) {
+        add(firstWidget);
+        for (final Widget widget : otherWidgets) {
             add(widget);
         }
     }
 
     /**
-     * Creates column with primary size.
+     * Creates column with one or more additional sizes.
      *
      * Additional sizes can be added with {@link #addSize(ColumnSize...)}
      *
-     * @param size Size of column
-     * @see #Column(ColumnSize...)
+     * @param firstSize Size of column
+     * @param otherSizes Other sizes of column
      * @see #addSize(ColumnSize...)
      */
-    public Column(final ColumnSize size) {
-        this();
-        setStyleName(size.getCssName());
-    }
-
-    /**
-     * Creates column with multiple sizes.
-     *
-     * @param sizes Column sizes
-     */
-    public Column(final ColumnSize... sizes) {
-        setSize(sizes);
+    public Column(final ColumnSize firstSize, final ColumnSize... otherSizes) {
+        setSize(firstSize, otherSizes);
     }
 
     /**
@@ -84,17 +85,18 @@ public class Column extends Div {
      */
     @UiConstructor
     public Column(final String size) {
-        this();
         setSize(size);
     }
 
     /**
      * Adds one or more additional column sizes.
      *
-     * @param sizes Additional column sizes
+     * @param firstSize Column size
+     * @param otherSizes Additional column sizes
      */
-    public void setSize(final ColumnSize... sizes) {
-        addEnumVarargsValues(sizes, ColumnSize.class, true);
+    public void setSize(final ColumnSize firstSize, final ColumnSize... otherSizes) {
+        addEnumVarargsValues(new ColumnSize[]{firstSize}, ColumnSize.class, true);
+        addEnumVarargsValues(otherSizes, ColumnSize.class, false);
     }
 
     public void setSize(final String sizes) {
