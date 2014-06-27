@@ -71,7 +71,6 @@ public class Column extends Div {
      */
     public Column(final ColumnSize firstSize, final ColumnSize... otherSizes) {
         setSize(firstSize, otherSizes);
-        setStyleName(firstSize.getCssName());
     }
 
     /**
