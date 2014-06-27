@@ -43,12 +43,12 @@ public class Column extends Div {
 
     /**
      * Creates a column with one size, and with one or more additional widgets added.
-     *
+     * <p/>
      * Additional sizes can be added with {@link #addSize(ColumnSize...)}.
      * Additional widgets can be added with {@link #add(Widget)}.
      *
-     * @param size Size of column
-     * @param firstWidget Widget to add
+     * @param size         Size of column
+     * @param firstWidget  Widget to add
      * @param otherWidgets Other widgets to add
      */
     public Column(final ColumnSize size, final Widget firstWidget, final Widget... otherWidgets) {
@@ -62,10 +62,10 @@ public class Column extends Div {
 
     /**
      * Creates column with one or more additional sizes.
-     *
+     * <p/>
      * Additional sizes can be added with {@link #addSize(ColumnSize...)}
      *
-     * @param firstSize Size of column
+     * @param firstSize  Size of column
      * @param otherSizes Other sizes of column
      * @see #addSize(ColumnSize...)
      */
@@ -76,7 +76,7 @@ public class Column extends Div {
     /**
      * Convenience constructor for UiBinder to create a Column with one or more
      * sizes.
-     *
+     * <p/>
      * Size needs to be a space-separated String of {@link ColumnSize} enum
      * names, e.g. "SM_3 LG_3"
      *
@@ -91,7 +91,7 @@ public class Column extends Div {
     /**
      * Adds one or more additional column sizes.
      *
-     * @param firstSize Column size
+     * @param firstSize  Column size
      * @param otherSizes Additional column sizes
      */
     public void setSize(final ColumnSize firstSize, final ColumnSize... otherSizes) {
@@ -160,7 +160,8 @@ public class Column extends Div {
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumVarargsValues(final E[] values,
-                                                                                   final Class<E> enumClass, final boolean clearOld) {
+                                                                                   final Class<E> enumClass,
+                                                                                   final boolean clearOld) {
         if (clearOld) {
             // Remove the previous values
             removeStyleNames(enumClass);
@@ -172,7 +173,8 @@ public class Column extends Div {
     }
 
     private <E extends Enum<? extends Style.HasCssName>> void addEnumStringValues(final String values,
-                                                                                  final Class<E> enumClass, final boolean clearOld) {
+                                                                                  final Class<E> enumClass,
+                                                                                  final boolean clearOld) {
         if (clearOld) {
             // Remove the previous values
             removeStyleNames(enumClass);
