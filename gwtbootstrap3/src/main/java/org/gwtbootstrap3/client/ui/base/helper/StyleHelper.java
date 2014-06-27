@@ -80,9 +80,9 @@ public final class StyleHelper {
     }
 
     /**
-     * Adds enum value style name to UIObject unless style is {@code null}.
+     * Removes enum value style name from UIObject unless style is {@code null}.
      *
-     * @param uiObject Object to add style to
+     * @param uiObject Object to remove style from
      * @param style    Style name
      */
     public static <E extends Style.HasCssName> void removeEnumStyleName(final UIObject uiObject,
