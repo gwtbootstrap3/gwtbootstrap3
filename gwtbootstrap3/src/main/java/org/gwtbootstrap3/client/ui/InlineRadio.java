@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2014 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,32 +20,26 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.base.AbstractFormElement;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * A checkbox with a label for use within a {@link Form}.
+ * An inline radio element with a label for use within a {@link Form}.
+ * Multiple InlineRadio in the same container will be displayed in one line.
  * <p/>
- * Basically this is a non-styled {@link CheckBoxButton} encapsulated in a {@link org.gwtbootstrap3.client.ui.html.Div}.
+ * Basically this is a non-styled {@link RadioButton}.
  *
  * @author Sven Jacobs
- * @see org.gwtbootstrap3.client.ui.InlineCheckBox
  * @see org.gwtbootstrap3.client.ui.Radio
+ * @see org.gwtbootstrap3.client.ui.RadioButton
  */
-public class CheckBox extends AbstractFormElement {
+public class InlineRadio extends RadioButton {
 
-    public CheckBox() {
-        super(new CheckBoxButton());
-        setStyleName(Styles.CHECKBOX);
+    public InlineRadio() {
+        setStyleName(Styles.RADIO_INLINE);
     }
 
-    /**
-     * Creates a check box with the specified text label.
-     *
-     * @param label the check box's label
-     */
-    public CheckBox(final String label) {
-        this();
-        setText(label);
+    public InlineRadio(final String label) {
+        super(label);
+        setStyleName(Styles.RADIO_INLINE);
     }
 }

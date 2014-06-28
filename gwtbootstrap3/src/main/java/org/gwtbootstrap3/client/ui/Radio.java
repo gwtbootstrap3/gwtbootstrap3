@@ -24,19 +24,19 @@ import org.gwtbootstrap3.client.ui.base.AbstractFormElement;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * A checkbox with a label for use within a {@link Form}.
+ * A radio element with a label for use within a {@link Form}.
  * <p/>
- * Basically this is a non-styled {@link CheckBoxButton} encapsulated in a {@link org.gwtbootstrap3.client.ui.html.Div}.
+ * Basically this is a non-styled {@link RadioButton} encapsulated in a {@link org.gwtbootstrap3.client.ui.html.Div}.
  *
  * @author Sven Jacobs
- * @see org.gwtbootstrap3.client.ui.InlineCheckBox
- * @see org.gwtbootstrap3.client.ui.Radio
+ * @see org.gwtbootstrap3.client.ui.InlineRadio
+ * @see org.gwtbootstrap3.client.ui.CheckBox
  */
-public class CheckBox extends AbstractFormElement {
+public class Radio extends AbstractFormElement {
 
-    public CheckBox() {
-        super(new CheckBoxButton());
-        setStyleName(Styles.CHECKBOX);
+    public Radio() {
+        super(new RadioButton());
+        setStyleName(Styles.RADIO);
     }
 
     /**
@@ -44,7 +44,7 @@ public class CheckBox extends AbstractFormElement {
      *
      * @param label the check box's label
      */
-    public CheckBox(final String label) {
+    public Radio(final String label) {
         this();
         setText(label);
     }

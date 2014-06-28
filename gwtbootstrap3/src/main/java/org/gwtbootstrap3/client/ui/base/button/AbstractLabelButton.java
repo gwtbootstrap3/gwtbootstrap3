@@ -44,11 +44,12 @@ import org.gwtbootstrap3.client.ui.constants.TypeAttrType;
  *
  * @author Sven Jacobs
  */
-public abstract class AbstractLabelButton extends AbstractIconButton implements HasActive, HasName, HasFormValue, HasValue<Boolean>, IsEditor<LeafValueEditor<Boolean>> {
+public abstract class AbstractLabelButton extends AbstractIconButton implements HasActive, HasName, HasFormValue,
+        HasValue<Boolean>, IsEditor<LeafValueEditor<Boolean>> {
 
     private final ActiveMixin<AbstractLabelButton> activeMixin = new ActiveMixin<AbstractLabelButton>(this);
     protected final CheckableInputButton input;
-	private LeafValueEditor<Boolean> editor;
+    private LeafValueEditor<Boolean> editor;
 
     protected AbstractLabelButton(final TypeAttrType typeAttr) {
         super(ButtonType.DEFAULT);
@@ -138,12 +139,12 @@ public abstract class AbstractLabelButton extends AbstractIconButton implements 
     protected Element createElement() {
         return Document.get().createLabelElement();
     }
-    
+
     @Override
     public LeafValueEditor<Boolean> asEditor() {
-    	if (editor == null) {
-    		editor = TakesValueEditor.of(this);
-    	}
+        if (editor == null) {
+            editor = TakesValueEditor.of(this);
+        }
         return editor;
     }
 }
