@@ -27,9 +27,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Simple text node.
- *
+ * <p/>
  * <h3>UiBinder example</h3>
- *
+ * <p/>
  * <pre>
  * {@code
  * <b:Text>

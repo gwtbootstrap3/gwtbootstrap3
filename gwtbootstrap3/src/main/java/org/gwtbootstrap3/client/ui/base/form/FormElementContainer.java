@@ -33,7 +33,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 /**
  * Base class for {@link org.gwtbootstrap3.client.ui.Form} related
  * widgets that may contain form input elements.
- *
+ * <p/>
  * Input elements styleName is adjusted during
  * {@link #add(com.google.gwt.user.client.ui.Widget)}.
  *

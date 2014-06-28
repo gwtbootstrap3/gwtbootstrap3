@@ -35,11 +35,11 @@ import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * Widget representing the Bootstrap Thumbnail as a clickable image
- *
+ * <p/>
  * <a href="http://getbootstrap.com/components/#thumbnails">Bootstrap Documentation</a>
- *
+ * <p/>
  * <h3>UiBinder example</h3>
- *
+ * <p/>
  * <pre>
  * {@code
  * <b:ThumbnailLink>

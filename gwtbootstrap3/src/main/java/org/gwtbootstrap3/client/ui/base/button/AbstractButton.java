@@ -20,8 +20,6 @@ package org.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
-import java.util.List;
-
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.NativeEvent;
@@ -31,13 +29,14 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.Widget;
-
 import org.gwtbootstrap3.client.ui.base.*;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import org.gwtbootstrap3.client.ui.constants.*;
+
+import java.util.List;
 
 /**
  * Abstract base class for different kinds of buttons.
@@ -144,15 +143,15 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     public ButtonSize getSize() {
         return ButtonSize.fromStyleName(getStyleName());
     }
-    
+
     @Override
-    public void setDataTargetWidgets(List<Widget> widgets) {
-    	targetMixin.setDataTargetWidgets(widgets);
+    public void setDataTargetWidgets(final List<Widget> widgets) {
+        targetMixin.setDataTargetWidgets(widgets);
     }
-    
+
     @Override
-    public void setDataTargetWidget(Widget widget) {
-    	targetMixin.setDataTargetWidget(widget);
+    public void setDataTargetWidget(final Widget widget) {
+        targetMixin.setDataTargetWidget(widget);
     }
 
     @Override
@@ -252,7 +251,7 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
 
     /**
      * Sets dismiss type of button.
-     *
+     * <p/>
      * If button is inside a
      * {@link org.gwtbootstrap3.client.ui.Modal} and dismiss type is
      * {@code MODAL} the button will act as the dismiss (close) button for this

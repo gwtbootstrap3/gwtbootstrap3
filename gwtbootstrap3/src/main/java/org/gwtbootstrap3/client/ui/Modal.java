@@ -35,9 +35,9 @@ import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
  * Modal dialog.
- *
+ * <p/>
  * <h3>UiBinder example</h3>
- *
+ * <p/>
  * <pre>
  * {@code
  *     <b:Modal title="Important information" b:id="modal1">
@@ -52,9 +52,9 @@ import org.gwtbootstrap3.client.ui.html.Div;
  *     <b:Button target="#modal1" toggle="MODAL">Show modal</b:Button>
  * }
  * </pre>
- *
+ * <p/>
  * It's also possible to specify a custom modal header:
- *
+ * <p/>
  * <pre>
  * {@code
  *     <b:Modal>
@@ -79,9 +79,10 @@ import org.gwtbootstrap3.client.ui.html.Div;
  * @see org.gwtbootstrap3.client.shared.event.ModalHiddenEvent
  */
 public class Modal extends Div implements IsClosable {
-    private final String TOGGLE = "toggle";
-    private final String HIDE = "hide";
-    private final String SHOW = "show";
+
+    private final static String TOGGLE = "toggle";
+    private final static String HIDE = "hide";
+    private final static String SHOW = "show";
 
     private final ModalContent content = new ModalContent();
     private final ModalDialog dialog = new ModalDialog();

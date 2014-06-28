@@ -34,7 +34,7 @@ public enum HeadingSize implements Size {
 
     private final int headingSize;
 
-    HeadingSize(int headingSize) {
+    HeadingSize(final int headingSize) {
         this.headingSize = headingSize;
     }
 

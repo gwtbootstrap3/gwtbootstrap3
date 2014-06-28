@@ -28,9 +28,9 @@ import org.gwtbootstrap3.client.ui.constants.IconType;
 
 /**
  * Button based on {@code <button>} element with different types and sizes.
- *
+ * <p/>
  * <h3>UiBinder example</h3>
- *
+ * <p/>
  * <pre>
  * {@code
  *     <b:Button type="PRIMARY">Save</b:Button>

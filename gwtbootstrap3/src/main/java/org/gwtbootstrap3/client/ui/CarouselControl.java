@@ -20,11 +20,8 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import java.util.List;
-
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
-
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -32,6 +29,8 @@ import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+
+import java.util.List;
 
 /**
  * @author Joshua Godi
@@ -65,15 +64,15 @@ public class CarouselControl extends ComplexWidget implements HasDataTarget {
         StyleHelper.toggleStyleName(this, next, Styles.RIGHT);
         icon.addStyleName(Styles.ICON_NEXT);
     }
-    
+
     @Override
-    public void setDataTargetWidgets(List<Widget> widgets) {
-    	targetMixin.setDataTargetWidgets(widgets);
+    public void setDataTargetWidgets(final List<Widget> widgets) {
+        targetMixin.setDataTargetWidgets(widgets);
     }
-    
+
     @Override
-    public void setDataTargetWidget(Widget widget) {
-    	targetMixin.setDataTargetWidget(widget);
+    public void setDataTargetWidget(final Widget widget) {
+        targetMixin.setDataTargetWidget(widget);
     }
 
     @Override

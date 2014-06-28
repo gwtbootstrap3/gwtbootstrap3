@@ -20,8 +20,7 @@ package org.gwtbootstrap3.client.ui.gwt;
  * #L%
  */
 
-import java.util.List;
-
+import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.HasDataSpy;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.HasId;
@@ -33,7 +32,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
-import com.google.gwt.user.client.ui.Widget;
+import java.util.List;
 
 /**
  * @author Sven Jacobs
@@ -53,15 +52,15 @@ public class FlowPanel extends com.google.gwt.user.client.ui.FlowPanel implement
     public Spy getDataSpy() {
         return spyMixin.getDataSpy();
     }
-    
+
     @Override
-    public void setDataTargetWidgets(List<Widget> widgets) {
-    	targetMixin.setDataTargetWidgets(widgets);
+    public void setDataTargetWidgets(final List<Widget> widgets) {
+        targetMixin.setDataTargetWidgets(widgets);
     }
-    
+
     @Override
-    public void setDataTargetWidget(Widget widget) {
-    	targetMixin.setDataTargetWidget(widget);
+    public void setDataTargetWidget(final Widget widget) {
+        targetMixin.setDataTargetWidget(widget);
     }
 
     @Override

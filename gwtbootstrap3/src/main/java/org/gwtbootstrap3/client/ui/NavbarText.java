@@ -58,7 +58,7 @@ public class NavbarText extends ComplexWidget implements HasResponsiveness {
 
     @Override
     public Pull getPull() {
-        NavbarPull navbarPull = NavbarPull.fromStyleName(getStyleName());
+        final NavbarPull navbarPull = NavbarPull.fromStyleName(getStyleName());
 
         if (navbarPull == NavbarPull.NONE) {
             return Pull.NONE;

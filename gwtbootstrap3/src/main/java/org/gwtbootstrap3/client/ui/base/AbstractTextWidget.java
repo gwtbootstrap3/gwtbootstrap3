@@ -127,11 +127,11 @@ public abstract class AbstractTextWidget extends Widget implements HasId, HasHTM
     public void setPaddingBottom(final double padding) {
         getElement().getStyle().setPaddingBottom(padding, Style.Unit.PX);
     }
-    
+
     @Override
     public LeafValueEditor<String> asEditor() {
         if (editor == null) {
-          editor = HasTextEditor.of(this);
+            editor = HasTextEditor.of(this);
         }
         return editor;
     }

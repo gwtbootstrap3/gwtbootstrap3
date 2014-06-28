@@ -26,7 +26,7 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Dropdown parent container.
- *
+ * <p/>
  * <h3>UiBinder example</h3>
  * <pre>{@code
  *     <b:DropDown>

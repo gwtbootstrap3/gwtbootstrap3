@@ -20,17 +20,16 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import java.util.List;
-
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
-
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasActive;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
+
+import java.util.List;
 
 /**
  * @author Joshua Godi
@@ -61,15 +60,15 @@ public class CarouselIndicator extends ComplexWidget implements HasDataTarget, H
     public boolean isActive() {
         return activeMixin.isActive();
     }
-    
+
     @Override
-    public void setDataTargetWidgets(List<Widget> widgets) {
-    	targetMixin.setDataTargetWidgets(widgets);
+    public void setDataTargetWidgets(final List<Widget> widgets) {
+        targetMixin.setDataTargetWidgets(widgets);
     }
-    
+
     @Override
-    public void setDataTargetWidget(Widget widget) {
-    	targetMixin.setDataTargetWidget(widget);
+    public void setDataTargetWidget(final Widget widget) {
+        targetMixin.setDataTargetWidget(widget);
     }
 
     @Override

@@ -43,6 +43,7 @@ public class AttributeMixin<T extends UIObject> extends AbstractMixin {
 
     /**
      * Get the attribute name on the UiObject
+     *
      * @param attributeName attribute name
      * @return attribute value
      */
@@ -52,6 +53,7 @@ public class AttributeMixin<T extends UIObject> extends AbstractMixin {
 
     /**
      * Removes the attribute from the UiObject
+     *
      * @param attributeName attribute name
      */
     public void removeAttribute(final String attributeName) {

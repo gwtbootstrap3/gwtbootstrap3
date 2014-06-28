@@ -28,12 +28,12 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Widget representing an Unordered List
- *
+ * <p/>
  * ** Children must be of type ListItem
- *
- *
+ * <p/>
+ * <p/>
  * <h3>UiBinder example</h3>
- *
+ * <p/>
  * <pre>
  * {@code
  * <b:UnorderedList>

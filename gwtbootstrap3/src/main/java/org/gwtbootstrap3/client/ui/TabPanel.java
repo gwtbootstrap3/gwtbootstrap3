@@ -28,11 +28,11 @@ import org.gwtbootstrap3.client.ui.html.Div;
 
 /**
  * Container widget for tabs
- *
+ * <p/>
  * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
- *
+ * <p/>
  * <h3>UiBinder example</h3>
- *
+ * <p/>
  * <pre>
  * {@code
  * <b:TabPanel>

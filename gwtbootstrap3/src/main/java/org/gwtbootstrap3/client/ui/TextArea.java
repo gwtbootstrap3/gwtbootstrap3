@@ -33,7 +33,7 @@ public class TextArea extends TextBoxBase {
     /**
      * Creates a TextArea widget that wraps an existing &lt;textarea&gt;
      * element.
-     *
+     * <p/>
      * This element must already be attached to the document. If the element is
      * removed from the document, you must call
      * {@link RootPanel#detachNow(Widget)}.

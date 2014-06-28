@@ -121,9 +121,9 @@ public final class StyleHelper {
     /**
      * Toggles a style name on a ui object
      *
-     * @param uiObject  Object to toggle style on
+     * @param uiObject    Object to toggle style on
      * @param toggleStyle whether or not to toggle the style name on the object
-     * @param styleName Style name
+     * @param styleName   Style name
      */
     public static void toggleStyleName(final UIObject uiObject,
                                        final boolean toggleStyle,

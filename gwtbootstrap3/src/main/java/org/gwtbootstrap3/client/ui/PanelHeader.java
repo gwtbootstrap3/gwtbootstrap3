@@ -20,12 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import java.util.List;
-
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-
 import org.gwtbootstrap3.client.ui.base.HasDataParent;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.HasDataToggle;
@@ -36,6 +33,8 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 import org.gwtbootstrap3.client.ui.html.Div;
 import org.gwtbootstrap3.client.ui.html.Text;
+
+import java.util.List;
 
 /**
  * @author Joshua Godi
@@ -66,15 +65,15 @@ public class PanelHeader extends Div implements HasWidgets, HasText, HasDataTogg
         this.text.setText(text);
         insert(this.text, 0);
     }
-    
+
     @Override
-    public void setDataTargetWidgets(List<Widget> widgets) {
-    	targetMixin.setDataTargetWidgets(widgets);
+    public void setDataTargetWidgets(final List<Widget> widgets) {
+        targetMixin.setDataTargetWidgets(widgets);
     }
-    
+
     @Override
-    public void setDataTargetWidget(Widget widget) {
-    	targetMixin.setDataTargetWidget(widget);
+    public void setDataTargetWidget(final Widget widget) {
+        targetMixin.setDataTargetWidget(widget);
     }
 
     /**

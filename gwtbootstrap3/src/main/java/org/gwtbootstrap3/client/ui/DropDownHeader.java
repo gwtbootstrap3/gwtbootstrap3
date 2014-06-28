@@ -30,9 +30,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * Header element within {@link DropDownMenu}
- *
+ * <p/>
  * <h3>UiBinder example</h3>
- *
+ * <p/>
  * <pre>
  * {@code
  *     <b:DropDownMenu>

@@ -39,12 +39,12 @@ import java.util.NoSuchElementException;
 
 /**
  * Basic implementation for the Bootstrap tooltip
- *
+ * <p/>
  * <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap Documentation</a>
- *
- *
+ * <p/>
+ * <p/>
  * <h3>UiBinder example</h3>
- *
+ * <p/>
  * <pre>
  * {@code
  * <b:Tooltip text="...">
@@ -52,7 +52,7 @@ import java.util.NoSuchElementException;
  * </b:Tooltip>
  * }
  * </pre>
- *
+ * <p/>
  * ** Must call reconfigure() after altering any/all Tooltips!
  *
  * @author Joshua Godi

@@ -26,10 +26,10 @@ import com.google.gwt.user.client.ui.UIObject;
 /**
  * An Affix is an element/container that gets "pinned" as soon as a certain
  * amount of pixels have been scrolled.
- *
+ * <p/>
  * Any element/container can become an Affix. Usually used for sidebar
  * navigation.
- *
+ * <p/>
  * <strong>Note:</strong> Bootstrap adds/removes classes from Affix based on
  * scroll position which requires custom styling. See Bootstrap's <a
  * href="http://getbootstrap.com/javascript/#affix">documentation</a>.
