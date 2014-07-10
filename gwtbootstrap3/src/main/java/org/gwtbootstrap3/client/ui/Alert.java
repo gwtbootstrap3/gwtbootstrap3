@@ -180,6 +180,7 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
      * @param evt event
      */
     protected void onClosed(final Event evt) {
+        removeFromParent();
         fireEvent(new AlertClosedEvent(evt));
     }
 
