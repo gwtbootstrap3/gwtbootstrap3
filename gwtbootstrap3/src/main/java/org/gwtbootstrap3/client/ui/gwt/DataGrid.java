@@ -62,6 +62,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
      */
     public DataGrid(final int pageSize, final ProvidesKey<T> keyProvider) {
         super(pageSize, getDefaultResources(), keyProvider);
+        getTableBodyElement().getParentElement().addClassName(TableType.DEFAULT.getCssName());
     }
 
     /**
@@ -73,6 +74,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
      */
     public DataGrid(final int pageSize, final DataGrid.Resources resources) {
         super(pageSize, resources, null);
+        getTableBodyElement().getParentElement().addClassName(TableType.DEFAULT.getCssName());
     }
 
     /**
@@ -88,6 +90,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
      */
     public DataGrid(final int pageSize, final Resources resources, final ProvidesKey<T> keyProvider, final Widget loadingIndicator) {
         super(pageSize, resources, keyProvider, loadingIndicator);
+        getTableBodyElement().getParentElement().addClassName(TableType.DEFAULT.getCssName());
     }
 
     /**
@@ -257,12 +260,12 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
 
         @Override
         public String dataGridHoveredRow() {
-            return DUMMY; // Note: Setting 'active' on the cell disables 'bg-primary'
+            return "active";
         }
 
         @Override
         public String dataGridHoveredRowCell() {
-            return DUMMY; // Note: Setting 'active' on the cell disables 'bg-primary'
+            return "active";
         }
 
         @Override
@@ -307,7 +310,7 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
 
         @Override
         public String dataGridSelectedRow() {
-            return "bg-primary"; // Bootstrap3 helper class
+            return "info";
         }
 
         @Override
