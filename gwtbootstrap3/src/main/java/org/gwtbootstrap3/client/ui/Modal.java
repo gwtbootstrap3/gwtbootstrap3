@@ -30,7 +30,6 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap3.client.ui.base.modal.ModalDialog;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
-import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.ModalBackdrop;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
