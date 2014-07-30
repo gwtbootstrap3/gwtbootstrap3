@@ -198,7 +198,7 @@
     </build>
 
     <repositories>
-        <repository>
+		<repository>
             <id>sonatype-nexus</id>
             <name>Sonatype Nexus</name>
             <url>http://repository.sonatype.org/content/groups/public/</url>
@@ -208,7 +208,7 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </repository>
+		</repository>
     </repositories>
 
     <pluginRepositories>

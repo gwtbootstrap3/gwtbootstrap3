@@ -102,6 +102,12 @@ public class Modal extends Div implements IsClosable {
     public void setWidth(final String width) {
         dialog.setWidth(width);
     }
+    
+    public void setSize(ModalSize size) {
+    	dialog.removeStyleName(ModalSize.SMALL.getCss());
+    	dialog.removeStyleName(ModalSize.LARGE.getCss());
+    	dialog.addStyleName(size.getCss());
+    }
 
     @Override
     protected void onLoad() {
