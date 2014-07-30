@@ -19,4 +19,4 @@ package org.gwtbootstrap3.client.ui;
  * limitations under the License.
  * #L%
  */
-import java.io.Serializable;import com.google.gwt.user.client.rpc.IsSerializable;public enum ModalSize implements Serializable, IsSerializable {	SMALL("modal-sm"), MEDIUM(""), LARGE("modal-lg");	private String css;	ModalSize() {}	ModalSize(String css) {		this.css = css;	}	public String getCss() {		return css;	}	public void setCss(String css) {		this.css = css;	}}
+import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;import com.google.gwt.dom.client.Style;/** * @author Jay Hodgson */public enum ModalSize implements Style.HasCssName {    SMALL("modal-sm"),    MEDIUM(""),    LARGE("modal-lg");    private final String cssClass;    private ModalSize(final String cssClass) {        this.cssClass = cssClass;    }    @Override    public String getCssName() {        return cssClass;    }    public static ModalSize fromStyleName(final String styleName) {        return EnumHelper.fromStyleName(styleName, ModalSize.class, MEDIUM);    }}
