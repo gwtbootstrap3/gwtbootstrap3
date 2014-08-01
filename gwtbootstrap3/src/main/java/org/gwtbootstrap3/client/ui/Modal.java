@@ -26,6 +26,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap3.client.shared.event.*;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap3.client.ui.base.modal.ModalDialog;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
@@ -101,6 +102,10 @@ public class Modal extends Div implements IsClosable {
 
     public void setWidth(final String width) {
         dialog.setWidth(width);
+    }
+    
+    public void setSize(ModalSize size) {
+        StyleHelper.addUniqueEnumStyleName(dialog, ModalSize.class, size);
     }
 
     @Override
