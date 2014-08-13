@@ -103,7 +103,7 @@ public class Modal extends Div implements IsClosable {
     public void setWidth(final String width) {
         dialog.setWidth(width);
     }
-    
+
     public void setSize(ModalSize size) {
         StyleHelper.addUniqueEnumStyleName(dialog, ModalSize.class, size);
     }
@@ -198,6 +198,11 @@ public class Modal extends Div implements IsClosable {
 
     public void setDataKeyboard(final boolean keyboard) {
         getElement().setAttribute(Attributes.DATA_KEYBOARD, Boolean.toString(keyboard));
+
+        // tabindex must be set to -1 for ESC key to work
+        if (keyboard) {
+            getElement().setAttribute(Attributes.TABINDEX, "-1");
+        }
     }
 
     public void toggle() {

@@ -41,6 +41,8 @@ public class Attributes {
 
     public static final String ROLE = "role";
 
+    public static final String TABINDEX = "tabindex";
+
     public static final String TARGET = "target";
 
     public static final String TYPE = "type";
