@@ -25,7 +25,6 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.Widget;
@@ -45,7 +44,7 @@ import java.util.List;
  * @author Joshua Godi
  */
 public abstract class AbstractButton extends ComplexWidget implements HasEnabled, HasActive, HasType<ButtonType>,
-        HasSize<ButtonSize>, HasDataTarget, HasClickHandlers, HasTargetHistoryToken, HasHref, Focusable, HasAllMouseHandlers {
+        HasSize<ButtonSize>, HasDataTarget, HasClickHandlers, Focusable, HasAllMouseHandlers {
 
     public class ButtonStateHandler {
         private ButtonStateHandler() {
@@ -73,8 +72,6 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     private final DataTargetMixin<AbstractButton> targetMixin = new DataTargetMixin<AbstractButton>(this);
     private final ActiveMixin<AbstractButton> activeMixin = new ActiveMixin<AbstractButton>(this);
     private final FocusableMixin<AbstractButton> focusableMixin = new FocusableMixin<AbstractButton>(this);
-
-    private String targetHistoryToken;
 
     /**
      * Creates button with DEFAULT type.
@@ -162,28 +159,6 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     @Override
     public String getDataTarget() {
         return targetMixin.getDataTarget();
-    }
-
-    @Override
-    public void setTargetHistoryToken(final String targetHistoryToken) {
-        this.targetHistoryToken = targetHistoryToken;
-        final String hash = History.encodeHistoryToken(targetHistoryToken);
-        setHref("#" + hash);
-    }
-
-    @Override
-    public String getTargetHistoryToken() {
-        return targetHistoryToken;
-    }
-
-    @Override
-    public void setHref(final String href) {
-        getElement().setAttribute(HREF, href);
-    }
-
-    @Override
-    public String getHref() {
-        return getElement().getAttribute(HREF);
     }
 
     @Override
