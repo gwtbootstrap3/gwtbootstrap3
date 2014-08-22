@@ -6,7 +6,7 @@
     <groupId>org.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.9-SNAPSHOT</version>
+    <version>0.8.1</version>
     <name>GwtBootstrap3 Parent</name>
 
     <prerequisites>
