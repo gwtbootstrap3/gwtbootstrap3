@@ -27,6 +27,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasAlignment;
 import org.gwtbootstrap3.client.ui.base.HasEmphasis;
+import org.gwtbootstrap3.client.ui.base.HasSubText;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
 import org.gwtbootstrap3.client.ui.constants.Emphasis;
@@ -50,8 +51,8 @@ import org.gwtbootstrap3.client.ui.html.Text;
  *     <b:Small text=" subtext"/>
  * </b:Heading>
  *
- * <b:Heading size="H1" text="Heading Text" subtext="Subtext Text"/>
- * <b:Heading size="H1" subtext="Subtext Text" text="Heading Text"/>
+ * <b:Heading size="H1" text="Heading Text" subText="Subtext Text"/>
+ * <b:Heading size="H1" subText="Subtext Text" text="Heading Text"/>
  *
  * <b:Heading size="H1">
  *     <b:Icon type="..."/>
@@ -70,14 +71,15 @@ import org.gwtbootstrap3.client.ui.html.Text;
  * <p/>
  * <pre>
  * Heading h1 = new Heading(1, "Heading Text");
- * h1.setSubtext("Subtext Text); // optional
+ * h1.setSubText("Subtext Text"); // optional
  * </pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEmphasis, HasAlignment {
-    private final Small subtext = new Small();
+public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEmphasis, HasAlignment, HasSubText {
+
+    private final Small subText = new Small();
     private final Text text = new Text();
 
     /**
@@ -106,11 +108,11 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
      *
      * @param size    size of the heading
      * @param text    text for the heading
-     * @param subtext subtext for the heading
+     * @param subText subtext for the heading
      */
-    public Heading(final HeadingSize size, final String text, final String subtext) {
+    public Heading(final HeadingSize size, final String text, final String subText) {
         this(size, text);
-        setSubtext(subtext);
+        setSubText(subText);
     }
 
     /**
@@ -118,12 +120,13 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
      * <p/>
      * When using the setter for this, the subtext will be added after the text
      *
-     * @param subtext the subtext of the heading
+     * @param subText the subtext of the heading
      */
-    public void setSubtext(final String subtext) {
-        // Force a space between the heading and the subtext
-        this.subtext.setText(" " + subtext);
-        add(this.subtext);
+    @Override
+    public void setSubText(final String subText) {
+        // Force a space between the heading and the subText
+        this.subText.setText(" " + subText);
+        add(this.subText);
     }
 
     /**
@@ -131,8 +134,9 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
      *
      * @return subtext of the heading
      */
-    public String getSubtext() {
-        return subtext.getText();
+    @Override
+    public String getSubText() {
+        return subText.getText();
     }
 
     /**
@@ -183,7 +187,6 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
     public Alignment getAlignment() {
         return Alignment.fromStyleName(getStyleName());
     }
-
 
     /**
      * {@inheritDoc}
