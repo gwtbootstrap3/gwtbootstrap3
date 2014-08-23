@@ -52,6 +52,14 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
     }
 
     /**
+     * Toggles the display of the caret for the button
+     * @param toggleCaret show/hide the caret for the button
+     */
+    public void setToggleCaret(final boolean toggleCaret) {
+        caret.setVisible(toggleCaret);
+    }
+
+    /**
      * Specifies that this button acts as a toggle, for instance for a parent {@link org.gwtbootstrap3.client.ui.DropDown}
      * or {@link org.gwtbootstrap3.client.ui.ButtonGroup}
      * <p/>
