@@ -160,6 +160,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setIconSpin(final boolean iconSpin) {
         this.iconSpin = iconSpin;
+        render();
     }
 
     @Override
