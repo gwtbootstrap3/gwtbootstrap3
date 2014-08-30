@@ -30,6 +30,19 @@ import org.gwtbootstrap3.client.ui.constants.Attributes;
  */
 public abstract class AbstractForm extends FormElementContainer {
     private static final String FORM = "form";
+    
+    /**
+     * Used with {@link #setEncoding(String)} to specify that the form will be
+     * submitted using MIME encoding (necessary for file upload to work
+     * properly).
+     */
+    public static final String ENCODING_MULTIPART = "multipart/form-data";
+
+    /**
+     * Used with {@link #setEncoding(String)} to specify that the form will be
+     * submitted using traditional URL encoding.
+     */
+    public static final String ENCODING_URLENCODED = "application/x-www-form-urlencoded";
 
     public AbstractForm() {
         setElement(Document.get().createFormElement());
@@ -50,6 +63,26 @@ public abstract class AbstractForm extends FormElementContainer {
 
     public void setMethod(final String method) {
         getFormElement().setMethod(method);
+    }
+    
+    /**
+     * Gets the encoding used for submitting this form. This should be either
+     * {@link #ENCODING_MULTIPART} or {@link #ENCODING_URLENCODED}.
+     *
+     * @return the form's encoding
+     */
+    public String getEncoding() {
+        return getEncoding(getFormElement());
+    }
+    
+    /**
+     * Sets the encoding used for submitting this form. This should be either
+     * {@link #ENCODING_MULTIPART} or {@link #ENCODING_URLENCODED}.
+     *
+     * @param encodingType the form's encoding
+     */
+    public void setEncoding(String encodingType) {
+        setEncoding(getFormElement(), encodingType);
     }
 
     /**
@@ -76,5 +109,17 @@ public abstract class AbstractForm extends FormElementContainer {
 
     private native void reset(final Element e) /*-{
         e.reset();
+    }-*/;
+    
+    private native String getEncoding(Element form) /*-{
+        // We can always get 'enctype', no matter which browser, because we set
+        // both 'encoding' and 'enctype' in setEncoding().
+        return form.enctype;
+    }-*/;
+    
+    private native void setEncoding(Element form, String encoding) /*-{
+        // To be safe, setting both.
+        form.enctype = encoding;
+        form.encoding = encoding;
     }-*/;
 }
