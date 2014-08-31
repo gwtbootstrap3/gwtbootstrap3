@@ -50,6 +50,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private boolean iconSpin = false;
     private boolean iconBordered = false;
     private boolean iconLight = false;
+    private boolean iconFixedWidth = false;
 
     public IconTextMixin(final T widget) {
         this.widget = widget;
@@ -168,6 +169,17 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
         return iconSpin;
     }
 
+    @Override
+    public void setIconFixedWidth(final boolean iconFixedWidth) {
+        this.iconFixedWidth = iconFixedWidth;
+        render();
+    }
+
+    @Override
+    public boolean isIconFixedWidth() {
+        return iconFixedWidth;
+    }
+
     private void render() {
         // We defer to make sure the elements are available to manipulate their positions
         Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
@@ -193,6 +205,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                 icon.setSpin(iconSpin);
                 icon.setBorder(iconBordered);
                 icon.setLight(iconLight);
+                icon.setFixedWidth(iconFixedWidth);
 
                 // Since we are dealing with Icon/Text, we can insert them at the right position
                 // Helps on widgets like ButtonDropDown, where it has a caret added

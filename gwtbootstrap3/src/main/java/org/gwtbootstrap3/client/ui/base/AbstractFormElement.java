@@ -186,6 +186,16 @@ public class AbstractFormElement extends Div implements HasName, HasEnabled, Has
     }
 
     @Override
+    public void setIconFixedWidth(final boolean iconFixedWidth) {
+        button.setIconFixedWidth(iconFixedWidth);
+    }
+
+    @Override
+    public boolean isIconFixedWidth() {
+        return button.isIconFixedWidth();
+    }
+
+    @Override
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
         return button.addClickHandler(handler);
     }
