@@ -142,4 +142,14 @@ public abstract class AbstractIconButton extends AbstractButton implements HasTe
     public boolean isIconSpin() {
         return iconTextMixin.isIconSpin();
     }
+
+    @Override
+    public void setIconFixedWidth(final boolean iconFixedWidth) {
+        iconTextMixin.setIconFixedWidth(iconFixedWidth);
+    }
+
+    @Override
+    public boolean isIconFixedWidth() {
+        return iconTextMixin.isIconFixedWidth();
+    }
 }

@@ -263,6 +263,22 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
      * {@inheritDoc}
      */
     @Override
+    public void setIconFixedWidth(final boolean iconFixedWidth) {
+        iconTextMixin.setIconFixedWidth(iconFixedWidth);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean isIconFixedWidth() {
+        return iconTextMixin.isIconFixedWidth();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void setHref(final String href) {
         AnchorElement.as(getElement()).setHref(href);
     }

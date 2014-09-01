@@ -63,4 +63,9 @@ public interface HasIcon {
     void setIconSpin(boolean iconSpin);
 
     boolean isIconSpin();
+
+    void setIconFixedWidth(boolean iconFixedWidth);
+
+    boolean isIconFixedWidth();
+
 }

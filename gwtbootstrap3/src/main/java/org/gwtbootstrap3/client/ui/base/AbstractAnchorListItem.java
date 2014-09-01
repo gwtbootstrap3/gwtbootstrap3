@@ -188,4 +188,14 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     public boolean isIconSpin() {
         return anchor.isIconSpin();
     }
+
+    @Override
+    public void setIconFixedWidth(final boolean iconFixedWidth) {
+        anchor.setIconFixedWidth(iconFixedWidth);
+    }
+
+    @Override
+    public boolean isIconFixedWidth() {
+        return anchor.isIconFixedWidth();
+    }
 }
