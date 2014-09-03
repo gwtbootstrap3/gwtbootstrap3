@@ -24,26 +24,38 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
-import org.gwtbootstrap3.client.ui.html.Text;
 
 /**
  * @author Joshua Godi
  */
 public class LinkedGroupItemText extends ComplexWidget implements HasWidgets, HasText {
-    private final Text text = new Text();
+    private final HTMLMixin<LinkedGroupItemText> htmlMixin = new HTMLMixin<LinkedGroupItemText>(this);
 
     public LinkedGroupItemText() {
         setElement(Document.get().createPElement());
         setStyleName(Styles.LIST_GROUP_ITEM_TEXT);
     }
 
+    public LinkedGroupItemText(final String html) {
+        this();
+        setHTML(html);
+    }
     /**
      * {@inheritDoc}
      */
     @Override
     public String getText() {
-        return text.getText();
+        return htmlMixin.getText();
+    }
+
+    public String getHTML() {
+        return htmlMixin.getHTML();
+    }
+
+    public void setHTML(final String html) {
+        htmlMixin.setHTML(html);
     }
 
     /**
@@ -51,7 +63,8 @@ public class LinkedGroupItemText extends ComplexWidget implements HasWidgets, Ha
      */
     @Override
     public void setText(final String text) {
-        this.text.setText(text);
-        insert(this.text, 0);
+        this.htmlMixin.setText(text);
     }
+
+
 }
