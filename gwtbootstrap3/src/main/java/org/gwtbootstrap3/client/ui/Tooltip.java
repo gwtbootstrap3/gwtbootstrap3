@@ -295,15 +295,6 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     /**
      * Sets the tooltip's display string
      *
-     * @param text String display string
-     */
-    public void setText(final String text) {
-        setTitle(text);
-    }
-
-    /**
-     * Sets the tooltip's display string
-     *
      * @param title String display string
      */
     public void setTitle(final String title) {
