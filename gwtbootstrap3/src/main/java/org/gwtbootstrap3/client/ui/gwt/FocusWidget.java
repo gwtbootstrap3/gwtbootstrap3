@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.gwt;
 
 import org.gwtbootstrap3.client.ui.base.HasId;
 import org.gwtbootstrap3.client.ui.base.HasPull;
@@ -8,11 +8,28 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Pull;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+import com.google.gwt.dom.client.Element;
 
-public class Widget extends com.google.gwt.user.client.ui.Widget implements HasResponsiveness, HasId, HasPull {
+public abstract class FocusWidget extends com.google.gwt.user.client.ui.FocusWidget implements HasResponsiveness,
+        HasId, HasPull {
 
-    private final IdMixin<Widget> idMixin = new IdMixin<Widget>(this);
-    private final PullMixin<Widget> pullMixin = new PullMixin<Widget>(this);
+    private final IdMixin<FocusWidget> idMixin = new IdMixin<FocusWidget>(this);
+    private final PullMixin<FocusWidget> pullMixin = new PullMixin<FocusWidget>(this);
+
+    public FocusWidget(Element elem) {
+        super(elem);
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        if (enabled) {
+            removeStyleName(Styles.DISABLED);
+        } else {
+            addStyleName(Styles.DISABLED);
+        }
+    }
 
     /**
      * {@inheritDoc}
