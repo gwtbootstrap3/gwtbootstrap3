@@ -19,6 +19,17 @@
   #L%
   -->
 <module>
+	<!-- Fall through to this rule is the browser isn't IE 8 -->
+	<replace-with class="org.gwtbootstrap3.client.ui.impl.SimpleCheckBoxImpl">
+		<when-type-is class="org.gwtbootstrap3.client.ui.impl.SimpleCheckBoxImpl" />
+	</replace-with>
+
+	<!-- IE 8 uses a different implementation -->
+	<replace-with class="org.gwtbootstrap3.client.ui.impl.SimpleCheckBoxImplIE8">
+		<when-type-is class="org.gwtbootstrap3.client.ui.impl.SimpleCheckBoxImpl" />
+		<when-property-is name="user.agent" value="ie8" />
+	</replace-with>
+
 	<source path="client" />
 	<source path="shared" />
 </module>
