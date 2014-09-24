@@ -127,6 +127,9 @@
                                 <goal>test</goal>
                                 <goal>resources</goal>
                             </goals>
+                            <configuration>
+                                <mode>htmlunit</mode>
+                            </configuration>
                         </execution>
                     </executions>
                     <inherited>true</inherited>
