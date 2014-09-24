@@ -20,29 +20,18 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.CheckBoxButton;
+import com.google.gwt.junit.tools.GWTTestSuite;
 
-import com.google.gwt.junit.client.GWTTestCase;
+import junit.framework.Test;
+import junit.framework.TestCase;
 
-public class GwtTestCheckBoxButton extends GWTTestCase {
+public class GwtTestSuite extends TestCase {
 
-    /**
-     * Specifies a module to use when running this test case. The returned
-     * module must include the source for this class.
-     *
-     * @see com.google.gwt.junit.client.GWTTestCase#getModuleName()
-     */
-    @Override
-    public String getModuleName() {
-        return "org.gwtbootstrap3.GwtBootstrap3";
-    }
-
-    public void testLabel() {
-        final String label = "label";
-
-        final CheckBoxButton button = new CheckBoxButton(label);
-
-        assertEquals(label, button.getText());
+    public static Test suite() {
+        final GWTTestSuite suite = new GWTTestSuite("gwtbootstrap3 suite");
+        suite.addTestSuite(CheckBoxButtonGwt.class);
+        suite.addTestSuite(RadioButtonGwt.class);
+        return suite;
     }
 
 }
