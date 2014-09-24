@@ -14,7 +14,10 @@ import org.gwtbootstrap3.client.ui.constants.Pull;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.uibinder.client.UiConstructor;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
@@ -22,6 +25,8 @@ import com.google.gwt.user.client.ui.RootPanel;
  */
 public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadioButton implements HasResponsiveness,
         HasId, HasPull, HasFormValue {
+
+    private Boolean oldValue;
 
     /**
      * Creates a SimpleRadioButton widget that wraps an existing &lt;input
@@ -64,7 +69,7 @@ public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadio
      */
     @UiConstructor
     public SimpleRadioButton(String name) {
-        super(Document.get().createRadioInputElement(name));
+        this(Document.get().createRadioInputElement(name));
     }
 
     /**
@@ -77,6 +82,11 @@ public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadio
      */
     protected SimpleRadioButton(InputElement element) {
         super(element);
+
+        sinkEvents(Event.ONCLICK);
+        sinkEvents(Event.ONMOUSEUP);
+        sinkEvents(Event.ONBLUR);
+        sinkEvents(Event.ONKEYDOWN);
     }
 
     @Override
@@ -135,6 +145,38 @@ public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadio
     @Override
     public Pull getPull() {
         return pullMixin.getPull();
+    }
+
+    /**
+     * Overridden to send ValueChangeEvents only when appropriate.
+     */
+    @Override
+    public void onBrowserEvent(Event event) {
+        switch (DOM.eventGetType(event)) {
+        case Event.ONMOUSEUP:
+        case Event.ONBLUR:
+        case Event.ONKEYDOWN:
+            // Note the old value for onValueChange purposes (in ONCLICK case)
+            oldValue = getValue();
+            break;
+
+        case Event.ONCLICK:
+            // Let our handlers hear about the click...
+            super.onBrowserEvent(event);
+            // ...and now maybe tell them about the change
+            ValueChangeEvent.fireIfNotEqual(SimpleRadioButton.this, oldValue, getValue());
+            return;
+        }
+
+        super.onBrowserEvent(event);
+    }
+
+    /**
+     * No-op. CheckBox's click handler is no good for radio button, so don't use
+     * it. Our event handling is all done in {@link #onBrowserEvent}
+     */
+    @Override
+    protected void ensureDomEventHandlers() {
     }
 
 }
