@@ -19,6 +19,8 @@
   #L%
   -->
 <module>
+    <inherits name="com.google.gwt.user.UserAgent"/>
+
 	<!-- Fall through to this rule is the browser isn't IE 8 -->
 	<replace-with class="org.gwtbootstrap3.client.ui.impl.SimpleCheckBoxImpl">
 		<when-type-is class="org.gwtbootstrap3.client.ui.impl.SimpleCheckBoxImpl" />
