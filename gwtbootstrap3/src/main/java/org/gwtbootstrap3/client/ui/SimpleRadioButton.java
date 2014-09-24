@@ -171,6 +171,10 @@ public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadio
         super.onBrowserEvent(event);
     }
 
+    /**
+     * No-op. CheckBox's click handler is no good for radio button, so don't use
+     * it. Our event handling is all done in {@link #onBrowserEvent}
+     */
     @Override
     protected void ensureDomEventHandlers() {
     }
