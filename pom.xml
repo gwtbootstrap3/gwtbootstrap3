@@ -129,6 +129,7 @@
                             </goals>
                             <configuration>
                                 <mode>htmlunit</mode>
+                                <testTimeOut>240</testTimeOut>
                             </configuration>
                         </execution>
                     </executions>
