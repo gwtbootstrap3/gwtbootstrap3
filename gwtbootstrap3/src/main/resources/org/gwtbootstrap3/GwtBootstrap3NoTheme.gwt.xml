@@ -26,11 +26,9 @@ for you.
 -->
 
 <module rename-to="GwtBootstrap3NoTheme">
+	<inherits name="org.gwtbootstrap3.GwtBootstrap3Base"/>
     <inherits name="com.google.gwt.resources.Resources"/>
     <inherits name="org.gwtbootstrap3.client.NoThemeResources"/>
 
     <entry-point class="org.gwtbootstrap3.client.GwtBootstrap3EntryPoint"/>
-
-    <source path="client"/>
-    <source path="shared"/>
 </module>
