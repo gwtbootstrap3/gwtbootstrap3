@@ -10,23 +10,26 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Pull;
+import org.gwtbootstrap3.client.ui.impl.SimpleRadioButtonImpl;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.dom.client.HasChangeHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.uibinder.client.UiConstructor;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * A simple radio button widget, with no label.
  */
 public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadioButton implements HasResponsiveness,
-        HasId, HasPull, HasFormValue {
+        HasId, HasPull, HasFormValue, HasChangeHandlers {
 
-    private Boolean oldValue;
+    private static final SimpleRadioButtonImpl impl = GWT.create(SimpleRadioButtonImpl.class);
 
     /**
      * Creates a SimpleRadioButton widget that wraps an existing &lt;input
@@ -82,11 +85,11 @@ public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadio
      */
     protected SimpleRadioButton(InputElement element) {
         super(element);
+    }
 
-        sinkEvents(Event.ONCLICK);
-        sinkEvents(Event.ONMOUSEUP);
-        sinkEvents(Event.ONBLUR);
-        sinkEvents(Event.ONKEYDOWN);
+    @Override
+    public HandlerRegistration addChangeHandler(ChangeHandler handler) {
+        return addDomHandler(handler, ChangeEvent.getType());
     }
 
     @Override
@@ -147,36 +150,9 @@ public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadio
         return pullMixin.getPull();
     }
 
-    /**
-     * Overridden to send ValueChangeEvents only when appropriate.
-     */
-    @Override
-    public void onBrowserEvent(Event event) {
-        switch (DOM.eventGetType(event)) {
-        case Event.ONMOUSEUP:
-        case Event.ONBLUR:
-        case Event.ONKEYDOWN:
-            // Note the old value for onValueChange purposes (in ONCLICK case)
-            oldValue = getValue();
-            break;
-
-        case Event.ONCLICK:
-            // Let our handlers hear about the click...
-            super.onBrowserEvent(event);
-            // ...and now maybe tell them about the change
-            ValueChangeEvent.fireIfNotEqual(SimpleRadioButton.this, oldValue, getValue());
-            return;
-        }
-
-        super.onBrowserEvent(event);
-    }
-
-    /**
-     * No-op. CheckBox's click handler is no good for radio button, so don't use
-     * it. Our event handling is all done in {@link #onBrowserEvent}
-     */
     @Override
     protected void ensureDomEventHandlers() {
+        impl.ensureDomEventHandlers(this);
     }
 
 }

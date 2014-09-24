@@ -30,6 +30,18 @@
 		<when-property-is name="user.agent" value="ie8" />
 	</replace-with>
 
+	<!-- Fall through to this rule is the browser isn't IE 8 -->
+	<replace-with class="org.gwtbootstrap3.client.ui.impl.SimpleRadioButtonImpl">
+		<when-type-is class="org.gwtbootstrap3.client.ui.impl.SimpleRadioButtonImpl" />
+	</replace-with>
+
+	<!-- IE 8 uses a different implementation -->
+	<replace-with
+		class="org.gwtbootstrap3.client.ui.impl.SimpleRadioButtonImplIE8">
+		<when-type-is class="org.gwtbootstrap3.client.ui.impl.SimpleRadioButtonImpl" />
+		<when-property-is name="user.agent" value="ie8" />
+	</replace-with>
+
 	<source path="client" />
 	<source path="shared" />
 </module>
