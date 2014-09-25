@@ -127,6 +127,10 @@
                                 <goal>test</goal>
                                 <goal>resources</goal>
                             </goals>
+                            <configuration>
+                                <mode>htmlunit</mode>
+                                <testTimeOut>240</testTimeOut>
+                            </configuration>
                         </execution>
                     </executions>
                     <inherited>true</inherited>
