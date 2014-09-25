@@ -30,6 +30,7 @@ public class RadioButtonGwt extends InputToggleButtonGwt {
         checkFormValue(new RadioButton("name"));
         checkValue(new RadioButton("name"));
         checkEnabled(new RadioButton("name"));
+        checkIsEditor(new RadioButton("name"));
     }
 
     public void testRadioButtonLabel() {

@@ -30,6 +30,7 @@ public class CheckBoxButtonGwt extends InputToggleButtonGwt {
         checkFormValue(new CheckBoxButton());
         checkValue(new CheckBoxButton());
         checkEnabled(new CheckBoxButton());
+        checkIsEditor(new CheckBoxButton());
     }
 
     public void testCheckBoxButtonLabel() {
