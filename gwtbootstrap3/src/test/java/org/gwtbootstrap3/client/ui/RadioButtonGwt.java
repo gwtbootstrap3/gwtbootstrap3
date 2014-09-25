@@ -34,7 +34,7 @@ public class RadioButtonGwt extends InputToggleButtonGwt {
 
     public void testRadioButtonLabel() {
         final String label = "label";
-        final RadioButton button = new RadioButton(label);
+        final RadioButton button = new RadioButton("name", label);
         assertEquals(label, button.getText());
     }
 
