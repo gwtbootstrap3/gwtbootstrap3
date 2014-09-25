@@ -20,7 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.base.HasActive;
 import org.gwtbootstrap3.client.ui.base.HasFormValue;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -30,20 +29,13 @@ import com.google.gwt.dom.client.LabelElement;
 import com.google.gwt.dom.client.Node;
 import com.google.gwt.dom.client.Text;
 import com.google.gwt.editor.client.IsEditor;
+import com.google.gwt.editor.client.LeafValueEditor;
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.UIObject;
 
 public class InputToggleButtonGwt extends BaseGwt {
-
-    public void checkInterfaces(Object button) {
-        assertTrue(button instanceof HasActive);
-        assertTrue(button instanceof HasName);
-        assertTrue(button instanceof HasFormValue);
-        assertTrue(button instanceof HasValue);
-        assertTrue(button instanceof IsEditor);
-    }
 
     public void checkLayout(UIObject button) {
         final Element label = button.getElement();
@@ -53,6 +45,10 @@ public class InputToggleButtonGwt extends BaseGwt {
         assertTrue(InputElement.is(input));
         final Node text = label.getLastChild();
         assertTrue(text instanceof Text);
+    }
+
+    public <T extends UIObject & IsEditor<LeafValueEditor<Boolean>>> void checkIsEditor(T object) {
+        assertNotNull(object.asEditor());
     }
 
     @Override
