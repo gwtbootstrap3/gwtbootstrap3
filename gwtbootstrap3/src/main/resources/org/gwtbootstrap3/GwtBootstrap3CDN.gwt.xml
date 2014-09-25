@@ -19,11 +19,9 @@
   #L%
   -->
 <module rename-to="GwtBootstrap3">
+	<inherits name="org.gwtbootstrap3.GwtBootstrap3Base"/>
     <inherits name="com.google.gwt.core.Core"/>
     <inherits name="com.google.gwt.dom.DOM"/>
     <inherits name="com.google.gwt.text.Text"/>
     <inherits name="com.google.gwt.event.dom.DomEvent"/>
-
-    <source path="client"/>
-    <source path="shared"/>
 </module>

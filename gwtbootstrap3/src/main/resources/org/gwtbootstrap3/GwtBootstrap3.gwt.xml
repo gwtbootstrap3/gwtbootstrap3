@@ -19,12 +19,10 @@
   #L%
   -->
 <module rename-to="GwtBootstrap3">
+	<inherits name="org.gwtbootstrap3.GwtBootstrap3Base"/>
     <inherits name="com.google.gwt.core.Core"/>
     <inherits name="com.google.gwt.resources.Resources"/>
     <inherits name="org.gwtbootstrap3.client.Resources"/>
 
     <entry-point class="org.gwtbootstrap3.client.GwtBootstrap3EntryPoint"/>
-
-    <source path="client"/>
-    <source path="shared"/>
 </module>
