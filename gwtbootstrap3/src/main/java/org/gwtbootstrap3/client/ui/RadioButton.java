@@ -27,12 +27,16 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap3.client.ui.constants.ButtonSize;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
+import org.gwtbootstrap3.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.i18n.client.HasDirection.Direction;
 import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.uibinder.client.UiConstructor;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.DirectionalTextHelper;
 
 /**
  * Button representing a radio button used within a {@link ButtonGroup} that has
@@ -178,7 +182,29 @@ public class RadioButton extends Radio implements HasActive, HasType<ButtonType>
 
     @UiConstructor
     public RadioButton(String name) {
-        super(Document.get().createRadioInputElement(name));
+        this(Document.get().createRadioInputElement(name));
+    }
+
+    protected RadioButton(InputElement elem) {
+        super(DOM.createLabel());
+
+        setStyleName(Styles.BTN);
+        setType(ButtonType.DEFAULT);
+
+        inputElem = elem;
+        labelElem = Document.get().createSpanElement();
+
+        getElement().appendChild(inputElem);
+        getElement().appendChild(labelElem);
+
+        directionalTextHelper = new DirectionalTextHelper(labelElem, true);
+
+        // Accessibility: setting tab index to be 0 by default, ensuring element
+        // appears in tab sequence. FocusWidget's setElement method already
+        // calls setTabIndex, which is overridden below. However, at the time
+        // that this call is made, inputElem has not been created. So, we have
+        // to call setTabIndex again, once inputElem has been created.
+        setTabIndex(0);
     }
 
     @Override
