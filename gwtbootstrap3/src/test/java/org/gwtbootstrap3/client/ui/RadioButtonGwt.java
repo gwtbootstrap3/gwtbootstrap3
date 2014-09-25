@@ -23,7 +23,6 @@ package org.gwtbootstrap3.client.ui;
 public class RadioButtonGwt extends InputToggleButtonGwt {
 
     public void testRadioButton() {
-        checkInterfaces(new RadioButton("name"));
         checkLayout(new RadioButton("name"));
         checkActive(new RadioButton("name"));
         checkName(new RadioButton("name"));

@@ -20,7 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.base.HasActive;
 import org.gwtbootstrap3.client.ui.base.HasFormValue;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
@@ -37,14 +36,6 @@ import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.UIObject;
 
 public class InputToggleButtonGwt extends BaseGwt {
-
-    public void checkInterfaces(Object button) {
-        assertTrue(button instanceof HasActive);
-        assertTrue(button instanceof HasName);
-        assertTrue(button instanceof HasFormValue);
-        assertTrue(button instanceof HasValue);
-        assertTrue(button instanceof IsEditor);
-    }
 
     public void checkLayout(UIObject button) {
         final Element label = button.getElement();

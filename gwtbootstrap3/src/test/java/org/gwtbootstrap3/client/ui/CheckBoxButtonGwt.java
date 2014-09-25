@@ -23,7 +23,6 @@ package org.gwtbootstrap3.client.ui;
 public class CheckBoxButtonGwt extends InputToggleButtonGwt {
 
     public void testCheckBoxButton() {
-        checkInterfaces(new CheckBoxButton());
         checkLayout(new CheckBoxButton());
         checkActive(new CheckBoxButton());
         checkName(new CheckBoxButton());
