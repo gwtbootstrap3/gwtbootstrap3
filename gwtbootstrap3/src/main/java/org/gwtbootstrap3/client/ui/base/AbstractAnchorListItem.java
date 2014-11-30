@@ -37,6 +37,8 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
         implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasDataToggle, HasIcon, HasIconPosition {
 
     protected final Anchor anchor;
+    
+    private HandlerRegistration handlerRegistration;
 
     protected AbstractAnchorListItem() {
         anchor = new Anchor();
@@ -65,7 +67,8 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
 
     @Override
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
-        return anchor.addClickHandler(handler);
+    	
+        return handlerRegistration = anchor.addClickHandler(handler);
     }
 
     @Override
@@ -197,5 +200,10 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     @Override
     public boolean isIconFixedWidth() {
         return anchor.isIconFixedWidth();
+    }
+    @Override
+    public void setEnabled(boolean enabled){
+    	super.setEnabled(enabled);
+    	anchor.setEnabled(enabled);
     }
 }
