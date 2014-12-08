@@ -144,4 +144,12 @@ public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implement
     public void setPaddingBottom(final double padding) {
         getElement().getStyle().setPaddingBottom(padding, Style.Unit.PX);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setColor(String color) {
+        getElement().getStyle().setColor(color);
+    }
 }

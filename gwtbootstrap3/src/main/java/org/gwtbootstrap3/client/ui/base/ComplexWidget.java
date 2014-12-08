@@ -157,6 +157,14 @@ public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiven
      * {@inheritDoc}
      */
     @Override
+    public void setColor(String color) {
+        getElement().getStyle().setColor(color);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void setPull(final Pull pull) {
         pullMixin.setPull(pull);
     }

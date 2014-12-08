@@ -39,4 +39,6 @@ public interface HasInlineStyle {
     void setPaddingRight(double padding);
 
     void setPaddingBottom(double padding);
+
+    void setColor(String color);
 }

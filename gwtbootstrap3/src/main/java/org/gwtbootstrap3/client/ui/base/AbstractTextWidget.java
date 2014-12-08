@@ -128,6 +128,14 @@ public abstract class AbstractTextWidget extends Widget implements HasId, HasHTM
         getElement().getStyle().setPaddingBottom(padding, Style.Unit.PX);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setColor(String color) {
+        getElement().getStyle().setColor(color);
+    }
+
     @Override
     public LeafValueEditor<String> asEditor() {
         if (editor == null) {
