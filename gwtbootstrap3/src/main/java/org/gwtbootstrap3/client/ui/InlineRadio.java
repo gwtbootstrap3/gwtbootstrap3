@@ -28,8 +28,6 @@ import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.DirectionalTextHelper;
 
 /**
  * An inline radio button widget.
@@ -182,28 +180,11 @@ public class InlineRadio extends Radio {
      */
     @UiConstructor
     public InlineRadio(String name) {
-        super(DOM.createLabel());
+        super(DOM.createLabel(), Document.get().createRadioInputElement(name));
         setStyleName(Styles.RADIO_INLINE);
-
-        inputElem = Document.get().createRadioInputElement(name);
-        labelElem = Document.get().createSpanElement();
 
         getElement().appendChild(inputElem);
         getElement().appendChild(labelElem);
-
-        directionalTextHelper = new DirectionalTextHelper(labelElem, true);
-
-        // Accessibility: setting tab index to be 0 by default, ensuring element
-        // appears in tab sequence. FocusWidget's setElement method already
-        // calls setTabIndex, which is overridden below. However, at the time
-        // that this call is made, inputElem has not been created. So, we have
-        // to call setTabIndex again, once inputElem has been created.
-        setTabIndex(0);
-
-        sinkEvents(Event.ONCLICK);
-        sinkEvents(Event.ONMOUSEUP);
-        sinkEvents(Event.ONBLUR);
-        sinkEvents(Event.ONKEYDOWN);
     }
 
 }

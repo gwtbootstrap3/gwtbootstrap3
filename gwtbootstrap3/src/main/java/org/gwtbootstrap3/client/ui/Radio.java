@@ -26,13 +26,13 @@ import org.gwtbootstrap3.client.ui.impl.RadioImpl;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.dom.client.LabelElement;
 import com.google.gwt.i18n.client.HasDirection.Direction;
 import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.DirectionalTextHelper;
 
 /**
  * A mutually-exclusive selection radio button widget. Fires
@@ -199,30 +199,18 @@ public class Radio extends CheckBox {
      */
     @UiConstructor
     public Radio(String name) {
-        super(DOM.createDiv());
+        super(DOM.createDiv(), Document.get().createRadioInputElement(name));
         setStyleName(Styles.RADIO);
 
         LabelElement label = Document.get().createLabelElement();
-        inputElem = Document.get().createRadioInputElement(name);
-        labelElem = Document.get().createSpanElement();
-
         label.appendChild(inputElem);
         label.appendChild(labelElem);
 
         getElement().appendChild(label);
-
-        directionalTextHelper = new DirectionalTextHelper(labelElem, true);
-
-        // Accessibility: setting tab index to be 0 by default, ensuring element
-        // appears in tab sequence. FocusWidget's setElement method already
-        // calls setTabIndex, which is overridden below. However, at the time
-        // that this call is made, inputElem has not been created. So, we have
-        // to call setTabIndex again, once inputElem has been created.
-        setTabIndex(0);
     }
 
-    protected Radio(Element elem) {
-        super(elem);
+    protected Radio(Element elem, InputElement inputElement) {
+        super(elem, inputElement);
     }
 
     /**

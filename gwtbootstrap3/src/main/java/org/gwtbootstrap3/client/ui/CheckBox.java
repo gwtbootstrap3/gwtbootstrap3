@@ -71,9 +71,11 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
 
     private static final CheckBoxImpl impl = GWT.create(CheckBoxImpl.class);
 
-    protected DirectionalTextHelper directionalTextHelper;
-    protected InputElement inputElem;
-    protected SpanElement labelElem;
+    protected final SpanElement labelElem = Document.get().createSpanElement();
+    protected final InputElement inputElem;
+
+    private final DirectionalTextHelper directionalTextHelper =
+            new DirectionalTextHelper(labelElem, true);
 
     private LeafValueEditor<Boolean> editor;
     private boolean valueChangeHandlerInitialized;
@@ -180,19 +182,19 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
     }
 
     public CheckBox() {
-        super(DOM.createDiv());
+        this(DOM.createDiv(), Document.get().createCheckInputElement());
         setStyleName(Styles.CHECKBOX);
-
-        inputElem = Document.get().createCheckInputElement();
-        labelElem = Document.get().createSpanElement();
 
         LabelElement label = Document.get().createLabelElement();
         label.appendChild(inputElem);
         label.appendChild(labelElem);
 
         getElement().appendChild(label);
+    }
 
-        directionalTextHelper = new DirectionalTextHelper(labelElem, true);
+    protected CheckBox(Element element, InputElement inputElement) {
+        super(element);
+        inputElem = inputElement;
 
         // Accessibility: setting tab index to be 0 by default, ensuring element
         // appears in tab sequence. FocusWidget's setElement method already
@@ -200,10 +202,6 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
         // that this call is made, inputElem has not been created. So, we have
         // to call setTabIndex again, once inputElem has been created.
         setTabIndex(0);
-    }
-
-    protected CheckBox(Element elem) {
-        super(elem);
     }
 
     @Override

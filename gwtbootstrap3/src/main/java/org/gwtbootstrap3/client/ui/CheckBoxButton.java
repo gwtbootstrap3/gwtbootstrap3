@@ -35,7 +35,6 @@ import com.google.gwt.i18n.client.HasDirection.Direction;
 import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.DirectionalTextHelper;
 
 /**
  * Button representing a checkbox used within a {@link ButtonGroup} that has
@@ -154,26 +153,14 @@ public class CheckBoxButton extends CheckBox implements HasActive, HasType<Butto
         this(Document.get().createCheckInputElement());
     }
 
-    protected CheckBoxButton(InputElement elem) {
-        super(DOM.createLabel());
+    protected CheckBoxButton(InputElement element) {
+        super(DOM.createLabel(), element);
 
         setStyleName(Styles.BTN);
         setType(ButtonType.DEFAULT);
 
-        inputElem = elem;
-        labelElem = Document.get().createSpanElement();
-
         getElement().appendChild(inputElem);
         getElement().appendChild(labelElem);
-
-        directionalTextHelper = new DirectionalTextHelper(labelElem, true);
-
-        // Accessibility: setting tab index to be 0 by default, ensuring element
-        // appears in tab sequence. FocusWidget's setElement method already
-        // calls setTabIndex, which is overridden below. However, at the time
-        // that this call is made, inputElem has not been created. So, we have
-        // to call setTabIndex again, once inputElem has been created.
-        setTabIndex(0);
     }
 
     @Override
