@@ -28,7 +28,6 @@ import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Event;
 
 /**
  * An inline radio button widget.
@@ -193,11 +192,6 @@ public class InlineRadio extends Radio {
         // that this call is made, inputElem has not been created. So, we have
         // to call setTabIndex again, once inputElem has been created.
         setTabIndex(0);
-
-        sinkEvents(Event.ONCLICK);
-        sinkEvents(Event.ONMOUSEUP);
-        sinkEvents(Event.ONBLUR);
-        sinkEvents(Event.ONKEYDOWN);
     }
 
 }
