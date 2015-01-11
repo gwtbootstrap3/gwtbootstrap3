@@ -21,18 +21,17 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.impl.RadioImpl;
 
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.EventTarget;
 import com.google.gwt.dom.client.LabelElement;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.i18n.client.HasDirection.Direction;
 import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.DirectionalTextHelper;
 
 /**
@@ -55,7 +54,7 @@ import com.google.gwt.user.client.ui.DirectionalTextHelper;
  */
 public class Radio extends CheckBox {
 
-    private Boolean oldValue;
+    private static final RadioImpl impl = GWT.create(RadioImpl.class);
 
     /**
      * Creates a new radio associated with a particular group, and initialized
@@ -220,50 +219,10 @@ public class Radio extends CheckBox {
         // that this call is made, inputElem has not been created. So, we have
         // to call setTabIndex again, once inputElem has been created.
         setTabIndex(0);
-
-        sinkEvents(Event.ONCLICK);
-        sinkEvents(Event.ONMOUSEUP);
-        sinkEvents(Event.ONBLUR);
-        sinkEvents(Event.ONKEYDOWN);
     }
 
     protected Radio(Element elem) {
         super(elem);
-    }
-
-    /**
-     * Overridden to send ValueChangeEvents only when appropriate.
-     */
-    @Override
-    public void onBrowserEvent(Event event) {
-        switch (DOM.eventGetType(event)) {
-        case Event.ONMOUSEUP:
-        case Event.ONBLUR:
-        case Event.ONKEYDOWN:
-            // Note the old value for onValueChange purposes (in ONCLICK case)
-            oldValue = getValue();
-            break;
-
-        case Event.ONCLICK:
-            EventTarget target = event.getEventTarget();
-            if (Element.is(target) && labelElem.isOrHasChild(Element.as(target))) {
-
-                // They clicked the label. Note our pre-click value, and
-                // short circuit event routing so that other click handlers
-                // don't hear about it
-                oldValue = getValue();
-                return;
-            }
-
-            // It's not the label. Let our handlers hear about the
-            // click...
-            super.onBrowserEvent(event);
-            // ...and now maybe tell them about the change
-            ValueChangeEvent.fireIfNotEqual(Radio.this, oldValue, getValue());
-            return;
-        }
-
-        super.onBrowserEvent(event);
     }
 
     /**
@@ -285,24 +244,17 @@ public class Radio extends CheckBox {
     }
 
     @Override
+    protected void ensureDomEventHandlers() {
+        impl.ensureDomEventHandlers(this);
+    }
+
+    @Override
     public void sinkEvents(int eventBitsToAdd) {
-        // Like CheckBox, we want to hear about inputElem. We
-        // also want to know what's going on with the label, to
-        // make sure onBrowserEvent is able to record value changes
-        // initiated by label events
         if (isOrWasAttached()) {
-            Event.sinkEvents(inputElem, eventBitsToAdd | Event.getEventsSunk(inputElem));
-            Event.sinkEvents(labelElem, eventBitsToAdd | Event.getEventsSunk(labelElem));
+            impl.sinkEvents(eventBitsToAdd, inputElem, labelElem);
         } else {
             super.sinkEvents(eventBitsToAdd);
         }
     }
 
-    /**
-     * No-op. CheckBox's click handler is no good for radio button, so don't use
-     * it. Our event handling is all done in {@link #onBrowserEvent}
-     */
-    @Override
-    protected void ensureDomEventHandlers() {
-    }
 }
