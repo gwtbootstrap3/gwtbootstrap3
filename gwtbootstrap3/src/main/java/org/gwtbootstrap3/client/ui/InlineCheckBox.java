@@ -27,7 +27,6 @@ import com.google.gwt.i18n.client.HasDirection.Direction;
 import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.DirectionalTextHelper;
 
 /**
  * An inline check box widget.
@@ -139,16 +138,11 @@ public class InlineCheckBox extends CheckBox {
     }
 
     public InlineCheckBox() {
-        super(DOM.createLabel());
+        super(DOM.createLabel(), Document.get().createCheckInputElement());
         setStyleName(Styles.CHECKBOX_INLINE);
-
-        inputElem = Document.get().createCheckInputElement();
-        labelElem = Document.get().createSpanElement();
 
         getElement().appendChild(inputElem);
         getElement().appendChild(labelElem);
-
-        directionalTextHelper = new DirectionalTextHelper(labelElem, true);
 
         // Accessibility: setting tab index to be 0 by default, ensuring element
         // appears in tab sequence. FocusWidget's setElement method already
