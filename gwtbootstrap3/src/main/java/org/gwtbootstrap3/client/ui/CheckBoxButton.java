@@ -31,10 +31,14 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.InputElement;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.i18n.client.HasDirection.Direction;
 import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Event;
 
 /**
  * Button representing a checkbox used within a {@link ButtonGroup} that has
@@ -161,6 +165,32 @@ public class CheckBoxButton extends CheckBox implements HasActive, HasType<Butto
 
         getElement().appendChild(inputElem);
         getElement().appendChild(labelElem);
+    }
+
+    @Override
+    protected void ensureDomEventHandlers() {
+        // Use a ClickHandler since Bootstrap's jQuery does not trigger native
+        // change events:
+        // http://learn.jquery.com/events/triggering-event-handlers/
+        addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(ClickEvent event) {
+                ValueChangeEvent.fire(CheckBoxButton.this, getValue());
+            }
+
+        });
+    }
+
+    @Override
+    public void sinkEvents(int eventBitsToAdd) {
+        // Sink on the actual element because that's what gets clicked
+        if (isOrWasAttached()) {
+            Event.sinkEvents(getElement(),
+                    eventBitsToAdd | Event.getEventsSunk(getElement()));
+        } else {
+            super.sinkEvents(eventBitsToAdd);
+        }
     }
 
     @Override
