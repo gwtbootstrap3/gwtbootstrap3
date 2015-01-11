@@ -35,7 +35,6 @@ import com.google.gwt.i18n.client.HasDirection.Direction;
 import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Event;
 
 /**
  * Button representing a checkbox used within a {@link ButtonGroup} that has
