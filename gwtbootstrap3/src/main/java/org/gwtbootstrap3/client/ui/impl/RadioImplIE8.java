@@ -34,6 +34,19 @@ import com.google.gwt.event.dom.client.MouseUpHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.user.client.Event;
 
+/**
+ * This implementation will work in most cases.
+ *
+ * This case is not supported:
+ *
+ * 1. Given a group of two Radios
+ * 2. Select the first with a click on either input or label
+ * 3. Select the second with a click on either input or label
+ * 4. Select the first using the keyboard
+ *
+ * You will notice that 4 does not trigger a ValueChangeEvent.
+ *
+ */
 public class RadioImplIE8 extends RadioImpl {
 
     private static class Handler implements ClickHandler, MouseUpHandler, BlurHandler, KeyDownHandler {
