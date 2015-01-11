@@ -23,7 +23,9 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.base.HasFormValue;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.gwt.ButtonBase;
+import org.gwtbootstrap3.client.ui.impl.CheckBoxImpl;
 
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
@@ -35,8 +37,6 @@ import com.google.gwt.editor.client.LeafValueEditor;
 import com.google.gwt.editor.client.adapters.TakesValueEditor;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasChangeHandlers;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
@@ -68,6 +68,8 @@ import com.google.gwt.user.client.ui.HasWordWrap;
  */
 public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, HasWordWrap, HasDirectionalSafeHtml,
         HasDirectionEstimator, IsEditor<LeafValueEditor<Boolean>>, HasFormValue, HasChangeHandlers {
+
+    private static final CheckBoxImpl impl = GWT.create(CheckBoxImpl.class);
 
     protected DirectionalTextHelper directionalTextHelper;
     protected InputElement inputElem;
@@ -464,16 +466,7 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
     }
 
     protected void ensureDomEventHandlers() {
-        addClickHandler(new ClickHandler() {
-
-            @Override
-            public void onClick(ClickEvent event) {
-                // Checkboxes always toggle their value, no need to compare
-                // with old value. Radio buttons are not so lucky, see
-                // overrides in RadioButton
-                ValueChangeEvent.fire(CheckBox.this, getValue());
-            }
-        });
+        impl.ensureDomEventHandlers(this);
     }
 
     /**
