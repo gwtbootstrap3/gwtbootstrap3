@@ -135,6 +135,7 @@
                             <configuration>
                                 <mode>htmlunit</mode>
                                 <testTimeOut>240</testTimeOut>
+                                <validateOnly>true</validateOnly>
                             </configuration>
                         </execution>
                     </executions>
