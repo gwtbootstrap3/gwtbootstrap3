@@ -20,7 +20,6 @@
   -->
 <module rename-to="GwtBootstrap3">
 	<inherits name="org.gwtbootstrap3.GwtBootstrap3Base"/>
-    <inherits name="com.google.gwt.core.Core"/>
     <inherits name="com.google.gwt.resources.Resources"/>
     <inherits name="org.gwtbootstrap3.client.Resources"/>
 
