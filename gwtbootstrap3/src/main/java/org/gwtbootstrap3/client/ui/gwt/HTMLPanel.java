@@ -28,6 +28,7 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.DataSpyMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
+import org.gwtbootstrap3.client.ui.constants.ContextualBackground;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
@@ -36,8 +37,9 @@ import java.util.List;
 /**
  * @author Sven Jacobs
  * @author Grant Slender
+ * @author David Buhler
  */
-public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implements HasId, HasDataSpy, HasDataTarget, HasResponsiveness, HasInlineStyle {
+public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implements HasId, HasDataSpy, HasDataTarget, HasResponsiveness, HasInlineStyle, HasContextualBackground {
 
     private final DataSpyMixin<HTMLPanel> spyMixin = new DataSpyMixin<HTMLPanel>(this);
     private final DataTargetMixin<HTMLPanel> targetMixin = new DataTargetMixin<HTMLPanel>(this);
@@ -151,5 +153,21 @@ public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implement
     @Override
     public void setColor(String color) {
         getElement().getStyle().setColor(color);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setContextualBackground(ContextualBackground contextualBackground) {
+        StyleHelper.addUniqueEnumStyleName(this, ContextualBackground.class, contextualBackground);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ContextualBackground getContextualBackground() {
+        return ContextualBackground.fromStyleName(getStyleName());
     }
 }
