@@ -175,12 +175,11 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
     }
 
     /**
-     * Event fired when the alert is fully closed
+     * Event fired when the alert is fully closed (will wait for CSS transitions)
      *
      * @param evt event
      */
     protected void onClosed(final Event evt) {
-        removeFromParent();
         fireEvent(new AlertClosedEvent(evt));
     }
 
