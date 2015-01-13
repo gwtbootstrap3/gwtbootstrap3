@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui.constants;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 - 2014 GwtBootstrap3
+ * Copyright (C) 2013 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,20 +20,23 @@ package org.gwtbootstrap3.client.ui.constants;
  * #L%
  */
 
-import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 
+import com.google.gwt.dom.client.Style;
+
 /**
- * @author Joshua Godi
+ * @author Xiaodong Sun
  */
-public enum PaginationSize implements Size, Style.HasCssName {
-    NONE(""),
-    LARGE("pagination-lg"),
-    SMALL("pagination-sm");
+public enum InputSize implements Size, Style.HasCssName {
+
+	LARGE("input-lg"),
+    DEFAULT(""),
+    SMALL("input-sm"),
+    ;
 
     private final String cssClass;
 
-    private PaginationSize(final String cssClass) {
+    private InputSize(final String cssClass) {
         this.cssClass = cssClass;
     }
 
@@ -42,7 +45,8 @@ public enum PaginationSize implements Size, Style.HasCssName {
         return cssClass;
     }
 
-    public static PaginationSize fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, PaginationSize.class, NONE);
+    public static InputSize fromStyleName(final String styleName) {
+        return EnumHelper.fromStyleName(styleName, InputSize.class, DEFAULT);
     }
+
 }

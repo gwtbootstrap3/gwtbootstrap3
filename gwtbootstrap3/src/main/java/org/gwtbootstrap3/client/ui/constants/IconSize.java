@@ -26,7 +26,7 @@ import org.gwtbootstrap3.client.ui.base.helper.EnumHelper;
 /**
  * @author Joshua Godi
  */
-public enum IconSize implements Style.HasCssName {
+public enum IconSize implements Size, Style.HasCssName {
     NONE(""),
     LARGE("fa-lg"),
     TIMES2("fa-2x"),
