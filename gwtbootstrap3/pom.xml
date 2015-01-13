@@ -33,6 +33,9 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <validateOnly>true</validateOnly>
+                </configuration>
             </plugin>
         </plugins>
     </build>
