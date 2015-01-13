@@ -25,5 +25,5 @@
         <include name="fonts/*"/>
     </public>
 
-    <stylesheet src="css/font-awesome.min.css"/>
+    <stylesheet src="css/font-awesome-4.2.0.min.cache.css"/>
 </module>
