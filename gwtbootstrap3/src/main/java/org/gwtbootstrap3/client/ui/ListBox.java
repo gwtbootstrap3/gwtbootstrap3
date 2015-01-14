@@ -39,7 +39,7 @@ public class ListBox extends com.google.gwt.user.client.ui.ListBox implements Ha
     }
 
     public ListBox(final boolean isMultipleSelect) {
-        super(isMultipleSelect);
+        setMultipleSelect(isMultipleSelect);
         setStyleName(Styles.FORM_CONTROL);
     }
 
