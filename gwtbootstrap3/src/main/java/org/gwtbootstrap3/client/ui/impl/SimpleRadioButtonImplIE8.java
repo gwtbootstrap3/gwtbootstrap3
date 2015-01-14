@@ -34,46 +34,46 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.user.client.ui.SimpleCheckBox;
 
 public class SimpleRadioButtonImplIE8 extends SimpleRadioButtonImpl {
-	
-	private static class Handler implements ClickHandler, MouseUpHandler, BlurHandler, KeyDownHandler {
 
-		private final SimpleCheckBox simpleRadioButton;
-		private Boolean oldValue;
-		
-		public Handler(SimpleRadioButton simpleRadioButton) {
-			this.simpleRadioButton = simpleRadioButton;
-		}
+    private static class Handler implements ClickHandler, MouseUpHandler, BlurHandler, KeyDownHandler {
 
-		@Override
-		public void onClick(ClickEvent event) {
-			ValueChangeEvent.fireIfNotEqual(simpleRadioButton, oldValue,
-					simpleRadioButton.getValue());
-		}
+        private final SimpleCheckBox simpleRadioButton;
+        private Boolean oldValue;
 
-		@Override
-		public void onKeyDown(KeyDownEvent event) {
-			oldValue = simpleRadioButton.getValue();
-		}
+        public Handler(SimpleRadioButton simpleRadioButton) {
+            this.simpleRadioButton = simpleRadioButton;
+        }
 
-		@Override
-		public void onBlur(BlurEvent event) {
-			oldValue = simpleRadioButton.getValue();
-		}
+        @Override
+        public void onClick(ClickEvent event) {
+            ValueChangeEvent.fireIfNotEqual(simpleRadioButton, oldValue,
+                    simpleRadioButton.getValue());
+        }
 
-		@Override
-		public void onMouseUp(MouseUpEvent event) {
-			oldValue = simpleRadioButton.getValue();
-		}
-		
-	}
-	
-	@Override
-	public void ensureDomEventHandlers(SimpleRadioButton simpleRadioButton) {
-		Handler handler = new Handler(simpleRadioButton);
-		simpleRadioButton.addClickHandler(handler);
-		simpleRadioButton.addMouseUpHandler(handler);
-		simpleRadioButton.addBlurHandler(handler);
-		simpleRadioButton.addKeyDownHandler(handler);
-	}
-	
+        @Override
+        public void onKeyDown(KeyDownEvent event) {
+            oldValue = simpleRadioButton.getValue();
+        }
+
+        @Override
+        public void onBlur(BlurEvent event) {
+            oldValue = simpleRadioButton.getValue();
+        }
+
+        @Override
+        public void onMouseUp(MouseUpEvent event) {
+            oldValue = simpleRadioButton.getValue();
+        }
+
+    }
+
+    @Override
+    public void ensureDomEventHandlers(SimpleRadioButton simpleRadioButton) {
+        Handler handler = new Handler(simpleRadioButton);
+        simpleRadioButton.addClickHandler(handler);
+        simpleRadioButton.addMouseUpHandler(handler);
+        simpleRadioButton.addBlurHandler(handler);
+        simpleRadioButton.addKeyDownHandler(handler);
+    }
+
 }
