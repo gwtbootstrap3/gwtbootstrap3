@@ -40,14 +40,14 @@ public class FormGroup extends FormElementContainer implements HasSize<FormGroup
     }
 
     @Override
-	public void setSize(FormGroupSize size) {
-		StyleHelper.addUniqueEnumStyleName(this, FormGroupSize.class, size);
-	}
+    public void setSize(FormGroupSize size) {
+        StyleHelper.addUniqueEnumStyleName(this, FormGroupSize.class, size);
+    }
 
-	@Override
-	public FormGroupSize getSize() {
-		return FormGroupSize.fromStyleName(getStyleName());
-	}
+    @Override
+    public FormGroupSize getSize() {
+        return FormGroupSize.fromStyleName(getStyleName());
+    }
 
     @Override
     public void setValidationState(final ValidationState state) {

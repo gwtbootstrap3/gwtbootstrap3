@@ -29,7 +29,7 @@ import com.google.gwt.dom.client.Style;
  */
 public enum InputSize implements Size, Style.HasCssName {
 
-	LARGE("input-lg"),
+    LARGE("input-lg"),
     DEFAULT(""),
     SMALL("input-sm"),
     ;
