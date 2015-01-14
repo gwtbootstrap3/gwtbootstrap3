@@ -23,12 +23,15 @@ package org.gwtbootstrap3.client.ui.base;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.text.shared.Parser;
 import com.google.gwt.text.shared.Renderer;
+
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
+import org.gwtbootstrap3.client.ui.constants.InputSize;
 
 public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasResponsiveness,
-        HasPlaceholder, HasAutoComplete {
+        HasPlaceholder, HasAutoComplete, HasSize<InputSize> {
+
     private static final String MAX_LENGTH = "maxlength";
 
     private final IdMixin<ValueBoxBase<T>> idMixin = new IdMixin<ValueBoxBase<T>>(this);
@@ -85,5 +88,15 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     @Override
     public void setHiddenOn(final DeviceSize deviceSize) {
         StyleHelper.setHiddenOn(this, deviceSize);
+    }
+
+    @Override
+    public void setSize(InputSize size) {
+        StyleHelper.addUniqueEnumStyleName(this, InputSize.class, size);
+    }
+
+    @Override
+    public InputSize getSize() {
+        return InputSize.fromStyleName(getStyleName());
     }
 }

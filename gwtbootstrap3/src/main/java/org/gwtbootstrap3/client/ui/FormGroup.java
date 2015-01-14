@@ -21,20 +21,32 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import com.google.gwt.dom.client.Document;
+import org.gwtbootstrap3.client.ui.base.HasSize;
 import org.gwtbootstrap3.client.ui.base.HasValidationState;
 import org.gwtbootstrap3.client.ui.base.form.FormElementContainer;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.FormGroupSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.ValidationState;
 
 /**
  * @author Sven Jacobs
  */
-public class FormGroup extends FormElementContainer implements HasValidationState {
+public class FormGroup extends FormElementContainer implements HasSize<FormGroupSize>, HasValidationState {
 
     public FormGroup() {
         setElement(Document.get().createDivElement());
         setStyleName(Styles.FORM_GROUP);
+    }
+
+    @Override
+    public void setSize(FormGroupSize size) {
+        StyleHelper.addUniqueEnumStyleName(this, FormGroupSize.class, size);
+    }
+
+    @Override
+    public FormGroupSize getSize() {
+        return FormGroupSize.fromStyleName(getStyleName());
     }
 
     @Override
