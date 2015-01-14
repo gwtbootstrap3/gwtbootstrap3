@@ -24,9 +24,17 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.Anchor;
-import org.gwtbootstrap3.client.ui.constants.*;
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconPosition;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.Toggle;
 
 /**
  * Base class for list items that contain an {@link org.gwtbootstrap3.client.ui.Anchor} link.
@@ -37,8 +45,6 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
         implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasDataToggle, HasIcon, HasIconPosition {
 
     protected final Anchor anchor;
-    
-    private HandlerRegistration handlerRegistration;
 
     protected AbstractAnchorListItem() {
         anchor = new Anchor();
@@ -67,8 +73,7 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
 
     @Override
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
-    	
-        return handlerRegistration = anchor.addClickHandler(handler);
+        return anchor.addClickHandler(handler);
     }
 
     @Override
@@ -201,9 +206,10 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     public boolean isIconFixedWidth() {
         return anchor.isIconFixedWidth();
     }
+
     @Override
-    public void setEnabled(boolean enabled){
-    	super.setEnabled(enabled);
-    	anchor.setEnabled(enabled);
+    public void setEnabled(final boolean enabled) {
+        super.setEnabled(enabled);
+        anchor.setEnabled(enabled);
     }
 }

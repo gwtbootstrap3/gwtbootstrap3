@@ -22,6 +22,7 @@ package org.gwtbootstrap3.client.ui;
 
 import java.util.List;
 
+import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasDataParent;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
@@ -36,6 +37,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.AttributeMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataParentMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.EnabledMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
@@ -73,7 +75,7 @@ import com.google.gwt.user.client.ui.Widget;
  * @author Grant Slender
  */
 public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandlers, HasDoubleClickHandlers, HasHref, HasDataToggle, HasDataParent,
-        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget, HasTarget, HasPull  {
+        HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget, HasTarget, HasPull {
 
     private final PullMixin<Anchor> pullMixin = new PullMixin<Anchor>(this);
     private final DataToggleMixin<Anchor> toggleMixin = new DataToggleMixin<Anchor>(this);
@@ -81,9 +83,9 @@ public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandler
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
     private final DataTargetMixin<Anchor> targetMixin = new DataTargetMixin<Anchor>(this);
     private final AttributeMixin<Anchor> attributeMixin = new AttributeMixin<Anchor>(this);
-    private final FocusableMixin<Anchor> focusableMixin;
+    private final FocusableMixin<Anchor> focusableMixin = new FocusableMixin<Anchor>(this);
+    private final EnabledMixin<Anchor> enabledMixin = new EnabledMixin<Anchor>(this);
     private String targetHistoryToken;
-    private boolean enabled;
 
     /**
      * Creates an anchor widget with the desired HREF
@@ -93,7 +95,6 @@ public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandler
     public Anchor(final String href) {
         setElement(Document.get().createAnchorElement());
         setHref(href);
-        focusableMixin = new FocusableMixin<Anchor>(this);
         iconTextMixin.addTextWidgetToParent();
     }
 
@@ -483,6 +484,22 @@ public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandler
      * {@inheritDoc}
      */
     @Override
+    public boolean isEnabled() {
+        return enabledMixin.isEnabled();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setEnabled(final boolean enabled) {
+        enabledMixin.setEnabled(enabled);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     protected void onAttach() {
         super.onAttach();
 
@@ -494,20 +511,22 @@ public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandler
         }
     }
 
-	@Override
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	@Override
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-		if(enabled){
-			sinkEvents(Event.ONCLICK);
-			sinkEvents(Event.ONDBLCLICK);
-		}else{
-			unsinkEvents(Event.ONCLICK);
-			unsinkEvents(Event.ONDBLCLICK);
-		}
-	}
+    /**
+     * We override this because the <a></a> tag doesn't support the disabled property. So on clicks and focus, if disabled then ignore
+     *
+     * @param event dom event
+     */
+    @Override
+    public void onBrowserEvent(final Event event) {
+        switch (DOM.eventGetType(event)) {
+            case Event.ONDBLCLICK:
+            case Event.ONFOCUS:
+            case Event.ONCLICK:
+                if (!isEnabled()) {
+                    return;
+                }
+                break;
+        }
+        super.onBrowserEvent(event);
+    }
 }
