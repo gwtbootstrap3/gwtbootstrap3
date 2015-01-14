@@ -19,6 +19,7 @@
   #L%
   -->
 <module>
+    <inherits name="com.google.gwt.user.User"/>
     <inherits name="com.google.gwt.user.UserAgent"/>
 
 	<!-- Fall through to this rule is the browser isn't IE 8 -->
