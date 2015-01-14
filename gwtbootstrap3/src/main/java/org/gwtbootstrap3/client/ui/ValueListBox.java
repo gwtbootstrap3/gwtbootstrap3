@@ -22,7 +22,6 @@ package org.gwtbootstrap3.client.ui;
 
 
 import com.google.gwt.text.shared.Renderer;
-import com.google.gwt.user.client.ui.HasConstrainedValue;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.ProvidesKey;
 import com.google.gwt.view.client.SimpleKeyProvider;
