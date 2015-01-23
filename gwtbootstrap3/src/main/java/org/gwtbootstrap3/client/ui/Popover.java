@@ -324,10 +324,12 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
             boolean hasElement = widget != null;
             Widget returned = null;
 
+            @Override
             public boolean hasNext() {
                 return hasElement;
             }
 
+            @Override
             public Widget next() {
                 if (!hasElement || (widget == null)) {
                     throw new NoSuchElementException();
@@ -336,6 +338,7 @@ public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
                 return (returned = widget);
             }
 
+            @Override
             public void remove() {
                 if (returned != null) {
                     Popover.this.remove(returned);

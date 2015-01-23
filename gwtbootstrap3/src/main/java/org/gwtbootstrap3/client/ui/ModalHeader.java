@@ -46,6 +46,7 @@ public class ModalHeader extends FlowPanel implements ModalComponent, IsClosable
         add(closeButton);
     }
 
+    @Override
     public void setTitle(final String title) {
         heading.setText(title);
 

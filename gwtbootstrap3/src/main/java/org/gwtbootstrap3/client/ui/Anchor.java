@@ -20,19 +20,52 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import java.util.List;
+
+import com.google.gwt.user.client.DOM;
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasDataParent;
+import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasDataToggle;
+import org.gwtbootstrap3.client.ui.base.HasHref;
+import org.gwtbootstrap3.client.ui.base.HasIcon;
+import org.gwtbootstrap3.client.ui.base.HasIconPosition;
+import org.gwtbootstrap3.client.ui.base.HasPull;
+import org.gwtbootstrap3.client.ui.base.HasTarget;
+import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
+import org.gwtbootstrap3.client.ui.base.mixin.AttributeMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataParentMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.EnabledMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.FocusableMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
+import org.gwtbootstrap3.client.ui.constants.Attributes;
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconPosition;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.Pull;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.constants.Toggle;
+
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;
+import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.HasHTML;
 import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.ui.base.*;
-import org.gwtbootstrap3.client.ui.base.mixin.*;
-import org.gwtbootstrap3.client.ui.constants.*;
-
-import java.util.List;
 
 /**
  * Anchor {@code <a>} element with text and optional icon.
@@ -41,7 +74,7 @@ import java.util.List;
  * @author Joshua Godi
  * @author Grant Slender
  */
-public class Anchor extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref, HasDataToggle, HasDataParent,
+public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandlers, HasDoubleClickHandlers, HasHref, HasDataToggle, HasDataParent,
         HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget, HasTarget, HasPull {
 
     private final PullMixin<Anchor> pullMixin = new PullMixin<Anchor>(this);
@@ -50,7 +83,8 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     private final IconTextMixin<Anchor> iconTextMixin = new IconTextMixin<Anchor>(this);
     private final DataTargetMixin<Anchor> targetMixin = new DataTargetMixin<Anchor>(this);
     private final AttributeMixin<Anchor> attributeMixin = new AttributeMixin<Anchor>(this);
-    private final FocusableMixin<Anchor> focusableMixin;
+    private final FocusableMixin<Anchor> focusableMixin = new FocusableMixin<Anchor>(this);
+    private final EnabledMixin<Anchor> enabledMixin = new EnabledMixin<Anchor>(this);
     private String targetHistoryToken;
 
     /**
@@ -61,7 +95,6 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
     public Anchor(final String href) {
         setElement(Document.get().createAnchorElement());
         setHref(href);
-        focusableMixin = new FocusableMixin<Anchor>(this);
         iconTextMixin.addTextWidgetToParent();
     }
 
@@ -451,6 +484,22 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
      * {@inheritDoc}
      */
     @Override
+    public boolean isEnabled() {
+        return enabledMixin.isEnabled();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setEnabled(final boolean enabled) {
+        enabledMixin.setEnabled(enabled);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     protected void onAttach() {
         super.onAttach();
 
@@ -460,5 +509,24 @@ public class Anchor extends ComplexWidget implements HasClickHandlers, HasDouble
                 addStyleName(Styles.ALERT_LINK);
             }
         }
+    }
+
+    /**
+     * We override this because the <a></a> tag doesn't support the disabled property. So on clicks and focus, if disabled then ignore
+     *
+     * @param event dom event
+     */
+    @Override
+    public void onBrowserEvent(final Event event) {
+        switch (DOM.eventGetType(event)) {
+            case Event.ONDBLCLICK:
+            case Event.ONFOCUS:
+            case Event.ONCLICK:
+                if (!isEnabled()) {
+                    return;
+                }
+                break;
+        }
+        super.onBrowserEvent(event);
     }
 }

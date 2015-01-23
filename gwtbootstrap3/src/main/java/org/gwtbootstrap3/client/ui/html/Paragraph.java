@@ -37,12 +37,11 @@ public class Paragraph extends HTMLPanel implements HasAlignment, HasEmphasis {
     private final HTMLMixin<Paragraph> textMixin = new HTMLMixin<Paragraph>(this);
 
     public Paragraph() {
-        super(ParagraphElement.TAG, "");
+        this("");
     }
 
     public Paragraph(final String html) {
-        this();
-        setHTML(html);
+        super(ParagraphElement.TAG, html);
     }
 
     public void setText(final String text) {

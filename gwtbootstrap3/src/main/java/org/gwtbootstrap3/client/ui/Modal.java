@@ -100,6 +100,7 @@ public class Modal extends Div implements IsClosable {
         add(dialog);
     }
 
+    @Override
     public void setWidth(final String width) {
         dialog.setWidth(width);
     }
@@ -129,6 +130,7 @@ public class Modal extends Div implements IsClosable {
         }
     }
 
+    @Override
     public void setTitle(final String title) {
         header.setTitle(title);
     }

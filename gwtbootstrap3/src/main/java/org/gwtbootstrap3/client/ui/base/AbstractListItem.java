@@ -24,6 +24,7 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.HasEnabled;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.EnabledMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
@@ -45,6 +46,7 @@ public abstract class AbstractListItem extends ComplexWidget implements HasEnabl
     private final ActiveMixin<AbstractListItem> activeMixin = new ActiveMixin<AbstractListItem>(this);
     private final PullMixin<AbstractListItem> pullMixin = new PullMixin<AbstractListItem>(this);
     private final IdMixin<AbstractListItem> idMixin = new IdMixin<AbstractListItem>(this);
+    private final EnabledMixin<AbstractListItem> enabledMixin = new EnabledMixin<AbstractListItem>(this);
 
     protected AbstractListItem() {
         setElement(Document.get().createLIElement());
@@ -52,11 +54,7 @@ public abstract class AbstractListItem extends ComplexWidget implements HasEnabl
 
     @Override
     public void setEnabled(final boolean enabled) {
-        if (enabled) {
-            removeStyleName(Styles.DISABLED);
-        } else {
-            addStyleName(Styles.DISABLED);
-        }
+        enabledMixin.setEnabled(enabled);
     }
 
     @Override

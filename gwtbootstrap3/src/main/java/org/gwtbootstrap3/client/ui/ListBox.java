@@ -34,13 +34,24 @@ public class ListBox extends com.google.gwt.user.client.ui.ListBox implements Ha
 
     private final IdMixin<ListBox> idMixin = new IdMixin<ListBox>(this);
 
+    /**
+     * Creates an empty list box in single selection mode.
+     */
     public ListBox() {
         setStyleName(Styles.FORM_CONTROL);
     }
 
+    /**
+     * Creates an empty list box.
+     *
+     * @param isMultipleSelect
+     *            specifies if multiple selection is enabled
+     * @deprecated use {@link #setMultipleSelect(boolean)} instead.
+     */
+    @Deprecated
     public ListBox(final boolean isMultipleSelect) {
-        super(isMultipleSelect);
-        setStyleName(Styles.FORM_CONTROL);
+        this();
+        setMultipleSelect(isMultipleSelect);
     }
 
     @Override
