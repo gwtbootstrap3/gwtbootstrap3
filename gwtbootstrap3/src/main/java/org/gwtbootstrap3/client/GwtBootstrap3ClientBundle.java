@@ -32,7 +32,7 @@ public interface GwtBootstrap3ClientBundle extends ClientBundle {
 
     static final GwtBootstrap3ClientBundle INSTANCE = GWT.create(GwtBootstrap3ClientBundle.class);
 
-	@Source("resource/js/jquery-1.11.2.min.js")
+    @Source("resource/js/jquery-1.11.2.min.js")
     TextResource jQuery();
 
     @Source("resource/js/bootstrap.min.js")
