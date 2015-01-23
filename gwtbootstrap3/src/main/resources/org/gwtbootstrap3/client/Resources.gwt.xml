@@ -21,5 +21,5 @@
 <module>
     <inherits name="org.gwtbootstrap3.client.NoThemeResources"/>
 
-    <stylesheet src="css/bootstrap-3.3.1.min.cache.css"/>
+    <stylesheet src="css/bootstrap-3.3.2.min.cache.css"/>
 </module>
