@@ -121,6 +121,7 @@
                             <configuration>
                                 <mode>htmlunit</mode>
                                 <testTimeOut>240</testTimeOut>
+                                <failOnError>true</failOnError>
                             </configuration>
                         </execution>
                     </executions>
