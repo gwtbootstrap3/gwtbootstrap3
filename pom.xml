@@ -111,7 +111,7 @@
                 <executions>
                     <execution>
                         <configuration>
-                            <configLocation>https://raw.githubusercontent.com/ArloL/gwtbootstrap3/checkstyle/checkstyle.xml</configLocation>
+                            <configLocation>checkstyle.xml</configLocation>
                             <violationSeverity>warning</violationSeverity>
                         </configuration>
                         <goals>
