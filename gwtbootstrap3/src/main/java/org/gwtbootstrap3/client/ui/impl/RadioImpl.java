@@ -41,8 +41,7 @@ public class RadioImpl {
         });
     }
 
-    public void sinkEvents(int eventBitsToAdd, Element inputElem,
-            @SuppressWarnings("unused") Element labelElem) {
+    public void sinkEvents(int eventBitsToAdd, Element inputElem, Element labelElem) {
         Event.sinkEvents(inputElem,
                 eventBitsToAdd | Event.getEventsSunk(inputElem));
     }
