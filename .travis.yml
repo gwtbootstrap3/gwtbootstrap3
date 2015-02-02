@@ -1,0 +1,12 @@
+language: java
+
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+
+cache:
+  directories:
+    - $HOME/.m2
+
+script:
+  - mvn clean install -DdryRun=true -Dlicense.failOnMissingHeader=true -Dlicense.failOnNotUptodateHeader=true
