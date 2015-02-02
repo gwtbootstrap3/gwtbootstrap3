@@ -1,4 +1,4 @@
-[![Build Status](https://buildhive.cloudbees.com/job/gwtbootstrap3/job/gwtbootstrap3/badge/icon)](https://buildhive.cloudbees.com/job/gwtbootstrap3/job/gwtbootstrap3/)
+[![Build Status](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3.svg?branch=master)](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3)
 
 GwtBootstrap3 is a GWT wrapper for the [Bootstrap](http://getbootstrap.com/) front-end framework version 3
 containing design templates, styles and beautiful widgets.
