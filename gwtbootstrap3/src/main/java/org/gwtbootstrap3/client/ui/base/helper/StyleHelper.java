@@ -166,6 +166,8 @@ public final class StyleHelper {
                 case LG:
                     addEnumStyleName(uiObject, Responsiveness.HIDDEN_LG);
                     break;
+                default:
+                    break;
             }
         }
     }
@@ -200,6 +202,8 @@ public final class StyleHelper {
                     break;
                 case LG:
                     addEnumStyleName(uiObject, Responsiveness.VISIBLE_LG);
+                    break;
+                default:
                     break;
             }
         }
