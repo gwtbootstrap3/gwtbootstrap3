@@ -8,5 +8,8 @@ cache:
   directories:
     - $HOME/.m2
 
+install:
+  - mvn install -DskipTests=true -DdryRun=true
+
 script:
   - mvn clean install -DdryRun=true -Dlicense.failOnMissingHeader=true -Dlicense.failOnNotUptodateHeader=true
