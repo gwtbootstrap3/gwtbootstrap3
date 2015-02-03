@@ -49,7 +49,9 @@ public class Collapse extends Div {
         bindJavaScriptEvents(getElement());
 
         // Configure the collapse
-        collapse(getElement(), toggle);
+        if(toggle) {
+            addStyleName("in");
+        }
     }
 
     @Override
