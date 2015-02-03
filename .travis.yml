@@ -1,6 +1,11 @@
 sudo: false
 language: java
 
+env:
+  global:
+    - secure: "I9fqcwUoApU+MBNpgv5uJJxytXg00lcJlNfaBDhwfQWz63NUpglJsIART/iT0MU88fK7WxaaLXonBlTwlYv6hKAiuYftKh7tB/oLmdlHQgN8k508JiuVQYTMxhV3H4mcZKkaXFw6Alo/ZRcFCbAox5Y73DBiEq3u39p8DP8X8kI="
+    - secure: "Kd7j12QVk9xgKeltFu1+s/lLSdy+z8la4E9AnTTQS67cgZ5wvs+LdT/LCvASSIcwxs3NsG66vbmdqfcdozra3Nrhu9FUZLpav3ZR7fAqlMcUass0K02UbM27E5nJhSwTDFGWnWlcOijKU4B2idOYhLLnk8T2+dQSYQF8t/EYdow="
+
 jdk:
   - oraclejdk8
   - oraclejdk7
@@ -14,3 +19,6 @@ install:
 
 script:
   - mvn clean install -DdryRun=true -Dlicense.failOnMissingHeader=true -Dlicense.failOnNotUptodateHeader=true
+
+after_success:
+  - deploy.sh
