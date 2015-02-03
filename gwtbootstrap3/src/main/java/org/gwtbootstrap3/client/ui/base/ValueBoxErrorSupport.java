@@ -1,6 +1,7 @@
 package org.gwtbootstrap3.client.ui.base;
 
 /*
+/*
  * #%L
  * GwtBootstrap3
  * %%
@@ -23,6 +24,7 @@ package org.gwtbootstrap3.client.ui.base;
 import java.util.List;
 
 import org.gwtbootstrap3.client.ui.HelpBlock;
+import org.gwtbootstrap3.client.ui.base.ValueBoxBase.EditorErrorSupport;
 import org.gwtbootstrap3.client.ui.constants.ValidationState;
 
 import com.google.gwt.editor.client.EditorError;
@@ -30,6 +32,22 @@ import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * This is the default {@link EditorErrorSupport} implementation. The assumption is that every
+ * {@link ValueBoxBase} instance will have a {@link HasValidationState} parent. If there is a
+ * {@link HelpBlock} that is a child of the {@link HasValidationState} parent then error messages will be
+ * displayed in the {@link HelpBlock}.
+ * 
+ * Example:
+ * 
+ * <b:FormGroup>
+ *   <b:FormLabel for="username">User</b:FormLabel>
+ *   <b:TextBox b:id="username" ui:field="username" /> 
+ *   <b:HelpBlock iconType="EXCLAMATION" /> 
+ * </b:FormGroup>
+ * 
+ * @author Steven Jardine
+ */
 public class ValueBoxErrorSupport implements ValueBoxBase.EditorErrorSupport {
 
     private final Widget inputWidget;
@@ -46,6 +64,12 @@ public class ValueBoxErrorSupport implements ValueBoxBase.EditorErrorSupport {
         inputWidget = widget;
     }
 
+    /**
+     * Find the sibling {@link HelpBlock}.
+     *
+     * @param widget the {@link Widget} to search.
+     * @return the found {@link HelpBlock} of null if not found.
+     */
     private HelpBlock findHelpBlock(Widget widget) {
         if (widget instanceof HelpBlock) return (HelpBlock) widget;
         // Try and find the HelpBlock in the children of the given widget.
@@ -61,6 +85,10 @@ public class ValueBoxErrorSupport implements ValueBoxBase.EditorErrorSupport {
         return null;
     }
 
+    /**
+     * Initialize the instance. We find the parent {@link HasValidationState} and sibling {@link HelpBlock}
+     * only 1 time on initialization.
+     */
     public void init() {
         if (initialized) return;
         initialized = true;
@@ -74,6 +102,7 @@ public class ValueBoxErrorSupport implements ValueBoxBase.EditorErrorSupport {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public void onAttachOrDetach(AttachEvent event) {
         if (event.isAttached()) {
@@ -81,6 +110,7 @@ public class ValueBoxErrorSupport implements ValueBoxBase.EditorErrorSupport {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public void showErrors(List<EditorError> errors) {
         init();

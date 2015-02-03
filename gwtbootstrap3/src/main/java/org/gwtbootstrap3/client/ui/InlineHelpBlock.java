@@ -25,7 +25,10 @@ import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.dom.client.Style.Unit;
 
 /**
+ * Display's a help block inline.
+ * 
  * @author Joshua Godi
+ * @author Steven Jardine
  */
 public class InlineHelpBlock extends HelpBlock {
 

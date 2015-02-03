@@ -37,9 +37,20 @@ import com.google.gwt.text.shared.Renderer;
 public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasResponsiveness,
         HasPlaceholder, HasAutoComplete, HasSize<InputSize>, HasEditorErrors<T> {
 
+    /**
+     * Add support for HasEditorErrors implementation.
+     */
+    public interface EditorErrorSupport extends AttachEvent.Handler {
+        
+        void showErrors(List<EditorError> errors);
+
+    }
+
     private static final String MAX_LENGTH = "maxlength";
 
     private final IdMixin<ValueBoxBase<T>> idMixin = new IdMixin<ValueBoxBase<T>>(this);
+
+    private EditorErrorSupport errorSupport = new ValueBoxErrorSupport(this);
 
     /**
      * Creates a value box that wraps the given browser element handle. This is only used by subclasses.
@@ -104,14 +115,6 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
         return InputSize.fromStyleName(getStyleName());
     }
     
-    public interface EditorErrorSupport extends AttachEvent.Handler {
-        
-        void showErrors(List<EditorError> errors);
-
-    }
-    
-    private EditorErrorSupport errorSupport = new ValueBoxErrorSupport(this);
-
     public void setAddErrorSupport(boolean addErrorSupport) {
         if (!addErrorSupport) {
             errorSupport = null;

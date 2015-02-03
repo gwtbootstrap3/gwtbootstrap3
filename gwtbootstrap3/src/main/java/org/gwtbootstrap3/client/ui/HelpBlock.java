@@ -31,20 +31,31 @@ import com.google.gwt.dom.client.Style.Unit;
 
 /**
  * @author Joshua Godi
+ * @author Steven Jardine
  */
 public class HelpBlock extends AbstractTextWidget {
+
+    private IconType iconType = null;
 
     public HelpBlock() {
         super(Document.get().createSpanElement());
         setStyleName(Styles.HELP_BLOCK);
     }
 
-    private IconType iconType = null;
-
+    /**
+     * Sets the icon type.
+     *
+     * @param type the new icon type
+     */
     public void setIconType(IconType type) {
         iconType = type;
     }
 
+    /**
+     * Gets the icon type.
+     *
+     * @return the icon type
+     */
     public IconType getIconType() {
         return iconType;
     }
