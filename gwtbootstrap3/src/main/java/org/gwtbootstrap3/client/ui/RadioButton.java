@@ -20,15 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.base.HasActive;
-import org.gwtbootstrap3.client.ui.base.HasSize;
-import org.gwtbootstrap3.client.ui.base.HasType;
-import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
-import org.gwtbootstrap3.client.ui.constants.ButtonSize;
-import org.gwtbootstrap3.client.ui.constants.ButtonType;
-import org.gwtbootstrap3.client.ui.constants.Styles;
-
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -41,6 +32,22 @@ import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
 
+import org.gwtbootstrap3.client.ui.base.HasActive;
+import org.gwtbootstrap3.client.ui.base.HasIcon;
+import org.gwtbootstrap3.client.ui.base.HasIconPosition;
+import org.gwtbootstrap3.client.ui.base.HasSize;
+import org.gwtbootstrap3.client.ui.base.HasType;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
+import org.gwtbootstrap3.client.ui.constants.ButtonSize;
+import org.gwtbootstrap3.client.ui.constants.ButtonType;
+import org.gwtbootstrap3.client.ui.constants.IconFlip;
+import org.gwtbootstrap3.client.ui.constants.IconPosition;
+import org.gwtbootstrap3.client.ui.constants.IconRotate;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+
 /**
  * Button representing a radio button used within a {@link ButtonGroup} that has
  * toggle set to {@code Toogle.BUTTONS}.
@@ -49,9 +56,14 @@ import com.google.gwt.user.client.Event;
  *
  * @author Sven Jacobs
  */
-public class RadioButton extends Radio implements HasActive, HasType<ButtonType>, HasSize<ButtonSize> {
+public class RadioButton extends Radio implements HasActive,
+        HasType<ButtonType>, HasSize<ButtonSize>, HasIcon, HasIconPosition {
 
     private final ActiveMixin<RadioButton> activeMixin = new ActiveMixin<RadioButton>(this);
+
+    private IconPosition iconPosition = IconPosition.LEFT;
+    private Icon icon;
+
 
     /**
      * Creates a new radio associated with a particular group, and initialized
@@ -195,7 +207,9 @@ public class RadioButton extends Radio implements HasActive, HasType<ButtonType>
         setType(ButtonType.DEFAULT);
 
         getElement().appendChild(inputElem);
+        getElement().appendChild(Document.get().createTextNode(" "));
         getElement().appendChild(labelElem);
+        getElement().appendChild(Document.get().createTextNode(" "));
     }
     
     @Override
@@ -253,6 +267,123 @@ public class RadioButton extends Radio implements HasActive, HasType<ButtonType>
     @Override
     public boolean isActive() {
         return activeMixin.isActive();
+    }
+
+    @Override
+    public void setIconPosition(IconPosition iconPosition) {
+        this.iconPosition = iconPosition;
+        render();
+    }
+
+    @Override
+    public IconPosition getIconPosition() {
+        return iconPosition;
+    }
+
+    @Override
+    public void setIcon(IconType iconType) {
+        getActualIcon().setType(iconType);
+    }
+
+    @Override
+    public IconType getIcon() {
+        return getActualIcon().getType();
+    }
+
+    @Override
+    public void setIconSize(IconSize iconSize) {
+        getActualIcon().setSize(iconSize);
+    }
+
+    @Override
+    public IconSize getIconSize() {
+        return getActualIcon().getSize();
+    }
+
+    @Override
+    public void setIconFlip(IconFlip iconFlip) {
+        getActualIcon().setFlip(iconFlip);
+    }
+
+    @Override
+    public IconFlip getIconFlip() {
+        return getActualIcon().getFlip();
+    }
+
+    @Override
+    public void setIconRotate(IconRotate iconRotate) {
+        getActualIcon().setRotate(iconRotate);
+    }
+
+    @Override
+    public IconRotate getIconRotate() {
+        return getActualIcon().getRotate();
+    }
+
+    @Override
+    public void setIconBordered(boolean iconBordered) {
+        getActualIcon().setBorder(iconBordered);
+    }
+
+    @Override
+    public boolean isIconBordered() {
+        return getActualIcon().isBorder();
+    }
+
+    @Override
+    public void setIconMuted(boolean iconMuted) {
+        getActualIcon().setMuted(iconMuted);
+    }
+
+    @Override
+    public boolean isIconMuted() {
+        return getActualIcon().isMuted();
+    }
+
+    @Override
+    public void setIconLight(boolean iconLight) {
+        getActualIcon().setLight(iconLight);
+    }
+
+    @Override
+    public boolean isIconLight() {
+        return getActualIcon().isLight();
+    }
+
+    @Override
+    public void setIconSpin(boolean iconSpin) {
+        getActualIcon().setSpin(iconSpin);
+    }
+
+    @Override
+    public boolean isIconSpin() {
+        return getActualIcon().isSpin();
+    }
+
+    @Override
+    public void setIconFixedWidth(boolean iconFixedWidth) {
+        getActualIcon().setFixedWidth(iconFixedWidth);
+    }
+
+    @Override
+    public boolean isIconFixedWidth() {
+        return getActualIcon().isFixedWidth();
+    }
+
+    private Icon getActualIcon() {
+        if (icon == null) {
+            icon = new Icon();
+            render();
+        }
+        return icon;
+    }
+
+    private void render() {
+        if (iconPosition == IconPosition.LEFT) {
+            getElement().insertAfter(icon.getElement(), inputElem);
+        } else {
+            getElement().insertAfter(icon.getElement(), null);
+        }
     }
 
 }

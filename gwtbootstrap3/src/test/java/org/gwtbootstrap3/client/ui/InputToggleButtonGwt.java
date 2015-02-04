@@ -25,9 +25,6 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
-import com.google.gwt.dom.client.LabelElement;
-import com.google.gwt.dom.client.Node;
-import com.google.gwt.dom.client.Text;
 import com.google.gwt.editor.client.IsEditor;
 import com.google.gwt.editor.client.LeafValueEditor;
 import com.google.gwt.user.client.ui.HasEnabled;
@@ -37,15 +34,6 @@ import com.google.gwt.user.client.ui.UIObject;
 
 public class InputToggleButtonGwt extends BaseGwt {
 
-    public void checkLayout(UIObject button) {
-        final Element label = button.getElement();
-        assertTrue(LabelElement.is(label));
-        assertEquals(2, label.getChildCount());
-        final Element input = label.getFirstChildElement();
-        assertTrue(InputElement.is(input));
-        final Node text = label.getLastChild();
-        assertTrue(text instanceof Text);
-    }
 
     public <T extends UIObject & IsEditor<LeafValueEditor<Boolean>>> void checkIsEditor(T object) {
         assertNotNull(object.asEditor());

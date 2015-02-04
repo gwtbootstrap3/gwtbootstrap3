@@ -108,6 +108,10 @@ public class Icon extends ComplexWidget implements HasType<IconType> {
         StyleHelper.toggleStyleName(this, spin, Styles.ICON_SPIN);
     }
 
+    public boolean isSpin() {
+        return StyleHelper.containsStyle(Styles.ICON_SPIN, getStyleName());
+    }
+
     public void setRotate(final IconRotate iconRotate) {
         if (iconRotate == null) {
             return;
