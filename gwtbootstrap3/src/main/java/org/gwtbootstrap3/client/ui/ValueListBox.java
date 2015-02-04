@@ -52,13 +52,13 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
         super.initWidget(new ListBox());
     }
 
-	@Override
-	public void setName(String name) {
-		((ListBox) getWidget()).setName(name);
-	}
+    @Override
+    public void setName(String name) {
+        ((ListBox) getWidget()).setName(name);
+    }
 
-	@Override
-	public String getName() {
-		return ((ListBox) getWidget()).getName();
-	}
+    @Override
+    public String getName() {
+        return ((ListBox) getWidget()).getName();
+    }
 }
