@@ -50,7 +50,7 @@ public class Collapse extends Div {
 
         // Configure the collapse
         if(toggle) {
-            addStyleName("in");
+            addStyleName(Styles.IN);
         }
     }
 
@@ -92,6 +92,18 @@ public class Collapse extends Div {
         fireMethod(getElement(), HIDE);
     }
 
+    public boolean isShown() {
+        return this.getElement().hasClassName(Styles.IN);
+    }
+    
+    public boolean isHidden() {
+      return !isShown();
+    }
+    
+    public boolean isCollapsing() {
+        return this.getElement().hasClassName(Styles.COLLAPSING);
+    }
+    
     public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
         return addHandler(showHandler, ShowEvent.getType());
     }
