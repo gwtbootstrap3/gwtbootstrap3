@@ -37,12 +37,13 @@ import org.gwtbootstrap3.client.ui.html.Text;
  * @see Navbar
  */
 public class ListItem extends AbstractListItem implements HasWidgets, HasText {
-    private Text text;
+    private Text text = new Text();
 
     /**
      * Creates a default list item element
      */
     public ListItem() {
+        add(text, (Element) getElement());
     }
 
     /**
@@ -60,8 +61,7 @@ public class ListItem extends AbstractListItem implements HasWidgets, HasText {
      */
     @Override
     public void setText(final String text) {
-        this.text = new Text(text);
-        add(this.text, (Element) getElement());
+        this.text.setText(text);
     }
 
     /**

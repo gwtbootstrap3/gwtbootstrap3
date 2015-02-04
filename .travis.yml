@@ -10,6 +10,10 @@ jdk:
   - oraclejdk8
   - oraclejdk7
 
+branches:
+  only:
+    - master
+
 cache:
   directories:
     - $HOME/.m2
