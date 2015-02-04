@@ -38,12 +38,12 @@ import org.gwtbootstrap3.client.ui.constants.FormType;
 public class Form extends AbstractForm implements HasType<FormType> {
 
     public Form() {
+        this(FormType.DEFAULT);
     }
 
     @UiConstructor
     public Form(final FormType type) {
-      this();
-      setType(type);
+        setType(type);
     }
 
     @Override
