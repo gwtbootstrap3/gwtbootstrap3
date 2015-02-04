@@ -1,11 +1,6 @@
 sudo: false
 language: java
 
-env:
-  global:
-    - secure: "PXmua28BfClTToDFbGlYTFBTRVc1oMNBhO/3IoNFNMExPWzuTu56AfPfRb2XH3/Apuq2YlNzXZfDVICVO2bi56JIRGx/LHjqQj2wk6NS0DmrSjU7aYDoQpxRITB1WQaMmfcA8LrmOmQFJVJDXNAsMw1ujYa7RUF6vKpa49WPrFc="
-    - secure: "J0ysRMKUHLvZ5znnqozphbEZcAxNz0XggJau+gJF8T+QTkDSqeO2Qongge2ZQI4tQpPd6lIVOzbnDZ4Nv+ZbxtM4h0QfcSL17vXPKjU9u676m/nzeFYQAHu4J1/89QayxbAdwINnIwTJV3JaR05CjAt0PhImOgC9Xsbuj+sPgls="
-
 jdk:
   - oraclejdk8
   - oraclejdk7
