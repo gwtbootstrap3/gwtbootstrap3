@@ -20,7 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.uibinder.client.UiConstructor;
 import org.gwtbootstrap3.client.ui.base.HasType;
 import org.gwtbootstrap3.client.ui.base.form.AbstractForm;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -37,7 +36,6 @@ import org.gwtbootstrap3.client.ui.constants.FormType;
  */
 public class Form extends AbstractForm implements HasType<FormType> {
 
-    @UiConstructor
     public Form() {
         this(FormType.DEFAULT);
     }
