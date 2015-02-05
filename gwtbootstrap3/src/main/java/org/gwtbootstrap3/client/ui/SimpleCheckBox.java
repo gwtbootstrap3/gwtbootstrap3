@@ -30,6 +30,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Pull;
+import org.gwtbootstrap3.client.ui.gwt.Widget;
 import org.gwtbootstrap3.client.ui.impl.SimpleCheckBoxImpl;
 
 import com.google.gwt.core.client.GWT;

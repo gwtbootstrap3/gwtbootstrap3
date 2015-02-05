@@ -20,7 +20,6 @@ package org.gwtbootstrap3.client.ui.html;
  * #L%
  */
 
-import com.google.gwt.dom.client.ParagraphElement;
 import org.gwtbootstrap3.client.ui.base.HasAlignment;
 import org.gwtbootstrap3.client.ui.base.HasEmphasis;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
@@ -28,6 +27,8 @@ import org.gwtbootstrap3.client.ui.base.mixin.HTMLMixin;
 import org.gwtbootstrap3.client.ui.constants.Alignment;
 import org.gwtbootstrap3.client.ui.constants.Emphasis;
 import org.gwtbootstrap3.client.ui.gwt.HTMLPanel;
+
+import com.google.gwt.dom.client.ParagraphElement;
 
 /**
  * @author Sven Jacobs

@@ -20,9 +20,10 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.constants.Styles;
+
 import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.UIObject;
-import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
  * @author Joshua Godi

@@ -20,15 +20,16 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.text.shared.testing.PassthroughParser;
-import com.google.gwt.text.shared.testing.PassthroughRenderer;
-import com.google.gwt.uibinder.client.UiConstructor;
 import org.gwtbootstrap3.client.ui.base.HasInputType;
 import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
 import org.gwtbootstrap3.client.ui.constants.InputType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.text.shared.testing.PassthroughParser;
+import com.google.gwt.text.shared.testing.PassthroughRenderer;
+import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
  * @author Joshua Godi

@@ -20,8 +20,9 @@ package org.gwtbootstrap3.client.shared.event;
  * #L%
  */
 
-import com.google.gwt.user.client.Event;
 import org.gwtbootstrap3.client.ui.Tooltip;
+
+import com.google.gwt.user.client.Event;
 
 /**
  * @author Pontus Enmark

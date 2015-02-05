@@ -20,14 +20,15 @@ package org.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.base.HasDataToggle;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 import org.gwtbootstrap3.client.ui.html.Text;
+
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.dom.client.Element;
 
 /**
  * Base class for buttons that can be toggle buttons

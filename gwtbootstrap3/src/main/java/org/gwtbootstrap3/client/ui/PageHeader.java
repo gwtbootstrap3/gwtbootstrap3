@@ -20,11 +20,12 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.base.HasSubText;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
+
+import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
+import com.google.gwt.user.client.ui.HasText;
 
 /**
  * Page header with optional subtext

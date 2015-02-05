@@ -23,6 +23,8 @@ package org.gwtbootstrap3.client.ui;
 import org.gwtbootstrap3.client.ui.base.HasFormValue;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.gwt.ButtonBase;
+import org.gwtbootstrap3.client.ui.gwt.FormPanel;
+import org.gwtbootstrap3.client.ui.gwt.Widget;
 import org.gwtbootstrap3.client.ui.impl.CheckBoxImpl;
 
 import com.google.gwt.core.shared.GWT;
@@ -52,6 +54,7 @@ import com.google.gwt.user.client.ui.HasDirectionalSafeHtml;
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWordWrap;
+import com.google.gwt.user.client.ui.UIObject;
 
 /**
  * A standard check box widget.

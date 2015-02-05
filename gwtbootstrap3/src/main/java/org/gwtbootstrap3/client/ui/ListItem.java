@@ -20,12 +20,13 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.ui.HasText;
-import com.google.gwt.user.client.ui.HasWidgets;
 import org.gwtbootstrap3.client.ui.base.AbstractListItem;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Text;
+
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 /**
  * Represents a list item with text contents

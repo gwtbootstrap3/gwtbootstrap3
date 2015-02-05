@@ -20,9 +20,10 @@ package org.gwtbootstrap3.client.shared.event;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.Carousel;
+
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.Event;
-import org.gwtbootstrap3.client.ui.Carousel;
 
 /**
  * @author Joshua Godi

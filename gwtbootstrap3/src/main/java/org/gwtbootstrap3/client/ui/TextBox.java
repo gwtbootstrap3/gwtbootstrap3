@@ -20,10 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.base.TextBoxBase;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 
 /**
  * @author Sven Jacobs

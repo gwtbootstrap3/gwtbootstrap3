@@ -20,10 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.UnorderedList;
+
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * @author Joshua Godi

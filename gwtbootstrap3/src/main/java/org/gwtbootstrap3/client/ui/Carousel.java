@@ -20,8 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.Event;
 import org.gwtbootstrap3.client.shared.event.CarouselSlidEvent;
 import org.gwtbootstrap3.client.shared.event.CarouselSlidHandler;
 import org.gwtbootstrap3.client.shared.event.CarouselSlideEvent;
@@ -29,6 +27,9 @@ import org.gwtbootstrap3.client.shared.event.CarouselSlideHandler;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
+
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.Event;
 
 /**
  * @author Joshua Godi

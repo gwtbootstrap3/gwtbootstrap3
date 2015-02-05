@@ -20,14 +20,15 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.uibinder.client.UiConstructor;
-import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.constants.ColumnOffset;
 import org.gwtbootstrap3.client.ui.constants.ColumnPull;
 import org.gwtbootstrap3.client.ui.constants.ColumnPush;
 import org.gwtbootstrap3.client.ui.constants.ColumnSize;
 import org.gwtbootstrap3.client.ui.html.Div;
+
+import com.google.gwt.dom.client.Style;
+import com.google.gwt.uibinder.client.UiConstructor;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * A column of Bootstrap's fluid grid system.

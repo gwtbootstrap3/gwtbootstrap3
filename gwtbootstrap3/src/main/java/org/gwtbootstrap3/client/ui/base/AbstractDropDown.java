@@ -20,8 +20,9 @@ package org.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
-import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+
+import com.google.gwt.dom.client.Element;
 
 /**
  * @author Sven Jacobs

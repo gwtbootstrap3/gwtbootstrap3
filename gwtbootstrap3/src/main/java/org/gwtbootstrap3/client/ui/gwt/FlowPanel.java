@@ -20,7 +20,8 @@ package org.gwtbootstrap3.client.ui.gwt;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.Widget;
+import java.util.List;
+
 import org.gwtbootstrap3.client.ui.base.HasDataSpy;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.base.HasId;
@@ -32,7 +33,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Spy;
 
-import java.util.List;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * @author Sven Jacobs

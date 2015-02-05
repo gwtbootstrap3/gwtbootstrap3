@@ -20,13 +20,14 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.ui.UIObject;
-import com.google.gwt.user.client.ui.Widget;
+import java.util.List;
+
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 
-import java.util.List;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.user.client.ui.UIObject;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * @author Sven Jacobs

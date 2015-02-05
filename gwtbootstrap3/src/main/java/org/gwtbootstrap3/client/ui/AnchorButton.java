@@ -20,6 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.HasHref;
+import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
+import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
+import org.gwtbootstrap3.client.ui.constants.ButtonType;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
@@ -28,10 +33,6 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.impl.HyperlinkImpl;
-import org.gwtbootstrap3.client.ui.base.HasHref;
-import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
-import org.gwtbootstrap3.client.ui.base.button.AbstractToggleButton;
-import org.gwtbootstrap3.client.ui.constants.ButtonType;
 
 /**
  * Button based on {@code <a>} element.

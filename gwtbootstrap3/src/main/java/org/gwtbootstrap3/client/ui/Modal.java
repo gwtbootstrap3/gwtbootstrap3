@@ -20,12 +20,14 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.Widget;
-import com.google.web.bindery.event.shared.HandlerRegistration;
-import org.gwtbootstrap3.client.shared.event.*;
+import org.gwtbootstrap3.client.shared.event.ModalHiddenEvent;
+import org.gwtbootstrap3.client.shared.event.ModalHiddenHandler;
+import org.gwtbootstrap3.client.shared.event.ModalHideEvent;
+import org.gwtbootstrap3.client.shared.event.ModalHideHandler;
+import org.gwtbootstrap3.client.shared.event.ModalShowEvent;
+import org.gwtbootstrap3.client.shared.event.ModalShowHandler;
+import org.gwtbootstrap3.client.shared.event.ModalShownEvent;
+import org.gwtbootstrap3.client.shared.event.ModalShownHandler;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap3.client.ui.base.modal.ModalDialog;
@@ -33,6 +35,12 @@ import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.ModalBackdrop;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
+
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
  * Modal dialog.

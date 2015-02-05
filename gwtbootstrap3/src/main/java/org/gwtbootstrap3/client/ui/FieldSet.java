@@ -20,9 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.HasEnabled;
-import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 
 /**
  * @author Sven Jacobs

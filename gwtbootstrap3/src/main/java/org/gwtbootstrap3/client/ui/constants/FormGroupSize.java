@@ -33,8 +33,7 @@ public enum FormGroupSize implements Size, Style.HasCssName {
 
     LARGE("form-group-lg"),
     DEFAULT(""),
-    SMALL("form-group-sm"),
-    ;
+    SMALL("form-group-sm");
 
     private final String cssClass;
 

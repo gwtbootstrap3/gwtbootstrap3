@@ -22,7 +22,6 @@ package org.gwtbootstrap3.client.ui;
 
 import java.util.List;
 
-import com.google.gwt.user.client.DOM;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasDataParent;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
@@ -60,6 +59,7 @@ import com.google.gwt.event.dom.client.DoubleClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Focusable;

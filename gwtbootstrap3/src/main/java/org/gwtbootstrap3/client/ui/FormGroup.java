@@ -20,7 +20,6 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.HasSize;
 import org.gwtbootstrap3.client.ui.base.HasValidationState;
 import org.gwtbootstrap3.client.ui.base.form.FormElementContainer;
@@ -28,6 +27,8 @@ import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.FormGroupSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.ValidationState;
+
+import com.google.gwt.dom.client.Document;
 
 /**
  * @author Sven Jacobs
