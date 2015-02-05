@@ -36,6 +36,8 @@ public class InlineHelpBlock extends HelpBlock {
         super();
         Style style = getElement().getStyle();
         style.setDisplay(Display.INLINE_BLOCK);
+        style.setMarginTop(0, Unit.PX);
+        style.setMarginBottom(5, Unit.PX);
         style.setPaddingLeft(10, Unit.PX);
     }
 
