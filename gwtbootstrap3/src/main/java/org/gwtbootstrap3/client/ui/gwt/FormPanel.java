@@ -20,14 +20,14 @@ package org.gwtbootstrap3.client.ui.gwt;
  * #L%
  */
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.ui.NamedFrame;
-
 import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.HasType;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.FormType;
+
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.ui.NamedFrame;
 
 public class FormPanel extends com.google.gwt.user.client.ui.FormPanel
         implements HasType<FormType>, HasResponsiveness {

@@ -20,8 +20,9 @@ package org.gwtbootstrap3.client.ui.base.modal;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.FlowPanel;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+
+import com.google.gwt.user.client.ui.FlowPanel;
 
 /**
  * @author Sven Jacobs

@@ -31,8 +31,7 @@ public enum InputSize implements Size, Style.HasCssName {
 
     LARGE("input-lg"),
     DEFAULT(""),
-    SMALL("input-sm"),
-    ;
+    SMALL("input-sm");
 
     private final String cssClass;
 

@@ -20,12 +20,14 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.TextBoxBase;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.gwt.Widget;
+
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.TextAreaElement;
 import com.google.gwt.user.client.ui.RootPanel;
-import org.gwtbootstrap3.client.ui.base.TextBoxBase;
-import org.gwtbootstrap3.client.ui.constants.Styles;
 
 public class TextArea extends TextBoxBase {
 

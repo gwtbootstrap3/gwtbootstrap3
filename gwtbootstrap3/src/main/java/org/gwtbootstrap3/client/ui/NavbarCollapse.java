@@ -20,9 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Element;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
+
+import com.google.gwt.dom.client.Element;
 
 /**
  * Container for collapsible items within a {@link Navbar}.

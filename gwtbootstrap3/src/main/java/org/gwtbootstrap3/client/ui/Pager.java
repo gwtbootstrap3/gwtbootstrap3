@@ -20,14 +20,15 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.UnorderedList;
+
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
  * Support for Bootstrap pager (http://getbootstrap.com/components/#pagination-pager)

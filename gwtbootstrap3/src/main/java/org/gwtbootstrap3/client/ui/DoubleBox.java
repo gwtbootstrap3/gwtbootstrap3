@@ -20,11 +20,12 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.text.client.DoubleParser;
 import com.google.gwt.text.client.DoubleRenderer;
-import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
-import org.gwtbootstrap3.client.ui.constants.Styles;
 
 public class DoubleBox extends ValueBoxBase<Double> {
 

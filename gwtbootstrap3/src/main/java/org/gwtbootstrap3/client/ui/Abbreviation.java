@@ -20,10 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.uibinder.client.UiConstructor;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
  * Simple {@code <abbr>} block for abbreviating words.

@@ -20,11 +20,12 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
+import org.gwtbootstrap3.client.ui.constants.Styles;
+
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.text.client.IntegerParser;
 import com.google.gwt.text.client.IntegerRenderer;
-import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
-import org.gwtbootstrap3.client.ui.constants.Styles;
 
 public class IntegerBox extends ValueBoxBase<Integer> {
 

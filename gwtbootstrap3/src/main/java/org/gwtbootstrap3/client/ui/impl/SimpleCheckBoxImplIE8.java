@@ -20,10 +20,11 @@ package org.gwtbootstrap3.client.ui.impl;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.SimpleCheckBox;
+
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import org.gwtbootstrap3.client.ui.SimpleCheckBox;
 
 public class SimpleCheckBoxImplIE8 extends SimpleCheckBoxImpl {
 

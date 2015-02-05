@@ -20,11 +20,12 @@ package org.gwtbootstrap3.client.ui.html;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.ListItem;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+
+import com.google.gwt.dom.client.Document;
 
 /**
  * Widget representing an Unordered List

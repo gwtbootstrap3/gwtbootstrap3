@@ -20,8 +20,9 @@ package org.gwtbootstrap3.client.ui.html;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+
+import com.google.gwt.dom.client.Document;
 
 /**
  * @author Joshua Godi

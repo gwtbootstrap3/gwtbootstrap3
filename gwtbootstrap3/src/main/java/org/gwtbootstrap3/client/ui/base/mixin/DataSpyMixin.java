@@ -20,10 +20,11 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.UIObject;
 import org.gwtbootstrap3.client.ui.base.HasDataSpy;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Spy;
+
+import com.google.gwt.user.client.ui.UIObject;
 
 /**
  * @author Sven Jacobs

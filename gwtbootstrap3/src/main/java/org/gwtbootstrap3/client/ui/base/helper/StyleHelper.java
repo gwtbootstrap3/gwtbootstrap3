@@ -20,10 +20,11 @@ package org.gwtbootstrap3.client.ui.base.helper;
  * #L%
  */
 
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.user.client.ui.UIObject;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Responsiveness;
+
+import com.google.gwt.dom.client.Style;
+import com.google.gwt.user.client.ui.UIObject;
 
 /**
  * Helper methods regarding CSS styling of UIObjects.

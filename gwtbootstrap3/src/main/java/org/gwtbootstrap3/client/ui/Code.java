@@ -20,10 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap3.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap3.client.ui.base.helper.SourceCodeHelper;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
+
+import com.google.gwt.dom.client.Document;
 
 /**
  * Simple {@code <code>} block for inline code emphasis.

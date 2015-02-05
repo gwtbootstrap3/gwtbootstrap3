@@ -20,8 +20,6 @@ package org.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.HasName;
-import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
@@ -30,6 +28,9 @@ import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
+
+import com.google.gwt.user.client.ui.HasName;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Abstract base class for button groups.

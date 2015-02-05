@@ -1,5 +1,7 @@
 package org.gwtbootstrap3.client.ui.base.form;
 
+import org.gwtbootstrap3.client.ui.constants.Attributes;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
@@ -13,11 +15,12 @@ import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.ui.FormHandler;
 import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.NamedFrame;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.impl.FormPanelImpl;
 import com.google.gwt.user.client.ui.impl.FormPanelImplHost;
-
-import org.gwtbootstrap3.client.ui.constants.Attributes;
 
 /*
  * #%L

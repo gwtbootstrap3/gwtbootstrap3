@@ -20,9 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
+
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Container widget for the tab content
