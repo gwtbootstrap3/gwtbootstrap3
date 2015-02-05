@@ -60,6 +60,7 @@ public final class Styles {
     public static final String CLOSE = "close";
 
     public static final String COLLAPSE = "collapse";
+    public static final String COLLAPSING = "collapsing";
 
     public static final String CONTAINER = "container";
     public static final String CONTAINER_FLUID = "container-fluid";
