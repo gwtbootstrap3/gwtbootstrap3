@@ -38,6 +38,8 @@ import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.InputSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.dom.client.Style.Unit;
@@ -45,6 +47,7 @@ import com.google.gwt.editor.client.EditorError;
 import com.google.gwt.editor.client.HasEditorErrors;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
 import com.google.gwt.user.client.ui.PopupPanel;
@@ -73,31 +76,56 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         HasAutoComplete, HasSize<InputSize>, HasEditorErrors<String> {
 
     static class CustomSuggestionDisplay extends DefaultSuggestionDisplay {
+
+        private ResizeHandler popupResizeHandler = null;
+
         public CustomSuggestionDisplay() {
             super();
             final PopupPanel popup = getPopupPanel();
             popup.setStyleName(Styles.DROPDOWN_MENU);
             popup.getElement().getStyle().setDisplay(Display.BLOCK);
-            Window.addResizeHandler(new ResizeHandler() {
+        }
+
+        /**
+         * Resize the popup panel to the size of the suggestBox and place it below the SuggestBox. This is not
+         * ideal but works better in a mobile environment.
+         *
+         * @param box the box the SuggestBox.
+         */
+        private void resizePopup(final com.google.gwt.user.client.ui.SuggestBox box) {
+            Scheduler.get().scheduleDeferred(new ScheduledCommand() {
                 @Override
-                public void onResize(ResizeEvent event) {
-                    popup.hide();
+                public void execute() {
+                    Element e = box.getElement();
+                    PopupPanel panel = getPopupPanel();
+                    panel.setWidth((e.getAbsoluteRight() - e.getAbsoluteLeft() - 2) + Unit.PX.getType());
+                    panel.setPopupPosition(e.getAbsoluteLeft(), e.getAbsoluteBottom());
                 }
             });
         }
 
         /** {@inheritDoc} */
         @Override
-        protected void showSuggestions(com.google.gwt.user.client.ui.SuggestBox suggestBox,
-                Collection<? extends Suggestion> suggestions, boolean isDisplayStringHTML, boolean isAutoSelectEnabled,
-                SuggestionCallback callback) {
+        protected void showSuggestions(final com.google.gwt.user.client.ui.SuggestBox suggestBox,
+                final Collection<? extends Suggestion> suggestions, final boolean isDisplayStringHTML,
+                final boolean isAutoSelectEnabled, final SuggestionCallback callback) {
             super.showSuggestions(suggestBox, suggestions, isDisplayStringHTML, isAutoSelectEnabled, callback);
-            // Resize the popup panel to the size of the suggestBox and place it below the SuggestBox. This is
-            // not ideal but works better in a mobile environment.
-            Element e = suggestBox.getElement();
-            PopupPanel panel = getPopupPanel();
-            panel.setWidth((e.getAbsoluteRight() - e.getAbsoluteLeft() - 2) + Unit.PX.getType());
-            panel.setPopupPosition(e.getAbsoluteLeft(), e.getAbsoluteBottom());
+            resizePopup(suggestBox);
+            if (popupResizeHandler == null) {
+                popupResizeHandler = new ResizeHandler() {
+                    private Timer timer = new Timer() {
+                        public void run() {
+                            resizePopup(suggestBox);
+                        }
+                    };
+
+                    @Override
+                    public void onResize(ResizeEvent event) {
+                        timer.schedule(250);
+                    }
+                };
+                Window.addResizeHandler(popupResizeHandler);
+            }
         }
 
     }
