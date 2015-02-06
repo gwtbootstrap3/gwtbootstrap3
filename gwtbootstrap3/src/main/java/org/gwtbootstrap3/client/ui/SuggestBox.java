@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import java.util.Collection;
 import java.util.List;
 
 import org.gwtbootstrap3.client.ui.base.HasAutoComplete;
@@ -37,12 +38,21 @@ import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.InputSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.core.client.Scheduler.ScheduledCommand;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.editor.client.EditorError;
 import com.google.gwt.editor.client.HasEditorErrors;
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
+import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.SuggestOracle;
+import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
 
 /**
  * Wrapper for a {@link com.google.gwt.user.client.ui.SuggestBox}.<br/>
@@ -65,13 +75,59 @@ import com.google.gwt.user.client.ui.SuggestOracle;
 public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox implements HasId, HasResponsiveness, HasPlaceholder,
         HasAutoComplete, HasSize<InputSize>, HasEditorErrors<String> {
 
-    static class DefaultSuggestionDisplay extends com.google.gwt.user.client.ui.SuggestBox.DefaultSuggestionDisplay {
-        public DefaultSuggestionDisplay() {
+    static class CustomSuggestionDisplay extends DefaultSuggestionDisplay {
+
+        private ResizeHandler popupResizeHandler = null;
+
+        public CustomSuggestionDisplay() {
             super();
-            PopupPanel popup = getPopupPanel();
+            final PopupPanel popup = getPopupPanel();
             popup.setStyleName(Styles.DROPDOWN_MENU);
             popup.getElement().getStyle().setDisplay(Display.BLOCK);
         }
+
+        /**
+         * Resize the popup panel to the size of the suggestBox and place it below the SuggestBox. This is not
+         * ideal but works better in a mobile environment.
+         *
+         * @param box the box the SuggestBox.
+         */
+        private void resizePopup(final com.google.gwt.user.client.ui.SuggestBox box) {
+            Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+                @Override
+                public void execute() {
+                    Element e = box.getElement();
+                    PopupPanel panel = getPopupPanel();
+                    panel.setWidth((e.getAbsoluteRight() - e.getAbsoluteLeft() - 2) + Unit.PX.getType());
+                    panel.setPopupPosition(e.getAbsoluteLeft(), e.getAbsoluteBottom());
+                }
+            });
+        }
+
+        /** {@inheritDoc} */
+        @Override
+        protected void showSuggestions(final com.google.gwt.user.client.ui.SuggestBox suggestBox,
+                final Collection<? extends Suggestion> suggestions, final boolean isDisplayStringHTML,
+                final boolean isAutoSelectEnabled, final SuggestionCallback callback) {
+            super.showSuggestions(suggestBox, suggestions, isDisplayStringHTML, isAutoSelectEnabled, callback);
+            resizePopup(suggestBox);
+            if (popupResizeHandler == null) {
+                popupResizeHandler = new ResizeHandler() {
+                    private Timer timer = new Timer() {
+                        public void run() {
+                            resizePopup(suggestBox);
+                        }
+                    };
+
+                    @Override
+                    public void onResize(ResizeEvent event) {
+                        timer.schedule(250);
+                    }
+                };
+                Window.addResizeHandler(popupResizeHandler);
+            }
+        }
+
     }
 
     private final EnabledMixin<SuggestBox> enabledMixin = new EnabledMixin<SuggestBox>(this);
@@ -105,7 +161,7 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
      * @param box the text widget
      */
     public SuggestBox(SuggestOracle oracle, ValueBoxBase<String> box) {
-        this(oracle, box, new DefaultSuggestionDisplay());
+        this(oracle, box, new CustomSuggestionDisplay());
     }
 
     /**
