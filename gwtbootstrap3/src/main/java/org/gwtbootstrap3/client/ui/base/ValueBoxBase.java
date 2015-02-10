@@ -112,7 +112,7 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     /** {@inheritDoc} */
     @Override
     public void setValue(T value, boolean fireEvents) {
-        showErrors(null);
+        errorHandlerMixin.clearErrors();
         super.setValue(value, fireEvents);
     }
 

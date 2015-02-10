@@ -56,6 +56,15 @@ public class ErrorHandlerMixin<T extends Widget & HasEditorErrors<V> & HasErrorH
         errorHandler = new DefaultErrorHandler(inputWidget);
     }
 
+    /**
+     * Clear the errors.
+     */
+    public void clearErrors() {
+        if (errorHandler != null) {
+            errorHandler.clearErrors();
+        }
+    }
+
     /** {@inheritDoc} */
     @Override
     public ErrorHandler getErrorHandler() {

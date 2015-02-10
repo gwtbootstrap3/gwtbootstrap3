@@ -131,7 +131,7 @@ public class DefaultErrorHandler implements ErrorHandler {
     @Override
     public void showErrors(List<EditorError> errors) {
         init();
-        clearErrors();
+        //clearErrors();
         String errorMsg = "";
         if (validationStateParent != null) {
             validationStateParent.setValidationState(errors.size() <= 0 ? ValidationState.NONE : ValidationState.ERROR);
