@@ -29,14 +29,16 @@ import org.gwtbootstrap3.client.ui.base.HasPlaceholder;
 import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.HasSize;
 import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
-import org.gwtbootstrap3.client.ui.base.ValueBoxBase.EditorErrorSupport;
-import org.gwtbootstrap3.client.ui.base.ValueBoxErrorSupport;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.EnabledMixin;
+import org.gwtbootstrap3.client.ui.base.mixin.ErrorHandlerMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.InputSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.form.error.ErrorHandler;
+import org.gwtbootstrap3.client.ui.form.error.ErrorHandlerType;
+import org.gwtbootstrap3.client.ui.form.error.HasErrorHandler;
 
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
@@ -73,7 +75,7 @@ import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
  * @author Steven Jardine
  */
 public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox implements HasId, HasResponsiveness, HasPlaceholder,
-        HasAutoComplete, HasSize<InputSize>, HasEditorErrors<String> {
+        HasAutoComplete, HasSize<InputSize>, HasEditorErrors<String>, HasErrorHandler {
 
     static class CustomSuggestionDisplay extends DefaultSuggestionDisplay {
 
@@ -132,7 +134,7 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
 
     private final EnabledMixin<SuggestBox> enabledMixin = new EnabledMixin<SuggestBox>(this);
 
-    private EditorErrorSupport errorSupport = new ValueBoxErrorSupport(this);
+    private final ErrorHandlerMixin<SuggestBox, String> errorHandlerMixin = new ErrorHandlerMixin<SuggestBox, String>(this);
 
     private final IdMixin<SuggestBox> idMixin = new IdMixin<SuggestBox>(this);
 
@@ -177,19 +179,22 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         setStyleName(Styles.FORM_CONTROL);
     }
 
-    /**
-     * Gets the error support.
-     *
-     * @return the adds the error support
-     */
-    public boolean getAddErrorSupport() {
-        return errorSupport != null;
-    }
-
     /** {@inheritDoc} */
     @Override
     public String getAutoComplete() {
         return getElement().getAttribute(AUTO_COMPLETE);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public ErrorHandler getErrorHandler() {
+        return errorHandlerMixin.getErrorHandler();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public ErrorHandlerType getErrorHandlerType() {
+        return errorHandlerMixin.getErrorHandlerType();
     }
 
     /**
@@ -218,17 +223,6 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         return enabledMixin.isEnabled();
     }
 
-    /**
-     * Sets the error support.
-     *
-     * @param addErrorSupport the new adds the error support
-     */
-    public void setAddErrorSupport(final boolean addErrorSupport) {
-        if (!addErrorSupport) {
-            errorSupport = null;
-        }
-    }
-
     /** {@inheritDoc} */
     @Override
     public void setAutoComplete(final boolean autoComplete) {
@@ -241,12 +235,16 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         enabledMixin.setEnabled(enabled);
     }
 
-    /**
-     * @param errorSupport the EditorErrorSupport to set.
-     */
-    public void setErrorSupport(final EditorErrorSupport errorSupport) {
-        this.errorSupport = errorSupport;
-        addAttachHandler(errorSupport);
+    /** {@inheritDoc} */
+    @Override
+    public void setErrorHandler(ErrorHandler handler) {
+        errorHandlerMixin.setErrorHandler(handler);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setErrorHandlerType(ErrorHandlerType type) {
+        errorHandlerMixin.setErrorHandlerType(type);
     }
 
     /** {@inheritDoc} */
@@ -279,11 +277,10 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         StyleHelper.setVisibleOn(this, deviceSize);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public void showErrors(final List<EditorError> errors) {
-        if (errorSupport != null) {
-            errorSupport.showErrors(errors);
-        }
+    public void showErrors(List<EditorError> errors) {
+        errorHandlerMixin.showErrors(errors);
     }
 
 }
