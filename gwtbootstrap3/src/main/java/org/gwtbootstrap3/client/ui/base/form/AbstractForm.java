@@ -15,7 +15,6 @@ import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.FormHandler;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.NamedFrame;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -173,7 +172,7 @@ public abstract class AbstractForm extends FormElementContainer implements
 
         /**
          * This method is used for legacy support and should be removed when
-         * {@link FormHandler} is removed.
+         * {@link FormPanel.SubmitHandler} is removed.
          *
          * @deprecated Use {@link FormPanel.SubmitEvent#cancel()} instead
          */
