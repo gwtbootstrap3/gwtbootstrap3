@@ -54,14 +54,14 @@ public abstract class FormElementContainer extends ComplexPanel implements HasRe
 
     /** {@inheritDoc} */
     @Override
-    public void setHiddenOn(final DeviceSize deviceSize) {
-        StyleHelper.setHiddenOn(this, deviceSize);
+    public void setVisibleOn(final DeviceSize deviceSize) {
+        StyleHelper.setVisibleOn(this, deviceSize);
     }
 
     /** {@inheritDoc} */
     @Override
-    public void setVisibleOn(final DeviceSize deviceSize) {
-        StyleHelper.setVisibleOn(this, deviceSize);
+    public void setHiddenOn(final DeviceSize deviceSize) {
+        StyleHelper.setHiddenOn(this, deviceSize);
     }
 
 }
