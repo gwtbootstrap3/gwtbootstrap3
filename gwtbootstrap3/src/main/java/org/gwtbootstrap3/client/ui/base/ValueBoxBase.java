@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui.base;
 import java.util.List;
 
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.BlankValidatorMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.ErrorHandlerMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
@@ -30,6 +31,9 @@ import org.gwtbootstrap3.client.ui.constants.InputSize;
 import org.gwtbootstrap3.client.ui.form.error.ErrorHandler;
 import org.gwtbootstrap3.client.ui.form.error.ErrorHandlerType;
 import org.gwtbootstrap3.client.ui.form.error.HasErrorHandler;
+import org.gwtbootstrap3.client.ui.form.validator.HasBlankValidator;
+import org.gwtbootstrap3.client.ui.form.validator.HasValidators;
+import org.gwtbootstrap3.client.ui.form.validator.Validator;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.editor.client.EditorError;
@@ -38,13 +42,17 @@ import com.google.gwt.text.shared.Parser;
 import com.google.gwt.text.shared.Renderer;
 
 public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasResponsiveness,
-        HasPlaceholder, HasAutoComplete, HasSize<InputSize>, HasEditorErrors<T>, HasErrorHandler {
+        HasPlaceholder, HasAutoComplete, HasSize<InputSize>, HasEditorErrors<T>, HasErrorHandler, HasValidators<T>,
+        HasBlankValidator<T> {
 
     private static final String MAX_LENGTH = "maxlength";
 
     private final IdMixin<ValueBoxBase<T>> idMixin = new IdMixin<ValueBoxBase<T>>(this);
 
-    private final ErrorHandlerMixin<ValueBoxBase<T>, T> errorHandlerMixin = new ErrorHandlerMixin<ValueBoxBase<T>, T>(this);
+    private final ErrorHandlerMixin<T> errorHandlerMixin = new ErrorHandlerMixin<T>(this);
+
+    private final BlankValidatorMixin<ValueBoxBase<T>, T> validatorMixin = new BlankValidatorMixin<ValueBoxBase<T>, T>(this,
+        errorHandlerMixin.getErrorHandler());
 
     /**
      * Creates a value box that wraps the given browser element handle. This is only used by subclasses.
@@ -144,6 +152,56 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     @Override
     public void setErrorHandlerType(ErrorHandlerType type) {
         errorHandlerMixin.setErrorHandlerType(type);
+    }
+
+    @Override
+    public void setAllowBlank(boolean allowBlank) {
+        validatorMixin.setAllowBlank(allowBlank);
+    }
+
+    @Override
+    public boolean getAllowBlank() {
+        return validatorMixin.getAllowBlank();
+    }
+
+    @Override
+    public void addValidator(Validator<T> validator) {
+        validatorMixin.addValidator(validator);
+    }
+
+    @Override
+    public void addValidator(Validator<T> validator, boolean addToFront) {
+        validatorMixin.addValidator(validator, addToFront);
+    }
+
+    @Override
+    public boolean getValidateOnBlur() {
+        return validatorMixin.getValidateOnBlur();
+    }
+
+    @Override
+    public void setValidateOnBlur(boolean validateOnBlur) {
+        validatorMixin.setValidateOnBlur(validateOnBlur);
+    }
+
+    @Override
+    public void setValidators(Validator<T>... validators) {
+        validatorMixin.setValidators(validators);
+    }
+
+    @Override
+    public boolean validate() {
+        return validatorMixin.validate();
+    }
+
+    @Override
+    public boolean validate(boolean show) {
+        return validatorMixin.validate(show);
+    }
+
+    @Override
+    public void reset() {
+        validatorMixin.reset();
     }
 
 }

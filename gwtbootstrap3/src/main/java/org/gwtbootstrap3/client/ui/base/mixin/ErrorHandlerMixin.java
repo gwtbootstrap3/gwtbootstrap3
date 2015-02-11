@@ -34,11 +34,9 @@ import com.google.gwt.user.client.ui.Widget;
 /**
  * Mixin to handle error handler support.
  *
- * @param <T> the type of input widget.
  * @param <V> the type of editor value.
  */
-public class ErrorHandlerMixin<T extends Widget & HasEditorErrors<V> & HasErrorHandler, V> implements HasEditorErrors<V>,
-        HasErrorHandler {
+public class ErrorHandlerMixin<V> implements HasEditorErrors<V>, HasErrorHandler {
 
     private ErrorHandler errorHandler;
 

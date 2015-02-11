@@ -134,7 +134,7 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
 
     private final EnabledMixin<SuggestBox> enabledMixin = new EnabledMixin<SuggestBox>(this);
 
-    private final ErrorHandlerMixin<SuggestBox, String> errorHandlerMixin = new ErrorHandlerMixin<SuggestBox, String>(this);
+    private final ErrorHandlerMixin<String> errorHandlerMixin = new ErrorHandlerMixin<String>(this);
 
     private final IdMixin<SuggestBox> idMixin = new IdMixin<SuggestBox>(this);
 

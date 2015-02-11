@@ -429,8 +429,10 @@ public abstract class AbstractForm extends FormElementContainer implements
     /**
      * Resets form
      */
+    @Override
     public void reset() {
         impl.reset(getElement());
+        super.reset();
     }
 
 
