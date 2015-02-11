@@ -21,7 +21,10 @@ package org.gwtbootstrap3.client.ui.form.validator;
  */
 
 /**
+ * Should use when implementing classes with {@link Validator}s.
+ * 
  * @param <T> the generic type
+ * @author Steven Jardine
  */
 public interface HasValidators<T> {
 

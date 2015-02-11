@@ -28,8 +28,8 @@ import com.google.gwt.editor.client.EditorError;
 /**
  * An input validator.
  *
- * @author Steven Jardine
  * @param <T> the type.
+ * @author Steven Jardine
  */
 public interface Validator<T> {
 

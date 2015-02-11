@@ -32,16 +32,15 @@ import com.google.gwt.editor.client.EditorError;
  * Validator for blank field validation.
  *
  * @param <T> the generic type
+ * @author Steven Jardine
  */
-public class BlankValidator<T> implements Validator<T> {
-
+public class BlankValidator<T> extends AbstractValidator<T> {
     /** {@inheritDoc} */
     @Override
     public List<EditorError> validate(Editor<T> editor, T value) {
         List<EditorError> result = new ArrayList<EditorError>();
         if (value == null || "".equals(value)) {
-            result.add(new BasicEditorError(editor, value, ValidationMessages.INSTANCE
-                .org_gwtbootstrap3_validation_Blank_message()));
+            result.add(new BasicEditorError(editor, value, lookupMessage("org.gwtbootstrap3.validation.Blank.message")));
         }
         return result;
     }

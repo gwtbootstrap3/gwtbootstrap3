@@ -24,6 +24,7 @@ package org.gwtbootstrap3.client.ui.form.validator;
  * These are convenience methods to automatically add the {@link AllowBlankValidator}.
  *
  * @param <T> the generic type
+ * @author Steven Jardine
  */
 public interface HasBlankValidator<T> {
 

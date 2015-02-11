@@ -20,28 +20,24 @@ package org.gwtbootstrap3.client.ui.form.validator;
  * #L%
  */
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.i18n.client.ConstantsWithLookup;
-import com.google.gwt.i18n.client.LocalizableResource.DefaultLocale;
-import com.google.gwt.validation.client.ValidationMessageResolver;
+import com.google.gwt.validation.client.AbstractValidationMessageResolver;
+import com.google.gwt.validation.client.UserValidationMessagesResolver;
 
 /**
- * Validation messages.
- * 
- * Message functions should be the key with "_" replacing any periods. This allows the
- * {@link ValidationMessageResolver} to find the message by key.
+ * Resolver for validation messages.
  * 
  * @author Steven Jardine
  */
-@DefaultLocale("en")
-public interface ValidationMessages extends ConstantsWithLookup {
+public class ValidationMessagesResolver extends AbstractValidationMessageResolver implements
+        UserValidationMessagesResolver {
 
     /**
-     * Org_gwtbootstrap3_validation_ blank_message.
-     *
-     * @return the string
+     * Instantiates a new validation messages resolver.
      */
-    @Key("org.gwtbootstrap3.validation.Blank.message")
-    @DefaultStringValue("Field cannot be blank")
-    String org_gwtbootstrap3_validation_Blank_message();
+    public ValidationMessagesResolver() {
+        super((ConstantsWithLookup) GWT.create(ValidationMessages.class));
+    }
 
 }

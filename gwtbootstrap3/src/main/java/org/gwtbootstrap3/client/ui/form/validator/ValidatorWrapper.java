@@ -25,6 +25,8 @@ package org.gwtbootstrap3.client.ui.form.validator;
  * 
  * We sort based on priority first, then insertion order. The hashCode and equals function should prevent a
  * set from containing 2 validators of the same type.
+ * 
+ * @author Steven Jardine
  */
 public class ValidatorWrapper<T> implements Comparable<ValidatorWrapper<T>> {
 
