@@ -1,11 +1,10 @@
-package org.gwtbootstrap3.client.ui.base;
+package org.gwtbootstrap3.client.ui.form.error;
 
-/*
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,16 +23,18 @@ package org.gwtbootstrap3.client.ui.base;
 import java.util.List;
 
 import org.gwtbootstrap3.client.ui.HelpBlock;
-import org.gwtbootstrap3.client.ui.base.ValueBoxBase.EditorErrorSupport;
+import org.gwtbootstrap3.client.ui.base.HasValidationState;
+import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
 import org.gwtbootstrap3.client.ui.constants.ValidationState;
 
 import com.google.gwt.editor.client.EditorError;
 import com.google.gwt.event.logical.shared.AttachEvent;
+import com.google.gwt.event.logical.shared.AttachEvent.Handler;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * This is the default {@link EditorErrorSupport} implementation. The assumption is that every
+ * This is the default {@link ErrorHandler} implementation. The assumption is that every
  * {@link ValueBoxBase} instance will have a {@link HasValidationState} parent. If there is a
  * {@link HelpBlock} that is a child of the {@link HasValidationState} parent then error messages will be
  * displayed in the {@link HelpBlock}.
@@ -48,7 +49,9 @@ import com.google.gwt.user.client.ui.Widget;
  * 
  * @author Steven Jardine
  */
-public class ValueBoxErrorSupport implements ValueBoxBase.EditorErrorSupport {
+public class DefaultErrorHandler implements ErrorHandler {
+
+    private boolean initialized = false;
 
     private final Widget inputWidget;
 
@@ -56,12 +59,34 @@ public class ValueBoxErrorSupport implements ValueBoxBase.EditorErrorSupport {
 
     private HasValidationState validationStateParent = null;
 
-    private boolean initialized = false;
-
-    public ValueBoxErrorSupport(Widget widget) {
+    /**
+     * Default error handler.
+     *
+     * @param parent the parent of this error handler.
+     */
+    public DefaultErrorHandler(Widget widget) {
         super();
         assert widget != null;
-        inputWidget = widget;
+        this.inputWidget = widget;
+        this.inputWidget.addAttachHandler(new Handler() {
+            @Override
+            public void onAttachOrDetach(AttachEvent event) {
+                init();
+            }
+        });
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void cleanup() {
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void clearErrors() {
+        if (validationStateParent == null) { return; }
+        validationStateParent.setValidationState(ValidationState.NONE);
+        if (validationStateHelpBlock != null) validationStateHelpBlock.setText("");
     }
 
     /**
@@ -104,26 +129,15 @@ public class ValueBoxErrorSupport implements ValueBoxBase.EditorErrorSupport {
 
     /** {@inheritDoc} */
     @Override
-    public void onAttachOrDetach(AttachEvent event) {
-        if (event.isAttached()) {
-            init();
-        }
-    }
-
-    /** {@inheritDoc} */
-    @Override
     public void showErrors(List<EditorError> errors) {
         init();
+        //clearErrors();
         String errorMsg = "";
         if (validationStateParent != null) {
-            if (errors == null) {
-                validationStateParent.setValidationState(ValidationState.NONE);
-            } else {
-                validationStateParent.setValidationState(errors.size() <= 0 ? ValidationState.SUCCESS : ValidationState.ERROR);
-                for (int index = 0; index < errors.size(); index++) {
-                    errorMsg = errors.get(0).getMessage();
-                    if (index + 1 < errors.size()) errorMsg += "; ";
-                }
+            validationStateParent.setValidationState(errors.size() <= 0 ? ValidationState.NONE : ValidationState.ERROR);
+            for (int index = 0; index < errors.size(); index++) {
+                errorMsg = errors.get(0).getMessage();
+                if (index + 1 < errors.size()) errorMsg += "; ";
             }
         }
         if (validationStateHelpBlock != null) {
