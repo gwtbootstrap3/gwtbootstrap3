@@ -26,7 +26,7 @@ import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.EditorError;
 
 /**
- * The Interface Validator.
+ * An input validator.
  *
  * @author Steven Jardine
  * @param <T> the type.

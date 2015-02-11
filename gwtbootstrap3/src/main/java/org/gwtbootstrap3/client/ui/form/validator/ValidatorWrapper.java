@@ -21,7 +21,10 @@ package org.gwtbootstrap3.client.ui.form.validator;
  */
 
 /**
- * Wraps a validator
+ * Wraps a validator in order to provide sorting capability.
+ * 
+ * We sort based on priority first, then insertion order. The hashCode and equals function should prevent a
+ * set from containing 2 validators of the same type.
  */
 public class ValidatorWrapper<T> implements Comparable<ValidatorWrapper<T>> {
 
