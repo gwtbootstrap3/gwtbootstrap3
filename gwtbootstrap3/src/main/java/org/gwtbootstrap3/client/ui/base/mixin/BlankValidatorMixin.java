@@ -22,27 +22,55 @@ package org.gwtbootstrap3.client.ui.base.mixin;
 
 import org.gwtbootstrap3.client.ui.form.error.ErrorHandler;
 import org.gwtbootstrap3.client.ui.form.validator.BlankValidator;
+import org.gwtbootstrap3.client.ui.form.validator.Validator;
 
 import com.google.gwt.editor.client.Editor;
-import com.google.gwt.user.client.ui.FocusWidget;
 import com.google.gwt.user.client.ui.HasValue;
+import com.google.gwt.user.client.ui.Widget;
 
-public class BlankValidatorMixin<W extends FocusWidget & HasValue<V> & Editor<V>, V> extends DefaultValidatorMixin<W, V> {
+/**
+ * Mixin that provides the allowBlank functionality for input fields.
+ *
+ * @param <W> the generic type
+ * @param <V> the value type
+ */
+public class BlankValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> extends DefaultValidatorMixin<W, V> {
 
     private boolean allowBlank;
 
+    /**
+     * Constructor.
+     *
+     * @param inputWidget the input widget
+     * @param errorHandler the error handler
+     */
     public BlankValidatorMixin(W inputWidget, ErrorHandler errorHandler) {
         super(inputWidget, errorHandler);
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public void addValidator(Validator<V> validator) {
+        if (validator instanceof BlankValidator) {
+            allowBlank = false;
+        }
+        super.addValidator(validator);
+    }
+
+    /**
+     * @return the allow blank
+     */
     public boolean getAllowBlank() {
         return allowBlank;
     }
 
+    /**
+     * @param allowBlank the new allow blank
+     */
     public void setAllowBlank(boolean allowBlank) {
         this.allowBlank = allowBlank;
         if (!allowBlank) {
-            addValidator(new BlankValidator<V>(), true);
+            addValidator(new BlankValidator<V>());
         }
     }
 

@@ -46,4 +46,10 @@ public class BlankValidator<T> implements Validator<T> {
         return result;
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public int getPriority() {
+        return Priority.HIGHEST;
+    }
+
 }

@@ -33,19 +33,16 @@ public interface HasValidators<T> {
     void addValidator(Validator<T> validator);
 
     /**
-     * Adds the validator.
-     *
-     * @param validator the validator
-     * @param addToFront the add to front
-     */
-    void addValidator(Validator<T> validator, boolean addToFront);
-
-    /**
      * Gets the validate on blur.
      *
      * @return the validate on blur
      */
     boolean getValidateOnBlur();
+
+    /**
+     * Reset the form element to blank and clear error messages.
+     */
+    void reset();
 
     /**
      * Sets the validate on blur.
@@ -75,10 +72,5 @@ public interface HasValidators<T> {
      * @return true, if valid
      */
     boolean validate(boolean show);
-
-    /**
-     * Reset the form element to blank and clear error messages.
-     */
-    void reset();
 
 }

@@ -21,12 +21,14 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.gwtbootstrap3.client.ui.form.error.ErrorHandler;
 import org.gwtbootstrap3.client.ui.form.validator.HasValidators;
 import org.gwtbootstrap3.client.ui.form.validator.Validator;
+import org.gwtbootstrap3.client.ui.form.validator.ValidatorWrapper;
 
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.EditorError;
@@ -35,6 +37,7 @@ import com.google.gwt.event.dom.client.BlurHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.FocusWidget;
 import com.google.gwt.user.client.ui.HasValue;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Abstract validator mixin. Contains all of the validation logic.
@@ -42,7 +45,7 @@ import com.google.gwt.user.client.ui.HasValue;
  * @param <W> the generic type
  * @param <V> the value type
  */
-public class DefaultValidatorMixin<W extends FocusWidget & HasValue<V> & Editor<V>, V> implements HasValidators<V> {
+public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> implements HasValidators<V> {
 
     private HandlerRegistration blurHandler;
 
@@ -52,9 +55,7 @@ public class DefaultValidatorMixin<W extends FocusWidget & HasValue<V> & Editor<
 
     private boolean validateOnBlur = false;
 
-    protected List<Validator<V>> validators = new ArrayList<Validator<V>>();
-
-    private boolean valid;
+    protected Set<ValidatorWrapper<V>> validators = new TreeSet<ValidatorWrapper<V>>();
 
     /**
      * Instantiates a new abstract validator mixin.
@@ -71,18 +72,7 @@ public class DefaultValidatorMixin<W extends FocusWidget & HasValue<V> & Editor<
     /** {@inheritDoc} */
     @Override
     public void addValidator(Validator<V> validator) {
-        addValidator(validator, false);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void addValidator(Validator<V> validator, boolean addToFront) {
-        validators.remove(validator);
-        if (addToFront) {
-            validators.add(0, validator);
-        } else {
-            validators.add(validator);
-        }
+        validators.add(new ValidatorWrapper<V>(validator, validators.size()));
     }
 
     /** {@inheritDoc} */
@@ -105,18 +95,15 @@ public class DefaultValidatorMixin<W extends FocusWidget & HasValue<V> & Editor<
     public void setValidateOnBlur(boolean vob) {
         validateOnBlur = vob;
         if (validateOnBlur && inputWidget instanceof FocusWidget) {
-            blurHandler = inputWidget.addBlurHandler(new BlurHandler() {
+            blurHandler = inputWidget.addDomHandler(new BlurHandler() {
                 @Override
                 public void onBlur(BlurEvent event) {
                     validate();
                 }
-            });
+            }, BlurEvent.getType());
         } else if (blurHandler != null) {
             blurHandler.removeHandler();
             blurHandler = null;
-        }
-        if (!valid) {
-            validate();
         }
     }
 
@@ -124,7 +111,9 @@ public class DefaultValidatorMixin<W extends FocusWidget & HasValue<V> & Editor<
     @Override
     public void setValidators(Validator<V>... newValidators) {
         validators.clear();
-        validators.addAll(Arrays.asList(newValidators));
+        for (Validator<V> validator : newValidators) {
+            addValidator(validator);
+        }
     }
 
     /** {@inheritDoc} */
@@ -136,23 +125,21 @@ public class DefaultValidatorMixin<W extends FocusWidget & HasValue<V> & Editor<
     /** {@inheritDoc} */
     @Override
     public boolean validate(boolean show) {
+        if (errorHandler == null) { return true; }
         List<EditorError> errors = new ArrayList<EditorError>();
-        for (Validator<V> validator : validators) {
+        for (ValidatorWrapper<V> wrapper : validators) {
+            Validator<V> validator = wrapper.getValidator();
             List<EditorError> result = validator.validate(inputWidget, inputWidget.getValue());
             if (result != null && !result.isEmpty()) {
-                errors.addAll(validator.validate(inputWidget, inputWidget.getValue()));
+                errors.addAll(result);
             }
         }
-        valid = true;
         if (errors.size() > 0) {
-            valid = false;
-            if (errorHandler != null) {
-                errorHandler.showErrors(errors);
-            }
-        } else if (errorHandler != null) {
-            errorHandler.clearErrors();
+            errorHandler.showErrors(errors);
+            return false;
         }
-        return valid;
+        errorHandler.clearErrors();
+        return true;
     }
 
     /** {@inheritDoc} */

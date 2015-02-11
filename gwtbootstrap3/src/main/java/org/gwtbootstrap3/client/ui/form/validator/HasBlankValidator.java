@@ -1,5 +1,6 @@
 package org.gwtbootstrap3.client.ui.form.validator;
 
+// TODO: Auto-generated Javadoc
 /*
  * #%L
  * GwtBootstrap3
@@ -20,10 +21,21 @@ package org.gwtbootstrap3.client.ui.form.validator;
  * #L%
  */
 
+/**
+ * These are convenience methods to automatically add the {@link AllowBlankValidator}.
+ *
+ * @param <T> the generic type
+ */
 public interface HasBlankValidator<T> {
 
-    void setAllowBlank(boolean allowBlank);
-
+    /**
+     * @return the allow blank
+     */
     boolean getAllowBlank();
+
+    /**
+     * @param allowBlank the new allow blank
+     */
+    void setAllowBlank(boolean allowBlank);
 
 }

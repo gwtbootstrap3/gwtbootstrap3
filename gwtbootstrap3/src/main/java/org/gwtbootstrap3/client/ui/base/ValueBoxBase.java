@@ -170,11 +170,6 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     }
 
     @Override
-    public void addValidator(Validator<T> validator, boolean addToFront) {
-        validatorMixin.addValidator(validator, addToFront);
-    }
-
-    @Override
     public boolean getValidateOnBlur() {
         return validatorMixin.getValidateOnBlur();
     }

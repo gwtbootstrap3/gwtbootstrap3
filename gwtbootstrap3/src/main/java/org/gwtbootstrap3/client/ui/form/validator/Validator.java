@@ -26,10 +26,40 @@ import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.EditorError;
 
 /**
+ * The Interface Validator.
+ *
  * @author Steven Jardine
  * @param <T> the type.
  */
 public interface Validator<T> {
+
+    /**
+     * Represents the priority of a validator.
+     */
+    public static class Priority {
+        
+        /** HIGHEST priority */
+        public static final int HIGHEST = 0;
+
+        /** HIGH priority */
+        public static final int HIGH = 25;
+
+        /** MEDIUM priority */
+        public static final int MEDIUM = 50;
+
+        /** LOW priority */
+        public static final int LOW = 75;
+
+        /** LOWEST priority */
+        public static final int LOWEST = 100;
+        
+    }
+
+    /**
+     * Priority value for this validator. Lower the number, higher the priority.
+     * @return the priority.
+     */
+    int getPriority();
 
     /**
      * Validate the field.

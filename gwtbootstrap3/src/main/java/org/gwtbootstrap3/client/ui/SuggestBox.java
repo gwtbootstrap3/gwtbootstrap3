@@ -30,6 +30,7 @@ import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap3.client.ui.base.HasSize;
 import org.gwtbootstrap3.client.ui.base.ValueBoxBase;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.base.mixin.BlankValidatorMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.EnabledMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.ErrorHandlerMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
@@ -39,6 +40,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.form.error.ErrorHandler;
 import org.gwtbootstrap3.client.ui.form.error.ErrorHandlerType;
 import org.gwtbootstrap3.client.ui.form.error.HasErrorHandler;
+import org.gwtbootstrap3.client.ui.form.validator.HasBlankValidator;
+import org.gwtbootstrap3.client.ui.form.validator.HasValidators;
+import org.gwtbootstrap3.client.ui.form.validator.Validator;
 
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
@@ -75,7 +79,8 @@ import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
  * @author Steven Jardine
  */
 public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox implements HasId, HasResponsiveness, HasPlaceholder,
-        HasAutoComplete, HasSize<InputSize>, HasEditorErrors<String>, HasErrorHandler {
+        HasAutoComplete, HasSize<InputSize>, HasEditorErrors<String>, HasErrorHandler, HasValidators<String>,
+        HasBlankValidator<String> {
 
     static class CustomSuggestionDisplay extends DefaultSuggestionDisplay {
 
@@ -138,6 +143,9 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
 
     private final IdMixin<SuggestBox> idMixin = new IdMixin<SuggestBox>(this);
 
+    private final BlankValidatorMixin<SuggestBox, String> validatorMixin = new BlankValidatorMixin<SuggestBox, String>(this,
+        errorHandlerMixin.getErrorHandler());
+
     /**
      * Constructor for {@link SuggestBox}. Creates a {@link MultiWordSuggestOracle} and {@link TextBox} to use
      * with this {@link SuggestBox}.
@@ -179,6 +187,16 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         setStyleName(Styles.FORM_CONTROL);
     }
 
+    @Override
+    public void addValidator(Validator<String> validator) {
+        validatorMixin.addValidator(validator);
+    }
+
+    @Override
+    public boolean getAllowBlank() {
+        return validatorMixin.getAllowBlank();
+    }
+
     /** {@inheritDoc} */
     @Override
     public String getAutoComplete() {
@@ -217,10 +235,25 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         return InputSize.fromStyleName(getStyleName());
     }
 
+    @Override
+    public boolean getValidateOnBlur() {
+        return validatorMixin.getValidateOnBlur();
+    }
+
     /** {@inheritDoc} */
     @Override
     public boolean isEnabled() {
         return enabledMixin.isEnabled();
+    }
+
+    @Override
+    public void reset() {
+        validatorMixin.reset();
+    }
+
+    @Override
+    public void setAllowBlank(boolean allowBlank) {
+        validatorMixin.setAllowBlank(allowBlank);
     }
 
     /** {@inheritDoc} */
@@ -271,6 +304,16 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         StyleHelper.addUniqueEnumStyleName(this, InputSize.class, size);
     }
 
+    @Override
+    public void setValidateOnBlur(boolean validateOnBlur) {
+        validatorMixin.setValidateOnBlur(validateOnBlur);
+    }
+
+    @Override
+    public void setValidators(Validator<String>... validators) {
+        validatorMixin.setValidators(validators);
+    }
+
     /** {@inheritDoc} */
     @Override
     public void setVisibleOn(final DeviceSize deviceSize) {
@@ -281,6 +324,16 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
     @Override
     public void showErrors(List<EditorError> errors) {
         errorHandlerMixin.showErrors(errors);
+    }
+
+    @Override
+    public boolean validate() {
+        return validatorMixin.validate();
+    }
+
+    @Override
+    public boolean validate(boolean show) {
+        return validatorMixin.validate(show);
     }
 
 }
