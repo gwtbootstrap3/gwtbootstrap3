@@ -40,8 +40,13 @@ import com.google.gwt.user.client.ui.Widget;
  * 
  * Example:
  * 
- * <b:FormGroup> <b:FormLabel for="username">User</b:FormLabel> <b:TextBox b:id="username" ui:field="username"
- * /> <b:HelpBlock iconType="EXCLAMATION" /> </b:FormGroup>
+ * <pre>
+ * <b:FormGroup> 
+ *      <b:FormLabel for="username">User</b:FormLabel> 
+ *      <b:TextBox b:id="username" ui:field="username" /> 
+ *      <b:HelpBlock iconType="EXCLAMATION" /> 
+ * </b:FormGroup>
+ * </pre>
  * 
  * @author Steven Jardine
  */
