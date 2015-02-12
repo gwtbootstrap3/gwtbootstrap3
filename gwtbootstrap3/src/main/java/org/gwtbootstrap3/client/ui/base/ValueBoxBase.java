@@ -196,6 +196,7 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
 
     @Override
     public void reset() {
+        setValue(null);
         validatorMixin.reset();
     }
 
