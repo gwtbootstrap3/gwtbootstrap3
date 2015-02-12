@@ -25,6 +25,7 @@ import java.util.List;
 
 import org.gwtbootstrap3.client.ui.form.error.BasicEditorError;
 
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.EditorError;
 
@@ -34,13 +35,16 @@ import com.google.gwt.editor.client.EditorError;
  * @param <T> the generic type
  * @author Steven Jardine
  */
-public class BlankValidator<T> extends AbstractValidator<T> {
+public class BlankValidator<T> implements Validator<T> {
+    
+    private ValidatorMessageMixin messageMixin = GWT.create(ValidatorMessageMixin.class);
+    
     /** {@inheritDoc} */
     @Override
     public List<EditorError> validate(Editor<T> editor, T value) {
         List<EditorError> result = new ArrayList<EditorError>();
         if (value == null || "".equals(value)) {
-            result.add(new BasicEditorError(editor, value, lookupMessage("org.gwtbootstrap3.validation.Blank.message")));
+            result.add(new BasicEditorError(editor, value, messageMixin.lookup("org.gwtbootstrap3.validation.Blank.message")));
         }
         return result;
     }

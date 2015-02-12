@@ -22,13 +22,12 @@ package org.gwtbootstrap3.client.ui.form.validator;
 
 import com.google.gwt.i18n.client.ConstantsWithLookup;
 import com.google.gwt.i18n.client.LocalizableResource.DefaultLocale;
-import com.google.gwt.validation.client.ValidationMessageResolver;
 
 /**
  * Validation messages.
  * 
  * Message functions should be the key with "_" replacing any periods. This allows the
- * {@link ValidationMessageResolver} to find the message by key.
+ * ValidationMessageResolver to find the message by key.
  * 
  * @author Steven Jardine
  */

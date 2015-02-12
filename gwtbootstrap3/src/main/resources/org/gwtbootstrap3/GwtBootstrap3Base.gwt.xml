@@ -23,11 +23,6 @@
     <inherits name="com.google.gwt.user.UserAgent"/>
     <inherits name="com.google.gwt.i18n.I18N"/>
 
-    <!-- Validation messages are looked up through this class. -->
-    <replace-with class="org.gwtbootstrap3.client.ui.form.validator.ValidationMessagesResolver">
-        <when-type-is class="com.google.gwt.validation.client.UserValidationMessagesResolver" />
-    </replace-with>
-
     <!-- Fall through to this rule is the browser isn't IE 8 -->
     <replace-with class="org.gwtbootstrap3.client.ui.impl.SimpleCheckBoxImpl">
         <when-type-is class="org.gwtbootstrap3.client.ui.impl.SimpleCheckBoxImpl" />
