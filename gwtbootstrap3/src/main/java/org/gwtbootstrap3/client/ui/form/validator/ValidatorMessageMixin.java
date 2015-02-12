@@ -26,7 +26,7 @@ import com.google.gwt.core.client.GWT;
 
 public class ValidatorMessageMixin {
     
-    private ValidationMessages messages = GWT.create(ValidationMessages.class);
+    protected ValidationMessages messages = GWT.create(ValidationMessages.class);
     
     public String lookup(String key) {
         try {
