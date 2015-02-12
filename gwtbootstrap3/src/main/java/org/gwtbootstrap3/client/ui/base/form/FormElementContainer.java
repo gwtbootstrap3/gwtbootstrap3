@@ -43,6 +43,7 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public abstract class FormElementContainer extends ComplexPanel implements HasResponsiveness {
 
+    /** {@inheritDoc} */
     @Override
     public void add(final Widget w) {
         if (w instanceof ListBox || w instanceof FileUpload) {
@@ -51,13 +52,16 @@ public abstract class FormElementContainer extends ComplexPanel implements HasRe
         add(w, (Element) getElement());
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setVisibleOn(final DeviceSize deviceSize) {
         StyleHelper.setVisibleOn(this, deviceSize);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setHiddenOn(final DeviceSize deviceSize) {
         StyleHelper.setHiddenOn(this, deviceSize);
     }
+
 }

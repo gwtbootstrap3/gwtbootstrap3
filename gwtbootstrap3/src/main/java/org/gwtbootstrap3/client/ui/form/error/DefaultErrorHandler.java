@@ -34,18 +34,19 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * This is the default {@link ErrorHandler} implementation. The assumption is that every
- * {@link ValueBoxBase} instance will have a {@link HasValidationState} parent. If there is a
- * {@link HelpBlock} that is a child of the {@link HasValidationState} parent then error messages will be
- * displayed in the {@link HelpBlock}.
+ * This is the default {@link ErrorHandler} implementation. The assumption is that every {@link ValueBoxBase}
+ * instance will have a {@link HasValidationState} parent. If there is a {@link HelpBlock} that is a child of
+ * the {@link HasValidationState} parent then error messages will be displayed in the {@link HelpBlock}.
  * 
  * Example:
  * 
- * <b:FormGroup>
- *   <b:FormLabel for="username">User</b:FormLabel>
- *   <b:TextBox b:id="username" ui:field="username" /> 
- *   <b:HelpBlock iconType="EXCLAMATION" /> 
+ * <pre>
+ * <b:FormGroup> 
+ *      <b:FormLabel for="username">User</b:FormLabel> 
+ *      <b:TextBox b:id="username" ui:field="username" /> 
+ *      <b:HelpBlock iconType="EXCLAMATION" /> 
  * </b:FormGroup>
+ * </pre>
  * 
  * @author Steven Jardine
  */
@@ -116,7 +117,6 @@ public class DefaultErrorHandler implements ErrorHandler {
      */
     public void init() {
         if (initialized) return;
-        initialized = true;
         Widget parent = inputWidget.getParent();
         while (parent != null && !parent.getClass().getName().equals("com.google.gwt.user.client.ui.Widget")) {
             if (parent instanceof HasValidationState) {
@@ -125,13 +125,16 @@ public class DefaultErrorHandler implements ErrorHandler {
             }
             parent = parent.getParent();
         }
+        if (inputWidget.isAttached() || validationStateParent != null) {
+            initialized = true;
+        }
     }
 
     /** {@inheritDoc} */
     @Override
     public void showErrors(List<EditorError> errors) {
         init();
-        //clearErrors();
+        // clearErrors();
         String errorMsg = "";
         if (validationStateParent != null) {
             validationStateParent.setValidationState(errors.size() <= 0 ? ValidationState.NONE : ValidationState.ERROR);

@@ -1,6 +1,10 @@
 package org.gwtbootstrap3.client.ui.base.form;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.gwtbootstrap3.client.ui.constants.Attributes;
+import org.gwtbootstrap3.client.ui.form.validator.HasValidators;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
@@ -15,10 +19,11 @@ import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.FormHandler;
 import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.NamedFrame;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.impl.FormPanelImpl;
 import com.google.gwt.user.client.ui.impl.FormPanelImplHost;
 
@@ -44,6 +49,7 @@ import com.google.gwt.user.client.ui.impl.FormPanelImplHost;
 
 /**
  * @author Sven Jacobs
+ * @author Steven Jardine
  */
 public abstract class AbstractForm extends FormElementContainer implements
         FormPanelImplHost {
@@ -173,7 +179,7 @@ public abstract class AbstractForm extends FormElementContainer implements
 
         /**
          * This method is used for legacy support and should be removed when
-         * {@link FormHandler} is removed.
+         * {@link FormPanel.SubmitHandler} is removed.
          *
          * @deprecated Use {@link FormPanel.SubmitEvent#cancel()} instead
          */
@@ -431,6 +437,9 @@ public abstract class AbstractForm extends FormElementContainer implements
      */
     public void reset() {
         impl.reset(getElement());
+        for (HasValidators<?> child : getChildrenWithValidators(this)) {
+            child.reset();
+        }
     }
 
 
@@ -486,4 +495,43 @@ public abstract class AbstractForm extends FormElementContainer implements
         getFormElement().setTarget(target);
     }
 
+    /**
+     * @return true if the child input elements are all valid.
+     */
+    public boolean validate() {
+        return validate(true);
+    }
+
+    /**
+     * @return true if the child input elements are all valid.
+     */
+    public boolean validate(boolean show) {
+        boolean result = true;
+        for (HasValidators<?> child : getChildrenWithValidators(this)) {
+            result &= child.validate(show);
+        }
+        return result;
+    }    
+
+    /**
+     * Get this forms child input elements with validators.
+     *
+     * @param widget the widget
+     * @return the children with validators
+     */
+    protected List<HasValidators<?>> getChildrenWithValidators(Widget widget) {
+        List<HasValidators<?>> result = new ArrayList<HasValidators<?>>();
+        if (widget != null) {
+            if (widget instanceof HasValidators<?>) {
+                result.add((HasValidators<?>) widget);
+            }
+            if (widget instanceof HasWidgets) {
+                for (Widget child : (HasWidgets) widget) {
+                    result.addAll(getChildrenWithValidators(child));
+                }
+            }
+        }
+        return result;
+    }
+    
 }
