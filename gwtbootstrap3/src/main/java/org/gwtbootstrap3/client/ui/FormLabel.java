@@ -42,7 +42,7 @@ public class FormLabel extends AbstractTextWidget {
 
     private Element iconElement = null;
 
-    private boolean required = false;
+    private boolean showRequiredIndicator = false;
 
     /**
      * Constructor.
@@ -54,7 +54,7 @@ public class FormLabel extends AbstractTextWidget {
             @Override
             public void onChange(ChangeEvent event) {
                 String html = getHTML();
-                if (!required || html == null || "".equals(html)) {
+                if (!showRequiredIndicator || html == null || "".equals(html)) {
                     if (iconElement != null) {
                         iconElement.removeFromParent();
                     }
@@ -70,7 +70,7 @@ public class FormLabel extends AbstractTextWidget {
 
     /**
      * @return a new icon element. We only create this when {@link #iconElement} is null or the
-     *         {@link #required} has changed.
+     *         {@link #showRequiredIndicator} has changed.
      */
     protected Element createIconElement() {
         Element e = Document.get().createElement(ElementTags.I);
@@ -89,8 +89,8 @@ public class FormLabel extends AbstractTextWidget {
     /**
      * @return does this label show required?
      */
-    public boolean getRequired() {
-        return required;
+    public boolean getShowRequiredIndicator() {
+        return showRequiredIndicator;
     }
 
     public void setFor(final String f) {
@@ -111,8 +111,8 @@ public class FormLabel extends AbstractTextWidget {
     /**
      * @param should this label show as required?
      */
-    public void setRequired(boolean required) {
-        this.required = required;
+    public void setShowRequiredIndicator(boolean required) {
+        this.showRequiredIndicator = required;
         DomEvent.fireNativeEvent(Document.get().createChangeEvent(), this);
     }
 
