@@ -28,6 +28,9 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.dom.client.DomEvent;
 
 /**
  * @author Joshua Godi
@@ -35,25 +38,44 @@ import com.google.gwt.dom.client.Style.Unit;
  */
 public class HelpBlock extends AbstractTextWidget {
 
+    private Element iconElement = null;
+
     private IconType iconType = null;
 
     public HelpBlock() {
         super(Document.get().createSpanElement());
         setStyleName(Styles.HELP_BLOCK);
+        addHandler(new ChangeHandler() {
+            @Override
+            public void onChange(ChangeEvent event) {
+                String html = getHTML();
+                if (html == null || "".equals(html)) {
+                    if (iconElement != null) {
+                        iconElement.removeFromParent();
+                    }
+                } else {
+                    if (iconElement == null) {
+                        iconElement = createIconElement();
+                    }
+                    getElement().insertFirst(iconElement);
+                }
+            }
+        }, ChangeEvent.getType());
     }
 
     /**
-     * Sets the icon type.
-     *
-     * @param type the new icon type
+     * @return a new icon element. We only create this when {@link #iconElement} is null or the
+     *         {@link #iconType} has changed.
      */
-    public void setIconType(IconType type) {
-        iconType = type;
+    protected Element createIconElement() {
+        Element e = Document.get().createElement(ElementTags.I);
+        e.addClassName(Styles.FONT_AWESOME_BASE);
+        e.addClassName(iconType.getCssName());
+        e.getStyle().setPaddingRight(5, Unit.PX);
+        return e;
     }
 
     /**
-     * Gets the icon type.
-     *
      * @return the icon type
      */
     public IconType getIconType() {
@@ -62,21 +84,32 @@ public class HelpBlock extends AbstractTextWidget {
 
     /** {@inheritDoc} */
     @Override
-    public void setText(String text) {
-        super.setText(text);
-        if (iconType != null && text != null && !text.equals("")) {
-            Element e = Document.get().createElement(ElementTags.I);
-            e.addClassName(Styles.FONT_AWESOME_BASE);
-            e.addClassName(iconType.getCssName());
-            e.getStyle().setPaddingRight(5, Unit.PX);
-            getElement().insertFirst(e);
+    public void setHTML(String html) {
+        super.setHTML(html);
+        DomEvent.fireNativeEvent(Document.get().createChangeEvent(), this);
+    }
+
+    /**
+     * Sets the icon type. If the icon type changes programatically then the icon is removed from the dom and
+     * recreated.
+     *
+     * @param type the new icon type
+     */
+    public void setIconType(IconType type) {
+        IconType prevType = iconType;
+        iconType = type;
+        if (iconType != prevType && iconElement != null) {
+            iconElement.removeFromParent();
+            iconElement = null;
+            DomEvent.fireNativeEvent(Document.get().createChangeEvent(), this);
         }
     }
 
     /** {@inheritDoc} */
     @Override
-    public String getText() {
-        return super.getText();
+    public void setText(String text) {
+        super.setText(text);
+        DomEvent.fireNativeEvent(Document.get().createChangeEvent(), this);
     }
 
 }
