@@ -76,17 +76,13 @@ public class FormLabel extends AbstractTextWidget {
         Element e = Document.get().createElement(ElementTags.I);
         e.addClassName(Styles.FONT_AWESOME_BASE);
         e.addClassName(IconType.STAR.getCssName());
-        e.addClassName(Styles.HAS_ERROR);
         Style s = e.getStyle();
         s.setFontSize(6, Unit.PX);
         s.setPaddingLeft(2, Unit.PX);
         s.setPaddingRight(5, Unit.PX);
         s.setColor("#b94a48");
-
         Element sup = Document.get().createElement("sup");
-        sup.addClassName(Styles.HAS_ERROR);
         sup.appendChild(e);
-
         return sup;
     }
 
