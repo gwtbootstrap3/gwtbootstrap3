@@ -10,9 +10,9 @@ The current stable release is 0.9. For a migration from 0.7 or lower to 0.8+ see
 * If you have any questions, please ask them on our [Google Group](https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3).
 * Want to help by writing code? That's great! Please read [Contributing](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Contributing) first.
 
-MASTER is currently reflecting v0.9 and produces the v0.9-SNAPSHOT jar.
+MASTER is currently reflecting v1.0 and produces the v1.0-SNAPSHOT jar.
 
-* Want to see the demo as the v0.9-SNAPSHOT is worked on? Visit the 0.9-SNAPSHOT demo [here](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/snapshot).
-* The API docs for the v0.9-SNAPSHOT can be found [here](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/snapshot/apidocs) as well.
+* Want to see the demo as the v1.0-SNAPSHOT is worked on? Visit the 1.0-SNAPSHOT demo [here](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/snapshot).
+* The API docs for the v1.0-SNAPSHOT can be found [here](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/snapshot/apidocs) as well.
 
 **Note:** This library is feature complete and has support for every Bootstrap element as of v3.1.1. See [supported features](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Supported-Features) on the project wiki.
