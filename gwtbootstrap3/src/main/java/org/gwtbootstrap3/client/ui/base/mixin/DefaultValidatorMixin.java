@@ -49,11 +49,11 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
 
     private HandlerRegistration blurHandler;
 
-    protected ErrorHandler errorHandler = null;
+    protected ErrorHandler errorHandler;
 
     private W inputWidget;
 
-    private boolean validateOnBlur = false;
+    private boolean validateOnBlur;
 
     protected Set<ValidatorWrapper<V>> validators = new TreeSet<ValidatorWrapper<V>>();
 
@@ -64,7 +64,6 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
      * @param errorHandler the error handler
      */
     public DefaultValidatorMixin(W inputWidget, ErrorHandler errorHandler) {
-        super();
         this.inputWidget = inputWidget;
         this.errorHandler = errorHandler;
     }
@@ -79,6 +78,14 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     @Override
     public boolean getValidateOnBlur() {
         return validateOnBlur;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void reset() {
+        if (errorHandler != null) {
+            errorHandler.clearErrors();
+        }
     }
 
     /**
@@ -140,14 +147,6 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
         }
         errorHandler.clearErrors();
         return true;
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void reset() {
-        if (errorHandler != null) {
-            errorHandler.clearErrors();
-        }
     }
 
 }

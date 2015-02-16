@@ -36,7 +36,7 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class BlankValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> extends DefaultValidatorMixin<W, V> {
 
-    private boolean allowBlank;
+    private boolean allowBlank = true;
 
     /**
      * Constructor.
