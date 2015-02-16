@@ -37,7 +37,7 @@ public class GwtBootstrap3EntryPoint implements EntryPoint {
      * @return true is Boostreap loaded, false otherwise.
      */
     private native boolean isBootstrapLoaded() /*-{
-		return typeof $wnd['jQuery'].fn.emulateTransitionEnd !== 'undefined'
+        return typeof $wnd['jQuery'].fn.emulateTransitionEnd !== 'undefined'
     }-*/;
 
     /**
