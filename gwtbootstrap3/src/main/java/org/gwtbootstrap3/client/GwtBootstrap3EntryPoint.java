@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,22 +24,21 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.ScriptInjector;
 
 /**
+ * Provides script injection for jQuery and boostrap if they aren't already loaded.
+ * 
  * @author Sven Jacobs
+ * @author Steven Jardine
  */
 public class GwtBootstrap3EntryPoint implements EntryPoint {
 
-    @Override
-    public void onModuleLoad() {
-        if (!isjQueryLoaded()) {
-            ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText())
-                    .setWindow(ScriptInjector.TOP_WINDOW)
-                    .inject();
-        }
-
-        ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.bootstrap().getText())
-                .setWindow(ScriptInjector.TOP_WINDOW)
-                .inject();
-    }
+    /**
+     * Check to see if Boostrap is loaded already.
+     * 
+     * @return true is Boostreap loaded, false otherwise.
+     */
+    private native boolean isBootstrapLoaded() /*-{
+        return typeof $wnd['jQuery'].fn.emulateTransitionEnd !== 'undefined'
+    }-*/;
 
     /**
      * Check to see if jQuery is loaded already
@@ -49,4 +48,21 @@ public class GwtBootstrap3EntryPoint implements EntryPoint {
     private native boolean isjQueryLoaded() /*-{
         return (typeof $wnd['jQuery'] !== 'undefined');
     }-*/;
+
+    /** {@inheritDoc} */
+    @Override
+    public void onModuleLoad() {
+        if (!isjQueryLoaded()) {
+            ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText())
+                    .setWindow(ScriptInjector.TOP_WINDOW)
+                    .inject();
+        }
+
+        if (!isBootstrapLoaded()) {
+            ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.bootstrap().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW)
+                .inject();
+        }
+    }
+    
 }

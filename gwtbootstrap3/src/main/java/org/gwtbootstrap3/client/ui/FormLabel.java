@@ -53,15 +53,12 @@ public class FormLabel extends AbstractTextWidget {
         addHandler(new ChangeHandler() {
             @Override
             public void onChange(ChangeEvent event) {
+                if (iconElement != null) {
+                    iconElement.removeFromParent();
+                }
                 String html = getHTML();
-                if (!showRequiredIndicator || html == null || "".equals(html)) {
-                    if (iconElement != null) {
-                        iconElement.removeFromParent();
-                    }
-                } else {
-                    if (iconElement == null) {
-                        iconElement = createIconElement();
-                    }
+                if (showRequiredIndicator && html != null && !"".equals(html)) {
+                    iconElement = createIconElement();
                     getElement().appendChild(iconElement);
                 }
             }
