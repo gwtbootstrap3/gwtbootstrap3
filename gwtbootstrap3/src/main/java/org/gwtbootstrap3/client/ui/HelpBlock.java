@@ -48,15 +48,12 @@ public class HelpBlock extends AbstractTextWidget {
         addHandler(new ChangeHandler() {
             @Override
             public void onChange(ChangeEvent event) {
+                if (iconElement != null) {
+                    iconElement.removeFromParent();
+                }
                 String html = getHTML();
-                if (html == null || "".equals(html)) {
-                    if (iconElement != null) {
-                        iconElement.removeFromParent();
-                    }
-                } else {
-                    if (iconElement == null) {
-                        iconElement = createIconElement();
-                    }
+                if (html != null && !"".equals(html) && iconType != null) {
+                    iconElement = createIconElement();
                     getElement().insertFirst(iconElement);
                 }
             }
