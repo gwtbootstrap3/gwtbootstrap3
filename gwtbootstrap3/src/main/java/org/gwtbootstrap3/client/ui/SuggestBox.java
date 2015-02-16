@@ -66,15 +66,16 @@ import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
  * The default style is inherited from the {@link Styles#DROPDOWN_MENU}. Styling of the suggestions items need
  * a bit of css in order to be pleasing to the eye.
  * 
- * <pre>
- *  .dropdown-menu .item {
- *      padding: 5px;
- *  }
+ * <pre>{@code
+ * .dropdown-menu .item {
+ *     padding: 5px;
+ * }
  *  
- *  .dropdown-menu .item-selected {
- *      background-color: #eee;
- *  }
- * </pre>
+ * .dropdown-menu .item-selected {
+ *     background-color: #eee;
+ * }
+ * 
+ * }</pre>
  * 
  * @author Steven Jardine
  */

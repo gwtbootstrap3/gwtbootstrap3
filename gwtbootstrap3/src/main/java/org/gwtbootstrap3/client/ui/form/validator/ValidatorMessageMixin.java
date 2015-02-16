@@ -24,10 +24,30 @@ import java.util.MissingResourceException;
 
 import com.google.gwt.core.client.GWT;
 
+/**
+ * Mixin for looking up validation messages. This can be replaced with your own version by using a
+ * "replace-with" statment in the gwt module file.
+ * 
+ * Example:
+ * 
+ * <pre>{@code
+ * <replace-with class="...CustomValidatorMessageMixin">
+ *     <when-type-is class="org.gwtbootstrap3.client.ui.form.validator.ValidatorMessageMixin" />
+ * </replace-with>
+ * }</pre>
+ * 
+ * @author Steven Jardine
+ */
 public class ValidatorMessageMixin {
-    
+
     protected ValidationMessages messages = GWT.create(ValidationMessages.class);
-    
+
+    /**
+     * Lookup a message.
+     *
+     * @param key the key to lookup.
+     * @return the message associated with the key.
+     */
     public String lookup(String key) {
         try {
             // Replace "." with "_" in the key.
