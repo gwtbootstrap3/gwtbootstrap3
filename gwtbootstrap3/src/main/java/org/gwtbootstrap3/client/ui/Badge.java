@@ -49,6 +49,11 @@ public class Badge extends ComplexWidget implements HasWidgets, HasText {
         setStyleName(Styles.BADGE);
     }
 
+    public Badge(final String text) {
+        this();
+        setText(text);
+    }
+
     /**
      * {@inheritDoc}
      */
