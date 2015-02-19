@@ -34,4 +34,9 @@ public class FormControlStatic extends AbstractTextWidget {
         super(Document.get().createPElement());
         setStyleName(Styles.FORM_CONTROL_STATIC);
     }
+
+    public FormControlStatic(final String text) {
+        this();
+        setText(text);
+    }
 }

@@ -25,6 +25,10 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Text;
 
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 
@@ -37,7 +41,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
  * @see NavPills
  * @see Navbar
  */
-public class ListItem extends AbstractListItem implements HasWidgets, HasText {
+public class ListItem extends AbstractListItem implements HasWidgets, HasText, HasClickHandlers {
     private Text text;
 
     /**
@@ -86,5 +90,10 @@ public class ListItem extends AbstractListItem implements HasWidgets, HasText {
                 addStyleName(Styles.MEDIA);
             }
         }
+    }
+
+    @Override
+    public HandlerRegistration addClickHandler(final ClickHandler handler) {
+        return addDomHandler(handler, ClickEvent.getType());
     }
 }

@@ -31,6 +31,10 @@ import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
@@ -39,7 +43,7 @@ import com.google.gwt.uibinder.client.UiConstructor;
  * @author Sven Jacobs
  * @see org.gwtbootstrap3.client.ui.constants.IconType
  */
-public class Icon extends ComplexWidget implements HasType<IconType> {
+public class Icon extends ComplexWidget implements HasType<IconType>, HasClickHandlers {
 
     public Icon() {
         setElement(Document.get().createElement(ElementTags.I));
@@ -152,5 +156,10 @@ public class Icon extends ComplexWidget implements HasType<IconType> {
 
     public IconSize getSize() {
         return IconSize.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public HandlerRegistration addClickHandler(final ClickHandler handler) {
+        return addDomHandler(handler, ClickEvent.getType());
     }
 }
