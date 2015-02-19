@@ -102,6 +102,26 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     /**
+     * Creates the tooltip around this widget with given title
+     *
+     * @param w widget for the tooltip
+     * @param title title for the tooltip
+     */
+    public Tooltip(final Widget w, final String title) {
+        setWidget(w);
+        setTitle(title);
+    }
+
+    /**
+     * Creates the tooltip with given title. Remember to set the widget as well
+     *
+     * @param title title for the tooltip
+     */
+    public Tooltip(final String title) {
+        setTitle(title);
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
