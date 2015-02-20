@@ -83,6 +83,13 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     private String container = null;
     private String selector = null;
 
+    private String tooltipClassNames = "tooltip";
+    private String tooltipArrowClassNames = "tooltip-arrow";
+    private String tooltipInnerClassNames = "tooltip-inner";
+
+    private final static String DEFAULT_TEMPLATE = "<div class=\"{0}\"><div class=\"{1}\"></div><div class=\"{2}\"></div></div>";
+    private String alternateTemplate = null;
+
     private Widget widget;
     private String id;
 
@@ -347,6 +354,108 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         this.selector = selector;
     }
 
+    /**
+     * Get the tooltip div class names
+     *
+     * @return String the tooltip div class names
+     */
+    public String getTooltipClassNames() {
+        return tooltipClassNames;
+    }
+
+    /**
+     * Set the tooltip div class names
+     *
+     * @param tooltipClassNames the tooltip div class names
+     */
+    public void setTooltipClassNames(String tooltipClassNames) {
+        this.tooltipClassNames = tooltipClassNames;
+    }
+
+    /**
+     * Add a tooltip div class name
+     *
+     * @param tooltipClassName a tooltip div class name
+     */
+    public void addTooltipClassName(String tooltipClassName) {
+        this.tooltipClassNames += " " + tooltipClassName;
+    }
+
+    /**
+     * Get the tooltip arrow div class names
+     *
+     * @return String Get the tooltip arrow div class names
+     */
+    public String getTooltipArrowClassNames() {
+        return tooltipArrowClassNames;
+    }
+
+    /**
+     * Set the tooltip arrow div class names
+     *
+     * @param tooltipArrowClassNames the tooltip arrow div class names
+     */
+    public void setTooltipArrowClassNames(String tooltipArrowClassNames) {
+        this.tooltipArrowClassNames = tooltipArrowClassNames;
+    }
+
+    /**
+     * Add a tooltip arrow div class name
+     *
+     * @param tooltipArrowClassName a tooltip arrow div class name
+     */
+    public void addTooltipArrowClassName(String tooltipArrowClassName) {
+        this.tooltipArrowClassNames += " " + tooltipArrowClassName;
+    }
+
+    /**
+     * Get the tooltip inner div class names
+     *
+     * @return String the tooltip inner div class names
+     */
+    public String getTooltipInnerClassNames() {
+        return tooltipInnerClassNames;
+    }
+
+    /**
+     * Set the tooltip inner div class names
+     *
+     * @param tooltipInnerClassNames the tooltip inner div class names
+     */
+    public void setTooltipInnerClassNames(String tooltipInnerClassNames) {
+        this.tooltipInnerClassNames = tooltipInnerClassNames;
+    }
+
+    /**
+     * Add a tooltip inner div class name
+     *
+     * @param tooltipInnerClassName a tooltip inner div class name
+     */
+    public void addTooltipInnerClassName(String tooltipInnerClassName) {
+        this.tooltipInnerClassNames += " " + tooltipInnerClassName;
+    }
+
+    /**
+     * Get the alternate template used to render the tooltip. If null,
+     * the default template will be used.
+     *
+     * @return String the alternate template used to render the tooltip
+     */
+    public String getAlternateTemplate() {
+        return alternateTemplate;
+    }
+
+    /**
+     * Set the alternate template used to render the tooltip. The template should contain
+     * divs with classes 'tooltip', 'tooltip-inner', and 'tooltip-arrow'. If an alternate
+     * template is configured, the 'tooltipClassNames', 'tooltipArrowClassNames', and
+     * 'tooltipInnerClassNames' properties are not used.
+     *
+     * @param alternateTemplate the alternate template used to render the tooltip
+     */
+    public void setAlternateTemplate(String alternateTemplate) {
+        this.alternateTemplate = alternateTemplate;
+    }
 
     /**
      * Reconfigures the tooltip, must be called when altering any tooltip after it has already been shown
@@ -355,20 +464,37 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
         // First destroy the old tooltip
         destroy();
 
+        // prepare template
+        String template = prepareTemplate();
+
+        // TODO clean this up
         // Setup the new tooltip
         if (container != null && selector != null) {
             tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), selector, title,
-                    trigger.getCssName(), showDelayMs, hideDelayMs, container);
+                    trigger.getCssName(), showDelayMs, hideDelayMs, container, template);
         } else if (container != null) {
             tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title,
-                    trigger.getCssName(), showDelayMs, hideDelayMs, container);
+                    trigger.getCssName(), showDelayMs, hideDelayMs, container, template);
         } else if (selector != null) {
             tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), selector, title,
-                    trigger.getCssName(), showDelayMs, hideDelayMs);
+                    trigger.getCssName(), showDelayMs, hideDelayMs, template);
         } else {
             tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title,
-                    trigger.getCssName(), showDelayMs, hideDelayMs);
+                    trigger.getCssName(), showDelayMs, hideDelayMs, template);
         }
+    }
+
+    protected String prepareTemplate() {
+        String template = null;
+        if (alternateTemplate == null) {
+            template = DEFAULT_TEMPLATE.replace("{0}", getTooltipClassNames());
+            template = template.replace("{1}", getTooltipArrowClassNames());
+            template = template.replace("{2}", getTooltipInnerClassNames());
+        }
+        else {
+            template = alternateTemplate;
+        }
+        return template;
     }
 
     /**
@@ -582,7 +708,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }-*/;
 
     private native void tooltip(Element e, boolean animation, boolean html, String placement, String selector,
-                                String title, String trigger, int showDelay, int hideDelay, String container) /*-{
+                                String title, String trigger, int showDelay, int hideDelay, String container, String template) /*-{
         $wnd.jQuery(e).tooltip({
             animation: animation,
             html: html,
@@ -594,12 +720,13 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
                 show: showDelay,
                 hide: hideDelay
             },
-            container: container
+            container: container,
+            template: template
         });
     }-*/;
 
     private native void tooltip(Element e, boolean animation, boolean html, String placement,
-                                String title, String trigger, int showDelay, int hideDelay, String container) /*-{
+                                String title, String trigger, int showDelay, int hideDelay, String container, String template) /*-{
         $wnd.jQuery(e).tooltip({
             animation: animation,
             html: html,
@@ -610,12 +737,13 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
                 show: showDelay,
                 hide: hideDelay
             },
-            container: container
+            container: container,
+            template: template
         });
     }-*/;
 
     private native void tooltip(Element e, boolean animation, boolean html, String placement, String selector,
-                                String title, String trigger, int showDelay, int hideDelay) /*-{
+                                String title, String trigger, int showDelay, int hideDelay, String template) /*-{
         $wnd.jQuery(e).tooltip({
             animation: animation,
             html: html,
@@ -626,12 +754,13 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
             delay: {
                 show: showDelay,
                 hide: hideDelay
-            }
+            },
+            template: template
         });
     }-*/;
 
     private native void tooltip(Element e, boolean animation, boolean html, String placement,
-                                String title, String trigger, int showDelay, int hideDelay) /*-{
+                                String title, String trigger, int showDelay, int hideDelay, String template) /*-{
         $wnd.jQuery(e).tooltip({
             animation: animation,
             html: html,
@@ -641,7 +770,8 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
             delay: {
                 show: showDelay,
                 hide: hideDelay
-            }
+            },
+            template: template
         });
     }-*/;
 }
