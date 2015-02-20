@@ -81,7 +81,7 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     private int hideDelayMs = 0;
     private int showDelayMs = 0;
     private String container = null;
-    private final String selector = null;
+    private String selector = null;
 
     private Widget widget;
     private String id;
@@ -328,6 +328,25 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     public void setTitle(final String title) {
         this.title = title;
     }
+
+    /**
+     * Get the tooltip's selector
+     *
+     * @return String the tooltip's selector
+     */
+    public String getSelector() {
+        return selector;
+    }
+
+    /**
+     * Set the tooltip's selector
+     *
+     * @param selector the tooltip's selector
+     */
+    public void setSelector(String selector) {
+        this.selector = selector;
+    }
+
 
     /**
      * Reconfigures the tooltip, must be called when altering any tooltip after it has already been shown
