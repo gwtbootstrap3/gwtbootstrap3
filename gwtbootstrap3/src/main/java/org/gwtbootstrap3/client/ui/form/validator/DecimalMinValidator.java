@@ -23,39 +23,51 @@ import org.gwtbootstrap3.client.ui.form.validator.ValidationMessages.Keys;
  */
 
 /**
- * Validator for blank field validation.
+ * Decimal min validator. Checks to see if the decimal value is under the minimum value.
  *
  * @param <T> the generic type
  * @author Steven Jardine
  */
-public class BlankValidator<T> extends AbstractValidator<T> {
+public class DecimalMinValidator<T extends Number> extends AbstractValidator<T> {
+
+    private Number minValue;
 
     /**
      * Constructor.
+     *
+     * @param minValue the min value
      */
-    public BlankValidator() {
-        super(Keys.BLANK, new Object[0]);
+    public DecimalMinValidator(Number minValue) {
+        super(Keys.DECIMAL_MIN, new Object[] { minValue.toString() });
+        this.minValue = minValue;
     }
 
     /**
      * Constructor.
      *
+     * @param minValue the min value
      * @param invalidMessageOverride the invalid message override
      */
-    public BlankValidator(String invalidMessageOverride) {
+    public DecimalMinValidator(Number minValue, String invalidMessageOverride) {
         super(invalidMessageOverride);
+        this.minValue = minValue;
     }
 
     /** {@inheritDoc} */
     @Override
     public int getPriority() {
-        return Priority.HIGHEST;
+        return Priority.MEDIUM;
     }
 
     /** {@inheritDoc} */
     @Override
     public boolean isValid(T value) {
-        return value != null && !"".equals(value.toString());
+        if (value == null) { return true; }
+        if (value instanceof Number) {
+            return ((Number) value).doubleValue() >= minValue.doubleValue();
+        } else {
+            return Double.valueOf(value.toString()).doubleValue() >= minValue.doubleValue();
+        }
     }
 
 }

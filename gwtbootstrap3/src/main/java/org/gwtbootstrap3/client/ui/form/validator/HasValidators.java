@@ -1,5 +1,7 @@
 package org.gwtbootstrap3.client.ui.form.validator;
 
+import org.gwtbootstrap3.client.ui.form.validator.ValidationChangedEvent.HasValidationChangedHandlers;
+
 /*
  * #%L
  * GwtBootstrap3
@@ -26,7 +28,7 @@ package org.gwtbootstrap3.client.ui.form.validator;
  * @param <T> the generic type
  * @author Steven Jardine
  */
-public interface HasValidators<T> {
+public interface HasValidators<T> extends HasValidationChangedHandlers {
 
     /**
      * Adds the validator.

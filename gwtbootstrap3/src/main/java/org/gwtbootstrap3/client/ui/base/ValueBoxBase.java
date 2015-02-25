@@ -33,6 +33,7 @@ import org.gwtbootstrap3.client.ui.form.error.ErrorHandlerType;
 import org.gwtbootstrap3.client.ui.form.error.HasErrorHandler;
 import org.gwtbootstrap3.client.ui.form.validator.HasBlankValidator;
 import org.gwtbootstrap3.client.ui.form.validator.HasValidators;
+import org.gwtbootstrap3.client.ui.form.validator.ValidationChangedEvent.ValidationChangedHandler;
 import org.gwtbootstrap3.client.ui.form.validator.Validator;
 
 import com.google.gwt.dom.client.Element;
@@ -40,6 +41,7 @@ import com.google.gwt.editor.client.EditorError;
 import com.google.gwt.editor.client.HasEditorErrors;
 import com.google.gwt.text.shared.Parser;
 import com.google.gwt.text.shared.Renderer;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 
 public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasResponsiveness,
         HasPlaceholder, HasAutoComplete, HasSize<InputSize>, HasEditorErrors<T>, HasErrorHandler, HasValidators<T>,
@@ -198,6 +200,11 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     public void reset() {
         setValue(null);
         validatorMixin.reset();
+    }
+
+    @Override
+    public HandlerRegistration addValidationChangedHandler(ValidationChangedHandler handler) {
+        return validatorMixin.addValidationChangedHandler(handler);
     }
 
 }

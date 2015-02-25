@@ -34,13 +34,80 @@ import com.google.gwt.i18n.client.LocalizableResource.DefaultLocale;
 @DefaultLocale("en")
 public interface ValidationMessages extends ConstantsWithLookup {
 
+    public static class Keys {
+
+        public static final String BLANK = "org.gwtbootstrap3.validation.Blank.message";
+
+        public static final String DECIMAL_MAX = "org.gwtbootstrap3.validation.DecimalMax.message";
+
+        public static final String DECIMAL_MIN = "org.gwtbootstrap3.validation.DecimalMin.message";
+
+        public static final String FIELD_MATCH = "org.gwtbootstrap3.validation.FieldMatch.message";
+
+        public static final String FUTURE = "org.gwtbootstrap3.validation.Future.message";
+
+        public static final String PAST = "org.gwtbootstrap3.validation.Past.message";
+
+        public static final String REGEX = "org.gwtbootstrap3.validation.RegEx.message";
+
+        public static final String SIZE = "org.gwtbootstrap3.validation.Size.message";
+
+    }
+
     /**
-     * Org_gwtbootstrap3_validation_ blank_message.
-     *
-     * @return the string
+     * @return the blank validation message.
      */
-    @Key("org.gwtbootstrap3.validation.Blank.message")
+    @Key(Keys.BLANK)
     @DefaultStringValue("Field cannot be blank")
     String org_gwtbootstrap3_validation_Blank_message();
+
+    /**
+     * @return the decimal max validation message.
+     */
+    @Key(Keys.DECIMAL_MAX)
+    @DefaultStringValue("Size must be between {1} and {2}")
+    String org_gwtbootstrap3_validation_DecimalMax_message();
+
+    /**
+     * @return the decimal min validation message.
+     */
+    @Key(Keys.DECIMAL_MIN)
+    @DefaultStringValue("Size must be between {1} and {2}")
+    String org_gwtbootstrap3_validation_DecimalMin_message();
+
+    /**
+     * @return the field match validation message.
+     */
+    @Key(Keys.FIELD_MATCH)
+    @DefaultStringValue("{1} do not match")
+    String org_gwtbootstrap3_validation_FieldMatch_message();
+
+    /**
+     * @return the future validation message.
+     */
+    @Key(Keys.FUTURE)
+    @DefaultStringValue("Size must be between {1} and {2}")
+    String org_gwtbootstrap3_validation_Future_message();
+
+    /**
+     * @return the past validation message.
+     */
+    @Key(Keys.PAST)
+    @DefaultStringValue("Size must be between {1} and {2}")
+    String org_gwtbootstrap3_validation_Past_message();
+
+    /**
+     * @return the regular expression validation message.
+     */
+    @Key(Keys.REGEX)
+    @DefaultStringValue("Size must be between {1} and {2}")
+    String org_gwtbootstrap3_validation_RegEx_message();
+
+    /**
+     * @return the size validation message.
+     */
+    @Key(Keys.SIZE)
+    @DefaultStringValue("Size must be between {1} and {2}")
+    String org_gwtbootstrap3_validation_Size_message();
 
 }

@@ -1,7 +1,5 @@
 package org.gwtbootstrap3.client.ui.form.validator;
 
-import org.gwtbootstrap3.client.ui.form.validator.ValidationMessages.Keys;
-
 /*
  * #%L
  * GwtBootstrap3
@@ -22,40 +20,37 @@ import org.gwtbootstrap3.client.ui.form.validator.ValidationMessages.Keys;
  * #L%
  */
 
+import java.util.Date;
+
+import org.gwtbootstrap3.client.ui.form.validator.ValidationMessages.Keys;
+
 /**
- * Validator for blank field validation.
+ * Validator for checking if a date is in the past.
  *
  * @param <T> the generic type
  * @author Steven Jardine
  */
-public class BlankValidator<T> extends AbstractValidator<T> {
+public class PastValidator extends AbstractValidator<Date> {
 
-    /**
-     * Constructor.
-     */
-    public BlankValidator() {
-        super(Keys.BLANK, new Object[0]);
+    public PastValidator() {
+        super(Keys.PAST, new Object[0]);
     }
 
-    /**
-     * Constructor.
-     *
-     * @param invalidMessageOverride the invalid message override
-     */
-    public BlankValidator(String invalidMessageOverride) {
+    public PastValidator(String invalidMessageOverride) {
         super(invalidMessageOverride);
     }
 
     /** {@inheritDoc} */
     @Override
     public int getPriority() {
-        return Priority.HIGHEST;
+        return Priority.MEDIUM;
     }
 
     /** {@inheritDoc} */
     @Override
-    public boolean isValid(T value) {
-        return value != null && !"".equals(value.toString());
+    public boolean isValid(Date value) {
+        if (value != null) { return value.before(new Date()); }
+        return true;
     }
 
 }

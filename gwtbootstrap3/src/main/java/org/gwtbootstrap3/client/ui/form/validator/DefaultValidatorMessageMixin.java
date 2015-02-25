@@ -20,9 +20,13 @@ package org.gwtbootstrap3.client.ui.form.validator;
  * #L%
  */
 
+import java.util.MissingResourceException;
+
+import com.google.gwt.core.client.GWT;
+
 /**
- * Mixin for looking up validation messages. This can be replaced with your own version by using a
- * "replace-with" statment in the gwt module file.
+ * Default implementation of the validator message mixin. This can be replaced with your own version by using
+ * a "replace-with" statment in the gwt module file.
  * 
  * Example:
  * 
@@ -36,37 +40,28 @@ package org.gwtbootstrap3.client.ui.form.validator;
  * 
  * @author Steven Jardine
  */
-public interface ValidatorMessageMixin {
+public class DefaultValidatorMessageMixin implements ValidatorMessageMixin {
 
-    /**
-     * Lookup the message using the supplied key.
-     *
-     * @param key the key.
-     * @return the message associated with the given key.
-     */
-    String lookup(String key);
+    protected ValidationMessages messages = GWT.create(ValidationMessages.class);
 
-    /**
-     * Lookup a message using the given key and replace the arguments in the given message with the supplied
-     * values.
-     * 
-     * <pre>
-     * {@code
-     * Message:
-     * {1} is a {2}
-     * 
-     * Call:
-     * lookup("key", "This", "test.");
-     * 
-     * Returns:
-     * This is a test.
-     * }
-     * </pre>
-     *
-     * @param key the key
-     * @param msgValues the values used in the message.
-     * @return the message associated with the given key with the message values replaced.
-     */
-    String lookup(String key, Object[] msgValues);
-    
+    /** {@inheritDoc} */
+    public String lookup(String key) {
+        try {
+            // Replace "." with "_" in the key.
+            return key == null ? null : messages.getString(key.replace(".", "_"));
+        } catch (MissingResourceException e) {
+            return null;
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public String lookup(String key, Object[] msgValues) {
+        String msg = lookup(key);
+        if (msg != null) {
+            msg = MessageFormat.format(msg, msgValues);
+        }
+        return msg;
+    }
+
 }
