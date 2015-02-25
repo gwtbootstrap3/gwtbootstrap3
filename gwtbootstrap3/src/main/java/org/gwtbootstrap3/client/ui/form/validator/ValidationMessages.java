@@ -100,7 +100,7 @@ public interface ValidationMessages extends ConstantsWithLookup {
      * @return the regular expression validation message.
      */
     @Key(Keys.REGEX)
-    @DefaultStringValue("Must match {1}")
+    @DefaultStringValue("Must match regex")
     String org_gwtbootstrap3_validation_RegEx_message();
 
     /**
