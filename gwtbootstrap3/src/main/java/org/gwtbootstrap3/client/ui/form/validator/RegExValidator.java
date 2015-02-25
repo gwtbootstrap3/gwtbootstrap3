@@ -35,7 +35,7 @@ public class RegExValidator extends AbstractValidator<String> {
     private RegExp regex;
 
     public RegExValidator(String pattern) {
-        super(Keys.REGEX, new Object[0]);
+        super(Keys.REGEX, new Object[] { pattern });
         regex = RegExp.compile(pattern);
     }
 

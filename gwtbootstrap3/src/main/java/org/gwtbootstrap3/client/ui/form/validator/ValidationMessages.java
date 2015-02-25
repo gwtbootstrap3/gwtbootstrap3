@@ -65,14 +65,14 @@ public interface ValidationMessages extends ConstantsWithLookup {
      * @return the decimal max validation message.
      */
     @Key(Keys.DECIMAL_MAX)
-    @DefaultStringValue("Size must be between {1} and {2}")
+    @DefaultStringValue("Value must be less than or equal to {1}")
     String org_gwtbootstrap3_validation_DecimalMax_message();
 
     /**
      * @return the decimal min validation message.
      */
     @Key(Keys.DECIMAL_MIN)
-    @DefaultStringValue("Size must be between {1} and {2}")
+    @DefaultStringValue("Value must be greater than or equal to {1}")
     String org_gwtbootstrap3_validation_DecimalMin_message();
 
     /**
@@ -86,21 +86,21 @@ public interface ValidationMessages extends ConstantsWithLookup {
      * @return the future validation message.
      */
     @Key(Keys.FUTURE)
-    @DefaultStringValue("Size must be between {1} and {2}")
+    @DefaultStringValue("Value must be in the future")
     String org_gwtbootstrap3_validation_Future_message();
 
     /**
      * @return the past validation message.
      */
     @Key(Keys.PAST)
-    @DefaultStringValue("Size must be between {1} and {2}")
+    @DefaultStringValue("Value must be in the past")
     String org_gwtbootstrap3_validation_Past_message();
 
     /**
      * @return the regular expression validation message.
      */
     @Key(Keys.REGEX)
-    @DefaultStringValue("Size must be between {1} and {2}")
+    @DefaultStringValue("Must match {1}")
     String org_gwtbootstrap3_validation_RegEx_message();
 
     /**
