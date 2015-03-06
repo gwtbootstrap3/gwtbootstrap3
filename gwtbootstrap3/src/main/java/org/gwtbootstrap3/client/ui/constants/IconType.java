@@ -588,7 +588,7 @@ public enum IconType implements Type, Style.HasCssName {
     USER("fa-user"),
     USERS("fa-users"),
     USER_MD("fa-user-md"),
-    USER_PLUS("user-plus"),
+    USER_PLUS("fa-user-plus"),
     USER_SECRET("fa-user-secret"),
     USER_TIMES("fa-user-times"),
     VENUS("fa-venus"),
