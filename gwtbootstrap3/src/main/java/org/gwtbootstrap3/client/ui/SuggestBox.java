@@ -42,6 +42,7 @@ import org.gwtbootstrap3.client.ui.form.error.ErrorHandlerType;
 import org.gwtbootstrap3.client.ui.form.error.HasErrorHandler;
 import org.gwtbootstrap3.client.ui.form.validator.HasBlankValidator;
 import org.gwtbootstrap3.client.ui.form.validator.HasValidators;
+import org.gwtbootstrap3.client.ui.form.validator.ValidationChangedEvent.ValidationChangedHandler;
 import org.gwtbootstrap3.client.ui.form.validator.Validator;
 
 import com.google.gwt.core.client.Scheduler;
@@ -59,6 +60,7 @@ import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.SuggestOracle;
 import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
  * Wrapper for a {@link com.google.gwt.user.client.ui.SuggestBox}.<br/>
@@ -67,13 +69,16 @@ import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
  * a bit of css in order to be pleasing to the eye.
  * 
  * <pre>
- *  .dropdown-menu .item {
- *      padding: 5px;
- *  }
+ * {@code
+ * .dropdown-menu .item {
+ *     padding: 5px;
+ * }
  *  
- *  .dropdown-menu .item-selected {
- *      background-color: #eee;
- *  }
+ * .dropdown-menu .item-selected {
+ *     background-color: #eee;
+ * }
+ * 
+ * }
  * </pre>
  * 
  * @author Steven Jardine
@@ -334,6 +339,11 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
     @Override
     public boolean validate(boolean show) {
         return validatorMixin.validate(show);
+    }
+
+    @Override
+    public HandlerRegistration addValidationChangedHandler(ValidationChangedHandler handler) {
+        return validatorMixin.addValidationChangedHandler(handler);
     }
 
 }

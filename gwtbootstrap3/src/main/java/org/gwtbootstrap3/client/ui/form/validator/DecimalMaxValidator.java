@@ -23,39 +23,51 @@ import org.gwtbootstrap3.client.ui.form.validator.ValidationMessages.Keys;
  */
 
 /**
- * Validator for blank field validation.
+ * Decimal max validator. Checks to see if the decimal value is over the maximum value.
  *
  * @param <T> the generic type
  * @author Steven Jardine
  */
-public class BlankValidator<T> extends AbstractValidator<T> {
+public class DecimalMaxValidator<T> extends AbstractValidator<T> {
+
+    private Number maxValue;
 
     /**
      * Constructor.
+     *
+     * @param maxValue the max value
      */
-    public BlankValidator() {
-        super(Keys.BLANK, new Object[0]);
+    public DecimalMaxValidator(Number maxValue) {
+        super(Keys.DECIMAL_MAX, new Object[] { maxValue.toString() });
+        this.maxValue = maxValue;
     }
 
     /**
      * Constructor.
      *
+     * @param maxValue the max value
      * @param invalidMessageOverride the invalid message override
      */
-    public BlankValidator(String invalidMessageOverride) {
+    public DecimalMaxValidator(Number maxValue, String invalidMessageOverride) {
         super(invalidMessageOverride);
+        this.maxValue = maxValue;
     }
 
     /** {@inheritDoc} */
     @Override
     public int getPriority() {
-        return Priority.HIGHEST;
+        return Priority.MEDIUM;
     }
 
     /** {@inheritDoc} */
     @Override
     public boolean isValid(T value) {
-        return value != null && !"".equals(value.toString());
+        if (value == null) { return true; }
+        if (value instanceof Number) {
+            return ((Number) value).doubleValue() <= maxValue.doubleValue();
+        } else {
+            return Double.valueOf(value.toString()).doubleValue() <= maxValue.doubleValue();
+        }
     }
 
 }

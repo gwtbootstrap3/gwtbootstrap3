@@ -20,10 +20,12 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import com.google.gwt.junit.tools.GWTTestSuite;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
+
+import org.gwtbootstrap3.client.ui.form.validator.ValidatorsGwt;
+
+import com.google.gwt.junit.tools.GWTTestSuite;
 
 public class GwtTestSuite extends TestCase {
 
@@ -31,6 +33,7 @@ public class GwtTestSuite extends TestCase {
         final GWTTestSuite suite = new GWTTestSuite("gwtbootstrap3 suite");
         suite.addTestSuite(CheckBoxButtonGwt.class);
         suite.addTestSuite(RadioButtonGwt.class);
+        suite.addTestSuite(ValidatorsGwt.class);
         return suite;
     }
 

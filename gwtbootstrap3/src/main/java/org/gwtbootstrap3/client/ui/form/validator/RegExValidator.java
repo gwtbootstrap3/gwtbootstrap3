@@ -1,7 +1,5 @@
 package org.gwtbootstrap3.client.ui.form.validator;
 
-import org.gwtbootstrap3.client.ui.form.validator.ValidationMessages.Keys;
-
 /*
  * #%L
  * GwtBootstrap3
@@ -22,40 +20,40 @@ import org.gwtbootstrap3.client.ui.form.validator.ValidationMessages.Keys;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.form.validator.ValidationMessages.Keys;
+
+import com.google.gwt.regexp.shared.RegExp;
+
 /**
- * Validator for blank field validation.
+ * Validator for checking value matches a regular expression.
  *
  * @param <T> the generic type
  * @author Steven Jardine
  */
-public class BlankValidator<T> extends AbstractValidator<T> {
+public class RegExValidator extends AbstractValidator<String> {
 
-    /**
-     * Constructor.
-     */
-    public BlankValidator() {
-        super(Keys.BLANK, new Object[0]);
+    private RegExp regex;
+
+    public RegExValidator(String pattern) {
+        super(Keys.REGEX, new Object[0]);
+        regex = RegExp.compile(pattern);
     }
 
-    /**
-     * Constructor.
-     *
-     * @param invalidMessageOverride the invalid message override
-     */
-    public BlankValidator(String invalidMessageOverride) {
+    public RegExValidator(String pattern, String invalidMessageOverride) {
         super(invalidMessageOverride);
+        regex = RegExp.compile(pattern);
     }
 
     /** {@inheritDoc} */
     @Override
     public int getPriority() {
-        return Priority.HIGHEST;
+        return Priority.MEDIUM;
     }
 
     /** {@inheritDoc} */
     @Override
-    public boolean isValid(T value) {
-        return value != null && !"".equals(value.toString());
+    public boolean isValid(String value) {
+        return value == null || regex.test(value);
     }
 
 }
