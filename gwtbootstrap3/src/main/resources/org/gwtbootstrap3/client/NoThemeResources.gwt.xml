@@ -24,6 +24,4 @@
         <include name="js/*.js"/>
         <include name="fonts/*"/>
     </public>
-
-    <stylesheet src="css/font-awesome-4.3.0.min.cache.css"/>
 </module>
