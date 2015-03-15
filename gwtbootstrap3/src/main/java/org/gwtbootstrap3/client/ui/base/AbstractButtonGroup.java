@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui.base;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ package org.gwtbootstrap3.client.ui.base;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.DataToggleMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
+import org.gwtbootstrap3.client.ui.constants.ButtonGroupSize;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Pull;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -40,7 +41,8 @@ import com.google.gwt.user.client.ui.Widget;
  * @see org.gwtbootstrap3.client.ui.ButtonGroup
  * @see org.gwtbootstrap3.client.ui.VerticalButtonGroup
  */
-public abstract class AbstractButtonGroup extends FlowPanel implements HasName, HasDataToggle, HasJustified, HasPull, HasResponsiveness {
+public abstract class AbstractButtonGroup extends FlowPanel implements HasName, HasSize<ButtonGroupSize>,
+        HasDataToggle, HasJustified, HasPull, HasResponsiveness {
 
     private final PullMixin<AbstractButtonGroup> pullMixin = new PullMixin<AbstractButtonGroup>(this);
     private final DataToggleMixin<AbstractButtonGroup> toggleMixin = new DataToggleMixin<AbstractButtonGroup>(this);
@@ -74,6 +76,16 @@ public abstract class AbstractButtonGroup extends FlowPanel implements HasName, 
     @Override
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public void setSize(ButtonGroupSize size) {
+        StyleHelper.addUniqueEnumStyleName(this, ButtonGroupSize.class, size);
+    }
+
+    @Override
+    public ButtonGroupSize getSize() {
+        return ButtonGroupSize.fromStyleName(getStyleName());
     }
 
     @Override
