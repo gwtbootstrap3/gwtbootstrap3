@@ -36,6 +36,8 @@ import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -221,7 +223,15 @@ public class RadioButton extends Radio implements HasActive,
 
             @Override
             public void onClick(ClickEvent event) {
-                ValueChangeEvent.fire(RadioButton.this, getValue());
+                final boolean oldValue = getValue();
+
+                Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+                    @Override
+                    public void execute() {
+                        ValueChangeEvent.fireIfNotEqual(RadioButton.this,
+                                oldValue, getValue());
+                    }
+                });
             }
 
         });
