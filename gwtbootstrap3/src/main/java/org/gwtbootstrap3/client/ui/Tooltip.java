@@ -38,6 +38,7 @@ import org.gwtbootstrap3.client.ui.constants.Trigger;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.logical.shared.AttachEvent;
+import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -334,6 +335,18 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
      */
     public void setTitle(final String title) {
         this.title = title;
+    }
+
+    /**
+     * Sets the tooltip's display string in HTML format
+     *
+     * @param text String display string in HTML format
+     */
+    public void setHtml(final SafeHtml html) {
+        setIsHtml(true);
+        if (html != null) {
+            setTitle(html.asString());
+        }
     }
 
     /**
