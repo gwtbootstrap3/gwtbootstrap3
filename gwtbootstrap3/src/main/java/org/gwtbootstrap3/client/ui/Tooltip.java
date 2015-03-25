@@ -344,7 +344,10 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
      */
     public void setHtml(final SafeHtml html) {
         setIsHtml(true);
-        if (html != null) {
+        if (html == null) {
+            setTitle("");
+        }
+        else {
             setTitle(html.asString());
         }
     }
