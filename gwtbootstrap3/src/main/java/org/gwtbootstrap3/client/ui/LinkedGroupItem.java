@@ -24,7 +24,10 @@ import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasActive;
 import org.gwtbootstrap3.client.ui.base.HasHref;
 import org.gwtbootstrap3.client.ui.base.HasTargetHistoryToken;
+import org.gwtbootstrap3.client.ui.base.HasType;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.ActiveMixin;
+import org.gwtbootstrap3.client.ui.constants.ListGroupItemType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Span;
 
@@ -43,7 +46,7 @@ import com.google.gwt.user.client.History;
  * @author Joshua Godi
  */
 public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref,
-        HasTargetHistoryToken, HasActive {
+        HasTargetHistoryToken, HasActive, HasType<ListGroupItemType> {
 
     private final ActiveMixin<LinkedGroupItem> activeMixin = new ActiveMixin<LinkedGroupItem>(this);
 
@@ -115,5 +118,15 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
     @Override
     public boolean isActive() {
         return activeMixin.isActive();
+    }
+
+    @Override
+    public void setType(final ListGroupItemType type) {
+        StyleHelper.addUniqueEnumStyleName(this, ListGroupItemType.class, type);
+    }
+
+    @Override
+    public ListGroupItemType getType() {
+        return ListGroupItemType.fromStyleName(getStyleName());
     }
 }
