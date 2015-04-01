@@ -23,9 +23,15 @@ package org.gwtbootstrap3.client.ui;
 import java.util.List;
 
 import org.gwtbootstrap3.client.ui.base.HasId;
+import org.gwtbootstrap3.client.ui.base.HasPlaceholder;
+import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
+import org.gwtbootstrap3.client.ui.base.HasSize;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.mixin.BlankValidatorMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.ErrorHandlerMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
+import org.gwtbootstrap3.client.ui.constants.DeviceSize;
+import org.gwtbootstrap3.client.ui.constants.InputSize;
 import org.gwtbootstrap3.client.ui.form.error.ErrorHandler;
 import org.gwtbootstrap3.client.ui.form.error.ErrorHandlerType;
 import org.gwtbootstrap3.client.ui.form.error.HasErrorHandler;
@@ -55,7 +61,8 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
  *            the value type
  */
 public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<T> implements HasName, HasId,
-        HasEditorErrors<T>, HasErrorHandler, HasValidators<T>, HasBlankValidator<T> {
+        HasResponsiveness, HasPlaceholder, HasSize<InputSize>, HasEditorErrors<T>, HasErrorHandler, HasValidators<T>,
+        HasBlankValidator<T> {
 
     private final IdMixin<ValueListBox<T>> idMixin = new IdMixin<ValueListBox<T>>(this);
 
@@ -85,6 +92,46 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
     @Override
     public String getName() {
         return ((ListBox) getWidget()).getName();
+    }
+
+    @Override
+    public void setId(final String id) {
+        idMixin.setId(id);
+    }
+
+    @Override
+    public String getId() {
+        return idMixin.getId();
+    }
+
+    @Override
+    public void setVisibleOn(final DeviceSize deviceSize) {
+        StyleHelper.setVisibleOn(this, deviceSize);
+    }
+
+    @Override
+    public void setHiddenOn(final DeviceSize deviceSize) {
+        StyleHelper.setHiddenOn(this, deviceSize);
+    }
+
+    @Override
+    public void setSize(InputSize size) {
+        StyleHelper.addUniqueEnumStyleName(this, InputSize.class, size);
+    }
+
+    @Override
+    public InputSize getSize() {
+        return InputSize.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public void setPlaceholder(final String placeHolder) {
+        getElement().setAttribute(PLACEHOLDER, placeHolder != null ? placeHolder : "");
+    }
+
+    @Override
+    public String getPlaceholder() {
+        return getElement().getAttribute(PLACEHOLDER);
     }
 
     @Override
@@ -166,13 +213,4 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
         errorHandlerMixin.showErrors(errors);
     }
 
-    @Override
-    public void setId(final String id) {
-        idMixin.setId(id);
-    }
-
-    @Override
-    public String getId() {
-        return idMixin.getId();
-    }
 }
