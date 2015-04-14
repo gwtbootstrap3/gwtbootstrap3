@@ -170,6 +170,12 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     public void addValidator(Validator<T> validator) {
         validatorMixin.addValidator(validator);
     }
+    
+    /** {@inheritDoc} */
+    @Override
+    public boolean removeValidator(Validator<T> validator) {
+        return validatorMixin.removeValidator(validator);
+    }
 
     @Override
     public boolean getValidateOnBlur() {

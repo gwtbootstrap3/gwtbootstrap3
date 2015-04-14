@@ -59,6 +59,8 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
 
     private W inputWidget;
 
+    private Boolean valid = null;
+
     private boolean validateOnBlur;
 
     protected Set<ValidatorWrapper<V>> validators = new TreeSet<ValidatorWrapper<V>>();
@@ -111,6 +113,15 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
 
     /** {@inheritDoc} */
     @Override
+    public boolean removeValidator(Validator<V> validator) {
+        for (ValidatorWrapper<V> wrapper : validators) {
+            if (wrapper.getValidator().equals(validator)) { return validators.remove(wrapper); }
+        }
+        return false;
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public void reset() {
         if (errorHandler != null) {
             errorHandler.clearErrors();
@@ -146,8 +157,6 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     public boolean validate() {
         return validate(true);
     }
-
-    private Boolean valid = null;
 
     /** {@inheritDoc} */
     @Override
