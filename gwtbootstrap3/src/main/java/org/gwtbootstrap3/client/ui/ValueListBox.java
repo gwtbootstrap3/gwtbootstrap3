@@ -79,112 +79,140 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
         super(renderer, keyProvider);
     }
 
+    /** {@inheritDoc} */
     @Override
     protected void initWidget(final Widget widget) {
         super.initWidget(new ListBox());
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setName(String name) {
         ((ListBox) getWidget()).setName(name);
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getName() {
         return ((ListBox) getWidget()).getName();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setId(final String id) {
         idMixin.setId(id);
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getId() {
         return idMixin.getId();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setVisibleOn(final DeviceSize deviceSize) {
         StyleHelper.setVisibleOn(this, deviceSize);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setHiddenOn(final DeviceSize deviceSize) {
         StyleHelper.setHiddenOn(this, deviceSize);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setSize(InputSize size) {
         StyleHelper.addUniqueEnumStyleName(this, InputSize.class, size);
     }
 
+    /** {@inheritDoc} */
     @Override
     public InputSize getSize() {
         return InputSize.fromStyleName(getStyleName());
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setPlaceholder(final String placeHolder) {
         getElement().setAttribute(PLACEHOLDER, placeHolder != null ? placeHolder : "");
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getPlaceholder() {
         return getElement().getAttribute(PLACEHOLDER);
     }
 
+    /** {@inheritDoc} */
     @Override
     public HandlerRegistration addValidationChangedHandler(ValidationChangedHandler handler) {
         return validatorMixin.addValidationChangedHandler(handler);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean getAllowBlank() {
         return validatorMixin.getAllowBlank();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setAllowBlank(boolean allowBlank) {
         validatorMixin.setAllowBlank(allowBlank);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void addValidator(Validator<T> validator) {
         validatorMixin.addValidator(validator);
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public boolean removeValidator(Validator<T> validator) {
+        return validatorMixin.removeValidator(validator);
+    }
+
+    /** {@inheritDoc} */
     @Override
     public boolean getValidateOnBlur() {
         return validatorMixin.getValidateOnBlur();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void reset() {
         setValue(null);
         validatorMixin.reset();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setValidateOnBlur(boolean validateOnBlur) {
         validatorMixin.setValidateOnBlur(validateOnBlur);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setValidators(Validator<T>... validators) {
         validatorMixin.setValidators(validators);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean validate() {
         return validatorMixin.validate();
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean validate(boolean show) {
         return validatorMixin.validate(show);
     }
 
+    /** {@inheritDoc} */
     @Override
     public ErrorHandler getErrorHandler() {
         return errorHandlerMixin.getErrorHandler();
@@ -208,6 +236,7 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
         errorHandlerMixin.setErrorHandlerType(type);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void showErrors(List<EditorError> errors) {
         errorHandlerMixin.showErrors(errors);

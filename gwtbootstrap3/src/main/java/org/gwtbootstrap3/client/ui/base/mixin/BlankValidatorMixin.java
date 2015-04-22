@@ -38,6 +38,8 @@ public class BlankValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> 
 
     private boolean allowBlank = true;
 
+    private BlankValidator<V> blankValidator;
+
     /**
      * Constructor.
      *
@@ -68,9 +70,14 @@ public class BlankValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> 
      * @param allowBlank the new allow blank
      */
     public void setAllowBlank(boolean allowBlank) {
+        if (blankValidator == null) {
+            blankValidator = new BlankValidator<V>();
+        }
         this.allowBlank = allowBlank;
         if (!allowBlank) {
-            addValidator(new BlankValidator<V>());
+            addValidator(blankValidator);
+        } else {
+            removeValidator(blankValidator);
         }
     }
 

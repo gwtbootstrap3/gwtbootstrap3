@@ -192,11 +192,19 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         setStyleName(Styles.FORM_CONTROL);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void addValidator(Validator<String> validator) {
         validatorMixin.addValidator(validator);
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public boolean removeValidator(Validator<String> validator) {
+        return validatorMixin.removeValidator(validator);
+    }
+
+    /** {@inheritDoc} */
     @Override
     public boolean getAllowBlank() {
         return validatorMixin.getAllowBlank();
@@ -331,16 +339,19 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
         errorHandlerMixin.showErrors(errors);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean validate() {
         return validatorMixin.validate();
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean validate(boolean show) {
         return validatorMixin.validate(show);
     }
 
+    /** {@inheritDoc} */
     @Override
     public HandlerRegistration addValidationChangedHandler(ValidationChangedHandler handler) {
         return validatorMixin.addValidationChangedHandler(handler);
