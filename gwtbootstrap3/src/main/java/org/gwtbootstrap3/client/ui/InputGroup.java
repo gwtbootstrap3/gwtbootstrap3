@@ -20,6 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.HasSize;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.InputGroupSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
@@ -28,11 +31,23 @@ import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
  *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @author Tercio Gaudencio Filho (terciofilho [at] gmail.com)
  * @see InputGroupAddon
  */
-public class InputGroup extends FlowPanel {
+public class InputGroup extends FlowPanel implements HasSize<InputGroupSize> {
 
     public InputGroup() {
         setStyleName(Styles.INPUT_GROUP);
     }
+
+    @Override
+    public void setSize(InputGroupSize size) {
+        StyleHelper.addUniqueEnumStyleName(this, InputGroupSize.class, size);
+    }
+
+    @Override
+    public InputGroupSize getSize() {
+        return InputGroupSize.fromStyleName(getStyleName());
+    }
+
 }
