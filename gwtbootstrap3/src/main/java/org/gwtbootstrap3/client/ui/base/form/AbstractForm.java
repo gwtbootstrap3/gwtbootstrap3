@@ -376,7 +376,7 @@ public abstract class AbstractForm extends FormElementContainer implements
      * @return true to continue, false if canceled
      */
     private boolean fireSubmitEvent() {
-        SubmitEvent event = new SubmitEvent();
+        FormPanel.SubmitEvent event = new FormPanel.SubmitEvent();
         fireEvent(event);
         return !event.isCanceled();
     }
