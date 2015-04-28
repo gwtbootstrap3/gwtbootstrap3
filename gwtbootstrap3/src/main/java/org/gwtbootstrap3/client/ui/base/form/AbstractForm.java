@@ -126,90 +126,6 @@ public abstract class AbstractForm extends FormElementContainer implements
         void onSubmitComplete(SubmitCompleteEvent event);
     }
 
-    /**
-     * Fired when the form is submitted.
-     */
-    public static class SubmitEvent extends GwtEvent<SubmitHandler> {
-
-        /**
-         * The event type.
-         */
-        private static Type<SubmitHandler> TYPE;
-
-        /**
-         * Handler hook.
-         *
-         * @return the handler hook
-         */
-        public static Type<SubmitHandler> getType() {
-            if (TYPE == null) {
-                TYPE = new Type<SubmitHandler>();
-            }
-            return TYPE;
-        }
-
-        private boolean canceled = false;
-
-        /**
-         * Cancel the form submit. Firing this will prevent a subsequent
-         * {@link SubmitCompleteEvent} from being fired.
-         */
-        public void cancel() {
-            this.canceled = true;
-        }
-
-        @Override
-        public final Type<SubmitHandler> getAssociatedType() {
-            return getType();
-        }
-
-        /**
-         * Gets whether this form submit will be canceled.
-         *
-         * @return <code>true</code> if the form submit will be canceled
-         */
-        public boolean isCanceled() {
-            return canceled;
-        }
-
-        @Override
-        protected void dispatch(SubmitHandler handler) {
-            handler.onSubmit(this);
-        }
-
-        /**
-         * This method is used for legacy support and should be removed when
-         * {@link FormPanel.SubmitHandler} is removed.
-         *
-         * @deprecated Use {@link FormPanel.SubmitEvent#cancel()} instead
-         */
-        @Deprecated
-        void setCanceled(boolean canceled) {
-            this.canceled = canceled;
-        }
-    }
-
-    /**
-     * Handler for {@link FormPanel.SubmitEvent} events.
-     */
-    public interface SubmitHandler extends EventHandler {
-
-        /**
-         * Fired when the form is submitted.
-         *
-         * <p>
-         * The FormPanel must <em>not</em> be detached (i.e. removed from its
-         * parent or otherwise disconnected from a {@link RootPanel}) until the
-         * submission is complete. Otherwise, notification of submission will
-         * fail.
-         * </p>
-         *
-         * @param event
-         *            the event
-         */
-        void onSubmit(SubmitEvent event);
-    }
-
     interface IFrameTemplate extends SafeHtmlTemplates {
 
         static final IFrameTemplate INSTANCE = GWT.create(IFrameTemplate.class);
@@ -324,14 +240,14 @@ public abstract class AbstractForm extends FormElementContainer implements
     }
 
     /**
-     * Adds a {@link SubmitEvent} handler.
+     * Adds a {@link FormPanel.SubmitEvent} handler.
      *
      * @param handler
      *            the handler
      * @return the handler registration used to remove the handler
      */
-    public HandlerRegistration addSubmitHandler(SubmitHandler handler) {
-        return addHandler(handler, SubmitEvent.getType());
+    public HandlerRegistration addSubmitHandler(FormPanel.SubmitHandler handler) {
+        return addHandler(handler, FormPanel.SubmitEvent.getType());
     }
 
     /**
@@ -348,7 +264,7 @@ public abstract class AbstractForm extends FormElementContainer implements
      * Sets the 'action' associated with this form. This is the URL to which it
      * will be submitted.
      *
-     * @param url
+     * @param action
      *            the form's action
      */
     public void setAction(final String action) {
@@ -455,12 +371,12 @@ public abstract class AbstractForm extends FormElementContainer implements
     }
 
     /**
-     * Fire a {@link AbstractForm.SubmitEvent}.
+     * Fire a {@link FormPanel.SubmitEvent}.
      *
      * @return true to continue, false if canceled
      */
     private boolean fireSubmitEvent() {
-        SubmitEvent event = new SubmitEvent();
+        FormPanel.SubmitEvent event = new FormPanel.SubmitEvent();
         fireEvent(event);
         return !event.isCanceled();
     }
