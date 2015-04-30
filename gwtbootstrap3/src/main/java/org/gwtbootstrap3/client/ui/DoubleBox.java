@@ -26,11 +26,18 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.text.client.DoubleParser;
 import com.google.gwt.text.client.DoubleRenderer;
+import com.google.gwt.text.shared.Parser;
+import com.google.gwt.text.shared.Renderer;
 
 public class DoubleBox extends ValueBoxBase<Double> {
 
     public DoubleBox() {
-        super(Document.get().createTextInputElement(), DoubleRenderer.instance(), DoubleParser.instance());
+        this(DoubleRenderer.instance(), DoubleParser.instance());
+    }
+
+    public DoubleBox(Renderer<Double> renderer, Parser<Double> parser) {
+        super(Document.get().createTextInputElement(), renderer, parser);
         addStyleName(Styles.FORM_CONTROL);
     }
+
 }
