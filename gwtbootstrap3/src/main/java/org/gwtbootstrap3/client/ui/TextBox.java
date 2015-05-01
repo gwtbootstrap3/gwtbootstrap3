@@ -25,11 +25,16 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.text.shared.Parser;
+import com.google.gwt.text.shared.Renderer;
+import com.google.gwt.text.shared.testing.PassthroughParser;
+import com.google.gwt.text.shared.testing.PassthroughRenderer;
 
 /**
  * @author Sven Jacobs
  * @author Joshua Godi
  * @author Pontus Enmark
+ * @author Steven Jardine
  */
 public class TextBox extends TextBoxBase {
 
@@ -38,7 +43,11 @@ public class TextBox extends TextBoxBase {
     }
 
     public TextBox(final Element element) {
-        super(element);
+        this(element, PassthroughRenderer.instance(), PassthroughParser.instance());
+    }
+
+    public TextBox(Element element, Renderer<String> renderer, Parser<String> parser) {
+        super(element, renderer, parser);
         setStyleName(Styles.FORM_CONTROL);
     }
 

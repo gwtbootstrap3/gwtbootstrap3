@@ -21,13 +21,19 @@ package org.gwtbootstrap3.client.ui.base;
  */
 
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.text.shared.Parser;
+import com.google.gwt.text.shared.Renderer;
 import com.google.gwt.text.shared.testing.PassthroughParser;
 import com.google.gwt.text.shared.testing.PassthroughRenderer;
 
 public class TextBoxBase extends ValueBoxBase<String> {
 
     protected TextBoxBase(final Element elem) {
-        super(elem, PassthroughRenderer.instance(), PassthroughParser.instance());
+        this(elem, PassthroughRenderer.instance(), PassthroughParser.instance());
+    }
+
+    protected TextBoxBase(final Element elem, Renderer<String> renderer, Parser<String> parser) {
+        super(elem, renderer, parser);
     }
 
     @Override
@@ -35,4 +41,5 @@ public class TextBoxBase extends ValueBoxBase<String> {
         final String raw = super.getValue();
         return raw == null ? "" : raw;
     }
+    
 }
