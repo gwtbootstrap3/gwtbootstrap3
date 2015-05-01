@@ -158,6 +158,30 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
     public boolean isDismissable() {
         return closeButton.getParent() != null;
     }
+    
+    /**
+     * Sets whether the Alert should fade out before it is removed
+     *
+     * @param fade The alert will fade on close before it is removed when {@code true}
+     */
+    public void setFade(final boolean fade) {
+        if (fade) {
+            addStyleName(Styles.FADE);
+            addStyleName(Styles.IN);
+        } else {
+            removeStyleName(Styles.FADE);
+            removeStyleName(Styles.IN);
+        }
+    }
+
+    /**
+     * Returns if the alert will fade out before it is removed
+     *
+     * @return true = alert will fade out, false = alert won't fade out
+     */
+    public boolean isFade() {
+        return StyleHelper.containsStyle(getStyleName(), Styles.FADE);
+    }
 
     /**
      * Closes alert.

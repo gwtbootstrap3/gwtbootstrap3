@@ -93,6 +93,14 @@ public class Pager extends UnorderedList implements HasResponsiveness {
     public void setPreviousIconSize(final IconSize iconSize) {
         previous.setIconSize(iconSize);
     }
+    
+    public void setPreviousEnabled(final boolean enabled) {
+        previous.setEnabled(enabled);
+    }
+    
+    public void setPreviousVisible(final boolean visible) {
+        previous.setVisible(visible);
+    }
 
     public void setNextText(final String text) {
         next.setText(text);
@@ -105,5 +113,13 @@ public class Pager extends UnorderedList implements HasResponsiveness {
 
     public void setNextIconSize(final IconSize iconSize) {
         next.setIconSize(iconSize);
+    }
+    
+    public void setNextEnabled(final boolean enabled) {
+        next.setEnabled(enabled);
+    }
+    
+    public void setNextVisible(final boolean visible) {
+        next.setVisible(visible);
     }
 }
