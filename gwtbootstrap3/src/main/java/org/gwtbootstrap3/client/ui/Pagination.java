@@ -28,6 +28,7 @@ import org.gwtbootstrap3.client.ui.constants.PaginationSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.UnorderedList;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.cellview.client.SimplePager;
@@ -96,6 +97,7 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
             @Override
             public void onClick(final ClickEvent event) {
                 pager.previousPage();
+                updatePaginationState(pager);
             }
         });
         prev.setEnabled(pager.hasPreviousPage());
@@ -107,6 +109,7 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
                 @Override
                 public void onClick(final ClickEvent event) {
                     pager.setPage(display - 1);
+                    updatePaginationState(pager);
                 }
             });
 
@@ -122,8 +125,36 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
             @Override
             public void onClick(final ClickEvent event) {
                 pager.nextPage();
+                updatePaginationState(pager);
             }
         });
         next.setEnabled(pager.hasNextPage());
     }
+
+    /**
+     * This updates the current active page, and the enabled state
+     * of the previous and next buttons in the Pagination based
+     * on the state of the given SimplePager.
+     * @param pager the SimplePager of the CellTable/DataGrid
+     */
+    private void updatePaginationState(final SimplePager pager) {
+
+        for (int i = 0; i < getWidgetCount(); i++) {
+            if (i == 0) { //previous button
+                ((AnchorListItem)getWidget(i)).setEnabled(pager.hasPreviousPage());
+            }
+            else if (i == getWidgetCount() - 1) { //next button
+                ((AnchorListItem)getWidget(i)).setEnabled(pager.hasNextPage());
+            }
+            else {
+                int index = i - 1;
+                if (index == pager.getPage()) {
+                    ((AnchorListItem)getWidget(i)).setActive(true);
+                }
+                else {
+                    ((AnchorListItem)getWidget(i)).setActive(false);
+                }
+            }
+        }
+   }
 }
