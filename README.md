@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3.svg?branch=master)](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3)
 
+[![Join the chat at https://gitter.im/gwtbootstrap3/gwtbootstrap3](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gwtbootstrap3/gwtbootstrap3?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 GwtBootstrap3 is a GWT wrapper for the [Bootstrap](http://getbootstrap.com/) front-end framework version 3
 containing design templates, styles and beautiful widgets.
 
@@ -16,6 +18,3 @@ MASTER is currently reflecting v1.0 and produces the v1.0-SNAPSHOT jar.
 * The API docs for the v1.0-SNAPSHOT can be found [here](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/snapshot/apidocs) as well.
 
 **Note:** This library is feature complete and has support for every Bootstrap element as of v3.3.2. See [supported features](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Supported-Features) on the project wiki.
-
-
-[![Join the chat at https://gitter.im/gwtbootstrap3/gwtbootstrap3](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gwtbootstrap3/gwtbootstrap3?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
