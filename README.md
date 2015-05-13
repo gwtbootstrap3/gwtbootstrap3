@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3.svg?branch=master)](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3)
 
+[![Join the chat at https://gitter.im/gwtbootstrap3/gwtbootstrap3](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gwtbootstrap3/gwtbootstrap3?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 GwtBootstrap3 is a GWT wrapper for the [Bootstrap](http://getbootstrap.com/) front-end framework version 3
 containing design templates, styles and beautiful widgets.
 
