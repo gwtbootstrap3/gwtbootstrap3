@@ -20,6 +20,7 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.NamedFrame;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -525,6 +526,9 @@ public abstract class AbstractForm extends FormElementContainer implements
             if (widget instanceof HasValidators<?>) {
                 result.add((HasValidators<?>) widget);
             }
+            if (widget instanceof HasOneWidget) {
+                result.addAll(getChildrenWithValidators(((HasOneWidget) widget).getWidget()));
+            }
             if (widget instanceof HasWidgets) {
                 for (Widget child : (HasWidgets) widget) {
                     result.addAll(getChildrenWithValidators(child));
@@ -533,5 +537,5 @@ public abstract class AbstractForm extends FormElementContainer implements
         }
         return result;
     }
-    
+
 }
