@@ -51,7 +51,7 @@ public class BlankValidator<T> extends AbstractValidator<T> {
     /** {@inheritDoc} */
     @Override
     public int getPriority() {
-        return Priority.HIGHEST;
+        return Priority.LOWEST;
     }
 
     /** {@inheritDoc} */
