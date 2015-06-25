@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 - 2014 GwtBootstrap3
+ * Copyright (C) 2013 - 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,9 +32,9 @@ public interface GwtBootstrap3ClientBundle extends ClientBundle {
 
     static final GwtBootstrap3ClientBundle INSTANCE = GWT.create(GwtBootstrap3ClientBundle.class);
 
-    @Source("resource/js/jquery-1.11.2.min.cache.js")
+    @Source("resource/js/jquery-1.11.3.min.cache.js")
     TextResource jQuery();
 
-    @Source("resource/js/bootstrap-3.3.4.min.cache.js")
+    @Source("resource/js/bootstrap-3.3.5.min.cache.js")
     TextResource bootstrap();
 }
