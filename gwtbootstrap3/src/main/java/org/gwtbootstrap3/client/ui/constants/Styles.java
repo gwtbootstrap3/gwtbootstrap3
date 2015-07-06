@@ -150,6 +150,7 @@ public final class Styles {
 
     public static final String NAVBAR = "navbar";
     public static final String NAVBAR_BRAND = "navbar-brand";
+    public static final String NAVBAR_BUTTON = "navbar-btn";
     public static final String NAVBAR_COLLAPSE = "navbar-collapse";
     public static final String NAVBAR_FORM = "navbar-form";
     public static final String NAVBAR_HEADER = "navbar-header";
