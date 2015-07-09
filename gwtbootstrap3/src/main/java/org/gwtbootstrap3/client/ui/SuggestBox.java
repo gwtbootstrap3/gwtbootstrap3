@@ -285,6 +285,7 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
     @Override
     public void setErrorHandler(ErrorHandler handler) {
         errorHandlerMixin.setErrorHandler(handler);
+        validatorMixin.setErrorHandler(handler);
     }
 
     /** {@inheritDoc} */
