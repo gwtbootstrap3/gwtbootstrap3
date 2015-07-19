@@ -222,6 +222,7 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
     @Override
     public void setErrorHandler(ErrorHandler handler) {
         errorHandlerMixin.setErrorHandler(handler);
+        validatorMixin.setErrorHandler(handler);
     }
 
     /** {@inheritDoc} */

@@ -142,6 +142,7 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     @Override
     public void setErrorHandler(ErrorHandler handler) {
         errorHandlerMixin.setErrorHandler(handler);
+        validatorMixin.setErrorHandler(handler);
     }
 
     /** {@inheritDoc} */
