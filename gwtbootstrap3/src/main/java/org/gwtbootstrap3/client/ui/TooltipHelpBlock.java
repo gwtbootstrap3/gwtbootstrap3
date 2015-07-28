@@ -39,8 +39,6 @@ import com.google.gwt.event.dom.client.DomEvent;
  */
 public class TooltipHelpBlock extends Tooltip {
 
-    private static final int DEFAULT_HIDE_DELAY = 10000;
-
     private static final String TOOLTIP_DANGER_CLASS = "tooltip-danger";
 
     /**
@@ -49,7 +47,6 @@ public class TooltipHelpBlock extends Tooltip {
     public TooltipHelpBlock() {
         super();
         setPlacement(Placement.RIGHT);
-        setHideDelayMs(DEFAULT_HIDE_DELAY);
         addTooltipClassName(TOOLTIP_DANGER_CLASS);
         // Create the help block.
         InlineHelpBlock helpBlock = new InlineHelpBlock() {
