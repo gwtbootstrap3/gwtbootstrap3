@@ -7,4 +7,5 @@ target/
 .project
 .settings/
 out/
-*.versionsBackup
+*.versionsBackupgwtbootstrap3/.checkstyle
+gwtbootstrap3/.checkstyle
