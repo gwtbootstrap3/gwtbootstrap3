@@ -123,7 +123,7 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasClickHa
     }
 
     public void setPulse(final boolean pulse) {
-    	StyleHelper.toggleStyleName(this, pulse, Styles.ICON_PULSE);
+        StyleHelper.toggleStyleName(this, pulse, Styles.ICON_PULSE);
     }
 
     public boolean isPulse() {
