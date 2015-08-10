@@ -122,6 +122,14 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasClickHa
         return StyleHelper.containsStyle(Styles.ICON_SPIN, getStyleName());
     }
 
+    public void setPulse(final boolean pulse) {
+    	StyleHelper.toggleStyleName(this, pulse, Styles.ICON_PULSE);
+    }
+
+    public boolean isPulse() {
+        return StyleHelper.containsStyle(Styles.ICON_PULSE, getStyleName());
+    }
+
     public void setRotate(final IconRotate iconRotate) {
         if (iconRotate == null) {
             return;
