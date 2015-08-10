@@ -21,10 +21,12 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasEmphasis;
 import org.gwtbootstrap3.client.ui.base.HasSize;
 import org.gwtbootstrap3.client.ui.base.HasType;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
+import org.gwtbootstrap3.client.ui.constants.Emphasis;
 import org.gwtbootstrap3.client.ui.constants.IconFlip;
 import org.gwtbootstrap3.client.ui.constants.IconRotate;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
@@ -45,7 +47,7 @@ import com.google.gwt.uibinder.client.UiConstructor;
  * @see org.gwtbootstrap3.client.ui.constants.IconType
  * @see org.gwtbootstrap3.client.ui.constants.IconSize
  */
-public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<IconSize>, HasClickHandlers {
+public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<IconSize>, HasEmphasis, HasClickHandlers {
 
     public Icon() {
         setElement(Document.get().createElement(ElementTags.I));
@@ -172,6 +174,16 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
     @Override
     public IconSize getSize() {
         return IconSize.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public void setEmphasis(final Emphasis emphasis) {
+        StyleHelper.addUniqueEnumStyleName(this, Emphasis.class, emphasis);
+    }
+
+    @Override
+    public Emphasis getEmphasis() {
+        return Emphasis.fromStyleName(getStyleName());
     }
 
     @Override
