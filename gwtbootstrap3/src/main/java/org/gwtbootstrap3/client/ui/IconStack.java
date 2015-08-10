@@ -21,8 +21,10 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.base.HasResponsiveness;
+import org.gwtbootstrap3.client.ui.base.HasSize;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Document;
@@ -33,7 +35,7 @@ import com.google.gwt.user.client.ui.Widget;
 /**
  * @author Joshua Godi
  */
-public class IconStack extends ComplexPanel implements HasResponsiveness {
+public class IconStack extends ComplexPanel implements HasSize<IconSize>, HasResponsiveness {
 
     public IconStack() {
         setElement(Document.get().createSpanElement());
@@ -69,4 +71,14 @@ public class IconStack extends ComplexPanel implements HasResponsiveness {
     public void setHiddenOn(final DeviceSize deviceSize) {
         StyleHelper.setHiddenOn(this, deviceSize);
     }
+
+	@Override
+	public void setSize(IconSize size) {
+		StyleHelper.addUniqueEnumStyleName(this, IconSize.class, size);
+	}
+
+	@Override
+	public IconSize getSize() {
+		return IconSize.fromStyleName(getStyleName());
+	}
 }
