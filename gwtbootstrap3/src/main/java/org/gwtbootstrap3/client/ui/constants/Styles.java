@@ -97,9 +97,11 @@ public final class Styles {
     public static final String ICON_BORDER = "fa-border";
     public static final String ICON_STACK = "fa-stack";
     public static final String ICON_SPIN = "fa-spin";
+    public static final String ICON_PULSE = "fa-pulse";
     public static final String ICON_FIXED_WIDTH = "fa-fw";
     public static final String ICON_STACK_BASE = "fa-stack-2x";
     public static final String ICON_STACK_TOP = "fa-stack-1x";
+    public static final String ICON_INVERSE = "fa-inverse";
 
     public static final String ICON_BAR = "icon-bar";
 
