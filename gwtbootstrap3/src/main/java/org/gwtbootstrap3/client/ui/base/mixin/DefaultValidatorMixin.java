@@ -50,6 +50,8 @@ import com.google.web.bindery.event.shared.SimpleEventBus;
  *
  * @param <W> the generic type
  * @param <V> the value type
+ * 
+ * @author Steven Jardine
  */
 public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> implements HasValidators<V> {
 
@@ -103,6 +105,13 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     @Override
     public void fireEvent(GwtEvent<?> event) {
         eventBus.fireEvent(event);
+    }
+
+    /**
+     * @return the inputWidget
+     */
+    public W getInputWidget() {
+        return inputWidget;
     }
 
     /** {@inheritDoc} */
