@@ -177,7 +177,7 @@ public abstract class AbstractForm extends FormElementContainer implements
             // We use the module name as part of the unique ID to ensure that
             // ids are
             // unique across modules.
-            frameName = "FormPanel_" + GWT.getModuleName() + "_" + (++formId);
+            frameName = "GWTBootstrap3_FormPanel_" + GWT.getModuleName() + "_" + (++formId);
             setTarget(frameName);
 
             sinkEvents(Event.ONLOAD);
