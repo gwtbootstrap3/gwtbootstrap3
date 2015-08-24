@@ -28,11 +28,12 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Span;
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.user.client.ui.HasHTML;
 
 /**
  * @author Joshua Godi
  */
-public class ListGroupItem extends ComplexWidget implements HasType<ListGroupItemType> {
+public class ListGroupItem extends ComplexWidget implements HasType<ListGroupItemType>, HasHTML {
     private final Span span = new Span();
 
     public ListGroupItem() {
@@ -42,12 +43,24 @@ public class ListGroupItem extends ComplexWidget implements HasType<ListGroupIte
         add(span);
     }
 
+    @Override
     public String getText() {
         return span.getText();
     }
 
+    @Override
     public void setText(final String text) {
         span.setText(text);
+    }
+
+    @Override
+    public String getHTML() {
+        return span.getHTML();
+    }
+
+    @Override
+    public void setHTML(String html) {
+        span.setHTML(html);
     }
 
     @Override
