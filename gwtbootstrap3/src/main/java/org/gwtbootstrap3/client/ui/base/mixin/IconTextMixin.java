@@ -220,6 +220,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                 icon.setRotate(iconRotate);
                 icon.setMuted(iconMuted);
                 icon.setSpin(iconSpin);
+                icon.setPulse(iconPulse);
                 icon.setBorder(iconBordered);
                 icon.setLight(iconLight);
                 icon.setFixedWidth(iconFixedWidth);
