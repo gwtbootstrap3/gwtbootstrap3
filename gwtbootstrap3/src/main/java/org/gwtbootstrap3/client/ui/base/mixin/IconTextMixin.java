@@ -53,6 +53,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private IconRotate iconRotate = IconRotate.NONE;
     private boolean iconMuted = false;
     private boolean iconSpin = false;
+    private boolean iconPulse = false;
     private boolean iconBordered = false;
     private boolean iconLight = false;
     private boolean iconFixedWidth = false;
@@ -172,6 +173,17 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public boolean isIconSpin() {
         return iconSpin;
+    }
+
+    @Override
+    public void setIconPulse(boolean iconPulse) {
+        this.iconPulse = iconPulse;
+        render();
+    }
+
+    @Override
+    public boolean isIconPulse() {
+        return iconPulse;
     }
 
     @Override

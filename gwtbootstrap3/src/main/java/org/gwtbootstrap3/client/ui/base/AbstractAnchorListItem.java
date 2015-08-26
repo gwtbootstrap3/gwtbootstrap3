@@ -196,6 +196,16 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     }
 
     @Override
+    public void setIconPulse(boolean iconPulse) {
+        anchor.setIconPulse(iconPulse);
+    }
+
+    @Override
+    public boolean isIconPulse() {
+        return anchor.isIconPulse();
+    }
+
+    @Override
     public void setIconFixedWidth(final boolean iconFixedWidth) {
         anchor.setIconFixedWidth(iconFixedWidth);
     }

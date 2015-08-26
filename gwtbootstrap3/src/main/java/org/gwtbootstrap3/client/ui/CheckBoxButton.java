@@ -329,6 +329,16 @@ public class CheckBoxButton extends CheckBox implements HasActive,
     }
 
     @Override
+    public void setIconPulse(boolean iconPulse) {
+        getActualIcon().setPulse(iconPulse);
+    }
+
+    @Override
+    public boolean isIconPulse() {
+        return getActualIcon().isPulse();
+    }
+
+    @Override
     public void setIconFixedWidth(boolean iconFixedWidth) {
         getActualIcon().setFixedWidth(iconFixedWidth);
     }
