@@ -163,6 +163,16 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText,
     }
 
     @Override
+    public void setIconPulse(boolean iconPulse) {
+        iconTextMixin.setIconPulse(iconPulse);
+    }
+
+    @Override
+    public boolean isIconPulse() {
+        return iconTextMixin.isIconPulse();
+    }
+
+    @Override
     public void setIconFixedWidth(final boolean iconFixedWidth) {
         iconTextMixin.setIconFixedWidth(iconFixedWidth);
     }

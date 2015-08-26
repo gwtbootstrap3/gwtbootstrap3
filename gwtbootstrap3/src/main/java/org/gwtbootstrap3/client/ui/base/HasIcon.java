@@ -64,6 +64,10 @@ public interface HasIcon {
 
     boolean isIconSpin();
 
+    void setIconPulse(boolean iconPulse);
+
+    boolean isIconPulse();
+
     void setIconFixedWidth(boolean iconFixedWidth);
 
     boolean isIconFixedWidth();
