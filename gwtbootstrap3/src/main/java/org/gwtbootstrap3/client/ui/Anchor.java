@@ -296,6 +296,22 @@ public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandler
      * {@inheritDoc}
      */
     @Override
+    public void setIconPulse(boolean iconPulse) {
+        iconTextMixin.setIconPulse(iconPulse);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean isIconPulse() {
+        return iconTextMixin.isIconPulse();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void setIconFixedWidth(final boolean iconFixedWidth) {
         iconTextMixin.setIconFixedWidth(iconFixedWidth);
     }

@@ -150,6 +150,16 @@ public abstract class AbstractIconButton extends AbstractButton implements HasTe
     }
 
     @Override
+    public void setIconPulse(boolean iconPulse) {
+        iconTextMixin.setIconPulse(iconPulse);
+    }
+
+    @Override
+    public boolean isIconPulse() {
+        return iconTextMixin.isIconPulse();
+    }
+
+    @Override
     public void setIconFixedWidth(final boolean iconFixedWidth) {
         iconTextMixin.setIconFixedWidth(iconFixedWidth);
     }
