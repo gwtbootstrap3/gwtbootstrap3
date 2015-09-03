@@ -122,6 +122,7 @@ public class DefaultErrorHandler implements ErrorHandler {
             if (parent instanceof HasValidationState) {
                 validationStateParent = (HasValidationState) parent;
                 validationStateHelpBlock = findHelpBlock(inputWidget);
+                break;
             }
             parent = parent.getParent();
         }
