@@ -41,7 +41,7 @@ public class DataTargetMixin<T extends UIObject & HasDataTarget> extends Abstrac
      * @param element The element being examined.
      * @see Document#createUniqueId()
      */
-    public static void ensureId(final Element element) {
+    private void ensureId(final Element element) {
         final String id = element.getId();
         if (id == null || id.isEmpty()) {
             element.setId(Document.get().createUniqueId());
