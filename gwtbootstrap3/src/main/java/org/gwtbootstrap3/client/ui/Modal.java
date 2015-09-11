@@ -174,12 +174,12 @@ public class Modal extends Div implements IsClosable {
      * @param removeOnHide - true to remove modal and unbind events on hide, false to keep it in the DOM
      */
     public void setRemoveOnHide(final boolean removeOnHide) {
-    	if (removeOnHideHandlerReg != null) {
-    		removeOnHideHandlerReg.removeHandler();
-    		removeOnHideHandlerReg = null;
-    	}
+        if (removeOnHideHandlerReg != null) {
+            removeOnHideHandlerReg.removeHandler();
+            removeOnHideHandlerReg = null;
+        }
         if (removeOnHide) {
-        	removeOnHideHandlerReg = addHiddenHandler(new ModalHiddenHandler() {
+            removeOnHideHandlerReg = addHiddenHandler(new ModalHiddenHandler() {
                 @Override
                 public void onHidden(final ModalHiddenEvent evt) {
                     unbindAllHandlers(getElement());
