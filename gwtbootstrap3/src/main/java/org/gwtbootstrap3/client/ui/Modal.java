@@ -188,7 +188,7 @@ public class Modal extends Div implements IsClosable {
             removeOnHideHandlerReg = addHiddenHandler(new ModalHiddenHandler() {
                 @Override
                 public void onHidden(final ModalHiddenEvent evt) {
-                	// Do logical detach
+                    // Do logical detach
                     removeFromParent();
                 }
             });
