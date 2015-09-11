@@ -103,7 +103,7 @@ public class Modal extends Div implements IsClosable {
 
     public Modal() {
         setStyleName(Styles.MODAL);
-        
+
         // We make this the default behavior in order to avoid issues like
         // https://github.com/gwtbootstrap3/gwtbootstrap3/issues/394
         setRemoveOnHide(true);
@@ -127,6 +127,12 @@ public class Modal extends Div implements IsClosable {
     protected void onLoad() {
         super.onLoad();
         bindJavaScriptEvents(getElement());
+    }
+
+    @Override
+    protected void onUnload() {
+        super.onUnload();
+        unbindAllHandlers(getElement());
     }
 
     @Override
@@ -182,7 +188,7 @@ public class Modal extends Div implements IsClosable {
             removeOnHideHandlerReg = addHiddenHandler(new ModalHiddenHandler() {
                 @Override
                 public void onHidden(final ModalHiddenEvent evt) {
-                    unbindAllHandlers(getElement());
+                    // Do logical detach
                     removeFromParent();
                 }
             });
