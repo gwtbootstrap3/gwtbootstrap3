@@ -70,22 +70,6 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
         return IconType.fromStyleName(getStyleName());
     }
 
-    public void setLight(final boolean light) {
-        StyleHelper.toggleStyleName(this, light, Styles.ICON_LIGHT);
-    }
-
-    public boolean isLight() {
-        return StyleHelper.containsStyle(Styles.ICON_LIGHT, getStyleName());
-    }
-
-    public void setMuted(final boolean muted) {
-        StyleHelper.toggleStyleName(this, muted, Styles.ICON_MUTED);
-    }
-
-    public boolean isMuted() {
-        return StyleHelper.containsStyle(Styles.ICON_MUTED, getStyleName());
-    }
-
     public void setBorder(final boolean border) {
         StyleHelper.toggleStyleName(this, border, Styles.ICON_BORDER);
     }
@@ -146,7 +130,6 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
         if (iconRotate == null) {
             return;
         }
-
         StyleHelper.addUniqueEnumStyleName(this, IconRotate.class, iconRotate);
     }
 

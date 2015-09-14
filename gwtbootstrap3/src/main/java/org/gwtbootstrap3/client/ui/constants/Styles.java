@@ -92,8 +92,6 @@ public final class Styles {
 
     public static final String ITEM = "item";
 
-    public static final String ICON_LIGHT = "fa-light";
-    public static final String ICON_MUTED = "fa-muted";
     public static final String ICON_BORDER = "fa-border";
     public static final String ICON_STACK = "fa-stack";
     public static final String ICON_SPIN = "fa-spin";

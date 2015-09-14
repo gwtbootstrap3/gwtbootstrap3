@@ -132,24 +132,16 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText,
         return iconTextMixin.isIconBordered();
     }
 
+    /** {@inheritDoc} */
     @Override
-    public void setIconMuted(final boolean iconMuted) {
-        iconTextMixin.setIconMuted(iconMuted);
+    public void setIconInverse(final boolean iconInverse) {
+        iconTextMixin.setIconInverse(iconInverse);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public boolean isIconMuted() {
-        return iconTextMixin.isIconMuted();
-    }
-
-    @Override
-    public void setIconLight(final boolean iconLight) {
-        iconTextMixin.setIconLight(iconLight);
-    }
-
-    @Override
-    public boolean isIconLight() {
-        return iconTextMixin.isIconLight();
+    public boolean isIconInverse() {
+        return iconTextMixin.isIconInverse();
     }
 
     @Override

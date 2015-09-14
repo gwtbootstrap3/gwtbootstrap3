@@ -52,13 +52,9 @@ public interface HasIcon {
 
     boolean isIconBordered();
 
-    void setIconMuted(boolean iconMuted);
+    void setIconInverse(boolean iconInverse);
 
-    boolean isIconMuted();
-
-    void setIconLight(boolean iconLight);
-
-    boolean isIconLight();
+    boolean isIconInverse();
 
     void setIconSpin(boolean iconSpin);
 
