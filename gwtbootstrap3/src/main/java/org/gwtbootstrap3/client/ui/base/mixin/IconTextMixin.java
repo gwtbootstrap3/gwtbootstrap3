@@ -51,11 +51,10 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private IconSize iconSize = IconSize.NONE;
     private IconFlip iconFlip = IconFlip.NONE;
     private IconRotate iconRotate = IconRotate.NONE;
-    private boolean iconMuted = false;
+    private boolean iconInverse = false;
     private boolean iconSpin = false;
     private boolean iconPulse = false;
     private boolean iconBordered = false;
-    private boolean iconLight = false;
     private boolean iconFixedWidth = false;
 
     public IconTextMixin(final T widget) {
@@ -141,27 +140,16 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     public boolean isIconBordered() {
         return iconBordered;
     }
-
+    
     @Override
-    public void setIconMuted(final boolean iconMuted) {
-        this.iconMuted = iconMuted;
+    public void setIconInverse(final boolean iconInverse) {
+        this.iconInverse = iconInverse;
         render();
     }
 
     @Override
-    public boolean isIconMuted() {
-        return iconMuted;
-    }
-
-    @Override
-    public void setIconLight(final boolean iconLight) {
-        this.iconLight = iconLight;
-        render();
-    }
-
-    @Override
-    public boolean isIconLight() {
-        return iconLight;
+    public boolean isIconInverse() {
+        return iconInverse;
     }
 
     @Override
@@ -218,12 +206,11 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                 icon.setSize(iconSize);
                 icon.setFlip(iconFlip);
                 icon.setRotate(iconRotate);
-                icon.setMuted(iconMuted);
                 icon.setSpin(iconSpin);
                 icon.setPulse(iconPulse);
                 icon.setBorder(iconBordered);
-                icon.setLight(iconLight);
                 icon.setFixedWidth(iconFixedWidth);
+                icon.setInverse(iconInverse);
 
                 // Since we are dealing with Icon/Text, we can insert them at the right position
                 // Helps on widgets like ButtonDropDown, where it has a caret added

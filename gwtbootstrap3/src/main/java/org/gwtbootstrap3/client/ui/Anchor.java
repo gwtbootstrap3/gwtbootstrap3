@@ -244,36 +244,16 @@ public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandler
         return iconTextMixin.isIconBordered();
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void setIconMuted(final boolean iconMuted) {
-        iconTextMixin.setIconMuted(iconMuted);
+    public void setIconInverse(final boolean iconInverse) {
+        iconTextMixin.setIconInverse(iconInverse);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public boolean isIconMuted() {
-        return iconTextMixin.isIconMuted();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setIconLight(final boolean iconLight) {
-        iconTextMixin.setIconLight(iconLight);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isIconLight() {
-        return iconTextMixin.isIconLight();
+    public boolean isIconInverse() {
+        return iconTextMixin.isIconInverse();
     }
 
     /**
