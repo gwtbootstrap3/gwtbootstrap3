@@ -104,10 +104,6 @@ public class Modal extends Div implements IsClosable {
     public Modal() {
         setStyleName(Styles.MODAL);
 
-        // We make this the default behavior in order to avoid issues like
-        // https://github.com/gwtbootstrap3/gwtbootstrap3/issues/394
-        setRemoveOnHide(true);
-
         content.add(header);
         dialog.add(content);
 
