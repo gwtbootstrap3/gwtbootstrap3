@@ -64,7 +64,6 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     private Boolean valid = null;
 
     private boolean validateOnBlur;
-    private boolean validationEnabled = true;
 
     protected Set<ValidatorWrapper<V>> validators = new TreeSet<ValidatorWrapper<V>>();
 
@@ -155,18 +154,6 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
 
     /** {@inheritDoc} */
     @Override
-    public boolean isValidationEnabled() {
-        return validationEnabled;
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void setValidationEnabled(boolean enabled) {
-        validationEnabled = enabled;
-    }
-
-    /** {@inheritDoc} */
-    @Override
     public void setValidators(Validator<V>... newValidators) {
         validators.clear();
         for (Validator<V> validator : newValidators) {
@@ -183,13 +170,9 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     /** {@inheritDoc} */
     @Override
     public boolean validate(boolean show) {
-        if(!isValidationEnabled()) {
-            return true;
-        }
-
         Boolean oldValid = valid;
         valid = true;
-        if (errorHandler != null) {
+        if (errorHandler != null && !validators.isEmpty()) {
             List<EditorError> errors = new ArrayList<EditorError>();
             for (ValidatorWrapper<V> wrapper : validators) {
                 Validator<V> validator = wrapper.getValidator();

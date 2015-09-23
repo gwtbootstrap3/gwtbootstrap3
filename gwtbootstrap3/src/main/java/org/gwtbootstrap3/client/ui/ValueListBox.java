@@ -183,18 +183,6 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
 
     /** {@inheritDoc} */
     @Override
-    public boolean isValidationEnabled() {
-        return validatorMixin.isValidationEnabled();
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void setValidationEnabled(boolean enabled) {
-        validatorMixin.setValidationEnabled(enabled);
-    }
-
-    /** {@inheritDoc} */
-    @Override
     public void reset() {
         setValue(null);
         validatorMixin.reset();

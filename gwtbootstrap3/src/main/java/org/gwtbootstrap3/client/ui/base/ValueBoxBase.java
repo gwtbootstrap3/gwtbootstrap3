@@ -188,18 +188,6 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
         validatorMixin.setValidateOnBlur(validateOnBlur);
     }
 
-    /** {@inheritDoc} */
-    @Override
-    public boolean isValidationEnabled() {
-        return validatorMixin.isValidationEnabled();
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void setValidationEnabled(boolean enabled) {
-        validatorMixin.setValidationEnabled(enabled);
-    }
-
     @Override
     public void setValidators(Validator<T>... validators) {
         validatorMixin.setValidators(validators);

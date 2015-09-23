@@ -43,6 +43,7 @@ public interface HasValidators<T> extends HasValidationChangedHandlers {
      * @return the validate on blur
      */
     boolean getValidateOnBlur();
+    
 
     /**
      * Removes the validator.
@@ -56,16 +57,6 @@ public interface HasValidators<T> extends HasValidationChangedHandlers {
      * Reset the form element to blank and clear error messages.
      */
     void reset();
-
-    /**
-     * Sets the validation as enabled or disabled.
-     */
-    void setValidationEnabled(boolean enabled);
-
-    /**
-     * Is validation enabled for this component.
-     */
-    boolean isValidationEnabled();
 
     /**
      * Sets the validate on blur.
