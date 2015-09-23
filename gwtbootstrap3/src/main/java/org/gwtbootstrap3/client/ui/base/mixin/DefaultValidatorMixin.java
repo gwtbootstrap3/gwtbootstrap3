@@ -172,7 +172,7 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     public boolean validate(boolean show) {
         Boolean oldValid = valid;
         valid = true;
-        if (errorHandler != null) {
+        if (errorHandler != null && !validators.isEmpty()) {
             List<EditorError> errors = new ArrayList<EditorError>();
             for (ValidatorWrapper<V> wrapper : validators) {
                 Validator<V> validator = wrapper.getValidator();
