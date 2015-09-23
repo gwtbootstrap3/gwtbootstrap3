@@ -251,6 +251,18 @@ public class RadioGroupBase<T> extends FlowPanel implements HasName, HasValue<T>
         validatorMixin.setValidateOnBlur(validateOnBlur);
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public boolean isValidationEnabled() {
+        return validatorMixin.isValidationEnabled();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setValidationEnabled(boolean enabled) {
+        validatorMixin.setValidationEnabled(enabled);
+    }
+
     @Override
     public void setValidators(final Validator<T>... validators) {
         validatorMixin.setValidators(validators);

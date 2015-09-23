@@ -255,6 +255,18 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
 
     /** {@inheritDoc} */
     @Override
+    public boolean isValidationEnabled() {
+        return validatorMixin.isValidationEnabled();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setValidationEnabled(boolean enabled) {
+        validatorMixin.setValidationEnabled(enabled);
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public boolean isEnabled() {
         return enabledMixin.isEnabled();
     }
