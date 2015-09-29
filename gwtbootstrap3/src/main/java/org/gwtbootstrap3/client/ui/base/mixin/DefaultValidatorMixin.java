@@ -77,13 +77,22 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
         this.inputWidget = inputWidget;
         this.errorHandler = errorHandler;
         eventBus = new SimpleEventBus();
-        inputWidget.addDomHandler(new BlurHandler() {
+
+        setupBlurValidation();
+        setupValueChangeValidation();
+    }
+
+    protected HandlerRegistration setupBlurValidation() {
+        return inputWidget.addDomHandler(new BlurHandler() {
             @Override
             public void onBlur(BlurEvent event) {
                 validate(validateOnBlur);
             }
         }, BlurEvent.getType());
-        inputWidget.addHandler(new ValueChangeHandler<V>() {
+    }
+
+    protected HandlerRegistration setupValueChangeValidation() {
+        return inputWidget.addHandler(new ValueChangeHandler<V>() {
             @Override
             public void onValueChange(ValueChangeEvent<V> event) {
                 validate(false);
@@ -172,7 +181,7 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     public boolean validate(boolean show) {
         Boolean oldValid = valid;
         valid = true;
-        if (errorHandler != null) {
+        if (errorHandler != null && !validators.isEmpty()) {
             List<EditorError> errors = new ArrayList<EditorError>();
             for (ValidatorWrapper<V> wrapper : validators) {
                 Validator<V> validator = wrapper.getValidator();
