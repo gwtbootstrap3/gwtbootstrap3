@@ -252,7 +252,7 @@ public class RadioGroupBase<T> extends FlowPanel implements HasName, HasValue<T>
     }
 
     @Override
-    public void setValidators(final Validator<T>... validators) {
+    public void setValidators(@SuppressWarnings("unchecked") final Validator<T>... validators) {
         validatorMixin.setValidators(validators);
     }
 

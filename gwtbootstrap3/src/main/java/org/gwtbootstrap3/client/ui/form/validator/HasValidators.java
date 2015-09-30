@@ -70,7 +70,7 @@ public interface HasValidators<T> extends HasValidationChangedHandlers {
      *
      * @param validators the new validators
      */
-    void setValidators(Validator<T>... validators);
+    void setValidators(@SuppressWarnings("unchecked") Validator<T>... validators);
 
     /**
      * Validate the field's value using the supplied validators.
