@@ -324,7 +324,7 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
     }
 
     @Override
-    public void setValidators(Validator<String>... validators) {
+    public void setValidators(@SuppressWarnings("unchecked") Validator<String>... validators) {
         validatorMixin.setValidators(validators);
     }
 

@@ -189,7 +189,7 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
     }
 
     @Override
-    public void setValidators(Validator<T>... validators) {
+    public void setValidators(@SuppressWarnings("unchecked") Validator<T>... validators) {
         validatorMixin.setValidators(validators);
     }
 

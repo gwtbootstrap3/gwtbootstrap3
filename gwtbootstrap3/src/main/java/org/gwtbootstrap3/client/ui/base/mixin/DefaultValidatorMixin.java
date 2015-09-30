@@ -163,7 +163,7 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
 
     /** {@inheritDoc} */
     @Override
-    public void setValidators(Validator<V>... newValidators) {
+    public void setValidators(@SuppressWarnings("unchecked") Validator<V>... newValidators) {
         validators.clear();
         for (Validator<V> validator : newValidators) {
             addValidator(validator);
