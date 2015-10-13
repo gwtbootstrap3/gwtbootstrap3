@@ -20,6 +20,8 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.Icon;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasIcon;
@@ -30,9 +32,6 @@ import org.gwtbootstrap3.client.ui.constants.IconRotate;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.html.Text;
-
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.user.client.ui.HasText;
 
 /**
  * Mixin for Widgets that have text and an optional icon.
@@ -68,6 +67,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setText(final String text) {
         this.text.setText(text);
+        render();
     }
 
     @Override
