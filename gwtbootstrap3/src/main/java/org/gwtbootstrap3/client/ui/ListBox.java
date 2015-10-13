@@ -38,6 +38,7 @@ public class ListBox extends com.google.gwt.user.client.ui.ListBox implements Ha
      * Creates an empty list box in single selection mode.
      */
     public ListBox() {
+        super();
         setStyleName(Styles.FORM_CONTROL);
     }
 
