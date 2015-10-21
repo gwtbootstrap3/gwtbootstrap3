@@ -337,6 +337,16 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     public void setTitle(final String title) {
         this.title = title;
     }
+    
+    /**
+     * Convenience method. Sets the tooltop's display string.
+     * 
+     * @param text String display string.
+     * @deprecated use {@link #setTitle(String)}.
+     */
+    public void setText(String text){
+        setTitle(text);
+    }
 
     /**
      * Sets the tooltip's display string in HTML format
