@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- See description of deployment process at
-         http://central.sonatype.org/pages/ossrh-guide.html -->
+    <!-- See description of deployment process at http://central.sonatype.org/pages/ossrh-guide.html -->
 
     <groupId>org.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3-parent</artifactId>
@@ -61,7 +60,7 @@
             <roles>
                 <role>developer</role>
             </roles>
-            <timezone>UTC-6</timezone>
+            <timezone>UTC-7</timezone>
         </developer>
     </developers>
 
@@ -70,8 +69,21 @@
     </modules>
 
     <properties>
+        <java.version>1.7</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <source.version>1.7</source.version>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <license-maven-plugin.version>1.8</license-maven-plugin.version>
+        <gwt-maven-plugin.version>${gwt.version}</gwt-maven-plugin.version>
+        <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
+        <maven-source-plugin.version>2.4</maven-source-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.6</nexus-staging-maven-plugin.version>
+
         <gwt.version>2.7.0</gwt.version>
         <junit.version>4.12</junit.version>
     </properties>
@@ -81,7 +93,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>
-                <version>1.8</version>
+                <version>${license-maven-plugin.version}</version>
                 <configuration>
                     <licenseName>apache_v2</licenseName>
                     <inceptionYear>2013</inceptionYear>
@@ -105,7 +117,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.6</version>
+                <version>${nexus-staging-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
@@ -116,7 +128,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.16</version>
+                <version>${maven-checkstyle-plugin.version}</version>
                 <executions>
                     <execution>
                         <configuration>
@@ -156,10 +168,10 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.3</version>
+                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
-                        <source>${source.version}</source>
-                        <target>${source.version}</target>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
                         <compilerArgument>-Xlint:all</compilerArgument>
                         <showWarnings>true</showWarnings>
                         <showDeprecation>true</showDeprecation>
@@ -185,7 +197,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <execute/>
+                                        <execute />
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -198,7 +210,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <execute/>
+                                        <execute />
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
@@ -217,7 +229,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>2.4</version>
+                        <version>${maven-source-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -230,7 +242,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.3</version>
+                        <version>${maven-javadoc-plugin.version}</version>
                         <configuration>
                             <locale>en</locale>
                             <linksource>true</linksource>
@@ -251,7 +263,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>${maven-gpg-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
