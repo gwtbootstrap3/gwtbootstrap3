@@ -12,6 +12,9 @@ import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.FormElement;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyPressEvent;
+import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -51,14 +54,12 @@ import com.google.gwt.user.client.ui.impl.FormPanelImplHost;
  * @author Sven Jacobs
  * @author Steven Jardine
  */
-public abstract class AbstractForm extends FormElementContainer implements
-        FormPanelImplHost {
+public abstract class AbstractForm extends FormElementContainer implements FormPanelImplHost {
 
     /**
      * Fired when a form has been submitted successfully.
      */
-    public static class SubmitCompleteEvent extends
-            GwtEvent<SubmitCompleteHandler> {
+    public static class SubmitCompleteEvent extends GwtEvent<SubmitCompleteHandler> {
 
         /**
          * The event type.
@@ -115,6 +116,7 @@ public abstract class AbstractForm extends FormElementContainer implements
      * Handler for {@link AbstractForm.SubmitCompleteEvent} events.
      */
     public interface SubmitCompleteHandler extends EventHandler {
+
         /**
          * Fired when a form has been submitted successfully.
          *
@@ -127,6 +129,7 @@ public abstract class AbstractForm extends FormElementContainer implements
      * Fired when the form is submitted.
      */
     public static class SubmitEvent extends GwtEvent<SubmitHandler> {
+
         /**
          * The event type.
          */
@@ -189,6 +192,7 @@ public abstract class AbstractForm extends FormElementContainer implements
      * Handler for {@link AbstractForm.SubmitEvent} events.
      */
     public interface SubmitHandler extends EventHandler {
+
         /**
          * Fired when the form is submitted.
          *
@@ -213,10 +217,13 @@ public abstract class AbstractForm extends FormElementContainer implements
     }
 
     private static final String FORM = "form";
+
     private static int formId = 0;
+
     private static final FormPanelImpl impl = GWT.create(FormPanelImpl.class);
 
     private String frameName;
+
     private Element synthesizedFrame;
 
     public AbstractForm() {
@@ -418,7 +425,9 @@ public abstract class AbstractForm extends FormElementContainer implements
     public void submit() {
         // Fire the onSubmit event, because javascript's form.submit() does not
         // fire the built-in onsubmit event.
-        if (!fireSubmitEvent()) { return; }
+        if (!fireSubmitEvent()) {
+            return;
+        }
         impl.submit(getElement(), synthesizedFrame);
     }
 
@@ -471,10 +480,10 @@ public abstract class AbstractForm extends FormElementContainer implements
         // complete can cause some browsers (i.e. Mozilla) to go into an
         // 'infinite loading' state. See issue 916.
         Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+
             @Override
             public void execute() {
-                fireEvent(new SubmitCompleteEvent(impl
-                        .getContents(synthesizedFrame)));
+                fireEvent(new SubmitCompleteEvent(impl.getContents(synthesizedFrame)));
             }
         });
     }
@@ -523,6 +532,31 @@ public abstract class AbstractForm extends FormElementContainer implements
             }
         }
         return result;
+    }
+
+    private HandlerRegistration submitOnEnterRegistration = null;
+
+    public void setSubmitOnEnter(boolean submitOnEnter) {
+        if (submitOnEnter) {
+            if (submitOnEnterRegistration == null)
+                submitOnEnterRegistration = addDomHandler(new KeyPressHandler() {
+                    @Override
+                    public void onKeyPress(KeyPressEvent event) {
+                        if (event.getNativeEvent().getKeyCode() == KeyCodes.KEY_ENTER) {
+                            if (validate()) {
+                                fireSubmitEvent();
+                            }
+                        }
+                    }
+                }, KeyPressEvent.getType());
+        } else if (submitOnEnterRegistration != null) {
+            submitOnEnterRegistration.removeHandler();
+            submitOnEnterRegistration = null;
+        }
+    }
+
+    public boolean isSubmitOnEnter() {
+        return submitOnEnterRegistration != null;
     }
 
 }
