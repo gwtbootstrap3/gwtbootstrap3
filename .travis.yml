@@ -1,7 +1,3 @@
-env:
-  global:
-    - secure: "WK1EyUiO76VPcWanCxtBhL7IWTUaCZbzG/x9Xs/TnsL6PaZVdIgxBbEOuUbgwPwFAeKvgah3a2+OFHF7vvFkxZypHSuZqi1yrlZ/l52p07jG4PqzwMiaGwJpqitnfOALucrXOuQnFQ5My5o8ApkXLEgRMG6MSb8LXotSliUVWmQ="
-
 sudo: false
 language: java
 
@@ -20,4 +16,8 @@ script:
 
 after_success:
   - ./.utility/deploy.sh && ./.utility/gh_pages.sh
+
+env:
+  global:
+    secure: MhWVOEl+wKoOgioatm4myYfL7MM6acWZBIeVzzJBrIL7vg9uSOrOXOjxGcjNfYGS3lM33gh60OC9bC6gNObjeJUmfPRUBuCumnI62JH3Hl/Eghu0y+Si/7GCLpqGbMlZXNFd1kvdsMM3FYwLnHluLMKoMNCqFYmRyPcA927KsRFHbpv06+S3jw44+xqHv9dwE0qP53zDwBloJd8rQnGsFEtUiavCoElmwV+nKXnn0CLJwr0gltyrK2NuyXycp/bcdkHNTdV1hh+jXt5qwyCGf6o5S5Iq7RevsTvjTuYG1/caW15LYfepFW14+E1yqN4ucmO1/Bb/hp0pPTwtAJpnc/gGMcS6aO+rHgCh4n0kcMAGg7j/HZMYE8n7BXr0VymkgKGmwfAMV2awyQRbnvfw3QLPTe0zbQAOrXe8Px8gU326rUu8rAfuO2+r/UxqFiziuU4QpU+BKLfd/KR4btUYooRPhHdsWuiEPU4lWCDAzqs/u9P2Gr2g0SZPLw4bcuwkW82H7GB5ZPHJYiwVatq5P/K529wXUV3sJJW9GzY2bi8SwwEDynuV7MJjx9qFfucv7z0b9ywtSnWTbTzmuuCSMoUu4fJvpaM/cQ31kevQdRQINeJhjrT87Fnek9FO3py4a4DtOc+V94wMnMSTsFEqj9QuEk8w9sswjOVpJ/x50jE=
   
