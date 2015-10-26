@@ -17,5 +17,5 @@ script:
   - mvn clean install -DdryRun=true -Dlicense.failOnMissingHeader=true -Dlicense.failOnNotUptodateHeader=true
 
 after_success:
-  - ./.utility/deploy.sh && ./utility/gh_pages.sh
+  - ./.utility/deploy.sh && ./.utility/gh_pages.sh
   
