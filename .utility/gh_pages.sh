@@ -22,11 +22,12 @@ cd gh-pages
 
 # remove the GwtBootstrap3Demo and apidocs directories from git.
 git rm -rf ./snapshot/GwtBootstrap3Demo
+git rm -rf ./snapshot/images
 git rm -rf ./snapshot/apidocs
 
-# copy the new GwtBootstrap3Demo and apidocsto the snapshot dir.
+# copy the new GwtBootstrap3Demo and apidocsto the snapshot dir.q
 cp -Rf $HOME/javadoc-latest ./snapshot/apidocs
-unzip $HOME/demo/target/gwtbootstrap3-demo-*.war -d ./snapshot/
+unzip -u $HOME/demo/target/gwtbootstrap3-demo-*.war -d ./snapshot/
 
 git add -f .
 git commit -m "Lastest javadoc and demo app on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
