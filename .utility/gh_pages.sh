@@ -4,7 +4,7 @@ if [ "$TRAVIS_JDK_VERSION" == "oraclejdk7" ] && [ "$TRAVIS_PULL_REQUEST" == "fal
 	
 echo -e "Publishing snapshot demo app and javadoc . . .\n"
 
-cp -R target/javadoc $HOME/javadoc-latest
+cp -R ./build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/javadoc $HOME/javadoc-latest
 
 git config --global user.email "travis@travis-ci.org"
 git config --global user.name "travis-ci"
