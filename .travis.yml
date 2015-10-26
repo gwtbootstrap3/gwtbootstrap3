@@ -1,4 +1,6 @@
-secure: "WK1EyUiO76VPcWanCxtBhL7IWTUaCZbzG/x9Xs/TnsL6PaZVdIgxBbEOuUbgwPwFAeKvgah3a2+OFHF7vvFkxZypHSuZqi1yrlZ/l52p07jG4PqzwMiaGwJpqitnfOALucrXOuQnFQ5My5o8ApkXLEgRMG6MSb8LXotSliUVWmQ="
+env:
+  global:
+    - secure: "WK1EyUiO76VPcWanCxtBhL7IWTUaCZbzG/x9Xs/TnsL6PaZVdIgxBbEOuUbgwPwFAeKvgah3a2+OFHF7vvFkxZypHSuZqi1yrlZ/l52p07jG4PqzwMiaGwJpqitnfOALucrXOuQnFQ5My5o8ApkXLEgRMG6MSb8LXotSliUVWmQ="
 
 sudo: false
 language: java
