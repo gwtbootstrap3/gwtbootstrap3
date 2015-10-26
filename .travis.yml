@@ -1,4 +1,3 @@
-# token will allow updating the gh-pages branch of the repository.
 secure: "WK1EyUiO76VPcWanCxtBhL7IWTUaCZbzG/x9Xs/TnsL6PaZVdIgxBbEOuUbgwPwFAeKvgah3a2+OFHF7vvFkxZypHSuZqi1yrlZ/l52p07jG4PqzwMiaGwJpqitnfOALucrXOuQnFQ5My5o8ApkXLEgRMG6MSb8LXotSliUVWmQ="
 
 sudo: false
@@ -18,6 +17,5 @@ script:
   - mvn clean install -DdryRun=true -Dlicense.failOnMissingHeader=true -Dlicense.failOnNotUptodateHeader=true
 
 after_success:
-  - ./.utility/deploy.sh
-  - ./.utility/gh_pages.sh
+  - ./.utility/deploy.sh && ./utility/gh_pages.sh
   
