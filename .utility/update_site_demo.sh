@@ -32,11 +32,21 @@ git clone --quiet --branch=gh-pages https://$GH_TOKEN@github.com/gwtbootstrap3/g
 cd gh-pages
 
 # remove the GwtBootstrap3Demo directories from git.
+if [[ -d ./snapshot/GwtBootstrap3Demo ]]; then
 git rm -rf ./snapshot/GwtBootstrap3Demo
+fi
+if [[ -f ./snapshot/GwtBootstrap3Demo.html ]]; then
 git rm -rf ./snapshot/GwtBootstrap3Demo.html
+fi
+if [[ -d ./snapshot/images ]]; then
 git rm -rf ./snapshot/images
+fi
+if [[ -d ./snapshot/META-INF ]]; then
 git rm -rf ./snapshot/META-INF
+fi
+if [[ -d ./snapshot/WEB-INF ]]; then
 git rm -rf ./snapshot/WEB-INF
+fi
 
 # copy the new GwtBootstrap3Demo the snapshot dir.
 unzip -u $HOME/demo/target/gwtbootstrap3-demo-*.war -d ./snapshot/
