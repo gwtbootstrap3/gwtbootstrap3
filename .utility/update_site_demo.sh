@@ -14,6 +14,7 @@ git config --global user.name "travis-ci"
 
 # clone and build the demo application.
 cd $HOME
+rm -rf demo
 git clone --quiet --branch=master https://$GH_TOKEN@github.com/gwtbootstrap3/gwtbootstrap3-demo demo > /dev/null
 cd demo
 mvn clean package || { echo -e "gwtbootstrap3-demo build failed" ; exit 1; }
@@ -26,6 +27,7 @@ fi
 
 # clone the gh-pages branch.
 cd $HOME
+rm -rf gh-pages
 git clone --quiet --branch=gh-pages https://$GH_TOKEN@github.com/gwtbootstrap3/gwtbootstrap3-demo gh-pages > /dev/null
 cd gh-pages
 
