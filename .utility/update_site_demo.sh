@@ -26,6 +26,7 @@ fi
 
 # clone the gh-pages branch.
 cd $HOME
+rm -rf gh-pages
 git clone --quiet --branch=gh-pages https://$GH_TOKEN@github.com/gwtbootstrap3/gwtbootstrap3-demo gh-pages > /dev/null
 cd gh-pages
 
