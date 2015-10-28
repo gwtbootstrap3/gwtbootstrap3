@@ -201,22 +201,24 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                     icon.removeFromParent();
                 }
 
-                icon = new Icon();
-                icon.setType(iconType);
-                icon.setSize(iconSize);
-                icon.setFlip(iconFlip);
-                icon.setRotate(iconRotate);
-                icon.setSpin(iconSpin);
-                icon.setPulse(iconPulse);
-                icon.setBorder(iconBordered);
-                icon.setFixedWidth(iconFixedWidth);
-                icon.setInverse(iconInverse);
+                if (iconType != null) {
+                    icon = new Icon();
+                    icon.setType(iconType);
+                    icon.setSize(iconSize);
+                    icon.setFlip(iconFlip);
+                    icon.setRotate(iconRotate);
+                    icon.setSpin(iconSpin);
+                    icon.setPulse(iconPulse);
+                    icon.setBorder(iconBordered);
+                    icon.setFixedWidth(iconFixedWidth);
+                    icon.setInverse(iconInverse);
+                }
 
                 // Since we are dealing with Icon/Text, we can insert them at the right position
                 // Helps on widgets like ButtonDropDown, where it has a caret added
                 int position = 0;
 
-                if (iconPosition == IconPosition.LEFT) {
+                if (icon != null && iconPosition == IconPosition.LEFT) {
                     widget.insert(icon, position++);
                     widget.insert(separator, position++);
                 }
@@ -225,7 +227,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                     widget.insert(text, position);
                 }
 
-                if (iconPosition == IconPosition.RIGHT) {
+                if (icon != null && iconPosition == IconPosition.RIGHT) {
                     widget.insert(separator, position++);
                     widget.insert(icon, position);
                 }
