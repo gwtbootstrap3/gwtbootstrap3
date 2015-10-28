@@ -199,6 +199,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
                 if (icon != null) {
                     icon.removeFromParent();
+                    icon = null;
                 }
 
                 if (iconType != null) {
