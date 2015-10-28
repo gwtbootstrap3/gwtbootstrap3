@@ -2,7 +2,7 @@
 set -ev
 if [ "$TRAVIS_JDK_VERSION" == "oraclejdk7" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
-if [[ -z "$GH_TOKEN" ]]; then
+if [ -z "$GH_TOKEN" ]; then
 echo -e "GH_TOKEN is not set"
 exit 1
 fi	
@@ -20,7 +20,7 @@ cd demo
 mvn clean package || { echo -e "gwtbootstrap3-demo build failed" ; exit 1; }
 
 # check to make sure the demo war file is present.
-if ![[ -f $HOME/demo/target/gwtbootstrap3-demo-*.war ]]; then
+if [ ! -f $HOME/demo/target/gwtbootstrap3-demo-*.war ]; then
 echo -e "gwtbootstrap3-demo war file not found."
 exit 1
 fi	
