@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- See description of deployment process at http://central.sonatype.org/pages/ossrh-guide.html -->
@@ -13,7 +14,7 @@
     <url>http://gwtbootstrap3.org</url>
 
     <prerequisites>
-        <maven>3.0.5</maven>
+        <maven>3.2.1</maven>
     </prerequisites>
 
     <scm>
@@ -93,31 +94,12 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>${maven-release-plugin.version}</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <arguments>-Prelease</arguments>
-                    <preparationGoals>package</preparationGoals>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven-javadoc-plugin.version}</version>
-                <configuration>
-                    <noqualifier>all</noqualifier>
-                    <reportOutputDirectory>${project.build.directory}/javadoc</reportOutputDirectory>
-                    <destDir>javadoc</destDir>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>javadoc</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -144,17 +126,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>${nexus-staging-maven-plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${maven-checkstyle-plugin.version}</version>
@@ -169,6 +140,26 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
+                <configuration>
+                    <arguments>-Prelease</arguments>
+                    <preparationGoals>package</preparationGoals>
+                </configuration>
             </plugin>
         </plugins>
 
@@ -193,18 +184,6 @@
                         </execution>
                     </executions>
                     <inherited>true</inherited>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler-plugin.version}</version>
-                    <configuration>
-                        <source>${maven.compiler.source}</source>
-                        <target>${maven.compiler.target}</target>
-                        <compilerArgument>-Xlint:all</compilerArgument>
-                        <showWarnings>true</showWarnings>
-                        <showDeprecation>true</showDeprecation>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
@@ -276,10 +255,10 @@
                             <locale>en</locale>
                             <linksource>true</linksource>
                             <validateLinks>true</validateLinks>
+                            <noqualifier>all</noqualifier>
                             <links>
                                 <link>http://www.gwtproject.org/javadoc/latest</link>
                             </links>
-                                <additionalparam>-Xdoclint:none</additionalparam>
                         </configuration>
                         <executions>
                             <execution>
@@ -309,7 +288,6 @@
         </profile>
 
         <!-- Disable doclint on JDK 8 -->
-        <!-- 
         <profile>
             <id>nodoclint</id>
             <activation>
@@ -329,7 +307,6 @@
                 </pluginManagement>
             </build>
         </profile>
-        -->
     </profiles>
 
     <repositories>
