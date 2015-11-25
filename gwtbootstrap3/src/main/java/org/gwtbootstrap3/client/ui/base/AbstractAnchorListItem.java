@@ -165,24 +165,16 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
         return anchor.isIconBordered();
     }
 
+    /** {@inheritDoc} */
     @Override
-    public void setIconMuted(final boolean iconMuted) {
-        anchor.setIconMuted(iconMuted);
+    public void setIconInverse(final boolean iconInverse) {
+        anchor.setIconInverse(iconInverse);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public boolean isIconMuted() {
-        return anchor.isIconMuted();
-    }
-
-    @Override
-    public void setIconLight(final boolean iconLight) {
-        anchor.setIconLight(iconLight);
-    }
-
-    @Override
-    public boolean isIconLight() {
-        return anchor.isIconLight();
+    public boolean isIconInverse() {
+        return anchor.isIconInverse();
     }
 
     @Override
@@ -193,6 +185,16 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     @Override
     public boolean isIconSpin() {
         return anchor.isIconSpin();
+    }
+
+    @Override
+    public void setIconPulse(boolean iconPulse) {
+        anchor.setIconPulse(iconPulse);
+    }
+
+    @Override
+    public boolean isIconPulse() {
+        return anchor.isIconPulse();
     }
 
     @Override

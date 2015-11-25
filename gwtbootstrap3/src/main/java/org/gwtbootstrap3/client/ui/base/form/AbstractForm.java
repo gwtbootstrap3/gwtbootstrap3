@@ -12,6 +12,9 @@ import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.FormElement;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyPressEvent;
+import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -19,7 +22,7 @@ import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.NamedFrame;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -37,7 +40,7 @@ import com.google.gwt.user.client.ui.impl.FormPanelImplHost;
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -51,14 +54,12 @@ import com.google.gwt.user.client.ui.impl.FormPanelImplHost;
  * @author Sven Jacobs
  * @author Steven Jardine
  */
-public abstract class AbstractForm extends FormElementContainer implements
-        FormPanelImplHost {
+public abstract class AbstractForm extends FormElementContainer implements FormPanelImplHost {
 
     /**
      * Fired when a form has been submitted successfully.
      */
-    public static class SubmitCompleteEvent extends
-            GwtEvent<SubmitCompleteHandler> {
+    public static class SubmitCompleteEvent extends GwtEvent<SubmitCompleteHandler> {
 
         /**
          * The event type.
@@ -77,13 +78,12 @@ public abstract class AbstractForm extends FormElementContainer implements
             return TYPE;
         }
 
-        private final String resultHtml;
+        private String resultHtml;
 
         /**
          * Create a submit complete event.
          *
-         * @param resultsHtml
-         *            the results from submitting the form
+         * @param resultsHtml the results from submitting the form
          */
         protected SubmitCompleteEvent(String resultsHtml) {
             this.resultHtml = resultsHtml;
@@ -99,8 +99,8 @@ public abstract class AbstractForm extends FormElementContainer implements
          *
          * @return the result html, or <code>null</code> if there was an error
          *         reading it
-         * @tip The result html can be <code>null</code> as a result of
-         *      submitting a form to a different domain.
+         * @tip The result html can be <code>null</code> as a result of submitting a
+         *      form to a different domain.
          */
         public String getResults() {
             return resultHtml;
@@ -113,17 +113,16 @@ public abstract class AbstractForm extends FormElementContainer implements
     }
 
     /**
-     * Handler for {@link SubmitCompleteEvent} events.
+     * Handler for {@link AbstractForm.SubmitCompleteEvent} events.
      */
     public interface SubmitCompleteHandler extends EventHandler {
 
         /**
          * Fired when a form has been submitted successfully.
          *
-         * @param event
-         *            the event
+         * @param event the event
          */
-        void onSubmitComplete(SubmitCompleteEvent event);
+        void onSubmitComplete(AbstractForm.SubmitCompleteEvent event);
     }
 
     /**
@@ -152,14 +151,14 @@ public abstract class AbstractForm extends FormElementContainer implements
 
         /**
          * Cancel the form submit. Firing this will prevent a subsequent
-         * {@link SubmitCompleteEvent} from being fired.
+         * {@link AbstractForm.SubmitCompleteEvent} from being fired.
          */
         public void cancel() {
             this.canceled = true;
         }
 
         @Override
-        public final Type<SubmitHandler> getAssociatedType() {
+        public final Type<AbstractForm.SubmitHandler> getAssociatedType() {
             return getType();
         }
 
@@ -173,15 +172,15 @@ public abstract class AbstractForm extends FormElementContainer implements
         }
 
         @Override
-        protected void dispatch(SubmitHandler handler) {
+        protected void dispatch(AbstractForm.SubmitHandler handler) {
             handler.onSubmit(this);
         }
 
         /**
          * This method is used for legacy support and should be removed when
-         * {@link FormPanel.SubmitHandler} is removed.
+         * {@link SubmitCompleteHandler} is removed.
          *
-         * @deprecated Use {@link FormPanel.SubmitEvent#cancel()} instead
+         * @deprecated Use {@link AbstractForm.SubmitEvent#cancel()} instead
          */
         @Deprecated
         void setCanceled(boolean canceled) {
@@ -190,7 +189,7 @@ public abstract class AbstractForm extends FormElementContainer implements
     }
 
     /**
-     * Handler for {@link FormPanel.SubmitEvent} events.
+     * Handler for {@link AbstractForm.SubmitEvent} events.
      */
     public interface SubmitHandler extends EventHandler {
 
@@ -198,16 +197,14 @@ public abstract class AbstractForm extends FormElementContainer implements
          * Fired when the form is submitted.
          *
          * <p>
-         * The FormPanel must <em>not</em> be detached (i.e. removed from its
-         * parent or otherwise disconnected from a {@link RootPanel}) until the
-         * submission is complete. Otherwise, notification of submission will
-         * fail.
+         * The AbstractForm must <em>not</em> be detached (i.e. removed from its parent
+         * or otherwise disconnected from a {@link RootPanel}) until the submission
+         * is complete. Otherwise, notification of submission will fail.
          * </p>
          *
-         * @param event
-         *            the event
+         * @param event the event
          */
-        void onSubmit(SubmitEvent event);
+        void onSubmit(AbstractForm.SubmitEvent event);
     }
 
     interface IFrameTemplate extends SafeHtmlTemplates {
@@ -220,10 +217,13 @@ public abstract class AbstractForm extends FormElementContainer implements
     }
 
     private static final String FORM = "form";
+
     private static int formId = 0;
+
     private static final FormPanelImpl impl = GWT.create(FormPanelImpl.class);
 
     private String frameName;
+
     private Element synthesizedFrame;
 
     public AbstractForm() {
@@ -256,12 +256,13 @@ public abstract class AbstractForm extends FormElementContainer implements
         FormElement.as(element);
 
         if (createIFrame) {
-            assert getTarget() == null || getTarget().trim().length() == 0 : "Cannot create target iframe if the form's target is already set.";
+            assert getTarget() == null || getTarget().trim()
+                    .length() == 0 : "Cannot create target iframe if the form's target is already set.";
 
             // We use the module name as part of the unique ID to ensure that
             // ids are
             // unique across modules.
-            frameName = "FormPanel_" + GWT.getModuleName() + "_" + (++formId);
+            frameName = "GWTBootstrap3_AbstractForm_" + GWT.getModuleName() + "_" + (++formId);
             setTarget(frameName);
 
             sinkEvents(Event.ONLOAD);
@@ -280,7 +281,7 @@ public abstract class AbstractForm extends FormElementContainer implements
         // Hook up the underlying iframe's onLoad event when attached to the
         // DOM.
         // Making this connection only when attached avoids memory-leak issues.
-        // The FormPanel cannot use the built-in GWT event-handling mechanism
+        // The AbstractForm cannot use the built-in GWT event-handling mechanism
         // because there is no standard onLoad event on iframes that works
         // across
         // browsers.
@@ -318,20 +319,19 @@ public abstract class AbstractForm extends FormElementContainer implements
      *            the handler
      * @return the handler registration used to remove the handler
      */
-    public HandlerRegistration addSubmitCompleteHandler(
-            SubmitCompleteHandler handler) {
+    public HandlerRegistration addSubmitCompleteHandler(SubmitCompleteHandler handler) {
         return addHandler(handler, SubmitCompleteEvent.getType());
     }
 
     /**
-     * Adds a {@link SubmitEvent} handler.
+     * Adds a {@link AbstractForm.SubmitEvent} handler.
      *
      * @param handler
      *            the handler
      * @return the handler registration used to remove the handler
      */
-    public HandlerRegistration addSubmitHandler(SubmitHandler handler) {
-        return addHandler(handler, SubmitEvent.getType());
+    public HandlerRegistration addSubmitHandler(AbstractForm.SubmitHandler handler) {
+        return addHandler(handler, AbstractForm.SubmitEvent.getType());
     }
 
     /**
@@ -348,7 +348,7 @@ public abstract class AbstractForm extends FormElementContainer implements
      * Sets the 'action' associated with this form. This is the URL to which it
      * will be submitted.
      *
-     * @param url
+     * @param action
      *            the form's action
      */
     public void setAction(final String action) {
@@ -428,7 +428,6 @@ public abstract class AbstractForm extends FormElementContainer implements
         if (!fireSubmitEvent()) {
             return;
         }
-
         impl.submit(getElement(), synthesizedFrame);
     }
 
@@ -442,7 +441,6 @@ public abstract class AbstractForm extends FormElementContainer implements
         }
     }
 
-
     private void createFrame() {
         // Attach a hidden IFrame to the form. This is the target iframe to
         // which the form will be submitted. We have to create the iframe using
@@ -455,12 +453,12 @@ public abstract class AbstractForm extends FormElementContainer implements
     }
 
     /**
-     * Fire a {@link FormPanel.SubmitEvent}.
+     * Fire a {@link AbstractForm.SubmitEvent}.
      *
      * @return true to continue, false if canceled
      */
     private boolean fireSubmitEvent() {
-        FormPanel.SubmitEvent event = new FormPanel.SubmitEvent();
+        AbstractForm.SubmitEvent event = new AbstractForm.SubmitEvent();
         fireEvent(event);
         return !event.isCanceled();
     }
@@ -485,8 +483,7 @@ public abstract class AbstractForm extends FormElementContainer implements
 
             @Override
             public void execute() {
-                fireEvent(new SubmitCompleteEvent(impl
-                        .getContents(synthesizedFrame)));
+                fireEvent(new SubmitCompleteEvent(impl.getContents(synthesizedFrame)));
             }
         });
     }
@@ -511,7 +508,7 @@ public abstract class AbstractForm extends FormElementContainer implements
             result &= child.validate(show);
         }
         return result;
-    }    
+    }
 
     /**
      * Get this forms child input elements with validators.
@@ -525,6 +522,9 @@ public abstract class AbstractForm extends FormElementContainer implements
             if (widget instanceof HasValidators<?>) {
                 result.add((HasValidators<?>) widget);
             }
+            if (widget instanceof HasOneWidget) {
+                result.addAll(getChildrenWithValidators(((HasOneWidget) widget).getWidget()));
+            }
             if (widget instanceof HasWidgets) {
                 for (Widget child : (HasWidgets) widget) {
                     result.addAll(getChildrenWithValidators(child));
@@ -533,5 +533,30 @@ public abstract class AbstractForm extends FormElementContainer implements
         }
         return result;
     }
-    
+
+    private HandlerRegistration submitOnEnterRegistration = null;
+
+    public void setSubmitOnEnter(boolean submitOnEnter) {
+        if (submitOnEnter) {
+            if (submitOnEnterRegistration == null)
+                submitOnEnterRegistration = addDomHandler(new KeyPressHandler() {
+                    @Override
+                    public void onKeyPress(KeyPressEvent event) {
+                        if (event.getNativeEvent().getKeyCode() == KeyCodes.KEY_ENTER) {
+                            if (validate()) {
+                                fireSubmitEvent();
+                            }
+                        }
+                    }
+                }, KeyPressEvent.getType());
+        } else if (submitOnEnterRegistration != null) {
+            submitOnEnterRegistration.removeHandler();
+            submitOnEnterRegistration = null;
+        }
+    }
+
+    public boolean isSubmitOnEnter() {
+        return submitOnEnterRegistration != null;
+    }
+
 }

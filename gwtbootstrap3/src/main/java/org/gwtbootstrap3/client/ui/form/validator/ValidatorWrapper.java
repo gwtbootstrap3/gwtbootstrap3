@@ -54,7 +54,7 @@ public class ValidatorWrapper<T> implements Comparable<ValidatorWrapper<T>> {
     /** {@inheritDoc} */
     @Override
     public int compareTo(ValidatorWrapper<T> other) {
-        if (getName().equals(other.getName())) { return 0; }
+        if (this == other || getName().equals(other.getName())) { return 0; }
         int result = getPriority().compareTo(other.getPriority());
         if (result == 0) {
             result = getInsertionOrder().compareTo(other.getInsertionOrder());

@@ -26,6 +26,7 @@ import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -34,15 +35,28 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class DataTargetMixin<T extends UIObject & HasDataTarget> extends AbstractMixin implements HasDataTarget {
 
+    /**
+     * Ensures the given element has a non-empty id.
+     *
+     * @param element The element being examined.
+     * @see Document#createUniqueId()
+     */
+    private void ensureId(final Element element) {
+        final String id = element.getId();
+        if (id == null || id.isEmpty()) {
+            element.setId(Document.get().createUniqueId());
+        }
+    }
+
     public DataTargetMixin(final T uiObject) {
         super(uiObject);
     }
 
     @Override
     public void setDataTargetWidget(final Widget widget) {
-        final String id = Document.get().createUniqueId();
-        widget.getElement().setId(id);
-        this.setDataTarget("#" + id);
+        final Element element = widget.getElement();
+        ensureId(element);
+        this.setDataTarget("#" + element.getId());
     }
 
     @Override

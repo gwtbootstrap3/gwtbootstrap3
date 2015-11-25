@@ -1,10 +1,10 @@
-package org.gwtbootstrap3.client;
+package org.gwtbootstrap3.client.ui;
 
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 - 2015 GwtBootstrap3
+ * Copyright (C) 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,21 +20,26 @@ package org.gwtbootstrap3.client;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.RadioGroupBase;
+import org.gwtbootstrap3.client.ui.form.validator.BooleanParser;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.TextResource;
+import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
- * @author Sven Jacobs
+ * A radio group that returns a boolean value.
+ * 
+ * @author Steven Jardine
  */
-public interface GwtBootstrap3ClientBundle extends ClientBundle {
+public class BooleanRadioGroup extends RadioGroupBase<Boolean> {
 
-    static final GwtBootstrap3ClientBundle INSTANCE = GWT.create(GwtBootstrap3ClientBundle.class);
+    /**
+     * Constructor.
+     * 
+     * @param name the name.
+     */
+    @UiConstructor
+    public BooleanRadioGroup(final String name) {
+        super(name, BooleanParser.instance());
+    }
 
-    @Source("resource/js/jquery-1.11.3.min.cache.js")
-    TextResource jQuery();
-
-    @Source("resource/js/bootstrap-3.3.5.min.cache.js")
-    TextResource bootstrap();
 }

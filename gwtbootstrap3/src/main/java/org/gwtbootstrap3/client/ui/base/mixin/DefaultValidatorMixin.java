@@ -50,6 +50,8 @@ import com.google.web.bindery.event.shared.SimpleEventBus;
  *
  * @param <W> the generic type
  * @param <V> the value type
+ * 
+ * @author Steven Jardine
  */
 public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> implements HasValidators<V> {
 
@@ -75,13 +77,22 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
         this.inputWidget = inputWidget;
         this.errorHandler = errorHandler;
         eventBus = new SimpleEventBus();
-        inputWidget.addDomHandler(new BlurHandler() {
+
+        setupBlurValidation();
+        setupValueChangeValidation();
+    }
+
+    protected HandlerRegistration setupBlurValidation() {
+        return inputWidget.addDomHandler(new BlurHandler() {
             @Override
             public void onBlur(BlurEvent event) {
                 validate(validateOnBlur);
             }
         }, BlurEvent.getType());
-        inputWidget.addHandler(new ValueChangeHandler<V>() {
+    }
+
+    protected HandlerRegistration setupValueChangeValidation() {
+        return inputWidget.addHandler(new ValueChangeHandler<V>() {
             @Override
             public void onValueChange(ValueChangeEvent<V> event) {
                 validate(false);
@@ -103,6 +114,13 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     @Override
     public void fireEvent(GwtEvent<?> event) {
         eventBus.fireEvent(event);
+    }
+
+    /**
+     * @return the inputWidget
+     */
+    public W getInputWidget() {
+        return inputWidget;
     }
 
     /** {@inheritDoc} */
@@ -145,7 +163,7 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
 
     /** {@inheritDoc} */
     @Override
-    public void setValidators(Validator<V>... newValidators) {
+    public void setValidators(@SuppressWarnings("unchecked") Validator<V>... newValidators) {
         validators.clear();
         for (Validator<V> validator : newValidators) {
             addValidator(validator);
@@ -163,7 +181,7 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     public boolean validate(boolean show) {
         Boolean oldValid = valid;
         valid = true;
-        if (errorHandler != null) {
+        if (errorHandler != null && !validators.isEmpty()) {
             List<EditorError> errors = new ArrayList<EditorError>();
             for (ValidatorWrapper<V> wrapper : validators) {
                 Validator<V> validator = wrapper.getValidator();

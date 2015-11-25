@@ -1,10 +1,10 @@
-package org.gwtbootstrap3.client;
+package org.gwtbootstrap3.client.ui;
 
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 - 2015 GwtBootstrap3
+ * Copyright (C) 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,21 +20,14 @@ package org.gwtbootstrap3.client;
  * #L%
  */
 
-
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.TextResource;
+import org.gwtbootstrap3.client.ui.constants.Styles;
 
 /**
- * @author Sven Jacobs
+ * Button within {@link Navbar}.
  */
-public interface GwtBootstrap3ClientBundle extends ClientBundle {
+public class NavbarButton extends AnchorButton {
 
-    static final GwtBootstrap3ClientBundle INSTANCE = GWT.create(GwtBootstrap3ClientBundle.class);
-
-    @Source("resource/js/jquery-1.11.3.min.cache.js")
-    TextResource jQuery();
-
-    @Source("resource/js/bootstrap-3.3.5.min.cache.js")
-    TextResource bootstrap();
+    public NavbarButton() {
+        addStyleName(Styles.NAVBAR_BUTTON);
+    }
 }

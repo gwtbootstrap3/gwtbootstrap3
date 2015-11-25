@@ -1,18 +1,15 @@
 sudo: false
 language: java
-
 jdk:
-  - oraclejdk8
-  - oraclejdk7
-
+- oraclejdk8
+- oraclejdk7
 cache:
   directories:
-    - $HOME/.m2
-
+  - $HOME/.m2
 install: true
-
 script:
-  - mvn clean install -DdryRun=true -Dlicense.failOnMissingHeader=true -Dlicense.failOnNotUptodateHeader=true
-
+- mvn clean install -DdryRun=true -Dlicense.failOnMissingHeader=true -Dlicense.failOnNotUptodateHeader=true
 after_success:
-  - ./deploy.sh
+- .utility/deploy.sh 
+- .utility/update_site_apidocs.sh
+- .utility/update_site_demo.sh

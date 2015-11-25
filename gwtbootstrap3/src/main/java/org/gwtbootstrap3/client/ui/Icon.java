@@ -21,9 +21,12 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
+import org.gwtbootstrap3.client.ui.base.HasEmphasis;
+import org.gwtbootstrap3.client.ui.base.HasSize;
 import org.gwtbootstrap3.client.ui.base.HasType;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.ElementTags;
+import org.gwtbootstrap3.client.ui.constants.Emphasis;
 import org.gwtbootstrap3.client.ui.constants.IconFlip;
 import org.gwtbootstrap3.client.ui.constants.IconRotate;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
@@ -42,8 +45,9 @@ import com.google.gwt.uibinder.client.UiConstructor;
  *
  * @author Sven Jacobs
  * @see org.gwtbootstrap3.client.ui.constants.IconType
+ * @see org.gwtbootstrap3.client.ui.constants.IconSize
  */
-public class Icon extends ComplexWidget implements HasType<IconType>, HasClickHandlers {
+public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<IconSize>, HasEmphasis, HasClickHandlers {
 
     public Icon() {
         setElement(Document.get().createElement(ElementTags.I));
@@ -64,22 +68,6 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasClickHa
     @Override
     public IconType getType() {
         return IconType.fromStyleName(getStyleName());
-    }
-
-    public void setLight(final boolean light) {
-        StyleHelper.toggleStyleName(this, light, Styles.ICON_LIGHT);
-    }
-
-    public boolean isLight() {
-        return StyleHelper.containsStyle(Styles.ICON_LIGHT, getStyleName());
-    }
-
-    public void setMuted(final boolean muted) {
-        StyleHelper.toggleStyleName(this, muted, Styles.ICON_MUTED);
-    }
-
-    public boolean isMuted() {
-        return StyleHelper.containsStyle(Styles.ICON_MUTED, getStyleName());
     }
 
     public void setBorder(final boolean border) {
@@ -114,6 +102,14 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasClickHa
         return StyleHelper.containsStyle(Styles.ICON_STACK_TOP, getStyleName());
     }
 
+    public void setInverse(final boolean inverse) {
+        StyleHelper.toggleStyleName(this, inverse, Styles.ICON_INVERSE);
+    }
+
+    public boolean isInverse() {
+        return StyleHelper.containsStyle(Styles.ICON_INVERSE, getStyleName());
+    }
+
     public void setSpin(final boolean spin) {
         StyleHelper.toggleStyleName(this, spin, Styles.ICON_SPIN);
     }
@@ -122,11 +118,18 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasClickHa
         return StyleHelper.containsStyle(Styles.ICON_SPIN, getStyleName());
     }
 
+    public void setPulse(final boolean pulse) {
+        StyleHelper.toggleStyleName(this, pulse, Styles.ICON_PULSE);
+    }
+
+    public boolean isPulse() {
+        return StyleHelper.containsStyle(Styles.ICON_PULSE, getStyleName());
+    }
+
     public void setRotate(final IconRotate iconRotate) {
         if (iconRotate == null) {
             return;
         }
-
         StyleHelper.addUniqueEnumStyleName(this, IconRotate.class, iconRotate);
     }
 
@@ -146,16 +149,24 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasClickHa
         return IconFlip.fromStyleName(getStyleName());
     }
 
+    @Override
     public void setSize(final IconSize iconSize) {
-        if (iconSize == null) {
-            return;
-        }
-
         StyleHelper.addUniqueEnumStyleName(this, IconSize.class, iconSize);
     }
 
+    @Override
     public IconSize getSize() {
         return IconSize.fromStyleName(getStyleName());
+    }
+
+    @Override
+    public void setEmphasis(final Emphasis emphasis) {
+        StyleHelper.addUniqueEnumStyleName(this, Emphasis.class, emphasis);
+    }
+
+    @Override
+    public Emphasis getEmphasis() {
+        return Emphasis.fromStyleName(getStyleName());
     }
 
     @Override

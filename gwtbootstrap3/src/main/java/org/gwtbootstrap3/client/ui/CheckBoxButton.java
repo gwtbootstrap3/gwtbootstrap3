@@ -298,24 +298,16 @@ public class CheckBoxButton extends CheckBox implements HasActive,
         return getActualIcon().isBorder();
     }
 
+    /** {@inheritDoc} */
     @Override
-    public void setIconMuted(boolean iconMuted) {
-        getActualIcon().setMuted(iconMuted);
+    public void setIconInverse(final boolean iconInverse) {
+        getActualIcon().setInverse(iconInverse);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public boolean isIconMuted() {
-        return getActualIcon().isMuted();
-    }
-
-    @Override
-    public void setIconLight(boolean iconLight) {
-        getActualIcon().setLight(iconLight);
-    }
-
-    @Override
-    public boolean isIconLight() {
-        return getActualIcon().isLight();
+    public boolean isIconInverse() {
+        return getActualIcon().isInverse();
     }
 
     @Override
@@ -326,6 +318,16 @@ public class CheckBoxButton extends CheckBox implements HasActive,
     @Override
     public boolean isIconSpin() {
         return getActualIcon().isSpin();
+    }
+
+    @Override
+    public void setIconPulse(boolean iconPulse) {
+        getActualIcon().setPulse(iconPulse);
+    }
+
+    @Override
+    public boolean isIconPulse() {
+        return getActualIcon().isPulse();
     }
 
     @Override

@@ -87,7 +87,7 @@ public class DefaultErrorHandler implements ErrorHandler {
     public void clearErrors() {
         if (validationStateParent == null) { return; }
         validationStateParent.setValidationState(ValidationState.NONE);
-        if (validationStateHelpBlock != null) validationStateHelpBlock.setText("");
+        if (validationStateHelpBlock != null) { validationStateHelpBlock.clearError(); }
     }
 
     /**
@@ -97,11 +97,11 @@ public class DefaultErrorHandler implements ErrorHandler {
      * @return the found {@link HelpBlock} of null if not found.
      */
     private HelpBlock findHelpBlock(Widget widget) {
-        if (widget instanceof HelpBlock) return (HelpBlock) widget;
+        if (widget instanceof HelpBlock) { return (HelpBlock) widget; }
         // Try and find the HelpBlock in the children of the given widget.
         if (widget instanceof HasWidgets) {
             for (Widget w : (HasWidgets) widget) {
-                if (w instanceof HelpBlock) return (HelpBlock) w;
+                if (w instanceof HelpBlock) { return (HelpBlock) w; }
             }
         }
         if (!(widget instanceof HasValidationState)) {
@@ -116,12 +116,13 @@ public class DefaultErrorHandler implements ErrorHandler {
      * only 1 time on initialization.
      */
     public void init() {
-        if (initialized) return;
+        if (initialized) { return; }
         Widget parent = inputWidget.getParent();
         while (parent != null && !parent.getClass().getName().equals("com.google.gwt.user.client.ui.Widget")) {
             if (parent instanceof HasValidationState) {
                 validationStateParent = (HasValidationState) parent;
                 validationStateHelpBlock = findHelpBlock(inputWidget);
+                break;
             }
             parent = parent.getParent();
         }
@@ -140,11 +141,11 @@ public class DefaultErrorHandler implements ErrorHandler {
             validationStateParent.setValidationState(errors.size() <= 0 ? ValidationState.NONE : ValidationState.ERROR);
             for (int index = 0; index < errors.size(); index++) {
                 errorMsg = errors.get(0).getMessage();
-                if (index + 1 < errors.size()) errorMsg += "; ";
+                if (index + 1 < errors.size()) { errorMsg += "; "; }
             }
         }
         if (validationStateHelpBlock != null) {
-            validationStateHelpBlock.setText(errorMsg);
+            validationStateHelpBlock.setError(errorMsg);
         }
     }
 

@@ -92,14 +92,14 @@ public final class Styles {
 
     public static final String ITEM = "item";
 
-    public static final String ICON_LIGHT = "fa-light";
-    public static final String ICON_MUTED = "fa-muted";
     public static final String ICON_BORDER = "fa-border";
     public static final String ICON_STACK = "fa-stack";
     public static final String ICON_SPIN = "fa-spin";
+    public static final String ICON_PULSE = "fa-pulse";
     public static final String ICON_FIXED_WIDTH = "fa-fw";
     public static final String ICON_STACK_BASE = "fa-stack-2x";
     public static final String ICON_STACK_TOP = "fa-stack-1x";
+    public static final String ICON_INVERSE = "fa-inverse";
 
     public static final String ICON_BAR = "icon-bar";
 
@@ -150,6 +150,7 @@ public final class Styles {
 
     public static final String NAVBAR = "navbar";
     public static final String NAVBAR_BRAND = "navbar-brand";
+    public static final String NAVBAR_BUTTON = "navbar-btn";
     public static final String NAVBAR_COLLAPSE = "navbar-collapse";
     public static final String NAVBAR_FORM = "navbar-form";
     public static final String NAVBAR_HEADER = "navbar-header";

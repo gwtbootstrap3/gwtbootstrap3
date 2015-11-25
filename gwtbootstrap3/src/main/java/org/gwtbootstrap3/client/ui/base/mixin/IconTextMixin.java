@@ -20,6 +20,8 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #L%
  */
 
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.user.client.ui.HasText;
 import org.gwtbootstrap3.client.ui.Icon;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasIcon;
@@ -30,9 +32,6 @@ import org.gwtbootstrap3.client.ui.constants.IconRotate;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.html.Text;
-
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.user.client.ui.HasText;
 
 /**
  * Mixin for Widgets that have text and an optional icon.
@@ -51,10 +50,10 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private IconSize iconSize = IconSize.NONE;
     private IconFlip iconFlip = IconFlip.NONE;
     private IconRotate iconRotate = IconRotate.NONE;
-    private boolean iconMuted = false;
+    private boolean iconInverse = false;
     private boolean iconSpin = false;
+    private boolean iconPulse = false;
     private boolean iconBordered = false;
-    private boolean iconLight = false;
     private boolean iconFixedWidth = false;
 
     public IconTextMixin(final T widget) {
@@ -68,6 +67,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public void setText(final String text) {
         this.text.setText(text);
+        render();
     }
 
     @Override
@@ -140,27 +140,16 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     public boolean isIconBordered() {
         return iconBordered;
     }
-
+    
     @Override
-    public void setIconMuted(final boolean iconMuted) {
-        this.iconMuted = iconMuted;
+    public void setIconInverse(final boolean iconInverse) {
+        this.iconInverse = iconInverse;
         render();
     }
 
     @Override
-    public boolean isIconMuted() {
-        return iconMuted;
-    }
-
-    @Override
-    public void setIconLight(final boolean iconLight) {
-        this.iconLight = iconLight;
-        render();
-    }
-
-    @Override
-    public boolean isIconLight() {
-        return iconLight;
+    public boolean isIconInverse() {
+        return iconInverse;
     }
 
     @Override
@@ -172,6 +161,17 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     @Override
     public boolean isIconSpin() {
         return iconSpin;
+    }
+
+    @Override
+    public void setIconPulse(boolean iconPulse) {
+        this.iconPulse = iconPulse;
+        render();
+    }
+
+    @Override
+    public boolean isIconPulse() {
+        return iconPulse;
     }
 
     @Override
@@ -199,24 +199,27 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
                 if (icon != null) {
                     icon.removeFromParent();
+                    icon = null;
                 }
 
-                icon = new Icon();
-                icon.setType(iconType);
-                icon.setSize(iconSize);
-                icon.setFlip(iconFlip);
-                icon.setRotate(iconRotate);
-                icon.setMuted(iconMuted);
-                icon.setSpin(iconSpin);
-                icon.setBorder(iconBordered);
-                icon.setLight(iconLight);
-                icon.setFixedWidth(iconFixedWidth);
+                if (iconType != null) {
+                    icon = new Icon();
+                    icon.setType(iconType);
+                    icon.setSize(iconSize);
+                    icon.setFlip(iconFlip);
+                    icon.setRotate(iconRotate);
+                    icon.setSpin(iconSpin);
+                    icon.setPulse(iconPulse);
+                    icon.setBorder(iconBordered);
+                    icon.setFixedWidth(iconFixedWidth);
+                    icon.setInverse(iconInverse);
+                }
 
                 // Since we are dealing with Icon/Text, we can insert them at the right position
                 // Helps on widgets like ButtonDropDown, where it has a caret added
                 int position = 0;
 
-                if (iconPosition == IconPosition.LEFT) {
+                if (icon != null && iconPosition == IconPosition.LEFT) {
                     widget.insert(icon, position++);
                     widget.insert(separator, position++);
                 }
@@ -225,7 +228,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                     widget.insert(text, position);
                 }
 
-                if (iconPosition == IconPosition.RIGHT) {
+                if (icon != null && iconPosition == IconPosition.RIGHT) {
                     widget.insert(separator, position++);
                     widget.insert(icon, position);
                 }

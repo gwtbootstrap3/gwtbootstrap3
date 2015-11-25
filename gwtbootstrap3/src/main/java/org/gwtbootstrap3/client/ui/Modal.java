@@ -97,6 +97,8 @@ public class Modal extends Div implements IsClosable {
     private final ModalDialog dialog = new ModalDialog();
     private ModalHeader header = new ModalHeader();
 
+    private HandlerRegistration removeOnHideHandlerReg = null;
+
     private boolean hideOtherModals = false;
 
     public Modal() {
@@ -121,6 +123,12 @@ public class Modal extends Div implements IsClosable {
     protected void onLoad() {
         super.onLoad();
         bindJavaScriptEvents(getElement());
+    }
+
+    @Override
+    protected void onUnload() {
+        super.onUnload();
+        unbindAllHandlers(getElement());
     }
 
     @Override
@@ -168,11 +176,15 @@ public class Modal extends Div implements IsClosable {
      * @param removeOnHide - true to remove modal and unbind events on hide, false to keep it in the DOM
      */
     public void setRemoveOnHide(final boolean removeOnHide) {
+        if (removeOnHideHandlerReg != null) {
+            removeOnHideHandlerReg.removeHandler();
+            removeOnHideHandlerReg = null;
+        }
         if (removeOnHide) {
-            addHiddenHandler(new ModalHiddenHandler() {
+            removeOnHideHandlerReg = addHiddenHandler(new ModalHiddenHandler() {
                 @Override
                 public void onHidden(final ModalHiddenEvent evt) {
-                    unbindAllHandlers(getElement());
+                    // Do logical detach
                     removeFromParent();
                 }
             });

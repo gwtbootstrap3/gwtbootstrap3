@@ -196,7 +196,7 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
 
     /** {@inheritDoc} */
     @Override
-    public void setValidators(Validator<T>... validators) {
+    public void setValidators(@SuppressWarnings("unchecked") Validator<T>... validators) {
         validatorMixin.setValidators(validators);
     }
 
@@ -222,6 +222,7 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
     @Override
     public void setErrorHandler(ErrorHandler handler) {
         errorHandlerMixin.setErrorHandler(handler);
+        validatorMixin.setErrorHandler(handler);
     }
 
     /** {@inheritDoc} */

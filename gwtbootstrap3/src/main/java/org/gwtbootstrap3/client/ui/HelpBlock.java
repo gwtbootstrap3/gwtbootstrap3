@@ -10,7 +10,7 @@ package org.gwtbootstrap3.client.ui;
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -33,15 +33,23 @@ import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.DomEvent;
 
 /**
+ * Help block. Call {@link #setError(String)} to set ther error state of this
+ * {@link HelpBlock}.
+ * 
  * @author Joshua Godi
  * @author Steven Jardine
  */
 public class HelpBlock extends AbstractTextWidget {
 
+    private boolean error = false;
+
     private Element iconElement = null;
 
     private IconType iconType = null;
 
+    /**
+     * Constructor.
+     */
     public HelpBlock() {
         super(Document.get().createSpanElement());
         setStyleName(Styles.HELP_BLOCK);
@@ -51,8 +59,7 @@ public class HelpBlock extends AbstractTextWidget {
                 if (iconElement != null) {
                     iconElement.removeFromParent();
                 }
-                String html = getHTML();
-                if (html != null && !"".equals(html) && iconType != null) {
+                if (error && iconType != null) {
                     iconElement = createIconElement();
                     getElement().insertFirst(iconElement);
                 }
@@ -61,8 +68,16 @@ public class HelpBlock extends AbstractTextWidget {
     }
 
     /**
-     * @return a new icon element. We only create this when {@link #iconElement} is null or the
-     *         {@link #iconType} has changed.
+     * Clear the error state of this help block.
+     */
+    public void clearError() {
+        error = false;
+        setText("");
+    }
+
+    /**
+     * @return a new icon element. We only create this when {@link #iconElement}
+     *         is null or the {@link #iconType} has changed.
      */
     protected Element createIconElement() {
         Element e = Document.get().createElement(ElementTags.I);
@@ -79,18 +94,42 @@ public class HelpBlock extends AbstractTextWidget {
         return iconType;
     }
 
-    /** {@inheritDoc} */
-    @Override
-    public void setHTML(String html) {
-        super.setHTML(html);
-        DomEvent.fireNativeEvent(Document.get().createChangeEvent(), this);
+    /**
+     * Checks if this block is in the error state.
+     *
+     * @return true, if is error
+     */
+    public boolean isError() {
+        return error;
     }
 
     /**
-     * Sets the icon type. If the icon type changes programatically then the icon is removed from the dom and
-     * recreated.
+     * Set this {@link HelpBlock}'s error state.
+     * 
+     * @param message
+     *            the error message.
+     */
+    public void setError(String message) {
+        error = true;
+        setText(message);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setHTML(String value) {
+        String oldValue = getHTML();
+        if (!oldValue.equals(value)) {
+            super.setHTML(value);
+            DomEvent.fireNativeEvent(Document.get().createChangeEvent(), this);
+        }
+    }
+
+    /**
+     * Sets the icon type. If the icon type changes programatically then the
+     * icon is removed from the dom and recreated.
      *
-     * @param type the new icon type
+     * @param type
+     *            the new icon type
      */
     public void setIconType(IconType type) {
         IconType prevType = iconType;
@@ -104,9 +143,12 @@ public class HelpBlock extends AbstractTextWidget {
 
     /** {@inheritDoc} */
     @Override
-    public void setText(String text) {
-        super.setText(text);
-        DomEvent.fireNativeEvent(Document.get().createChangeEvent(), this);
+    public void setText(String value) {
+        String oldValue = getText();
+        if (!oldValue.equals(value)) {
+            super.setText(value);
+            DomEvent.fireNativeEvent(Document.get().createChangeEvent(), this);
+        }
     }
 
 }
