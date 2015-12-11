@@ -20,7 +20,10 @@ fs.readFile(file, 'UTF-8', function (err, data) {
         var match = regex.exec(line);
 
         if (match) {
-            result.push(match[2].toUpperCase().replace(/-/g, '_') + '("' + match[1] + '"),');
+            var name = match[2].toUpperCase().replace(/-/g, '_');
+            if (/^\d/.test(name))
+            	name = '_' + name;
+            result.push(name + '("' + match[1] + '"),');
         }
     });
 
