@@ -138,8 +138,11 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
                 };
                 Window.addResizeHandler(popupResizeHandler);
             }
+            if (!suggestBox.getElement().getStyle().getZIndex().equals("")) {
+                getPopupPanel().getElement().getStyle()
+                        .setZIndex(Integer.valueOf(suggestBox.getElement().getStyle().getZIndex()));
+            }
         }
-
     }
 
     private final EnabledMixin<SuggestBox> enabledMixin = new EnabledMixin<SuggestBox>(this);
