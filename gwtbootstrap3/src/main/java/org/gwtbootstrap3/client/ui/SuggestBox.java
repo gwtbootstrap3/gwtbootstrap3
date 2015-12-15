@@ -139,8 +139,12 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
                 Window.addResizeHandler(popupResizeHandler);
             }
             if (!suggestBox.getElement().getStyle().getZIndex().equals("")) {
-                getPopupPanel().getElement().getStyle()
+                try{
+                    getPopupPanel().getElement().getStyle()
                         .setZIndex(Integer.valueOf(suggestBox.getElement().getStyle().getZIndex()));
+                }catch (Exception e){
+                    //Do nothing.  We tried....
+                }
             }
         }
     }
