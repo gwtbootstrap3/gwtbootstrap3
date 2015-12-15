@@ -48,6 +48,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private final T widget;
     private final Text text = new Text();
     private final Text separator = new Text(" ");
+    private final Text badgeSeparator = new Text(" ");
     private Icon icon;
     private IconType iconType;
     private IconPosition iconPosition = IconPosition.LEFT;
@@ -227,6 +228,10 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                     separator.removeFromParent();
                 }
 
+                if (badgeSeparator.isAttached()) {
+                    badgeSeparator.removeFromParent();
+                }
+
                 if (badge.isAttached()) {
                     badge.removeFromParent();
                 }
@@ -255,7 +260,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
                 if (badge.getText() != null && badge.getText().length() > 0 && badgePosition == BadgePosition.LEFT) {
                     widget.insert(badge, position++);
-                    widget.insert(separator, position++);
+                    widget.insert(badgeSeparator, position++);
                 }
 
                 if (icon != null && iconPosition == IconPosition.LEFT) {
@@ -273,7 +278,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                 }
 
                 if (badge.getText() != null && badge.getText().length() > 0 && badgePosition == BadgePosition.RIGHT) {
-                    widget.insert(separator, position++);
+                    widget.insert(badgeSeparator, position++);
                     widget.insert(badge, position);
                 }
 
