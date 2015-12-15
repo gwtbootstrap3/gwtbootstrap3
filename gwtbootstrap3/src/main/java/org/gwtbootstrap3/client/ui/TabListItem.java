@@ -20,19 +20,21 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import java.util.List;
-
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.uibinder.client.UiConstructor;
+import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.shared.event.TabShowEvent;
 import org.gwtbootstrap3.client.shared.event.TabShowHandler;
 import org.gwtbootstrap3.client.shared.event.TabShownEvent;
 import org.gwtbootstrap3.client.shared.event.TabShownHandler;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.constants.IconSize;
+import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.Widget;
+import java.util.List;
 
 /**
  * List item for the nav tabs, needs special toggle and JS to make it work properly
@@ -51,25 +53,36 @@ import com.google.gwt.user.client.ui.Widget;
  * </pre>
  *
  * @author Joshua Godi
+ * @author Drew Spencer
  * @see org.gwtbootstrap3.client.ui.NavTabs
  */
 public class TabListItem extends AnchorListItem implements HasDataTarget {
 
     /**
-     * Creates the default widget with no text
-     */
-    public TabListItem() {
-        this("");
-    }
-
-    /**
      * Creates the default widget with the desired text
      *
-     * @param text text for the list item
+     * @param text
+     *            text for the list item
      */
+    @UiConstructor
     public TabListItem(final String text) {
         super(text);
         setDataToggle(Toggle.TAB);
+    }
+
+    public TabListItem(final String text, final IconType iconType) {
+        this(text);
+        setIcon(iconType);
+    }
+
+    public TabListItem(final String text, final IconType iconType, final IconSize iconSize) {
+        this(text, iconType);
+        setIconSize(iconSize);
+    }
+
+    public TabListItem(final String text, final String badgeText) {
+        this(text);
+        setBadgeText(badgeText);
     }
 
     /**
