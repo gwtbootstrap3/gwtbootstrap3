@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 - 2014 GwtBootstrap3
+ * Copyright (C) 2013 - 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,6 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.shared.event.TabShowEvent;
@@ -139,43 +138,37 @@ public class TabListItem extends AnchorListItem implements HasDataTarget {
         setDataTarget(href);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String getHref() {
         return getDataTarget();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setDataTargetWidgets(final List<Widget> widgets) {
         anchor.setDataTargetWidgets(widgets);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setDataTargetWidget(final Widget widget) {
         anchor.setDataTargetWidget(widget);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void setDataTarget(final String dataTarget) {
         anchor.setDataTarget(dataTarget);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String getDataTarget() {
         return anchor.getDataTarget();
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void setEnabled(final boolean enabled) {
         super.setEnabled(enabled);
@@ -188,9 +181,7 @@ public class TabListItem extends AnchorListItem implements HasDataTarget {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     protected void onLoad() {
         super.onLoad();
@@ -199,9 +190,7 @@ public class TabListItem extends AnchorListItem implements HasDataTarget {
         bindJavaScriptEvents(anchor.getElement());
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     protected void onUnload() {
         super.onUnload();
@@ -262,4 +251,5 @@ public class TabListItem extends AnchorListItem implements HasDataTarget {
         $wnd.jQuery(e).off('show.bs.tab');
         $wnd.jQuery(e).off('shown.bs.tab');
     }-*/;
+    
 }
