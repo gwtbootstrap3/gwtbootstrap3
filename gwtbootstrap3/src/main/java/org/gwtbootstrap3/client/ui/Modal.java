@@ -103,6 +103,9 @@ public class Modal extends Div implements IsClosable {
 
     public Modal() {
         setStyleName(Styles.MODAL);
+        
+        // Set the z-index to match bootstrap's .modal
+        getElement().getStyle().setZIndex(1050);
 
         content.add(header);
         dialog.add(content);

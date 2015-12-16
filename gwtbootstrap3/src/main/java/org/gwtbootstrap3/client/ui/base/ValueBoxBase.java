@@ -43,9 +43,9 @@ import com.google.gwt.text.shared.Parser;
 import com.google.gwt.text.shared.Renderer;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
-public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasResponsiveness,
-        HasPlaceholder, HasAutoComplete, HasSize<InputSize>, HasEditorErrors<T>, HasErrorHandler, HasValidators<T>,
-        HasBlankValidator<T> {
+public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasReadOnly,
+        HasResponsiveness, HasPlaceholder, HasAutoComplete, HasSize<InputSize>, HasEditorErrors<T>,
+        HasErrorHandler, HasValidators<T>, HasBlankValidator<T> {
 
     private static final String MAX_LENGTH = "maxlength";
 
