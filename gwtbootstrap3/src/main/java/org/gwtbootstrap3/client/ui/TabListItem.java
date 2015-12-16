@@ -59,12 +59,17 @@ import java.util.List;
 public class TabListItem extends AnchorListItem implements HasDataTarget {
 
     /**
+     * Creates the default widget with no text
+     */
+    public TabListItem() {
+        this("");
+    }
+
+    /**
      * Creates the default widget with the desired text
      *
-     * @param text
-     *            text for the list item
+     * @param text text for the list item
      */
-    @UiConstructor
     public TabListItem(final String text) {
         super(text);
         setDataToggle(Toggle.TAB);
