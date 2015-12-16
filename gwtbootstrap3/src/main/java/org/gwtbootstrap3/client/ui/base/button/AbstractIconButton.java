@@ -20,9 +20,11 @@ package org.gwtbootstrap3.client.ui.base.button;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.base.HasBadge;
 import org.gwtbootstrap3.client.ui.base.HasIcon;
 import org.gwtbootstrap3.client.ui.base.HasIconPosition;
 import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
+import org.gwtbootstrap3.client.ui.constants.BadgePosition;
 import org.gwtbootstrap3.client.ui.constants.ButtonType;
 import org.gwtbootstrap3.client.ui.constants.IconFlip;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
@@ -38,7 +40,7 @@ import com.google.gwt.user.client.ui.HasText;
  * @author Sven Jacobs
  * @see org.gwtbootstrap3.client.ui.Icon
  */
-public abstract class AbstractIconButton extends AbstractButton implements HasText, HasIcon, HasIconPosition {
+public abstract class AbstractIconButton extends AbstractButton implements HasText, HasIcon, HasIconPosition, HasBadge {
 
     IconTextMixin<AbstractIconButton> iconTextMixin = new IconTextMixin<AbstractIconButton>(this);
 
@@ -119,13 +121,17 @@ public abstract class AbstractIconButton extends AbstractButton implements HasTe
         return iconTextMixin.isIconBordered();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconInverse(final boolean iconInverse) {
         iconTextMixin.setIconInverse(iconInverse);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isIconInverse() {
         return iconTextMixin.isIconInverse();
@@ -160,5 +166,25 @@ public abstract class AbstractIconButton extends AbstractButton implements HasTe
     public boolean isIconFixedWidth() {
         return iconTextMixin.isIconFixedWidth();
     }
-    
+
+    @Override
+    public void setBadgeText(String badgeText) {
+        iconTextMixin.setBadgeText(badgeText);
+    }
+
+    @Override
+    public String getBadgeText() {
+        return iconTextMixin.getBadgeText();
+    }
+
+    @Override
+    public void setBadgePosition(BadgePosition badgePosition) {
+        iconTextMixin.setBadgePosition(badgePosition);
+    }
+
+    @Override
+    public BadgePosition getBadgePosition() {
+        return iconTextMixin.getBadgePosition();
+    }
+
 }

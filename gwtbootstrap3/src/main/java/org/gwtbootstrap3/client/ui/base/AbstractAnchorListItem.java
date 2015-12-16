@@ -20,7 +20,13 @@ package org.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.Anchor;
+import org.gwtbootstrap3.client.ui.constants.BadgePosition;
 import org.gwtbootstrap3.client.ui.constants.IconFlip;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconRotate;
@@ -28,19 +34,14 @@ import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.Focusable;
-
 /**
  * Base class for list items that contain an {@link org.gwtbootstrap3.client.ui.Anchor} link.
  *
  * @author Sven Jacobs
+ * @author Drew Spencer
  */
 public abstract class AbstractAnchorListItem extends AbstractListItem
-        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasDataToggle, HasIcon, HasIconPosition {
+        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasDataToggle, HasIcon, HasIconPosition, HasBadge {
 
     protected final Anchor anchor;
 
@@ -165,13 +166,17 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
         return anchor.isIconBordered();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setIconInverse(final boolean iconInverse) {
         anchor.setIconInverse(iconInverse);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isIconInverse() {
         return anchor.isIconInverse();
@@ -211,5 +216,25 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     public void setEnabled(final boolean enabled) {
         super.setEnabled(enabled);
         anchor.setEnabled(enabled);
+    }
+
+    @Override
+    public void setBadgeText(String badgeText) {
+        anchor.setBadgeText(badgeText);
+    }
+
+    @Override
+    public String getBadgeText() {
+        return anchor.getBadgeText();
+    }
+
+    @Override
+    public void setBadgePosition(BadgePosition badgePosition) {
+        anchor.setBadgePosition(badgePosition);
+    }
+
+    @Override
+    public BadgePosition getBadgePosition() {
+        return anchor.getBadgePosition();
     }
 }
