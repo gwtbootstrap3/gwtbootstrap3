@@ -22,7 +22,6 @@ package org.gwtbootstrap3.client.ui;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.shared.event.TabShowEvent;
