@@ -60,6 +60,7 @@ import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.SuggestOracle;
 import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
+import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
@@ -138,12 +139,13 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
                 };
                 Window.addResizeHandler(popupResizeHandler);
             }
+            // Try and set the z-index of the popup to the same as the SuggestBox.
             if (!suggestBox.getElement().getStyle().getZIndex().equals("")) {
-                try{
+                try {
                     getPopupPanel().getElement().getStyle()
-                        .setZIndex(Integer.valueOf(suggestBox.getElement().getStyle().getZIndex()));
-                }catch (Exception e){
-                    //Do nothing.  We tried....
+                            .setZIndex(Integer.valueOf(suggestBox.getElement().getStyle().getZIndex()));
+                } catch (Exception e) {
+                    // Do nothing. We tried....
                 }
             }
         }
@@ -201,14 +203,14 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
 
     /** {@inheritDoc} */
     @Override
-    public void addValidator(Validator<String> validator) {
-        validatorMixin.addValidator(validator);
+    public HandlerRegistration addValidationChangedHandler(ValidationChangedHandler handler) {
+        return validatorMixin.addValidationChangedHandler(handler);
     }
 
     /** {@inheritDoc} */
     @Override
-    public boolean removeValidator(Validator<String> validator) {
-        return validatorMixin.removeValidator(validator);
+    public void addValidator(Validator<String> validator) {
+        validatorMixin.addValidator(validator);
     }
 
     /** {@inheritDoc} */
@@ -264,6 +266,34 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
     @Override
     public boolean isEnabled() {
         return enabledMixin.isEnabled();
+    }
+
+    @Override
+    protected void onAttach() {
+        super.onAttach();
+        // Try and set the z-index.
+        Integer zIndex = null;
+        Widget widget = this;
+        while (zIndex == null && widget != null) {
+            if (!widget.getElement().getStyle().getZIndex().equals("")) {
+                try {
+                    zIndex = Integer.valueOf(widget.getElement().getStyle().getZIndex());
+                    zIndex += 10;
+                } catch (Exception e) {
+                    zIndex = null;
+                }
+            }
+            widget = widget.getParent();
+        }
+        if (zIndex != null) {
+            getElement().getStyle().setZIndex(zIndex);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean removeValidator(Validator<String> validator) {
+        return validatorMixin.removeValidator(validator);
     }
 
     @Override
@@ -357,12 +387,6 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
     @Override
     public boolean validate(boolean show) {
         return validatorMixin.validate(show);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public HandlerRegistration addValidationChangedHandler(ValidationChangedHandler handler) {
-        return validatorMixin.addValidationChangedHandler(handler);
     }
 
 }
