@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.shared.event;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.shared.GwtEvent;
 
 /**
- * @author Joshua Godi
+ * @author Steven Jardine
  */
 public class InsertedEvent extends GwtEvent<InsertedHandler> {
     private static final Type<InsertedHandler> TYPE = new Type<InsertedHandler>();
