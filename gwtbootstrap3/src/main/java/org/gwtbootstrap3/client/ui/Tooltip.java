@@ -10,7 +10,7 @@ package org.gwtbootstrap3.client.ui;
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,6 +27,7 @@ import org.gwtbootstrap3.client.shared.event.HiddenEvent;
 import org.gwtbootstrap3.client.shared.event.HiddenHandler;
 import org.gwtbootstrap3.client.shared.event.HideEvent;
 import org.gwtbootstrap3.client.shared.event.HideHandler;
+import org.gwtbootstrap3.client.shared.event.InsertedEvent;
 import org.gwtbootstrap3.client.shared.event.ShowEvent;
 import org.gwtbootstrap3.client.shared.event.ShowHandler;
 import org.gwtbootstrap3.client.shared.event.ShownEvent;
@@ -54,6 +55,7 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
  * <p/>
  * <h3>UiBinder example</h3>
  * <p/>
+ * 
  * <pre>
  * {@code
  * <b:Tooltip text="...">
@@ -62,13 +64,13 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
  * }
  * </pre>
  * <p/>
- * ** Must call reconfigure() after altering any/all Tooltips!
  *
  * @author Joshua Godi
  * @author Pontus Enmark
  * @author Steven Jardine
  */
 public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHover {
+    
     private static final String TOGGLE = "toggle";
     private static final String SHOW = "show";
     private static final String HIDE = "hide";
@@ -94,11 +96,22 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
 
     private Widget widget;
     private String id;
+    private boolean initialized = false;
+    private boolean showing = false;
 
     /**
      * Creates the empty Tooltip
      */
     public Tooltip() {
+    }
+
+    /**
+     * Creates the tooltip with given title. Remember to set the widget as well
+     *
+     * @param title title for the tooltip
+     */
+    public Tooltip(final String title) {
+        setTitle(title);
     }
 
     /**
@@ -122,17 +135,561 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     /**
-     * Creates the tooltip with given title. Remember to set the widget as well
-     *
-     * @param title title for the tooltip
+     * {@inheritDoc}
      */
-    public Tooltip(final String title) {
-        setTitle(title);
+    @Override
+    public void add(final Widget child) {
+        if (getWidget() != null) {
+            throw new IllegalStateException("Can only contain one child widget");
+        }
+        setWidget(child);
     }
 
     /**
-     * {@inheritDoc}
+     * Adds a hidden handler to the Tooltip that will be fired when the Tooltip's hidden event is fired
+     *
+     * @param hiddenHandler HiddenHandler to handle the hidden event
+     * @return HandlerRegistration of the handler
      */
+    public HandlerRegistration addHiddenHandler(final HiddenHandler hiddenHandler) {
+        return widget.addHandler(hiddenHandler, HiddenEvent.getType());
+    }
+
+    /**
+     * Adds a hide handler to the Tooltip that will be fired when the Tooltip's hide event is fired
+     *
+     * @param hideHandler HideHandler to handle the hide event
+     * @return HandlerRegistration of the handler
+     */
+    public HandlerRegistration addHideHandler(final HideHandler hideHandler) {
+        return widget.addHandler(hideHandler, HideEvent.getType());
+    }
+
+    /**
+     * Adds a show handler to the Tooltip that will be fired when the Tooltip's show event is fired
+     *
+     * @param showHandler ShowHandler to handle the show event
+     * @return HandlerRegistration of the handler
+     */
+    public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
+        return widget.addHandler(showHandler, ShowEvent.getType());
+    }
+
+    /**
+     * Adds a shown handler to the Tooltip that will be fired when the Tooltip's shown event is fired
+     *
+     * @param shownHandler ShownHandler to handle the shown event
+     * @return HandlerRegistration of the handler
+     */
+    public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
+        return widget.addHandler(shownHandler, ShownEvent.getType());
+    }
+
+    /**
+     * Add a tooltip arrow div class name
+     *
+     * @param tooltipArrowClassName a tooltip arrow div class name
+     */
+    public void addTooltipArrowClassName(String tooltipArrowClassName) {
+        this.tooltipArrowClassNames += " " + tooltipArrowClassName;
+    }
+
+    /**
+     * Add a tooltip div class name
+     *
+     * @param tooltipClassName a tooltip div class name
+     */
+    public void addTooltipClassName(String tooltipClassName) {
+        this.tooltipClassNames += " " + tooltipClassName;
+    }
+
+    /**
+     * Add a tooltip inner div class name
+     *
+     * @param tooltipInnerClassName a tooltip inner div class name
+     */
+    public void addTooltipInnerClassName(String tooltipInnerClassName) {
+        this.tooltipInnerClassNames += " " + tooltipInnerClassName;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Widget asWidget() {
+        return widget;
+    }
+
+    // @formatter:off
+    private native void bindJavaScriptEvents(final Element e) /*-{
+        var target = this;
+        var $tooltip = $wnd.jQuery(e);
+        $tooltip.on('show.bs.tooltip', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Tooltip::onShow(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+        $tooltip.on('shown.bs.tooltip', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Tooltip::onShown(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+        $tooltip.on('hide.bs.tooltip', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Tooltip::onHide(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+        $tooltip.on('hidden.bs.tooltip', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Tooltip::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+        $tooltip.on('inserted.bs.tooltip', function (evt) {
+            target.@org.gwtbootstrap3.client.ui.Tooltip::onInserted(Lcom/google/gwt/user/client/Event;)(evt);
+        });
+    }-*/;
+
+    private native void call(final Element e, final String arg) /*-{
+        $wnd.jQuery(e).tooltip(arg);
+    }-*/;
+
+    /** {@inheritDoc} */
+    @Override
+    public void clear() {
+        widget = null;
+    }
+
+    /**
+     * Force the Tooltip to be destroyed
+     */
+    public void destroy() {
+        call(widget.getElement(), DESTROY);
+    }
+
+    /**
+     * Get the alternate template used to render the tooltip. If null,
+     * the default template will be used.
+     *
+     * @return String the alternate template used to render the tooltip
+     */
+    public String getAlternateTemplate() {
+        return alternateTemplate;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public String getContainer() {
+        return container;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public int getHideDelayMs() {
+        return hideDelayMs;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public String getId() {
+        return (widget == null) ? id : widget.getElement().getId();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Placement getPlacement() {
+        return placement;
+    }
+
+    /**
+     * Gets the placement css name.
+     *
+     * @return the placement css name
+     */
+    private String getPlacementCssName() {
+        return placement == null ? Placement.TOP.getCssName() : placement.getCssName();
+    }
+
+    /**
+     * Get the tooltip's selector
+     *
+     * @return String the tooltip's selector
+     */
+    public String getSelector() {
+        return selector;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public int getShowDelayMs() {
+        return showDelayMs;
+    }
+
+    /**
+     * Gets the tooltip's display string
+     *
+     * @return String tooltip display string
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Get the tooltip arrow div class names
+     *
+     * @return String Get the tooltip arrow div class names
+     */
+    public String getTooltipArrowClassNames() {
+        return tooltipArrowClassNames;
+    }
+
+    /**
+     * Get the tooltip div class names
+     *
+     * @return String the tooltip div class names
+     */
+    public String getTooltipClassNames() {
+        return tooltipClassNames;
+    }
+
+    /**
+     * Get the tooltip inner div class names
+     *
+     * @return String the tooltip inner div class names
+     */
+    public String getTooltipInnerClassNames() {
+        return tooltipInnerClassNames;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Trigger getTrigger() {
+        return trigger;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Widget getWidget() {
+        return widget;
+    }
+
+    /**
+     * Force hide the Tooltip
+     */
+    public void hide() {
+        call(widget.getElement(), HIDE);
+    }
+
+    /**
+     * Initializes the tooltip for use.
+     */
+    private void init() {
+        tooltip(widget.getElement(), isAnimated, isHTML, selector, trigger.getCssName(), showDelayMs, hideDelayMs,
+                container, prepareTemplate());
+        initialized = true;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isAnimated() {
+        return isAnimated;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isHtml() {
+        return isHTML;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Iterator<Widget> iterator() {
+        // Simple iterator for the widget
+        return new Iterator<Widget>() {
+
+            boolean hasElement = widget != null;
+
+            Widget returned = null;
+
+            /** {@inheritDoc} */
+            @Override
+            public boolean hasNext() {
+                return hasElement;
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public Widget next() {
+                if (!hasElement || (widget == null)) {
+                    throw new NoSuchElementException();
+                }
+                hasElement = false;
+                return (returned = widget);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public void remove() {
+                if (returned != null) {
+                    Tooltip.this.remove(returned);
+                }
+            }
+        };
+    }
+
+    /**
+     * Can be override by subclasses to handle Tooltip's "hidden" event however
+     * it's recommended to add an event handler to the tooltip.
+     *
+     * @param evt Event
+     * @see org.gwtbootstrap3.client.shared.event.HiddenEvent
+     */
+    protected void onHidden(final Event evt) {
+        showing = false;
+        widget.fireEvent(new HiddenEvent(evt));
+    }
+
+    /**
+     * Can be override by subclasses to handle Tooltip's "hide" event however
+     * it's recommended to add an event handler to the tooltip.
+     *
+     * @param evt Event
+     * @see org.gwtbootstrap3.client.shared.event.HideEvent
+     */
+    protected void onHide(final Event evt) {
+        widget.fireEvent(new HideEvent(evt));
+    }
+
+    /**
+     * Can be override by subclasses to handle Tooltip's "inserted" event however
+     * it's recommended to add an event handler to the tooltip.
+     *
+     * @param evt Event
+     * @see org.gwtbootstrap3.client.shared.event.InsertedEvent
+     */
+    protected void onInserted(final Event evt) {
+        widget.fireEvent(new InsertedEvent(evt));
+    }
+
+    /**
+     * Can be override by subclasses to handle Tooltip's "show" event however
+     * it's recommended to add an event handler to the tooltip.
+     *
+     * @param evt Event
+     * @see org.gwtbootstrap3.client.shared.event.ShowEvent
+     */
+    protected void onShow(final Event evt) {
+        widget.fireEvent(new ShowEvent(evt));
+    }
+
+    /**
+     * Can be override by subclasses to handle Tooltip's "shown" event however
+     * it's recommended to add an event handler to the tooltip.
+     *
+     * @param evt Event
+     * @see ShownEvent
+     */
+    protected void onShown(final Event evt) {
+        showing = true;
+        widget.fireEvent(new ShownEvent(evt));
+    }
+
+    protected String prepareTemplate() {
+        String template = null;
+        if (alternateTemplate == null) {
+            template = DEFAULT_TEMPLATE.replace("{0}", getTooltipClassNames());
+            template = template.replace("{1}", getTooltipArrowClassNames());
+            template = template.replace("{2}", getTooltipInnerClassNames());
+        } else {
+            template = alternateTemplate;
+        }
+        return template;
+    }
+
+    /**
+     * Reconfigures the tooltip.
+     * 
+     * @deprecated will be removed after the next release.
+     */
+    public void reconfigure() {
+        //Do nothing.  No longer necessary.
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public boolean remove(final Widget w) {
+        // Validate.
+        if (widget != w) {
+            return false;
+        }
+        // Logical detach.
+        clear();
+        return true;
+    }
+
+    /**
+     * Set the alternate template used to render the tooltip. The template should contain
+     * divs with classes 'tooltip', 'tooltip-inner', and 'tooltip-arrow'. If an alternate
+     * template is configured, the 'tooltipClassNames', 'tooltipArrowClassNames', and
+     * 'tooltipInnerClassNames' properties are not used.
+     *
+     * @param alternateTemplate the alternate template used to render the tooltip
+     */
+    public void setAlternateTemplate(String alternateTemplate) {
+        this.alternateTemplate = alternateTemplate;
+        if (initialized) {
+            updateString(widget.getElement(), "template", prepareTemplate());
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setContainer(final String container) {
+        this.container = container;
+        if (initialized) {
+            updateString(widget.getElement(), "container", container);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setHideDelayMs(final int hideDelayMs) {
+        this.hideDelayMs = hideDelayMs;
+        if (initialized) {
+            updateDelay(widget.getElement(), showDelayMs, hideDelayMs);
+        }
+    }
+
+    /**
+     * Sets the tooltip's display string in HTML format
+     *
+     * @param text String display string in HTML format
+     */
+    public void setHtml(final SafeHtml html) {
+        setIsHtml(true);
+        if (html == null) {
+            setTitle("");
+        } else {
+            setTitle(html.asString());
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setId(final String id) {
+        this.id = id;
+        if (widget != null) {
+            widget.getElement().setId(id);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setIsAnimated(final boolean isAnimated) {
+        this.isAnimated = isAnimated;
+        if (initialized) {
+            updateBool(widget.getElement(), "animation", isAnimated);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setIsHtml(final boolean isHTML) {
+        this.isHTML = isHTML;
+        if (initialized) {
+            updateBool(widget.getElement(), "html", isHTML);
+        }
+
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setPlacement(final Placement placement) {
+        this.placement = placement;
+        if (initialized) {
+            updateString(widget.getElement(), "placement", getPlacementCssName());
+        }
+    }
+
+    /**
+     * Set the tooltip's selector
+     *
+     * @param selector the tooltip's selector
+     */
+    public void setSelector(String selector) {
+        this.selector = selector;
+        if (initialized) {
+            updateString(widget.getElement(), "selector", selector);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setShowDelayMs(final int showDelayMs) {
+        this.showDelayMs = showDelayMs;
+        if (initialized) {
+            updateDelay(widget.getElement(), showDelayMs, hideDelayMs);
+        }
+    }
+
+    /**
+     * Convenience method. Sets the tooltop's display string.
+     * 
+     * @param text String display string.
+     * @deprecated use {@link #setTitle(String)}.
+     */
+    public void setText(String text) {
+        setTitle(text);
+    }
+
+    /**
+     * Sets the tooltip's display string
+     *
+     * @param title String display string
+     */
+    public void setTitle(final String title) {
+        this.title = title;
+        if (initialized) {
+            updateString(widget.getElement(), "title", this.title);
+            if (showing) {
+                updateTitleWhenShowing(widget.getElement());
+            }
+        }
+    }
+
+    /**
+     * Set the tooltip arrow div class names
+     *
+     * @param tooltipArrowClassNames the tooltip arrow div class names
+     */
+    public void setTooltipArrowClassNames(String tooltipArrowClassNames) {
+        this.tooltipArrowClassNames = tooltipArrowClassNames;
+    }
+
+    /**
+     * Set the tooltip div class names
+     *
+     * @param tooltipClassNames the tooltip div class names
+     */
+    public void setTooltipClassNames(String tooltipClassNames) {
+        this.tooltipClassNames = tooltipClassNames;
+    }
+
+    /**
+     * Set the tooltip inner div class names
+     *
+     * @param tooltipInnerClassNames the tooltip inner div class names
+     */
+    public void setTooltipInnerClassNames(String tooltipInnerClassNames) {
+        this.tooltipInnerClassNames = tooltipInnerClassNames;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setTrigger(final Trigger trigger) {
+        this.trigger = trigger;
+        if (initialized) {
+            updateString(widget.getElement(), "trigger",
+                    trigger == null ? Trigger.HOVER.getCssName() : trigger.getCssName());
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setWidget(final IsWidget w) {
+        setWidget(w.asWidget());
+    }
+
+    /** {@inheritDoc} */
     @Override
     public void setWidget(final Widget w) {
         // Validate
@@ -161,356 +718,12 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
 
         // When we attach it, configure the tooltip
         widget.addAttachHandler(new AttachEvent.Handler() {
+
             @Override
             public void onAttachOrDetach(final AttachEvent event) {
-                reconfigure();
+                init();
             }
         });
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void add(final Widget child) {
-        if (getWidget() != null) {
-            throw new IllegalStateException("Can only contain one child widget");
-        }
-        setWidget(child);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setWidget(final IsWidget w) {
-        widget = (w == null) ? null : w.asWidget();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Widget getWidget() {
-        return widget;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setId(final String id) {
-        this.id = id;
-        if (widget != null) {
-            widget.getElement().setId(id);
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getId() {
-        return (widget == null) ? id : widget.getElement().getId();
-    }
-
-    @Override
-    public void setIsAnimated(final boolean isAnimated) {
-        this.isAnimated = isAnimated;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isAnimated() {
-        return isAnimated;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setIsHtml(final boolean isHTML) {
-        this.isHTML = isHTML;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isHtml() {
-        return isHTML;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setPlacement(final Placement placement) {
-        this.placement = placement;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Placement getPlacement() {
-        return placement;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setTrigger(final Trigger trigger) {
-        this.trigger = trigger;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Trigger getTrigger() {
-        return trigger;
-    }
-
-    @Override
-    public void setShowDelayMs(final int showDelayMs) {
-        this.showDelayMs = showDelayMs;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getShowDelayMs() {
-        return showDelayMs;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setHideDelayMs(final int hideDelayMs) {
-        this.hideDelayMs = hideDelayMs;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getHideDelayMs() {
-        return hideDelayMs;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setContainer(final String container) {
-        this.container = container;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getContainer() {
-        return container;
-    }
-
-    /**
-     * Gets the tooltip's display string
-     *
-     * @return String tooltip display string
-     */
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * Sets the tooltip's display string
-     *
-     * @param title String display string
-     */
-    public void setTitle(final String title) {
-        this.title = title;
-    }
-    
-    /**
-     * Convenience method. Sets the tooltop's display string.
-     * 
-     * @param text String display string.
-     * @deprecated use {@link #setTitle(String)}.
-     */
-    public void setText(String text){
-        setTitle(text);
-    }
-
-    /**
-     * Sets the tooltip's display string in HTML format
-     *
-     * @param text String display string in HTML format
-     */
-    public void setHtml(final SafeHtml html) {
-        setIsHtml(true);
-        if (html == null) {
-            setTitle("");
-        }
-        else {
-            setTitle(html.asString());
-        }
-    }
-
-    /**
-     * Get the tooltip's selector
-     *
-     * @return String the tooltip's selector
-     */
-    public String getSelector() {
-        return selector;
-    }
-
-    /**
-     * Set the tooltip's selector
-     *
-     * @param selector the tooltip's selector
-     */
-    public void setSelector(String selector) {
-        this.selector = selector;
-    }
-
-    /**
-     * Get the tooltip div class names
-     *
-     * @return String the tooltip div class names
-     */
-    public String getTooltipClassNames() {
-        return tooltipClassNames;
-    }
-
-    /**
-     * Set the tooltip div class names
-     *
-     * @param tooltipClassNames the tooltip div class names
-     */
-    public void setTooltipClassNames(String tooltipClassNames) {
-        this.tooltipClassNames = tooltipClassNames;
-    }
-
-    /**
-     * Add a tooltip div class name
-     *
-     * @param tooltipClassName a tooltip div class name
-     */
-    public void addTooltipClassName(String tooltipClassName) {
-        this.tooltipClassNames += " " + tooltipClassName;
-    }
-
-    /**
-     * Get the tooltip arrow div class names
-     *
-     * @return String Get the tooltip arrow div class names
-     */
-    public String getTooltipArrowClassNames() {
-        return tooltipArrowClassNames;
-    }
-
-    /**
-     * Set the tooltip arrow div class names
-     *
-     * @param tooltipArrowClassNames the tooltip arrow div class names
-     */
-    public void setTooltipArrowClassNames(String tooltipArrowClassNames) {
-        this.tooltipArrowClassNames = tooltipArrowClassNames;
-    }
-
-    /**
-     * Add a tooltip arrow div class name
-     *
-     * @param tooltipArrowClassName a tooltip arrow div class name
-     */
-    public void addTooltipArrowClassName(String tooltipArrowClassName) {
-        this.tooltipArrowClassNames += " " + tooltipArrowClassName;
-    }
-
-    /**
-     * Get the tooltip inner div class names
-     *
-     * @return String the tooltip inner div class names
-     */
-    public String getTooltipInnerClassNames() {
-        return tooltipInnerClassNames;
-    }
-
-    /**
-     * Set the tooltip inner div class names
-     *
-     * @param tooltipInnerClassNames the tooltip inner div class names
-     */
-    public void setTooltipInnerClassNames(String tooltipInnerClassNames) {
-        this.tooltipInnerClassNames = tooltipInnerClassNames;
-    }
-
-    /**
-     * Add a tooltip inner div class name
-     *
-     * @param tooltipInnerClassName a tooltip inner div class name
-     */
-    public void addTooltipInnerClassName(String tooltipInnerClassName) {
-        this.tooltipInnerClassNames += " " + tooltipInnerClassName;
-    }
-
-    /**
-     * Get the alternate template used to render the tooltip. If null,
-     * the default template will be used.
-     *
-     * @return String the alternate template used to render the tooltip
-     */
-    public String getAlternateTemplate() {
-        return alternateTemplate;
-    }
-
-    /**
-     * Set the alternate template used to render the tooltip. The template should contain
-     * divs with classes 'tooltip', 'tooltip-inner', and 'tooltip-arrow'. If an alternate
-     * template is configured, the 'tooltipClassNames', 'tooltipArrowClassNames', and
-     * 'tooltipInnerClassNames' properties are not used.
-     *
-     * @param alternateTemplate the alternate template used to render the tooltip
-     */
-    public void setAlternateTemplate(String alternateTemplate) {
-        this.alternateTemplate = alternateTemplate;
-    }
-
-    /**
-     * Reconfigures the tooltip, must be called when altering any tooltip after it has already been shown
-     */
-    public void reconfigure() {
-        destroy();
-        tooltip(widget.getElement(), isAnimated, isHTML, placement.getCssName(), selector, title,
-                trigger.getCssName(), showDelayMs, hideDelayMs, container, prepareTemplate());
-    }
-
-    protected String prepareTemplate() {
-        String template = null;
-        if (alternateTemplate == null) {
-            template = DEFAULT_TEMPLATE.replace("{0}", getTooltipClassNames());
-            template = template.replace("{1}", getTooltipArrowClassNames());
-            template = template.replace("{2}", getTooltipInnerClassNames());
-        }
-        else {
-            template = alternateTemplate;
-        }
-        return template;
-    }
-
-    /**
-     * Toggle the Tooltip to either show/hide
-     */
-    public void toggle() {
-        call(widget.getElement(), TOGGLE);
     }
 
     /**
@@ -521,210 +734,33 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
     }
 
     /**
-     * Force hide the Tooltip
+     * Toggle the Tooltip to either show/hide
      */
-    public void hide() {
-        call(widget.getElement(), HIDE);
+    public void toggle() {
+        call(widget.getElement(), TOGGLE);
     }
 
     /**
-     * Force the Tooltip to be destroyed
+     * Create the tooltip.
      */
-    public void destroy() {
-        call(widget.getElement(), DESTROY);
-    }
-
-    /**
-     * Can be override by subclasses to handle Tooltip's "show" event however
-     * it's recommended to add an event handler to the tooltip.
-     *
-     * @param evt Event
-     * @see org.gwtbootstrap3.client.shared.event.ShowEvent
-     */
-    protected void onShow(final Event evt) {
-        widget.fireEvent(new ShowEvent(evt));
-    }
-
-    /**
-     * Can be override by subclasses to handle Tooltip's "shown" event however
-     * it's recommended to add an event handler to the tooltip.
-     *
-     * @param evt Event
-     * @see ShownEvent
-     */
-    protected void onShown(final Event evt) {
-        widget.fireEvent(new ShownEvent(evt));
-    }
-
-    /**
-     * Can be override by subclasses to handle Tooltip's "hide" event however
-     * it's recommended to add an event handler to the tooltip.
-     *
-     * @param evt Event
-     * @see org.gwtbootstrap3.client.shared.event.HideEvent
-     */
-    protected void onHide(final Event evt) {
-        widget.fireEvent(new HideEvent(evt));
-    }
-
-    /**
-     * Can be override by subclasses to handle Tooltip's "hidden" event however
-     * it's recommended to add an event handler to the tooltip.
-     *
-     * @param evt Event
-     * @see org.gwtbootstrap3.client.shared.event.HiddenEvent
-     */
-    protected void onHidden(final Event evt) {
-        widget.fireEvent(new HiddenEvent(evt));
-    }
-
-    /**
-     * Adds a show handler to the Tooltip that will be fired when the Tooltip's show event is fired
-     *
-     * @param showHandler ShowHandler to handle the show event
-     * @return HandlerRegistration of the handler
-     */
-    public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
-        return widget.addHandler(showHandler, ShowEvent.getType());
-    }
-
-    /**
-     * Adds a shown handler to the Tooltip that will be fired when the Tooltip's shown event is fired
-     *
-     * @param shownHandler ShownHandler to handle the shown event
-     * @return HandlerRegistration of the handler
-     */
-    public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
-        return widget.addHandler(shownHandler, ShownEvent.getType());
-    }
-
-    /**
-     * Adds a hide handler to the Tooltip that will be fired when the Tooltip's hide event is fired
-     *
-     * @param hideHandler HideHandler to handle the hide event
-     * @return HandlerRegistration of the handler
-     */
-    public HandlerRegistration addHideHandler(final HideHandler hideHandler) {
-        return widget.addHandler(hideHandler, HideEvent.getType());
-    }
-
-    /**
-     * Adds a hidden handler to the Tooltip that will be fired when the Tooltip's hidden event is fired
-     *
-     * @param hiddenHandler HiddenHandler to handle the hidden event
-     * @return HandlerRegistration of the handler
-     */
-    public HandlerRegistration addHiddenHandler(final HiddenHandler hiddenHandler) {
-        return widget.addHandler(hiddenHandler, HiddenEvent.getType());
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void clear() {
-        widget = null;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Iterator<Widget> iterator() {
-        // Simple iterator for the widget
-        return new Iterator<Widget>() {
-            boolean hasElement = widget != null;
-            Widget returned = null;
-
-            @Override
-            public boolean hasNext() {
-                return hasElement;
-            }
-
-            @Override
-            public Widget next() {
-                if (!hasElement || (widget == null)) {
-                    throw new NoSuchElementException();
-                }
-                hasElement = false;
-                return (returned = widget);
-            }
-
-            @Override
-            public void remove() {
-                if (returned != null) {
-                    Tooltip.this.remove(returned);
-                }
-            }
-        };
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean remove(final Widget w) {
-        // Validate.
-        if (widget != w) {
-            return false;
-        }
-
-        // Logical detach.
-        clear();
-        return true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Widget asWidget() {
-        return widget;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString() {
-        return asWidget().toString();
-    }
-
-    // @formatter:off
-    private native void bindJavaScriptEvents(final Element e) /*-{
+    private native void tooltip(Element e, boolean animation, boolean html, String selector, String trigger,
+            int showDelay, int hideDelay, String container, String template) /*-{
         var target = this;
-        var $tooltip = $wnd.jQuery(e);
-        $tooltip.on('show.bs.tooltip', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Tooltip::onShow(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-        $tooltip.on('shown.bs.tooltip', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Tooltip::onShown(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-        $tooltip.on('hide.bs.tooltip', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Tooltip::onHide(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-        $tooltip.on('hidden.bs.tooltip', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Tooltip::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-    }-*/;
-
-    private native void call(final Element e, final String arg) /*-{
-        $wnd.jQuery(e).tooltip(arg);
-    }-*/;
-
-    private native void tooltip(Element e, boolean animation, boolean html, String placement, String selector,
-                                String title, String trigger, int showDelay, int hideDelay, String container, String template) /*-{
         var options = {
-            animation: animation,
-            html: html,
-            placement: placement,
-            title: title,
-            trigger: trigger,
-            delay: {
-                show: showDelay,
-                hide: hideDelay
+            animation : animation,
+            delay : {
+                show : showDelay,
+                hide : hideDelay
             },
-            template: template
+            html : html,
+            placement : function(tip, element) {
+                return target.@org.gwtbootstrap3.client.ui.Tooltip::getPlacementCssName()();
+            },
+            template : template,
+            title : function() {
+                return target.@org.gwtbootstrap3.client.ui.Tooltip::getTitle()();
+            },
+            trigger : trigger
         };
         if (selector) {
             options['selector'] = selector;
@@ -733,6 +769,31 @@ public class Tooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHo
             options['container'] = container;
         }
         $wnd.jQuery(e).tooltip(options);
+    }-*/;
+
+    /** {@inheritDoc} */
+    @Override
+    public String toString() {
+        return asWidget().toString();
+    }
+
+    private native void updateBool(Element e, String option, boolean value) /*-{
+        $wnd.jQuery(e).data('bs.tooltip').options[option] = value;
+    }-*/;
+
+    private native void updateDelay(Element e, int showDelay, int hideDealy) /*-{
+        $wnd.jQuery(e).data('bs.tooltip').options['delay'] = {
+            show : showDelay,
+            hide : hideDelay
+        };
+    }-*/;
+
+    private native void updateString(Element e, String option, String value) /*-{
+        $wnd.jQuery(e).data('bs.tooltip').options[option] = value;
+    }-*/;
+
+    private native void updateTitleWhenShowing(Element e) /*-{
+        $wnd.jQuery(e).tooltip('fixTitle').tooltip('show');
     }-*/;
 
 }
