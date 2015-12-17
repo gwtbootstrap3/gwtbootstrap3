@@ -106,7 +106,8 @@ public class Tooltip extends AbstractTooltip {
     @Override
     protected void init() {
         JavaScriptObject baseOptions = createOptions(getWidget().getElement(), isAnimated(), isHtml(), getSelector(),
-                getTrigger().getCssName(), getShowDelayMs(), getHideDelayMs(), getContainer(), prepareTemplate());
+                getTrigger().getCssName(), getShowDelayMs(), getHideDelayMs(), getContainer(), prepareTemplate(), 
+                getViewportSelector(), getViewportPadding());
         tooltip(getWidget().getElement(), baseOptions);
         setInitialized(true);
     }
