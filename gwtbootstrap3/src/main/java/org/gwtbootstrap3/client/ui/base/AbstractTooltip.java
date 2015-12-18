@@ -40,6 +40,7 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -210,7 +211,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     }
 
     // @formatter:off
-    private native void bindJavaScriptEvents(final Element e) /*-{
+    protected native void bindJavaScriptEvents(final Element e) /*-{
         var target = this;
         var $tooltip = $wnd.jQuery(e);
         var dataTarget = target.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::dataTarget;
@@ -232,18 +233,18 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     }-*/;
     
     protected abstract void call(final String arg);
-    
+
     /** {@inheritDoc} */
     @Override
     public void clear() {
         widget = null;
     }
-    
+
     /**
      * Create the options for the tooltip.
      */
     protected native JavaScriptObject createOptions(Element e, boolean animation, boolean html, String selector,
-            String trigger, int showDelay, int hideDelay, String container, String template, String viewportSelector, 
+            String trigger, int showDelay, int hideDelay, String container, String template, String viewportSelector,
             int viewportPadding) /*-{
         var target = this;
         var options = {
@@ -280,8 +281,9 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
      */
     public void destroy() {
         call(DESTROY);
+        setInitialized(false);
     }
-   
+
     /**
      * Get the alternate template used to render the tooltip. If null,
      * the default template will be used.
@@ -291,7 +293,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     public String getAlternateTemplate() {
         return alternateTemplate;
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public String getContainer() {
@@ -303,7 +305,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     public int getHideDelayMs() {
         return hideDelayMs;
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public String getId() {
@@ -426,7 +428,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     /**
      * Initializes the tooltip for use.
      */
-    protected abstract void init();
+    public abstract void init();
 
     /** {@inheritDoc} */
     @Override
@@ -559,6 +561,29 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
      */
     public void reconfigure() {
         // Do nothing. No longer necessary.
+    }
+
+    /**
+     * Recreate the tooltip/popover with a default dealy of 300ms between the call to destroy and init.
+     */
+    public void recreate() {
+        recreate(300);
+    }
+
+    /**
+     * Recreate the tooltip/popover. The delay is necessary because the destroy of the tooltip needs to be complete
+     * prior to calling init.
+     *
+     * @param delay the delay in ms between the call to destroy and init.
+     */
+    public void recreate(int delay) {
+        destroy();
+        new Timer() {
+            @Override
+            public void run() {
+                init();
+            }
+        }.schedule(delay);
     }
 
     /** {@inheritDoc} */
@@ -797,9 +822,6 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
             return;
         }
 
-        // Bind jquery events
-        bindJavaScriptEvents(widget.getElement());
-
         // When we attach it, configure the tooltip
         widget.addAttachHandler(new AttachEvent.Handler() {
 
@@ -842,14 +864,6 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
             hide : hideDelay
         };
     }-*/;
-    
-    private native void updateViewport(Element e, String selector, int padding) /*-{
-        var dataTarget = this.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::dataTarget;
-        $wnd.jQuery(e).data(dataTarget).options['viewport'] = {
-            selector : selector,
-            padding : padding
-        };
-    }-*/;
 
     private native void updateString(Element e, String option, String value) /*-{
         var dataTarget = this.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::dataTarget;
@@ -861,5 +875,13 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
      * updates the title immediately.
      */
     protected abstract void updateTitleWhenShowing();
+
+    private native void updateViewport(Element e, String selector, int padding) /*-{
+        var dataTarget = this.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::dataTarget;
+        $wnd.jQuery(e).data(dataTarget).options['viewport'] = {
+            selector : selector,
+            padding : padding
+        };
+    }-*/;
 
 }
