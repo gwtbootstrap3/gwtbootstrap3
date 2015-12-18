@@ -128,12 +128,15 @@ public class Popover extends AbstractTooltip {
         return content == null ? "" : content;
     }
 
+    /** {@inheritDoc} */
     @Override
-    protected void init() {
-        JavaScriptObject baseOptions = createOptions(getWidget().getElement(), isAnimated(), isHtml(), getSelector(),
+    public void init() {
+        Element element = getWidget().getElement();
+        JavaScriptObject baseOptions = createOptions(element, isAnimated(), isHtml(), getSelector(),
                 getTrigger().getCssName(), getShowDelayMs(), getHideDelayMs(), getContainer(), prepareTemplate(), 
                 getViewportSelector(), getViewportPadding());
-        popover(getWidget().getElement(), baseOptions, getContent());
+        popover(element, baseOptions, getContent());
+        bindJavaScriptEvents(element);
         setInitialized(true);
     }
 
