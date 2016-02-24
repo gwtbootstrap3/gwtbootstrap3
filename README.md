@@ -3,7 +3,7 @@
 ##About
 GWTBootstrap3 is a wrapper for [Twitter Bootstrap](http://getbootstrap.com/), which helps you develop responsive, mobile first HTML, CSS, and JS projects on the web using Java and Google Web Toolkit (GWT). 
 
-The stable release is 0.9.2. The aforementioned version and has support for each Bootstrap  v3.3.5 element. See [supported features](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Supported-Features) on the project wiki.
+The stable release is 0.9.3. The aforementioned version and has support for each Bootstrap  v3.3.6 element. See [supported features](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Supported-Features) on the project wiki.
 
 ##Add GWTBootstrap3 to your project
 You can easily add GWTBootstrap3 to your project by including the library as a Maven dependency.
@@ -12,7 +12,7 @@ You can easily add GWTBootstrap3 to your project by including the library as a M
 <dependency>
     <groupId>org.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3</artifactId>
-    <version>0.9.2</version>
+    <version>0.9.3</version>
     <scope>provided</scope>
 </dependency>
 ```
