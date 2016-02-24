@@ -9,7 +9,7 @@ fi
 			
 echo -e "Publishing javadoc to gh-pages . . .\n"
 
-cp -R ./gwtbootstrap3/target/javadoc $HOME/javadoc-latest
+cp -R -v ./gwtbootstrap3/target/apidocs $HOME/javadoc-latest
 
 git config --global user.email "travis@travis-ci.org"
 git config --global user.name "travis-ci"
@@ -28,7 +28,7 @@ cp -Rf $HOME/javadoc-latest ./snapshot/apidocs
 
 git add -f .
 git commit -m "Auto-push javadoc to gh-pages successful. (Travis build: $TRAVIS_BUILD_NUMBER)"
-git push -fq origin gh-pages > /dev/null
+git push -fq origin gh-pages
 
 echo -e "Published javadoc to gh-pages.\n"
 	
