@@ -10,7 +10,7 @@ You can easily add GWTBootstrap3 to your project by including the library as a M
 <dependency>
     <groupId>org.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3</artifactId>
-    <version>0.9.3</version>
+    <version>VERSION</version>
     <scope>provided</scope>
 </dependency>
 ```

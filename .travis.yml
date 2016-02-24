@@ -12,4 +12,4 @@ script:
 after_success:
 - .utility/deploy.sh 
 - .utility/update_site_apidocs.sh
-- .utility/update_site_demo.sh
+- .utility/update_demo_site.sh
