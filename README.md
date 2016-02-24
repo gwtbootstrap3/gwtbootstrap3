@@ -18,8 +18,8 @@ You can easily add GWTBootstrap3 to your project by including the library as a M
 ##Current Release
 * 0.9.3 - Released on 24 February 2016. 
   * Based on Bootstrap v3.3.6
-* [Demo](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/snapshot) - The GWTBootstrap3 0.9.3 Demo.
-* [API Docs](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/snapshot/apidocs) - The GWTBootstrap3 0.9.3 API Javadoc.
+* [Demo](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/) - The GWTBootstrap3 0.9.3 Demo.
+* [API Docs](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/apidocs) - The GWTBootstrap3 0.9.3 API Javadoc.
 * [Supported Features](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Supported-Features) - Current releases supported features.
 
 ##Current Snapshot
