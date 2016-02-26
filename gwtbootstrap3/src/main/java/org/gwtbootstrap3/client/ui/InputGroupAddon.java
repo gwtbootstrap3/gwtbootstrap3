@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2016 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,9 +21,11 @@ package org.gwtbootstrap3.client.ui;
  */
 
 import org.gwtbootstrap3.client.ui.base.AbstractInputGroupAddon;
+import org.gwtbootstrap3.client.ui.base.HasBadge;
 import org.gwtbootstrap3.client.ui.base.HasIcon;
 import org.gwtbootstrap3.client.ui.base.HasIconPosition;
 import org.gwtbootstrap3.client.ui.base.mixin.IconTextMixin;
+import org.gwtbootstrap3.client.ui.constants.BadgePosition;
 import org.gwtbootstrap3.client.ui.constants.IconFlip;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconRotate;
@@ -53,9 +55,9 @@ import com.google.gwt.user.client.ui.HasText;
  * @see InputGroup
  * @see InputGroupButton
  */
-public class InputGroupAddon extends AbstractInputGroupAddon implements HasText, HasIcon, HasIconPosition {
+public class InputGroupAddon extends AbstractInputGroupAddon implements HasText, HasIcon, HasIconPosition, HasBadge {
 
-    IconTextMixin<InputGroupAddon> iconTextMixin = new IconTextMixin<InputGroupAddon>(this);
+    IconTextMixin<InputGroupAddon> iconTextMixin = new IconTextMixin<>(this);
 
     public InputGroupAddon() {
         super(Styles.INPUT_GROUP_ADDON);
@@ -172,5 +174,25 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText,
     @Override
     public boolean isIconFixedWidth() {
         return iconTextMixin.isIconFixedWidth();
+    }
+
+    @Override
+    public void setBadgeText(String badgeText) {
+        iconTextMixin.setBadgeText(badgeText);
+    }
+
+    @Override
+    public String getBadgeText() {
+        return iconTextMixin.getBadgeText();
+    }
+
+    @Override
+    public void setBadgePosition(BadgePosition badgePosition) {
+        iconTextMixin.setBadgePosition(badgePosition);
+    }
+
+    @Override
+    public BadgePosition getBadgePosition() {
+        return iconTextMixin.getBadgePosition();
     }
 }

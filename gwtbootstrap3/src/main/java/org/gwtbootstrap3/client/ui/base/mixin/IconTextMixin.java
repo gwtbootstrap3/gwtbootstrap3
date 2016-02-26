@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2016 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ package org.gwtbootstrap3.client.ui.base.mixin;
 
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.user.client.ui.HasText;
+
 import org.gwtbootstrap3.client.ui.Badge;
 import org.gwtbootstrap3.client.ui.Icon;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
@@ -42,7 +43,7 @@ import org.gwtbootstrap3.client.ui.html.Text;
  * @author Sven Jacobs
  * @author Drew Spencer
  */
-public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIconPosition> implements
+public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIconPosition & HasBadge> implements
         HasText, HasIcon, HasIconPosition, HasBadge {
 
     private final T widget;
