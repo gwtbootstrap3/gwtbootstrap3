@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui.base;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 - 2015 GwtBootstrap3
+ * Copyright (C) 2013 - 2016 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,11 +20,6 @@ package org.gwtbootstrap3.client.ui.base;
  * #L%
  */
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.Focusable;
 import org.gwtbootstrap3.client.ui.Anchor;
 import org.gwtbootstrap3.client.ui.constants.BadgePosition;
 import org.gwtbootstrap3.client.ui.constants.IconFlip;
@@ -33,6 +28,12 @@ import org.gwtbootstrap3.client.ui.constants.IconRotate;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
+
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.Focusable;
 
 /**
  * Base class for list items that contain an {@link org.gwtbootstrap3.client.ui.Anchor} link.
@@ -270,5 +271,5 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     public void setTargetHistoryToken(final String targetHistoryToken) {
         anchor.setTargetHistoryToken(targetHistoryToken);
     }
-    
+
 }
