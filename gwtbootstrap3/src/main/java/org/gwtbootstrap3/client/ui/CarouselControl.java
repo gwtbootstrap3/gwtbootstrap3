@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2016 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,32 +20,45 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import java.util.List;
-
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
-import org.gwtbootstrap3.client.ui.base.HasDataTarget;
+import org.gwtbootstrap3.client.ui.base.HasHref;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap3.client.ui.base.mixin.DataTargetMixin;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.client.ui.constants.Styles;
+import org.gwtbootstrap3.client.ui.html.Span;
 
+import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.HasText;
 
 /**
  * @author Joshua Godi
  */
-public class CarouselControl extends ComplexWidget implements HasDataTarget {
-    private final DataTargetMixin<CarouselControl> targetMixin = new DataTargetMixin<CarouselControl>(this);
+public class CarouselControl extends ComplexWidget implements HasHref, HasText {
 
-    private final Icon icon = new Icon();
+    private static final String BUTTON = "button";
+
+    private final AnchorElement anchorElem;
+    private final Icon icon;
+    private final Span span;
 
     public CarouselControl() {
-        setElement(Document.get().createAnchorElement());
-        setStyleName(Styles.CAROUSEL_CONTROL);
 
+        // Anchor
+        this.anchorElem = Document.get().createAnchorElement();
+        setElement(anchorElem);
+        setStyleName(Styles.CAROUSEL_CONTROL);
+        anchorElem.setAttribute(Attributes.ROLE, BUTTON);
+
+        // Icon
+        icon = new Icon();
         add(icon);
+
+        // Span (SR_ONLY)
+        span = new Span();
+        span.setStyleName(Styles.SR_ONLY);
+        add(span);
     }
 
     public void setIconType(final IconType iconType) {
@@ -67,22 +80,22 @@ public class CarouselControl extends ComplexWidget implements HasDataTarget {
     }
 
     @Override
-    public void setDataTargetWidgets(final List<Widget> widgets) {
-        targetMixin.setDataTargetWidgets(widgets);
+    public void setHref(String href) {
+        anchorElem.setHref(href);
     }
 
     @Override
-    public void setDataTargetWidget(final Widget widget) {
-        targetMixin.setDataTargetWidget(widget);
+    public String getHref() {
+        return anchorElem.getHref();
     }
 
     @Override
-    public void setDataTarget(final String dataTarget) {
-        targetMixin.setDataTarget(dataTarget);
+    public String getText() {
+        return span.getText();
     }
 
     @Override
-    public String getDataTarget() {
-        return targetMixin.getDataTarget();
+    public void setText(String text) {
+        span.setText(text);
     }
 }

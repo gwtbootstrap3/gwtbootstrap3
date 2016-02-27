@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2016 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
 
@@ -28,7 +29,10 @@ import org.gwtbootstrap3.client.ui.html.Div;
  */
 public class CarouselInner extends Div {
 
+    private static final String LISTBOX = "listbox";
+
     public CarouselInner() {
         setStyleName(Styles.CAROUSEL_INNER);
+        getElement().setAttribute(Attributes.ROLE, LISTBOX);
     }
 }
