@@ -25,8 +25,6 @@ import org.gwtbootstrap3.client.ui.constants.Placement;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style.Unit;
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.DomEvent;
 
 /**
@@ -74,12 +72,6 @@ public class TooltipHelpBlock extends Tooltip {
                 }
             }
         };
-        helpBlock.addDomHandler(new ChangeHandler() {
-            @Override
-            public void onChange(final ChangeEvent event) {
-                reconfigure();
-            }
-        }, ChangeEvent.getType());
         helpBlock.getElement().getStyle().setPaddingLeft(0, Unit.PX);
         helpBlock.setIconType(IconType.EXCLAMATION_TRIANGLE);
         setWidget(helpBlock);

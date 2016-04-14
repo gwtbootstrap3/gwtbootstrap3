@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,449 +20,158 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import org.gwtbootstrap3.client.ui.base.AbstractTooltip;
 
-import org.gwtbootstrap3.client.shared.event.HiddenEvent;
-import org.gwtbootstrap3.client.shared.event.HiddenHandler;
-import org.gwtbootstrap3.client.shared.event.HideEvent;
-import org.gwtbootstrap3.client.shared.event.HideHandler;
-import org.gwtbootstrap3.client.shared.event.ShowEvent;
-import org.gwtbootstrap3.client.shared.event.ShowHandler;
-import org.gwtbootstrap3.client.shared.event.ShownEvent;
-import org.gwtbootstrap3.client.shared.event.ShownHandler;
-import org.gwtbootstrap3.client.ui.base.HasHover;
-import org.gwtbootstrap3.client.ui.base.HasId;
-import org.gwtbootstrap3.client.ui.constants.Placement;
-import org.gwtbootstrap3.client.ui.constants.Trigger;
-
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.logical.shared.AttachEvent;
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.HasOneWidget;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
- * @author Joshua Godi
+ * Basic implementation for the Bootstrap Popover
+ * <p/>
+ * <a href="http://getbootstrap.com/javascript/#popovers">Bootstrap Documentation</a>
+ * <p/>
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <p/>
+ * 
+ * <pre>
+ * {@code
+ * <b:Popover text="...">
+ *    ...
+ * </b:Popover>
+ * }
+ * </pre>
+ * <p/>
+ *
+ * @author Steven Jardine
  */
-public class Popover implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHover {
-    private static final String TOGGLE = "toggle";
-    private static final String SHOW = "show";
-    private static final String HIDE = "hide";
-    private static final String DESTROY = "destroy";
+public class Popover extends AbstractTooltip {
 
-    // Defaults from http://getbootstrap.com/javascript/#popovers
-    private boolean isAnimated = true;
-    private boolean isHTML = false;
-    private Placement placement = Placement.TOP;
-    private Trigger trigger = Trigger.HOVER;
-    private String title = "";
-    private String content = "";
-    private int hideDelayMs = 0;
-    private int showDelayMs = 0;
-    private String container = null;
-    private final String selector = null;
+    private static final String TEMPLATE = "<div class=\"popover\" role=\"tooltip\"><div class=\"arrow\"></div><h3 class=\"popover-title\"></h3><div class=\"popover-content\"></div></div>";
 
-    private Widget widget;
-    private String id;
+    private String content = null;
 
+    /**
+     * Creates the empty Popover
+     */
     public Popover() {
+        super("bs.popover");
+        setAlternateTemplate(TEMPLATE);
     }
 
+    /**
+     * Creates the popover with given title. Remember to set the content and widget as well.
+     *
+     * @param title title for the popover
+     */
+    public Popover(final String title) {
+        this();
+        setTitle(title);
+    }
+
+    /**
+     * Creates the popover with given title and content. Remember to set the widget as well.
+     *
+     * @param title title for the popover
+     */
+    public Popover(final String title, String content) {
+        this();
+        setTitle(title);
+        setContent(content);
+    }
+
+    /**
+     * Creates the popover around this widget
+     *
+     * @param w widget for the popover
+     */
     public Popover(final Widget w) {
+        this();
         setWidget(w);
     }
 
-    @Override
-    public void setWidget(final Widget w) {
-        // Validate
-        if (w == widget) {
-            return;
-        }
-
-        // Detach new child
-        if (w != null) {
-            w.removeFromParent();
-        }
-
-        // Remove old child
-        if (widget != null) {
-            remove(widget);
-        }
-
-        // Logical attach, but don't physical attach; done by jquery.
-        widget = w;
-        if (widget == null) {
-            return;
-        }
-
-        // Bind jquery events
-        bindJavaScriptEvents(widget.getElement());
-
-        // When we attach it, configure the tooltip
-        widget.addAttachHandler(new AttachEvent.Handler() {
-            @Override
-            public void onAttachOrDetach(final AttachEvent event) {
-                reconfigure();
-            }
-        });
-    }
-
-    @Override
-    public void add(final Widget child) {
-        if (getWidget() != null) {
-            throw new IllegalStateException("Can only contain one child widget");
-        }
-        setWidget(child);
-    }
-
-    @Override
-    public void setWidget(final IsWidget w) {
-        widget = (w == null) ? null : w.asWidget();
-    }
-
-    @Override
-    public Widget getWidget() {
-        return widget;
-    }
-
-    @Override
-    public void setId(final String id) {
-        this.id = id;
-        if (widget != null) {
-            widget.getElement().setId(id);
-        }
-    }
-
-    @Override
-    public String getId() {
-        return (widget == null) ? id : widget.getElement().getId();
-    }
-
-    @Override
-    public void setIsAnimated(final boolean isAnimated) {
-        this.isAnimated = isAnimated;
-    }
-
-    @Override
-    public boolean isAnimated() {
-        return isAnimated;
-    }
-
-    @Override
-    public void setIsHtml(final boolean isHTML) {
-        this.isHTML = isHTML;
-    }
-
-    @Override
-    public boolean isHtml() {
-        return isHTML;
-    }
-
-    @Override
-    public void setPlacement(final Placement placement) {
-        this.placement = placement;
-    }
-
-    @Override
-    public Placement getPlacement() {
-        return placement;
-    }
-
-    @Override
-    public void setTrigger(final Trigger trigger) {
-        this.trigger = trigger;
-    }
-
-    @Override
-    public Trigger getTrigger() {
-        return trigger;
-    }
-
-    @Override
-    public void setShowDelayMs(final int showDelayMs) {
-        this.showDelayMs = showDelayMs;
-    }
-
-    @Override
-    public int getShowDelayMs() {
-        return showDelayMs;
-    }
-
-    @Override
-    public void setHideDelayMs(final int hideDelayMs) {
-        this.hideDelayMs = hideDelayMs;
-    }
-
-    @Override
-    public int getHideDelayMs() {
-        return hideDelayMs;
-    }
-
-    @Override
-    public void setContainer(final String container) {
-        this.container = container;
-    }
-
-    @Override
-    public String getContainer() {
-        return container;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setContent(final String content) {
-        this.content = content;
-    }
-
-    public void setTitle(final String title) {
-        this.title = title;
-    }
-
-    public void reconfigure() {
-        // First destroy the old tooltip
-        destroy();
-
-        // Setup the new tooltip
-        if (container != null && selector != null) {
-            popover(widget.getElement(), isAnimated, isHTML, placement.getCssName(), selector, title, content,
-                    trigger.getCssName(), showDelayMs, hideDelayMs, container);
-        } else if (container != null) {
-            popover(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title, content,
-                    trigger.getCssName(), showDelayMs, hideDelayMs, container);
-        } else if (selector != null) {
-            popover(widget.getElement(), isAnimated, isHTML, placement.getCssName(), selector, title, content,
-                    trigger.getCssName(), showDelayMs, hideDelayMs);
-        } else {
-            popover(widget.getElement(), isAnimated, isHTML, placement.getCssName(), title, content,
-                    trigger.getCssName(), showDelayMs, hideDelayMs);
-        }
-    }
-
-    public void toggle() {
-        call(widget.getElement(), TOGGLE);
-    }
-
-    public void show() {
-        call(widget.getElement(), SHOW);
-    }
-
-    public void hide() {
-        call(widget.getElement(), HIDE);
-    }
-
-    public void destroy() {
-        call(widget.getElement(), DESTROY);
+    /**
+     * Creates the popover around this widget with given title and content.
+     *
+     * @param w widget for the popover
+     * @param title title for the popover
+     * @param content content for the popover
+     */
+    public Popover(final Widget w, final String title, String content) {
+        this();
+        setWidget(w);
+        setTitle(title);
+        setContent(content);
     }
 
     /**
-     * Can be override by subclasses to handle Tooltip's "show" event however
-     * it's recommended to add an event handler to the tooltip.
+     * Call the native popover method with the given argument.
      *
-     * @param evt Event
-     * @see org.gwtbootstrap3.client.shared.event.ShowEvent
+     * @param e the {@link Element}.
+     * @param arg the arg
      */
-    protected void onShow(final Event evt) {
-        widget.fireEvent(new ShowEvent(evt));
-    }
-
-    /**
-     * Can be override by subclasses to handle Tooltip's "shown" event however
-     * it's recommended to add an event handler to the tooltip.
-     *
-     * @param evt Event
-     * @see org.gwtbootstrap3.client.shared.event.ShownEvent
-     */
-    protected void onShown(final Event evt) {
-        widget.fireEvent(new ShownEvent(evt));
-    }
-
-    /**
-     * Can be override by subclasses to handle Tooltip's "hide" event however
-     * it's recommended to add an event handler to the tooltip.
-     *
-     * @param evt Event
-     * @see org.gwtbootstrap3.client.shared.event.HideEvent
-     */
-    protected void onHide(final Event evt) {
-        widget.fireEvent(new HideEvent(evt));
-    }
-
-    /**
-     * Can be override by subclasses to handle Tooltip's "hidden" event however
-     * it's recommended to add an event handler to the tooltip.
-     *
-     * @param evt Event
-     * @see org.gwtbootstrap3.client.shared.event.HiddenEvent
-     */
-    protected void onHidden(final Event evt) {
-        widget.fireEvent(new HiddenEvent(evt));
-    }
-
-    public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
-        return widget.addHandler(showHandler, ShowEvent.getType());
-    }
-
-    public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
-        return widget.addHandler(shownHandler, ShownEvent.getType());
-    }
-
-    public HandlerRegistration addHideHandler(final HideHandler hideHandler) {
-        return widget.addHandler(hideHandler, HideEvent.getType());
-    }
-
-    public HandlerRegistration addHiddenHandler(final HiddenHandler hiddenHandler) {
-        return widget.addHandler(hiddenHandler, HiddenEvent.getType());
-    }
-
-    @Override
-    public void clear() {
-        widget = null;
-    }
-
-    @Override
-    public Iterator<Widget> iterator() {
-        // Simple iterator for the widget
-        return new Iterator<Widget>() {
-            boolean hasElement = widget != null;
-            Widget returned = null;
-
-            @Override
-            public boolean hasNext() {
-                return hasElement;
-            }
-
-            @Override
-            public Widget next() {
-                if (!hasElement || (widget == null)) {
-                    throw new NoSuchElementException();
-                }
-                hasElement = false;
-                return (returned = widget);
-            }
-
-            @Override
-            public void remove() {
-                if (returned != null) {
-                    Popover.this.remove(returned);
-                }
-            }
-        };
-    }
-
-    @Override
-    public boolean remove(final Widget w) {
-        // Validate.
-        if (widget != w) {
-            return false;
-        }
-
-        // Logical detach.
-        clear();
-        return true;
-    }
-
-    @Override
-    public Widget asWidget() {
-        return widget;
-    }
-
-    // @formatter:off
-    private native void bindJavaScriptEvents(final Element e) /*-{
-        var target = this;
-        var $popover = $wnd.jQuery(e);
-
-        $popover.on('show.bs.popover', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Popover::onShow(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-
-        $popover.on('shown.bs.popover', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Popover::onShown(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-
-        $popover.on('hide.bs.popover', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Popover::onHide(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-
-        $popover.on('hidden.bs.popover', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Popover::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
-        });
-    }-*/;
-
     private native void call(final Element e, final String arg) /*-{
         $wnd.jQuery(e).popover(arg);
     }-*/;
 
-    private native void popover(Element e, boolean animation, boolean html, String placement, String selector,
-                                String title, String content, String trigger, int showDelay, int hideDelay, String container) /*-{
-        $wnd.jQuery(e).popover({
-            animation: animation,
-            html: html,
-            placement: placement,
-            selector: selector,
-            title: title,
-            content: content,
-            trigger: trigger,
-            delay: {
-                show: showDelay,
-                hide: hideDelay
-            },
-            container: container
-        });
+    /** {@inheritDoc} */
+    @Override
+    protected void call(String arg) {
+        call(getWidget().getElement(), arg);
+    }
+
+    /**
+     * @return the content of the popover.
+     */
+    public String getContent() {
+        return content == null ? "" : content;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void init() {
+        Element element = getWidget().getElement();
+        JavaScriptObject baseOptions = createOptions(element, isAnimated(), isHtml(), getSelector(),
+                getTrigger().getCssName(), getShowDelayMs(), getHideDelayMs(), getContainer(), prepareTemplate(), 
+                getViewportSelector(), getViewportPadding());
+        popover(element, baseOptions, getContent());
+        bindJavaScriptEvents(element);
+        setInitialized(true);
+    }
+
+    /**
+     * Create the popover.
+     */
+    private native void popover(Element e, JavaScriptObject options, String content) /*-{
+        var target = this;
+        options['content'] = function(){
+            return target.@org.gwtbootstrap3.client.ui.Popover::getContent()();
+        };
+        $wnd.jQuery(e).popover(options);
     }-*/;
 
-    private native void popover(Element e, boolean animation, boolean html, String placement,
-                                String title, String content, String trigger, int showDelay, int hideDelay, String container) /*-{
-        $wnd.jQuery(e).popover({
-            animation: animation,
-            html: html,
-            placement: placement,
-            title: title,
-            content: content,
-            trigger: trigger,
-            delay: {
-                show: showDelay,
-                hide: hideDelay
-            },
-            container: container
-        });
+    /**
+     * @param content the content of the popover to set
+     */
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    protected void updateTitleWhenShowing() {
+        updateTitleWhenShowing(getWidget().getElement());
+    }
+
+    /**
+     * Update the title. This should only be called when the title is already showing. It causes a small flicker but
+     * updates the title immediately.
+     *
+     * @param e the popover {@link Element}.
+     */
+    private native void updateTitleWhenShowing(Element e) /*-{
+        $wnd.jQuery(e).popover('fixTitle').popover('show');
     }-*/;
 
-    private native void popover(Element e, boolean animation, boolean html, String placement, String selector,
-                                String title, String content, String trigger, int showDelay, int hideDelay) /*-{
-        $wnd.jQuery(e).popover({
-            animation: animation,
-            html: html,
-            placement: placement,
-            selector: selector,
-            title: title,
-            content: content,
-            trigger: trigger,
-            delay: {
-                show: showDelay,
-                hide: hideDelay
-            }
-        });
-    }-*/;
-
-    private native void popover(Element e, boolean animation, boolean html, String placement,
-                                String title, String content, String trigger, int showDelay, int hideDelay) /*-{
-        $wnd.jQuery(e).popover({
-            animation: animation,
-            html: html,
-            placement: placement,
-            title: title,
-            content: content,
-            trigger: trigger,
-            delay: {
-                show: showDelay,
-                hide: hideDelay
-            }
-        });
-    }-*/;
 }

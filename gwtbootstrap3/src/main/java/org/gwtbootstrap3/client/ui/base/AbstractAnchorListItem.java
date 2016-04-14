@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui.base;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2013 - 2016 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ package org.gwtbootstrap3.client.ui.base;
  */
 
 import org.gwtbootstrap3.client.ui.Anchor;
+import org.gwtbootstrap3.client.ui.constants.BadgePosition;
 import org.gwtbootstrap3.client.ui.constants.IconFlip;
 import org.gwtbootstrap3.client.ui.constants.IconPosition;
 import org.gwtbootstrap3.client.ui.constants.IconRotate;
@@ -38,131 +39,189 @@ import com.google.gwt.user.client.ui.Focusable;
  * Base class for list items that contain an {@link org.gwtbootstrap3.client.ui.Anchor} link.
  *
  * @author Sven Jacobs
+ * @author Drew Spencer
+ * @author Steven Jardine
  */
 public abstract class AbstractAnchorListItem extends AbstractListItem
-        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasDataToggle, HasIcon, HasIconPosition {
+        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasDataToggle, HasIcon, HasIconPosition, HasBadge {
 
     protected final Anchor anchor;
 
+    /**
+     * Constructor.
+     */
     protected AbstractAnchorListItem() {
         anchor = new Anchor();
         add(anchor, (Element) getElement());
     }
 
-    @Override
-    public void setHref(final String href) {
-        anchor.setHref(href);
-    }
-
-    @Override
-    public String getHref() {
-        return anchor.getHref();
-    }
-
-    @Override
-    public void setTargetHistoryToken(final String targetHistoryToken) {
-        anchor.setTargetHistoryToken(targetHistoryToken);
-    }
-
-    @Override
-    public String getTargetHistoryToken() {
-        return anchor.getTargetHistoryToken();
-    }
-
+    /** {@inheritDoc} */
     @Override
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
         return anchor.addClickHandler(handler);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public int getTabIndex() {
-        return anchor.getTabIndex();
+    public BadgePosition getBadgePosition() {
+        return anchor.getBadgePosition();
     }
 
+    /** {@inheritDoc} */
     @Override
-    public void setAccessKey(final char key) {
-        anchor.setAccessKey(key);
+    public String getBadgeText() {
+        return anchor.getBadgeText();
     }
 
-    @Override
-    public void setFocus(final boolean focused) {
-        anchor.setFocus(focused);
-    }
-
-    @Override
-    public void setTabIndex(final int index) {
-        anchor.setTabIndex(index);
-    }
-
-    @Override
-    public void setDataToggle(final Toggle toggle) {
-        anchor.setDataToggle(toggle);
-    }
-
+    /** {@inheritDoc} */
     @Override
     public Toggle getDataToggle() {
         return anchor.getDataToggle();
     }
 
-
+    /** {@inheritDoc} */
     @Override
-    public void setIcon(final IconType iconType) {
-        anchor.setIcon(iconType);
+    public String getHref() {
+        return anchor.getHref();
     }
 
+    /** {@inheritDoc} */
     @Override
     public IconType getIcon() {
         return anchor.getIcon();
     }
 
-    @Override
-    public void setIconPosition(final IconPosition iconPosition) {
-        anchor.setIconPosition(iconPosition);
-    }
-
-    @Override
-    public IconPosition getIconPosition() {
-        return anchor.getIconPosition();
-    }
-
-    @Override
-    public void setIconSize(final IconSize iconSize) {
-        anchor.setIconSize(iconSize);
-    }
-
-    @Override
-    public IconSize getIconSize() {
-        return anchor.getIconSize();
-    }
-
-    @Override
-    public void setIconFlip(final IconFlip iconFlip) {
-        anchor.setIconFlip(iconFlip);
-    }
-
+    /** {@inheritDoc} */
     @Override
     public IconFlip getIconFlip() {
         return anchor.getIconFlip();
     }
 
+    /** {@inheritDoc} */
     @Override
-    public void setIconRotate(final IconRotate iconRotate) {
-        anchor.setIconRotate(iconRotate);
+    public IconPosition getIconPosition() {
+        return anchor.getIconPosition();
     }
 
+    /** {@inheritDoc} */
     @Override
     public IconRotate getIconRotate() {
         return anchor.getIconRotate();
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public IconSize getIconSize() {
+        return anchor.getIconSize();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public int getTabIndex() {
+        return anchor.getTabIndex();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public String getTargetHistoryToken() {
+        return anchor.getTargetHistoryToken();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isIconBordered() {
+        return anchor.isIconBordered();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isIconFixedWidth() {
+        return anchor.isIconFixedWidth();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isIconInverse() {
+        return anchor.isIconInverse();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isIconPulse() {
+        return anchor.isIconPulse();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isIconSpin() {
+        return anchor.isIconSpin();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setAccessKey(final char key) {
+        anchor.setAccessKey(key);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setBadgePosition(BadgePosition badgePosition) {
+        anchor.setBadgePosition(badgePosition);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setBadgeText(String badgeText) {
+        anchor.setBadgeText(badgeText);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setDataToggle(final Toggle toggle) {
+        anchor.setDataToggle(toggle);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setEnabled(final boolean enabled) {
+        super.setEnabled(enabled);
+        anchor.setEnabled(enabled);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setFocus(final boolean focused) {
+        anchor.setFocus(focused);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setHref(final String href) {
+        anchor.setHref(href);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setIcon(final IconType iconType) {
+        anchor.setIcon(iconType);
+    }
+
+    /** {@inheritDoc} */
     @Override
     public void setIconBordered(final boolean iconBordered) {
         anchor.setIconBordered(iconBordered);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public boolean isIconBordered() {
-        return anchor.isIconBordered();
+    public void setIconFixedWidth(final boolean iconFixedWidth) {
+        anchor.setIconFixedWidth(iconFixedWidth);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setIconFlip(final IconFlip iconFlip) {
+        anchor.setIconFlip(iconFlip);
     }
 
     /** {@inheritDoc} */
@@ -173,43 +232,44 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
 
     /** {@inheritDoc} */
     @Override
-    public boolean isIconInverse() {
-        return anchor.isIconInverse();
+    public void setIconPosition(final IconPosition iconPosition) {
+        anchor.setIconPosition(iconPosition);
     }
 
-    @Override
-    public void setIconSpin(final boolean iconSpin) {
-        anchor.setIconSpin(iconSpin);
-    }
-
-    @Override
-    public boolean isIconSpin() {
-        return anchor.isIconSpin();
-    }
-
+    /** {@inheritDoc} */
     @Override
     public void setIconPulse(boolean iconPulse) {
         anchor.setIconPulse(iconPulse);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public boolean isIconPulse() {
-        return anchor.isIconPulse();
+    public void setIconRotate(final IconRotate iconRotate) {
+        anchor.setIconRotate(iconRotate);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public void setIconFixedWidth(final boolean iconFixedWidth) {
-        anchor.setIconFixedWidth(iconFixedWidth);
+    public void setIconSize(final IconSize iconSize) {
+        anchor.setIconSize(iconSize);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public boolean isIconFixedWidth() {
-        return anchor.isIconFixedWidth();
+    public void setIconSpin(final boolean iconSpin) {
+        anchor.setIconSpin(iconSpin);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public void setEnabled(final boolean enabled) {
-        super.setEnabled(enabled);
-        anchor.setEnabled(enabled);
+    public void setTabIndex(final int index) {
+        anchor.setTabIndex(index);
     }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setTargetHistoryToken(final String targetHistoryToken) {
+        anchor.setTargetHistoryToken(targetHistoryToken);
+    }
+
 }

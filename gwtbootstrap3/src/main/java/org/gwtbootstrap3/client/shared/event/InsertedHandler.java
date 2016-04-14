@@ -1,10 +1,10 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.shared.event;
 
 /*
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2016 GwtBootstrap3
+ * Copyright (C) 2015 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,19 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Attributes;
-import org.gwtbootstrap3.client.ui.constants.Styles;
-import org.gwtbootstrap3.client.ui.html.Div;
+import com.google.gwt.event.shared.EventHandler;
 
 /**
- * @author Joshua Godi
+ * @author Steven Jardine
  */
-public class CarouselInner extends Div {
-
-    private static final String LISTBOX = "listbox";
-
-    public CarouselInner() {
-        setStyleName(Styles.CAROUSEL_INNER);
-        getElement().setAttribute(Attributes.ROLE, LISTBOX);
-    }
+public interface InsertedHandler extends EventHandler {
+    void onInserted(InsertedEvent event);
 }
