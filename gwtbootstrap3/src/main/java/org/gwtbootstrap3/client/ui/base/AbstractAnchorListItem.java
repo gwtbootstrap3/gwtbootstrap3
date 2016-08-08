@@ -65,7 +65,7 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     /** {@inheritDoc} */
     @Override
     public HandlerRegistration addClickHandler(final ClickHandler handler) {
-        return anchor.addDomHandler(handler, ClickEvent.getType());
+        return anchor.addHandler(handler, ClickEvent.getType());
     }
 
     /** {@inheritDoc} */
