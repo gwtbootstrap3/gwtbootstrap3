@@ -44,7 +44,6 @@ import com.google.gwt.user.client.ui.Widget;
 public class Text extends Widget implements HasText {
 
     private final com.google.gwt.dom.client.Text text;
-    private boolean isAttached;
 
     /**
      * Creates the default text node with empty text
@@ -77,29 +76,5 @@ public class Text extends Widget implements HasText {
     @Override
     public String getText() {
         return text.getData();
-    }
-    
-    @Override
-    public boolean isAttached() {
-        return isAttached;
-    }
-
-    @Override
-    protected void onAttach() {
-        if (isAttached()) {
-            throw new IllegalStateException("Text is already attached!");
-        }
-        isAttached = true;
-        onLoad();
-        AttachEvent.fire(this, isAttached);
-    }
-
-    @Override
-    protected void onDetach() {
-        if (!isAttached()) {
-            throw new IllegalStateException("Text is not attached!");
-        }
-        isAttached = false;
-        AttachEvent.fire(this, false);
     }
 }

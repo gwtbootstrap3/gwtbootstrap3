@@ -25,6 +25,7 @@ import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.base.mixin.PullMixin;
 import org.gwtbootstrap3.client.ui.constants.DeviceSize;
 import org.gwtbootstrap3.client.ui.constants.Pull;
+import org.gwtbootstrap3.client.ui.html.Text;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style;
@@ -56,6 +57,37 @@ public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiven
      */
     public void insert(final Widget child, final int beforeIndex) {
         insert(child, (Element) getElement(), beforeIndex, true);
+    }
+
+    /**
+     * <p><b>
+     * Overrides the remove(Widget) method to avoid potential NPE when
+     * removing a {@link Text} node which is not supposed to be a
+     * "widget" in GWT.
+     * </b></p>
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(Widget w) {
+        // Validate.
+        if (w.getParent() != this) {
+            return false;
+        }
+        // Orphan.
+        try {
+            orphan(w);
+        } finally {
+            // Physical detach.
+            Element elem = w.getElement();
+            //DOM.getParent(elem).removeChild(elem);
+            // NOTE: when removing a text node, DOM.getParent(elem) returns always null.
+            // Here, call Element.removeFromParent() to avoid NPE exception.
+            elem.removeFromParent();
+
+            // Logical detach.
+            getChildren().remove(w);
+        }
+        return true;
     }
 
     /**
