@@ -22,7 +22,6 @@ package org.gwtbootstrap3.client.ui.html;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 
