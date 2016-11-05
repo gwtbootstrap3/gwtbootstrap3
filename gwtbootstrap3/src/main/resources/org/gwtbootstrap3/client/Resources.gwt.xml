@@ -22,5 +22,5 @@
     <inherits name="org.gwtbootstrap3.client.NoThemeResources"/>
 
     <stylesheet src="css/bootstrap-3.3.7.min.cache.css"/>
-    <stylesheet src="css/font-awesome-4.6.3.min.cache.css"/>
+    <stylesheet src="css/font-awesome-4.7.0.min.cache.css"/>
 </module>
