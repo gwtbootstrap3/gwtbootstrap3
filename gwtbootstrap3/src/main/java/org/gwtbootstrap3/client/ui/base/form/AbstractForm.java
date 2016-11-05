@@ -211,7 +211,7 @@ public abstract class AbstractForm extends FormElementContainer implements FormP
 
         static final IFrameTemplate INSTANCE = GWT.create(IFrameTemplate.class);
 
-        @Template("<iframe src=\"javascript:''\" name='{0}' tabindex='-1' "
+        @Template("<iframe src=\"javascript:''\" name='{0}' tabindex='-1' title='Form submit helper frame'"
                 + "style='position:absolute;width:0;height:0;border:0'>")
         SafeHtml get(String name);
     }
