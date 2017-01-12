@@ -270,17 +270,17 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                 }
 
                 if (text.getText() != null && text.getText().length() > 0) {
-                    widget.insert(text, position);
+                    widget.insert(text, position++);
                 }
 
                 if (icon != null && iconPosition == IconPosition.RIGHT) {
                     widget.insert(separator, position++);
-                    widget.insert(icon, position);
+                    widget.insert(icon, position++);
                 }
 
                 if (badge.getText() != null && badge.getText().length() > 0 && badgePosition == BadgePosition.RIGHT) {
                     widget.insert(badgeSeparator, position++);
-                    widget.insert(badge, position);
+                    widget.insert(badge, position++);
                 }
 
                 // hack to remove css spacing in Pills
