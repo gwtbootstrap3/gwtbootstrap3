@@ -68,6 +68,6 @@ public interface HasIcon {
 
     boolean isIconFixedWidth();
     
-    //void setIconColor(String iconColor);
+    void setIconColor(String iconColor);
 
 }
