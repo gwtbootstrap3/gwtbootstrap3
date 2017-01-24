@@ -195,4 +195,9 @@ public class InputGroupAddon extends AbstractInputGroupAddon implements HasText,
     public BadgePosition getBadgePosition() {
         return iconTextMixin.getBadgePosition();
     }
+    
+    @Override
+	public void setIconColor(String iconColor) {
+		iconTextMixin.setIconColor(iconColor);
+	}
 }

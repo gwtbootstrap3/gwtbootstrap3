@@ -355,5 +355,9 @@ public class CheckBoxButton extends CheckBox implements HasActive,
             getElement().insertAfter(icon.getElement(), null);
         }
     }
-
+    
+    @Override
+	public void setIconColor(String iconColor) {
+		getActualIcon().setColor(iconColor);
+	}
 }

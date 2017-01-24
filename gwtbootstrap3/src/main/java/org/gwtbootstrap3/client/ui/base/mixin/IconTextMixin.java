@@ -63,6 +63,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private boolean iconFixedWidth = false;
     private Badge badge = new Badge();
     private BadgePosition badgePosition = BadgePosition.RIGHT;
+    private String iconColor;
 
     public IconTextMixin(final T widget) {
         this.widget = widget;
@@ -253,6 +254,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                     icon.setBorder(iconBordered);
                     icon.setFixedWidth(iconFixedWidth);
                     icon.setInverse(iconInverse);
+                    icon.setColor(iconColor);
                 }
 
                 // Since we are dealing with Icon/Text, we can insert them at the right position
@@ -290,4 +292,10 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
             }
         });
     }
+
+	@Override
+	public void setIconColor(String iconColor) {
+        this.iconColor = iconColor;
+        render();
+	}
 }

@@ -397,5 +397,10 @@ public class RadioButton extends Radio implements HasActive,
             getElement().insertAfter(icon.getElement(), null);
         }
     }
-
+    
+    @Override
+	public void setIconColor(String iconColor) {
+		getActualIcon().setColor(iconColor);
+	}
+    
 }

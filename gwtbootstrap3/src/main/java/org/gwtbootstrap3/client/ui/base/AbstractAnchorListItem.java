@@ -278,5 +278,11 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     public void setTargetHistoryToken(final String targetHistoryToken) {
         anchor.setTargetHistoryToken(targetHistoryToken);
     }
+    
+    /** {@inheritDoc} */
+    @Override
+    public void setIconColor(String iconColor) {
+    	anchor.setIconColor(iconColor);
+    }
 
 }

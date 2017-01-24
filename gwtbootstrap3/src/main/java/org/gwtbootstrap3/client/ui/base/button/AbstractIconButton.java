@@ -186,4 +186,10 @@ public abstract class AbstractIconButton extends AbstractButton implements HasTe
     public BadgePosition getBadgePosition() {
         return iconTextMixin.getBadgePosition();
     }
+    
+    @Override
+    public void setIconColor(String iconColor) {
+    	iconTextMixin.setIconColor(iconColor);
+    }
+    
 }

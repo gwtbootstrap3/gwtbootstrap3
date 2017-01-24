@@ -492,7 +492,7 @@ public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandler
 
     /**
      * {@inheritDoc}
-     */
+     */iconColor
     @Override
     public void setEnabled(final boolean enabled) {
         enabledMixin.setEnabled(enabled);
@@ -551,5 +551,10 @@ public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandler
         }
         super.onBrowserEvent(event);
     }
+
+	@Override
+	public void setIconColor(String iconColor) {
+		iconTextMixin.setIconColor(iconColor);
+	}
 
 }
