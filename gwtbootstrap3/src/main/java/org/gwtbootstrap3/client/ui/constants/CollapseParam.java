@@ -1,4 +1,4 @@
-package org.gwtbootstrap3.client.ui;
+package org.gwtbootstrap3.client.ui.constants;
 
 /*
  * #%L
@@ -20,26 +20,13 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
-import org.gwtbootstrap3.client.ui.constants.Styles;
-
 /**
- * @author Grant Slender
- * @author Joshua Godi
+ * Parameters for the collapse method
+ *
+ * @author Michał Rybicki
  */
-public class PanelCollapse extends Collapse {
-
-    public PanelCollapse() {
-        addStyleName(Styles.PANEL_COLLAPSE);
-
-        // Default hidden
-        setToggle(false);
-    }
-
-    /**
-     * @deprecated use {@link #isShown()} instead.
-     */
-    @Deprecated
-    public boolean isIn() {
-        return isShown();
-    }
+public final class CollapseParam {
+    public static final String TOGGLE = "toggle";
+    public static final String SHOW = "show";
+    public static final String HIDE = "hide";
 }
