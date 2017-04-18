@@ -20,6 +20,10 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.Event;
+
 import org.gwtbootstrap3.client.shared.event.HiddenEvent;
 import org.gwtbootstrap3.client.shared.event.HiddenHandler;
 import org.gwtbootstrap3.client.shared.event.HideEvent;
@@ -28,20 +32,17 @@ import org.gwtbootstrap3.client.shared.event.ShowEvent;
 import org.gwtbootstrap3.client.shared.event.ShowHandler;
 import org.gwtbootstrap3.client.shared.event.ShownEvent;
 import org.gwtbootstrap3.client.shared.event.ShownHandler;
+import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap3.client.ui.constants.CollapseParam;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
-
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.Event;
 
 /**
  * @author Grant Slender
  */
 public class Collapse extends Div {
-    private static final String TOGGLE = "toggle";
-    private static final String SHOW = "show";
-    private static final String HIDE = "hide";
 
+    // Default shown
     private boolean toggle = true;
 
     public Collapse() {
@@ -57,7 +58,7 @@ public class Collapse extends Div {
         bindJavaScriptEvents(getElement());
 
         // Configure the collapse
-        if(toggle) {
+        if (toggle) {
             addStyleName(Styles.IN);
         }
     }
@@ -80,38 +81,51 @@ public class Collapse extends Div {
     }
 
     /**
+     * Causes the collapse to show or hide without animation and events
+     *
+     * @param in show or hide the collapse
+     */
+    public void setIn(final boolean in) {
+        if (in) {
+            addStyleName(Styles.IN);
+        } else {
+            removeStyleName(Styles.IN);
+        }
+    }
+
+    /**
      * Causes the collapse to show or hide
      */
     public void toggle() {
-        fireMethod(getElement(), TOGGLE);
+        fireMethod(getElement(), CollapseParam.TOGGLE);
     }
 
     /**
      * Causes the collapse to show
      */
     public void show() {
-        fireMethod(getElement(), SHOW);
+        fireMethod(getElement(), CollapseParam.SHOW);
     }
 
     /**
      * Causes the collapse to hide
      */
     public void hide() {
-        fireMethod(getElement(), HIDE);
+        fireMethod(getElement(), CollapseParam.HIDE);
     }
 
     public boolean isShown() {
-        return this.getElement().hasClassName(Styles.IN);
+        return StyleHelper.containsStyle(getStyleName(), Styles.IN);
     }
-    
+
     public boolean isHidden() {
-      return !isShown();
+        return !isShown();
     }
-    
+
     public boolean isCollapsing() {
-        return this.getElement().hasClassName(Styles.COLLAPSING);
+        return StyleHelper.containsStyle(getStyleName(), Styles.COLLAPSING);
     }
-    
+
     public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
         return addHandler(showHandler, ShowEvent.getType());
     }
@@ -177,24 +191,14 @@ public class Collapse extends Div {
         });
     }-*/;
 
-    private native void unbindJavaScriptEvents(final com.google.gwt.dom.client.Element e) /*-{
+    private native void unbindJavaScriptEvents(final Element e) /*-{
         $wnd.jQuery(e).off('show.bs.collapse');
         $wnd.jQuery(e).off('shown.bs.collapse');
         $wnd.jQuery(e).off('hide.bs.collapse');
         $wnd.jQuery(e).off('hidden.bs.collapse');
     }-*/;
 
-    private native void collapse(final com.google.gwt.dom.client.Element e, final boolean toggle) /*-{
-        $wnd.jQuery(e).collapse({
-            toggle: toggle
-        });
-    }-*/;
-
-    private native void fireMethod(final com.google.gwt.dom.client.Element e, String method) /*-{
+    private native void fireMethod(final Element e, String method) /*-{
         $wnd.jQuery(e).collapse(method);
-    }-*/;
-
-    private native void fireMethod(final com.google.gwt.dom.client.Element e, int slideNumber) /*-{
-        $wnd.jQuery(e).collapse(slideNumber);
     }-*/;
 }
