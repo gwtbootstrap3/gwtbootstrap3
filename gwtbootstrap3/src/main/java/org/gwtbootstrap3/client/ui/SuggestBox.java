@@ -109,10 +109,17 @@ public class SuggestBox extends com.google.gwt.user.client.ui.SuggestBox impleme
             Scheduler.get().scheduleDeferred(new ScheduledCommand() {
                 @Override
                 public void execute() {
-                    Element e = box.getElement();
                     PopupPanel panel = getPopupPanel();
-                    panel.setWidth((e.getAbsoluteRight() - e.getAbsoluteLeft() - 2) + Unit.PX.getType());
-                    panel.setPopupPosition(e.getAbsoluteLeft(), e.getAbsoluteBottom());
+                    if (box.isAttached())
+                    {
+                      Element e = box.getElement();
+                      panel.setWidth((e.getAbsoluteRight() - e.getAbsoluteLeft() - 2) + Unit.PX.getType());
+                      panel.setPopupPosition(e.getAbsoluteLeft(), e.getAbsoluteBottom());
+                    }
+                    else
+                    {
+                      panel.hide();
+                    }  
                 }
             });
         }
