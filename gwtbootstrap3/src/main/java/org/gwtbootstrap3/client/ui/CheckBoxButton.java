@@ -9,9 +9,9 @@ package org.gwtbootstrap3.client.ui;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -65,7 +65,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      */
@@ -75,7 +75,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param dir
@@ -90,7 +90,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param directionEstimator
@@ -106,7 +106,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      */
@@ -117,7 +117,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param dir
@@ -133,7 +133,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
     /**
      * Creates a label with the specified text and a default direction
      * estimator.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param directionEstimator
@@ -149,7 +149,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param asHTML
@@ -355,9 +355,9 @@ public class CheckBoxButton extends CheckBox implements HasActive,
             getElement().insertAfter(icon.getElement(), null);
         }
     }
-    
+
     @Override
-	public void setIconColor(String iconColor) {
-		getActualIcon().setColor(iconColor);
-	}
+    public void setIconColor(String iconColor) {
+        getActualIcon().setColor(iconColor);
+    }
 }

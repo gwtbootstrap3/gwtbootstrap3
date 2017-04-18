@@ -9,9 +9,9 @@ package org.gwtbootstrap3.client.ui;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -71,10 +71,10 @@ public class RadioButton extends Radio implements HasActive,
      * Creates a new radio associated with a particular group, and initialized
      * with the given HTML label. All radio buttons associated with the same
      * group name belong to a mutually-exclusive set.
-     * 
+     *
      * Radio buttons are grouped by their name attribute, so changing their name
      * using the setName() method will also change their associated group.
-     * 
+     *
      * @param name
      *            the group name with which to associate the radio button
      * @param label
@@ -86,7 +86,7 @@ public class RadioButton extends Radio implements HasActive,
 
     /**
      * @see #RadioButtonToggle(String, SafeHtml)
-     * 
+     *
      * @param name
      *            the group name with which to associate the radio button
      * @param label
@@ -103,7 +103,7 @@ public class RadioButton extends Radio implements HasActive,
 
     /**
      * @see #RadioButtonToggle(String, SafeHtml)
-     * 
+     *
      * @param name
      *            the group name with which to associate the radio button
      * @param label
@@ -123,10 +123,10 @@ public class RadioButton extends Radio implements HasActive,
      * Creates a new radio associated with a particular group, and initialized
      * with the given HTML label. All radio buttons associated with the same
      * group name belong to a mutually-exclusive set.
-     * 
+     *
      * Radio buttons are grouped by their name attribute, so changing their name
      * using the setName() method will also change their associated group.
-     * 
+     *
      * @param name
      *            the group name with which to associate the radio button
      * @param label
@@ -139,7 +139,7 @@ public class RadioButton extends Radio implements HasActive,
 
     /**
      * @see #RadioButtonToggle(String, SafeHtml)
-     * 
+     *
      * @param name
      *            the group name with which to associate the radio button
      * @param label
@@ -156,7 +156,7 @@ public class RadioButton extends Radio implements HasActive,
 
     /**
      * @see #RadioButtonToggle(String, SafeHtml)
-     * 
+     *
      * @param name
      *            the group name with which to associate the radio button
      * @param label
@@ -177,10 +177,10 @@ public class RadioButton extends Radio implements HasActive,
      * initialized with the given label (optionally treated as HTML). All radio
      * buttons associated with the same group name belong to a
      * mutually-exclusive set.
-     * 
+     *
      * Radio buttons are grouped by their name attribute, so changing their name
      * using the setName() method will also change their associated group.
-     * 
+     *
      * @param name
      *            name the group with which to associate the radio button
      * @param label
@@ -213,7 +213,7 @@ public class RadioButton extends Radio implements HasActive,
         getElement().appendChild(labelElem);
         getElement().appendChild(Document.get().createTextNode(" "));
     }
-    
+
     @Override
     protected void ensureDomEventHandlers() {
         // Use a ClickHandler since Bootstrap's jQuery does not trigger native
@@ -397,10 +397,10 @@ public class RadioButton extends Radio implements HasActive,
             getElement().insertAfter(icon.getElement(), null);
         }
     }
-    
+
     @Override
-	public void setIconColor(String iconColor) {
-		getActualIcon().setColor(iconColor);
-	}
-    
+    public void setIconColor(String iconColor) {
+        getActualIcon().setColor(iconColor);
+    }
+
 }
