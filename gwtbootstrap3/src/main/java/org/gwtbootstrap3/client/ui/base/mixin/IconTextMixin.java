@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui.base.mixin;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2016 GwtBootstrap3
+ * Copyright (C) 2013 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,6 +63,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private boolean iconFixedWidth = false;
     private Badge badge = new Badge();
     private BadgePosition badgePosition = BadgePosition.RIGHT;
+    private String iconColor;
 
     public IconTextMixin(final T widget) {
         this.widget = widget;
@@ -253,6 +254,7 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
                     icon.setBorder(iconBordered);
                     icon.setFixedWidth(iconFixedWidth);
                     icon.setInverse(iconInverse);
+                    icon.setColor(iconColor);
                 }
 
                 // Since we are dealing with Icon/Text, we can insert them at the right position
@@ -289,5 +291,11 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
             }
         });
+    }
+
+    @Override
+    public void setIconColor(String iconColor) {
+        this.iconColor = iconColor;
+        render();
     }
 }

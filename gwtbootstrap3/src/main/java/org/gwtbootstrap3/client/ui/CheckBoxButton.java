@@ -65,7 +65,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      */
@@ -75,7 +75,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param dir
@@ -90,7 +90,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param directionEstimator
@@ -106,7 +106,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      */
@@ -117,7 +117,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param dir
@@ -133,7 +133,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
     /**
      * Creates a label with the specified text and a default direction
      * estimator.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param directionEstimator
@@ -149,7 +149,7 @@ public class CheckBoxButton extends CheckBox implements HasActive,
 
     /**
      * Creates a check box button with the specified text label.
-     * 
+     *
      * @param label
      *            the check box's label
      * @param asHTML
@@ -356,4 +356,8 @@ public class CheckBoxButton extends CheckBox implements HasActive,
         }
     }
 
+    @Override
+    public void setIconColor(String iconColor) {
+        getActualIcon().setColor(iconColor);
+    }
 }
