@@ -20,6 +20,14 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.OptionElement;
+import com.google.gwt.dom.client.SelectElement;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.HasValue;
 import org.gwtbootstrap3.client.ui.base.HasId;
 import org.gwtbootstrap3.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -30,9 +38,10 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
  * @author Sven Jacobs
  * @see com.google.gwt.user.client.ui.ListBox
  */
-public class ListBox extends com.google.gwt.user.client.ui.ListBox implements HasId {
+public class ListBox extends com.google.gwt.user.client.ui.ListBox implements HasId, HasValue<String> {
 
     private final IdMixin<ListBox> idMixin = new IdMixin<ListBox>(this);
+    private boolean valueChangeHandlerInitialized;
 
     /**
      * Creates an empty list box in single selection mode.
@@ -63,5 +72,52 @@ public class ListBox extends com.google.gwt.user.client.ui.ListBox implements Ha
     @Override
     public String getId() {
         return idMixin.getId();
+    }
+
+    @Override
+    public String getValue() {
+        return super.getSelectedValue();
+    }
+
+    @Override
+    public void setValue(String value) {
+        setValue(value, false);
+    }
+
+    @Override
+    public void setValue(String value, boolean fireEvent) {
+        SelectElement selectElement= getElement().cast();
+
+        for (int i = 0; i < selectElement.getOptions().getLength(); i ++) {
+            OptionElement option = selectElement.getOptions().getItem( i );
+
+            if (option.getValue().equals(value)) {
+                setSelectedIndex( i );
+                if (fireEvent) {
+                    ValueChangeEvent.fire(this, value);
+                }
+                return;
+            }
+        }
+        setSelectedIndex(-1);
+    }
+
+    @Override
+    public HandlerRegistration addValueChangeHandler(ValueChangeHandler<String> valueChangeHandler) {
+        // Is this the first value change handler? If so, time to add handlers
+        if (!valueChangeHandlerInitialized) {
+            ensureDomEventHandlers();
+            valueChangeHandlerInitialized = true;
+        }
+        return addHandler( valueChangeHandler, ValueChangeEvent.getType());
+    }
+
+    public void ensureDomEventHandlers() {
+        addChangeHandler(new ChangeHandler() {
+            @Override
+            public void onChange(ChangeEvent event) {
+                ValueChangeEvent.fire(ListBox.this, getSelectedValue());
+            }
+        });
     }
 }
