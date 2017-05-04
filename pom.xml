@@ -120,6 +120,7 @@
                         <phase>process-sources</phase>
                         <goals>
                             <goal>update-file-header</goal>
+                            <goal>check-file-header</goal>
                         </goals>
                     </execution>
                 </executions>
