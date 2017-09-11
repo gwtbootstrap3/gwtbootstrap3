@@ -43,6 +43,7 @@ public class Paragraph extends HTMLPanel implements HasAlignment, HasEmphasis {
 
     public Paragraph(final String html) {
         super(ParagraphElement.TAG, html);
+        setHTML(html);
     }
 
     public void setText(final String text) {
