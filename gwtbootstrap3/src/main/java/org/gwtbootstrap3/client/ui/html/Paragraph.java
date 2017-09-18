@@ -4,7 +4,7 @@ package org.gwtbootstrap3.client.ui.html;
  * #%L
  * GwtBootstrap3
  * %%
- * Copyright (C) 2013 GwtBootstrap3
+ * Copyright (C) 2017 GwtBootstrap3
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,7 @@ public class Paragraph extends HTMLPanel implements HasAlignment, HasEmphasis {
 
     public Paragraph(final String html) {
         super(ParagraphElement.TAG, html);
+        setHTML(html);
     }
 
     public void setText(final String text) {
