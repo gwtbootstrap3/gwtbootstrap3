@@ -24,14 +24,11 @@ import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.OrderedList;
 
 import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.user.client.ui.WidgetCollection;
 
 /**
  * @author Joshua Godi
  */
 public class Breadcrumbs extends OrderedList {
-    private final WidgetCollection children = new WidgetCollection(this);
-
     public Breadcrumbs() {
         setStyleName(Styles.BREADCRUMB);
     }
@@ -46,8 +43,8 @@ public class Breadcrumbs extends OrderedList {
 
     @Override
     protected void onAttach() {
-        if (!isOrWasAttached() && children.size() > 0) {
-            final Widget lastWidget = children.get(children.size() - 1);
+        if (!isOrWasAttached() && getChildren().size() > 0) {
+            final Widget lastWidget = getChildren().get(getChildren().size() - 1);
             lastWidget.addStyleName(Styles.ACTIVE);
         }
 
@@ -61,6 +58,5 @@ public class Breadcrumbs extends OrderedList {
     public void add(final Widget w) {
         w.addStyleName(Styles.ACTIVE);
         super.add(w);
-        children.add(w);
     }
 }
