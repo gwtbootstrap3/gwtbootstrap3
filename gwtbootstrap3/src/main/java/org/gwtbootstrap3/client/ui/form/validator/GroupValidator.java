@@ -100,8 +100,8 @@ public class GroupValidator implements ValidationChangedEvent.HasValidationChang
      * @return true, if successful
      */
     public <T extends Widget & HasValidators<?>> boolean remove(final T field) {
-        fields.remove(field);
-        HandlerRegistration reg = registrations.remove(field);
+        fields.remove((HasValidators<?>) field);
+        HandlerRegistration reg = registrations.remove((HasValidators<?>) field);
         if (reg != null) {
             reg.removeHandler();
             return true;

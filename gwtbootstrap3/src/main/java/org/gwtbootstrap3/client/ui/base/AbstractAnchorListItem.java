@@ -10,7 +10,7 @@ package org.gwtbootstrap3.client.ui.base;
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -37,14 +37,15 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.Focusable;
 
 /**
- * Base class for list items that contain an {@link org.gwtbootstrap3.client.ui.Anchor} link.
+ * Base class for list items that contain an
+ * {@link org.gwtbootstrap3.client.ui.Anchor} link.
  *
  * @author Sven Jacobs
  * @author Drew Spencer
  * @author Steven Jardine
  */
-public abstract class AbstractAnchorListItem extends AbstractListItem
-        implements HasHref, HasTargetHistoryToken, HasClickHandlers, Focusable, HasDataToggle, HasIcon, HasIconPosition, HasBadge {
+public abstract class AbstractAnchorListItem extends AbstractListItem implements HasHref, HasTargetHistoryToken,
+        HasClickHandlers, Focusable, HasDataToggle, HasIcon, HasIconPosition, HasBadge, HasTarget {
 
     protected final Anchor anchor;
 
@@ -54,6 +55,7 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     protected AbstractAnchorListItem() {
         anchor = new Anchor();
         anchor.addClickHandler(new ClickHandler() {
+
             @Override
             public void onClick(ClickEvent event) {
                 delegateEvent(AbstractAnchorListItem.this, event);
@@ -126,6 +128,14 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     @Override
     public int getTabIndex() {
         return anchor.getTabIndex();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getTarget() {
+        return anchor.getTarget();
     }
 
     /** {@inheritDoc} */
@@ -221,6 +231,12 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
 
     /** {@inheritDoc} */
     @Override
+    public void setIconColor(String iconColor) {
+        anchor.setIconColor(iconColor);
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public void setIconFixedWidth(final boolean iconFixedWidth) {
         anchor.setIconFixedWidth(iconFixedWidth);
     }
@@ -268,21 +284,24 @@ public abstract class AbstractAnchorListItem extends AbstractListItem
     }
 
     /** {@inheritDoc} */
+
     @Override
     public void setTabIndex(final int index) {
         anchor.setTabIndex(index);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setTarget(final String target) {
+        anchor.setTarget(target);
     }
 
     /** {@inheritDoc} */
     @Override
     public void setTargetHistoryToken(final String targetHistoryToken) {
         anchor.setTargetHistoryToken(targetHistoryToken);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void setIconColor(String iconColor) {
-        anchor.setIconColor(iconColor);
     }
 
 }
