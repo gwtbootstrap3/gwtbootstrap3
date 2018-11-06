@@ -23,6 +23,8 @@ package org.gwtbootstrap3.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.ScriptInjector;
 
+import jsinterop.annotations.JsMethod;
+
 /**
  * Provides script injection for jQuery and boostrap if they aren't already loaded.
  * 
@@ -32,26 +34,27 @@ import com.google.gwt.core.client.ScriptInjector;
 public class GwtBootstrap3EntryPoint implements EntryPoint {
 
     /**
-     * Check to see if Boostrap is loaded already.
+     * Check to see if Bootstrap is loaded already.
      * 
-     * @return true is Boostreap loaded, false otherwise.
+     * @return true is Bootstrap loaded, false otherwise.
      */
-    private native boolean isBootstrapLoaded() /*-{
-        return typeof $wnd['jQuery'].fn.emulateTransitionEnd !== 'undefined'
-    }-*/;
+    @JsMethod
+    private static native boolean isBootstrapLoaded();
 
     /**
      * Check to see if jQuery is loaded already
      *
      * @return true is jQuery is loaded, false otherwise
      */
-    private native boolean isjQueryLoaded() /*-{
-        return (typeof $wnd['jQuery'] !== 'undefined');
-    }-*/;
+    @JsMethod
+    private static native boolean isjQueryLoaded();
 
     /** {@inheritDoc} */
     @Override
     public void onModuleLoad() {
+        ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.gwtBootstrap3().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW)
+                .inject();
         if (!isjQueryLoaded()) {
             ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText())
                     .setWindow(ScriptInjector.TOP_WINDOW)

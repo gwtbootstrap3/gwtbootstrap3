@@ -20,9 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtbootstrap3.client.ui.base.AbstractTooltip;
 
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -111,9 +111,9 @@ public class Popover extends AbstractTooltip {
      * @param e the {@link Element}.
      * @param arg the arg
      */
-    private native void call(final Element e, final String arg) /*-{
-        $wnd.jQuery(e).popover(arg);
-    }-*/;
+    private void call(final Element e, final String arg) {
+        JQuery.jQuery(e).popover(arg);
+    }
 
     /** {@inheritDoc} */
     @Override
@@ -132,10 +132,10 @@ public class Popover extends AbstractTooltip {
     @Override
     public void init() {
         Element element = getWidget().getElement();
-        JavaScriptObject baseOptions = createOptions(element, isAnimated(), isHtml(), getSelector(),
+        createOptions(element, isAnimated(), isHtml(), getSelector(),
                 getTrigger().getCssName(), getShowDelayMs(), getHideDelayMs(), getContainer(), prepareTemplate(), 
                 getViewportSelector(), getViewportPadding());
-        popover(element, baseOptions, getContent());
+        popover(element, getContent());
         bindJavaScriptEvents(element);
         setInitialized(true);
     }
@@ -143,19 +143,19 @@ public class Popover extends AbstractTooltip {
     /**
      * Create the popover.
      */
-    private native void popover(Element e, JavaScriptObject options, String content) /*-{
-        var target = this;
-        options['content'] = function(){
-            return target.@org.gwtbootstrap3.client.ui.Popover::getContent()();
-        };
-        $wnd.jQuery(e).popover(options);
-    }-*/;
+    private void popover(Element e, String content) {
+        e.setAttribute("data-content", content);
+        JQuery.jQuery(e).popover();
+    }
 
     /**
      * @param content the content of the popover to set
      */
     public void setContent(String content) {
         this.content = content;
+        if (initialized) {
+            updateString(widget.getElement(), "content", content);
+        }
     }
 
     /** {@inheritDoc} */
@@ -170,8 +170,8 @@ public class Popover extends AbstractTooltip {
      *
      * @param e the popover {@link Element}.
      */
-    private native void updateTitleWhenShowing(Element e) /*-{
-        $wnd.jQuery(e).popover('fixTitle').popover('show');
-    }-*/;
+    private void updateTitleWhenShowing(Element e) {
+        JQuery.jQuery(e).popover("fixTitle").popover("show");
+    };
 
 }

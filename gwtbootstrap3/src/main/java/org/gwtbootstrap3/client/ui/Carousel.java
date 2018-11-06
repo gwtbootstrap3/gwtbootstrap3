@@ -24,12 +24,15 @@ import org.gwtbootstrap3.client.shared.event.CarouselSlidEvent;
 import org.gwtbootstrap3.client.shared.event.CarouselSlidHandler;
 import org.gwtbootstrap3.client.shared.event.CarouselSlideEvent;
 import org.gwtbootstrap3.client.shared.event.CarouselSlideHandler;
+import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtbootstrap3.client.ui.constants.Attributes;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
 
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
+
+import jsinterop.annotations.JsMethod;
 
 /**
  * @author Joshua Godi
@@ -148,38 +151,32 @@ public class Carousel extends Div {
         fireEvent(new CarouselSlidEvent(this, evt));
     }
 
-    private native void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) /*-{
-        var target = this;
-        var $carousel = $wnd.jQuery(e);
+    private void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) {
+        JQuery carousel = JQuery.jQuery(e);
 
-        $carousel.on('slide.bs.carousel', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Carousel::onSlide(Lcom/google/gwt/user/client/Event;)(evt);
+        carousel.on("slide.bs.carousel", (evt) -> {
+            onSlide(evt);
         });
 
-        $carousel.on('slid.bs.carousel', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Carousel::onSlid(Lcom/google/gwt/user/client/Event;)(evt);
+        carousel.on("slid.bs.carousel", (evt) -> {
+            onSlid(evt);
         });
-    }-*/;
+    }
 
-    private native void unbindJavaScriptEvents(final com.google.gwt.dom.client.Element e) /*-{
-        $wnd.jQuery(e).off('slide.bs.carousel');
-        $wnd.jQuery(e).off('slid.bs.carousel');
-    }-*/;
+    private void unbindJavaScriptEvents(final com.google.gwt.dom.client.Element e) {
+        JQuery.jQuery(e).off("slide.bs.carousel");
+        JQuery.jQuery(e).off("slid.bs.carousel");
+    }
 
-    private native void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause,
-                                 final boolean wrap) /*-{
-        $wnd.jQuery(e).carousel({
-            interval: interval,
-            pause: pause,
-            wrap: wrap
-        });
-    }-*/;
+    @JsMethod
+    private static native void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause,
+                                 final boolean wrap);
 
-    private native void fireMethod(final com.google.gwt.dom.client.Element e, String method) /*-{
-        $wnd.jQuery(e).carousel(method);
-    }-*/;
+    private void fireMethod(final com.google.gwt.dom.client.Element e, String method) {
+        JQuery.jQuery(e).carousel(method);
+    }
 
-    private native void fireMethod(final com.google.gwt.dom.client.Element e, int slideNumber) /*-{
-        $wnd.jQuery(e).carousel(slideNumber);
-    }-*/;
+    private void fireMethod(final com.google.gwt.dom.client.Element e, int slideNumber) {
+        JQuery.jQuery(e).carousel(slideNumber);
+    }
 }

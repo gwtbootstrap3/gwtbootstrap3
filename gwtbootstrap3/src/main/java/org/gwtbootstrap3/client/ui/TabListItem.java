@@ -28,6 +28,7 @@ import org.gwtbootstrap3.client.shared.event.TabShowEvent;
 import org.gwtbootstrap3.client.shared.event.TabShowHandler;
 import org.gwtbootstrap3.client.shared.event.TabShownEvent;
 import org.gwtbootstrap3.client.shared.event.TabShownHandler;
+import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
 import org.gwtbootstrap3.client.ui.constants.IconSize;
 import org.gwtbootstrap3.client.ui.constants.IconType;
@@ -229,27 +230,26 @@ public class TabListItem extends AnchorListItem implements HasDataTarget {
         fireEvent(new TabShownEvent(this, evt));
     }
 
-    private native void showTab(Element e) /*-{
-        $wnd.jQuery(e).tab('show');
-    }-*/;
+    private void showTab(Element e) {
+        JQuery.jQuery(e).tab("show");
+    }
 
     // @formatter:off
-    private native void bindJavaScriptEvents(final Element e) /*-{
-        var target = this;
-        var $tab = $wnd.jQuery(e);
+    private void bindJavaScriptEvents(final Element e) {
+        JQuery tab = JQuery.jQuery(e);
 
-        $tab.on('show.bs.tab', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.TabListItem::onShow(Lcom/google/gwt/user/client/Event;)(evt);
+        tab.on("show.bs.tab", (evt) -> {
+            onShow(evt);
         });
 
-        $tab.on('shown.bs.tab', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.TabListItem::onShown(Lcom/google/gwt/user/client/Event;)(evt);
+        tab.on("shown.bs.tab", (evt) -> {
+            onShown(evt);
         });
-    }-*/;
+    }
 
-    private native void unbindJavaScriptEvents(final Element e) /*-{
-        $wnd.jQuery(e).off('show.bs.tab');
-        $wnd.jQuery(e).off('shown.bs.tab');
-    }-*/;
+    private void unbindJavaScriptEvents(final Element e) {
+        JQuery.jQuery(e).off("show.bs.tab");
+        JQuery.jQuery(e).off("shown.bs.tab");
+    }
     
 }

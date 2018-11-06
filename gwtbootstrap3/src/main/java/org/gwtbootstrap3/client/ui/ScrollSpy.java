@@ -20,11 +20,14 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtbootstrap3.client.ui.base.HasId;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.UIObject;
+
+import jsinterop.annotations.JsMethod;
 
 /**
  * A ScrollSpy handles scrolling events (typically on {@code <body>}) and
@@ -136,15 +139,10 @@ public class ScrollSpy {
         refresh(spyOn);
     }
 
-    private native void init(final Element e, final String target) /*-{
-        var $e = $wnd.jQuery(e);
+    @JsMethod
+    private static native void init(final Element e, final String target);
 
-        $e.scrollspy({
-            target: target
-        });
-    }-*/;
-
-    private native void refresh(final Element e) /*-{
-        $wnd.jQuery(e).scrollspy('refresh');
-    }-*/;
+    private void refresh(final Element e) {
+        JQuery.jQuery(e).scrollspy("refresh");
+    }
 }

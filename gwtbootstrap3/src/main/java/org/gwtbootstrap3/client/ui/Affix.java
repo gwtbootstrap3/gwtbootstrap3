@@ -23,6 +23,8 @@ package org.gwtbootstrap3.client.ui;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.UIObject;
 
+import jsinterop.annotations.JsMethod;
+
 /**
  * An Affix is an element/container that gets "pinned" as soon as a certain
  * amount of pixels have been scrolled.
@@ -78,9 +80,6 @@ public class Affix {
 
     // @formatter:off
 
-    private static native void internalAffix(final Element e, final int offset) /*-{
-        $wnd.jQuery(e).affix({
-            offset: offset
-        });
-    }-*/;
+    @JsMethod
+    private static native void internalAffix(final Element e, final int offset);
 }

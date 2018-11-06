@@ -22,6 +22,7 @@ package org.gwtbootstrap3.client.ui.base.button;
 
 import java.util.List;
 
+import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtbootstrap3.client.ui.base.ComplexWidget;
 import org.gwtbootstrap3.client.ui.base.HasActive;
 import org.gwtbootstrap3.client.ui.base.HasDataTarget;
@@ -297,7 +298,7 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
 
     // @formatter:off
 
-    private native void button(final Element e, final String arg) /*-{
-        $wnd.jQuery(e).button(arg);
-    }-*/;
+    private void button(final Element e, final String arg) {
+        JQuery.jQuery(e).button(arg);
+    }
 }
