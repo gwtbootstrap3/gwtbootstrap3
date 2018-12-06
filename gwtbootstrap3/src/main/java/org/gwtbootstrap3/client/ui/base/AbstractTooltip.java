@@ -32,10 +32,10 @@ import org.gwtbootstrap3.client.shared.event.ShowEvent;
 import org.gwtbootstrap3.client.shared.event.ShowHandler;
 import org.gwtbootstrap3.client.shared.event.ShownEvent;
 import org.gwtbootstrap3.client.shared.event.ShownHandler;
+import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtbootstrap3.client.ui.constants.Placement;
 import org.gwtbootstrap3.client.ui.constants.Trigger;
 
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.safehtml.shared.SafeHtml;
@@ -46,6 +46,8 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
+
+import jsinterop.annotations.JsMethod;
 
 /**
  * Common implementation for the Bootstrap tooltip and popover.
@@ -81,10 +83,10 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     private final static String DEFAULT_TEMPLATE = "<div class=\"{0}\"><div class=\"{1}\"></div><div class=\"{2}\"></div></div>";
     private String alternateTemplate = null;
 
-    private Widget widget;
+    protected Widget widget;
     private String id;
     private final String dataTarget;
-    private boolean initialized = false;
+    protected boolean initialized = false;
     private boolean showing = false;
 
     /**
@@ -211,26 +213,24 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     }
 
     // @formatter:off
-    protected native void bindJavaScriptEvents(final Element e) /*-{
-        var target = this;
-        var $tooltip = $wnd.jQuery(e);
-        var dataTarget = target.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::dataTarget;
-        $tooltip.on('show.' + dataTarget, function (evt) {
-            target.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::onShow(Lcom/google/gwt/user/client/Event;)(evt);
+    protected void bindJavaScriptEvents(final Element e) {
+        JQuery tooltip = JQuery.jQuery(e);
+        tooltip.on("show." + dataTarget, (evt) -> {
+            onShow(evt);
         });
-        $tooltip.on('shown.' + dataTarget, function (evt) {
-            target.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::onShown(Lcom/google/gwt/user/client/Event;)(evt);
+        tooltip.on("shown." + dataTarget, (evt) -> {
+            onShown(evt);
         });
-        $tooltip.on('hide.' + dataTarget, function (evt) {
-            target.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::onHide(Lcom/google/gwt/user/client/Event;)(evt);
+        tooltip.on("hide." + dataTarget, (evt) -> {
+            onHide(evt);
         });
-        $tooltip.on('hidden.' + dataTarget, function (evt) {
-            target.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
+        tooltip.on("hidden." + dataTarget, (evt) -> {
+            onHidden(evt);
         });
-        $tooltip.on('inserted.' + dataTarget, function (evt) {
-            target.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::onInserted(Lcom/google/gwt/user/client/Event;)(evt);
+        tooltip.on("inserted." + dataTarget, (evt) -> {
+            onInserted(evt);
         });
-    }-*/;
+    }
     
     protected abstract void call(final String arg);
 
@@ -243,38 +243,24 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     /**
      * Create the options for the tooltip.
      */
-    protected native JavaScriptObject createOptions(Element e, boolean animation, boolean html, String selector,
+    protected void createOptions(Element e, boolean animation, boolean html, String selector,
             String trigger, int showDelay, int hideDelay, String container, String template, String viewportSelector,
-            int viewportPadding) /*-{
-        var target = this;
-        var options = {
-            animation : animation,
-            delay : {
-                show : showDelay,
-                hide : hideDelay
-            },
-            html : html,
-            placement : function(tip, element) {
-                return target.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::getPlacementCssName()();
-            },
-            template : template,
-            title : function() {
-                return target.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::getTitle()();
-            },
-            trigger : trigger,
-            viewport : {
-                selector: viewportSelector,
-                padding: viewportPadding
-            }
-        };
-        if (selector) {
-            options['selector'] = selector;
+            int viewportPadding) {
+        e.setAttribute("data-animation", Boolean.toString(animation));
+        e.setAttribute("data-delay", "{ \"show\": " + Integer.toString(showDelay) + ", \"hide\": " + Integer.toString(hideDelay) + " }");
+        e.setAttribute("data-html", Boolean.toString(html));
+        e.setAttribute("data-placement", getPlacementCssName());
+        e.setAttribute("data-template", template);
+        e.setAttribute("data-title", getTitle());
+        e.setAttribute("data-trigger", trigger);
+        e.setAttribute("data-viewport", "{ \"selector\": \"" + viewportSelector + "\", \"padding\": " + viewportPadding + " }");
+        if (selector != null) {
+            e.setAttribute("data-selector", selector);
         }
-        if (container) {
-            options['container'] = container;
+        if (container != null) {
+            e.setAttribute("data-container", container);
         }
-        return options;
-    }-*/;
+    }
     
     /**
      * Force the Tooltip to be destroyed
@@ -383,20 +369,6 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     public Trigger getTrigger() {
         return trigger;
     }
-
-    /**
-     * Gets the viewport.
-     *
-     * @param selector the selector
-     * @param padding the padding
-     * @return the viewport object for the tooltip options.
-     */
-    private native JavaScriptObject getViewport(String selector, int padding) /*-{
-        return {
-            selector: selector,
-            padding: padding
-        };
-    }-*/;
 
     /**
      * @return the viewportPadding
@@ -852,23 +824,26 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
         return asWidget().toString();
     }
 
-    private native void updateBool(Element e, String option, boolean value) /*-{
-        var dataTarget = this.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::dataTarget;
-        $wnd.jQuery(e).data(dataTarget).options[option] = value;
-    }-*/;
+    private void updateBool(Element e, String option, boolean value) {
+        updateBool(dataTarget, e, option, value);
+    }
 
-    private native void updateDelay(Element e, int showDelay, int hideDealy) /*-{
-        var dataTarget = this.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::dataTarget;
-        $wnd.jQuery(e).data(dataTarget).options['delay'] = {
-            show : showDelay,
-            hide : hideDelay
-        };
-    }-*/;
+    @JsMethod
+    private static native void updateBool(String dataTarget, Element e, String option, boolean value);
 
-    private native void updateString(Element e, String option, String value) /*-{
-        var dataTarget = this.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::dataTarget;
-        $wnd.jQuery(e).data(dataTarget).options[option] = value;
-    }-*/;
+    private void updateDelay(Element e, int showDelay, int hideDelay) {
+        updateDelay(dataTarget, e, showDelay, hideDelay);
+    }
+
+    @JsMethod
+    private static native void updateDelay(String dataTarget, Element e, int showDelay, int hideDelay);
+
+    protected void updateString(Element e, String option, String value) {
+        updateString(dataTarget, e, option, value);
+    }
+
+    @JsMethod
+    private static native void updateString(String dataTarget, Element e, String option, String value);
 
     /**
      * Update the title. This should only be called when the title is already showing. It causes a small flicker but
@@ -876,12 +851,11 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
      */
     protected abstract void updateTitleWhenShowing();
 
-    private native void updateViewport(Element e, String selector, int padding) /*-{
-        var dataTarget = this.@org.gwtbootstrap3.client.ui.base.AbstractTooltip::dataTarget;
-        $wnd.jQuery(e).data(dataTarget).options['viewport'] = {
-            selector : selector,
-            padding : padding
-        };
-    }-*/;
+    private void updateViewport(Element e, String selector, int padding) {
+        updateViewport(dataTarget, e, selector, padding);
+    }
+
+    @JsMethod
+    private static native void updateViewport(String dataTarget, Element e, String selector, int padding);
 
 }

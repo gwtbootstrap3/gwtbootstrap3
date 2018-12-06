@@ -32,6 +32,7 @@ import org.gwtbootstrap3.client.shared.event.ShowEvent;
 import org.gwtbootstrap3.client.shared.event.ShowHandler;
 import org.gwtbootstrap3.client.shared.event.ShownEvent;
 import org.gwtbootstrap3.client.shared.event.ShownHandler;
+import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.constants.CollapseParam;
 import org.gwtbootstrap3.client.ui.constants.Styles;
@@ -170,35 +171,34 @@ public class Collapse extends Div {
         fireEvent(new HiddenEvent(evt));
     }
 
-    private native void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) /*-{
-        var target = this;
-        var $collapse = $wnd.jQuery(e);
+    private void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) {
+        JQuery collapse = JQuery.jQuery(e);
 
-        $collapse.on('show.bs.collapse', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Collapse::onShow(Lcom/google/gwt/user/client/Event;)(evt);
+        collapse.on("show.bs.collapse", (evt) -> {
+            onShow(evt);
         });
 
-        $collapse.on('shown.bs.collapse', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Collapse::onShown(Lcom/google/gwt/user/client/Event;)(evt);
+        collapse.on("shown.bs.collapse", (evt) -> {
+            onShown(evt);
         });
 
-        $collapse.on('hide.bs.collapse', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Collapse::onHide(Lcom/google/gwt/user/client/Event;)(evt);
+        collapse.on("hide.bs.collapse", (evt) -> {
+            onHide(evt);
         });
 
-        $collapse.on('hidden.bs.collapse', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Collapse::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
+        collapse.on("hidden.bs.collapse", (evt) -> {
+            onHidden(evt);
         });
-    }-*/;
+    }
 
-    private native void unbindJavaScriptEvents(final Element e) /*-{
-        $wnd.jQuery(e).off('show.bs.collapse');
-        $wnd.jQuery(e).off('shown.bs.collapse');
-        $wnd.jQuery(e).off('hide.bs.collapse');
-        $wnd.jQuery(e).off('hidden.bs.collapse');
-    }-*/;
+    private void unbindJavaScriptEvents(final Element e) {
+        JQuery.jQuery(e).off("show.bs.collapse");
+        JQuery.jQuery(e).off("shown.bs.collapse");
+        JQuery.jQuery(e).off("hide.bs.collapse");
+        JQuery.jQuery(e).off("hidden.bs.collapse");
+    }
 
-    private native void fireMethod(final Element e, String method) /*-{
-        $wnd.jQuery(e).collapse(method);
-    }-*/;
+    private void fireMethod(final Element e, String method) {
+        JQuery.jQuery(e).collapse(method);
+    }
 }

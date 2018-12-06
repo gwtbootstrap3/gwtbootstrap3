@@ -28,6 +28,7 @@ import org.gwtbootstrap3.client.shared.event.ModalShowEvent;
 import org.gwtbootstrap3.client.shared.event.ModalShowHandler;
 import org.gwtbootstrap3.client.shared.event.ModalShownEvent;
 import org.gwtbootstrap3.client.shared.event.ModalShownHandler;
+import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtbootstrap3.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap3.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap3.client.ui.base.modal.ModalDialog;
@@ -312,42 +313,41 @@ public class Modal extends Div implements IsClosable {
         }
     }
 
-    private native void bindJavaScriptEvents(final Element e) /*-{
-        var target = this;
-        var $modal = $wnd.jQuery(e);
+    private void bindJavaScriptEvents(final Element e) {
+        JQuery modal = JQuery.jQuery(e);
 
-        $modal.on('show.bs.modal', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Modal::onShow(Lcom/google/gwt/user/client/Event;)(evt);
+        modal.on("show.bs.modal", (evt) -> {
+            onShow(evt);
         });
 
-        $modal.on('shown.bs.modal', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Modal::onShown(Lcom/google/gwt/user/client/Event;)(evt);
+        modal.on("shown.bs.modal", (evt) -> {
+            onShown(evt);
         });
 
-        $modal.on('hide.bs.modal', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Modal::onHide(Lcom/google/gwt/user/client/Event;)(evt);
+        modal.on("hide.bs.modal", (evt) -> {
+            onHide(evt);
         });
 
-        $modal.on('hidden.bs.modal', function (evt) {
-            target.@org.gwtbootstrap3.client.ui.Modal::onHidden(Lcom/google/gwt/user/client/Event;)(evt);
+        modal.on("hidden.bs.modal", (evt) -> {
+            onHidden(evt);
         });
-    }-*/;
+    }
 
-    private native void modal(final Element e, final String arg) /*-{
-        $wnd.jQuery(e).modal(arg);
-    }-*/;
+    private void modal(final Element e, final String arg) {
+        JQuery.jQuery(e).modal(arg);
+    }
 
     // Will iterate over all the modals, if they are visible it will hide them
-    private native void hideOtherModals() /*-{
-        $wnd.jQuery('.modal.in').modal('hide');
-    }-*/;
+    private void hideOtherModals() {
+        JQuery.jQuery(".modal.in").modal("hide");
+    }
 
     // Unbinds all the handlers
-    private native void unbindAllHandlers(final Element e) /*-{
-        var $e = $wnd.jQuery(e);
-        $e.off('show.bs.modal');
-        $e.off('shown.bs.modal');
-        $e.off('hide.bs.modal');
-        $e.off('hidden.bs.modal');
-    }-*/;
+    private void unbindAllHandlers(final Element e) {
+        JQuery je = JQuery.jQuery(e);
+        je.off("show.bs.modal");
+        je.off("shown.bs.modal");
+        je.off("hide.bs.modal");
+        je.off("hidden.bs.modal");
+    }
 }

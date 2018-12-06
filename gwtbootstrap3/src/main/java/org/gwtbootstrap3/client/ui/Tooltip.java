@@ -20,9 +20,9 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import org.gwtbootstrap3.client.shared.js.JQuery;
 import org.gwtbootstrap3.client.ui.base.AbstractTooltip;
 
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -93,9 +93,9 @@ public class Tooltip extends AbstractTooltip {
      * @param e the {@link Element}.
      * @param arg the arg
      */
-    private native void call(final Element e, final String arg) /*-{
-        $wnd.jQuery(e).tooltip(arg);
-    }-*/;
+    private void call(final Element e, final String arg) {
+        JQuery.jQuery(e).tooltip(arg);
+    }
 
     /** {@inheritDoc} */
     @Override
@@ -107,10 +107,10 @@ public class Tooltip extends AbstractTooltip {
     @Override
     public void init() {
         Element element = getWidget().getElement();
-        JavaScriptObject baseOptions = createOptions(element, isAnimated(), isHtml(), getSelector(),
+        createOptions(element, isAnimated(), isHtml(), getSelector(),
                 getTrigger().getCssName(), getShowDelayMs(), getHideDelayMs(), getContainer(), prepareTemplate(), 
                 getViewportSelector(), getViewportPadding());
-        tooltip(element, baseOptions);
+        tooltip(element);
         bindJavaScriptEvents(element);
         setInitialized(true);
     }
@@ -118,9 +118,9 @@ public class Tooltip extends AbstractTooltip {
     /**
      * Create the tooltip.
      */
-    private native void tooltip(Element e, JavaScriptObject options) /*-{
-        $wnd.jQuery(e).tooltip(options);
-    }-*/;
+    private void tooltip(Element e) {
+        JQuery.jQuery(e).tooltip();
+    }
 
     /** {@inheritDoc} */
     @Override
@@ -134,8 +134,8 @@ public class Tooltip extends AbstractTooltip {
      *
      * @param e the tooltip {@link Element}.
      */
-    private native void updateTitleWhenShowing(Element e) /*-{
-        $wnd.jQuery(e).tooltip('fixTitle').tooltip('show');
-    }-*/;
+    private void updateTitleWhenShowing(Element e) {
+        JQuery.jQuery(e).tooltip("fixTitle").tooltip("show");
+    }
 
 }
