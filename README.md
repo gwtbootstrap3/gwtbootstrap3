@@ -2,6 +2,7 @@
 
 ## NOTE: This project is inactive.
 
+
 GWTBootstrap3 is a wrapper for [Twitter Bootstrap](http://getbootstrap.com/), which helps you develop responsive, mobile first HTML, CSS, and JS projects on the web using Java and Google Web Toolkit (GWT). 
 
 ### Add GWTBootstrap3 to your project
