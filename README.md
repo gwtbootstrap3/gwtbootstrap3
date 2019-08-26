@@ -1,7 +1,6 @@
 # GwtBootstrap3 [![Build Status](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3.svg?branch=master)](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.gwtbootstrap3/gwtbootstrap3/badge.svg?style=flat-square)](https://maven-badges.herokuapp.com/maven-central/org.gwtbootstrap3/gwtbootstrap3/)
 
-## NOTE: This project is inactive and no longer actively developed.  The last version is 1.0.0.
-
+## NOTE: This project is inactive and no longer actively developed.
 
 GWTBootstrap3 is a wrapper for [Twitter Bootstrap](http://getbootstrap.com/), which helps you develop responsive, mobile first HTML, CSS, and JS projects on the web using Java and Google Web Toolkit (GWT). 
 
