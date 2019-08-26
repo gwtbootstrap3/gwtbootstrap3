@@ -7,7 +7,7 @@
     <groupId>org.gwtbootstrap3</groupId>
     <artifactId>gwtbootstrap3-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>GwtBootstrap3 Parent</name>
     <description>GWT wrapper for the Bootstrap front-end framework</description>
     <url>http://gwtbootstrap3.org</url>
@@ -20,7 +20,7 @@
         <connection>scm:git:git@github.com:gwtbootstrap3/gwtbootstrap3.git</connection>
         <developerConnection>scm:git:git@github.com:gwtbootstrap3/gwtbootstrap3.git</developerConnection>
         <url>git@github.com:gwtbootstrap3/gwtbootstrap3.git</url>
-        <tag>v1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <licenses>
