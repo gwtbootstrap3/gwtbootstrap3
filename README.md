@@ -23,8 +23,4 @@ You can easily add GWTBootstrap3 to your project by including the library as a M
 
 ### Resources
 * [Project Wiki](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki) - Help with getting started and other useful project help.
-* [GwtBootstrap3 Google Group](https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3) - Ask questions here.
-* [Issues](https://github.com/gwtbootstrap3/gwtbootstrap3/issues) - File bugs here.
-* [Contributing](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Contributing) - Want to help by writing code?  **Awesome!!**  Please read [this](https://github.com/gwtbootstrap3/gwtbootstrap3/wiki/Contributing) first.
-
 [![Join the chat at https://gitter.im/gwtbootstrap3/gwtbootstrap3](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gwtbootstrap3/gwtbootstrap3?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
