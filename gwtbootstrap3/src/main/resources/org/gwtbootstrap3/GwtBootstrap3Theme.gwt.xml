@@ -25,5 +25,5 @@
 <module rename-to="GwtBootstrap3Theme">
     <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
 
-    <stylesheet src="css/bootstrap-theme-3.4.0.min.cache.css"/>
+    <stylesheet src="css/bootstrap-theme-3.4.1.min.cache.css"/>
 </module>
