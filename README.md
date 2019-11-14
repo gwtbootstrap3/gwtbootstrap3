@@ -16,6 +16,8 @@ You can easily add GWTBootstrap3 to your project by including the library as a M
 </dependency>
 ```
 ### Final Release
+* 1.0.1 - Released on 14 November 2019.
+  * Based on Bootstrap v3.4.1
 * 1.0.0 - Released on 26 August 2019. 
   * Based on Bootstrap v3.4.0
 * [Demo](http://gwtbootstrap3.github.io/gwtbootstrap3-demo/) - The GWTBootstrap3 1.0.0 Demo.
